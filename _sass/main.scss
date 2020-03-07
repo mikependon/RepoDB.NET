@@ -65,3 +65,94 @@ h1.page-title {
 p.rss-subscribe {
     margin: 0;
 }
+
+/* Customized by Michael Camara Pendon */
+
+p.light {
+    text-align: justify;
+}
+
+/* Markdown - HTML */
+h1 {
+    font-size: 300%;
+}
+h2 {
+    font-size: 250%;
+}
+h3 {
+    font-size: 200%;
+}
+h4 {
+    font-size: 150%;
+}
+h5 {
+    font-size: 120%;
+}
+h1, h2 {
+    border-bottom: 2px solid #E7E7E7;
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 0px;
+}
+h3, h4, h5 {
+    border-bottom: 1px solid #E7E7E7;
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 0px;
+}
+hr {
+    border: none;
+    border-top: 2px solid #E7E7E7;
+    display: block;
+    margin: 20px 0px;
+    padding: none;
+}
+ul {
+    list-style-type: decimal !important;
+}
+ul li {
+    list-style-type: inherit !important;
+    margin-left: 20px;
+}
+
+/* Code - coding colors */
+pre.highlight {
+    background-color: #FDFDFD;
+    border: 1px solid #C7C7C7;
+    border-radius: 3px;
+    box-shadow: #E7E7E7 1px 1px 3px inset;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 90%;
+    padding: 15px;
+}
+pre.highlight code .n {
+    color: #2DAAA6;
+}
+pre.highlight code .nc, pre.highlight code .kt, pre.highlight code .k {
+    color: #1A1AFF;
+}
+pre.highlight code .cm {
+    color: #57A64A;
+}
+blockquote {
+    padding-left: 10px;
+}
+blockquote p {
+    color:  gray;
+    padding: 15px 10px;
+}
+
+/* Layout */
+div.page {
+    margin-bottom: 50px;
+}
+code.highlighter-rouge {
+    background-color: #F7F7F7;
+    border: 1px dotted #D7D7D7;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    padding: 2px 4px;
+}
