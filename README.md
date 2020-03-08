@@ -1,2 +1,1 @@
-# repodb.net
-A hybrid ORM library for .NET.
+This is the official website of [RepoDb](http://repodb.net).
