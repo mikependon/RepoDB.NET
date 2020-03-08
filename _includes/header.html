@@ -1,7 +1,14 @@
-<nav class="light-blue lighten-1" role="navigation">
+<nav class="lighten-1" style="background-color: #3EB0FF;" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" class="brand-logo" href="{{ "/" | relative_url }}">Logo</a>
-    {% assign default_paths = site.pages | map: "path" %}
+      <a id="logo-container" class="brand-logo" href="{{ "/" | relative_url }}">
+        <img src="/assets/icons/RepoDb-64x64.png" />
+      </a>
+      <ul class="right hide-on-med-and-down white-text uppercase">
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="/use-cases">Use Cases</a></li>
+          <li><a href="/references">References</a></li>
+      </ul>
+    <!--{% assign default_paths = site.pages | map: "path" %}
     {% assign page_paths = site.header_pages | default: default_paths %}
 
           <ul class="right hide-on-med-and-down">
@@ -28,6 +35,6 @@
             {% endif %} 
           </ul>        
 
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>-->
     </div>
 </nav>

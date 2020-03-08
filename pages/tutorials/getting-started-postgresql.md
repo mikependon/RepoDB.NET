@@ -9,11 +9,11 @@ tags: [repodb, tutorial, getting-started, orm, hybrid-orm, postgresql]
 
 RepoDb is a hybrid-ORM library for .NET. You can use the library to work with *PostgreSql* Relational Database Management Systems (RDBMS).
 
-The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.*PostgreSql*) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
+The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
 #### Installation
 
-The library can be installed via Nuget. In your ``Package Manager Console``, you can type the codes below.
+The library can be installed via Nuget. In your *Package Manager Console*, you can type the codes below.
 
 ```csharp
 > Install-Package RepoDb.PostgreSql
@@ -31,7 +31,7 @@ In this tutorial, we will use the *C#* as the programming language.
 
 #### Pre-Requisites
 
-We assume that you already have created a test database from your *PostgreSql* and also a C# project.
+We assume that you already have created a test database from your *PostgreSql* and also a *C#* project.
 
 Before we proceed, we will create a table and a class model.
 
@@ -40,10 +40,10 @@ Before we proceed, we will create a table and a class model.
 ```csharp
 CREATE TABLE IF NOT EXISTS \"Person\"
 (
-	`Id` bigint(20) NOT NULL AUTO_INCREMENT,
-	`Name` text,
-	`Age` int(11) DEFAULT NULL,
-	`CreatedDateUtc` datetime DEFAULT NULL
+	\"Id\" bigint(20) NOT NULL AUTO_INCREMENT,
+	\"Name\" text,
+	\"Age\" int(11) DEFAULT NULL,
+	\"CreatedDateUtc\" datetime DEFAULT NULL
 );
 ```
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS \"Person\"
 ```csharp
 public class Person
 {
-	public long \"Id\" { get; set; }
+	public long Id { get; set; }
 	public string Name { get; set; }
 	public int Age { get; set; }
 	public DateTime CreatedDateUtc { get; set; }
@@ -190,7 +190,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-Or by other field.
+By default, it uses the *Primary* field as the qualifier. You can also use the other field.
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -228,7 +228,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-You can also via dynamic targetting certain columns.
+You can also *Update* via dynamic by targetting certain columns.
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -304,7 +304,3 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 	}
 }
 ```
-
------
-
-Thank you for reading this tutorial.

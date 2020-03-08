@@ -9,11 +9,11 @@ tags: [repodb, tutorial, getting-started, orm, hybrid-orm, mysql]
 
 RepoDb is a hybrid-ORM library for .NET. You can use the library to work with *MySql* Relational Database Management Systems (RDBMS).
 
-The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.*MySql*) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
+The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
 #### Installation
 
-The library can be installed via Nuget. In your ``Package Manager Console``, you can type the codes below.
+The library can be installed via Nuget. In your *Package Manager Console*, you can type the codes below.
 
 ```csharp
 > Install-Package RepoDb.MySql
@@ -31,7 +31,7 @@ In this tutorial, we will use the *C#* as the programming language.
 
 #### Pre-Requisites
 
-We assume that you already have created a test database from your *MySql* and also a C# project.
+We assume that you already have created a test database from your *MySql* and also a *C#* project.
 
 Before we proceed, we will create a table and a class model.
 
@@ -190,7 +190,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-Or by other field.
+By default, it uses the *Primary* field as the qualifier. You can also use the other field.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -228,7 +228,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-You can also via dynamic targetting certain columns.
+You can also *Update* via dynamic by targetting certain columns.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -304,7 +304,3 @@ using (var connection = new MySqlConnection(ConnectionString))
 	}
 }
 ```
-
------
-
-Thank you for reading this tutorial.

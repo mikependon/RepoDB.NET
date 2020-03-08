@@ -23,10 +23,17 @@ author: Michael Camara Pendon
 email: michael.c.pendon@outlook.com
 description: >- # this means to ignore newlines until "baseurl:"
   A hybrid ORM library for .NET.
+extended_description: >- # this means to ignore newlines until "baseurl:"
+  An easy-to-use, high-performant and efficient hybrid ORM library for .NET.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.repodb.net" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mikependon
 github_username: mikependon
+email_address: michael.c.pendon@outlook.com
+github_link: https://github.com/mikependon/RepoDb
+twitter_link: https://twitter.com/search?q=%23repodb
+gitter_link: https://gitter.im/RepoDb/community
+stackoverflow_link: https://stackoverflow.com/questions/tagged/repodb
 
 # Build settings
 theme: minima

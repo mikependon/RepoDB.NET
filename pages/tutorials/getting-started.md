@@ -9,7 +9,7 @@ tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlserver]
 
 RepoDb is a hybrid-ORM library for .NET. You can use the library to work with *SQL Server*, *SQLite*, *MySQL* and *PostgreSQL* Relational Database Management Systems (RDBMS).
 
-The project is hosted at [Github](https://github.com/mikependon/RepoDb) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
+The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
 This tutorial page is only meant for *SQL Server*. If you wish to learn the other data providers, please click any of the link below.
 
@@ -45,7 +45,7 @@ In this tutorial, we will use the *C#* as the programming language.
 
 #### Pre-Requisites
 
-We assume that you already have created a test database from your SQL Server and also a C# project.
+We assume that you already have created a test database from your *SQL Server* and also a *C#* project.
 
 Before we proceed, we will create a table and a class model.
 
@@ -207,7 +207,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-Or by other field.
+By default, it uses the *Primary* field as the qualifier. You can also use the other field.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -245,7 +245,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-You can also via dynamic targetting certain columns.
+You can also *Update* via dynamic by targetting certain columns.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -329,9 +329,11 @@ To execute a stored procedure, then you can use any of the `Execute` methods men
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var people = connection.ExecuteQuery<Person>("sp_GetPeople", commandType: CommandType.StoredProcedure);
+	var people = connection.ExecuteQuery<Person>("[dbo].[sp_GetPeople]", commandType: CommandType.StoredProcedure);
 }
 ```
+
+> Beware of *NOT* putting a semi-colon at the end of the calls.
 
 Or, you can direct call using the `EXEC` command. No need to pass the the value of `CommandType.StoredProcedure`.
 
@@ -341,7 +343,3 @@ using (var connection = new SqlConnection(ConnectionString))
 	var people = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetPeople];");
 }
 ```
-
------
-
-Thank you for reading this tutorial.

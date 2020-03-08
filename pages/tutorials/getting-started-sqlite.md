@@ -31,7 +31,7 @@ In this tutorial, we will use the *C#* as the programming language.
 
 #### Pre-Requisites
 
-We assume that you already have created a test database from your *SQLite* and also a C# project.
+We assume that you already have created a test database from your *SQLite* and also a *C#* project.
 
 Before we proceed, we will create a table and a class model.
 
@@ -190,7 +190,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 }
 ```
 
-Or by other field.
+By default, it uses the *Primary* field as the qualifier. You can also use the other field.
 
 ```csharp
 using (var connection = new SQLiteConnection(ConnectionString))
@@ -228,7 +228,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 }
 ```
 
-You can also via dynamic targetting certain columns.
+You can also *Update* via dynamic by targetting certain columns.
 
 ```csharp
 using (var connection = new SQLiteConnection(ConnectionString))
@@ -304,7 +304,3 @@ using (var connection = new SQLiteConnection(ConnectionString))
 	}
 }
 ```
-
------
-
-Thank you for reading this tutorial.

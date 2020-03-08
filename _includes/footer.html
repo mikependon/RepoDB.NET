@@ -1,36 +1,42 @@
-  <footer class="page-footer orange">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
+  <footer class="page-footer">
+    <div class="footer-contents">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+              <h5 class="debossed white-text">{{ site.title }}</h5>
+              <div>
+                <span>{{ site.description }}</span>
+              </div>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="uppercase white-text">Resources</h5>
+            <ul>
+              <li><a class="white-text" href="/about">About</a></li>
+              <li><a class="white-text" href="/blogs">Blogs</a></li>
+              <li><a class="white-text" href="/releases">Releases</a></li>
+              <li><a class="white-text" href="/docs">Documentation</a></li>
+              <li><a class="white-text" href="https://github.com/mikependon/RepoDb/issues/new">Report an Issue (GitHub)</a></li>
+            </ul>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="uppercase white-text">Community</h5>
+            <ul>
+                <li><a href="{{ site.github_link }}"><span class="white-text username">GitHub</span></a></li>
+                <li><a href="{{ site.stackoverflow_link }}"><span class="white-text username">Stack Overflow</span></a></li>
+                <li><a href="{{ site.twitter_link }}"><span class="white-text username">Twitter</span></a></li>
+                <li><a href="{{ site.gitter_link }}"><span class="white-text username">Gitter Chat</span></a></li>
+                <li><a href="mailto::{{ site.email_address }}"><span class="white-text username">Direct Email</span></a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+  </div>
     <div class="footer-copyright">
         <div class="container">
             <div>
                 Made by <a target="_blank" class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
                 <span style="text-align: right; float: right">
-                Copyright © 2017 <a href="http://www.panoramedia.it" class="orange-text text-lighten-3">Marco Damiani</a>. Powered by <a target="_blank" href="http://jekyllrb.com/" class="orange-text text-lighten-3">Jekyll</a>
+                  Copyright © 2020 <a href="https://twitter.com/mike_pendon" class="orange-text text-lighten-3">Michael Camara Pendon</a>. This site is powered by <a target="_blank" href="http://jekyllrb.com/" class="orange-text text-lighten-3">Jekyll</a>.
                 </span>
             </div>
         </div>

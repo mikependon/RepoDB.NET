@@ -2,116 +2,76 @@
 layout: default
 ---
 
-  <div class="section no-pad-bot" id="index-banner" style="background-color: #2DAAA6;">
-    <div class="container">
-      <br><br>
-      <h1 class="header center white-text">{{ site.title }}</h1>
-      <div class="row center">
-        <h5 class="header col s12 light white-text" style="font-family: Arial, Helvetica, sans-serif;">{{ site.description }}</h5>
-      </div>
-      <br><br>
-      <div class="row center">
-        <a href="/tutorials/getting-started" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
-      </div>
-      <br><br>
+<div class="section no-pad-bot" id="index-banner" style="background-color: #2DAAA6;">
+  <div class="container main-section white-text">
+    <h1 class="header center title">{{ site.title }}</h1>
+    <div class="row center">
+      <h5 class="header col s12 light description">{{ site.description }}</h5>
+    </div>
+    <br/>
+    <div class="row center">
+      <a href="/tutorials/getting-started" id="download-button" class="btn-large waves-effect waves-light orange circled-large button">Get Started</a>
     </div>
   </div>
+  <br/>
+  <br/>
+</div>
 
-  <div class="container">
-    <div class="section">
+<div class="container">
+  <div class="section">
 
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">emoji_people</i></h2>
-            <h5 class="center">Easy to Use</h5>
-            <p class="light">RepoDb operations were implemented as extended methods of the IDbConnection object. For as long the connection is open, the developers can do all the activities towards the database.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">High Performant</h5>
-            <p class="light">RepoDb has its own compiler and pre-caches the already-generated compiled expressions for future reusabilities. It understands your schema to create the most optimal compiled expression AOT.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">memory</i></h2>
-            <h5 class="center">Memory Efficient</h5>
-            <p class="light">RepoDb extracts and caches the object properties, execution contexts, object mappings and SQL statements. It is reusing them all throughout the process of transformations and executions.</p>
-          </div>
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h1 class="center light-blue-text"><i class="material-icons">emoji_people</i></h1>
+          <h5 class="center">Easy to Use</h5>
+          <p class="light">RepoDb operations were implemented as extended methods of the IDbConnection object. For as long the connection is open, the developers can do all the activities towards the database.</p>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">dynamic_feed</i></h2>
-            <h5 class="center">Dynamic and Hybrid</h5>
-            <p class="light">RepoDb is a micro-ORM that provides some advance features of full-fledge ORMs. It significantly help the developers to simplify the experience when context-switching during the development.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">public</i></h2>
-            <h5 class="center">Open-Source Software</h5>
-            <p class="light">RepoDb is an open-source software and will always be free. It is authored to further improve the .NET data access experiences and solutions, togetherwith the collective ideas of the community.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">high_quality</i></h2>
-            <h5 class="center">High Quality</h5>
-            <p class="light">RepoDb is a high-quality micro-ORM supported by thousands real-life based Unit and Integration Tests. It is highly tested by various critical systems that is running in production environment.</p>
-          </div>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h1 class="center light-blue-text"><i class="material-icons">flash_on</i></h1>
+          <h5 class="center">High Performant</h5>
+          <p class="light">RepoDb has its own compiler and pre-caches the already-generated compiled expressions for future reusabilities. It understands your schema to create the most optimal compiled expression AOT.</p>
         </div>
       </div>
 
-    </div>
-      
-    </div>
-    <div style="background-color: #FAFAFA; border-top: 1px solid #C7C7C7;">
-      <div class="container">
-        <section>
-            <h2 class="center" style="text-transform: uppercase;">What you will learn?</h2>
-            <ul class="collection">
-            {% for post in site.posts %}
-            <li class="collection-item avatar">
-              {% assign date_format = site.minima.date_format | default: "%m/%d" %}
-              <div class="date-post">{{ post.date | date: date_format }}</div>
-              <span class="title"><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></span>
-              <p>
-                {{ post.content | truncatewords: 10 }}
-              </p>
-              <a href="{{ post.url | relative_url }}" class="secondary-content"><i class="material-icons">navigate_next</i></a>
-            </li>
-            {% endfor %}
-            </ul>  
-        </section>
-      </div>
-      <div class="container">
-          <section>
-              <h2 class="center" style="text-transform: uppercase;">Advance Topics</h2>
-              <ul class="collection">
-              {% for post in site.posts %}
-              <li class="collection-item avatar">
-                {% assign date_format = site.minima.date_format | default: "%m/%d" %}
-                <div class="date-post">{{ post.date | date: date_format }}</div>
-                <span class="title"><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></span>
-                <p>
-                  {{ post.content | truncatewords: 10 }}
-                </p>
-                <a href="{{ post.url | relative_url }}" class="secondary-content"><i class="material-icons">navigate_next</i></a>
-              </li>
-              {% endfor %}
-              </ul>  
-          </section>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h1 class="center light-blue-text"><i class="material-icons">memory</i></h1>
+          <h5 class="center">Memory Efficient</h5>
+          <p class="light">RepoDb extracts and caches the object properties, execution contexts, object mappings and SQL statements. It is reusing them all throughout the process of transformations and executions.</p>
         </div>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h1 class="center light-blue-text"><i class="material-icons">dynamic_feed</i></h1>
+          <h5 class="center">Dynamic and Hybrid</h5>
+          <p class="light">RepoDb is a micro-ORM that provides some advance features of full-fledge ORMs. It significantly help the developers to simplify the experience when context-switching during the development.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h1 class="center light-blue-text"><i class="material-icons">public</i></h1>
+          <h5 class="center">Open-Source Software</h5>
+          <p class="light">RepoDb is an open-source software and will always be free. It is authored to further improve the .NET data access experiences and solutions, togetherwith the collective ideas of the community.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h1 class="center light-blue-text"><i class="material-icons">high_quality</i></h1>
+          <h5 class="center">High Quality</h5>
+          <p class="light">RepoDb is a high-quality micro-ORM supported by thousands real-life based Unit and Integration Tests. It is highly tested by various critical systems that is running in production environment.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
