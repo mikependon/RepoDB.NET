@@ -7,7 +7,7 @@ tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlite]
 
 ## Getting Started for SqLite
 
-RepoDb is a hybrid-ORM library for .NET. You can use the library to work with *SQLite* Relational Database Management Systems (RDBMS).
+RepoDb is a hybrid .NET ORM library for SqLite.
 
 The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqLite) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 

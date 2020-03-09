@@ -7,7 +7,7 @@ tags: [repodb, tutorial, getting-started, orm, hybrid-orm, mysql]
 
 ## Getting Started for MySql
 
-RepoDb is a hybrid-ORM library for .NET. You can use the library to work with *MySql* Relational Database Management Systems (RDBMS).
+RepoDb is a hybrid .NET ORM library for MySql.
 
 The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
