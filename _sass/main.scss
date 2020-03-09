@@ -75,6 +75,14 @@ p.rss-subscribe {
 .uppercase {
     text-transform: uppercase;
 }
+.lighter {
+    font-weight: lighter;
+}
+.circled-large {
+    border-radius: 50px;
+}
+
+
 /* Customized by Michael Camara Pendon */
 
 p.light {
@@ -84,6 +92,10 @@ p.light {
 /*
  * Header
  */
+nav.header {
+    background-color: #3EB0FF;
+    box-shadow: none;
+}
 .brand-logo img {
     border: 2px solid white;
     /*box-shadow: 1px 1px 4px rgb(26, 76, 92);*/
@@ -94,19 +106,30 @@ p.light {
 /*
  * Home
  */
+.banner-section {
+    /*background-color: #2DAAA6;*/
+    background-color: #FAFAFA;
+    border-bottom: 1px solid #C7C7C7;
+}
+.icon-section {
+    border-bottom: 1px solid #C7C7C7;
+}
 .main-section .title {
+    color: rgb(82, 82, 82);
     font-size: 500%;
+    font-weight: lighter;
     margin-bottom: 10px;
-    text-shadow: -1px -1px rgb(16, 110, 98);
+    /*text-shadow: 1px 1px 3px rgb(190, 190, 190);*/
 }
 .main-section .description {
-    text-shadow: -0px -1px rgb(21, 138, 122);
+    font-size: 150%;
+    font-weight: lighter;
 }
 .main-section .button {
     text-shadow: -0px -1px rgb(221, 149, 16);
 }
-.circled-large {
-    border-radius: 50px;
+.detail-section {
+    padding-bottom: 50px;
 }
 
  /*
