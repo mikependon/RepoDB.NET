@@ -69,24 +69,23 @@ h1.page-title {
 p.rss-subscribe {
     margin: 0;
 }
+
+/* Customized by Michael Camara Pendon */
+
 .capitalize {
     text-transform: capitalize;
 }
 .uppercase {
     text-transform: uppercase;
 }
+.justify {
+    text-align: justify;
+}
 .lighter {
     font-weight: lighter;
 }
 .circled-large {
     border-radius: 50px;
-}
-
-
-/* Customized by Michael Camara Pendon */
-
-p.light {
-    text-align: justify;
 }
 
 /*
@@ -185,7 +184,7 @@ div.page hr {
     padding: none;
 }
 div.page ul {
-    list-style-type: decimal !important;
+    list-style-type: disc !important;
 }
 div.page ul li {
     list-style-type: inherit !important;
@@ -221,11 +220,13 @@ div.page pre.highlight code .cm {
     color: #57A64A;
 }
 div.page blockquote {
-    border: 1px dotted #E7E7E7;
-    border-left: 5px solid #ee6e73;
-    padding-left: 10px;
+    background: #FAFAFA;
+    border: 1px dashed #E7E7E7;
+    border-left: 5px solid #EE6E73;
+    border-radius: 3px;
+    padding: 0px;
 }
 div.page blockquote p {
     color:  gray;
-    margin-left: 10px;
+    margin: 10px;
 }
