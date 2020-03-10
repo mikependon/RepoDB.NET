@@ -6,4 +6,14 @@ permalink: /references
 
 ## References
 
-This is where the references must be placed.
+This page will guide you on the preferred way of implementation while using this library.
+
+#### Repository Implementations
+
+- [BaseRepository]()
+- [DbRepository]()
+- [Repository via DbConnection]()
+
+#### Others
+
+- More contents to be placed here
