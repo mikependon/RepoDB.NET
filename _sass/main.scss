@@ -176,6 +176,9 @@ div.page h3, div.page h4, div.page h5 {
     margin-top: 20px;
     padding: 10px 0px;
 }
+div.page h5 {
+    border-bottom: 1px dotted #E7E7E7;
+}
 div.page hr {
     border: none;
     border-top: 2px solid #E7E7E7;
@@ -216,6 +219,9 @@ div.page pre.highlight code .nc, div.page pre.highlight code .kt, div.page pre.h
 }
 div.page pre.highlight code .cm {
     color: #57A64A;
+}
+div.page pre.highlight code .s {
+    color: #BE4B16;
 }
 div.page blockquote {
     background: #FAFAFA;

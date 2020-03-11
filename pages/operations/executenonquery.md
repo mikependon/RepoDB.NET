@@ -13,7 +13,7 @@ This method supports all types of database data providers. The only requirement 
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
-Below is a very simple codes that deletes all the records from the `[dbo].[Person]` table at the database.
+Below is a very simple codes that delete all the records from the `[dbo].[Person]` table from the database.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -22,21 +22,96 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-You can pass a parameter via *dynamic* object, like below.
+### Passing of Parameters
+
+You can pass a parameter via the following objects.
+- Dynamic
+- ExpandoObject
+- Dictionary<string, object>
+- Query Objects
+
+##### Dynamic
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var rowsDeleted = connection.ExecuteNonQuery("UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);",
-		new { IsEnabled = true, LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date });
+	var param = new
+	{
+		IsEnabled = true,
+		LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date 
+	};
+	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
+	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
 }
 ```
 
-The *properties* of the generated *dynamic* object will automatically be mapped on the given *parameters* at the raw-SQL.
+##### ExpandoObject
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var param = new ExpandoObject() as IDictionary<string, object>;
+
+	// Set each parameter
+	param.Add("IsEnabled", true);
+	param.Add("LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date );
+
+	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
+	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+}
+```
+
+##### Dictionary
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var param = new Dictionary<string, object>
+	{
+		{ "IsEnabled", true },
+		{ "LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date }
+	};
+	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
+	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+}
+```
+
+##### Query Objects
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var param = new []
+	{
+		new QueryField("IsEnabled", true),
+		new QueryField("LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date)
+	};
+	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
+	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+}
+```
+
+### Array Parameters (for the IN keyword)
+
+You can pass an array of values if you are using an `IN` keyword.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var param = new
+	{
+		Keys = new [] { 10045, 10102, 11004 }
+	};
+	var commandText = "DELETE FROM dbo].[Person] WHERE Id IN (@Keys);";
+	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+}
+```
+
+> You can also use the types defined at the *Passing of Parameters* section when passing a parameter.
 
 ### Executing a StoredProcedure
 
-There is 2 ways of executing a stored procedure. First, simply pass the name of the stored procedure and set the command type to `CommandType.StoredProcedure`.
+There are 2 ways of executing a stored procedure. First, simply pass the name of the stored procedure and set the command type to `CommandType.StoredProcedure`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -84,6 +159,6 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> Without calling the `Commit()` method will automatically rollback the transaction. On this case, at the *catch* section the transaction will be rolled-back immediately.
+> To commit the transaction, you have to explicitly call the `Commit()` method.
 
 
