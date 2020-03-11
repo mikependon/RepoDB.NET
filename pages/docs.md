@@ -29,7 +29,15 @@ Below are the list of features that you may be interested.
 
 ### Methods
 
-Below are the list of operations that you can use.
+Below are the list of *Execute* operations that you can use.
+
+- [ExecuteNonQuery](/operations/executenonquery)
+- [ExecuteQuery]()
+- [ExecuteQueryMultiple]()
+- [ExecuteReader]()
+- [ExecuteScalar]()
+
+Below are the list of *Fluent* operations that you can use.
 
 - [Average]()
 - [AverageAll]()
