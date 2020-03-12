@@ -100,7 +100,7 @@ There are 2 ways of executing a stored procedure. First, simply pass the name of
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var person = connection.ExecuteQuery<Person>("[dbo].[sp_GetPerson](@Id)",
+	var person = connection.ExecuteQuery<Person>("[dbo].[sp_GetPerson]",
 		new { Id = 10045 }, commandType: CommandType.StoredProcedure).FirstOrDefault();
 }
 ```
