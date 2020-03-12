@@ -211,7 +211,7 @@ div.page pre.highlight {
     font-family: 'Courier New', Courier, monospace;
     padding: 15px;
 }
-div.page pre.highlight code .n {
+div.page pre.highlight code .n, div.page pre.highlight code .nf {
     color: #2DAAA6;
 }
 div.page pre.highlight code .nc, div.page pre.highlight code .kt, div.page pre.highlight code .k {

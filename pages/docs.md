@@ -33,7 +33,7 @@ Below are the list of *Execute* operations that you can use.
 
 - [ExecuteNonQuery](/operations/executenonquery)
 - [ExecuteQuery](/operations/executequery)
-- [ExecuteQueryMultiple]()
+- [ExecuteQueryMultiple](/operations/executequerymultiple)
 - [ExecuteReader](/operations/executereader)
 - [ExecuteScalar]()
 
