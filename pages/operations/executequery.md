@@ -127,7 +127,7 @@ using (var connection = new SqlConnection(connectionString))
 	{
 		try
 		{
-			var people = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetActivePeople];", transaction: transaction);
+			var people = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person];", transaction: transaction);
 			
 			people
 				.AsList()
