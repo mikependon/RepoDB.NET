@@ -1,11 +1,11 @@
 ---
 layout: page
-title: "ExecuteQuery (RepoDb)"
-permalink: /operations/executequery
-tags: [repodb, tutorial, executequery, orm, hybrid-orm, sqlserver]
+title: "ExecuteReader (RepoDb)"
+permalink: /operations/executereader
+tags: [repodb, tutorial, executereader, orm, hybrid-orm, sqlserver]
 ---
 
-## ExecuteQuery
+## ExecuteReader
 
 This method is used to execute a raw-SQL directly towards the database. It returns an instance of `IDbDataReader` object.
 
