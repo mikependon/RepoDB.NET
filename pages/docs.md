@@ -35,7 +35,7 @@ Below are the list of *Execute* operations that you can use.
 - [ExecuteQuery](/operations/executequery)
 - [ExecuteQueryMultiple](/operations/executequerymultiple)
 - [ExecuteReader](/operations/executereader)
-- [ExecuteScalar]()
+- [ExecuteScalar](/operations/executescalar)
 
 Below are the list of *Fluent* operations that you can use.
 

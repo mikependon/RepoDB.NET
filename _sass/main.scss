@@ -138,6 +138,10 @@ nav.header {
 .page-footer .footer-contents h5 {
     text-shadow: 0px -1px rgba(126, 32, 32, 0.774);
 }
+
+.page-footer .footer-contents a:hover {
+    text-decoration: underline;
+}
  
 /*
  * Page
