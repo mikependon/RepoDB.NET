@@ -32,9 +32,9 @@ Below are the list of features that you may be interested.
 Below are the list of *Execute* operations that you can use.
 
 - [ExecuteNonQuery](/operations/executenonquery)
-- [ExecuteQuery]()
+- [ExecuteQuery](/operations/executequery)
 - [ExecuteQueryMultiple]()
-- [ExecuteReader]()
+- [ExecuteReader](/operations/executereader)
 - [ExecuteScalar]()
 
 Below are the list of *Fluent* operations that you can use.
