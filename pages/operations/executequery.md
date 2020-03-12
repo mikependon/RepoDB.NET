@@ -1,24 +1,24 @@
 ---
 layout: page
-title: "ExecuteNonQuery (RepoDb)"
-permalink: /operations/executenonquery
-tags: [repodb, tutorial, executenonquery, orm, hybrid-orm, sqlserver]
+title: "ExecuteQuery (RepoDb)"
+permalink: /operations/executequery
+tags: [repodb, tutorial, executequery, orm, hybrid-orm, sqlserver]
 ---
 
-## ExecuteNonQuery
+## ExecuteQuery
 
-This method is used to execute a raw-SQL directly towards the database. It returns the number of rows affected during the execution.
+This method is used to execute a raw-SQL directly towards the database. It returns an `IEnumerable<T>` of objects.
 
 This method supports all types of database data providers. The only requirement is that, user needs to provide the raw-SQL itself.
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
-Below is a very simple codes that delete all the records from the `[dbo].[Person]` table from the database.
+Below is a very simple codes that query all the records from the `[dbo].[Person]` table from the database.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var rowsDeleted = connection.ExecuteNonQuery("DELETE FROM [dbo].[Person];");
+	var people = connection.ExecuteQuery<Person>("DELETE FROM [dbo].[Person];");
 }
 ```
 
@@ -35,13 +35,7 @@ You can pass a parameter via the following objects.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new
-	{
-		IsEnabled = true,
-		LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date 
-	};
-	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+	var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", new { Id = 10045 }).FirstOrDefault();
 }
 ```
 
@@ -51,10 +45,8 @@ using (var connection = new SqlConnection(connectionString))
 using (var connection = new SqlConnection(connectionString))
 {
 	var param = new ExpandoObject() as IDictionary<string, object>;
-	param.Add("IsEnabled", true);
-	param.Add("LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date );
-	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+	param.Add("Id", 10045);
+	var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
 }
 ```
 
@@ -65,11 +57,9 @@ using (var connection = new SqlConnection(connectionString))
 {
 	var param = new Dictionary<string, object>
 	{
-		{ "IsEnabled", true },
-		{ "LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date }
+		{ "Id", 10045 }
 	};
-	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+	var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
 }
 ```
 
@@ -80,11 +70,9 @@ using (var connection = new SqlConnection(connectionString))
 {
 	var param = new []
 	{
-		new QueryField("IsEnabled", true),
-		new QueryField("LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date)
+		new QueryField("Id", 10045)
 	};
-	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+	var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
 }
 ```
 
@@ -99,8 +87,7 @@ using (var connection = new SqlConnection(connectionString))
 	{
 		Keys = new [] { 10045, 10102, 11004 }
 	};
-	var commandText = "DELETE FROM dbo].[Person] WHERE Id IN (@Keys);";
-	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+	var people = connection.ExecuteQuery<Person>("SELECT * FROM dbo].[Person] WHERE Id IN (@Keys);", param);
 }
 ```
 
@@ -113,8 +100,8 @@ There are 2 ways of executing a stored procedure. First, simply pass the name of
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var rowsDeleted = connection.ExecuteNonQuery("[dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
-		new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date }, commandType: CommandType.StoredProcedure);
+	var person = connection.ExecuteQuery<Person>("[dbo].[sp_GetPerson](@Id)",
+		new { Id = 10045 }, commandType: CommandType.StoredProcedure).FirstOrDefault();
 }
 ```
 
@@ -123,8 +110,7 @@ Or, simply using the native SQL calls like below.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var rowsDeleted = connection.ExecuteNonQuery("EXEC [dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
-		new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date });
+	var person = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetPerson](@Id);", new { Id = 10045 }).FirstOrDefault();
 }
 ```
 
@@ -141,10 +127,11 @@ using (var connection = new SqlConnection(connectionString))
 	{
 		try
 		{
-			var rowsDeleted = connection.ExecuteNonQuery("EXEC [dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
-				new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date }, transaction: transaction);
+			var people = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetActivePeople];", transaction: transaction);
 			
-			// Do more codes here
+			people
+				.AsList()
+				.ForEach(p => ProcessPerson(p));
 
 			transaction.Commit();
 		}
