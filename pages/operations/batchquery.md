@@ -5,7 +5,7 @@ permalink: /operation/batchquery
 tags: [repodb, tutorial, batchquery, orm, hybrid-orm, sqlserver]
 ---
 
-## Average
+## BatchQuery
 
 This method is used to query a records from the database by batch.
 
