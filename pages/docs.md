@@ -86,6 +86,10 @@ Below are the list of classes that you can use.
 - [QueryGroup]()
 - [TraceLog]()
 
+##### SqlServer
+
+- [SqlServerTableHints]()
+
 ### Attributes
 
 Below are the list of attributes available per package.
