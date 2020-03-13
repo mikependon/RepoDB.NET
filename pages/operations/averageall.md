@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "AverageAll (RepoDb)"
-permalink: /operations/averageall
+permalink: /operation/averageall
 tags: [repodb, tutorial, averageall, orm, hybrid-orm, sqlserver]
 ---
 

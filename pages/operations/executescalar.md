@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ExecuteScalar (RepoDb)"
-permalink: /operations/executescalar
+permalink: /operation/executescalar
 tags: [repodb, tutorial, executescalar, orm, hybrid-orm, sqlserver]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ExecuteQueryMultiple (RepoDb)"
-permalink: /operations/executequerymultiple
+permalink: /operation/executequerymultiple
 tags: [repodb, tutorial, executequerymultiple, orm, hybrid-orm, sqlserver]
 ---
 

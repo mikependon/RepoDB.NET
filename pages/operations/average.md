@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Average (RepoDb)"
-permalink: /operations/average
+permalink: /operation/average
 tags: [repodb, tutorial, average, orm, hybrid-orm, sqlserver]
 ---
 

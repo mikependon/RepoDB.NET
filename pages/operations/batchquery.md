@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BatchQuery (RepoDb)"
-permalink: /operations/batchquery
+permalink: /operation/batchquery
 tags: [repodb, tutorial, batchquery, orm, hybrid-orm, sqlserver]
 ---
 

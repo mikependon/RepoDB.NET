@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ExecuteReader (RepoDb)"
-permalink: /operations/executereader
+permalink: /operation/executereader
 tags: [repodb, tutorial, executereader, orm, hybrid-orm, sqlserver]
 ---
 

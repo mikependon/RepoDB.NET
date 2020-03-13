@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ExecuteQuery (RepoDb)"
-permalink: /operations/executequery
+permalink: /operation/executequery
 tags: [repodb, tutorial, executequery, orm, hybrid-orm, sqlserver]
 ---
 

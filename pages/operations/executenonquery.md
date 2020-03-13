@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ExecuteNonQuery (RepoDb)"
-permalink: /operations/executenonquery
+permalink: /operation/executenonquery
 tags: [repodb, tutorial, executenonquery, orm, hybrid-orm, sqlserver]
 ---
 
