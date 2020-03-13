@@ -17,11 +17,11 @@ Below are the supported data providers by this operation.
 
 ### Special Arguments
 
-The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided this operation.
+The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
 
-The argument `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the `WHERE` expression of SQL Statements. If not given, the primary key (or identity) field will be used.
+The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the `WHERE` expression of SQL Statements. If not given, the primary key (or identity) field will be used.
 
-The argument `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (ie: `#TableName`) is used.
+The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (ie: `#TableName`) is used.
 
 ### Caveats
 
