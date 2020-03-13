@@ -10,10 +10,15 @@ tags: [repodb, tutorial, averageall, orm, hybrid-orm, sqlserver]
 This method is used to average all records target column from the database.
 
 ##### Supported Data Providers
+
+Below are the supported data providers by this operation.
+
 - [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer)
 - [SQLite](https://www.nuget.org/packages/RepoDb.SqLite)
 - [MySQL](https://www.nuget.org/packages/RepoDb.MySql)
 - [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql)
+
+### Leanings
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
@@ -37,7 +42,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### Hints
+### Table Hints
 
 To pass a hints, simply write the *TableHints* and pass it in the `hints` argument.
 

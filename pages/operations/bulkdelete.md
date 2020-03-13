@@ -15,7 +15,7 @@ Below are the supported data providers by this operation.
 
 - [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer)
 
-##### Special Arguments
+### Special Arguments
 
 The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided this operation.
 
@@ -23,13 +23,13 @@ The argument `qualifiers` is used to define the qualifier fields to be used in t
 
 The argument `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (ie: `#TableName`) is used.
 
-##### Caveats
+### Caveats
 
 RepoDb is automatically setting the value of options argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an `IDENTITY` primary key column. The same logic will apply if there is no primary key but has an `IDENTITY` column defined in the table.
 
 In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
-##### Learnings
+### Learnings
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
@@ -51,6 +51,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+##### By PrimaryKeys
+
 Below is a sample bulk-delete by primary keys.
 
 ```csharp
@@ -61,6 +63,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+##### By DataTable
+
 Below is a sample bulk-delete by data table.
 
 ```csharp
@@ -70,6 +74,8 @@ using (var connection = new SqlConnection(connectionString))
 	var deletedRows = connection.BulkDelete<Person>(table);
 }
 ```
+
+##### By DataReader
 
 Below is a sample bulk-delete by data reader.
 
@@ -83,7 +89,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### Targetting a Table
+### Targetting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 
@@ -94,7 +100,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-##### Field Qualifiers
+### Field Qualifiers
 
 By default, this operation is using the primary field (or identity field) as the qualifier. You can override the qualifiers by simply passing the list of `Field` object in the `qualifiers` argument.
 
@@ -106,7 +112,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### Table Hints
+### Table Hints
 
 To pass a hints, simply write the *TableHints* and pass it in the `hints` argument.
 
@@ -130,7 +136,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### Physical Temporary Table
+### Physical Temporary Table
 
 To ensure using a physical pseudo-temporary table, simply pass `true` in the `usePhysicalPseudoTempTable` argument.
 
@@ -145,7 +151,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > By using the physical table, it gives you maximum performance over the `#Table` temp table. However, you need to be aware that the table is shared to any calls. So parallelism may fail on this scenario.
 
-##### Passing a Transaction
+### Passing a Transaction
 
 To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
 
