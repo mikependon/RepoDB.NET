@@ -5,7 +5,7 @@ permalink: /operations/average
 tags: [repodb, tutorial, average, orm, hybrid-orm, sqlserver]
 ---
 
-## ExecuteScalar
+## Average
 
 This method is used to average a column from the database.
 
@@ -24,6 +24,31 @@ using (var connection = new SqlConnection(connectionString))
 {
 	var customerExpenses = connection.Average<Sales>(e => e.Value,
 		e => e.CustomerId == 10045 && e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1));
+}
+```
+
+##### Targetting a Table
+
+You can also target a specific table by passing the literal table and field name like below.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var customerExpenses = connection.Average("[dbo].[Sales]", Field.From("Value"), new { State = "Michigan" });
+}
+```
+
+Or, use the *Query Object(s)* if you are using multiple *where* columns.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var where = new []
+	{
+		new QueryField("CustomerId", 10045),
+		new QueryField("DateInsertedUtc", DateTime.UtcNow.Date.AddDays(-1))
+	}
+	var customerExpenses = connection.Average("[dbo].[Sales]", Field.From("Value"), where);
 }
 ```
 
