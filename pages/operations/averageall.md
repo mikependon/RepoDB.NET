@@ -44,7 +44,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ### Table Hints
 
-To pass a hints, simply write the *TableHints* and pass it in the `hints` argument.
+To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

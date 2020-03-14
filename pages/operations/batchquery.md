@@ -7,7 +7,7 @@ tags: [repodb, tutorial, batchquery, orm, hybrid-orm, sqlserver]
 
 ## BatchQuery
 
-This method is used to query a records from the database by batch.
+This method is used to query from the database by batch.
 
 ##### Supported Data Providers
 
@@ -53,7 +53,22 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, use the *Query Object(s)* if you are using multiple *where* columns.
+You can also query specific columns by passing the list of fields.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending })
+	var people = connection.BatchQuery("Person",
+		page: 0,
+		batchSize: 20
+		orderBy: orderBy,
+		where: new { IsActive = true },
+		fields: Field.From("Id", "Name", "DateInsertedUtc"));
+}
+```
+
+Or, use the *Query Object(s)* if you are to enhance the *where* expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -61,7 +76,7 @@ using (var connection = new SqlConnection(connectionString))
 	var where = new []
 	{
 		new QueryField("IsActive", true),
-		new QueryField("DateInsertedUtc", DateTime.UtcNow.Date.AddDays(-1))
+		new QueryField("DateInsertedUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1))
 	}
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending })
 	var people = connection.BatchQuery("Person",
@@ -74,7 +89,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ### Table Hints
 
-You can also pass a hints.
+You can also pass a hint.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

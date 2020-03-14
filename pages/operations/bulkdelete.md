@@ -7,13 +7,9 @@ tags: [repodb, tutorial, bulkdelete, orm, hybrid-orm, sqlserver]
 
 ## BulkDelete
 
-This method is used to bulk-delete the target rows from the database.
+This method is used to bulk-delete the targetted rows in the database.
 
-##### Supported Data Providers
-
-Below are the supported data providers by this operation.
-
-- [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer)
+For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 
 ### Special Arguments
 
@@ -33,7 +29,7 @@ In addition, when calling this method, the library is creating a pseudo temporar
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
-Let us say you are retrieving all in active people from the database.
+Let us say you are retrieving all inactive people from the database.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -42,7 +38,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Then, below is the codes that bulk-delete all those inactive records from the *[dbo].[Sales]* table.
+Then, below is the code that bulk-deletes all those inactive records from the *[dbo].[Sales]* table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -53,7 +49,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ##### By PrimaryKeys
 
-Below is a sample bulk-delete by primary keys.
+Below is a sample code to bulk-delete by primary keys.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -65,7 +61,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ##### By DataTable
 
-Below is a sample bulk-delete by data table.
+Below is a sample code to bulk-delete by data table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -77,7 +73,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ##### By DataReader
 
-Below is a sample bulk-delete by data reader.
+Below is a sample code to bulk-delete by data reader.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -114,7 +110,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ### Table Hints
 
-To pass a hints, simply write the *TableHints* and pass it in the `hints` argument.
+To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -132,7 +128,7 @@ using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.BulkDelete("[dbo].[Person]",
 		people,
-		hints: SqlServerTableHints.NoLock);
+		hints: SqlServerTableHints.TabLock);
 }
 ```
 
@@ -149,7 +145,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> By using the physical table, it gives you maximum performance over the `#Table` temp table. However, you need to be aware that the table is shared to any calls. So parallelism may fail on this scenario.
+> By using the actual pseudo physical table, it will further help you maximize the performance (over using the `#Table` temp table). However, you need to be aware that the table is shared to any call. So parallelism may fail on this scenario.
 
 ### Passing a Transaction
 

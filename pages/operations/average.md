@@ -43,7 +43,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, use the *Query Object(s)* if you are using multiple *where* columns.
+Or, use the *Query Object(s)* if you are to enhance the *where* expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -51,7 +51,7 @@ using (var connection = new SqlConnection(connectionString))
 	var where = new []
 	{
 		new QueryField("CustomerId", 10045),
-		new QueryField("DateInsertedUtc", DateTime.UtcNow.Date.AddDays(-1))
+		new QueryField("DateInsertedUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1))
 	}
 	var customerExpenses = connection.Average("[dbo].[Sales]", Field.From("Value"), where);
 }
