@@ -11,6 +11,12 @@ This method is used to bulk-delete the targetted rows in the database.
 
 For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 
+### Use Case
+
+This method is very useful if you are deleting multiple records in the database. It is high-performance in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
+
+If you are working to delete range of records from 1000 or beyond, then use this method over [DeleteAll](/operation/deleteall).
+
 ### Special Arguments
 
 The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
@@ -118,6 +124,8 @@ using (var connection = new SqlConnection(connectionString))
 		qualifiers: Field.From("LastName", "DateOfBirth"));
 }
 ```
+
+> When using the qualifiers, we recommend that you use the list of columns that has the correct index from the original table.
 
 ### Table Hints
 

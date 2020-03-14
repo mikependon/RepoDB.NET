@@ -117,7 +117,8 @@ mappings.Add(new BulkInsertMapItem("DateInsertedUtc", "CreatedDateUtc"));
 using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
-	var insertedRows = connection.BulkInsert(people, mappings: mappings);
+	var insertedRows = connection.BulkInsert(people,
+		mappings: mappings);
 }
 ```
 
@@ -129,7 +130,8 @@ You can define your bulk-copy options by passing a value of `SqlBulkCopyOptions`
 using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
-	var insertedRows = connection.BulkInsert(people, options: SqlBulkCopyOptions.KeepIdentity);
+	var insertedRows = connection.BulkInsert(people,
+		options: SqlBulkCopyOptions.KeepIdentity);
 }
 ```
 
@@ -153,8 +155,7 @@ To pass a hint, simply write the table-hints and pass it in the `hints` argument
 using (var connection = new SqlConnection(ConnectionString))
 {
 	var people = GetPeople(10000);
-	var insertedRows = connection.BulkInsert("[dbo].[Person]",
-		people,
+	var insertedRows = connection.BulkInsert(people,
 		hints: "WITH (TABLOCK)");
 }
 ```
@@ -165,8 +166,7 @@ Or, you can use the [SqlServerTableHints](/class/SqlServerTableHints) class.
 using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
-	var insertedRows = connection.BulkInsert("[dbo].[Person]",
-		people,
+	var insertedRows = connection.BulkInsert(people,
 		hints: SqlServerTableHints.TabLock);
 }
 ```
