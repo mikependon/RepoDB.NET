@@ -66,7 +66,7 @@ Below is a sample code to bulk-delete by data table.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var table = people.AsDataTable();
+	var table = ConvertToDataTable(people);
 	var deletedRows = connection.BulkDelete<Person>(table);
 }
 ```
@@ -76,11 +76,14 @@ using (var connection = new SqlConnection(connectionString))
 Below is a sample code to bulk-delete by data reader.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var sourceConnection = new SqlConnection(sourceConnectionString))
 {
-	using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
+	using (var reader = sourceConnection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
 	{
-		var rows = connection.BulkDelete<Person>(reader);
+		using (var destinationConnection = new SqlConnection(destinationConnectionString))
+		{
+				var rows = destinationConnection.BulkDelete<Person>(reader);
+		}
 	}
 }
 ```
@@ -158,9 +161,7 @@ using (var connection = new SqlConnection(connectionString))
 	{
 		try
 		{
-			var deletedRows = connection.BulkDelete("[dbo].[Person]",
-				people,
-				usePhysicalPseudoTempTable: true,
+			var deletedRows = connection.BulkDelete(people,
 				transaction: transaction);
 
 			transaction.Commit();
