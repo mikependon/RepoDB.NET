@@ -38,7 +38,8 @@ You can also target a specific table by passing the literal table and field name
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var expenses = connection.AverageAll("[dbo].[Sales]", Field.From("Value"));
+	var expenses = connection.AverageAll("[dbo].[Sales]",
+		Field.From("Value"));
 }
 ```
 
@@ -49,7 +50,8 @@ To pass a hint, simply write the table-hints and pass it in the `hints` argument
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var expenses = connection.AverageAll<Sales>(e => e.Value, hints: "WITH (NOLOCK)");
+	var expenses = connection.AverageAll<Sales>(e => e.Value,
+		hints: "WITH (NOLOCK)");
 }
 ```
 
@@ -58,7 +60,8 @@ Or, you can use the [SqlServerTableHints](/class/SqlServerTableHints) class.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var expenses = connection.AverageAll<Sales>(e => e.Value, hints: SqlServerTableHints.NoLock);
+	var expenses = connection.AverageAll<Sales>(e => e.Value,
+		hints: SqlServerTableHints.NoLock);
 }
 ```
 
@@ -73,7 +76,8 @@ using (var connection = new SqlConnection(connectionString))
 	{
 		try
 		{
-			var expenses = connection.AverageAll<Sales>(e => e.Value, transaction: transaction);
+			var expenses = connection.AverageAll<Sales>(e => e.Value,
+				transaction: transaction);
 
 			transaction.Commit();
 		}
