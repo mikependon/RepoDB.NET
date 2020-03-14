@@ -25,6 +25,14 @@ RepoDb is automatically setting the value of options argument to `SqlBulkCopyOpt
 
 In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
+### Installation
+
+To install, simply type the codes below in your Package Manager Console.
+
+```csharp
+> Install-Package RepoDb.SqlServer.BulkOperations
+```
+
 ### Learnings
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.

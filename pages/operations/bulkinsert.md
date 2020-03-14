@@ -17,6 +17,14 @@ This method is very useful if you are inserting multiple records towards the dat
 
 If you are working to insert range of records from 1000 or beyond, then use this method over [InsertAll](/operation/insertall).
 
+### Installation
+
+To install, simply type the codes below in your Package Manager Console.
+
+```csharp
+> Install-Package RepoDb.SqlServer.BulkOperations
+```
+
 ### Learnings
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
