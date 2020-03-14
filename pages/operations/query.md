@@ -85,6 +85,50 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+### Ordering the Results
+
+To order the results, you have to pass an array of `OrderField` objects in the `orderBy` argument.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var orderBy = OrderField.Parse(new
+	{
+		LastName = Order.Descending,
+		FirstName = Order.Ascending
+	});
+	var people = connection.Query<Person>(e => e.IsActive == true,
+		orderBy: orderBy).AsList();
+	// Do the stuffs for 'people' here
+}
+```
+
+### Filtering the Results
+
+To filter the results, you have to pass a value at the `top` argument.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var people = connection.Query<Person>(e => e.IsActive == true,
+		top: 100).AsList();
+	// Do the stuffs for 'people' here
+}
+```
+
+### Caching the Results
+
+To cache the results, simply pass a literal string key into the `cacheKey` argument.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var people = connection.Query<Person>(e => e.IsActive == true,
+		cacheKey: "ActivePeople").AsList();
+	// Do the stuffs for 'people' here
+}
+```
+
 ### Passing a Transaction
 
 To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
