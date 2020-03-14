@@ -61,7 +61,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> The result would is a dynamic object of type `ExpandoObject`.
+> The result is a list of dynamic objects of type `ExpandoObject`.
 
 ### Table Hints
 
@@ -124,10 +124,12 @@ To cache the results, simply pass a literal string key into the `cacheKey` argum
 using (var connection = new SqlConnection(connectionString))
 {
 	var people = connection.Query<Person>(e => e.IsActive == true,
-		cacheKey: "ActivePeople").AsList();
+		cacheKey: "CackeKey:ActivePeople").AsList();
 	// Do the stuffs for 'people' here
 }
 ```
+
+> The cache expiration is defaulted to `180` minutes. You can override by passing a value in the `cacheExpirationInMinutes` argument.
 
 ### Passing a Transaction
 
