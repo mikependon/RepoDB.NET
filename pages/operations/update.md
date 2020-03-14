@@ -53,7 +53,8 @@ using (var connection = new SqlConnection(connectionString))
 		IsActive = true,
 		DateInsertedUtc = DateTime.UtcNow
 	};
-	var updatedRows = connection.Update<Person>(person, 10045); //  connection.Update<Person>(person, whereOrPrimaryKey: 10045);
+	/* var updatedRows = connection.Update<Person>(person, whereOrPrimaryKey: 10045); // Same as below */
+	var updatedRows = connection.Update<Person>(person, 10045);
 }
 ```
 
