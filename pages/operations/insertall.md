@@ -78,10 +78,26 @@ You can also target a specific table by passing the literal table and dynamic ob
 using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople();
-	var insertedRows = connection.Insert("[dbo].[Person]",
+	var insertedRows = connection.InsertAll("[dbo].[Person]",
 		entities: people);
 }
 ```
+
+##### Inserting Specific Columns
+
+You can also target a specific columns to be inserted by passing the list of fields to be included in the `fields` argument.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var people = GetPeople();
+	var insertedRows = connection.InsertAll("[dbo].[Person]",
+		entities: people,
+		fields: Field.From("Id", "Name", "DateInsertedUtc"));
+}
+```
+
+> Even your model has so many properties, only the `Id`, `Name` and `DateInsertedUtc` will be inserted.
 
 ### Batch Size
 
