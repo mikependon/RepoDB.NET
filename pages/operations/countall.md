@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "CountAll (RepoDb)"
-permalink: /operation/count
+permalink: /operation/countall
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver]
 ---
 
