@@ -13,7 +13,7 @@ For now, this operation only supports [SQL Server](https://www.nuget.org/package
 
 ### Use Case
 
-This method is very useful if you are deleting multiple records in the database. It is high-performance in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
+This method is very useful if you are deleting multiple records in the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
 If you are working to delete range of records from 1000 or beyond, then use this method over [DeleteAll](/operation/deleteall).
 

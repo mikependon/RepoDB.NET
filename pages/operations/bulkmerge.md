@@ -13,7 +13,7 @@ For now, this operation only supports [SQL Server](https://www.nuget.org/package
 
 ### Use Case
 
-This method is very useful if you are merging multiple records towards the database. It is high-performance in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
+This method is very useful if you are merging multiple records towards the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
 If you are working to merge range of records from 1000 or beyond, then use this method over [MergeAll](/operation/mergeall).
 
