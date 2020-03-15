@@ -9,7 +9,7 @@ tags: [repodb, tutorial, insert, orm, hybrid-orm, sqlserver]
 
 This method is used to insert a record in the database.
 
-##### Supported Data Providers
+#### Data Providers
 
 Below are the supported data providers by this operation.
 
@@ -18,7 +18,23 @@ Below are the supported data providers by this operation.
 - [MySQL](https://www.nuget.org/packages/RepoDb.MySql)
 - [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql)
 
-### Learnings
+#### Installation
+
+To install, simply type the codes below in your Package Manager Console.
+
+```csharp
+> Install-Package RepoDb.SqlServer
+```
+
+Then call the bootstrapper once.
+
+```csharp
+RepoDb.SqlServerBootstrap.Initialize();
+```
+
+Or visit our [installation](/tutorials/installation) page for more information.
+
+#### Learnings
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
@@ -40,7 +56,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > The result is always the value of primary key. If the primary key is identity, then the newly generated identity value will be returned.
 
-##### Targetting a Table
+#### Targetting a Table
 
 You can also target a specific table by passing the literal table and dynamic object like below.
 
@@ -60,7 +76,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Table Hints
+#### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
@@ -82,7 +98,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Passing a Transaction
+#### Passing a Transaction
 
 To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
 

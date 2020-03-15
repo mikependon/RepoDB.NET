@@ -17,7 +17,7 @@ This tutorial page is only meant for *SQL Server*. If you wish to learn the othe
 - [MySql](/tutorials/getting-started-mysql)
 - [PostgreSql](/tutorials/getting-started-postgresql)
 
-#### Installation
+##### Installation
 
 The library can be installed via Nuget. In your *Package Manager Console*, you can type the codes below.
 
@@ -43,7 +43,7 @@ In your *Package Manager Console*, simply type the codes below.
 
 In this tutorial, we will use the *C#* as the programming language.
 
-#### Pre-Requisites
+##### Pre-Requisites
 
 We assume that you already have created a test database from your *SQL Server* and also a *C#* project.
 
@@ -78,7 +78,7 @@ public class Person
 
 > The class `model` and database `table` specified above will be used by the samples further on this tutorial.
 
-#### Creating a Record
+##### Creating a Record
 
 To create a record, you must use the `Insert` method.
 
@@ -97,7 +97,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 > The return value would be the value of `Primary` (or `Identity`) field, otherwise `NULL`.
 
-To insert multiple records, use the `InsertAll` operation instead.
+To insert multiple rows, use the `InsertAll` operation instead.
 
 Let us say you had created a method `GetPeople()` that returns the list of `Person`.
 
@@ -126,7 +126,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-#### Querying a Record
+##### Querying a Record
 
 To query a record, you must use the `Query` method.
 
@@ -138,7 +138,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To query all the records, use the `QueryAll` method instead.
+To query all the rows, use the `QueryAll` method instead.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -148,7 +148,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-#### Merging a Record
+##### Merging a Record
 
 To merge a record, you must use the `Merge` method.
 
@@ -181,7 +181,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To merge all the records, use the `MergeAll` method instead.
+To merge all the rows, use the `MergeAll` method instead.
 
 ```csharp
 var people = GetPeople(100);
@@ -196,7 +196,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 > The `Merge` method returns the `Primary` (or `Identity`) field value while the `MergeAll` method returns the number of rows affected. Both methods will automatically set back the value of the `Identity` property if present.
 
-#### Deleting a Record
+##### Deleting a Record
 
 To delete a record, you must use the `Delete` method.
 
@@ -216,7 +216,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To delete all the records, use the `DeleteAll` method instead.
+To delete all the rows, use the `DeleteAll` method instead.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -227,7 +227,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 > Both methods will return the number of rows deleted from the datatabase.
 
-#### Updating a Record
+##### Updating a Record
 
 To update a record, you must use the `Update` method.
 
@@ -254,7 +254,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To update all the records, use the `UpdateAll` method instead.
+To update all the rows, use the `UpdateAll` method instead.
 
 ```csharp
 var people = GetPeople(100);
@@ -280,7 +280,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-#### Executing a Query
+##### Executing a Query
 
 To execute a query use the `ExecuteNonQuery` method.
 

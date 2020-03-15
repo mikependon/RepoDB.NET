@@ -11,13 +11,13 @@ This method is used to bulk-merge all the rows from the client into the database
 
 For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 
-### Use Case
+#### Use Case
 
-This method is very useful if you are merging multiple records towards the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
+This method is very useful if you are merging multiple rows towards the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
-If you are working to merge range of records from 1000 or beyond, then use this method over [MergeAll](/operation/mergeall).
+If you are working to merge range of rows from 1000 or beyond, then use this method over [MergeAll](/operation/mergeall).
 
-### Special Arguments
+#### Special Arguments
 
 The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
 
@@ -25,13 +25,13 @@ The `qualifiers` is used to define the qualifier fields to be used in the operat
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (ie: `#TableName`) is used.
 
-### Caveats
+#### Caveats
 
 RepoDb is automatically setting the value of options argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an `IDENTITY` primary key column. The same logic will apply if there is no primary key but has an `IDENTITY` column defined in the table.
 
 In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
-### Installation
+#### Installation
 
 To install, simply type the codes below in your Package Manager Console.
 
@@ -39,11 +39,17 @@ To install, simply type the codes below in your Package Manager Console.
 > Install-Package RepoDb.SqlServer.BulkOperations
 ```
 
-### Learnings
+Then call the bootstrapper once.
+
+```csharp
+RepoDb.SqlServerBootstrap.Initialize();
+```
+
+#### Learnings
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
-Let us say you have a list of *Person* model at variable `people` that contains both existing and non-existing records from the database.
+Let us say you have a list of *Person* model at variable `people` that contains both existing and non-existing rows from the database.
 
 Then, below is the code to bulk-merge those rows *[dbo].[Person]* table.
 
@@ -54,7 +60,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### By DataTable
+##### DataTable
 
 Below is a sample code to bulk-merge by data table.
 
@@ -66,7 +72,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### By DataReader
+##### DataReader
 
 Below is a sample code to bulk-merge by data reader.
 
@@ -96,7 +102,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Field Qualifiers
+#### Field Qualifiers
 
 By default, this method is using the primary key (or identify field) as the qualifier. You can override it by passing the list of `Field` objects in the `qualifiers` argument.
 
@@ -111,7 +117,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > When using the qualifiers, we recommend that you use the list of columns that has the correct index from the original table.
 
-### Column Mappings
+#### Column Mappings
 
 You can add a mapping via `BulkInsertMapItem` class.
 
@@ -133,7 +139,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Bulk Copy Options
+#### Bulk Copy Options
 
 You can define your bulk-copy options by passing a value of `SqlBulkCopyOptions` in the `options` argument.
 
@@ -146,7 +152,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Targetting a Table
+#### Targetting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 
@@ -158,7 +164,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-### Table Hints
+#### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
@@ -182,7 +188,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Passing a Transaction
+#### Passing a Transaction
 
 To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
 

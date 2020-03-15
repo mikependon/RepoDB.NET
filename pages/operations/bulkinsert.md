@@ -11,13 +11,13 @@ This method is used to bulk-insert all rows from the client into the database.
 
 For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 
-### Use Case
+#### Use Case
 
-This method is very useful if you are inserting multiple records towards the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
+This method is very useful if you are inserting multiple rows towards the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
-If you are working to insert range of records from 1000 or beyond, then use this method over [InsertAll](/operation/insertall).
+If you are working to insert range of rows from 1000 or beyond, then use this method over [InsertAll](/operation/insertall).
 
-### Installation
+#### Installation
 
 To install, simply type the codes below in your Package Manager Console.
 
@@ -25,7 +25,13 @@ To install, simply type the codes below in your Package Manager Console.
 > Install-Package RepoDb.SqlServer.BulkOperations
 ```
 
-### Learnings
+Then call the bootstrapper once.
+
+```csharp
+RepoDb.SqlServerBootstrap.Initialize();
+```
+
+#### Learnings
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
@@ -57,7 +63,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### By DataTable
+##### DataTable
 
 Below is a sample code to bulk-insert by data table.
 
@@ -70,7 +76,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### By DataReader
+##### DataReader
 
 Below is a sample code to bulk-insert by data reader.
 
@@ -100,7 +106,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Column Mappings
+#### Column Mappings
 
 You can add a mapping via `BulkInsertMapItem` class.
 
@@ -122,7 +128,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Bulk Copy Options
+#### Bulk Copy Options
 
 You can define your bulk-copy options by passing a value of `SqlBulkCopyOptions` in the `options` argument.
 
@@ -135,7 +141,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Targetting a Table
+#### Targetting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 
@@ -147,7 +153,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-### Table Hints
+#### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
@@ -171,7 +177,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Passing a Transaction
+#### Passing a Transaction
 
 To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
 

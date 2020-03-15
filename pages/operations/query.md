@@ -7,9 +7,9 @@ tags: [repodb, tutorial, query, orm, hybrid-orm, sqlserver]
 
 ## Query
 
-This method is used to query a record from the database.
+This method is used to fetch the rows from the database.
 
-##### Supported Data Providers
+#### Data Providers
 
 Below are the supported data providers by this operation.
 
@@ -18,11 +18,27 @@ Below are the supported data providers by this operation.
 - [MySQL](https://www.nuget.org/packages/RepoDb.MySql)
 - [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql)
 
-### Learnings
+#### Installation
+
+To install, simply type the codes below in your Package Manager Console.
+
+```csharp
+> Install-Package RepoDb.SqlServer
+```
+
+Then call the bootstrapper once.
+
+```csharp
+RepoDb.SqlServerBootstrap.Initialize();
+```
+
+Or visit our [installation](/tutorials/installation) page for more information.
+
+#### Learnings
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
-Below is a sample code to query a row from the *[dbo].[Person]* table.
+Below is a sample code to fetch a row from the *[dbo].[Person]* table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -49,7 +65,9 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### Targetting a Table
+> It always returns an `IEnumerable<T>` object even if your result is one.
+
+#### Targetting a Table
 
 You can also target a specific table by passing the literal table like below.
 
@@ -63,7 +81,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > The result is a list of dynamic objects of type `ExpandoObject`.
 
-### Table Hints
+#### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
@@ -85,7 +103,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Ordering the Results
+#### Ordering the Results
 
 To order the results, you have to pass an array of `OrderField` objects in the `orderBy` argument.
 
@@ -98,12 +116,12 @@ using (var connection = new SqlConnection(connectionString))
 		FirstName = Order.Ascending
 	});
 	var people = connection.Query<Person>(e => e.IsActive == true,
-		orderBy: orderBy).AsList();
+		orderBy: orderBy);
 	// Do the stuffs for 'people' here
 }
 ```
 
-### Filtering the Results
+#### Filtering the Results
 
 To filter the results, you have to pass a value at the `top` argument.
 
@@ -111,12 +129,12 @@ To filter the results, you have to pass a value at the `top` argument.
 using (var connection = new SqlConnection(connectionString))
 {
 	var people = connection.Query<Person>(e => e.IsActive == true,
-		top: 100).AsList();
+		top: 100);
 	// Do the stuffs for 'people' here
 }
 ```
 
-### Caching the Results
+#### Caching the Results
 
 To cache the results, simply pass a literal string key into the `cacheKey` argument.
 
@@ -124,14 +142,14 @@ To cache the results, simply pass a literal string key into the `cacheKey` argum
 using (var connection = new SqlConnection(connectionString))
 {
 	var people = connection.Query<Person>(e => e.IsActive == true,
-		cacheKey: "CackeKey:ActivePeople").AsList();
+		cacheKey: "CackeKey:ActivePeople");
 	// Do the stuffs for 'people' here
 }
 ```
 
-> The cache expiration is defaulted to `180` minutes. You can override by passing a value in the `cacheExpirationInMinutes` argument.
+> The cache expiration is defaulted to `180` minutes. You can override it by passing an integer value at the `cacheExpirationInMinutes` argument.
 
-### Passing a Transaction
+#### Passing a Transaction
 
 To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
 

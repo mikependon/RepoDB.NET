@@ -7,9 +7,9 @@ tags: [repodb, tutorial, updateall, orm, hybrid-orm, sqlserver]
 
 ## Insert
 
-This method is used to update an array of records in the database.
+This method is used to update an array of rows in the database.
 
-##### Supported Data Providers
+#### Data Providers
 
 Below are the supported data providers by this operation.
 
@@ -18,9 +18,25 @@ Below are the supported data providers by this operation.
 - [MySQL](https://www.nuget.org/packages/RepoDb.MySql)
 - [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql)
 
-### Use Case
+#### Installation
 
-If you are updating multiple records in the database, do not ever "iterate and merge it in atomic way". This method solves that problem by creating a multi-packed SQL statements and pass it all in one-go.
+To install, simply type the codes below in your Package Manager Console.
+
+```csharp
+> Install-Package RepoDb.SqlServer
+```
+
+Then call the bootstrapper once.
+
+```csharp
+RepoDb.SqlServerBootstrap.Initialize();
+```
+
+Or visit our [installation](/tutorials/installation) page for more information.
+
+#### Use Case
+
+If you are updating multiple rows in the database, do not ever "iterate and merge it in atomic way". This method solves that problem by creating a multi-packed SQL statements and pass it all in one-go.
 
 The performance of this not comparable to the atomic way of updating. It is more performant and efficient.
 
@@ -30,7 +46,7 @@ The execution is ACID as the transaction object will be created if not given.
 
 > Be aware that if you are managing the size of your batch, it may collide on the number of maximum allowable parameters of ADO.NET. The max parameters are `2100`.
 
-### Learnings
+#### Learnings
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
@@ -71,7 +87,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### Targetting a Table
+#### Targetting a Table
 
 You can also target a specific table by passing the literal table and dynamic object like below.
 
@@ -100,7 +116,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > Even your model has so many properties, only the `Id`, `Name` and `DateInsertedUtc` will be updated.
 
-### Batch Size
+#### Batch Size
 
 You can adjust the size of your batch by simply passing the value at the `batchSize` argument. By default, it is using `10` (found at `Constant.DefaultBatchOperationSize`).
 
@@ -113,7 +129,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Table Hints
+#### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
@@ -135,7 +151,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Passing a Transaction
+#### Passing a Transaction
 
 To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
 

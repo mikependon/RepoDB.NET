@@ -13,7 +13,17 @@ This method supports all types of database data providers. The only requirement 
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
-Below is a very simple codes that reads all the records from the `[dbo].[Person]` table from the database.
+#### Installation
+
+To install, simply type the codes below in your Package Manager Console.
+
+```csharp
+> Install-Package RepoDb
+```
+
+#### Learnings
+
+Below is a very simple codes that reads all the rows from the `[dbo].[Person]` table from the database.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -25,7 +35,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Passing of Parameters
+#### Passing of Parameters
 
 You can pass a parameter via the following objects.
 - Dynamic
@@ -91,7 +101,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Array Parameters (for the IN keyword)
+#### Array Parameters (for the IN keyword)
 
 You can pass an array of values if you are using an `IN` keyword.
 
@@ -111,7 +121,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > You can also use the types defined at the *Passing of Parameters* section when passing a parameter.
 
-### Executing a StoredProcedure
+#### Executing a StoredProcedure
 
 There are 2 ways of executing a stored procedure. First, simply pass the name of the stored procedure and set the command type to `CommandType.StoredProcedure`.
 
@@ -139,7 +149,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > Notice in the second calls, there is semi-colon at the end of the command text and the command type was not set.
 
-### Passing a Transaction
+#### Passing a Transaction
 
 To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
 

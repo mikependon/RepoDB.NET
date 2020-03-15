@@ -9,7 +9,7 @@ tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver]
 
 This method is used to count all the number of rows on a single table from the database.
 
-##### Supported Data Providers
+#### Data Providers
 
 Below are the supported data providers by this operation.
 
@@ -18,11 +18,27 @@ Below are the supported data providers by this operation.
 - [MySQL](https://www.nuget.org/packages/RepoDb.MySql)
 - [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql)
 
-### Leanings
+#### Installation
+
+To install, simply type the codes below in your Package Manager Console.
+
+```csharp
+> Install-Package RepoDb.SqlServer
+```
+
+Then call the bootstrapper once.
+
+```csharp
+RepoDb.SqlServerBootstrap.Initialize();
+```
+
+Or visit our [installation](/tutorials/installation) page for more information.
+
+#### Leanings
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
-Below is a sample code that counts all the records from the *[dbo].[Person]* table.
+Below is a sample code that counts all the rows from the *[dbo].[Person]* table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -31,7 +47,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### Targetting a Table
+#### Targetting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 
@@ -42,7 +58,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Table Hints
+#### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
@@ -62,7 +78,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Passing a Transaction
+#### Passing a Transaction
 
 To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
 

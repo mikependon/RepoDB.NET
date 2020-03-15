@@ -13,6 +13,16 @@ This method supports all types of database data providers. The only requirement 
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
+#### Installation
+
+To install, simply type the codes below in your Package Manager Console.
+
+```csharp
+> Install-Package RepoDb
+```
+
+#### Learnings
+
 Below is a very simple codes that query a parent person (from `[dbo].[Person]` table) and all its related historical addresses (from `[dbo].[Address]` table) from the database.
 
 ```csharp
@@ -39,9 +49,9 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> The calls to `Extract()` and `Scalar()` varies on the order of the calls you have made at `QueryMultipleExtractor` object. It is uses the `DbDataReader.NextResult()` method to extract the records in order.
+> The calls to `Extract()` and `Scalar()` varies on the order of the calls you have made at `QueryMultipleExtractor` object. It is uses the `DbDataReader.NextResult()` method to extract the rows in order.
 
-### Passing of Parameters
+#### Passing of Parameters
 
 You can pass a parameter via the following objects.
 - Dynamic
@@ -107,7 +117,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Array Parameters (for the IN keyword)
+#### Array Parameters (for the IN keyword)
 
 You can pass an array of values if you are using an `IN` keyword.
 
@@ -127,7 +137,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > You can also use the types defined at the *Passing of Parameters* section when passing a parameter.
 
-### Executing a StoredProcedure
+#### Executing a StoredProcedure
 
 The calls to execute a stored procedure is by simply calling the `EXEC` command of the SQL Server. It can be combined together with other raw-SQL statements.
 
@@ -141,7 +151,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Passing a Transaction
+#### Passing a Transaction
 
 To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
 

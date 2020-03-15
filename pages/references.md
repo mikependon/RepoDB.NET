@@ -8,12 +8,12 @@ permalink: /references
 
 This page will guide you on the preferred way of implementation while using this library.
 
-#### Repository Implementations
+##### Repository Implementations
 
 - [BaseRepository]()
 - [DbRepository]()
 - [Repository via DbConnection]()
 
-#### Others
+##### Others
 
 - More contents to be placed here
