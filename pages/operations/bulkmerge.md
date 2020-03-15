@@ -51,7 +51,7 @@ RepoDb.SqlServerBootstrap.Initialize();
 
 Let us say you have a list of *Person* model at variable `people` that contains both existing and non-existing rows from the database.
 
-Then, below is the code to bulk-merge those rows *[dbo].[Person]* table.
+Then, below is the code to bulk-merge those rows `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

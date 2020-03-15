@@ -38,7 +38,7 @@ Or visit our [installation](/tutorials/installation) page for more information.
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
-Below is a sample code that query the 1st 20 batch of active rows from the *[dbo].[Person]* table based on the date creation.
+Below is a sample code that query the 1st 20 batch of active rows from the `[dbo].[Person]` table based on the date creation.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

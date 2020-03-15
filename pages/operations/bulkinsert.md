@@ -53,7 +53,7 @@ private IEnumerable<Person> GetPeople(int count = 1000)
 }
 ```
 
-Then, below is the code that bulk-inserts 10K of rows towards *[dbo].[Person]* table.
+Then, below is the code that bulk-inserts 10K of rows towards `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

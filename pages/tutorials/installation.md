@@ -1,13 +1,19 @@
 ---
 layout: page
-title: "Getting Started (SQL Server)"
-permalink: /tutorials/getting-started
-tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlserver]
+title: "Installation (SQL Server)"
+permalink: /tutorials/installation
+tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver]
 ---
 
 ## Installation
 
 The package can be installed using Package Manager Console.
+
+#### Raw SQLs
+
+```csharp
+> Install-Package RepoDb
+```
 
 #### SQL Server
 
