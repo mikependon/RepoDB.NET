@@ -200,7 +200,7 @@ div.page ul li {
     list-style-type: inherit !important;
     margin-left: 20px;
 }
-div.page .highlighter-rouge {
+div.page p .highlighter-rouge, div.page li .highlighter-rouge {
     border: 1px dotted #C7C7C7;
     border-radius: 4px;
     font-family: 'Courier New', Courier, monospace;
