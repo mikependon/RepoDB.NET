@@ -6,9 +6,11 @@ permalink: /use-cases
 
 ## Use Cases and Scenarios
 
-This page contains all the collective real-world scenarios that RepoDb can solve.
+This page contains all the collective real-world scenarios that RepoDb can solve easily.
 
-> Usually, the scenario placed here are the one that could not be solved easily by other ORM (ie: Dapper and EF).
+> Usually, the scenario placed here are the one that could not be solved easily by other ORM.
+
+#### Author
 
 - [Bulk-operation with targetted columns]()
 - [Controlling the cache time-to-live]()
@@ -25,4 +27,8 @@ This page contains all the collective real-world scenarios that RepoDb can solve
 - [Tracing your generated SQL Statements]()
 - [Updating multple rows]()
 
-Further scenarios will be placed over on this page once they are all explored.
+#### Community
+
+- You can place your scenario here. The author will then create an article for that. Simply make a PR [here](https://github.com/mikependon/RepoDb.NET/blob/master/pages/use-cases.md).
+
+> Further scenarios will be placed over on this page once they are all explored. Everyone can also place their scenario so the author can actually right the recommended approach to solve that scenario.
