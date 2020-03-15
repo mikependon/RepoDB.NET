@@ -9,7 +9,7 @@ tags: [repodb, tutorial, mergeall, orm, hybrid-orm, sqlserver, sqlite, mysql, po
 
 This method is used to merge an array of rows in the database.
 
-> This operation inserts a all non-existing rows into the database, otherwise, it will update it based on the qualifiers.
+> This operation inserts all non-existing rows into the database, otherwise, it will update it based on the qualifiers.
 
 #### Data Providers
 
