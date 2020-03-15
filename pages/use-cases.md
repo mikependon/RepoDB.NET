@@ -12,6 +12,8 @@ This page contains all the collective real-world scenarios that RepoDb can solve
 
 #### Author
 
+- [Adding a hints to improve query performance]()
+- [Avoiding a deadlock when executing multiple push in parallel]()
 - [Bulk-operation with targetted columns]()
 - [Controlling the cache time-to-live]()
 - [Designing an injectable a Repository in .NET Core]()
@@ -19,14 +21,19 @@ This page contains all the collective real-world scenarios that RepoDb can solve
 - [Executing multiple operations in a single transaction]()
 - [Executing a bulk-operation to a targetted tables]()
 - [Executing a query with Array parameters]()
-- [Inserting multipe rows]()
+- [Inserting multiple rows]()
+- [Inserting specific columns from a model]()
 - [Maximizing the performance with 2nd-layer cache]()
+- [Merging specific columns from a model]()
+- [Paginate the row retrieval]()
 - [Querying a table dynamically]()
-- [Querying was rows as LIKE or NOT LIKE]()
+- [Querying the rows as LIKE or NOT LIKE]()
 - [Replicating million of rows]()
 - [Retrieving a parent and its children]()
 - [Tracing your generated SQL Statements]()
-- [Updating multple rows]()
+- [Updating multiple rows with high-performance]()
+- [Updating specific columns]()
+- [When to use Batch and Bulk operations?]()
 
 #### Community
 
