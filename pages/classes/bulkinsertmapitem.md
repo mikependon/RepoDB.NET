@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BulkInsertMapItem (RepoDb)"
-permalink: /operation/bulkinsertmapitem
+permalink: /class/bulkinsertmapitem
 tags: [repodb, class, bulkinsertmapitem, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
