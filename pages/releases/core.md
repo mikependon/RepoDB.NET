@@ -108,7 +108,7 @@ permalink: /releases/core
 
 #### RepoDb (v1.10.2-alpha1)
 
-- Bug (Community Request): The primary field is not found` exception when primary key column name is different from Primary attribute property name is different while `Connection.Update` is called. [#356](https://github.com/mikependon/RepoDb/issues/356)
+- Bug (Community Request): The primary field is not found exception when primary key column name is different from Primary attribute property name is different while `Connection.Update` is called. [#356](https://github.com/mikependon/RepoDb/issues/356)
 
 
 #### RepoDb (v1.10.1)
