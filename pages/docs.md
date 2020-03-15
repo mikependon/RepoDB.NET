@@ -77,7 +77,7 @@ Below are the list of classes that you can use.
 - [CancellableTraceLog](/class/cancellabletracelog)
 - [ClassExpression](/class/classexpression)
 - [ClassProperty](/class/classproperty)
-- [DataEntityDataReader](/class/dataentityreader)
+- [DataEntityDataReader](/class/dataentitydatareader)
 - [DataReader (Reflection)](/class/datareader)
 - [DbField](/class/dbfield)
 - [Field](/class/field)
