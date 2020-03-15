@@ -2,7 +2,7 @@
 layout: page
 title: "Getting Started (SQL Server)"
 permalink: /tutorials/getting-started
-tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Getting Started

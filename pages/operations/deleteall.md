@@ -2,7 +2,7 @@
 layout: page
 title: "DeleteAll (RepoDb)"
 permalink: /operation/deleteall
-tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## DeleteAll

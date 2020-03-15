@@ -2,7 +2,7 @@
 layout: page
 title: "ExecuteQueryMultiple (RepoDb)"
 permalink: /operation/executequerymultiple
-tags: [repodb, tutorial, executequerymultiple, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, executequerymultiple, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## ExecuteQueryMultiple

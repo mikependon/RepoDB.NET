@@ -2,7 +2,7 @@
 layout: page
 title: "QueryMultiple (RepoDb)"
 permalink: /operation/querymultiple
-tags: [repodb, tutorial, querymultiple, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, querymultiple, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## QueryMultiple

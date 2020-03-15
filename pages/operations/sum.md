@@ -2,7 +2,7 @@
 layout: page
 title: "Sum (RepoDb)"
 permalink: /operation/sum
-tags: [repodb, tutorial, sum, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, sum, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Sum

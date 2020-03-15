@@ -2,7 +2,7 @@
 layout: page
 title: "Max (RepoDb)"
 permalink: /operation/max
-tags: [repodb, tutorial, max, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, max, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Max

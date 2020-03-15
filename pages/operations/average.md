@@ -2,7 +2,7 @@
 layout: page
 title: "Average (RepoDb)"
 permalink: /operation/average
-tags: [repodb, tutorial, average, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, average, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Average

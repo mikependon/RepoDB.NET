@@ -2,7 +2,7 @@
 layout: page
 title: "SumAll (RepoDb)"
 permalink: /operation/sumall
-tags: [repodb, tutorial, sumall, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, sumall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## SumAll

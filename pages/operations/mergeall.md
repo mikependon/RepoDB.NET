@@ -2,7 +2,7 @@
 layout: page
 title: "MergeAll (RepoDb)"
 permalink: /operation/mergeall
-tags: [repodb, tutorial, mergeall, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, mergeall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Insert

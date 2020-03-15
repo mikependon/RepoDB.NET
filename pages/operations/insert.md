@@ -2,7 +2,7 @@
 layout: page
 title: "Insert (RepoDb)"
 permalink: /operation/insert
-tags: [repodb, tutorial, insert, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, insert, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Insert

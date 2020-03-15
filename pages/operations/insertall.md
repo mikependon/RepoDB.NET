@@ -2,7 +2,7 @@
 layout: page
 title: "InsertAll (RepoDb)"
 permalink: /operation/insertall
-tags: [repodb, tutorial, insertall, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, insertall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Insert

@@ -2,7 +2,7 @@
 layout: page
 title: "Installation (SQL Server)"
 permalink: /tutorials/installation
-tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Installation

@@ -2,7 +2,7 @@
 layout: page
 title: "MaxAll (RepoDb)"
 permalink: /operation/maxall
-tags: [repodb, tutorial, maxall, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, maxall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## MaxAll

@@ -2,7 +2,7 @@
 layout: page
 title: "UpdateAll (RepoDb)"
 permalink: /operation/updateall
-tags: [repodb, tutorial, updateall, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, updateall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Insert

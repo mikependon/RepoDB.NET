@@ -2,7 +2,7 @@
 layout: page
 title: "Delete (RepoDb)"
 permalink: /operation/delete
-tags: [repodb, tutorial, delete, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, delete, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Delete

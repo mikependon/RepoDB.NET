@@ -2,7 +2,7 @@
 layout: page
 title: "Min (RepoDb)"
 permalink: /operation/min
-tags: [repodb, tutorial, min, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, min, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Min

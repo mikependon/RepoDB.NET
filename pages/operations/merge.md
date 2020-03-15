@@ -2,7 +2,7 @@
 layout: page
 title: "Merge (RepoDb)"
 permalink: /operation/merge
-tags: [repodb, tutorial, merge, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, merge, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Merge

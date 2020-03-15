@@ -2,7 +2,7 @@
 layout: page
 title: "ExecuteReader (RepoDb)"
 permalink: /operation/executereader
-tags: [repodb, tutorial, executereader, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, executereader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## ExecuteReader

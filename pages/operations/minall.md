@@ -2,7 +2,7 @@
 layout: page
 title: "MinAll (RepoDb)"
 permalink: /operation/minall
-tags: [repodb, tutorial, minall, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, minall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## MinAll

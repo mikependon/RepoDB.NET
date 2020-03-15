@@ -2,7 +2,7 @@
 layout: page
 title: "ExecuteQuery (RepoDb)"
 permalink: /operation/executequery
-tags: [repodb, tutorial, executequery, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, executequery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## ExecuteQuery

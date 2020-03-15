@@ -2,7 +2,7 @@
 layout: page
 title: "ExecuteScalar (RepoDb)"
 permalink: /operation/executescalar
-tags: [repodb, tutorial, executescalar, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, executescalar, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## ExecuteScalar

@@ -2,7 +2,7 @@
 layout: page
 title: "Update (RepoDb)"
 permalink: /operation/update
-tags: [repodb, tutorial, update, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, update, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Update

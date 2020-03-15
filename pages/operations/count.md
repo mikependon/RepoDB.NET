@@ -2,7 +2,7 @@
 layout: page
 title: "Count (RepoDb)"
 permalink: /operation/count
-tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Count

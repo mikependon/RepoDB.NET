@@ -2,7 +2,7 @@
 layout: page
 title: "ExecuteNonQuery (RepoDb)"
 permalink: /operation/executenonquery
-tags: [repodb, tutorial, executenonquery, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, executenonquery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## ExecuteNonQuery

@@ -2,7 +2,7 @@
 layout: page
 title: "Query (RepoDb)"
 permalink: /operation/query
-tags: [repodb, tutorial, query, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, query, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Query
