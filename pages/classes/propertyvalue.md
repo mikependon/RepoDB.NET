@@ -16,7 +16,7 @@ This class is used to handle the `Name` and `Value` of the class property. It al
 - If you are to manually handle the properties and values of the data entity.
 - It is used for fast extraction of the data entities property and values via [ClassExpression](/class/classexpression).
 
-#### Usage
+#### How to Use?
 
 ```csharp
 var person = repository.Query(10045);

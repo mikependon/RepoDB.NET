@@ -1,0 +1,47 @@
+---
+layout: page
+title: "Parameter (RepoDb)"
+permalink: /class/parameter
+tags: [repodb, class, parameter, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+---
+
+## Parameter
+
+This class is used to handle an information for the purpose of `DbCommand` parameter construction. It is used by both [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects to manage all the parameters creation. It is a very direct class and is doing nothing at all.
+
+> Internally, the library is using this class as an entries for creating `DbParameter` objects.
+
+#### How to Use?
+
+```csharp
+var parameter = new Parameter("@Id", 10045, false);
+// Do the stuffs for the 'parameter' here
+```
+
+#### QueryField
+
+The [QueryField](/class/queryfield) class is instantiating this class internally during the constructor.
+
+```csharp
+var queryField = new QueryField("Id", 10045);
+var parameter = queryField.Parameter;
+```
+
+#### QueryGroup
+
+Since the [QueryGroup](/class/querygroup) is a grouping class of the list of [QueryField](/class/queryfield) objects, then you can also extract the parameters here.
+
+```csharp
+var queryFields = new[]
+{
+    new QueryField("LastName", Operation.Like, "Doe%"),
+    new QueryField("State", "Michigan")
+};
+var queryGroup = new QueryGroup(queryFields);
+
+// Extract
+var parameters = queryGroup
+    .GetFields(true)
+    .Select(qf = qf.Parameter);
+```
+
