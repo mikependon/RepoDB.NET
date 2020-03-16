@@ -117,7 +117,7 @@ To query a record, you must use the `Query` method.
 using (var connection = new SQLiteConnection(ConnectionString))
 {
 	var person = connection.Query<Person>(e => e.Id == 1);
-	/` Do the stuffs for person here `/
+	/* Do the stuffs for the 'person' here */
 }
 ```
 
@@ -127,7 +127,7 @@ To query all the rows, use the `QueryAll` method instead.
 using (var connection = new SQLiteConnection(ConnectionString))
 {
 	var people = connection.QueryAll<Person>();
-	/` Do the stuffs for the people here `/
+	/* Do the stuffs for the 'people' here */
 }
 ```
 
