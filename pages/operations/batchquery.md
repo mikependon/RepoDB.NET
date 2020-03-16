@@ -69,6 +69,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+#### Specific Columns
+
 You can also query specific columns by passing the list of fields.
 
 ```csharp
@@ -84,7 +86,9 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, use the *Query Object(s)* if you are to enhance the *where* expressions.
+#### Filtering the Results
+
+You can also use the *Query Object(s)* if you are to enhance the *where* expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
