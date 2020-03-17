@@ -17,7 +17,7 @@ By using this class, it would increase the performance of your application as th
 
 #### Creating an Instance
 
-Below is way on how to create an instance of a query field.
+Below is the way on how to create an instance of this class.
 
 ```csharp
 var field = new QueryField("Id", 10045);
@@ -31,7 +31,7 @@ var field = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateT
 
 #### Converting to an Enumerable
 
-You can call the `AsEnumerable()` method to convert the instance of this class to `IEnumerable<QueryField>`.
+You can call the `AsEnumerable()` method to convert the instance of this class to an `IEnumerable<QueryField>` object.
 
 ```csharp
 var fields = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1)).AsEnumerable();
@@ -40,6 +40,8 @@ var fields = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, Date
 #### Use-Cases
 
 This can be very useful if you are running a query in a dynamic way and if you would like to manage the tree structure of your expression.
+
+Imagine working with the API that has a dynamic field structuring (*OData*, *AutoQuery*, etc).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -99,7 +101,9 @@ var operation = field.GetOperationText();
 
 #### Reusability
 
-We sometimes have a scenario to reuse the instance of query field to avoid creating multiple instance of the same expression. To reuse the instance, you have to call the `Reset()` method first.
+We sometimes have a scenario to reuse the instance of this class just to avoid creating the same expression.
+
+To reuse the instance, simply call the `Reset()` method.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -124,7 +128,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> You can also call the `Reset()` method on an instance basis.
+> Above calls was happened at the `IEnumerable<QueryField>` object. You can also call the `Reset()` method on an instance basis.
 
 #### IsForUpdate Method
 
