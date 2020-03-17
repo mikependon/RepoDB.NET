@@ -37,14 +37,16 @@ public class Person
 And you have a table structure like below.
 
 ```csharp
-CREATE TABLE IF NOT EXISTS `Person`
+CREATE TABLE [dbo].[Person]
 (
-	`Id` bigint(20) NOT NULL AUTO_INCREMENT,
-	`FName` text,
-	`LName` text,
-	`Age` int(11) DEFAULT NULL,
-	`CreatedDateUtc` datetime DEFAULT NULL
-);
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](128) NOT NULL,
+	[Age] [int] NOT NULL,
+	[CreatedDateUtc] [datetime2](5) NOT NULL,
+	CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
+)
+ON [PRIMARY];
+GO
 ```
 
 Then you created a method that does return an array of your model.
