@@ -9,7 +9,7 @@ tags: [repodb, class, querymultipleextractor, orm, hybrid-orm, sqlserver, sqlite
 
 This class is a result object of the [ExecuteQueryMultiple](/operation/executequerymultiple) operation. It offers you a much more controllability on how to extract the results from the `DbDataReader`.
 
-Internally, it is abstracting the instance of `DbDataReader`, `IDbConnection` and `IDbTransaction` (if present). It managing how the pointer of the `DbDataReader` is being managed when you (as the developer) calling its method. Underneath, it also calls the `DbDataReader.NextResult()` method.
+Internally, it is abstracting the instance of `DbDataReader`, `IDbConnection` and `IDbTransaction` (if present). It is managing how the pointer of the `DbDataReader` object when you (as the developer) is calling its method. Underneath, it also calls the `DbDataReader.NextResult()` method.
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
@@ -20,7 +20,7 @@ These are the methods available on this class.
 - Extract - a generic based method that will extract the contents of the `DbDataReader` into a class object.
 - Scalar - a method that is used to get the first column of the result.
 
-> When using scalar, you can pass a generic type as a type of the result. Also, when calling any of the mentioned above, the pointer of the `DbDataReader` advances to the next result by calling the `DbDataReader.NextResult()` method.
+> When using scalar, you can pass a generic type as a type of the result. Also, when calling any of the mentioned above, the pointer of the `DbDataReader` advances to the next result by calling the `DbDataReader.NextResult()` method internally.
 
 #### How to use?
 
