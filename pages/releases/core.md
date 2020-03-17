@@ -13,7 +13,7 @@ permalink: /releases/core
 - Enhancement: XML Documentation updates for the SQL Statement Builders.
 - Enhancement: Add a Type extended method named IsNullable.
 - Bug: Solve the intermittent `NullReferenceException` when calling the Batch Operations (ie: `InsertAll`, `MergeAll`, `UpdateAll`). [#392](https://github.com/mikependon/RepoDb/issues/392)
-- Bug: The property handlers mapped via `PropertyTypeHandlerMapper` is failing if both NULLABLE and NON-NULLABLE property types are present in the class. #394
+- Bug: The property handlers mapped via `PropertyTypeHandlerMapper` is failing if both `NULLABLE` and `NON-NULLABLE` property types are present in the class. [#394](https://github.com/mikependon/RepoDb/issues/394)
 
 
 #### RepoDb (v1.10.10-beta1)
@@ -52,7 +52,7 @@ permalink: /releases/core
 ##### Highlights
 
 - Support: Initiate the support to `Microsoft.Data.SqlClient` namespace. [#374](https://github.com/mikependon/RepoDb/issues/374)
-- Feature: Support PropertyHandlerAttribute as requested. [#367](https://github.com/mikependon/RepoDb/issues/367)
+- Feature: Support `PropertyHandlerAttribute` as requested. [#367](https://github.com/mikependon/RepoDb/issues/367)
 - Feature: Re-enabled the `BulkInsert` for `DataTable`.
 - Feature: Support deleting an array of entity objects or primary keys via `DeleteAll`. [#353](https://github.com/mikependon/RepoDb/issues/353)
 
