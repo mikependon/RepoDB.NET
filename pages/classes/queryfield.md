@@ -92,12 +92,14 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Retrieving the Operation Text
 
-To retrieve the text of the operation, simply call the `GetOperationText()` method.
+To retrieve the text of the [Operation](/enumeration/operation), simply call the `GetOperationText()` method.
 
 ```csharp
 var field = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1));
 var operation = field.GetOperationText();
 ```
+
+The value of the `operation` variable would be `>=`.
 
 #### Reusability
 

@@ -7,7 +7,7 @@ tags: [repodb, class, querygroup, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 ## QueryGroup
 
-This is stands as the grouping of the fields used in the query expressions. It usually refers to a group of fields at the `WHERE` statement of the SQL statement.
+This class is used to group the list of fields used in the query expressions. It usually refers to a group of fields at the `WHERE` statement of the SQL statement.
 
 It contains the list of child Query Group(s) and [QueryField](/class/queryfield)(s), [Conjunction](/enumeration/conjunction) and the unary expression of `NOT`.
 
@@ -23,7 +23,7 @@ Below is the way on how to create an instance of this class.
 var field = new QueryGroup(new QueryField("Id", 10045));
 ```
 
-Or, by passing an array of query fields.
+Or, by passing an array of [QueryField](/class/queryfield) objects.
 
 ```csharp
 var queryFields = new []
@@ -35,7 +35,7 @@ var queryFields = new []
 var queryGroup = new QueryGroup(queryFields);
 ```
 
-Also, you can pass a child query group to further deepen the tree expression.
+Also, you can pass a child query group to further deepen the tree expressions.
 
 ```csharp
 var whereA = new []
@@ -66,7 +66,7 @@ var param = new // This is a dynamic, can also be .NET CLR Type
 var queryGroup = QueryGroup.Parse(param);
 ```
 
-> Using the above parse method, all the parsed fields will always have `Equal` operation.
+> Using the above parse method, all the parsed fields will always have the `Equal` operation.
 
 Or, via expression.
 
@@ -94,7 +94,7 @@ The SQL statement expression will be generated as follows.
 WHERE ([LastName] LIKE @LastName AND [State] = @State AND [Age] BETWEEN (@Age_1, @Age_2));
 ```
 
-You can change it by passing the value conjunction to `OR`.
+You can change it by passing the conjunction value to `OR`.
 
 ```csharp
 var queryFields = new []
@@ -114,7 +114,7 @@ WHERE ([LastName] LIKE @LastName OR [State] = @State OR [Age] BETWEEN (@Age_1, @
 
 #### Unary IS NOT
 
-There is scenario where we are negating the condition of the expressions by simply reversing the logic.
+There is a scenario where we are negating the condition of the expressions by simply reversing the logic.
 
 This is being solved by this `IsNot` property.
 
@@ -168,19 +168,21 @@ var whereC = new []
     new QueryField("Age", Operation.NotBetween, new [] (20, 40))
 };
 var queryGroup = new QueryGroup(whereA, new [] { new QueryGroup(whereB), new QueryGroup(whereC) });
+
+// Access via `QueryGroups` property
 var queryGroups = queryGroup.QueryGroups;
 
 // There will be 2 QueryGroup(s) at the 'queryGroups' variable
 ```
 
-To retrieve the child [QueryField](/operation/queryfield)(s), use the `QueryFields` property.
+To retrieve the child [QueryField](/class/queryfield)(s), use the `QueryFields` property.
 
 ```csharp
 var queryFields = queryGroup.QueryFiels;
-// There will be 1 QueryField(s) at the 'queryFields' variable
+// There will be 1 QueryField at the 'queryFields' variable
 ```
 
-However, you can use the `GetFields()` method to get all traversed [QueryField](/operation/queryfield) objects.
+However, you can use the `GetFields()` method to get all traversed [QueryField](/class/queryfield) objects.
 
 ```csharp
 var queryFields = queryGroup.GetFields(true);
@@ -198,11 +200,11 @@ var queryGroup = new QueryGroup(queryField).AsEnumerable();
 
 #### Use-Cases
 
-We recommend you to visit the [use-cases](/operation/queryfield#use-cases) section of the [QueryField](/operation/queryfield) class.
+We recommend you to visit the [use-cases](/class/queryfield#use-cases) section of the [QueryField](/class/queryfield) class.
 
 #### Retrieving the Conjunction Text
 
-To retrieve the text of the conjunction, simply call the `GetConjunctionText()` method.
+To retrieve the text of the [Conjunction](/operation/conjunction), simply call the `GetConjunctionText()` method.
 
 ```csharp
 var where = new []
@@ -214,6 +216,8 @@ var where = new []
 var queryGroup = new QueryGroup(where);
 var conjunction = queryGroup.GetConjunctionText();
 ```
+
+The value of the `conjunction` variable would be `AND`.
 
 #### The Fix Method
 
