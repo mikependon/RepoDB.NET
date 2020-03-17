@@ -30,7 +30,7 @@ var queryFields = new []
 {
     new QueryField("LastName", Operation.Like, "Doe%"),
     new QueryField("State", Operation.Equal, "Michigan"),
-    new QueryField("Age", Operation.Between, new [] (20, 40))
+    new QueryField("Age", Operation.Between, new [] { 20, 40 })
 };
 var queryGroup = new QueryGroup(queryFields);
 ```
@@ -42,13 +42,13 @@ var whereA = new []
 {
     new QueryField("LastName", Operation.Like, "Doe%"),
     new QueryField("State", Operation.Equal, "Michigan"),
-    new QueryField("Age", Operation.Between, new [] (20, 40))
+    new QueryField("Age", Operation.Between, new [] { 20, 40 })
 };
 var whereB = new []
 {
     new QueryField("LastName", Operation.NoLike, "Doe%"),
     new QueryField("State", Operation.NotEqual, "Michigan"),
-    new QueryField("Age", Operation.NotBetween, new [] (20, 40))
+    new QueryField("Age", Operation.NotBetween, new [] { 20, 40 })
 };
 var queryGroup = new QueryGroup(new [] { new QueryGroup(whereA), new QueryGroup(whereB) });
 ```
@@ -83,7 +83,7 @@ var queryFields = new []
 {
     new QueryField("LastName", Operation.Like, "Doe%"),
     new QueryField("State", Operation.Equal, "Michigan"),
-    new QueryField("Age", Operation.Between, new [] (20, 40))
+    new QueryField("Age", Operation.Between, new [] { 20, 40 })
 };
 var queryGroup = new QueryGroup(queryFields);
 ```
@@ -101,7 +101,7 @@ var queryFields = new []
 {
     new QueryField("LastName", Operation.Like, "Doe%"),
     new QueryField("State", Operation.Equal, "Michigan"),
-    new QueryField("Age", Operation.Between, new [] (20, 40))
+    new QueryField("Age", Operation.Between, new [] { 20, 40 })
 };
 var queryGroup = new QueryGroup(queryFields, Conjunction.Or);
 ```
@@ -159,13 +159,13 @@ var whereB = new []
 {
     new QueryField("LastName", Operation.Like, "Doe%"),
     new QueryField("State", Operation.Equal, "Michigan"),
-    new QueryField("Age", Operation.Between, new [] (20, 40))
+    new QueryField("Age", Operation.Between, new [] { 20, 40 })
 };
 var whereC = new []
 {
     new QueryField("LastName", Operation.NoLike, "Doe%"),
     new QueryField("State", Operation.NotEqual, "Michigan"),
-    new QueryField("Age", Operation.NotBetween, new [] (20, 40))
+    new QueryField("Age", Operation.NotBetween, new [] { 20, 40 })
 };
 var queryGroup = new QueryGroup(whereA, new [] { new QueryGroup(whereB), new QueryGroup(whereC) });
 
@@ -211,7 +211,7 @@ var where = new []
 {
     new QueryField("LastName", Operation.Like, "Doe%"),
     new QueryField("State", Operation.Equal, "Michigan"),
-    new QueryField("Age", Operation.NBetween, new [] (20, 40))
+    new QueryField("Age", Operation.NBetween, new [] { 20, 40 })
 };
 var queryGroup = new QueryGroup(where);
 var conjunction = queryGroup.GetConjunctionText();
@@ -254,6 +254,27 @@ And the SQL statement will be generated as below.
 WHERE (FirstName = @FirstName AND FirstName = @FirstName_1 AND FirstName = @FirstName_2);
 ```
 
+#### The GetString Method
+
+This method is used to get the string representation of the QueryGroup object into a SQL Statement. This is used internally by the library during the creation of the SQL statements.
+
+```csharp
+var where = new[]
+{
+    new QueryField("LastName", Operation.Like, "Doe%"),
+    new QueryField("State", Operation.Equal, "Michigan"),
+    new QueryField("Age", Operation.NotBetween, new [] { 20, 40 })
+};
+var queryGroup = new QueryGroup(where);
+var whereText = queryGroup.GetString(connection.GetDbSetting());
+```
+
+The value of the `whereText` variable would be like below.
+
+```csharp
+([LastName] LIKE @LastName AND [State] = @State AND [Age] NOT BETWEEN @Age_Left AND @Age_Right)
+```
+
 #### Reusability
 
 We sometimes have a scenario to reuse the instance of this class just to avoid creating the same expression.
@@ -267,7 +288,7 @@ using (var connection = new SqlConnection(connectionString))
     {
         new QueryField("LastName", Operation.Like, "Doe%"),
         new QueryField("State", Operation.Equal, "Michigan"),
-        new QueryField("Age", Operation.Between, new [] (20, 40))
+        new QueryField("Age", Operation.Between, new [] { 20, 40 })
     };
     var where = new QueryGroup(queryFields);
     var people = connection.Query<Person>(where);
