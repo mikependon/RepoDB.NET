@@ -5,41 +5,81 @@ permalink: /class/bulkinsertmapitem
 tags: [repodb, class, bulkinsertmapitem, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## About
+## BulkInsertMapItem
 
-RepoDb is an open-source .NET ORM that bridge the gaps between micro-ORMs and macro-ORMs. It helps the developer to simplify the switch-over of when to use the “BASIC” and “ADVANCE” operations during the development.
+This class is used to map a source and destination column when doing Bulk Operations (ie: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 
-RepoDb is the best alternative ORM to both Dapper and EntityFramework.
+> In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
-#### Packages
+#### Create a new Instance
 
-- [RepoDb (Core)](https://www.nuget.org/packages/RepoDb)
-- [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer)
-- [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations)
-- [RepoDb.SqLite](https://www.nuget.org/packages/RepoDb.SqLite)
-- [RepoDb.MySql](https://www.nuget.org/packages/RepoDb.MySql)
-- [RepoDb.PostgreSql](https://www.nuget.org/packages/RepoDb.PostgreSql)
+Below is simple way to create an instance.
 
-#### Repositories
+```csharp
+var mapItem = new BulkInsertMapItem("SourceId", "DestinationId");
+```
 
-- [Main Repository](https://github.com/mikependon/RepoDb)
-- [SQL Server](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core)
-- [SQL Server (Bulk)](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Extensions/RepoDb.SqlServer.BulkOperations)
-- [SQLite](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqLite)
-- [MySQL](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql)
-- [PostgreSQL](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql)
+#### Usage for BulkOperations
 
-#### Official Channels
+Let us say you a model class like below.
 
-- [GitHub](https://github.com/mikependon/RepoDb/issues) - for any issues, requests and problems.
-- [StackOverflow](https://stackoverflow.com/questions/tagged/repodb) - for any technical questions.
-- [Twitter](https://twitter.com/search?q=%23repodb) - for the latest news.
-- [Gitter Chat](https://gitter.im/RepoDb/community) - for direct and live Q&A.
+```csharp
+public class Person
+{
+    public int Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public int Age { get; set; }
+    public string CreatedDate { get; set; }
+}
+```
 
-#### License
+And you have a table structure like below.
 
-[Apache License v2.0](https://github.com/mikependon/RepoDb/blob/master/LICENSE.txt)
+```csharp
+CREATE TABLE IF NOT EXISTS `Person`
+(
+	`Id` bigint(20) NOT NULL AUTO_INCREMENT,
+	`FName` text,
+	`LName` text,
+	`Age` int(11) DEFAULT NULL,
+	`CreatedDateUtc` datetime DEFAULT NULL
+);
+```
 
-#### Author
+Then you created a method that does return an array of your model.
 
-[Michael Camara Pendon](https://twitter.com/mike_pendon)
+```csharp
+private IEnumerable<Person> GetPeople(int count = 10)
+{
+	for (var i = 0; i < count; i++)
+	{
+		yield return new Person
+		{
+			FirstName = $"FirstName{i}",
+			LastName = $"LastName{i}",
+			Age = i,
+			CreatedDateUtc = DateTime.UtcNow
+		};
+	}
+}
+```
+
+Then you can do [BulkInsert](/operation/bulkinsert) with the mappings below.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var mappings = new []
+    {
+        new BulkInsertMapItem("FirstName", "FName"),
+        new BulkInsertMapItem("LastName", "LName"),
+        new BulkInsertMapItem("Age", "Age")
+        new BulkInsertMapItem("CreatedDate", "CreatedDateUtc")
+    };
+    var people = GetPeople(100000);
+    connection.BulkInsert(people, mappings: mappings);
+}
+```
+
+> You can also do the same for (ie: [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)). Please also be reminded that the `mappings` argument are not mandatory. Leaving this blank would make the Bulk Operations auto-map the columns based on the equality of the source and destination column-names (case-insensitive).
