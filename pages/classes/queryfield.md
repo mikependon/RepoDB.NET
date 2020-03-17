@@ -132,21 +132,23 @@ using (var connection = new SqlConnection(connectionString))
 
 #### IsForUpdate Method
 
-There is a scenario that we are using the query field for the purpose of updates.
+There is a scenario that we are using this class for the purpose of updates.
 
-Let us say, you have a person named `John Doe` and you would like to update this person's name to `James Doe` using the name qualifier. See the translated SQL below.
+Let us say, you have a person named `John Doe` and you would like to update this person's name to `James Doe` using the `Name` field as the qualifier.
+
+See the translated SQL below.
 
 ```csharp
 UPDATE [dbo].[Person] SET Name = 'James Doe' WHERE Name = 'John Doe';
 ```
 
-To make a parameterized statement for this, we need to have a SQL like below.
+To make a parameterized statement for this, we need to have a SQL statement like below.
 
 ```csharp
 UPDATE [dbo].[Person] SET Name = @Name WHERE Name = @_Name;
 ```
 
-Where the value of `@Name` is `James Doe` and the value of `@_Name` is `John Doe`.
+Where the value of the `@Name` field is `James Doe` and the value of `@_Name` is `John Doe`.
 
 If you create a query field like below.
 
@@ -154,6 +156,6 @@ If you create a query field like below.
 var field = new QueryField("Name", "John Doe");
 ```
 
-By default, the name of the paremter to be passed for `Name` query field is `@Name`. If you have an entity to be updated where there is also a `Name` property, then they are colliding.
+By default, the name of the parameter to be passed for `Name` query field is `@Name`. If you have passed the entity object during the calls to `Update` operation and that instance also contains the `Name` property, then they are colliding.
 
-To fix this issue, you have to call the `IsForUpdate()` explicitly. By calling this method, the `Name` property will be prepended by an underscore (`_`) character before the actual execution.
+To fix this issue, you have to call the `IsForUpdate()` explicitly. After the calls, the `Name` property will be prepended by an underscore (`_`) character before the actual execution.
