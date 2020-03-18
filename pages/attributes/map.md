@@ -95,7 +95,7 @@ properties
 	.AsList()
 	.ForEach(property =>
 	{
-		var mappedName = ClassMappedNameCache.Get(property.PropertyInfo);
+		var mappedName = PropertyMappedNameCache.Get(property.PropertyInfo);
 	});
 ```
 
