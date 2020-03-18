@@ -24,7 +24,16 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Below is a sample to lock the table during insertion.
+Or only reading the commited records.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var person = connection.QueryAll<Person>(hints: SqlServerTableHints.ReadPast);
+}
+```
+
+Also, below is a sample to lock the table during insertion.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -33,4 +42,13 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> The class contains a lot of hints, we recommend that you visits the official Microsoft documentation [here](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-2017).
+Or during the update operation.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var id = connection.Update<Person>(person, hints: SqlServerTableHints.TabLock);
+}
+```
+
+> The class contains a lot of hints, we recommend that you visits the official Microsoft documentation [here](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-2017) for further understanding.
