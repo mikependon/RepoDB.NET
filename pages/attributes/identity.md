@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Identity (RepoDb)"
-permalink: /class/identity
+permalink: /attribute/identity
 tags: [repodb, class, identity, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
