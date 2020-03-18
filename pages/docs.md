@@ -109,8 +109,8 @@ Below are the list of attributes available per package.
 
 ##### SqlServer
 
-- [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemapattribute)
-- [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemapattribute)
+- [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap)
+- [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap)
 
 ##### MySql
 
