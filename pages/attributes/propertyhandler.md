@@ -7,7 +7,7 @@ tags: [repodb, class, propertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 ## PropertyHandler
 
-This attribute is used to signify a property handling operation on the class property.
+This attribute is used to signify a property handling operation on the class property. By having this attribute, the library core's transformer will automatically trigger the property handler `Get` and `Set` method for custom handling.
 
 > In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
 
