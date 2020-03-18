@@ -114,11 +114,11 @@ Below are the list of attributes available per package.
 
 ##### MySql
 
-- [MySqlTypeMapAttribute](/attribute/mysqltypemapattribute)
+- [MySqlTypeMapAttribute](/attribute/mysqltypemap)
 
 ##### PostgreSql
 
-- [NpgsqlTypeMapAttribute](/attribute/npgsqltypemapattribute)
+- [NpgsqlTypeMapAttribute](/attribute/npgsqltypemap)
 
 ### Enumerations
 
