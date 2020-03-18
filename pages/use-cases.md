@@ -32,6 +32,7 @@ This page is open to everyone for contribution.
 - [Querying the rows as LIKE or NOT LIKE]()
 - [Replicating million of rows]()
 - [Retrieving a parent and its children]()
+- [Solving the DateTime precision issue]()
 - [Tracing your generated SQL Statements]()
 - [Updating multiple rows with high-performance]()
 - [Updating specific columns]()
