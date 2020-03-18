@@ -108,10 +108,12 @@ nav.header {
 .banner-section {
     /*background-color: #2DAAA6;*/
     background-color: #FAFAFA;
-    border-bottom: 1px solid #C7C7C7;
+    background-image: url('/assets/backgrounds/banner.png');
+    background-position: center center;
+    border-bottom: 1px solid #D7D7D7;
 }
 .icon-section {
-    border-bottom: 1px solid #C7C7C7;
+    border-bottom: 1px solid #D7D7D7;
 }
 .main-section .title {
     color: rgb(82, 82, 82);
