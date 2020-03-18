@@ -33,7 +33,7 @@ And a model class named `Person` like below.
 ```csharp
 public class Person
 {
-    [Identity] // Identity decoration
+	[Identity] // Identity decoration
 	public long Id { get; set; }
 	public string Name { get; set; }
 	public int Age { get; set; }
