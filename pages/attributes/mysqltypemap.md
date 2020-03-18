@@ -7,7 +7,7 @@ tags: [repodb, class, mysqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 
 ## MySqlTypeMapAttribute
 
-This attribute is used to map a property into its equivalent type from the database (via `System.Data.SqlDbType`).
+This attribute is used to map a property into its equivalent type from the database (via `MySql.Data.MySqlClient.MySqlDbType`).
 
 It only supports the [MySQL](https://www.nuget.org/packages/RepoDb.MySql).
 
@@ -27,7 +27,7 @@ public class Person
 }
 ```
 
-Or the mapping the `byte[]` to be a `byte`.
+Or by mapping the `byte[]` to be a `byte`.
 
 ```csharp
 public class Person
