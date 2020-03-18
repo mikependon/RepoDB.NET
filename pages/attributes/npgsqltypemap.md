@@ -9,7 +9,7 @@ tags: [repodb, class, npgsqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, 
 
 This attribute is used to map a property into its equivalent type from the database (via `NpgsqlTypes.NpgsqlDbType`).
 
-It only supports the [MySQL](https://www.nuget.org/packages/RepoDb.MySql).
+It only supports the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql).
 
 #### How to Use?
 
