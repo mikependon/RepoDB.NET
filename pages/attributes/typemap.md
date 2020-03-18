@@ -36,7 +36,7 @@ public class Person
 	public string Name { get; set; }
 	public DateTime DateOfBirth { get; set; }
 	public int Age { get; set; }
-	[TypeMap(DbType.Binary)]
+	[TypeMap(DbType.Binary)] // Mapping this to 'Binary'
 	public byte[] Image { get; set; }
 	public DateTime DateInsertedUtc { get; set; }
 }
