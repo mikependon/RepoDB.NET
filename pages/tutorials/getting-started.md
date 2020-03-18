@@ -7,6 +7,8 @@ tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlserver, sqlite, my
 
 ## Getting Started
 
+First, we are glad and we would like to thank you for your interest in learning RepoDb. We hope that you will learn a lot and improve the things while using this library.
+
 RepoDb is a hybrid-ORM library for .NET. You can use the library to work with *SQL Server*, *SQLite*, *MySQL* and *PostgreSQL* Relational Database Management Systems (RDBMS).
 
 The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
