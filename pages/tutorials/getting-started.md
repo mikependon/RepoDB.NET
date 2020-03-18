@@ -5,11 +5,11 @@ permalink: /tutorials/getting-started
 tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Preface
+## Introduction
 
 First, I am glad and would like to thank you for your interest in learning RepoDb. I hope that you will learn a lot and improve the development experiences while using this library.
 
-RepoDb is here to improve the things and experience when working with the Data Access in .NET space. It is always free and is open for suggestions and improvements.
+RepoDb is here to improve the things and experience when working with the Data Access in .NET space. It is always free and is open for suggestions and more improvements.
 
 Enjoy learning!
 
