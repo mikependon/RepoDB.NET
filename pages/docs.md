@@ -29,6 +29,10 @@ Below are the list of features that you may be interested.
 
 ### Methods
 
+Below are the methods available.
+
+##### Execute Methods
+
 Below are the list of *Execute* operations that you can use.
 
 - [ExecuteNonQuery](/operation/executenonquery)
@@ -36,6 +40,10 @@ Below are the list of *Execute* operations that you can use.
 - [ExecuteQueryMultiple](/operation/executequerymultiple)
 - [ExecuteReader](/operation/executereader)
 - [ExecuteScalar](/operation/executescalar)
+
+The `Execute()` methods support all RDBMS data providers.
+
+##### Fluent Methods
 
 Below are the list of *Fluent* operations that you can use.
 
@@ -67,6 +75,13 @@ Below are the list of *Fluent* operations that you can use.
 - [Truncate](/operation/truncate)
 - [Update](/operation/update)
 - [UpdateAll](/operation/updateall)
+
+Below are the supported RDBMS data providers for fluent methods.
+
+- [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer)
+- [SQLite](https://www.nuget.org/packages/RepoDb.SqLite)
+- [MySQL](https://www.nuget.org/packages/RepoDb.MySql)
+- [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql)
 
 ### Classes
 

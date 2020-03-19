@@ -45,7 +45,7 @@ var statement = queryBuilder
 The result of this would be.
 
 ```csharp
-SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person];
+> SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person];
 ```
 
 And you can then execute it like below.
@@ -80,7 +80,7 @@ var statement = queryBuilder
 The result of this would be.
 
 ```csharp
-SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person] WHERE ([State] = @State);
+> SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person] WHERE ([State] = @State);
 ```
 
 #### Passing the Row Limit
@@ -105,7 +105,7 @@ var statement = queryBuilder
 The result of this would be.
 
 ```csharp
-SELECT TOP (10) [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person];
+> SELECT TOP (10) [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person];
 ```
 
 #### Ordering the Results
@@ -131,7 +131,7 @@ var statement = queryBuilder
 The result of this would be.
 
 ```csharp
-SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person] ORDER BY [Name] ASC ;
+> SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person] ORDER BY [Name] ASC ;
 ```
 
 #### Passing a Hints
@@ -156,7 +156,7 @@ var statement = queryBuilder
 The result of this would be.
 
 ```csharp
-SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person] WITH (NOLOCK) ;
+> SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person] WITH (NOLOCK) ;
 ```
 
 #### The WriteText Method

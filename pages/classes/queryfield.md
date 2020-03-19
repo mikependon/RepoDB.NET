@@ -141,13 +141,13 @@ Let us say, you have a person named `John Doe` and you would like to update this
 See the translated SQL below.
 
 ```csharp
-UPDATE [dbo].[Person] SET Name = 'James Doe' WHERE Name = 'John Doe';
+> UPDATE [dbo].[Person] SET Name = 'James Doe' WHERE Name = 'John Doe';
 ```
 
 To make a parameterized statement for this, we need to have a SQL statement like below.
 
 ```csharp
-UPDATE [dbo].[Person] SET Name = @Name WHERE Name = @_Name;
+> UPDATE [dbo].[Person] SET Name = @Name WHERE Name = @_Name;
 ```
 
 Where the value of the `@Name` field is `James Doe` and the value of `@_Name` is `John Doe`.

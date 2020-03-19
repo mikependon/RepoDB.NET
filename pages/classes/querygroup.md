@@ -109,7 +109,7 @@ var queryGroup = new QueryGroup(queryFields, Conjunction.Or);
 And the SQL statement will be generated as below.
 
 ```csharp
-WHERE ([LastName] LIKE @LastName OR [State] = @State OR [Age] BETWEEN (@Age_1, @Age_2));
+> WHERE ([LastName] LIKE @LastName OR [State] = @State OR [Age] BETWEEN (@Age_1, @Age_2));
 ```
 
 #### Unary IS NOT
@@ -132,7 +132,7 @@ var queryGroup = new QueryGroup(queryFields);
 The statement above will generate a SQL below.
 
 ```csharp
-WHERE ([IsActive] = @IsActive OR [Gender] = @Gender);
+> WHERE ([IsActive] = @IsActive OR [Gender] = @Gender);
 ```
 
 To negate, simply pass the value of `True` in the `isNot` constructor argument.
@@ -144,7 +144,7 @@ var queryGroup = new QueryGroup(queryFields, true);
 Then the statement will be generated as below.
 
 ```csharp
-WHERE NOT ([IsActive] = @IsActive OR [Gender] = @Gender);
+> WHERE NOT ([IsActive] = @IsActive OR [Gender] = @Gender);
 ```
 
 > By default, the value is `False`. Please be reminded that negating does not gives you the most performant condition when writing SQL. It still recommended to create a targetted query expression rather than negating it.
@@ -237,7 +237,7 @@ var queryGroup = new QueryGroup(new [] { whereA, whereB, whereC });
 The supposed generated SQL text will be below.
 
 ```csharp
-WHERE (FirstName = @FirstName AND FirstName = @FirstName AND FirstName = @FirstName);
+> WHERE (FirstName = @FirstName AND FirstName = @FirstName AND FirstName = @FirstName);
 ```
 
 The SQL Statement may not caused any problem when it comes to execution, but that is wrong when it comes to parameter-passing.
@@ -251,7 +251,7 @@ queryGroup.Fix();
 And the SQL statement will be generated as below.
 
 ```csharp
-WHERE (FirstName = @FirstName AND FirstName = @FirstName_1 AND FirstName = @FirstName_2);
+> WHERE (FirstName = @FirstName AND FirstName = @FirstName_1 AND FirstName = @FirstName_2);
 ```
 
 #### The GetString Method
