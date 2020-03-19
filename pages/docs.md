@@ -78,6 +78,7 @@ Below are the list of *Fluent* operations that you can use. It only support the 
 
 Below are the list of classes that you can use.
 
+- [BaseRepository](/class/baserepository)
 - [BulkInsertMapItem](/class/bulkinsertmapitem)
 - [CacheItem](/class/cacheitem)
 - [CancellableTraceLog](/class/cancellabletracelog)
@@ -85,6 +86,7 @@ Below are the list of classes that you can use.
 - [ClassProperty](/class/classproperty)
 - [DataEntityDataReader](/class/dataentitydatareader)
 - [DataReader (Reflection)](/class/datareader)
+- [DbRepository](/class/dbrepository)
 - [DbField](/class/dbfield)
 - [Field](/class/field)
 - [OrderField](/class/orderfield)
