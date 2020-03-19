@@ -211,6 +211,16 @@ div.page p .highlighter-rouge, div.page li .highlighter-rouge {
 }
 
 /* Code - coding colors */
+div.page p.preface
+{
+    background: #FAFAFA;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px #E7E7E7;
+    margin-top: 20px;
+    padding: 20px;
+}
+
 div.page pre.highlight {
     background-color: #FDFDFD;
     border: 1px solid #E7E7E7;
