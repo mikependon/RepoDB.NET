@@ -7,7 +7,7 @@ tags: [repodb, class, conversiontype, orm, hybrid-orm, sqlserver, sqlite, mysql,
 
 ## ConversionType
 
-This enum is used to set the value of `ConversionType` property of [TypeMapper](/mapper/typemapper) object to define the type-of-conversion to be used when extracting the `DbDataReader` into its equivalent .NET CLR Type.
+This enum is used to set the value of the `ConversionType` property of [TypeMapper](/mapper/typemapper) object. It defines how the conversion type is when extracting the `DbDataReader` into its equivalent .NET CLR Type.
 
 #### Enum Values
 
@@ -16,7 +16,7 @@ This enum is used to set the value of `ConversionType` property of [TypeMapper](
 
 #### Use-Cases
 
-You can use the value of `Automatic` if you have a database column where the type is not convertible to a property of class (ie: Int to String, String to Guid or DateTime to String).
+You can use the value of `Automatic` if you have a database column where the type is not convertible to a property of class (ie: `Int` to `String`, `String` to `Guid`, `DateTime` to `String`, etc).
 
 Let us say, you have a given class named `Customer` as defined below.
 
