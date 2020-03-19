@@ -50,5 +50,5 @@ var query = new QueryGroup
 Which would result a SQL statement below.
 
 ```csharp
-> WHERE ([Id] = @Id AND [Id] = @Id2)
+> WHERE ([Id] = @Id OR [Id] = @Id2)
 ```
