@@ -23,6 +23,7 @@ This page is open to everyone for contribution.
 - [Executing multiple operations in a single transaction]()
 - [Executing a bulk-operation to a targetted tables]()
 - [Executing a query with Array parameters]()
+- [Handling the property conversion between String and Class]()
 - [Inserting multiple rows]()
 - [Inserting specific columns from a model]()
 - [Maximizing the performance with 2nd-layer cache]()
