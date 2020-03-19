@@ -13,12 +13,12 @@ This is an enum used to define the persistency of the `DbConnection` within the 
 
 #### Enum Values
 
-- PerCall - in every method call, a new `DbConnection` object is being used.
+- PerCall (Default) - in every method call, a new `DbConnection` object is being used.
 - Instance - a single instance of `DbConnection` object is used all throughout the lifespan of the repository.
 
 #### How to Use?
 
-By default, the value is always `PerCall`. To override, simply the connection persistency value in the constructor when instantiating a repository object.
+Simply pass the connection persistency value in the constructor when instantiating a repository object.
 
 Let us say, you create a repository object named `Person` that inherits the [BaseRepository](/class/baserepository) and you would like to share a single `DbConnection` object in all calls.
 

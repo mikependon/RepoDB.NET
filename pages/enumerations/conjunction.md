@@ -9,7 +9,10 @@ tags: [repodb, class, conjunction, orm, hybrid-orm, sqlserver, sqlite, mysql, po
 
 This is an enum used to define a conjunction when grouping an expression via [QueryGroup](/class/querygroup) object.
 
-> In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
+#### Enum Values
+
+- And (Default) - is used to define an `AND` expression during the grouping.
+- Or - is used to define an `OR` expression during the grouping.
 
 #### How to Use?
 
