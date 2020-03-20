@@ -61,7 +61,7 @@ You can pass it on the constructor of the [BaseRepository](/class/baserepository
 ```csharp
 public class StateRepository : BaseRepository<State, SqlConnection>
 {
-        public PersonRepository(ISettings settings)
+        public StateRepository(ISettings settings)
                 : base(settings.ConnectionString, new FileCache())
         { }
 }
