@@ -1,0 +1,55 @@
+---
+layout: page
+title: "IDbHelper (RepoDb)"
+permalink: /interface/idbhelper
+tags: [repodb, class, idbhelper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+---
+
+## IDbHelper
+
+This is an interface used to mark a class be a helper class on some database related activity. This interface is very useful if you as a developer is planning to optimize the default implementation of the library when it comes to retrieving the list of fields and newly generated identity.
+
+> The interface can be mapped via `DbConnection` type.
+
+#### Methods
+
+Below are the methods available from this interface.
+
+- GetFields - gets the list of [DbField](/class/dbfield) objects from the database.
+- GetScopedIdentity - gets the newly generated identity from the database.
+
+#### How to Implement?
+
+You have to manually create a class that implements this interface.
+
+```csharp
+public class OptimizedSqlServerDbHelper : IDbHelper
+{
+        public IEnumerable<DbField> GetFields(IDbConnection connection,
+            string tableName,
+            IDbTransaction transaction = null)
+        {
+                // Implementations for the GetFields() here
+        }
+
+        public object GetScopeIdentity(IDbConnection connection,
+            IDbTransaction transaction = null)
+        {
+                // Implementations for the GetScopeIdentity() here
+        }
+
+        ...
+}
+```
+
+> You have to implement all the methods needed by this interface. With this, you have the full control of you helper object.
+
+#### How to Use?
+
+Once you have the database helper implemented in a customized class, you can use the [DbHelperMapper](/mapper/dbhelpermapper) class to map it in your target RDDMS data provider.
+
+```csharp
+DbHelperMapper.Add(typeof(SqlConnection), new OptimizedSqlServerDbHelper());
+```
+
+The library will then use your customized database helper in most of the extended [methods](/docs/methods) of the `DbConnection` object.
