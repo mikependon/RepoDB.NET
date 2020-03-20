@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ITrace (RepoDb)"
-permalink: /enumeration/itrace
+permalink: /interface/itrace
 tags: [repodb, class, itrace, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
