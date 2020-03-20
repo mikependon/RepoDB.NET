@@ -89,6 +89,7 @@ Below are the list of classes that you can use.
 - [DbRepository](/class/dbrepository)
 - [DbField](/class/dbfield)
 - [Field](/class/field)
+- [MemoryCache](/class/memorycache)
 - [OrderField](/class/orderfield)
 - [Parameter](/class/parameter)
 - [PropertyValue](/class/propertyvalue)

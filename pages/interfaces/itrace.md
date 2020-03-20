@@ -111,14 +111,14 @@ using (var repository = new PersonRepository(new AppSettings()))
 Or even to the constructor of [DbRepository](/class/dbrepository) object.
 
 ```csharp
-public class PersonRepository : DbRepository<SqlConnection>
+public class DatabaseRepository : DbRepository<SqlConnection>
 {
-        public PersonRepository(ISettings settings)
+        public DatabaseRepository(ISettings settings)
                 : base(settings.ConnectionString, new MyCustomTrace())
         { }
 }
 
-using (var repository = new PersonRepository(new AppSettings()))
+using (var repository = new DatabaseRepository(new AppSettings()))
 {
         var person = repository.Query<Person>(p => p.Id == 10045).FirstOrDefault();
 }
