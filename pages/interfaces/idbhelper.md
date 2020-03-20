@@ -52,4 +52,4 @@ Once you have the database helper implemented in a customized class, you can use
 DbHelperMapper.Add(typeof(SqlConnection), new OptimizedSqlServerDbHelper());
 ```
 
-The library will then use your customized database helper in most of the extended [methods](/docs/methods) of the `DbConnection` object.
+The library will then use your customized database helper in most of the extended [methods](/docs#methods) of the `DbConnection` object.
