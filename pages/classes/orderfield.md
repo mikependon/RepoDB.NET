@@ -7,12 +7,12 @@ tags: [repodb, class, orderfield, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 ## OrderField
 
-This is the class that is used to define an ordering of the results from any fetch operation (ie:[Query](/operation/query) or [BatchQuery](/operation/batchquery)).
+This is the class that is used to define an ordering of the results from any fetch operations (ie: [Query](/operation/query), [QueryAll](/operation/queryall) or [BatchQuery](/operation/batchquery)).
 
 #### Creating an Instance
 
 ```csharp
-var orderfield = new OrderField("Id", Order.Ascending);
+var orderBy = new OrderField("Id", Order.Ascending);
 ```
 
 Or by descending.
@@ -70,6 +70,18 @@ var fields = OrderField.Parse(new
     LastName = Order.Ascending,
     FirstName = Order.Descending
 });
+```
+
+#### How to Use?
+
+Simply pass it on the operations like below.
+
+```csharp
+var orderBy = new OrderField("Id", Order.Ascending);
+using (var connection = new SqlConnection(connectionString0))
+{
+    var people = connection.QueryAll<Person>(orderBy: orderBy);
+}
 ```
 
 

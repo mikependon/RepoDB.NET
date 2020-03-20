@@ -7,7 +7,7 @@ tags: [repodb, class, order, orm, hybrid-orm, sqlserver, sqlite, mysql, postgres
 
 ## Order
 
-This enum is used to define an ordering of the query results. It is usually used in [Query](/operation/query), [QueryAll](/operation/query) and [BatchQuery](/operation/batchquery) operations.
+This enum is used to define an ordering of the query results. It is usually used in [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery) operations.
 
 #### Enum Values
 
