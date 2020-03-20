@@ -7,20 +7,18 @@ tags: [repodb, class, itrace, orm, hybrid-orm, sqlserver, sqlite, mysql, postgre
 
 ## ITrace
 
-This is an interfaced used to mark a class to be a trace object. This interface provides all the `BEFORE` and `AFTER` operation events.
+This is an interfaced that is used to mark a class to be a trace object. This interface provides all the `BEFORE` and `AFTER` operation events.
 
 #### Use-Case
 
-If we woud like to do see and trace the following.
+If we woud like to see and trace the following.
 
 - The actual SQL statements composed by the library.
 - The parameter to be used before the execution.
 - The actual result of the execution.
 - The elapsed execution time.
 
-Also, you can use this class to make an audit and cancel the operation before even the actual execution. See the [CancellableTraceLog](/class/cancellabletracelog) for further details. 
-
-You can visit the [TraceLog](/class/tracelog) and [CancellableTraceLog](/class/cancellabletracelog) classes to further see more information about the trace logs.
+Also, you can use this class to make an audit and cancel the operation before even the actual execution. Please visit the [TraceLog](/class/tracelog) and [CancellableTraceLog](/class/cancellabletracelog) classes to see more information about the trace logging.
 
 #### How to Implement?
 
@@ -43,7 +41,7 @@ public class MyCustomTrace : ITrace
 }
 ```
 
-You can also log the statement through this.
+With this, you can log the statement like below.
 
 ```csharp
 public class MyCustomTrace : ITrace
@@ -81,11 +79,11 @@ public class MyCustomTrace : ITrace
 }
 ```
 
-> All methods mentioned at the [Documetation](/docs#methods) will be having the `BEFORE` and `AFTER` methods within this interface.
+> All the [fluent methods](/docs#fluent-methods) will be having the `BEFORE` and `AFTER` methods within this interface.
 
 #### How to Use?
 
-You can pass it in any extended [methods](/docs#methods) of the `DbConnection` object.
+You can pass it in any extended [fluent methods](/docs#fluent-methods) of the `DbConnection` object.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -125,3 +123,5 @@ using (var repository = new PersonRepository(new AppSettings()))
         var person = repository.Query<Person>(p => p.Id == 10045).FirstOrDefault();
 }
 ```
+
+> Please consider to only create a single trace object within the application and have it passed as a Singleton object in any operations or reporitories.
