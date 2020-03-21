@@ -16,8 +16,8 @@ A cacher class for the class name mapping. It provides a 2nd-layer caching for t
 Below are the methods available from this class.
 
 - Flush - allows you to flush the caches.
-- Get - returns the list of [Field](/class/field) objects.
-
+- Get - returns the mapped name of the class.
+  
 #### Use-Cases
 
 You should use this class if you would like to get the mapped name of the class in general purpose.
