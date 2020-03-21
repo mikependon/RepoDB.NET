@@ -14,7 +14,7 @@ A cacher class for the database table fields. It provides a 2nd-layer caching fo
 Below are the methods available from this class.
 
 - Flush - allows you to flush the caches.
-- Get - returns the list of [DbField](/class/dbfield) object.
+- Get - returns the list of [DbField](/class/dbfield) objects.
 
 #### Use-Cases
 
