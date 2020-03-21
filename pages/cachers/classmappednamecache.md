@@ -40,4 +40,4 @@ var mappedName = ClassMappedNameCache.Get<Person>();
 // Use the 'mappedName' here
 ```
 
-> The extraction is first checking the presence of the [Map](/attribute/map) attribute and extract the name-mapping from there, otherwise, it will use the `typeof(Class).Name` of the `System.Reflection`.
+> The extraction is first checking the presence of the [Map](/attribute/map#class-mapping) attribute and extract the name-mapping from there, otherwise, it will use the `typeof(Class).Name` of the `System.Reflection`.

@@ -37,4 +37,4 @@ properties
     })
 ```
 
-> The extraction is first checking the presence of the [Map](/attribute/map) attribute and extract the name-mapping from there, otherwise, it will use the `PropertyInfo.Name` of the `System.Reflection`.
+> The extraction is first checking the presence of the [Map](/attribute/map#property-mapping) attribute and extract the name-mapping from there, otherwise, it will use the `PropertyInfo.Name` of the `System.Reflection`.
