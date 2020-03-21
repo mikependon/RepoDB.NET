@@ -25,8 +25,8 @@ This is an interface that is used to mark a class to be a property handler objec
 
 This is very useful when you would like to handle the following scenarios.
 
-- Converting a JSON column into a Class object.
-- Handling the correct DateTime objects Kind.
+- Converting a JSON column into a class object.
+- Handling the correct `DateTime` objects `Kind`.
 - Overriding the monetary columns conversion into a specific .NET type.
 - Querying a child records of the parent rows.
 - Updating a record as a reaction to the transformation.
