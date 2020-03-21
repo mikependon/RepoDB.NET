@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Use Cases (RepoDb)
-permalink: /use-cases
+permalink: /usecases
 ---
 
 ## Use Cases and Scenarios
