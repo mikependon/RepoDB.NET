@@ -12,20 +12,20 @@ RepoDb has a bunch of things available for you. You can maximize your developmen
 
 Below are the list of features that you may be interested.
 
-- [Batch Operations](/feature/batch-operations)
-- [Bulk Operations](/feature/bulk-operations)
-- [Caching](/feature/caching)
-- [Connection Persistency](/feature/connection-persistency)
-- [Enumeration](/feature/enumeration)
-- [Expression Trees](/feature/expression-trees)
-- [Field/Class Mapping](/feature/field-class-mapping)
-- [Hints](/feature/hints)
-- [Multi-Resultset Query](/feature/multi-resultset-query)
-- [Property Handlers](/feature/property-handlers)
-- [Repositories](/feature/repositories)
-- [Tracing](/feature/tracing)
-- [Transaction](/feature/transaction)
-- [Type Mapping](/feature/type-mapping)
+- [Batch Operations](/feature/batch-operations) - in progress
+- [Bulk Operations](/feature/bulk-operations) - in progress
+- [Caching](/feature/caching) - in progress
+- [Connection Persistency](/feature/connection-persistency) - in progress
+- [Enumeration](/feature/enumeration) - in progress
+- [Expression Trees](/feature/expression-trees) - in progress
+- [Field/Class Mapping](/feature/field-class-mapping) - in progress
+- [Hints](/feature/hints) - in progress
+- [Multi-Resultset Query](/feature/multi-resultset-query) - in progress
+- [Property Handlers](/feature/property-handlers) - in progress
+- [Repositories](/feature/repositories) - in progress
+- [Tracing](/feature/tracing) - in progress
+- [Transaction](/feature/transaction) - in progress
+- [Type Mapping](/feature/type-mapping) - in progress
 
 #### Methods
 
@@ -178,8 +178,8 @@ Below are the list of mappers that you can leverage.
 
 Below are the list of objects that are useful to support other data provider.
 
-- [Database Helper](/extensibility/databasehelper)
-- [Database Setting](/extensibility/databasesetting)
-- [Statement Builder](/extensibility/statementbuilder)
+- [Database Helper](/extensibility/databasehelper) - in progress
+- [Database Setting](/extensibility/databasesetting) - in progress
+- [Statement Builder](/extensibility/statementbuilder) - in progress
 
 
