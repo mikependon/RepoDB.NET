@@ -155,6 +155,7 @@ Below are the list of interface that you can use for implementation.
 
 Below are the list of cache objects that you can use.
 
+- [ClassMappedNameCache](/cacher/classmappednamecache)
 - [CommandTextCache](/cacher/commandtextcache)
 - [DbFieldCache](/cacher/dbfieldcache)
 - [FieldCache](/cacher/fieldcache)
