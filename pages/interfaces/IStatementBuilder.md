@@ -111,8 +111,38 @@ public class OptimizedSqlServerStatementBuilder : IStatementBuilder
 
 #### How to Use?
 
-You have to use the [StatementBuilderMapper](/mapper/statementbuildermapper) class to map it with specific RDBMS data provider.
+You can instantiate a new instance and pass it when you are calling any [fluent methods](/docs/fluent-methods).
+
+```csharp
+var statementBuilder = new OptimizedSqlServerStatementBuilder();
+using (var connection = new SqlConnection(connectionString))
+{
+        var people = connection.QueryAll<Person>(statementBuilder: statementBuilder);
+}
+```
+
+Or, you can pass it on the constructor of [BaseRepository](/class/baserepository) or [DbRepository](/class/dbrepository).
+
+```csharp
+// Repository class implementation
+public class PersonRepository : BaseRepository<Person, SqlConnection>
+{
+        public PersonRepository(string connectionString)
+                : base(connectionString, new OptimizedSqlServerStatementBuilder())
+        { }
+}
+
+// Repository class usability
+using (var repository = new PersonRepository(connectionString))
+{
+        var people = connection.QueryAll();
+}
+```
+
+Or, you can use the [StatementBuilderMapper](/mapper/statementbuildermapper) class to map it with specific RDBMS data provider.
 
 ```csharp
 StatementBuilderMapper.Map(typeof(SqlConnection), new OptimizedSqlServerStatementBuilder(), true);
 ```
+
+> By using the [StatementBuilderMapper](/mapper/statementbuildermapper), the library will automatically use the mapped statement builder when calling the `DbConnection`, [BaseRepository](/class/baserepository) or [DbRepository](/class/dbrepository) methods. It will vary on the type of the `DbConnection` object you used.
