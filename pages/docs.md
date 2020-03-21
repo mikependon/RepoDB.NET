@@ -8,7 +8,7 @@ permalink: /docs
 
 RepoDb has a bunch of things available for you. You can maximize your development by leveraging most of it.
 
-### Features
+#### Features
 
 Below are the list of features that you may be interested.
 
@@ -27,11 +27,11 @@ Below are the list of features that you may be interested.
 - [Transaction](/feature/transaction)
 - [Type Mapping](/feature/type-mapping)
 
-### Methods
+#### Methods
 
 Below are the methods available.
 
-##### Execute Methods
+###### Execute Methods
 
 Below are the list of *Execute* operations that you can use. It support all RDBMS data providers.
 
@@ -41,7 +41,7 @@ Below are the list of *Execute* operations that you can use. It support all RDBM
 - [ExecuteReader](/operation/executereader)
 - [ExecuteScalar](/operation/executescalar)
 
-##### Fluent Methods
+###### Fluent Methods
 
 Below are the list of *Fluent* operations that you can use. It only support the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and  [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS data providers.
 
@@ -74,7 +74,7 @@ Below are the list of *Fluent* operations that you can use. It only support the 
 - [Update](/operation/update)
 - [UpdateAll](/operation/updateall)
 
-### Classes
+#### Classes
 
 Below are the list of classes that you can use.
 
@@ -101,15 +101,15 @@ Below are the list of classes that you can use.
 - [QueryMultipleExtractor](/class/querymultipleextractor)
 - [TraceLog](/class/tracelog)
 
-##### SqlServer
+###### SqlServer
 
 - [SqlServerTableHints](/class/sqlservertablehints)
 
-### Attributes
+#### Attributes
 
 Below are the list of attributes available per package.
 
-##### Core
+###### Core
 
 - [Identity](/attribute/identity)
 - [Map](/attribute/map)
@@ -118,20 +118,20 @@ Below are the list of attributes available per package.
 - [Text](/attribute/text)
 - [TypeMap](/attribute/typemap)
 
-##### SqlServer
+###### SqlServer
 
 - [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap)
 - [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap)
 
-##### MySql
+###### MySql
 
 - [MySqlTypeMapAttribute](/attribute/mysqltypemap)
 
-##### PostgreSql
+###### PostgreSql
 
 - [NpgsqlTypeMapAttribute](/attribute/npgsqltypemap)
 
-### Enumerations
+#### Enumerations
 
 - [Conjunction](/enumeration/conjunction)
 - [ConnectionPersistency](/enumeration/connectionpersistency)
@@ -139,7 +139,7 @@ Below are the list of attributes available per package.
 - [Operation](/enumeration/operation)
 - [Order](/enumeration/order)
 
-### Interfaces
+#### Interfaces
 
 Below are the list of interface that you can use for implementation.
 
@@ -151,7 +151,7 @@ Below are the list of interface that you can use for implementation.
 - [IStatementBuilder](/interface/istatementbuilder)
 - [ITrace](/interface/itrace)
 
-### Cachers
+#### Cachers
 
 Below are the list of cache objects that you can use.
 
@@ -163,7 +163,7 @@ Below are the list of cache objects that you can use.
 - [PropertyCache](/cacher/propertycache)
 - [PropertyMappedNameCache](/cacher/propertymappednamecache)
 
-### Mappers
+#### Mappers
 
 Below are the list of mappers that you can leverage.
 
@@ -173,7 +173,7 @@ Below are the list of mappers that you can leverage.
 - [StatementBuilderMapper](/mapper/statementbuildermapper)
 - [TypeMapper](/mapper/typemapper)
 
-### Extensibility
+#### Extensibility
 
 Below are the list of objects that are useful to support other data provider.
 

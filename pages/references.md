@@ -8,13 +8,13 @@ permalink: /references
 
 This page will guide you on the preferred way of implementation while using this library.
 
-##### Repository Implementations
+#### Repository Implementations
 
 - [BaseRepository]()
 - [DbRepository]()
 - [Repository via DbConnection]()
 
-##### Other Implementations
+#### Other Implementations
 
 - [Caching]() - show how to make SQLite caching (as a standard)
 - [Property Handler]() - show how to handle property in the most simple way.
