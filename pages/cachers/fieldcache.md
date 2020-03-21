@@ -9,6 +9,8 @@ tags: [repodb, class, fieldcache, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 A cacher class for the class properties (as fields). It provides a 2nd-layer caching for the library when it comes to the class properties extraction (as fields). As a result, the library is fast-enough when reusing the already extracted class properties (as fields) on any execution.
 
+> Internally, this class is widely used within the library.
+
 #### Methods
 
 Below are the methods available from this class.

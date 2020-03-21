@@ -9,6 +9,8 @@ tags: [repodb, class, primarycache, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 
 A cacher class for the class primary property. It provides a 2nd-layer caching for the library when it comes to the class primary property extraction. As a result, the library is fast-enough when reusing the already extracted class primary property on any execution.
 
+> Internally, this class is widely used within the library.
+
 #### Methods
 
 Below are the methods available from this class.
