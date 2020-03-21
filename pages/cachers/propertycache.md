@@ -20,7 +20,7 @@ Below are the methods available from this class.
 
 #### Use-Cases
 
-You use this class if you would like to get the references of the class properties in general purpose.
+You should use this class if you would like to get the references of the class properties in general purpose.
 
 #### How to Use?
 

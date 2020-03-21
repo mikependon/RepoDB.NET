@@ -18,7 +18,7 @@ Below are the methods available from this class.
 
 #### Use-Cases
 
-You only use this class if you would like to get the references of the class identity property in general purpose.
+You should only use this class if you would like to get the references of the class identity property in general purpose.
 
 #### How to Use?
 

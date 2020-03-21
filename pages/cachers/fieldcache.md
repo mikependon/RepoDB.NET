@@ -20,7 +20,7 @@ Below are the methods available from this class.
 
 #### Use-Cases
 
-You only use this class if you would like to get the references of the class properties (as fields) specially when composing a SQL statement or would like to lists it.
+You should use this class if you would like to get the references of the class properties (as fields) specially when composing a SQL statement or would like to lists it.
 
 #### How to Use?
 
