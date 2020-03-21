@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "CommandTextCache (RepoDb)"
-permalink: /interface/commandtextcache
+permalink: /cacher/commandtextcache
 tags: [repodb, class, commandtextcache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
