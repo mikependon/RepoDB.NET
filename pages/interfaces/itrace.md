@@ -73,7 +73,7 @@ Below are the `AFTER` methods available from this interface.
 - AfterUpdate - triggered after the [Update](/operation/update) method has been executed.
 - AfterUpdateAll - triggered after the [UpdateAll](/operation/updateall) method has been executed.
 
-#### Use-Case
+#### Use-Cases
 
 If you woud like to see and trace the following.
 

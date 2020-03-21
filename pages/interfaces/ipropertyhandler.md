@@ -21,7 +21,7 @@ This is an interface that is used to mark a class to be a property handler objec
 
 > Both methods accept the [ClassProperty](/class/classproperty) to give more context on the current method of the property handler.
 
-#### Use-Case
+#### Use-Cases
 
 This is very useful when you would like to handle the following scenarios.
 

@@ -19,7 +19,7 @@ Below are the methods available from this interface.
 - Get - allows you to get an instance of the cache by cache-key.
 - Remove - allows you to remove an existing cache item from the cache storage.
 
-#### Use-Case
+#### Use-Cases
 
 You can use this feature to maximize the performance by using the 2nd layer cache for the static and look-up records (or those records that are not frequently changing or not changing at all).
 
