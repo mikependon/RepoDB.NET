@@ -21,7 +21,7 @@ Below are the properties available from this interface.
 - IsExecuteReaderDisposable - gets a value that indicates whether the `DbCommand` object must be disposed after calling the `DbCommand.ExecuteReader()` method.
 - IsMultiStatementExecutable - gets a value whether the multiple statement execution is supported.
 - IsPreparable - gets a value that indicates whether the current DB Provider supports the `DbCommand.Prepare()` calls.
-- IsUseUpsert - gets a value that indicates whether the Insert/Update operation will be used for [Merge](/operation/merge) operation.
+- IsUseUpsert - gets a value that indicates whether the [Insert](/operation/insert)/[Update](/operation/update) operation will be used for [Merge](/operation/merge) operation.
 - OpeningQuote - gets the character used for opening quote.
 - ParameterPrefix - gets the character used for the database command parameter prefixing.
 - SchemaSeparator - gets the character (or string) used for dot notation.
