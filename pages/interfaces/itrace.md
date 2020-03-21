@@ -7,7 +7,7 @@ tags: [repodb, class, itrace, orm, hybrid-orm, sqlserver, sqlite, mysql, postgre
 
 ## ITrace
 
-This is an interfaced that is used to mark a class to be a trace object. This interface provides all the `BEFORE` and `AFTER` operation events.
+This is an interface that is used to mark a class to be a trace object. This interface provides all the `BEFORE` and `AFTER` operation events.
 
 #### Methods
 
@@ -75,7 +75,7 @@ Below are the `AFTER` methods available from this interface.
 
 #### Use-Case
 
-If we woud like to see and trace the following.
+If you woud like to see and trace the following.
 
 - The actual SQL statements composed by the library.
 - The parameter to be used before the execution.
