@@ -7,7 +7,7 @@ tags: [repodb, class, idbsetting, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 ## IDbSetting
 
-This is an interface that is used to mark a class to be a database setting object. It allows you to control the behavior of the library based on the value you provided on the properties this class.
+This is an interface that is used to mark a class to be a database setting object. It allows you to control the behavior of the library on a specific RDBMS data provider based on the value you provided on the properties this class.
 
 #### Properties
 
@@ -18,7 +18,7 @@ Below are the properties available from this interface.
 - AverageableType - gets the default averageable .NET CLR types for the database.
 - DefaultSchema - gets the default schema of the database.
 - IsDirectionSupported - gets a value that indicates whether setting the value of `DbParameter.Direction` object is supported.
-- IsExecuteReaderDisposable - gets a value that indicates whether the `DbCommand` object must be disposed after calling the ``DbCommand.ExecuteReader()` method.
+- IsExecuteReaderDisposable - gets a value that indicates whether the `DbCommand` object must be disposed after calling the `DbCommand.ExecuteReader()` method.
 - IsMultiStatementExecutable - gets a value whether the multiple statement execution is supported.
 - IsPreparable - gets a value that indicates whether the current DB Provider supports the `DbCommand.Prepare()` calls.
 - IsUseUpsert - gets a value that indicates whether the Insert/Update operation will be used for [Merge](/operation/merge) operation.
@@ -55,3 +55,5 @@ Once the class has been implemented, you have call the [DbSettingMapper](/mapper
 ```csharp
 DbSettingMapper.Add(typeof(SqlConnection), new CustomSqlServerDbSetting(), true);
 ```
+
+> Please visit this [BaseDbSetting](/class/basedbsetting) to see more about this implementation.
