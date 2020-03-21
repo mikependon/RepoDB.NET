@@ -9,7 +9,7 @@ tags: [repodb, class, classproperty, orm, hybrid-orm, sqlserver, sqlite, mysql, 
 
 This class is used as a container of the `System.Reflection.PropertyInfo` object. It is one of the core class that helps the library speed up the manipulation of the class properties.
 
-To extract the properties of an entity, use the [PropertyCache](/cache/propertycache) or object.
+To extract the properties of an entity, use the [PropertyCache](/cacher/propertycache) or object.
 
 ```csharp
 var properties = PropertyCache.Get<Person>();

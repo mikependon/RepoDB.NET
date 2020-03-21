@@ -32,7 +32,7 @@ var properties = ClassExpression.GetProperties<Person>();
 // Do the stuffs for the 'properties' here
 ```
 
-> We recommend you should use the [PropertyCache](/cache/propertycache) object when extracting the class properties.
+> We recommend you should use the [PropertyCache](/cacher/propertycache) object when extracting the class properties.
 
 
 ##### GetPropertiesAndValues
