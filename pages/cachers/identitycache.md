@@ -32,7 +32,7 @@ var identity = IdentityCache.Get(typeof(Person));
 Or, via generic type.
 
 ```csharp
-var fields = IdentityCache.Get<Person>();
+var identity = IdentityCache.Get<Person>();
 // Use the 'identity' here
 ```
 
