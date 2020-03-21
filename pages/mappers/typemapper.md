@@ -20,7 +20,7 @@ Below are the properties available from this class.
 Below are the methods available from this class.
 
 - Map - adds a mapping between the .NET CLR Type and database type.
-- Get - get the mapped database type based on the .NET CLR Type.
+- Get - gets the mapped database type based on the .NET CLR Type.
 - Unmap - removes the mapping between the .NET CLR Type and database type.
 
 #### Use-Cases
