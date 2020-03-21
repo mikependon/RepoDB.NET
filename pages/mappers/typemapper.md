@@ -25,7 +25,7 @@ Below are the methods available from this class.
 
 #### Use-Cases
 
-You should use this class if you would like to override the default mapping of the library when it comes to database statement building.
+You should use this class if you would like to override the [ConversionType.Default](/enumeration/conversiontype) of the library and if you would like to override the ADO.NET default mapping between .NET CLR Type and database type.
 
 #### How to Use?
 
