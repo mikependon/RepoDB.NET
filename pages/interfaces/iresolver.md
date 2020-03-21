@@ -7,7 +7,7 @@ tags: [repodb, class, iresolver, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 ## IResolver
 
-This is an interface that is used to mark a class to be a resolver object. This interface accepts upto the maximum 7 input generic types and a 1 output generic type.
+This is an interface that is used to mark a class to be a resolver object. This interface accepts upto the maximum 7 input generic types and 1 output generic type.
 
 In each number of inputted generic types, a method named `Resolve` is given.
 
