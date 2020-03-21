@@ -34,7 +34,7 @@ StatementBuilderMapper.Add(typeof(SqlConnection), new OptimizedSqlServerStatemen
 To get the mapping, use the `Get` method.
 
 ```csharp
-var helper = StatementBuilderMapper.Get(typeof(SqlConnection));
+var statementBuilder = StatementBuilderMapper.Get(typeof(SqlConnection));
 ```
 
 To remove the mapping, use the `Remove` method.

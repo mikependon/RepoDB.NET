@@ -34,7 +34,7 @@ DbSettingMapper.Add(typeof(SqlConnection), new OptimizedSqlServerDbSetting(), tr
 To get the mapping, use the `Get` method.
 
 ```csharp
-var helper = DbSettingMapper.Get(typeof(SqlConnection));
+var dbSetting = DbSettingMapper.Get(typeof(SqlConnection));
 ```
 
 To remove the mapping, use the `Remove` method.
