@@ -41,7 +41,7 @@ Once the installation is complete, call the bootstrapper to initialize all the d
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-If you are to work with Bulk Operations (ie: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), you have to install the correct package.
+If you are to work with Bulk Operations (ie: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then you must to install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
 
 In your Package Manager Console, simply type the codes below.
 
