@@ -9,7 +9,7 @@ tags: [repodb, tutorial, executescalar, orm, hybrid-orm, sqlserver, sqlite, mysq
 
 This method is used to execute a raw-SQL directly towards the database. It returns a value of the first-row's first-column of the resultset.
 
-This method supports all types of database data providers. The only requirement is that, user needs to provide the raw-SQL itself.
+This method supports all types of RDMBS data providers. The only requirement is that, user needs to provide the raw-SQL itself.
 
 > In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) as the programming language.
 

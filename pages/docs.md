@@ -33,7 +33,7 @@ Below are the methods available.
 
 ###### Execute Methods
 
-Below are the list of *Execute* operations that you can use. It support all RDBMS data providers.
+Below are the list of *Execute* methods that you can use. It support all RDBMS data providers.
 
 - [ExecuteNonQuery](/operation/executenonquery)
 - [ExecuteQuery](/operation/executequery)
@@ -43,7 +43,7 @@ Below are the list of *Execute* operations that you can use. It support all RDBM
 
 ###### Fluent Methods
 
-Below are the list of *Fluent* operations that you can use. It only support the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and  [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS data providers.
+Below are the list of *Fluent* methods that you can use. It only support the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and  [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS data providers.
 
 - [Average](/operation/average)
 - [AverageAll](/operation/averageall)
