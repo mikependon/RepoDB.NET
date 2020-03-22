@@ -7,11 +7,11 @@ tags: [repodb, tutorial, executequerymultiple, orm, hybrid-orm, sqlserver, sqlit
 
 ## ExecuteQueryMultiple
 
-This method is used to execute multiple raw-SQLs directly towards the database in one-go. It returns an object of `QueryMultipleExtractor` in which it gives you a flexibility as a developer to manage the extraction of the resultsets.
+This method is used to execute multiple raw-SQLs directly towards the database in one-go. It returns an object of [QueryMultipleExtractor](/class/querymultipleextractor) in which it gives you a flexibility as a developer to manage the extraction of the resultsets.
 
 This method supports all types of database data providers. The only requirement is that, user needs to provide the raw-SQL itself.
 
-> In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
+> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) as the programming language.
 
 #### Installation
 
@@ -49,7 +49,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> The calls to `Extract()` and `Scalar()` varies on the order of the calls you have made at `QueryMultipleExtractor` object. It is uses the `DbDataReader.NextResult()` method to extract the rows in order.
+> The calls to `Extract()` and `Scalar()` varies on the order of the calls you have made at [QueryMultipleExtractor](/class/querymultipleextractor) object. It is uses the `DbDataReader.NextResult()` method to extract the rows in order.
 
 #### Passing of Parameters
 
@@ -139,7 +139,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Executing a StoredProcedure
 
-The calls to execute a stored procedure is by simply calling the `EXEC` command of the SQL Server. It can be combined together with other raw-SQL statements.
+The calls to execute a stored procedure is by simply calling the `EXEC` command of the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer). It can be combined together with other raw-SQL statements.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

@@ -9,7 +9,7 @@ tags: [repodb, class, bulkinsertmapitem, orm, hybrid-orm, sqlserver, sqlite, mys
 
 This class is used to map a source and destination column when doing Bulk Operations (ie: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 
-> In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
+> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) as the programming language.
 
 #### Create a new Instance
 

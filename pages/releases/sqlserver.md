@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Releases for SQL Server (RepoDb)
+title: Releases for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) (RepoDb)
 permalink: /releases/sqlserver
 ---
 
@@ -13,7 +13,7 @@ permalink: /releases/sqlserver
 
 #### RepoDb.SqlServer (v1.0.3)
 
-- Feature: Introduce the SQL Server support to `SqlParameter.SqlDbType` via `MicrosoftSqlServerTypeMapAttribute` class (for Microsoft.Data.SqlClient) and `SystemSqlServerTypeMapAttribute` class (for System.Data.SqlClient).
+- Feature: Introduce the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) support to `SqlParameter.SqlDbType` via `MicrosoftSqlServerTypeMapAttribute` class (for Microsoft.Data.SqlClient) and `SystemSqlServerTypeMapAttribute` class (for System.Data.SqlClient).
 - Added more Unit Tests.
 
 

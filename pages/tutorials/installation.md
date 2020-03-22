@@ -15,7 +15,7 @@ The package can be installed using Package Manager Console.
 > Install-Package RepoDb
 ```
 
-#### SQL Server
+#### [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer)
 
 ```csharp
 > Install-Package RepoDb.SqlServer

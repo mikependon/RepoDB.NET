@@ -20,7 +20,7 @@ Below are the methods available from this class.
 
 You should use this class if you would like to get the mapped name of the property in general purpose.
 
-> You should rely on this class rather using the `nameof(Class.Property)` of C# when working against the property name.
+> You should rely on this class rather using the `nameof(Class.Property)` of [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) when working against the property name.
 
 #### How to Use?
 

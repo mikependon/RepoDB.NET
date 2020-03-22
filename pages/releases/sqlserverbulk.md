@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Releases for SQL Server Bulk (RepoDb)
+title: Releases for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) Bulk (RepoDb)
 permalink: /releases/sqlserverbulk
 ---
 
@@ -9,26 +9,26 @@ permalink: /releases/sqlserverbulk
 #### RepoDb.SqlServer.BulkOperations (v1.0.4)
 
 - Referenced the latest version of RepoDb.Core (v1.10.10).
-- Fully supported the Bulk Operations (`BulkDelete`, `BulkInsert`, `BulkMerge` and `BulkUpdate`) for both System.Data.SqlClient and Microsoft.Data.SqlClient namespace.
-- Auto set the options to `SqlBulkCopyOptions.KeepIdentity` for `BulkDelete`, `BulkMerge` and `BulkUpdate` (if there an identity primary/column from the DB).
+- Fully supported the Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)) for both System.Data.SqlClient and Microsoft.Data.SqlClient namespace.
+- Auto set the options to `SqlBulkCopyOptions.KeepIdentity` for [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) (if there an identity primary/column from the DB).
 - Used an underscore over dashes when composing the temporary/pseudo tables.
 - Added an extensive Integration Tests for all Bulk methods (both SDS and MDS namespaces).
 
 
 #### RepoDb.SqlServer.BulkOperations (v1.0.4-beta3)
 
-- Minor updates for `BulkUpdate`. Used an underscore over dashes when composing the temporary/pseudo tables.
+- Minor updates for [BulkUpdate](/operation/bulkupdate). Used an underscore over dashes when composing the temporary/pseudo tables.
 
 
 #### RepoDb.SqlServer.BulkOperations (v1.0.4-beta2)
 
-- Auto set the options to `SqlBulkCopyOptions.KeepIdentity` for `BulkDelete`, `BulkMerge` and `BulkUpdate` (if there an identity primary/column from the DB).
+- Auto set the options to `SqlBulkCopyOptions.KeepIdentity` for [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) (if there an identity primary/column from the DB).
 - Used an underscore over dashes when composing the temporary/pseudo tables.
 
 
 #### RepoDb.SqlServer.BulkOperations (v1.0.4-beta1)
 
-- Initial full support to the Bulk Operations (`BulkDelete`, `BulkInsert`, `BulkMerge` and `BulkUpdate`).
+- Initial full support to the Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 
 
 #### RepoDb.SqlServer.BulkOperations (v1.0.3)

@@ -9,7 +9,7 @@ tags: [repodb, class, propertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 This attribute is used to signify a property handling operation on the class property. By having this attribute, the library core's transformer will automatically trigger the property handler `Get` and `Set` method for custom handling.
 
-> In this tutorial, we will use the `SQL Server` as the database and `C#` as the programming language.
+> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) as the programming language.
 
 #### How to Use?
 

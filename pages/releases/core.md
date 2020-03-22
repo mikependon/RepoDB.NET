@@ -8,17 +8,17 @@ permalink: /releases/core
 
 #### RepoDb (v1.10.10)
 
-- Features: Full support to Bulk Operations (`BulkDelete`, `BulkInsert`, `BulkMerge` and `BulkUpdate`).
+- Features: Full support to Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 - Enhancement: `AsFieldsAsAliasFields` - added left and right aliases.
 - Enhancement: XML Documentation updates for the SQL Statement Builders.
 - Enhancement: Add a Type extended method named IsNullable.
-- Bug: Solve the intermittent `NullReferenceException` when calling the Batch Operations (ie: `InsertAll`, `MergeAll`, `UpdateAll`). [#392](https://github.com/mikependon/RepoDb/issues/392)
+- Bug: Solve the intermittent `NullReferenceException` when calling the Batch Operations (ie: [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall)). [#392](https://github.com/mikependon/RepoDb/issues/392)
 - Bug: The property handlers mapped via `PropertyTypeHandlerMapper` is failing if both `NULLABLE` and `NON-NULLABLE` property types are present in the class. [#394](https://github.com/mikependon/RepoDb/issues/394)
 
 
 #### RepoDb (v1.10.10-beta1)
 
-- Full support to Bulk Operations (`BulkDelete`, `BulkInsert`, `BulkMerge` and `BulkUpdate`).
+- Full support to Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 - `AsFieldsAsAliasFields` - added left and right aliases.
 - XML Documentation updates for the SQL Statement Builders.
 
@@ -53,18 +53,18 @@ permalink: /releases/core
 
 - Support: Initiate the support to `Microsoft.Data.SqlClient` namespace. [#374](https://github.com/mikependon/RepoDb/issues/374)
 - Feature: Support `PropertyHandlerAttribute` as requested. [#367](https://github.com/mikependon/RepoDb/issues/367)
-- Feature: Re-enabled the `BulkInsert` for `DataTable`.
-- Feature: Support deleting an array of entity objects or primary keys via `DeleteAll`. [#353](https://github.com/mikependon/RepoDb/issues/353)
+- Feature: Re-enabled the [BulkInsert](/operation/bulkinsert) for `DataTable`.
+- Feature: Support deleting an array of entity objects or primary keys via [DeleteAll](/operation/deleteall). [#353](https://github.com/mikependon/RepoDb/issues/353)
 
 ##### Others
 
 - Support: Change the target type to .NetStandard 2.0.
 - Support: Initiate the support to `Microsoft.Data.SqlClient` namespace. [#374](https://github.com/mikependon/RepoDb/issues/374)
 - Enhancement: Support to Microsoft.Data.SqlClient [#359](https://github.com/mikependon/RepoDb/issues/359)
-- NTH: Add a table hints in `Merge` and `MergeAll`. [#370](https://github.com/mikependon/RepoDb/issues/370)
-- NTH: Add a table hints in `Update` and `UpdateAll`. [#371](https://github.com/mikependon/RepoDb/issues/371)
-- NTH: Add a table hints in `Delete` and `DeleteAll`. [#376](https://github.com/mikependon/RepoDb/issues/376)
-- NTH: Add a table hints in `Insert` and `InsertAll`. [#379](https://github.com/mikependon/RepoDb/issues/379)
+- NTH: Add a table hints in [Merge](/operation/merge) and [MergeAll](/operation/mergeall). [#370](https://github.com/mikependon/RepoDb/issues/370)
+- NTH: Add a table hints in [Update](/operation/update) and [UpdateAll](/operation/updateall). [#371](https://github.com/mikependon/RepoDb/issues/371)
+- NTH: Add a table hints in [Delete](/operation/delete) and [DeleteAll](/operation/deleteall). [#376](https://github.com/mikependon/RepoDb/issues/376)
+- NTH: Add a table hints in [Insert](/operation/insert) and [InsertAll](/operation/insertall). [#379](https://github.com/mikependon/RepoDb/issues/379)
 
 
 #### RepoDb (v1.10.4)
@@ -72,7 +72,7 @@ permalink: /releases/core
 - Initial support of RepoDb.PostgreSql.
 - Added `IsPreparable` Property for `IDbSetting`.
 - Removed the `basedOnFields` logic when extracting the `DbDataReader`.
-- `InsertAll`: Parsed the first entity property fields if the `fields` argument is not defined.
+- [InsertAll](/operation/insertall): Parsed the first entity property fields if the `fields` argument is not defined.
 - Enhancement: Introduce the `BaseDbSetting` class to cater a uniform HashCode generator. #369
 - Adhoc: Sealed and exposed the `DbSettings`, `DbHelpers` and the `DbStatementBuilders` classes.
 - Enhancement: Introduced the `DbConvertFieldResolver` as the base converter field.
@@ -123,7 +123,7 @@ permalink: /releases/core
 - This release contains major code refactoring for performance optimization purposes.
 - Feature: Introduced the support `IDbSetting`. Used for other data providers extensibility complete support.
 - Feature: Introduced `DbSettingMapper` class.
-- Feature: Supported `Upsert` operations (abstracted with `Merge` operation) for the data providers that does not support multi-statement execution and `MERGE` command.
+- Feature: Supported `Upsert` operations (abstracted with [Merge](/operation/merge) operation) for the data providers that does not support multi-statement execution and `MERGE` command.
 - Feature: Added support to `Average` and `AverageAll` (with its Async version).
 - Feature: Added support to `Exists` (with its Async version).
 - Feature: Added support to `Max` and `MaxAll` (with its Async version).
@@ -156,16 +156,16 @@ permalink: /releases/core
 #### RepoDb (v1.9.9)
 
 - Bug: `SqlException`: Login failed for user `xxx`
-- Bug: Calling `InsertAll` with `MapAttribute` leads to `System.NullReferenceException`: Object reference not set to an instance of an object. [#274](https://github.com/mikependon/RepoDb/issues/274)
+- Bug: Calling [InsertAll](/operation/insertall) with `MapAttribute` leads to `System.NullReferenceException`: Object reference not set to an instance of an object. [#274](https://github.com/mikependon/RepoDb/issues/274)
 - Bug: `SqlDbHelper.GetFields` is failing if the transaction object is present. [#278](https://github.com/mikependon/RepoDb/issues/278)
 - Enhancement: Remove database streaming when extracting table schema.
 - Enhancement: Add `AsFields()` extended methods for the IEnumerable of DbField objects
 #273
 - Enhancement: Add `DbFieldCache.GetAsync` method. [#275](https://github.com/mikependon/RepoDb/issues/275)
-- Enhancement: Add `DataEntityDataReader` into `BulkInsert` that accepts TableName and Entities [#271](https://github.com/mikependon/RepoDb/issues/271)
+- Enhancement: Add `DataEntityDataReader` into [BulkInsert](/operation/bulkinsert) that accepts TableName and Entities [#271](https://github.com/mikependon/RepoDb/issues/271)
 - Enhancement: Add `AsFields()` extended methods for the IEnumerable of DbField objects.
-- To Consider: Enable `BulkInsert` with System.`DataTable` [#277](https://github.com/mikependon/RepoDb/issues/277)
-- Test: Add IntegrationTests on `BulkInsert` that accepts DataEntities and TableName.
+- To Consider: Enable [BulkInsert](/operation/bulkinsert) with System.`DataTable` [#277](https://github.com/mikependon/RepoDb/issues/277)
+- Test: Add IntegrationTests on [BulkInsert](/operation/bulkinsert) that accepts DataEntities and TableName.
 - Refactoring: Refactor the codes for `DbFieldCache` to accept `IDbTransaction` objects. These affected too many chain of calls.
 - Refactoring: Removed the `ToLower()` and replaced by `StringComparer.OrdinalIgnoreCase`.
 
@@ -178,22 +178,22 @@ permalink: /releases/core
 
 #### RepoDb (v1.9.9-beta4)
 
-- To Consider: Enable `BulkInsert` with System.`DataTable` [#277](https://github.com/mikependon/RepoDb/issues/277)
+- To Consider: Enable [BulkInsert](/operation/bulkinsert) with System.`DataTable` [#277](https://github.com/mikependon/RepoDb/issues/277)
 - v1.9.9 release candidate
 
 
 #### RepoDb (v1.9.9-beta3)
 
 - Enhancement: Add `DbFieldCache.GetAsync` method. [#275](https://github.com/mikependon/RepoDb/issues/275)
-- Enhancement: Add `DataEntityDataReader` into `BulkInsert` that accepts TableName and Entities [#271](https://github.com/mikependon/RepoDb/issues/271)
+- Enhancement: Add `DataEntityDataReader` into [BulkInsert](/operation/bulkinsert) that accepts TableName and Entities [#271](https://github.com/mikependon/RepoDb/issues/271)
 - Enhancement: Add `AsFields()` extended methods for the `IEnumerable<DbField>`
-- Test: Add IntegrationTests on `BulkInsert` that accepts DataEntities and TableName.
+- Test: Add IntegrationTests on [BulkInsert](/operation/bulkinsert) that accepts DataEntities and TableName.
 
 
 #### RepoDb (v1.9.9-beta2)
 
 - Enhancement: Add `AsFields()` extended methods for the `IEnumerable<DbField>` [#273](https://github.com/mikependon/RepoDb/issues/273)
-- Bug: Calling `InsertAll` with `MapAttribute` leads to `System.NullReferenceException`: Object reference not set to an instance of an object. [#274](https://github.com/mikependon/RepoDb/issues/274)
+- Bug: Calling [InsertAll](/operation/insertall) with `MapAttribute` leads to `System.NullReferenceException`: Object reference not set to an instance of an object. [#274](https://github.com/mikependon/RepoDb/issues/274)
 
 
 #### RepoDb (v1.9.9-beta1)
@@ -243,9 +243,9 @@ permalink: /releases/core
 - [Note] This version is the first ever version release with complete features. The next version will be only be bug-fixes from this version (if we found some).
 - [Core] Optimize the Expression field iteration between the number of Class properties and `DbDataReader` columns. [#136](https://github.com/mikependon/RepoDb/issues/136)
 - [Core] Add a pluggable interface/abstract for DbProviderOperation [#158](https://github.com/mikependon/RepoDb/issues/158)
-- [Core] Add a DbTransaction object on `InsertAll`, `MergeAll`, `UpdateAll` operations. [#213](https://github.com/mikependon/RepoDb/issues/213)
+- [Core] Add a DbTransaction object on [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall) operations. [#213](https://github.com/mikependon/RepoDb/issues/213)
 - [Test] Added an Integration Tests for IdentityClassWithDifferentIdentity.
-- [Test] Add IntegrationTest for `UpdateAll` targeting certain columns. [#245](https://github.com/mikependon/RepoDb/issues/245)
+- [Test] Add IntegrationTest for [UpdateAll](/operation/updateall) targeting certain columns. [#245](https://github.com/mikependon/RepoDb/issues/245)
 - [Test] Add an Async method support to QueryMultipleExtractor.Extract. [#255](https://github.com/mikependon/RepoDb/issues/255)
 - [Test] Add an Async method support to QueryMultipleExtractor.Scalar. [#256](https://github.com/mikependon/RepoDb/issues/256)
 - [Test] Introduce UnitTest for IDbOperationProvider Interface. [#253](https://github.com/mikependon/RepoDb/issues/253)
@@ -257,7 +257,7 @@ permalink: /releases/core
 - [Added] Introduce SqlDbOperationProvider Class. [#251](https://github.com/mikependon/RepoDb/issues/251)
 - [Added] Introduce DbOperationProviderMapper Class. [#252](https://github.com/mikependon/RepoDb/issues/252)
 - [Added] Introduce IDbOperationProvider Interface. [#250](https://github.com/mikependon/RepoDb/issues/250)
-- [Adhoc] Add `BatchSize` in `BulkInsert`. [#257](https://github.com/mikependon/RepoDb/issues/257)
+- [Adhoc] Add `BatchSize` in [BulkInsert](/operation/bulkinsert). [#257](https://github.com/mikependon/RepoDb/issues/257)
 - [Adhoc] Remove all `obsolete` methods for v1.9.6. [#246](https://github.com/mikependon/RepoDb/issues/246)
 - [Minor] Hide the exposed extended internal methods. [#244](https://github.com/mikependon/RepoDb/issues/244)
 
@@ -265,33 +265,33 @@ permalink: /releases/core
 #### RepoDb (v1.9.5)
 
 - [Note] This version is the first ever version release with complete features. The next version will be only be bug-fixes from this version (if we found some).
-- [Core] Introduce `UpdateMultiple`, different from `UpdateAll`. [#94](https://github.com/mikependon/RepoDb/issues/94)
-- [Core] Introduce the `UpdateAll` via ``PrimaryKey``. [#93](https://github.com/mikependon/RepoDb/issues/93)
+- [Core] Introduce `UpdateMultiple`, different from [UpdateAll](/operation/updateall). [#94](https://github.com/mikependon/RepoDb/issues/94)
+- [Core] Introduce the [UpdateAll](/operation/updateall) via ``PrimaryKey``. [#93](https://github.com/mikependon/RepoDb/issues/93)
 - [Core] Introduce Query and QueryAsync Table-Based Calls [#176](https://github.com/mikependon/RepoDb/issues/176)
 - [Core] Introduce QueryAll and QueryAllAsync Table-Based Calls [#221](https://github.com/mikependon/RepoDb/issues/221)
 - [Core] Introduce BatchQuery, BatchQueryAsync Table-Based Calls [#175](https://github.com/mikependon/RepoDb/issues/175)
-- [Core] Create an IL and Compiled Expressions for Update, Merge, Insert and `InsertAll` Parameter Passing [#197](https://github.com/mikependon/RepoDb/issues/197)
-- [Core] Introduce the `InsertMultiple`, different from `InsertAll`. [#92](https://github.com/mikependon/RepoDb/issues/92)
+- [Core] Create an IL and Compiled Expressions for Update, Merge, Insert and [InsertAll](/operation/insertall) Parameter Passing [#197](https://github.com/mikependon/RepoDb/issues/197)
+- [Core] Introduce the `InsertMultiple`, different from [InsertAll](/operation/insertall). [#92](https://github.com/mikependon/RepoDb/issues/92)
 - [Core] Add ExecutionContext Cache for Insert. [#205](https://github.com/mikependon/RepoDb/issues/205)
 - [Core] Add ExecutionContext Cache for Merge. [#206](https://github.com/mikependon/RepoDb/issues/206)
 - [Core] Add ExecutionContext Cache for Update. [#208](https://github.com/mikependon/RepoDb/issues/208)
-- [Core] Add ExecutionContext Cache for `UpdateAll`. [#209](https://github.com/mikependon/RepoDb/issues/209)
-- [Core] Add ExecutionContext Cache for `MergeAll`. [#207](https://github.com/mikependon/RepoDb/issues/207)
+- [Core] Add ExecutionContext Cache for [UpdateAll](/operation/updateall). [#209](https://github.com/mikependon/RepoDb/issues/209)
+- [Core] Add ExecutionContext Cache for [MergeAll](/operation/mergeall). [#207](https://github.com/mikependon/RepoDb/issues/207)
 - [Core] Re-enable the operation for UPDATE via DataEntity object. [#188](https://github.com/mikependon/RepoDb/issues/188)
-- [Performance] Create a cached Expression when setting back the `PrimaryKey` values in Insert and `InsertAll`. [#211](https://github.com/mikependon/RepoDb/issues/211)
+- [Performance] Create a cached Expression when setting back the `PrimaryKey` values in Insert and [InsertAll](/operation/insertall). [#211](https://github.com/mikependon/RepoDb/issues/211)
 - [Test] Add extensive IntegrationTests for type CRUD via TableName Calls. [#222](https://github.com/mikependon/RepoDb/issues/222)
 - [Test] Insert via TableName using Dynamic object with Invalid Column Casing [#223](https://github.com/mikependon/RepoDb/issues/223)
-- [Test] Add more IntegrationTest for `UpdateAll`. [#231](https://github.com/mikependon/RepoDb/issues/231)
-- [Test] Add UnitTest for `MergeAll` ITrace object. [#240](https://github.com/mikependon/RepoDb/issues/240)
-- [Test] Added more extensive IntegrationTests for `MergeAll` operation. [#242](https://github.com/mikependon/RepoDb/issues/242)
-- [Test] Add UnitTest for `UpdateAll` (`IStatementBuilder`, ITrace, QueryBuilder) [#230](https://github.com/mikependon/RepoDb/issues/230)
-- [Test] Add `UnitTest` for `InsertAll`. [#214](https://github.com/mikependon/RepoDb/issues/214)
+- [Test] Add more IntegrationTest for [UpdateAll](/operation/updateall). [#231](https://github.com/mikependon/RepoDb/issues/231)
+- [Test] Add UnitTest for [MergeAll](/operation/mergeall) ITrace object. [#240](https://github.com/mikependon/RepoDb/issues/240)
+- [Test] Added more extensive IntegrationTests for [MergeAll](/operation/mergeall) operation. [#242](https://github.com/mikependon/RepoDb/issues/242)
+- [Test] Add UnitTest for [UpdateAll](/operation/updateall) (`IStatementBuilder`, ITrace, QueryBuilder) [#230](https://github.com/mikependon/RepoDb/issues/230)
+- [Test] Add `UnitTest` for [InsertAll](/operation/insertall). [#214](https://github.com/mikependon/RepoDb/issues/214)
 - [Bug] The version 1.9.2 is an (untagged) pre-release version. The Id property is failing on Insert if the Data Type is not long [#215](https://github.com/mikependon/RepoDb/issues/215)
 - [Bug] Insert via TableName using Dynamic object with Invalid Column Casing [#223](https://github.com/mikependon/RepoDb/issues/223)
 - [Bug] [Core] Insert is failing for non-null (non-table) properties (XJNEN) [#212](https://github.com/mikependon/RepoDb/issues/212)
 - [Bug] DbHelper: Script execution security related issue in the company (XJNEN) [#229](https://github.com/mikependon/RepoDb/issues/229)
 - [Bug] Expression based using the `ToList().Contains()` is failing. But the `ToArray().Contains()` is working. XJNEN [#233](https://github.com/mikependon/RepoDb/issues/233)
-- [Known-Bug] Error is thrown when calling the `UpdateAll` with dynamic entities (and the fields are not equals to the DB fields) and the `qualifiers` were not defined. [#232](https://github.com/mikependon/RepoDb/issues/232)
+- [Known-Bug] Error is thrown when calling the [UpdateAll](/operation/updateall) with dynamic entities (and the fields are not equals to the DB fields) and the `qualifiers` were not defined. [#232](https://github.com/mikependon/RepoDb/issues/232)
 - [Adhoc] Call the `AsList()` method when calling the `QueryGroup.GetString()` method. Support the case of XJNEN [#228](https://github.com/mikependon/RepoDb/issues/228)
 - [Adhoc] Reviewed `BaseRepository`, DbRepository, DbConnection Async/Await Keywords
 - [Adhoc] Reviewed UnitTests for the ITrace (`BaseRepository`, DbRepository, DbConnection)
@@ -304,27 +304,27 @@ permalink: /releases/core
 #### RepoDb (v1.9.4)
 
 - [Note] This version is the first ever version release with complete features. The next version will be only be bug-fixes from this version (if we found some).
-- [Core] Introduce `UpdateMultiple`, different from `UpdateAll`. [#94](https://github.com/mikependon/RepoDb/issues/94)
-- [Core] Introduce the `UpdateAll` via ``PrimaryKey``. [#93](https://github.com/mikependon/RepoDb/issues/93)
+- [Core] Introduce `UpdateMultiple`, different from [UpdateAll](/operation/updateall). [#94](https://github.com/mikependon/RepoDb/issues/94)
+- [Core] Introduce the [UpdateAll](/operation/updateall) via ``PrimaryKey``. [#93](https://github.com/mikependon/RepoDb/issues/93)
 - [Core] Introduce Query and QueryAsync Table-Based Calls [#176](https://github.com/mikependon/RepoDb/issues/176)
 - [Core] Introduce QueryAll and QueryAllAsync Table-Based Calls [#221](https://github.com/mikependon/RepoDb/issues/221)
 - [Core] Introduce BatchQuery, BatchQueryAsync Table-Based Calls [#175](https://github.com/mikependon/RepoDb/issues/175)
-- [Core] Create an IL and Compiled Expressions for Update, Merge, Insert and `InsertAll` Parameter Passing [#197](https://github.com/mikependon/RepoDb/issues/197)
-- [Core] Introduce the `InsertMultiple`, different from `InsertAll`. [#92](https://github.com/mikependon/RepoDb/issues/92)
+- [Core] Create an IL and Compiled Expressions for Update, Merge, Insert and [InsertAll](/operation/insertall) Parameter Passing [#197](https://github.com/mikependon/RepoDb/issues/197)
+- [Core] Introduce the `InsertMultiple`, different from [InsertAll](/operation/insertall). [#92](https://github.com/mikependon/RepoDb/issues/92)
 - [Core] Add ExecutionContext Cache for Insert. [#205](https://github.com/mikependon/RepoDb/issues/205)
 - [Core] Add ExecutionContext Cache for Merge. [#206](https://github.com/mikependon/RepoDb/issues/206)
 - [Core] Add ExecutionContext Cache for Update. [#208](https://github.com/mikependon/RepoDb/issues/208)
-- [Core] Add ExecutionContext Cache for `UpdateAll`. [#209](https://github.com/mikependon/RepoDb/issues/209)
-- [Core] Add ExecutionContext Cache for `MergeAll`. [#207](https://github.com/mikependon/RepoDb/issues/207)
+- [Core] Add ExecutionContext Cache for [UpdateAll](/operation/updateall). [#209](https://github.com/mikependon/RepoDb/issues/209)
+- [Core] Add ExecutionContext Cache for [MergeAll](/operation/mergeall). [#207](https://github.com/mikependon/RepoDb/issues/207)
 - [Core] Re-enable the operation for UPDATE via DataEntity object. [#188](https://github.com/mikependon/RepoDb/issues/188)
-- [Performance] Create a cached Expression when setting back the `PrimaryKey` values in Insert and `InsertAll`. [#211](https://github.com/mikependon/RepoDb/issues/211)
+- [Performance] Create a cached Expression when setting back the `PrimaryKey` values in Insert and [InsertAll](/operation/insertall). [#211](https://github.com/mikependon/RepoDb/issues/211)
 - [Test] Add extensive IntegrationTests for type CRUD via TableName Calls. [#222](https://github.com/mikependon/RepoDb/issues/222)
 - [Test] Insert via TableName using Dynamic object with Invalid Column Casing [#223](https://github.com/mikependon/RepoDb/issues/223)
-- [Test] Add more IntegrationTest for `UpdateAll`. [#231](https://github.com/mikependon/RepoDb/issues/231)
-- [Test] Add UnitTest for `MergeAll` ITrace object. [#240](https://github.com/mikependon/RepoDb/issues/240)
-- [Test] Added more extensive IntegrationTests for `MergeAll` operation. [#242](https://github.com/mikependon/RepoDb/issues/242)
-- [Test] Add UnitTest for `UpdateAll` (`IStatementBuilder`, ITrace, QueryBuilder) [#230](https://github.com/mikependon/RepoDb/issues/230)
-- [Test] Add `UnitTest` for `InsertAll`. [#214](https://github.com/mikependon/RepoDb/issues/214)
+- [Test] Add more IntegrationTest for [UpdateAll](/operation/updateall). [#231](https://github.com/mikependon/RepoDb/issues/231)
+- [Test] Add UnitTest for [MergeAll](/operation/mergeall) ITrace object. [#240](https://github.com/mikependon/RepoDb/issues/240)
+- [Test] Added more extensive IntegrationTests for [MergeAll](/operation/mergeall) operation. [#242](https://github.com/mikependon/RepoDb/issues/242)
+- [Test] Add UnitTest for [UpdateAll](/operation/updateall) (`IStatementBuilder`, ITrace, QueryBuilder) [#230](https://github.com/mikependon/RepoDb/issues/230)
+- [Test] Add `UnitTest` for [InsertAll](/operation/insertall). [#214](https://github.com/mikependon/RepoDb/issues/214)
 - [Bug] The version 1.9.2 is an (untagged) pre-release version. The Id property is failing on Insert if the Data Type is not long [#215](https://github.com/mikependon/RepoDb/issues/215)
 - [Bug] Insert via TableName using Dynamic object with Invalid Column Casing [#223](https://github.com/mikependon/RepoDb/issues/223)
 - [Bug] [Core] Insert is failing for non-null (non-table) properties (XJNEN) [#212](https://github.com/mikependon/RepoDb/issues/212)
@@ -341,16 +341,16 @@ permalink: /releases/core
 
 #### RepoDb (v1.9.3)
 
-- [Core] Introduce ExecutionContext to hold the caching of the execution for `InsertAll`. [#204](https://github.com/mikependon/RepoDb/issues/204)
-- [Enhancement, Performance] `InsertAll` Compiled Expressions
+- [Core] Introduce ExecutionContext to hold the caching of the execution for [InsertAll](/operation/insertall). [#204](https://github.com/mikependon/RepoDb/issues/204)
+- [Enhancement, Performance] [InsertAll](/operation/insertall) Compiled Expressions
 - [Enhancement] Revisits the DbField for Primary and Identity Columns. [#182](https://github.com/mikependon/RepoDb/issues/182)
 - [Enhancement] Add the IdentityDbField in both Merge and Update SqlStatementBuilder. [#198](https://github.com/mikependon/RepoDb/issues/198)
 - [Enhancement] Rename the DataReaderConverter to DataReader. [#200](https://github.com/mikependon/RepoDb/issues/200)
 - [Enhancement] Add Flush method in the CommandTextCache, and exposed the class. [#220](https://github.com/mikependon/RepoDb/issues/220)
-- [Performance] Create a cached Expression when setting back the `PrimaryKey` values in Insert and `InsertAll`. [#211](https://github.com/mikependon/RepoDb/issues/211)
-- [Performance] Use the compiled function for inserting single DataEntity if the BatchSize is 1 for `InsertAll`. [#217](https://github.com/mikependon/RepoDb/issues/217)
-- [Fixed] Remove the Insert and `InsertAll` identity conversion from SQL. [#203](https://github.com/mikependon/RepoDb/issues/203) - Fixed by introducing the `ConversionResolver` classes.
-- [Test] Create UnitTests for (DbConnection, DbRepository, `BaseRepository`) `InsertAll` operation for `IStatementBuilder`. [#216](https://github.com/mikependon/RepoDb/issues/216)
+- [Performance] Create a cached Expression when setting back the `PrimaryKey` values in Insert and [InsertAll](/operation/insertall). [#211](https://github.com/mikependon/RepoDb/issues/211)
+- [Performance] Use the compiled function for inserting single DataEntity if the BatchSize is 1 for [InsertAll](/operation/insertall). [#217](https://github.com/mikependon/RepoDb/issues/217)
+- [Fixed] Remove the Insert and [InsertAll](/operation/insertall) identity conversion from SQL. [#203](https://github.com/mikependon/RepoDb/issues/203) - Fixed by introducing the `ConversionResolver` classes.
+- [Test] Create UnitTests for (DbConnection, DbRepository, `BaseRepository`) [InsertAll](/operation/insertall) operation for `IStatementBuilder`. [#216](https://github.com/mikependon/RepoDb/issues/216)
 - [Test] Add UnitTests for ClientTypeToSqlDbTypeResolver, SqlDbTypeNameToClientTypeResolver and SqlDbTypeToStringNameResolver [#219](https://github.com/mikependon/RepoDb/issues/219)
 - [Added] IConversionResolver
 - [Added] ClientTypeToSqlDbTypeResolver
@@ -366,8 +366,8 @@ permalink: /releases/core
 
 #### RepoDb (v1.9.2)
 
-- [Core] Introduce the `InsertAll`, different from `InsertMultiple`. [#91](https://github.com/mikependon/RepoDb/issues/91)
-- [Core] Return the number of affected rows during `BulkInsert` for `DbDataReader`. [#192](https://github.com/mikependon/RepoDb/issues/192)
+- [Core] Introduce the [InsertAll](/operation/insertall), different from `InsertMultiple`. [#91](https://github.com/mikependon/RepoDb/issues/91)
+- [Core] Return the number of affected rows during [BulkInsert](/operation/bulkinsert) for `DbDataReader`. [#192](https://github.com/mikependon/RepoDb/issues/192)
 - [Core] Add a `SetParameters` extended methods for `DbCommand` object. [#196](https://github.com/mikependon/RepoDb/issues/196)
 - [Core, Requested] Re-enable the operation for DELETE via DataEntity object. [#185](https://github.com/mikependon/RepoDb/issues/185)
 - [Core, Requested] Re-enable the operation for UPDATE via DataEntity object. [#188](https://github.com/mikependon/RepoDb/issues/188)
@@ -378,8 +378,8 @@ permalink: /releases/core
 - [Adhoc] Add a new repository method named ‘EnsureOpenAsync’. [#111](https://github.com/mikependon/RepoDb/issues/111)
 - [Test] Add an extensive IntegrationTests for the Entity with Extra Fields. [#183](https://github.com/mikependon/RepoDb/issues/183)
 - [Test] Add all UnitTests for Trace call for all Async operations. [#193](https://github.com/mikependon/RepoDb/issues/193)
-- [Test] Add UnitTest for `InsertAll`. [#194](https://github.com/mikependon/RepoDb/issues/194)
-- [Test] Add IntegrationTests for `InsertAll`. [#195](https://github.com/mikependon/RepoDb/issues/195)
+- [Test] Add UnitTest for [InsertAll](/operation/insertall). [#194](https://github.com/mikependon/RepoDb/issues/194)
+- [Test] Add IntegrationTests for [InsertAll](/operation/insertall). [#195](https://github.com/mikependon/RepoDb/issues/195)
 - [Test] Add more extensive UnitTest for IN, NOT IN, BETWEEN, NOT BETWEEN, LIKE and NOT LIKE operations. [#186](https://github.com/mikependon/RepoDb/issues/186)
 - [Test] Add extensive IntegrationTests for ConnectionPersistency. [#191](https://github.com/mikependon/RepoDb/issues/191)
 - [Enhancement] Auto-set the `PrimaryField` value of the object after calling the `Insert<T>` operation. [#187](https://github.com/mikependon/RepoDb/issues/187)
@@ -388,13 +388,13 @@ permalink: /releases/core
 #### RepoDb (v1.9.1)
 
 - Stable Release of RepoDb.
-- [Update] Exposed BulkCopyOptions and Transaction to `BulkInsert` Operation.
+- [Update] Exposed BulkCopyOptions and Transaction to [BulkInsert](/operation/bulkinsert) Operation.
 
 
 #### RepoDb (v1.9.0)
 
-- [Core] Introduced table-based operations for `Count`, `CountAll`, `Delete`, `DeleteAll`, `Insert`, `Merge`, `Truncate` and `Update`.
-- [Core] Introduced `CountAll` and `QueryAll` operations.
+- [Core] Introduced table-based operations for `Count`, `CountAll`, [Delete](/operation/delete), [DeleteAll](/operation/deleteall), [Insert](/operation/insert), [Merge](/operation/merge), `Truncate` and [Update](/operation/update).
+- [Core] Introduced `CountAll` and [QueryAll](/operation/queryall) operations.
 - [Core] Introduced pluggable interface `DbHelpers`.
 - [Core] Updated the `QueryBuilder` to remove the `TEntity` at class level (moved it to method level).
 - [Core] Updated the `StatementBuilder` SQL Text generation via TableName.
@@ -410,7 +410,7 @@ permalink: /releases/core
 - [Renamed] PrimaryKeyCache to PrimaryCache`.
 - [Renamed] PrimaryKeyIdentityCache to PrimaryIdentityCache
 - [Optimization] CountAsync operation is now returning the `Task<int>` type instead of `Task<object>`.
-- [Optimization] Allow passing of cache expiration time during `Query` and `QueryAll` calls.
+- [Optimization] Allow passing of cache expiration time during [Query](/operation/query) and [QueryAll](/operation/queryall) calls.
 - [Optimization, Pull-Request] Enumerations `Order`, `Conjunction` and `Operation` is now a pre-generated `int` values.
 - Introduced complete sets of IntegrationTests and UnitTests in all of the changes mentioned above.
 - See v1.9.0-beta1 and v1.9.0-beta2 for complete set of changes.
@@ -420,14 +420,14 @@ permalink: /releases/core
 
 - [Core] Make the DbHelper Pluggable by Provider. [#137](https://github.com/mikependon/RepoDb/issues/137)
 - [Core] [NTH]: Support InlineDelete(string tableName, object where ...) [#113](https://github.com/mikependon/RepoDb/issues/113) -- Moved to Delete
-- [Core] Add table based operations for Count, Delete, `DeleteAll`, Insert, Merge, Truncate, Update. [#159](https://github.com/mikependon/RepoDb/issues/159)
+- [Core] Add table based operations for Count, Delete, [DeleteAll](/operation/deleteall), Insert, Merge, Truncate, Update. [#159](https://github.com/mikependon/RepoDb/issues/159)
 - [Core] Organize the ordering of the arguments in all operations. [#160](https://github.com/mikependon/RepoDb/issues/160)
 - [Core] Introduce CountAll operation. [#161](https://github.com/mikependon/RepoDb/issues/161)
 - [Enhancement] Revisits the NET Framework custom method for GetCustomAttributes<T>. [#133](https://github.com/mikependon/RepoDb/issues/133)
 - [Enhancement] Support passing of QueryGroup, QueryField, IEnumerable<QueryField> in the Execution<Method> Operations [#140](https://github.com/mikependon/RepoDb/issues/140)
 - [Enhancement] Remove the `StatementBuilderMapItem` class if possible. [#139](https://github.com/mikependon/RepoDb/issues/139)
 - [Enhancement] Remove the `Provider` Enumeration. [#138](https://github.com/mikependon/RepoDb/issues/138)
-- [Enhancement] Reorder the parameter of for target table to `BulkInsert`(TableName, `DbDataReader`). [#145](https://github.com/mikependon/RepoDb/issues/145)
+- [Enhancement] Reorder the parameter of for target table to [BulkInsert](/operation/bulkinsert)(TableName, `DbDataReader`). [#145](https://github.com/mikependon/RepoDb/issues/145)
 - [Enhancement] Properly parse the type of the passed parameters when parsing the RawSql Array Parameters. [#147](https://github.com/mikependon/RepoDb/issues/147)
 - [Enhancement] [NTH]: Support InlineInsert(string tableName, object param ...) [#114](https://github.com/mikependon/RepoDb/issues/114) -- Moved to Insert
 - [Enhancement] Implement the `prefix` as a passable argument when during conversion. [#148](https://github.com/mikependon/RepoDb/issues/148)
@@ -458,7 +458,7 @@ permalink: /releases/core
 - [New] Updated the description to "A dynamic, lightweight, efficient and very fast Hybrid ORM library for .NET.".
 - [New] Re-instate the row deletion by entity level (connection.Delete<T>(T entity)) [#112](https://github.com/mikependon/RepoDb/issues/112)
 - [Bug] Query using Expression is failing for `Contains()` == `false` [#102](https://github.com/mikependon/RepoDb/issues/102)
-- [Test] Create an Integration Tests for a model with much columns that the result of the `ExecuteQuery` [#103](https://github.com/mikependon/RepoDb/issues/103)
+- [Test] Create an Integration Tests for a model with much columns that the result of the [ExecuteQuery](/operation/executequery) [#103](https://github.com/mikependon/RepoDb/issues/103)
 - [Test] Add Integration Tests for Execute<Methods> with IDictionary and ExpandoObject parameters. [#123](https://github.com/mikependon/RepoDb/issues/123)
 - [Test] Add an intensive UnitTests for Cache ExpirationInMinutes in the DbConnection, DbRepository and `BaseRepository`. [#129](https://github.com/mikependon/RepoDb/issues/129)
 - [Test] Add major Integration Tests for Caching for SqlConnection, DbRepository, `BaseRepository`. [#130](https://github.com/mikependon/RepoDb/issues/130)
@@ -499,7 +499,7 @@ permalink: /releases/core
 
 #### New Features
 
-- New: Introduced the `ExecuteQueryMultiple` into the `DbRepository`.
+- New: Introduced the [ExecuteQueryMultiple](/operation/executequerymultiple) into the `DbRepository`.
 - New: Introduced the `QueryMultiple` into the `DbRepository`.
 - New: Introduced the `ConversionType` to let the users decide the type of the conversions. Accessible via `TypeMapper.ConversionType` property.
 
@@ -507,7 +507,7 @@ permalink: /releases/core
 
 - Optimization: Added a class-level checking when identifying the ``PrimaryKey`` of a class.
 - Optimization: Supported the type conversions(if convertible) when querying the data from the database.
-- Optimization: Simplified the extraction of the result of the `ExecuteQueryMultiple` via `Extract` method.
+- Optimization: Simplified the extraction of the result of the [ExecuteQueryMultiple](/operation/executequerymultiple) via `Extract` method.
 
 ##### Added
 
@@ -515,7 +515,7 @@ permalink: /releases/core
 - Added: A class named `QueryMultipleRequest` to handle the request when calling the `QueryMultiple` operation.
 - Added: A class named `CommandArrayParameter` to hold the array parameters for Raw SQL Statements.
 - Added: A method named `Reset` for both `QueryField` and `QueryGroup` objects  allow the user to reinstate the instance of that object.
-- Added: An operation named `BulkInsert` at  `DbRepository` with `DbDataReader` as the parameter.
+- Added: An operation named [BulkInsert](/operation/bulkinsert) at  `DbRepository` with `DbDataReader` as the parameter.
 - Added: An argument named `hints` for both the `BatchQuery` and `Count` operation.
 - Added: An intensive `IntegrationTests` for all the different data types of the database (SQL Server) (Numbers, Spatials, Strings, Dates, Bytes, Others).
 - Added: An intensive `IntegrationTests` for the data types conversions(i.e: String-to-Numbers (vice versa), String-to-Dates (vice versa), etc).
@@ -525,7 +525,7 @@ permalink: /releases/core
 #### Fixes
 
 - Fixed: An issue in the `InlineMerge` if the primary key is not defined in the dynamic object.
-- Fixed: An issue in the `Merge` if the primary key is an identity.
+- Fixed: An issue in the [Merge](/operation/merge) if the primary key is an identity.
 - Fixed: An issue in the `QueryMultiple` if the same expression is are used multiple times.
 
 
@@ -533,14 +533,14 @@ permalink: /releases/core
 
 #### New Features
 
-- Introduced the `ExecuteQueryMultiple` into the `DbRepository`.
+- Introduced the [ExecuteQueryMultiple](/operation/executequerymultiple) into the `DbRepository`.
 - Introduced the `QueryMultiple` into the `DbRepository`.
 - Introduced the `ConversionType` to let the users decide the strictness of the conversions. Accesible via `TypeMapper.ConversionType` property.
 
 ##### Added
 
 - In the `Async` methods, introduced the `AsyncResultExtractor` class to control the extraction of the result in the caller side.
-- Supported `BulkInsert` for `DbRepository` with `DbDataReader` as the parameter.
+- Supported [BulkInsert](/operation/bulkinsert) for `DbRepository` with `DbDataReader` as the parameter.
 - Added an `IntegrationTests` for all the different data types of the database (SQL Server) (Numbers, Spatials, Strings, Dates, Bytes, Others).
 - Added an `IntegrationTests` for the data types conversions(i.e: String-to-Numbers (vice versa), String-to-Dates (vice versa), etc).
 - Added an `IntegrationTests` for the invalid casings.
@@ -565,18 +565,18 @@ permalink: /releases/core
 
 ##### Added
 
-- Added a class `QueryMultipleExtractor` to manage the extraction of the result of `DbConnection.ExecuteQueryMultiple` operation.
+- Added a class [QueryMultipleExtractor](/class/querymultipleextractor) to manage the extraction of the result of `DbConnection.ExecuteQueryMultiple` operation.
 - Added a class named `CommandParameter` to handle the value of the parameter mapping into the target Type.
 - Added a class named `QueryGroupTimeMap` to support the mapping of the QueryGroup into the Type.
 - Introduced a `hints` argument in the `DbConnection.Query` operation.
 - Added class `SqlTableHints`.
-- Supported `BulkInsert` for `DbDataReader`.
+- Supported [BulkInsert](/operation/bulkinsert) for `DbDataReader`.
 
 ##### Removed
 
 - Removed the `Operation.Any`.
 - Removed the `Operation.All`.
-- Removed the `orderBy` and `top` argument in the `Query` method with `primaryKey` argument.
+- Removed the `orderBy` and `top` argument in the [Query](/operation/query) method with `primaryKey` argument.
 - Removed the `DbConnection.BatchQuery` method with `primaryKey` argument.
 - Removed the `DbConnection.Count` method with `primaryKey` argument.
 - Removed the `DbConnection.Delete` method without the `where` parameter.
@@ -597,7 +597,7 @@ permalink: /releases/core
 
 - (Major Update) Introduced the support for `DbConnection.QueryMultiple`.
 - (Major Update) Introduced the support for `DbConnection.ExecuteQueryMultiple`.
-- Added class `QueryMultipleExtractor`.
+- Added class [QueryMultipleExtractor](/class/querymultipleextractor).
 
 
 #### RepoDb (v1.8.0-beta4)
@@ -608,14 +608,14 @@ permalink: /releases/core
 
 #### RepoDb (v1.8.0-beta3)
 
-- Supported `BulkInsert` for `DbDataReader`.
+- Supported [BulkInsert](/operation/bulkinsert) for `DbDataReader`.
 - Removed the `Operation.Any`.
 - Removed the `Operation.All`.
 
 
 #### RepoDb (v1.8.0-beta2)
 
-- Removed the `orderBy` and `top` argument in the `Query` method with `primaryKey` argument.
+- Removed the `orderBy` and `top` argument in the [Query](/operation/query) method with `primaryKey` argument.
 - Removed the `DbConnection.BatchQuery` method with `primaryKey` argument.
 - Removed the `DbConnection.Count` method with `primaryKey` argument.
 - Removed the `DbConnection.Delete` method without the `where` parameter.
@@ -641,7 +641,7 @@ permalink: /releases/core
 - Fixed the invalid binaries deployed at v1.7.0-beta4.
 - Modified `async` operations implementation to leverage the awaitable features.
 - Exposed the `IsForProvider` and `GetProvider` DbConnection extended methods.
-- Introduced a `BulkInsertMapItem` object to provide ability to override the `BulkInsert` operation default mappings.
+- Introduced a `BulkInsertMapItem` object to provide ability to override the [BulkInsert](/operation/bulkinsert) operation default mappings.
 - Removed the recursive query features (DataEntity, DataEntityChildItemData, DataEntityChildListData, RecursionManager, ForeignAttribute).
 
 
@@ -649,7 +649,7 @@ permalink: /releases/core
 
 - Modified `async` operations implementation to leverage the awaitable features.
 - Exposed the `IsForProvider` and `GetProvider` DbConnection extended methods.
-- Introduced a `BulkInsertMapItem` object to provide ability to override the `BulkInsert` operation default mappings.
+- Introduced a `BulkInsertMapItem` object to provide ability to override the [BulkInsert](/operation/bulkinsert) operation default mappings.
 - Removed the recursive query features (DataEntity, DataEntityChildItemData, DataEntityChildListData, RecursionManager, ForeignAttribute).
 
 
@@ -664,7 +664,7 @@ permalink: /releases/core
 
 - Introduced Expression-Based Query for Connection and Repository Operations
 - Introduced Support to All (as Operation.All), Any (as Operation.Any), Contains (as Operation.Like, Operation.NotLike, `Operation.In`, Operation.NotIn)
-- Introduced an Expression-Based `qualifer` field for `Merge` and `InlineMerge` operation
+- Introduced an Expression-Based `qualifer` field for [Merge](/operation/merge) and `InlineMerge` operation
 - Unit Test updates for `All`, `Any`, and `Contains` operation
 
 
@@ -782,7 +782,7 @@ permalink: /releases/core
 - Removes the DbRepository property at `BaseRepository` class.
 - Made the DbRepository and `BaseRepository` Disposable.
 - Introduced quoting on Fields and Tables when composing SQL Statements (via SqlDbStatementBuilder).
-- Documented the ConnectionPersistency, `DeleteAll`, InlineInsert, InlineMerge, InlineUpdate and Truncate operations.
+- Documented the ConnectionPersistency, [DeleteAll](/operation/deleteall), InlineInsert, InlineMerge, InlineUpdate and Truncate operations.
 
 
 #### RepoDb (v1.1.8)
@@ -791,7 +791,7 @@ permalink: /releases/core
 
 - Supported identity primary key field identification from the database.
 - Fixed the parallelism issues by removing the unnecessary cache classes from the library.
-- Created a customized DataReader object for the `BulkInsert` operation, for future support for the .Net Core.
+- Created a customized DataReader object for the [BulkInsert](/operation/bulkinsert) operation, for future support for the .Net Core.
 - Introduced the repository Truncate operation.
 - Supported the inline operations for Insert, Merge and Update.
 - Added ConnectionPersistency capability for the repositories.
@@ -803,7 +803,7 @@ permalink: /releases/core
 
 - Supported identity primary key field identification from the database.
 - Fixed the parallelism issues by removing the unnecessary cache classes from the library.
-- Created a customized DataReader object for the `BulkInsert` operation, for future support for the .Net Core.
+- Created a customized DataReader object for the [BulkInsert](/operation/bulkinsert) operation, for future support for the .Net Core.
 - Introduced the repository Truncate operation.
 - Supported the inline operations for Insert, Merge and Update.
 - Added ConnectionPersistency capability for the repositories.
@@ -815,7 +815,7 @@ permalink: /releases/core
 
 - Supported identity primary key field identification from the database.
 - Fixed the parallelism issues by removing the unnecessary cache objects from the library.
-- Created a customized DataReader object for the `BulkInsert` operation to support the .Net Core.
+- Created a customized DataReader object for the [BulkInsert](/operation/bulkinsert) operation to support the .Net Core.
 - Introduced the Truncate operation.
 - Supported the inline operations for Insert, Merge and Update.
 - Built on a lower target framework 4.0 for earlier compatibility.
@@ -1037,14 +1037,14 @@ permalink: /releases/core
 
 - Renamed `ICache.Has` to `ICache.Contains`
 - Removed `ICache.GetAll` and implement the `IEnumerable` interface instead
-- Optimized the mapping for SqlBulkCopy for `BulkInsert`
+- Optimized the mapping for SqlBulkCopy for [BulkInsert](/operation/bulkinsert)
 
 
 #### RepoDb (v1.0.8)
 
 - Fix the bug found when injecting the `IStatementBuilder` at the `BaseRepository`.
 - Renamed argument name `orderFields` to `orderBy`.
-- Renamed `ExecuteReaderEx` to `ExecuteReader` under Connection object.
+- Renamed `ExecuteReaderEx` to [ExecuteReader](/operation/executereader) under Connection object.
 - Added `Remove` on the ICache
 - Renamed ICache `Set` method to `Add`
 - Renamed `DbCacheItem` to `CacheItem`
@@ -1105,8 +1105,8 @@ permalink: /releases/core
 
 ##### Updates
 
-- EntityNotBulkInsertableException supported when calling `BulkInsert` with non SqlConnection connection object
-- `BulkInsert` optimization - ordering the columns based on the DB Table ordering (not on DataEntity properties ordering)
+- EntityNotBulkInsertableException supported when calling [BulkInsert](/operation/bulkinsert) with non SqlConnection connection object
+- [BulkInsert](/operation/bulkinsert) optimization - ordering the columns based on the DB Table ordering (not on DataEntity properties ordering)
 - Initial implementation for complex query (QueryGroup)
 - Added QueryGroup (IQueryGroup)
 - Added Conjuctions for QueryGroup(s)

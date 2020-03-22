@@ -13,7 +13,7 @@ The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/mast
 
 #### Installation
 
-The library can be installed via Nuget. In your *Package Manager Console*, you can type the codes below.
+The library can be installed via Nuget. In your Package Manager Console, you can type the codes below.
 
 ```csharp
 > Install-Package RepoDb.SqLite
@@ -27,11 +27,11 @@ RepoDb.SqLiteBootstrap.Initialize();
 
 #### Pre-Requisites
 
-We assume that you already have created a test database from your *SQLite* and also a *C#* project.
+We assume that you already have created a test database from your *SQLite* and also a [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) project.
 
 Before we proceed, we will create a table and a class model.
 
-In this tutorial, we will use the *C#* as the programming language.
+> In this tutorial, we will use the [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) as the programming language.
 
 #### Create a Table
 
@@ -61,7 +61,7 @@ public class Person
 
 #### Creating a Record
 
-To create a record, you must use the `Insert` method.
+To create a record, you must use the [Insert](/operation/insert) method.
 
 ```csharp
 var person = new Person
@@ -78,7 +78,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 
 > The return value would be the value of `Primary` (or `Identity`) field, otherwise `NULL`.
 
-To insert multiple rows, use the `InsertAll` operation instead.
+To insert multiple rows, use the [InsertAll](/operation/insertall) operation instead.
 
 Let us say you had created a method `GetPeople()` that returns the list of `Person`.
 
@@ -97,19 +97,21 @@ private IEnumerable<Person> GetPeople(int count = 10)
 }
 ```
 
-Then simply create a list of `Person` and passed it when you call the `InsertAll` method.
+Then simply create a list of `Person` and passed it when you call the [InsertAll](/operation/insertall) method.
 
 ```csharp
 var people = GetPeople(100);
 using (var connection = new SQLiteConnection(ConnectionString))
 {
-	var id = connection.InsertAll(people);
+	var rowsInserted = connection.InsertAll(people);
 }
 ```
 
+> The [Insert](/operation/insert) method returns the `Primary` (or `Identity`) field value while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods will automatically set back the value of the `Identity` property if present.
+
 #### Querying a Record
 
-To query a record, you must use the `Query` method.
+To query a record, you must use the [Query](/operation/query) method.
 
 ```csharp
 using (var connection = new SQLiteConnection(ConnectionString))
@@ -119,7 +121,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 }
 ```
 
-To query all the rows, use the `QueryAll` method instead.
+To query all the rows, use the [QueryAll](/operation/queryall) method instead.
 
 ```csharp
 using (var connection = new SQLiteConnection(ConnectionString))
@@ -131,7 +133,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 
 #### Merging a Record
 
-To merge a record, you must use the `Merge` method.
+To merge a record, you must use the [Merge](/operation/merge) method.
 
 ```csharp
 var person = new Person
@@ -162,7 +164,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 }
 ```
 
-To merge all the rows, use the `MergeAll` method instead.
+To merge all the rows, use the [MergeAll](/operation/mergeall) method instead.
 
 ```csharp
 var people = GetPeople(100);
@@ -175,11 +177,11 @@ using (var connection = new SQLiteConnection(ConnectionString))
 }
 ```
 
-> The `Merge` method returns the `Primary` (or `Identity`) field value while the `MergeAll` method returns the number of rows affected. Both methods will automatically set back the value of the `Identity` property if present.
+> The [Merge](/operation/merge) method returns the `Primary` (or `Identity`) field value while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods will automatically set back the value of the `Identity` property if present.
 
 #### Deleting a Record
 
-To delete a record, you must use the `Delete` method.
+To delete a record, you must use the [Delete](/operation/delete) method.
 
 ```csharp
 using (var connection = new SQLiteConnection(ConnectionString))
@@ -197,7 +199,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 }
 ```
 
-To delete all the rows, use the `DeleteAll` method instead.
+To delete all the rows, use the [DeleteAll](/operation/deleteall) method instead.
 
 ```csharp
 using (var connection = new SQLiteConnection(ConnectionString))
@@ -206,11 +208,21 @@ using (var connection = new SQLiteConnection(ConnectionString))
 }
 ```
 
-> Both methods will return the number of rows deleted from the datatabase.
+You can also pass the list of primary keys to be deleted.
+
+```csharp
+using (var connection = new SqlConnection(ConnectionString))
+{
+	var primaryKeys = new [] { 10045, 11001, ..., 12011 };
+	var people = connection.DeleteAll<Person>(primaryKeys);
+}
+```
+
+> Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the execution.
 
 #### Updating a Record
 
-To update a record, you must use the `Update` method.
+To update a record, you must use the [Update](/operation/update) method.
 
 ```csharp
 var person = new Person
@@ -222,7 +234,7 @@ var person = new Person
 };
 using (var connection = new SQLiteConnection(ConnectionString))
 {
-	var deletedCount = connection.Update<Person>(person);
+	var affectedRecords = connection.Update<Person>(person);
 }
 ```
 
@@ -231,11 +243,11 @@ You can also *Update* via dynamic by targetting certain columns.
 ```csharp
 using (var connection = new SQLiteConnection(ConnectionString))
 {
-	var deletedCount = connection.Update("Person", new { Id = 1, Name = "James Doe" });
+	var affectedRecords = connection.Update("Person", new { Id = 1, Name = "James Doe" });
 }
 ```
 
-To update all the rows, use the `UpdateAll` method instead.
+To update all the rows, use the [UpdateAll](/operation/updateall) method instead.
 
 ```csharp
 var people = GetPeople(100);
@@ -261,9 +273,11 @@ using (var connection = new SQLiteConnection(ConnectionString))
 }
 ```
 
+> Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution.
+
 #### Executing a Query
 
-To execute a query use the `ExecuteNonQuery` method.
+To execute a query use the [ExecuteNonQuery](/operation/executenonquery) method.
 
 ```csharp
 using (var connection = new SQLiteConnection(ConnectionString))
@@ -272,7 +286,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of class object, then use the `ExecuteQuery` method.
+To execute a query while expecting a result of class object, then use the [ExecuteQuery](/operation/executequery) method.
 
 ```csharp
 using (var connection = new SQLiteConnection(ConnectionString))
@@ -282,7 +296,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a single result, then use the `ExecuteScalar` method.
+To execute a query while expecting a single result, then use the [ExecuteScalar](/operation/executescalar) method.
 
 ```csharp
 using (var connection = new SQLiteConnection(ConnectionString))
@@ -291,7 +305,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of `DbDataReader`, then use the `ExecuteReader` method.
+To execute a query while expecting a result of `DbDataReader`, then use the [ExecuteReader](/operation/executereader) method.
 
 ```csharp
 using (var connection = new SQLiteConnection(ConnectionString))

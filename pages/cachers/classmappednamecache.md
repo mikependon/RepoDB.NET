@@ -22,7 +22,7 @@ Below are the methods available from this class.
 
 You should use this class if you would like to get the mapped name of the class in general purpose.
 
-> You should rely on this class rather using the `nameof(Class)` of C# when working against the class name.
+> You should rely on this class rather using the `nameof(Class)` of [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) when working against the class name.
 
 #### How to Use?
 
