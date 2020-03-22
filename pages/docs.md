@@ -80,7 +80,7 @@ Below are the list of classes that you can use.
 
 - [BaseDbSetting](/class/basedbsetting) - in progress
 - [BaseStatementBuilder](/class/basestatementbuilder) - in progress
-- [BaseRepository](/class/baserepository) - in progress
+- [BaseRepository](/class/baserepository)
 - [BulkInsertMapItem](/class/bulkinsertmapitem)
 - [CacheItem](/class/cacheitem)
 - [CancellableTraceLog](/class/cancellabletracelog)
@@ -88,7 +88,7 @@ Below are the list of classes that you can use.
 - [ClassProperty](/class/classproperty)
 - [DataEntityDataReader](/class/dataentitydatareader)
 - [DataReader (Reflection)](/class/datareader)
-- [DbRepository](/class/dbrepository) - in progress
+- [DbRepository](/class/dbrepository)
 - [DbField](/class/dbfield)
 - [Field](/class/field)
 - [MemoryCache](/class/memorycache) - in progress
