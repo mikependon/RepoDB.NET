@@ -48,6 +48,14 @@ public class CustomSqlServerDbSetting : IDbSetting
 }
 ```
 
+#### GetHashCode
+
+You have to override the implementation of the `GetHashCode()` based on the combinations of properties.
+
+The reason to this is that the library is using the equality based on the generated hashcode. Failure to comply may trigger a performance problem in your application.
+
+> We recommend to you instead use the [BaseDbSetting](/class/basedbsetting) class when implementing a customized database settings.
+
 #### How to Use?
 
 Once the class has been implemented, you have call the [DbSettingMapper](/mapper/dbsettingmapper) class to map this setting per RDBMS data provider.
@@ -55,5 +63,3 @@ Once the class has been implemented, you have call the [DbSettingMapper](/mapper
 ```csharp
 DbSettingMapper.Add(typeof(SqlConnection), new CustomSqlServerDbSetting(), true);
 ```
-
-> Please visit this [BaseDbSetting](/class/basedbsetting) to see more about this implementation.
