@@ -78,7 +78,7 @@ Below are the list of *Fluent* methods that you can use. It only support the [SQ
 
 Below are the list of classes that you can use.
 
-- [BaseDbSetting](/class/basedbsetting) - in progress
+- [BaseDbSetting](/class/basedbsetting)
 - [BaseStatementBuilder](/class/basestatementbuilder) - in progress
 - [BaseRepository](/class/baserepository)
 - [BulkInsertMapItem](/class/bulkinsertmapitem)
