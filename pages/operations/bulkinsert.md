@@ -33,7 +33,7 @@ RepoDb.SqlServerBootstrap.Initialize();
 
 #### Learnings
 
-> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) as the programming language.
+> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and C# as the programming language.
 
 Let us say you have a methods that create a list of *Person* from the client application.
 

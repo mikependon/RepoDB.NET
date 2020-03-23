@@ -27,11 +27,11 @@ RepoDb.SqLiteBootstrap.Initialize();
 
 #### Pre-Requisites
 
-We assume that you already have created a test database from your *SQLite* and also a [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) project.
+We assume that you already have created a test database from your *SQLite* and also a C# project.
 
 Before we proceed, we will create a table and a class model.
 
-> In this tutorial, we will use the [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) as the programming language.
+> In this tutorial, we will use the C# as the programming language.
 
 #### Create a Table
 

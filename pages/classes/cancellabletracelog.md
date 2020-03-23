@@ -11,7 +11,7 @@ A trace-logging class that is used to cancel the existing operation. It is usual
 
 It has derived from [TraceLog](/class/tracelog) class.
 
-> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) as the programming language.
+> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and C# as the programming language.
 
 ##### Properties
 

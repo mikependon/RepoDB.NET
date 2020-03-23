@@ -13,7 +13,7 @@ It contains the actual [Field](/class/field), [Operation](/enumeration/operation
 
 By using this class, it would increase the performance of your application as the library's core implementation is very dependent on the tree structuring of the query objects.
 
-> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) as the programming language.
+> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and C# as the programming language.
 
 #### Creating an Instance
 

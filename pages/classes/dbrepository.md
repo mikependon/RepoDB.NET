@@ -10,7 +10,7 @@ tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 
 This is the base class of repository classes. It accepts the type of `DbConnection` as the generic type.
 
-> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) as the programming language.
+> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and C# as the programming language.
 
 #### Use-Cases
 
