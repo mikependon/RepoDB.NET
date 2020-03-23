@@ -20,31 +20,31 @@ Let us say, you are targetting to create a database helper for SQL Server.
 ```csharp
 public class OptimizedSqlServerDbHelper : IDbHelper
 {
-        public IEnumerable<DbField> GetFields(IDbConnection connection,
-            string tableName,
-            IDbTransaction transaction = null)
-        {
-                // Implementations for the GetFields() here
-        }
+    public IEnumerable<DbField> GetFields(IDbConnection connection,
+        string tableName,
+        IDbTransaction transaction = null)
+    {
+        // Implementations for the GetFields() here
+    }
 
-        public async Task<IEnumerable<DbField>> GetFieldsAsync(IDbConnection connection,
-            string tableName,
-            IDbTransaction transaction = null)
-        {
-                // Implementations for the GetFieldsAsync() here
-        }
+    public async Task<IEnumerable<DbField>> GetFieldsAsync(IDbConnection connection,
+        string tableName,
+        IDbTransaction transaction = null)
+    {
+        // Implementations for the GetFieldsAsync() here
+    }
 
-        public object GetScopeIdentity(IDbConnection connection,
-            IDbTransaction transaction = null)
-        {
-                // Implementations for the GetScopeIdentity() here
-        }
+    public object GetScopeIdentity(IDbConnection connection,
+        IDbTransaction transaction = null)
+    {
+        // Implementations for the GetScopeIdentity() here
+    }
 
-        public async Task<object> GetScopeIdentityAsync(IDbConnection connection,
-            IDbTransaction transaction = null)
-        {
-                // Implementations for the GetScopeIdentityAsync() here
-        }
+    public async Task<object> GetScopeIdentityAsync(IDbConnection connection,
+        IDbTransaction transaction = null)
+    {
+        // Implementations for the GetScopeIdentityAsync() here
+    }
 }
 ```
 
@@ -58,14 +58,14 @@ First, create the helper methods to extract the schema.
 
 ```csharp
 private string GetSchema(string tableName,
-        IDbSetting dbSetting)
+    IDbSetting dbSetting)
 {
-        if (tableName.IndexOf(dbSetting.SchemaSeparator) > 0)
-        {
-                var splitted = tableName.Split(dbSetting.SchemaSeparator.ToCharArray());
-                return splitted[0].AsUnquoted(true, dbSetting);
-        }
-        return dbSetting.DefaultSchema;
+    if (tableName.IndexOf(dbSetting.SchemaSeparator) > 0)
+    {
+        var splitted = tableName.Split(dbSetting.SchemaSeparator.ToCharArray());
+        return splitted[0].AsUnquoted(true, dbSetting);
+    }
+    return dbSetting.DefaultSchema;
 }
 ```
 
@@ -73,14 +73,14 @@ Then a method to extract the tablename.
 
 ```csharp
 private string GetTableName(string tableName,
-        IDbSetting dbSetting)
+    IDbSetting dbSetting)
 {
-        if (tableName.IndexOf(dbSetting.SchemaSeparator) > 0)
-        {
-                var splitted = tableName.Split(dbSetting.SchemaSeparator.ToCharArray());
-                return splitted[1].AsUnquoted(true, dbSetting);
-        }
-        return tableName.AsUnquoted(true, dbSetting);
+    if (tableName.IndexOf(dbSetting.SchemaSeparator) > 0)
+    {
+        var splitted = tableName.Split(dbSetting.SchemaSeparator.ToCharArray());
+        return splitted[1].AsUnquoted(true, dbSetting);
+    }
+    return tableName.AsUnquoted(true, dbSetting);
 }
 ```
 
@@ -89,45 +89,45 @@ Then a method that returns a SQL text.
 ```csharp
 private string GetCommandText()
 {
-        return @"
-                SELECT C.COLUMN_NAME AS ColumnName
-                        , CONVERT(BIT, COALESCE(TC.is_primary, 0)) AS IsPrimary
-                        , CONVERT(BIT, COALESCE(TMP.is_identity, 1)) AS IsIdentity
-                        , CONVERT(BIT, COALESCE(TMP.is_nullable, 1)) AS IsNullable
-                        , C.DATA_TYPE AS DataType
-                        , CONVERT(INT, COALESCE(TMP.max_length, 1)) AS Size
-                        , CONVERT(TINYINT, COALESCE(TMP.precision, 1)) AS Precision
-                        , CONVERT(TINYINT, COALESCE(TMP.scale, 1)) AS Scale
-                FROM INFORMATION_SCHEMA.COLUMNS C
-                OUTER APPLY
-                (
-                        SELECT 1 AS is_primary
-                        FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU
-                        LEFT JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS TC
-                                ON TC.TABLE_SCHEMA = C.TABLE_SCHEMA
-                                AND TC.TABLE_NAME = C.TABLE_NAME
-                                AND TC.CONSTRAINT_NAME = KCU.CONSTRAINT_NAME
-                        WHERE KCU.TABLE_SCHEMA = C.TABLE_SCHEMA
-                                AND KCU.TABLE_NAME = C.TABLE_NAME
-                                AND KCU.COLUMN_NAME = C.COLUMN_NAME
-                                AND TC.CONSTRAINT_TYPE = 'PRIMARY KEY'
-                ) TC 
-                OUTER APPLY
-                (
-                        SELECT SC.name
-                                , SC.is_identity
-                                , SC.is_nullable
-                                , SC.max_length
-                                , SC.scale
-                                , SC.precision
-                        FROM [sys].[columns] SC
-                        INNER JOIN [sys].[tables] ST ON ST.object_id = SC.object_id
-                        WHERE SC.name = C.COLUMN_NAME
-                                AND ST.name = C.TABLE_NAME
-                ) TMP
-                WHERE
-                        C.TABLE_SCHEMA = @Schema
-                        AND C.TABLE_NAME = @TableName;";
+    return @"
+        SELECT C.COLUMN_NAME AS ColumnName
+            , CONVERT(BIT, COALESCE(TC.is_primary, 0)) AS IsPrimary
+            , CONVERT(BIT, COALESCE(TMP.is_identity, 1)) AS IsIdentity
+            , CONVERT(BIT, COALESCE(TMP.is_nullable, 1)) AS IsNullable
+            , C.DATA_TYPE AS DataType
+            , CONVERT(INT, COALESCE(TMP.max_length, 1)) AS Size
+            , CONVERT(TINYINT, COALESCE(TMP.precision, 1)) AS Precision
+            , CONVERT(TINYINT, COALESCE(TMP.scale, 1)) AS Scale
+        FROM INFORMATION_SCHEMA.COLUMNS C
+        OUTER APPLY
+        (
+            SELECT 1 AS is_primary
+            FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU
+            LEFT JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS TC
+                ON TC.TABLE_SCHEMA = C.TABLE_SCHEMA
+                AND TC.TABLE_NAME = C.TABLE_NAME
+                AND TC.CONSTRAINT_NAME = KCU.CONSTRAINT_NAME
+            WHERE KCU.TABLE_SCHEMA = C.TABLE_SCHEMA
+                AND KCU.TABLE_NAME = C.TABLE_NAME
+                AND KCU.COLUMN_NAME = C.COLUMN_NAME
+                AND TC.CONSTRAINT_TYPE = 'PRIMARY KEY'
+        ) TC 
+        OUTER APPLY
+        (
+            SELECT SC.name
+                , SC.is_identity
+                , SC.is_nullable
+                , SC.max_length
+                , SC.scale
+                , SC.precision
+            FROM [sys].[columns] SC
+            INNER JOIN [sys].[tables] ST ON ST.object_id = SC.object_id
+            WHERE SC.name = C.COLUMN_NAME
+                AND ST.name = C.TABLE_NAME
+        ) TMP
+        WHERE
+            C.TABLE_SCHEMA = @Schema
+            AND C.TABLE_NAME = @TableName;";
 }
 ```
 
@@ -136,7 +136,7 @@ Then a method that converts the instance of the `DbDataReader` into a [DbField](
 ```csharp
 private DbField ReaderToDbField(IDataReader reader)
 {
-        return new DbField(reader.GetString(0),
+    return new DbField(reader.GetString(0),
         reader.IsDBNull(1) ? false : reader.GetBoolean(1),
         reader.IsDBNull(2) ? false : reader.GetBoolean(2),
         reader.IsDBNull(3) ? false : reader.GetBoolean(3),
@@ -149,7 +149,7 @@ private DbField ReaderToDbField(IDataReader reader)
 
 private int? GetConvertedSize(string type, int size)
 {
-        return (size == -1) ? 8000 : size;
+    return (size == -1) ? 8000 : size;
 }
 ```
 
@@ -157,26 +157,26 @@ Lastly, call everything on within the `GetFields()` method.
 
 ```csharp
 public IEnumerable<DbField> GetFields(IDbConnection connection,
-        string tableName,
-        IDbTransaction transaction = null)
+    string tableName,
+    IDbTransaction transaction = null)
 {
-        var commandText = GetCommandText();
-        var setting = connection.GetDbSetting();
-        var param = new
-        {
-                Schema = GetSchema(tableName, setting),
-                TableName = GetTableName(tableName, setting)
-        };
+    var commandText = GetCommandText();
+    var setting = connection.GetDbSetting();
+    var param = new
+    {
+        Schema = GetSchema(tableName, setting),
+        TableName = GetTableName(tableName, setting)
+    };
 
-        using (var reader = connection.ExecuteReader(commandText, param, transaction: transaction))
+    using (var reader = connection.ExecuteReader(commandText, param, transaction: transaction))
+    {
+        var dbFields = new List<DbField>();
+        while (reader.Read())
         {
-                var dbFields = new List<DbField>();
-                while (reader.Read())
-                {
-                        dbFields.Add(ReaderToDbField(reader));
-                }
-                return dbFields;
+            dbFields.Add(ReaderToDbField(reader));
         }
+        return dbFields;
+    }
 }
 ```
 
@@ -188,9 +188,9 @@ Simply call the `SCOPE_IDENTITY` and `@@IDENTITY` function of SQL Server.
 
 ```csharp
 public object GetScopeIdentity(IDbConnection connection,
-        IDbTransaction transaction = null)
+    IDbTransaction transaction = null)
 {
-        return connection.ExecuteScalar("SELECT COALESCE(SCOPE_IDENTITY(), @@IDENTITY);");
+    return connection.ExecuteScalar("SELECT COALESCE(SCOPE_IDENTITY(), @@IDENTITY);");
 }
 ```
 
@@ -203,3 +203,22 @@ DbHelperMapper.Add(typeof(SqlConnection), new OptimizedSqlServerDbHelper(), true
 ```
 
 The library will then use your customized database helper when you are calling the extended [methods](/docs#methods) of the `SqlConnection` object.
+
+#### How to Retrieve?
+
+You can use the [DbHelperMapper](/mapper/dbhelpermapper) to get the database helper by connection type.
+
+```csharp
+var helper = DbHelperMapper.Get<SqlConnection>();
+// Use the 'helper' here
+```
+
+Or, you can use the `GetDbHelper()` extended method.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var helper = connection.GetDbHelper();
+    // Use the 'helper' here
+}
+```
