@@ -7,21 +7,17 @@ tags: [repodb, class, databasesetting, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 ## Database Setting
 
-A database setting is an object that contains the information that are specific to a single RDBMS data providers.
+A database setting is an object that contains the information that are specific to a single RDBMS data providers. It holds the information of the following.
 
-It holds the information about:
-
-- A setting whether to support the hints.
-- A character for closing and opening quotation.
+- A character for closing quotation, opening quotation, parameter prefix and schema separator.
 - A type that is used for averaging.
 - A database schema.
+- A setting whether to support the hints.
+- A setting whether to use upsert over merge.
 - A setting whether the command direction can be set.
 - A setting whether the data reader must be disposed after the reader execution.
 - A setting whether the multiple-statement execution is supported.
 - A setting whether the command executions are preparable.
-- A setting whether to use upsert over merge.
-- A character for parameter prefix.
-- A character for schema separator.
 
 #### Getting Started
 
@@ -38,7 +34,7 @@ Then, in the constructor, set the values of every property.
 
 ```csharp
 public MyCustomSqlServerDbSetting()
-        : base()
+    : base()
 {
     AreTableHintsSupported = true;
     AverageableType = typeof(double);
