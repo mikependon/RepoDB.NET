@@ -36,12 +36,12 @@ Before we proceed, we will create a table and a class model.
 #### Create a Table
 
 ```csharp
-CREATE TABLE IF NOT EXISTS \"Person\"
+CREATE TABLE IF NOT EXISTS "Person"
 (
-	\"Id\" bigint(20) NOT NULL AUTO_INCREMENT,
-	\"Name\" text,
-	\"Age\" int(11) DEFAULT NULL,
-	\"CreatedDateUtc\" datetime DEFAULT NULL
+	"Id" bigint(20) NOT NULL AUTO_INCREMENT,
+	"Name" text,
+	"Age" int(11) DEFAULT NULL,
+	"CreatedDateUtc" datetime DEFAULT NULL
 );
 ```
 

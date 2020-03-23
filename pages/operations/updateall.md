@@ -48,7 +48,7 @@ The execution is ACID as the transaction object will be created if not given.
 
 #### Learnings
 
-> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and C# as the programming language.
+> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
 Let us you have a method that returns a list of *Person* models.
 

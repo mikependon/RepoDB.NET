@@ -47,7 +47,7 @@ RepoDb.SqlServerBootstrap.Initialize();
 
 #### Learnings
 
-> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and C# as the programming language.
+> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
 Let us say you are retrieving all inactive people from the database.
 

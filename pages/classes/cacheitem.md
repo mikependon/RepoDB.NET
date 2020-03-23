@@ -9,7 +9,7 @@ tags: [repodb, class, cacheitem, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 A class that is used to define an item for a cache. It is usually used when defining a [ICache](/interface/icache) object.
 
-> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and C# as the programming language.
+> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
 ##### Creating New Instance
 

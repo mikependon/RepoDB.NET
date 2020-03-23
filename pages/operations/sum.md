@@ -36,7 +36,7 @@ Or visit our [installation](/tutorials/installation) page for more information.
 
 #### Learnings
 
-> In this tutorial, we will use the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) as the database and C# as the programming language.
+> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
 Below is a sample code that gets the summation value of column *Value* from the *[dbo].[Sales]* table for a specific customer since yesterday.
 
