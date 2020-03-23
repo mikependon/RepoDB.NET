@@ -31,7 +31,7 @@ Below are the properties available from this interface.
 You have to manually create a class that implements this interface.
 
 ```csharp
-public class CustomSqlServerDbSetting : IDbSetting
+public class MyCustomSqlServerDbSetting : IDbSetting
 {
         public bool AreTableHintsSupported { get; set; } = true;
         public string ClosingQuote { get; set; } = "]";

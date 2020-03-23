@@ -26,7 +26,7 @@ You should use this class if you would like to override the default mapping of t
 To add a mapping, simply call the `Add` method.
 
 ```csharp
-DbSettingMapper.Add(typeof(SqlConnection), new OptimizedSqlServerDbSetting(), true);
+DbSettingMapper.Add(typeof(SqlConnection), new MyCustomSqlServerDbSetting(), true);
 ```
 
 > An exception will be be thrown if the mapping is already exists and you passed a `FALSE` value in the `override` argument.
