@@ -189,3 +189,28 @@ using (var repository = new DatabaseRepository(new AppSettings()))
 ```
 
 > Please consider to only create a single trace object within the application and have it passed as a Singleton object in any operations or reporitories.
+
+As a recommendation, create a factory class that returns the trace.
+
+```csharp
+public static CacheFactory
+{
+    private static object m_syncLock = new object();
+    private static ITrace m_trace = null;
+    
+    public static ITrace CreateCacher()
+    {
+        if (m_trace == null)
+        {
+            lock (m_syncLock)
+            {
+                if (m_trace == null)
+                {
+                    m_trace = new MyCustomTrace();
+                }
+            }
+        }
+        return m_trace;
+    }
+}
+```
