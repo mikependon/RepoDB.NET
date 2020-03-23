@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Releases for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) Bulk (RepoDb)
+title: Releases for SQL Server Bulk (RepoDb)
 permalink: /releases/sqlserverbulk
 ---
 

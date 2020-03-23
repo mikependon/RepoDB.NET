@@ -17,11 +17,11 @@ We are glad and would like to thank you for your interest in learning RepoDb. We
 
 ## Getting Started
 
-RepoDb is a hybrid-ORM library for .NET. You can use the library to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) Relational Database Management Systems (RDBMS).
+RepoDb is a hybrid-ORM library for .NET. You can use the library to work with SQL Server, [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) Relational Database Management Systems (RDBMS).
 
 The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
-This tutorial page is only meant for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer). If you wish to learn the other data providers, please click any of the link below.
+This tutorial page is only meant for SQL Server. If you wish to learn the other data providers, please click any of the link below.
 
 - [Getting Started for SqLite](/tutorials/getting-started-sqlite)
 - [Getting Started for MySql](/tutorials/getting-started-mysql)
@@ -51,7 +51,7 @@ In your Package Manager Console, simply type the codes below.
 
 #### Pre-Requisites
 
-We assume that you already have created a test database from your [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) and also a C# project.
+We assume that you already have created a test database from your SQL Server and also a C# project.
 
 Before we proceed, we will create a table and a class model.
 

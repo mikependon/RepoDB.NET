@@ -139,7 +139,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Executing a StoredProcedure
 
-The calls to execute a stored procedure is by simply calling the `EXEC` command of the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer). It can be combined together with other raw-SQL statements.
+The calls to execute a stored procedure is by simply calling the `EXEC` command of the SQL Server. It can be combined together with other raw-SQL statements.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

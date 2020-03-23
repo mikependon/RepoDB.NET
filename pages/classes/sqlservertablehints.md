@@ -7,7 +7,7 @@ tags: [repodb, class, sqlservertablehints, orm, hybrid-orm, sqlserver, sqlite, m
 
 ## SqlServerTableHints
 
-This class contains the list of table hints that is useful for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer). The hints were taken from the official Microsoft page.
+This class contains the list of table hints that is useful for SQL Server. The hints were taken from the official Microsoft page.
 
 It is usually used as passing parameter to the `hints` argument of most operations.
 

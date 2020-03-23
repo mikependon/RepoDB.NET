@@ -9,7 +9,7 @@ tags: [repodb, class, microsoftsqlservertypemap, orm, hybrid-orm, sqlserver, sql
 
 This attribute is used to map a property into its equivalent type from the database (via `System.Data.SqlDbType`).
 
-It only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) and if you are using the `Microsoft.Data.SqlClient` namespace.
+It only supports the SQL Server and if you are using the `Microsoft.Data.SqlClient` namespace.
 
 > This attribute is setting the value of the `SqlParameter.SqlDbType` property before the actual execution.
 
