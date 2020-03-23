@@ -8,10 +8,6 @@ permalink: /usecases
 
 This page contains all the collective real-world scenarios that RepoDb can solve easily. Initial contents were the actual use-cases the author has encountered all throughout the years of experience working with big data.
 
-This page is open to everyone for contribution.
-
-> Usually, the scenario placed here are the one that could not be solved easily by other ORM.
-
 #### Author
 
 - [Adding a hints to improve query performance]()
@@ -41,6 +37,6 @@ This page is open to everyone for contribution.
 
 #### Community
 
-- You can place your scenario here. The author will then create an article for that. Simply make a PR [here](https://github.com/mikependon/RepoDb.NET/blob/master/pages/use-cases.md).
+- You can place your scenario here. The author will then create an article for that. Simply make a PR [here](https://github.com/mikependon/RepoDb.NET/blob/master/pages/usecases.md).
 
 > Further scenarios will be placed over on this page once they are all explored. Everyone can also place their scenario so the author can actually right the recommended approach to solve that scenario.
