@@ -193,12 +193,12 @@ using (var repository = new DatabaseRepository(new AppSettings()))
 As a recommendation, create a factory class that returns the trace.
 
 ```csharp
-public static CacheFactory
+public static TraceFactory
 {
     private static object m_syncLock = new object();
     private static ITrace m_trace = null;
     
-    public static ITrace CreateCacher()
+    public static ITrace CreateTracer()
     {
         if (m_trace == null)
         {
