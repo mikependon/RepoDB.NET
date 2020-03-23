@@ -106,22 +106,24 @@ nav.header {
  * Home
  */
 .banner-section {
-    /*background-color: #2DAAA6;*/
-    background-color: #FAFAFA;
+    background-color: #2DAAA6;
+    /*background-color: #FAFAFA;
     background-image: url('/assets/backgrounds/banner.png');
-    border-bottom: 1px solid #E7E7E7;
+    border-bottom: 1px solid #E7E7E7;*/
 }
 .icon-section {
     border-bottom: 1px solid #D7D7D7;
 }
 .main-section .title {
-    color: rgb(82, 82, 82);
+    color: #FFFFFF; // rgb(82, 82, 82);
     font-size: 500%;
     font-weight: lighter;
     margin-bottom: 10px;
     /*text-shadow: 1px 1px 3px rgb(190, 190, 190);*/
+    text-shadow: 0px -1px rgb(20, 116, 112);
 }
 .main-section .description {
+    color: #FFFFFF;
     font-size: 150%;
     font-weight: lighter;
 }
