@@ -7,7 +7,7 @@ tags: [repodb, class, idbsetting, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 ## IDbSetting
 
-This is an interface that is used to mark a class to be a database setting object. It allows you to control the behavior of the library on a specific RDBMS data provider based on the value you provided on the properties this class.
+This interface is used to mark a class to be a database setting object. It allows you to control the behavior of the library on a specific RDBMS data provider based on the value you provided on the properties this class.
 
 #### Properties
 

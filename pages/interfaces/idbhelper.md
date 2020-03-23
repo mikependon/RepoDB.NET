@@ -7,7 +7,7 @@ tags: [repodb, class, idbhelper, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 ## IDbHelper
 
-This is an interface used to mark a class be a helper class on some database related activity. This interface is very useful if you as a developer is planning to optimize the default implementation of the library when it comes to retrieving the list of fields and newly generated identity.
+This interface is used to mark a class be a helper class on some database related activity. This interface is very useful if you as a developer is planning to optimize the default implementation of the library when it comes to retrieving the list of fields and newly generated identity.
 
 > The interface can be mapped via `DbConnection` type.
 

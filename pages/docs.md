@@ -178,7 +178,7 @@ Below are the list of mappers that you can leverage.
 
 Below are the list of objects that are useful to support other data provider.
 
-- [Database Helper](/extensibility/databasehelper) - in progress
+- [Database Helper](/extensibility/databasehelper)
 - [Database Setting](/extensibility/databasesetting) - in progress
 - [Statement Builder](/extensibility/statementbuilder) - in progress
 
