@@ -180,6 +180,7 @@ Below are the list of objects that are useful to support other data provider.
 
 - [Database Helper](/extensibility/databasehelper)
 - [Database Setting](/extensibility/databasesetting)
-- [Statement Builder](/extensibility/statementbuilder) - in progress
+- [Folder Structuring](/extensibility/folderstructuring)
+- [Statement Builder](/extensibility/statementbuilder)
 
 
