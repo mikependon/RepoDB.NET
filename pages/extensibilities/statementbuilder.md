@@ -43,7 +43,7 @@ You have to call the `base()` method on the constructor by passing the following
 
 - [Database Setting](/extensibility/databasesetting) - the actual database settings to be used.
 - [Convert Field Resolver](/extensibility/convertfieldresolver) - a resolver that is being used by the library as an equivalent calls to `CONVERT` keyword.
-- [Average Type Resolver](/extensibility/averagetyperesolver) - a resolver that is being used to define which type of .NET CLR type the library is going to be used when calling the [Average](/operation/average) operation.
+- [Average Type Resolver](/extensibility/averagetyperesolver) - a resolver that is being used to define which type of .NET CLR type the library is going to be used when calling the [Average](/operation/average) and [AverageAll](/operation/averageall) operations.
 
 #### Implementing the Abstract Methods
 
