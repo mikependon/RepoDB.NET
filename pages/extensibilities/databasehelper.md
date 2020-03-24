@@ -11,6 +11,15 @@ A database helper is an object that is used by the library as a helper class for
 
 You have use the [IDbHelper](/interface/idbhelper) interface as the contract for the implementation and [DbHelperMapper](/mapper/dbhelpermapper) class for the mapping.
 
+#### Pre-requisites
+
+- The naming must be "Desired Name" + "DbHelper" (ie: SqlServerDbHelper).
+- The implementation must be internal.
+- The namespace must be "RepoDb".
+- The class must be residing inside the "DbHelpers" folder.
+
+> Please see the [folder structuring](/extensibility/folderstructuring) page.
+
 #### Getting Started
 
 First, you have to manually create a class that implements the [IDbHelper](/interface/idbhelper) interface.

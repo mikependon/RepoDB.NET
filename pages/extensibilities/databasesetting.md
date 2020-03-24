@@ -19,6 +19,15 @@ A database setting is an object that contains the information that are specific 
 - A setting whether the multiple-statement execution is supported.
 - A setting whether the command executions are preparable.
 
+#### Pre-requisites
+
+- The naming must be "Desired Name" + "DbSetting" (ie: SqlServerDbSetting).
+- The implementation must be internal.
+- The namespace must be "RepoDb".
+- The class must be residing inside the "DbSettings" folder.
+
+> Please see the [folder structuring](/extensibility/folderstructuring) page.
+
 #### Getting Started
 
 You have to implement the class that inherits the [BaseDbSetting](/class/basedbsetting) class.
