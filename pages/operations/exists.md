@@ -67,7 +67,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the *Query Object* to enhance the expression.
+Or, you can use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) to enhance the expression.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

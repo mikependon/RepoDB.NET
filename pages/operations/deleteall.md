@@ -59,7 +59,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Targetting a Table
 
-You can also target a specific table by passing the literal table and field name like below.
+You can also target a specific table by passing the literal table name like below.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
