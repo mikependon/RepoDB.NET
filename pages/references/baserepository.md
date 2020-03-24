@@ -48,7 +48,7 @@ public static CacheFactory
 }
 ```
 
-Or, please refer to [Cache](/reference/cache) page.
+Or, please refer to [ICache](/interface/icache) interface.
 
 #### Trace Creation
 
@@ -77,11 +77,18 @@ public static TraceFactory
 }
 ```
 
-Or, please refer to [Trace](/reference/trace) page.
+Or, please refer to [ITrace](/interface/itrace) interface.
 
-#### IOptions (Settings Object)
+#### IOptions Class (Settings Object)
 
 This must be injected in the constructor of the repository. Please refer to Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+
+```csharp
+public class AppSetting
+{
+    public string ConnectionString { get; set; }
+}
+```
 
 #### Repository Creation
 
