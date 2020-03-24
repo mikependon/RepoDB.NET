@@ -150,7 +150,7 @@ public class MyCustomTrace : ITrace
 First, as a recommendation, create a factory class that returns the trace.
 
 ```csharp
-public static TraceFactory
+public static class TraceFactory
 {
     private static object m_syncLock = new object();
     private static ITrace m_trace = null;

@@ -26,7 +26,7 @@ This page contains the reference implementation when implementing a repository t
 This must be passed in the constructor of the repository.
 
 ```csharp
-public static CacheFactory
+public static class CacheFactory
 {
     private static object m_syncLock = new object();
     private static ICache m_cache = null;
@@ -55,7 +55,7 @@ Or, please refer to [ICache](/interface/icache) interface.
 This must be passed in the constructor of the repository.
 
 ```csharp
-public static TraceFactory
+public static class TraceFactory
 {
     private static object m_syncLock = new object();
     private static ITrace m_trace = null;
