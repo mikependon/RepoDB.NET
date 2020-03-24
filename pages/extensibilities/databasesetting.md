@@ -23,7 +23,7 @@ A database setting is an object that contains the information that are specific 
 
 - The naming must be "Desired Name" + "DbSetting" (ie: SqlServerDbSetting).
 - The implementation must be internal.
-- The namespace must be "RepoDb".
+- The namespace must be "RepoDb.DbSettings".
 - The class must be residing inside the "DbSettings" folder.
 
 > Please see the [folder structuring](/extensibility/folderstructuring) page.

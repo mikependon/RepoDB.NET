@@ -19,7 +19,7 @@ You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class wh
 
 - The naming to this object must be "Desired Name" + "StatementBuiler" (ie: SqlServerStatementBuiler).
 - The implementation must be internal.
-- The namespace must be "RepoDb".
+- The namespace must be "RepoDb.StatementBuilders".
 - The class must be residing inside the "StatementBuilders" folder.
 
 > Please see the [folder structuring](/extensibility/folderstructuring) page.
