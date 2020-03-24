@@ -147,50 +147,7 @@ public class MyCustomTrace : ITrace
 
 #### How to Use?
 
-You can pass it in any extended [fluent methods](/docs#fluent-methods) of the `DbConnection` object.
-
-```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-        var person = connection.Query<Person>(p => p.Id == 10045, trace: new MyCustomTrace()).FirstOrDefault();
-}
-```
-
-Or by passing it on the constructor of the [BaseRepository](/class/baserepository) object.
-
-```csharp
-public class PersonRepository : BaseRepository<Person, SqlConnection>
-{
-        public PersonRepository(ISettings settings)
-                : base(settings.ConnectionString, new MyCustomTrace())
-        { }
-}
-
-using (var repository = new PersonRepository(new AppSettings()))
-{
-        var person = repository.Query(p => p.Id == 10045).FirstOrDefault();
-}
-```
-
-Or even to the constructor of [DbRepository](/class/dbrepository) object.
-
-```csharp
-public class DatabaseRepository : DbRepository<SqlConnection>
-{
-        public DatabaseRepository(ISettings settings)
-                : base(settings.ConnectionString, new MyCustomTrace())
-        { }
-}
-
-using (var repository = new DatabaseRepository(new AppSettings()))
-{
-        var person = repository.Query<Person>(p => p.Id == 10045).FirstOrDefault();
-}
-```
-
-> Please consider to only create a single trace object within the application and have it passed as a Singleton object in any operations or reporitories.
-
-As a recommendation, create a factory class that returns the trace.
+First, as a recommendation, create a factory class that returns the trace.
 
 ```csharp
 public static TraceFactory
@@ -214,3 +171,46 @@ public static TraceFactory
     }
 }
 ```
+
+You can pass it in any extended [fluent methods](/docs#fluent-methods) of the `DbConnection` object.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+        var person = connection.Query<Person>(p => p.Id == 10045, trace: TraceFactory.CreateTracer()).FirstOrDefault();
+}
+```
+
+Or by passing it on the constructor of the [BaseRepository](/class/baserepository) object.
+
+```csharp
+public class PersonRepository : BaseRepository<Person, SqlConnection>
+{
+        public PersonRepository(ISettings settings)
+                : base(settings.ConnectionString, TraceFactory.CreateTracer())
+        { }
+}
+
+using (var repository = new PersonRepository(new AppSettings()))
+{
+        var person = repository.Query(p => p.Id == 10045).FirstOrDefault();
+}
+```
+
+Or even to the constructor of [DbRepository](/class/dbrepository) object.
+
+```csharp
+public class DatabaseRepository : DbRepository<SqlConnection>
+{
+        public DatabaseRepository(ISettings settings)
+                : base(settings.ConnectionString, TraceFactory.CreateTracer())
+        { }
+}
+
+using (var repository = new DatabaseRepository(new AppSettings()))
+{
+        var person = repository.Query<Person>(p => p.Id == 10045).FirstOrDefault();
+}
+```
+
+> Always consider to only create a single trace object within the application and have it passed as a Singleton object in any operations or reporitories. This is the reason why we had created the factory class above.

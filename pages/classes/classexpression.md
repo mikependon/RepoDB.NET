@@ -7,13 +7,13 @@ tags: [repodb, class, classexpression, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 ## ClassExpression
 
-This is a helper class used for extracting class object via `Linq.Expressions`. The operations residing on this class are all pre-compiled operations.
+This is a helper class used for extracting class objects via `Linq.Expressions`. The operations residing on this class are all pre-compiled operations.
 
 ##### GetEntitiesPropertyValues
 
 This method is used to get the data entities property values. The result is an array of generic type `TResult`.
 
-Let us say you have an array of model `Person`, the the code below would extract all the values of the `Id` property.
+Let us say you have an array of model `Person`, then the code below would extract all the values of the `Id` property.
 
 ```csharp
 var people = GetPeople(); // As a given variable

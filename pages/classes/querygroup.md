@@ -240,7 +240,7 @@ The supposed generated SQL text will be below.
 > WHERE (FirstName = @FirstName AND FirstName = @FirstName AND FirstName = @FirstName);
 ```
 
-The SQL Statement may not caused any problem when it comes to execution, but that is wrong when it comes to parameter-passing.
+The SQL statement may not caused any problem when it comes to execution, but that is wrong when it comes to parameter-passing.
 
 By calling the `Fix()` method, this collision will be fixed along the way.
 
@@ -256,7 +256,7 @@ And the SQL statement will be generated as below.
 
 #### The GetString Method
 
-This method is used to get the string representation of the QueryGroup object into a SQL Statement. This is used internally by the library during the creation of the SQL statements.
+This method is used to get the string representation of the QueryGroup object into a SQL statement. This is used internally by the library during the creation of the SQL statements.
 
 ```csharp
 var where = new[]

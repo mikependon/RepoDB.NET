@@ -30,7 +30,7 @@ This page contains all the collective real-world scenarios that RepoDb can solve
 - [Replicating million of rows]()
 - [Retrieving a parent and its children]()
 - [Solving the DateTime precision issue]()
-- [Tracing your generated SQL Statements]()
+- [Tracing your generated SQL statements]()
 - [Updating multiple rows with high-performance]()
 - [Updating specific columns]()
 - [When to use Batch and Bulk operations?]()

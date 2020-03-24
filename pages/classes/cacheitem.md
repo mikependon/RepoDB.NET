@@ -7,11 +7,13 @@ tags: [repodb, class, cacheitem, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 ## CacheItem
 
-A class that is used to define an item for a cache. It is usually used when defining a [ICache](/interface/icache) object.
+This class is used as an item for the [ICache](/interface/icache) object.
 
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
 ##### Creating New Instance
+
+Below is the way on how to create a new instance of this class.
 
 ```csharp
 var expirationInMinutes = 180;
@@ -47,5 +49,5 @@ Let us say, the repository `PersonRepository` is existing.
 var item = repository.Cache.Get("CacheKey:ActivePeople");
 ```
 
-> If the cache is not found on the given key, by default it will thrown an exception. You can set the `throwException` argument to `false` to let it not throw an exception.
+> If the cache is not found on the given key, by default it will throw an exception. You can set the `throwException` argument to `false` if you wish not to throw an exception.
 

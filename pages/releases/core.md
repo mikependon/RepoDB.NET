@@ -10,7 +10,7 @@ permalink: /releases/core
 
 - Features: Full support to Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 - Enhancement: `AsFieldsAsAliasFields` - added left and right aliases.
-- Enhancement: XML Documentation updates for the SQL Statement Builders.
+- Enhancement: XML Documentation updates for the SQL statement Builders.
 - Enhancement: Add a Type extended method named IsNullable.
 - Bug: Solve the intermittent `NullReferenceException` when calling the Batch Operations (ie: [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall)). [#392](https://github.com/mikependon/RepoDb/issues/392)
 - Bug: The property handlers mapped via `PropertyTypeHandlerMapper` is failing if both `NULLABLE` and `NON-NULLABLE` property types are present in the class. [#394](https://github.com/mikependon/RepoDb/issues/394)
@@ -20,7 +20,7 @@ permalink: /releases/core
 
 - Full support to Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 - `AsFieldsAsAliasFields` - added left and right aliases.
-- XML Documentation updates for the SQL Statement Builders.
+- XML Documentation updates for the SQL statement Builders.
 
 
 #### RepoDb (v1.10.9)
@@ -513,7 +513,7 @@ permalink: /releases/core
 
 - Added: A class named `AsyncResultExtractor` to control the extraction of the result in the caller side for all `Async` methods of the ``BaseRepository`/DbRepository`.
 - Added: A class named `QueryMultipleRequest` to handle the request when calling the `QueryMultiple` operation.
-- Added: A class named `CommandArrayParameter` to hold the array parameters for Raw SQL Statements.
+- Added: A class named `CommandArrayParameter` to hold the array parameters for Raw SQL statements.
 - Added: A method named `Reset` for both `QueryField` and `QueryGroup` objects  allow the user to reinstate the instance of that object.
 - Added: An operation named [BulkInsert](/operation/bulkinsert) at  `DbRepository` with `DbDataReader` as the parameter.
 - Added: An argument named `hints` for both the `BatchQuery` and `Count` operation.
@@ -781,7 +781,7 @@ permalink: /releases/core
 - Optimized the DbRepository to use the IDbConnection Extended Operational Methods.
 - Removes the DbRepository property at `BaseRepository` class.
 - Made the DbRepository and `BaseRepository` Disposable.
-- Introduced quoting on Fields and Tables when composing SQL Statements (via SqlDbStatementBuilder).
+- Introduced quoting on Fields and Tables when composing SQL statements (via SqlDbStatementBuilder).
 - Documented the ConnectionPersistency, [DeleteAll](/operation/deleteall), InlineInsert, InlineMerge, InlineUpdate and Truncate operations.
 
 

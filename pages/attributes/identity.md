@@ -43,9 +43,9 @@ public class Person
 
 > By setting this attribute to any class property, you had overriden the auto-identification logic of the library. If you place this attribute in a property that is not really an identity from the database, then the library will use that property instead. By doing so, it may fail some of the operations.
 
-#### Extracting the Identity Propety
+#### How to Retrieve?
 
-To extract the identity, you can use the [IdentityCache](/cacher/identitycache) object.
+To retrieve the identity property, you can use the [IdentityCache](/cacher/identitycache) object.
 
 ```csharp
 var identity = IdentityCache.Get<Person>();

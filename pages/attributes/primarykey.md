@@ -43,9 +43,9 @@ public class Person
 
 > By setting this attribute to any class property, you had overriden the auto-identification logic of the library. If you place this attribute in a property that is not really a primary from the database, then the library will use that property instead. By doing so, it may fail some of the operations.
 
-#### Extracting the Primary Propety
+#### How to Retrieve?
 
-To extract the primary, you can use the [PrimaryCache](/cacher/primarycache) object.
+To retrieve the primary property, you can use the [PrimaryCache](/cacher/primarycache) object.
 
 ```csharp
 var primary = PrimaryCache.Get<Person>();

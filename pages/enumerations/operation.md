@@ -17,12 +17,12 @@ This enum is used to set the value of the `Operation` property of [QueryField](/
 - GreaterThan - a greater-than operation.
 - LessThanOrEqual - a less-than-or-equal operation.
 - GreaterThanOrEqual - a greater-than-or-equal operation.
-- Like - a like operation. Defines the `LIKE` keyword in SQL Statement.
-- NotLike - a not-like operation. Defines the `NOT LIKE` keyword in SQL Statement.
-- Between - a between operation. Defines the `BETWEEN` keyword in SQL Statement.
-- NotBetween - a not-between operation. Defines the `NOT BETWEEN` keyword in SQL Statement.
-- In - an in operation. Defines the `IN` keyword in SQL Statement.
-- NotIn - a not-in operation. Defines the `NOT IN` keyword in SQL Statement.
+- Like - a like operation. Defines the `LIKE` keyword in SQL statement.
+- NotLike - a not-like operation. Defines the `NOT LIKE` keyword in SQL statement.
+- Between - a between operation. Defines the `BETWEEN` keyword in SQL statement.
+- NotBetween - a not-between operation. Defines the `NOT BETWEEN` keyword in SQL statement.
+- In - an in operation. Defines the `IN` keyword in SQL statement.
+- NotIn - a not-in operation. Defines the `NOT IN` keyword in SQL statement.
 
 #### How to Use?
 

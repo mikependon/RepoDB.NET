@@ -7,9 +7,7 @@ tags: [repodb, class, cancellabletracelog, orm, hybrid-orm, sqlserver, sqlite, m
 
 ## CancellableTraceLog
 
-A trace-logging class that is used to cancel the existing operation. It is usually used in all *Before* methods within the [ITrace](/interface/itrace) object.
-
-It has derived from [TraceLog](/class/tracelog) class.
+A trace-logging class that is used to cancel the existing operation. It is used in all *Before* methods of the [ITrace](/interface/itrace) object. It derives from [TraceLog](/class/tracelog) class.
 
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
@@ -20,7 +18,7 @@ It has derived from [TraceLog](/class/tracelog) class.
 
 ##### Methods
 
-- Cancel - is used to cancel the acutal operation. It accepts the `throwException` argument to define whether an exception will be thrown back to the operation during cancellation.
+- Cancel - is used to cancel the actual operation. It accepts the `throwException` argument to define whether an exception will be thrown back to the operation during cancellation.
 
 ##### Learnings
 

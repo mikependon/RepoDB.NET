@@ -20,7 +20,7 @@ You should use this class if you wish to work with table-specific operations.
 Let us say you have a table named `[dbo].[Person]` and a class named `Person`. Then, you can implement the repository with complete methods like below.
 
 ```csharp
-public class PersonRepository : BaseRepository<Person, SqlConnection>,
+public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
     public PersonRepository(ISettings settings)
         : base(settings.ConnectionString)
@@ -120,7 +120,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-> Do not use the repository directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
+> Do not use the repository class directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
 
 #### Connection Persistency
 

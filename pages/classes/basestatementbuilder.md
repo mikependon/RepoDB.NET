@@ -19,7 +19,7 @@ This class has virtual methods pre-implemented with the defined logics. It is th
 
 The reason to have these virtual methods are the commonality of most RDBMS data providers (ie: the SQL Server and [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) almost have the same way of SQL generation).
 
-Below are the list of virtual methods.
+###### Below are the list of virtual methods.
 
 - CreateAverage
 - CreateAverageAll
@@ -46,7 +46,7 @@ This class has some abstract methods that is required to be implemented in the d
 
 The reason to have these abstract methods are the implementation-difference between different RDBMS data providers (ie: the SQL Server is using `MERGE` keyword for merging whereas the [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) is using `INSERT OR REPLACE`).
 
-Below are the list of abstract methods.
+###### Below are the list of abstract methods.
 
 - CreateBatchQuery
 - CreateMerge
@@ -57,7 +57,7 @@ Below are the list of abstract methods.
 Simply create a class that inherits this class.
 
 ```csharp
-public sealed class MyCustomSqlServerStatementBuilder : BaseStatementBuilder
+public sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 {
     ...
 }
@@ -66,7 +66,7 @@ public sealed class MyCustomSqlServerStatementBuilder : BaseStatementBuilder
 Then override the abstract methods.
 
 ```csharp
-public sealed class MyCustomSqlServerStatementBuilder : BaseStatementBuilder
+public sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 {
     public string CreateBatchQuery(QueryBuilder queryBuilder,
         string tableName,
@@ -112,5 +112,39 @@ public sealed class MyCustomSqlServerStatementBuilder : BaseStatementBuilder
 Simply use the [StatementBuilderMapper](/mapper/statementbuildermapper) class to map it to the specific RDBMS data provider.
 
 ```csharp
-StatementBuilderMapper.Add(typeof(SqlConnection), new MyCustomSqlServerStatementBuilder(), true);
+StatementBuilderMapper.Add(typeof(SqlConnection), new OptimizedSqlServerStatementBuilder(), true);
 ```
+
+Or by passing it on the constructor of the [BaseRepository](/class/baserepository) object.
+
+```csharp
+public class PersonRepository : BaseRepository<Person, SqlConnection>
+{
+        public PersonRepository(ISettings settings)
+                : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
+        { }
+}
+
+using (var repository = new PersonRepository(new AppSettings()))
+{
+        var person = repository.Query(p => p.Id == 10045).FirstOrDefault();
+}
+```
+
+Or even to the constructor of [DbRepository](/class/dbrepository) object.
+
+```csharp
+public class DatabaseRepository : DbRepository<SqlConnection>
+{
+        public DatabaseRepository(ISettings settings)
+                : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
+        { }
+}
+
+using (var repository = new DatabaseRepository(new AppSettings()))
+{
+        var person = repository.Query<Person>(p => p.Id == 10045).FirstOrDefault();
+}
+```
+
+> Please visit the [Statement Builder](/extensibility/statementbuilder) page for more details.

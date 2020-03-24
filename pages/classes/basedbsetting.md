@@ -15,16 +15,7 @@ To simplify your implementation, always use this class over [IDbSetting](/interf
 
 #### How to Implement?
 
-Simply create a class that inherits this class.
-
-```csharp
-public sealed class MyCustomSqlServerDbSetting : BaseDbSetting
-{
-    ...
-}
-```
-
-Then set the properties in the constructor.
+Simply create a class that inherits this class, then set the properties in the constructor.
 
 ```csharp
 public sealed class MyCustomSqlServerDbSetting : BaseDbSetting

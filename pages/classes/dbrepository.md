@@ -142,7 +142,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-> Do not use the repository directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
+> Do not use the repository class directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
 
 #### Connection Persistency
 

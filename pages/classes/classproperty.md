@@ -9,7 +9,7 @@ tags: [repodb, class, classproperty, orm, hybrid-orm, sqlserver, sqlite, mysql, 
 
 This class is used as a container of the `System.Reflection.PropertyInfo` object. It is one of the core class that helps the library speed up the manipulation of the class properties.
 
-To extract the properties of an entity, use the [PropertyCache](/cacher/propertycache) or object.
+To extract the properties of the entity, use the [PropertyCache](/cacher/propertycache) object.
 
 ```csharp
 var properties = PropertyCache.Get<Person>();
@@ -21,7 +21,7 @@ Or the [ClassExpression](/class/classexpression) object.
 var properties = ClassExpression.GetProperties<Person>();
 ```
 
-> The `PropertyCache` is also using the `ClassExpression` underneath, however, it caches the already extracted class properties for future reusabilities.
+> The `PropertyCache` is also using the [ClassExpression](/class/classexpression) underneath, however, it caches the already extracted class properties for future reusabilities.
 
 ##### AsField
 
@@ -57,15 +57,6 @@ if (isIdentity)
 }
 ```
 
-##### GetMappedName
-
-This method is used to get the existing mapping defined on the property. It extracts the value of the [Map](/attribute/map) attribute if present.
-
-```csharp
-var primary = PropertyCache.Get<Person>().FirstOrDefault(p => p.IsPrimary() == true);
-var mappedName = primary.GetMappedName();
-```
-
 ##### GetPrimaryAttribute
 
 This method is used to get the existing [Primary](/attribute/primary) attribute if present.
@@ -80,6 +71,15 @@ foreach (var property in properties)
         // This property is primary
     }
 }
+```
+
+##### GetMappedName
+
+This method is used to get the existing mapping defined on the property. It extracts the value of the [Map](/attribute/map) attribute if present.
+
+```csharp
+var primary = PropertyCache.Get<Person>().FirstOrDefault(p => p.IsPrimary() == true);
+var mappedName = primary.GetMappedName();
 ```
 
 ##### IsIdentity

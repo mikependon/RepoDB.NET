@@ -113,7 +113,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Filtering the Results
 
-You can also use the *Query Object(s)* if you are to enhance the *where* expressions.
+You can also use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the *where* expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
