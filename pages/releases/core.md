@@ -6,6 +6,11 @@ permalink: /releases/core
 
 ## Releases for RepoDb (Core)
 
+#### RepoDb (v1.10.11-beta1):
+
+- At the [CancellableTraceLog.Cancel()](/class/cancellabletracelog) method, the `throwException` argument has been defaulted the `True`.
+- Bug: Calling to [DeleteAll](/operation/deleteall) operation with the list of `PrimaryKeys` and `Transaction` object is failing. Reported by Christian Franck. [#404](https://github.com/mikependon/RepoDb/issues/404).
+
 #### RepoDb (v1.10.10)
 
 - Features: Full support to Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
