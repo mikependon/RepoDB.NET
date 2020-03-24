@@ -178,6 +178,7 @@ Below are the list of mappers that you can leverage.
 
 Below are the list of objects that are useful to support other data provider.
 
+- [Average Type Resolver](/extensibility/averagetyperesolver)
 - [Convert Field Resolver](/extensibility/convertfieldresolver)
 - [Database Helper](/extensibility/databasehelper)
 - [Database Setting](/extensibility/databasesetting)
