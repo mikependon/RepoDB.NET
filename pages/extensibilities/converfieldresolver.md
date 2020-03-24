@@ -1,11 +1,11 @@
 ---
 layout: page
-title: "ConvertFieldResolver (RepoDb)"
+title: "Convert Field Resolver (RepoDb)"
 permalink: /extensibility/convertfieldresolver
 tags: [repodb, class, convertfieldresolver, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ConvertFieldResolver
+## Convert Field Resolver
 
 This object is used within the [BaseStatementBuilder](/class/basestatementbuilder) class as a resolver when converting a column to a specific type.
 
