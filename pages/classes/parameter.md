@@ -7,7 +7,7 @@ tags: [repodb, class, parameter, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 ## Parameter
 
-This class is used to handle an information for the purpose of `DbCommand` parameter construction. It is used by both [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects to manage all the parameters creation. It is a very direct class and is doing nothing at all.
+This class is used to handle the necesasry information when constructing a data parameter. It is used by both [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects to manage all the parameters creation. It is a very direct class and is doing nothing at all.
 
 > Internally, the library is using this class as an entries for creating `DbParameter` objects.
 
@@ -25,6 +25,8 @@ The [QueryField](/class/queryfield) class is instantiating this class internally
 ```csharp
 var queryField = new QueryField("Id", 10045);
 var parameter = queryField.Parameter;
+var name = parameter.Name; // @Id
+var value = parameter.Value; // 10045
 ```
 
 #### QueryGroup
@@ -43,5 +45,7 @@ var queryGroup = new QueryGroup(queryFields);
 var parameters = queryGroup
     .GetFields(true)
     .Select(qf = qf.Parameter);
+
+// Make the stuffs for the 'parameters' here
 ```
 

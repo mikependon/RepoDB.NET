@@ -7,9 +7,7 @@ tags: [repodb, class, sqlservertablehints, orm, hybrid-orm, sqlserver, sqlite, m
 
 ## SqlServerTableHints
 
-This class contains the list of table hints that is useful for SQL Server. The hints were taken from the official Microsoft page.
-
-It is usually used as passing parameter to the `hints` argument of most operations.
+This class contains the list of table hints that is useful for SQL Server. It is usually used as passing parameter to the `hints` argument of most operations.
 
 ##### How to use?
 
@@ -42,7 +40,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or during the update operation.
+Or during the [Update](/operation/update) operation.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -51,4 +49,4 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> The class contains a lot of hints, we recommend that you visits the official Microsoft documentation [here](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-2017) for further understanding.
+> The class contains a lot of hints, we recommend that you visits the official Microsoft [documentation](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-2017) for further understanding.

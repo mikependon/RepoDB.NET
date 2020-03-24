@@ -172,7 +172,7 @@ public static TraceFactory
 }
 ```
 
-You can pass it in any extended [fluent methods](/docs#fluent-methods) of the `DbConnection` object.
+Then you can pass it in any extended [fluent methods](/docs#fluent-methods) of the `DbConnection` object like below.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

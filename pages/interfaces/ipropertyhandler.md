@@ -33,7 +33,7 @@ This is very useful when you would like to handle the following scenarios.
 - Can be used as trigger.
 - Manually override the default handler for the Enumerations.
 
-> The use-case can be unlimitted depends on your situation.
+> The use-cases can be unlimitted depends on your situation.
 
 #### How to Implement?
 
@@ -98,6 +98,14 @@ public class AddressPropertyHandler : IPropertyHandler<string, Address>
 
 When you call any of the fetch ([Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)) or push ([Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge)) operations, the methods `Get` and `Set` of the property handler will be invoked immediately.
 
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var person = connection.Query<Person>(10045);
+	Console.WriteLine($"Name: {person.Name}, Address: {person.Address.Street}, {person.Address.Region}, {person.Address.Country} ({person.Address.ZipCode})")
+}
+```
+
 #### Type Level Handling
 
 On the other hand, you can also handle the property transformation on a type level. It is useful on a situation if you would like to handle a specific database type transformation into a .NET CLR Type (ie: converting the `DateTime` object `Kind` to `Utc`).
@@ -111,12 +119,14 @@ public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<DateTime?, Date
 {
     public DateTime? Get(DateTime? input, ClassProperty property)
     {
-        return DateTime.SpecifyKind(input, DateTimeKind.Utc);
+        // Reading from DB, setting the class
+        return input.HasValue ? DateTime.SpecifyKind(input.Value, DateTimeKind.Utc) : null;
     }
 
     public DateTime? Set(DateTime? input, ClassProperty property)
     {
-        return DateTime.SpecifyKind(input.GetValueOrDefault(), DateTimeKind.Unspecified);
+        // Reading from class, setting back to DB
+        return input.HasValue ? DateTime.SpecifyKind(input.Value, DateTimeKind.Unspecified) : null;
     }
 }
 ```

@@ -6,10 +6,14 @@ permalink: /releases/core
 
 ## Releases for RepoDb (Core)
 
+Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
+
+
 #### RepoDb (v1.10.11-beta1):
 
 - At the [CancellableTraceLog.Cancel()](/class/cancellabletracelog) method, the `throwException` argument has been defaulted the `True`.
 - Bug: Calling to [DeleteAll](/operation/deleteall) operation with the list of `PrimaryKeys` and `Transaction` object is failing. Reported by Christian Franck. [#404](https://github.com/mikependon/RepoDb/issues/404).
+
 
 #### RepoDb (v1.10.10)
 

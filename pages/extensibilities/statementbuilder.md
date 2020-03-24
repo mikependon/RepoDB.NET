@@ -7,18 +7,16 @@ tags: [repodb, class, statementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysq
 
 ## Statement Builder
 
-A statement builder is the object that is being used by the core library to generate the SQL statements for all operations.
+A statement builder is an object that is being used by the library to generate the SQL statements for all operations. To be more practical, when you call the [QueryAll](/operation/queryall) operation, a SQL statement below is being constructed via statement builder and is being executed by the engine against the database.
 
-To be more practical, when you call the [QueryAll](/operation/queryall) operation, a SQL statement below is being constructed via statement builder and is being executed by the engine against the database.
-
-You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class when implementing a customized statement builder. With this, some methods of the [IStatementBuilder](/interface/istatementbuilder) interface were already implemented. Once you have inherited this class, you also inherit such implementations.
+You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class when implementing a customized statement builder. With this, some methods of the [IStatementBuilder](/interface/istatementbuilder) interface were already implemented and you as well automatically inheritted such implementations.
 
 > We recommend to use the [BaseStatementBuilder](/class/basestatementbuilder) over [IStatementBuilder](/interface/istatementbuilder) when creating a customized statement builder.
 
 #### Pre-requisites
 
 - The naming to this object must be "Desired Name" + "StatementBuiler" (ie: SqlServerStatementBuiler).
-- The implementation must be internal.
+- The implementation must be "internal sealed".
 - The namespace must be "RepoDb.StatementBuilders".
 - The class must be residing inside the "StatementBuilders" folder.
 
@@ -31,11 +29,11 @@ To create a statement builder class, simply inherits the [BaseStatementBuilder](
 ```csharp
 internal sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 {
-	public OptimizedSqlServerStatementBuilder()
-		: base(DbSettingMapper.Get(typeof(SqlConnection)),
-			  new SqlServerConvertFieldResolver(),
-			  new ClientTypeToAverageableClientTypeResolver())
-	{ }
+    public OptimizedSqlServerStatementBuilder()
+        : base(DbSettingMapper.Get(typeof(SqlConnection)),
+            new SqlServerConvertFieldResolver(),
+            new ClientTypeToAverageableClientTypeResolver())
+    { }
 }
 ```
 
@@ -129,9 +127,9 @@ public override string CreateMerge(QueryBuilder queryBuilder,
 
 > The codes above is just a sample, it was not tested and is not working. In addition to this note, you have to manually implement all the abstract methods.
 
-#### Overriding a virtual method
+#### Overriding the Virtual Methods
 
-Below is a code that overrides the default implementation of [CreateTruncate](/operation/truncate) operation.
+It is not necessary to override a virtual method of the [BaseStatementBuilder](/class/basestatementbuilder). However, if you do override, then below is a sample referrence-code that overrides the default implementation of [CreateTruncate](/operation/truncate) operation.
 
 ```csharp
 public override string CreateTruncate(QueryBuilder queryBuilder,
@@ -153,17 +151,18 @@ public override string CreateTruncate(QueryBuilder queryBuilder,
 }
 ```
 
-> If you think you need to customize the implementation of the virtual methods, then you have the freedom to override.
+You can do override the other virtual methods (as many as you like).
+
+> It is very important to only override the virtual methods if a customization or different implementation is needed.
 
 #### How to Use?
-
 
 You can pass it in any extended [fluent methods](/docs#fluent-methods) of the `DbConnection` object.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-        var person = connection.Query<Person>(p => p.Id == 10045, statementBuilder: new OptimizedSqlServerStatementBuilder()).FirstOrDefault();
+    var person = connection.Query<Person>(p => p.Id == 10045, statementBuilder: new OptimizedSqlServerStatementBuilder()).FirstOrDefault();
 }
 ```
 
@@ -172,14 +171,14 @@ Or by passing it on the constructor of the [BaseRepository](/class/baserepositor
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
-        public PersonRepository(ISettings settings)
-                : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
-        { }
+    public PersonRepository(ISettings settings)
+        : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
+    { }
 }
 
 using (var repository = new PersonRepository(new AppSettings()))
 {
-        var person = repository.Query(p => p.Id == 10045).FirstOrDefault();
+    var person = repository.Query(p => p.Id == 10045).FirstOrDefault();
 }
 ```
 
@@ -188,14 +187,14 @@ Or even to the constructor of [DbRepository](/class/dbrepository) object.
 ```csharp
 public class DatabaseRepository : DbRepository<SqlConnection>
 {
-        public DatabaseRepository(ISettings settings)
-                : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
-        { }
+    public DatabaseRepository(ISettings settings)
+        : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
+    { }
 }
 
 using (var repository = new DatabaseRepository(new AppSettings()))
 {
-        var person = repository.Query<Person>(p => p.Id == 10045).FirstOrDefault();
+    var person = repository.Query<Person>(p => p.Id == 10045).FirstOrDefault();
 }
 ```
 

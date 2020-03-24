@@ -21,7 +21,7 @@ Below is a a sample code on how to map an existing property into a `System.Data.
 public class Person
 {
 	public int Id { get; set; }
-	[MicrosoftSqlServerTypeMap(SqlDbType.NVarChar)] // Mapping this to 'NVarChar'
+	[SystemSqlServerTypeMap(SqlDbType.NVarChar)] // Mapping this to 'NVarChar'
 	public string Name { get; set; }
 	public DateTime DateOfBirth { get; set; }
 	public int Age { get; set; }

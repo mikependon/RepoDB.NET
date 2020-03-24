@@ -6,6 +6,9 @@ permalink: /releases/mysql
 
 ## Releases for RepoDb.MySql
 
+Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySql) to download it.
+
+
 #### RepoDb.MySql (v1.0.7)
 
 - Referenced the latest version of RepoDb.Core (v1.10.10).

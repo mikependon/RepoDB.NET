@@ -14,7 +14,7 @@ This page will guide you on the folder structuring when extending the library wi
 Let us say you are to support the `Snowflakes`, then below are the recommended structures.
 
 ```csharp
-> RepoDb.Snowflakes
++ RepoDb.Snowflakes
     - RepoDb.Snowflakes.sln
     + RepoDb.Snowflakes
         - RepoDb.Snowflakes.csproj

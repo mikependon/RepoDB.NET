@@ -14,7 +14,7 @@ You have use the [IDbHelper](/interface/idbhelper) interface as the contract for
 #### Pre-requisites
 
 - The naming must be "Desired Name" + "DbHelper" (ie: SqlServerDbHelper).
-- The implementation must be internal.
+- The implementation must be "internal sealed".
 - The namespace must be "RepoDb.DbHelpers".
 - The class must be residing inside the "DbHelpers" folder.
 
@@ -27,7 +27,7 @@ First, you have to manually create a class that implements the [IDbHelper](/inte
 Let us say, you are targetting to create a database helper for SQL Server.
 
 ```csharp
-public class OptimizedSqlServerDbHelper : IDbHelper
+internal sealed class OptimizedSqlServerDbHelper : IDbHelper
 {
     public IEnumerable<DbField> GetFields(IDbConnection connection,
         string tableName,

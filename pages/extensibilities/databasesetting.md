@@ -22,7 +22,7 @@ A database setting is an object that contains the information that are specific 
 #### Pre-requisites
 
 - The naming must be "Desired Name" + "DbSetting" (ie: SqlServerDbSetting).
-- The implementation must be internal.
+- The implementation must be "internal sealed".
 - The namespace must be "RepoDb.DbSettings".
 - The class must be residing inside the "DbSettings" folder.
 
@@ -33,7 +33,7 @@ A database setting is an object that contains the information that are specific 
 You have to implement the class that inherits the [BaseDbSetting](/class/basedbsetting) class.
 
 ```csharp
-public sealed class MyCustomSqlServerDbSetting : BaseDbSetting
+internal sealed class MyCustomSqlServerDbSetting : BaseDbSetting
 {
     ...
 }
@@ -42,7 +42,7 @@ public sealed class MyCustomSqlServerDbSetting : BaseDbSetting
 Then, in the constructor, set the values of every property.
 
 ```csharp
-public MyCustomSqlServerDbSetting()
+internal MyCustomSqlServerDbSetting()
     : base()
 {
     AreTableHintsSupported = true;

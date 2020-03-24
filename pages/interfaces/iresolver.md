@@ -60,3 +60,5 @@ public class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
         { }
 }
 ```
+
+Please see the [convert field resolver](/extensibility/convertfieldresolver) page for more details.

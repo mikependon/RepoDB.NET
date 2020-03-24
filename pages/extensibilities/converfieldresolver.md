@@ -46,10 +46,10 @@ You have to simply pass it when inheritting the [BaseStatementBuilder](/class/ba
 ```csharp
 internal sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 {
-	public OptimizedSqlServerStatementBuilder()
+    public OptimizedSqlServerStatementBuilder()
         : base(DbSettingMapper.Get(typeof(SqlConnection)),
             new SqlServerConvertFieldResolver())
-	{ }
+    { }
 }
 ```
 
