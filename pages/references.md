@@ -6,11 +6,11 @@ permalink: /references
 
 ## References
 
-This page will guide you on the preferred way of implementation while using this library.
+This page contains all the recommended-way of implementing objects when using this library.
 
 #### Repository Implementations
 
-- [BaseRepository]()
+- [BaseRepository](/reference/baserepository)
 - [DbRepository]()
 - [Repository via DbConnection]()
 
