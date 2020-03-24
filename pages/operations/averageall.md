@@ -34,9 +34,9 @@ RepoDb.SqlServerBootstrap.Initialize();
 
 Or visit our [installation](/tutorials/installation) page for more information.
 
-#### Leanings
-
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
+
+#### Leanings
 
 Below is a sample code that averages all the rows' column *Value* from a *[dbo].[Sales]* table.
 

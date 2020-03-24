@@ -46,9 +46,9 @@ RepoDb.SqlServerBootstrap.Initialize();
 
 Or visit our [installation](/tutorials/installation) page for more information.
 
-#### Learnings
-
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
+
+#### Learnings
 
 Let us you have a method that returns a list of *Person* models.
 

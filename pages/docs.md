@@ -8,6 +8,17 @@ permalink: /docs
 
 RepoDb has a bunch of things available for you. You can maximize your development by leveraging most of it.
 
+#### Get Started
+
+Please click any of the link below to fast-track the learning about RepoDb.
+
+- [SqlServer](/tutorials/getting-started)
+- [SqLite](/tutorials/getting-started-sqlite)
+- [MySql](/tutorials/getting-started-mysql)
+- [PostgreSql](/tutorials/getting-started-postgresql)
+
+To install, please visit our [installation](/tutorials/installation) page for more information.
+
 #### Features
 
 Below are the list of features that you may be interested.

@@ -7,9 +7,7 @@ tags: [repodb, tutorial, bulkinsert, orm, hybrid-orm, sqlserver]
 
 ## BulkInsert
 
-This method is used to bulk-insert all rows from the client into the database.
-
-For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
+This method is used to bulk-insert all the rows from the client into the database. For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 
 #### Use Case
 
@@ -31,9 +29,11 @@ Then call the bootstrapper once.
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-#### Learnings
+Or visit our [installation](/tutorials/installation) page for more information.
 
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
+
+#### Learnings
 
 Let us say you have a methods that create a list of *Person* from the client application.
 

@@ -7,11 +7,7 @@ tags: [repodb, tutorial, executequery, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 ## ExecuteQuery
 
-This method is used to execute a raw-SQL directly towards the database. It returns an `IEnumerable<T>` of objects.
-
-This method supports all types of RDMBS data providers. The only requirement is that, user needs to provide the raw-SQL itself.
-
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
+This method is used to execute a raw-SQL directly towards the database. It returns an `IEnumerable<T>` object. This method supports all types of RDMBS data providers. The only requirement is that, user needs to provide the raw-SQL itself.
 
 #### Installation
 
@@ -21,6 +17,10 @@ To install, simply type the codes below in your Package Manager Console.
 > Install-Package RepoDb
 ```
 
+Or visit our [installation](/tutorials/installation) page for more information.
+
+> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
+
 #### Learnings
 
 Below is a very simple codes that query all the rows from the `[dbo].[Person]` table from the database.
@@ -28,7 +28,7 @@ Below is a very simple codes that query all the rows from the `[dbo].[Person]` t
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = connection.ExecuteQuery<Person>("DELETE FROM [dbo].[Person];");
+	var people = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person];");
 }
 ```
 
@@ -88,7 +88,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Array Parameters (for the IN keyword)
 
-You can pass an array of values if you are using an `IN` keyword.
+You can pass an array of values if you are using the `IN` keyword.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

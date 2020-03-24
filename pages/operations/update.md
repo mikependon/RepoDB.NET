@@ -34,9 +34,9 @@ RepoDb.SqlServerBootstrap.Initialize();
 
 Or visit our [installation](/tutorials/installation) page for more information.
 
-#### Learnings
-
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
+
+#### Learnings
 
 Below is a sample code to update a row into the `[dbo].[Person]` table.
 

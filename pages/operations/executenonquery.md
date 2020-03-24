@@ -7,11 +7,7 @@ tags: [repodb, tutorial, executenonquery, orm, hybrid-orm, sqlserver, sqlite, my
 
 ## ExecuteNonQuery
 
-This method is used to execute a raw-SQL directly towards the database. It returns the number of rows affected during the execution.
-
-This method supports all types of RDMBS data providers. The only requirement is that, user needs to provide the raw-SQL itself.
-
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
+This method is used to execute a raw-SQL directly towards the database. It returns the number of rows affected during the execution. This method supports all types of RDMBS data providers. The only requirement is that, user needs to provide the raw-SQL itself.
 
 #### Installation
 
@@ -21,6 +17,10 @@ To install, simply type the codes below in your Package Manager Console.
 > Install-Package RepoDb
 ```
 
+Or visit our [installation](/tutorials/installation) page for more information.
+
+> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
+
 #### Learnings
 
 Below is a very simple codes that delete all the rows from the `[dbo].[Person]` table from the database.
@@ -28,11 +28,9 @@ Below is a very simple codes that delete all the rows from the `[dbo].[Person]` 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var rowsDeleted = connection.ExecuteNonQuery("DELETE FROM [dbo].[Person];");
+	var affectedRows = connection.ExecuteNonQuery("DELETE FROM [dbo].[Person];");
 }
 ```
-
-Or visit our [installation](/tutorials/installation) page for more information.
 
 #### Passing of Parameters
 
@@ -53,7 +51,7 @@ using (var connection = new SqlConnection(connectionString))
 		LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date 
 	};
 	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+	var affectedRows = connection.ExecuteNonQuery(commandText, param);
 }
 ```
 
@@ -66,7 +64,7 @@ using (var connection = new SqlConnection(connectionString))
 	param.Add("IsEnabled", true);
 	param.Add("LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date );
 	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+	var affectedRows = connection.ExecuteNonQuery(commandText, param);
 }
 ```
 
@@ -81,7 +79,7 @@ using (var connection = new SqlConnection(connectionString))
 		{ "LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date }
 	};
 	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+	var affectedRows = connection.ExecuteNonQuery(commandText, param);
 }
 ```
 
@@ -96,13 +94,13 @@ using (var connection = new SqlConnection(connectionString))
 		new QueryField("LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date)
 	};
 	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+	var affectedRows = connection.ExecuteNonQuery(commandText, param);
 }
 ```
 
 #### Array Parameters (for the IN keyword)
 
-You can pass an array of values if you are using an `IN` keyword.
+You can pass an array of values if you are using the `IN` keyword.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -112,7 +110,7 @@ using (var connection = new SqlConnection(connectionString))
 		Keys = new [] { 10045, 10102, 11004 }
 	};
 	var commandText = "DELETE FROM dbo].[Person] WHERE Id IN (@Keys);";
-	var rowsDeleted = connection.ExecuteNonQuery(commandText, param);
+	var affectedRows = connection.ExecuteNonQuery(commandText, param);
 }
 ```
 
@@ -125,7 +123,7 @@ There are 2 ways of executing a stored procedure. First, simply pass the name of
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var rowsDeleted = connection.ExecuteNonQuery("[dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
+	var affectedRows = connection.ExecuteNonQuery("[dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
 		new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date }, commandType: CommandType.StoredProcedure);
 }
 ```
@@ -135,7 +133,7 @@ Or, simply using the native SQL calls like below.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var rowsDeleted = connection.ExecuteNonQuery("EXEC [dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
+	var affectedRows = connection.ExecuteNonQuery("EXEC [dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
 		new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date });
 }
 ```
@@ -153,10 +151,8 @@ using (var connection = new SqlConnection(connectionString))
 	{
 		try
 		{
-			var rowsDeleted = connection.ExecuteNonQuery("EXEC [dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
+			var affectedRows = connection.ExecuteNonQuery("EXEC [dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
 				new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date }, transaction: transaction);
-			
-			// Do more codes here
 
 			transaction.Commit();
 		}

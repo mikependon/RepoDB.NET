@@ -17,7 +17,7 @@ We are glad and would like to thank you for your interest in learning RepoDb. We
 
 ## Getting Started
 
-RepoDb is a hybrid-ORM library for .NET. You can use the library to work with SQL Server, [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) Relational Database Management Systems (RDBMS).
+RepoDb is a hybrid-ORM library for .NET. You can use the library to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) Relational Database Management Systems (RDBMS).
 
 The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
@@ -41,7 +41,7 @@ Once the installation is complete, call the bootstrapper to initialize all the d
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-If you are to work with Bulk Operations (ie: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then you must to install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
+If you are to work with Bulk Operations (ie: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then you must install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
 
 In your Package Manager Console, simply type the codes below.
 
@@ -49,11 +49,7 @@ In your Package Manager Console, simply type the codes below.
 > Install-Package RepoDb.SqlServer.BulkOperations
 ```
 
-#### Pre-Requisites
-
-We assume that you already have created a test database from your SQL Server and also a C# project.
-
-Before we proceed, we will create a table and a class model.
+Or visit our [installation](/tutorials/installation) page for more information.
 
 > In this tutorial, we will use the C# as the programming language.
 
@@ -102,8 +98,6 @@ using (var connection = new SqlConnection(ConnectionString))
 	var id = connection.Insert(person);
 }
 ```
-
-> The return value would be the value of `Primary` (or `Identity`) field, otherwise `NULL`.
 
 To insert multiple rows, use the [InsertAll](/operation/insertall) operation instead.
 
@@ -213,7 +207,7 @@ To delete a record, you must use the [Delete](/operation/delete) method.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var deletedCount = connection.Delete<Person>(1);
+	var deletedRows = connection.Delete<Person>(1);
 }
 ```
 
@@ -222,7 +216,7 @@ By default, it uses the *Primary* field as the qualifier. You can also use the o
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var deletedCount = connection.Delete<Person>(p => p.Name == "John Doe");
+	var deletedRows = connection.Delete<Person>(p => p.Name == "John Doe");
 }
 ```
 
@@ -231,7 +225,7 @@ To delete all the rows, use the [DeleteAll](/operation/deleteall) method instead
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var people = connection.DeleteAll<Person>();
+	var deletedRows = connection.DeleteAll<Person>();
 }
 ```
 
@@ -241,7 +235,7 @@ You can also pass the list of primary keys to be deleted.
 using (var connection = new SqlConnection(ConnectionString))
 {
 	var primaryKeys = new [] { 10045, 11001, ..., 12011 };
-	var people = connection.DeleteAll<Person>(primaryKeys);
+	var deletedRows = connection.DeleteAll<Person>(primaryKeys);
 }
 ```
 
@@ -262,17 +256,17 @@ var person = new Person
 using (var connection = new SqlConnection(ConnectionString))
 {
 	var affectedRecords = connection.UpdateAll<Person>(people);
-	var deletedCount = connection.Update<Person>(person);
+	var updatedRows = connection.Update<Person>(person);
 }
 ```
 
-You can also *Update* via dynamic by targetting certain columns.
+You can also update via dynamic by targetting certain columns.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
 	var affectedRecords = connection.UpdateAll<Person>(people);
-	var updatedCount = connection.Update("Person", new { Id = 1, Name = "James Doe" });
+	var updatedRows = connection.Update("Person", new { Id = 1, Name = "James Doe" });
 }
 ```
 
@@ -285,7 +279,7 @@ people
 	.ForEach(p => p.Name = $"{p.Name} (Updated)");
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var affectedRecords = connection.UpdateAll<Person>(people);
+	var updatedRows = connection.UpdateAll<Person>(people);
 }
 ```
 
@@ -298,7 +292,7 @@ people
 	.ForEach(p => p.Name = $"{p.Name} (Updated)");
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var affectedRecords = connection.UpdateAll<Person>(people, qualifiers: Field.From("Name"));
+	var updatedRows = connection.UpdateAll<Person>(people, qualifiers: Field.From("Name"));
 }
 ```
 

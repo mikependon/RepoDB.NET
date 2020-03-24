@@ -7,11 +7,7 @@ tags: [repodb, tutorial, executequerymultiple, orm, hybrid-orm, sqlserver, sqlit
 
 ## ExecuteQueryMultiple
 
-This method is used to execute multiple raw-SQLs directly towards the database in one-go. It returns an object of [QueryMultipleExtractor](/class/querymultipleextractor) in which it gives you a flexibility as a developer to manage the extraction of the resultsets.
-
-This method supports all types of RDMBS data providers. The only requirement is that, user needs to provide the raw-SQL itself.
-
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
+This method is used to execute multiple raw-SQLs directly towards the database in one-go. It returns an object of [QueryMultipleExtractor](/class/querymultipleextractor). It gives you the controllabilities as a developer to manage the extraction of the resultsets. This method supports all types of RDMBS data providers. The only requirement is that, user needs to provide the raw-SQL itself.
 
 #### Installation
 
@@ -20,6 +16,10 @@ To install, simply type the codes below in your Package Manager Console.
 ```csharp
 > Install-Package RepoDb
 ```
+
+Or visit our [installation](/tutorials/installation) page for more information.
+
+> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
 #### Learnings
 
@@ -119,7 +119,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Array Parameters (for the IN keyword)
 
-You can pass an array of values if you are using an `IN` keyword.
+You can pass an array of values if you are using the `IN` keyword.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

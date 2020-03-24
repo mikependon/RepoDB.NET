@@ -25,11 +25,7 @@ Once the installation is complete, call the bootstrapper to initialize all the d
 RepoDb.PostgreSqlBootstrap.Initialize();
 ```
 
-#### Pre-Requisites
-
-We assume that you already have created a test database from your *PostgreSql* and also a C# project.
-
-Before we proceed, we will create a table and a class model.
+Or visit our [installation](/tutorials/installation) page for more information.
 
 > In this tutorial, we will use the C# as the programming language.
 
@@ -75,8 +71,6 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 	var id = connection.Insert(person);
 }
 ```
-
-> The return value would be the value of `Primary` (or `Identity`) field, otherwise `NULL`.
 
 To insert multiple rows, use the [InsertAll](/operation/insertall) operation instead.
 
@@ -195,7 +189,7 @@ By default, it uses the *Primary* field as the qualifier. You can also use the o
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-	var deletedCount = connection.Delete<Person>(p => p.Name == "John Doe");
+	var deletedRows = connection.Delete<Person>(p => p.Name == "John Doe");
 }
 ```
 
@@ -204,7 +198,7 @@ To delete all the rows, use the [DeleteAll](/operation/deleteall) method instead
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-	var people = connection.DeleteAll<Person>();
+	var deletedRows = connection.DeleteAll<Person>();
 }
 ```
 
@@ -214,7 +208,7 @@ You can also pass the list of primary keys to be deleted.
 using (var connection = new SqlConnection(ConnectionString))
 {
 	var primaryKeys = new [] { 10045, 11001, ..., 12011 };
-	var people = connection.DeleteAll<Person>(primaryKeys);
+	var deletedRows = connection.DeleteAll<Person>(primaryKeys);
 }
 ```
 
@@ -234,16 +228,16 @@ var person = new Person
 };
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-	var affectedRecords = connection.Update<Person>(person);
+	var updatedRows = connection.Update<Person>(person);
 }
 ```
 
-You can also *Update* via dynamic by targetting certain columns.
+You can also update via dynamic by targetting certain columns.
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-	var affectedRecords = connection.Update("Person", new { \"Id\" = 1, Name = "James Doe" });
+	var updatedRows = connection.Update("Person", new { \"Id\" = 1, Name = "James Doe" });
 }
 ```
 
@@ -256,7 +250,7 @@ people
 	.ForEach(p => p.Name = $"{p.Name} (Updated)");
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-	var affectedRecords = connection.UpdateAll<Person>(people);
+	var updatedRows = connection.UpdateAll<Person>(people);
 }
 ```
 
@@ -269,7 +263,7 @@ people
 	.ForEach(p => p.Name = $"{p.Name} (Updated)");
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-	var affectedRecords = connection.UpdateAll<Person>(people, qualifiers: Field.From("Name"));
+	var updatedRows = connection.UpdateAll<Person>(people, qualifiers: Field.From("Name"));
 }
 ```
 

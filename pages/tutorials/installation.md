@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Installation (SQL Server)"
+title: "Installation of Nuget Packages (RepoDb)"
 permalink: /tutorials/installation
 tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
@@ -11,11 +11,15 @@ The package can be installed using Package Manager Console.
 
 #### Raw SQLs
 
+If you wish to work only with raw-SQLs.
+
 ```csharp
 > Install-Package RepoDb
 ```
 
 #### SQL Server
+
+If you wish to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
 
 ```csharp
 > Install-Package RepoDb.SqlServer
@@ -35,6 +39,8 @@ RepoDb.SqlServerBootstrap.Initialize();
 
 #### SQLite
 
+If you wish to work with [SQLite](https://www.nuget.org/packages/RepoDb.SqLite).
+
 ```csharp
 > Install-Package RepoDb.SqLite
 ```
@@ -46,6 +52,8 @@ RepoDb.SqLiteBootstrap.Initialize();
 ```
 
 #### MySQL
+
+If you wish to work with [MySQL](https://www.nuget.org/packages/RepoDb.MySql).
 
 ```csharp
 > Install-Package RepoDb.MySql
@@ -59,6 +67,8 @@ RepoDb.MySqlBootstrap.Initialize();
 
 #### PostgreSQL
 
+If you wish to work with [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql).
+
 ```csharp
 > Install-Package RepoDb.PostgreSql
 ```
@@ -68,3 +78,5 @@ Then call the bootstrapper once.
 ```csharp
 RepoDb.PostgreSqlBootstrap.Initialize();
 ```
+
+> Please visit our [documentation](/docs) page to learn more about this library.

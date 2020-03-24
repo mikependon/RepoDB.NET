@@ -34,6 +34,8 @@ RepoDb.SqlServerBootstrap.Initialize();
 
 Or visit our [installation](/tutorials/installation) page for more information.
 
+> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
+
 #### Use Case
 
 If you are updating multiple rows in the database, do not ever "iterate and merge it in atomic way". This method solves that problem by creating a multi-packed SQL statements and pass it all in one-go.
@@ -47,8 +49,6 @@ The execution is ACID as the transaction object will be created if not given.
 > Be aware that if you are managing the size of your batch, it may collide on the number of maximum allowable parameters of ADO.NET. The max parameters are `2100`.
 
 #### Learnings
-
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
 Let us you have a method that returns a list of *Person* models.
 
