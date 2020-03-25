@@ -5,7 +5,7 @@ permalink: /reference/output/baserepository
 tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-#### PersonRepository
+#### PersonRepository (BaseRepository)
 
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
