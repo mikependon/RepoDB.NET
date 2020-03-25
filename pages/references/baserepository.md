@@ -9,6 +9,8 @@ tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql,
 
 This page contains the reference implementation when implementing a repository that inherits the [BaseRepository](/class/baserepository) class.
 
+The consolidated output of this page can be found [here](/reference/baserepository-output)
+
 > The [BaseRepository](/class/baserepository) class is only used for implementing an entity-based repository.
 
 ###### Recommended Objects (Optional)
