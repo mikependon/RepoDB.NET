@@ -238,10 +238,10 @@ if (transaction == null)
 Below is the recommended way when exposing a method that merge a record.
 
 ```csharp
-public object MergePerson(Person person,
+public object MergeCustomer(Customer customer,
     IDbTransaction transaction = null)
 {
-    return Merge<Person>(person,
+    return Merge<Customer>(customer,
         transaction: transaction);
 }
 
@@ -263,10 +263,10 @@ public object MergeProduct(Product product,
 Below is the recommended way when exposing a method that save a record.
 
 ```csharp
-public object SavePerson(Person person,
+public object SaveCustomer(Customer customer,
     IDbTransaction transaction = null)
 {
-    return Insert<Person>(person,
+    return Insert<Customer>(customer,
         transaction: transaction);
 }
 
@@ -288,10 +288,10 @@ public object SaveProduct(Product product,
 Below is the recommended way when exposing a method that update a record.
 
 ```csharp
-public int UpdatePerson(Person person,
+public int UpdateCustomer(Customer customer,
     IDbTransaction transaction = null)
 {
-    return Update<Person>(person,
+    return Update<Customer>(customer,
         transaction: transaction);
 }
 
@@ -395,10 +395,10 @@ public async Task<int> DeleteCustomeryAsync(int id,
 
 // Merge
 
-public async Task<object> MergePersonyAsync(Person person,
+public async Task<object> MergeCustomeryAsync(Customer customer,
     IDbTransaction transaction = null)
 {
-    return await MergeAsync<Person>(person,
+    return await MergeAsync<Customer>(customer,
         transaction: transaction);
 }
 
@@ -418,10 +418,10 @@ public async Task<object> MergeProductyAsync(Product product,
 
 // Save
 
-public async Task<object> SavePersonyAsync(Person person,
+public async Task<object> SaveCustomeryAsync(Customer customer,
     IDbTransaction transaction = null)
 {
-    return await InsertAsync<Person>(person,
+    return await InsertAsync<Customer>(customer,
         transaction: transaction);
 }
 
@@ -441,10 +441,10 @@ public async Task<object> SaveProductyAsync(Product product,
 
 // Update
 
-public async Task<int> UpdatePersonyAsync(Person person,
+public async Task<int> UpdateCustomeryAsync(Customer customer,
     IDbTransaction transaction = null)
 {
-    return await UpdateAsync<Person>(person,
+    return await UpdateAsync<Customer>(customer,
         transaction: transaction);
 }
 
@@ -509,7 +509,7 @@ public interface INorthwindRepository
 
     // Merge
 
-    object MergePerson(Person person,
+    object MergeCustomer(Customer customer,
         IDbTransaction transaction = null);
 
     object MergeOrder(Order order,
@@ -520,7 +520,7 @@ public interface INorthwindRepository
 
     // Save
 
-    object SavePerson(Person person,
+    object SaveCustomer(Customer customer,
         IDbTransaction transaction = null);
 
     object SaveOrder(Order order,
@@ -531,7 +531,7 @@ public interface INorthwindRepository
 
     // Update
 
-    int UpdatePerson(Person person,
+    int UpdateCustomer(Customer customer,
         IDbTransaction transaction = null);
 
     int UpdateOrder(Order order,
@@ -579,7 +579,7 @@ public interface INorthwindRepository
 
     // Merge
 
-    Task<object> MergePersonyAsync(Person person,
+    Task<object> MergeCustomeryAsync(Customer customer,
         IDbTransaction transaction = null);
 
     Task<object> MergeOrderyAsync(Order order,
@@ -590,7 +590,7 @@ public interface INorthwindRepository
 
     // Save
 
-    Task<object> SavePersonyAsync(Person person,
+    Task<object> SaveCustomeryAsync(Customer customer,
         IDbTransaction transaction = null);
 
     Task<object> SaveOrderyAsync(Order order,
@@ -601,21 +601,21 @@ public interface INorthwindRepository
 
     // Update
 
-    Task<int> UpdatePersonyAsync(Person person,
+    Task<int> UpdateCustomeryAsync(Customer customer,
         IDbTransaction transaction = null);
 
     Task<int> UpdateOrderyAsync(Order order,
         IDbTransaction transaction = null);
 
-        Task<int> UpdateProductyAsync(Product product,
-            IDbTransaction transaction = null);
+    Task<int> UpdateProductyAsync(Product product,
+        IDbTransaction transaction = null);
 }
 ```
 
 Then implement it on the repository.
 
 ```csharp
-public class NorthwindRepository : DbRepository<Person, SqlConnection>, INorthwindRepository
+public class NorthwindRepository : DbRepository<Customer, SqlConnection>, INorthwindRepository
 {
     ...
 }
