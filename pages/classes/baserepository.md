@@ -122,9 +122,22 @@ public void ConfigureServices(IServiceCollection services)
 
 > Do not use the repository class directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
 
+#### The CreateConnection Method
+
+This method is used to create a new instance of connection object. If the value of [Connection Persistency](/enumeration/connectionpersistency) enumeration is `Instance`, then this method returns the existing active connection.
+
+To always force returning the new instance of connection object, simply pass `true` in the `force` argument.
+
+```csharp
+using (var connection = CreateConnection(true))
+{
+    // Use the 'connection' here
+}
+```
+
 #### Connection Persistency
 
-This feature enables your repository to manage the persistency of your connection within the lifespan of the repository. Please have a look at the [Connection Persistency](/enumeration/connectionpersistency) enumeration to see more details.
+This property enables your repository to manage the persistency of your connection within the lifespan of the repository. Please have a look at the [Connection Persistency](/enumeration/connectionpersistency) enumeration to see more details.
 
 To enable an instanced-level connection persistency, simply pass the [Connection Persistency](/enumeration/connectionpersistency#instance) value in the constructor.
 
@@ -141,7 +154,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 
 #### Command Timeout
 
-This feature is used as the execution timeout of every operation. By default it is null; defaultly using the ADO.NET execution timeout.
+This property is used as the execution timeout of every operation. By default it is null; defaultly using the ADO.NET execution timeout.
 
 To enable your customized timeout, simply pass it on the constructor.
 
@@ -158,7 +171,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 
 #### Adding a Cache
 
-This feature allows the repository to enable the 2nd-layer cache for the purpose of performance. By default, the caching is enabled with the use of [MemoryCache](/class/memorycache). You can override the caching by passing the instance of [ICache](/interface/icache)-based class in the constructor.
+This property allows the repository to enable the 2nd-layer cache for the purpose of performance. By default, the caching is enabled with the use of [MemoryCache](/class/memorycache). You can override the caching by passing the instance of [ICache](/interface/icache)-based class in the constructor.
 
 ```csharp
 public class MyCustomCache : ICache
@@ -182,7 +195,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 
 #### Adding a Trace
 
-This feature allows you as a developer to trace and audit the execution of any operation in the repository. To enable the trace, you have to pass the instance of [ITrace](/interface/itrace)-based class in the constructor.
+This property allows you as a developer to trace and audit the execution of any operation in the repository. To enable the trace, you have to pass the instance of [ITrace](/interface/itrace)-based class in the constructor.
 
 ```csharp
 public class MyCustomTrace : ITrace
@@ -206,7 +219,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 
 #### SQL Builder
 
-This feature allows you to override the default SQL statement generator of the library. To override, you have to create your custom [Statement Builder](/extensibility/statementbuilder) and pass the instance of [IStatementBuilder](/interface/istatementbuilder)-based class in the constructor.
+This property allows you to override the default SQL statement generator of the library. To override, you have to create your custom [Statement Builder](/extensibility/statementbuilder) and pass the instance of [IStatementBuilder](/interface/istatementbuilder)-based class in the constructor.
 
 ```csharp
 public class OptimizedSqlServerStatementBuilder : IStatementBuilder
