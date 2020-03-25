@@ -115,13 +115,6 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 
 #### Methods Creation
 
-Create a method that is necessary. Ensure to use the `base` keyword if the method signature is colliding with the [DbRepository](/class/dbrepository) class methods.
-
-###### Consider the following
-
-- For fetch operations, expose the `cacheKey` (useful for static or lookup records).
-- In all operations, expose the `transaction`.
-
 Below is the recommended way when exposing a method that returns all the records.
 
 ```csharp

@@ -97,7 +97,8 @@ public class AppSetting
 #### Repository Creation
 
 ```csharp
-public class RepositoryBase<T> : IRepository<T> where T : class
+public class RepositoryBase<TDbConnection> : IRepository<TDbConnection>
+    where TDbConnection : DbConnection
 {
     private IOptions<AppSettings> m_settings;
 
@@ -118,128 +119,61 @@ public class RepositoryBase<T> : IRepository<T> where T : class
 }
 ```
 
-#### Methods Creation
+#### Helper Methods
 
-Create a method that is necessary. Ensure to use the `base` keyword if the method signature is colliding with the [ConnectionRepository](/class/connectionrepository) class methods.
-
-###### Consider the following
-
-- For fetch operations, expose the `cacheKey` (useful for static or lookup records).
-- In all operations, expose the `transaction`.
-
-Below is the recommended way when exposing a method that returns all the records.
+Create a method that creates a connection object.
 
 ```csharp
-public IEnumerable<T> GetAll<T>(string cacheKey = null,
-    IDbTransaction transaction = null) where T : class
+public TDbConnection CreateConnection()
 {
-    return QueryAll<T>(cacheKey: cacheKey,
-        commandTimeout: m_settings.CommandTimeout,
-        cacheItemExpiration: m_settings.CacheItemExpiration,
-        transaction: transaction);
-}
-
-public IEnumerable<Product> GetProducts(string cacheKey = null,
-    IDbTransaction transaction = null)
-{
-    return QueryAll<Product>(cacheKey: cacheKey,
-        transaction: transaction);
+    var connection = Activator.CreateInstance<TDbConnection>();
+    connection.ConnectionString = m_settings.ConnectionString;
+    return connection.EnsureOpen();
 }
 ```
 
-Below is the recommended way when exposing a method that returns the records related to a parent entity.
+#### Operational Methods
+
+Below is the recommended way when exposing a method that returns the records.
 
 ```csharp
-public IEnumerable<Order> GetCustomerOrders(int customerId,
-    IDbTransaction transaction = null)
+public IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null)
 {
-    return QueryAll<Order>(o => o.CustomerId == customerId,
-        transaction: transaction);
+    using (var connection = CreateConnection())
+    {
+        return connection.QueryAll<TEntity>(cacheKey: cacheKey,
+            commandTimeout: m_settings.CommandTimeout,
+            cache: Cache,
+            cacheItemExpiration: m_settings.CacheItemExpiration,
+            trace: Trace);
+    }
 }
 ```
 
 Below is the recommended way when exposing a method that return single record.
 
 ```csharp
-public Customer GetCustomer(int id,
-    string cacheKey = null,
-    IDbTransaction transaction = null)
+public TEntity Get<TEntity>(object id)
 {
-    return Query<Customer>(id,
-        cacheKey: cacheKey,
-        transaction: transaction).FirstOrDefault();
-}
-
-public Product GetProduct(int id,
-    string cacheKey = null,
-    IDbTransaction transaction = null)
-{
-    return Query<Product>(p => p.Name == name,
-        cacheKey: cacheKey,
-        transaction: transaction).FirstOrDefault();
-}
-
-public Order GetOrder(int id,
-    IDbTransaction transaction = null)
-{
-    return Query<Order>(id,
-        transaction: transaction).FirstOrDefault();
+    using (var connection = CreateConnection())
+    {
+        return connection.Query<TEntity>(id,
+            commandTimeout: m_settings.CommandTimeout,
+            trace: Trace);
+    }
 }
 ```
 
 Below is the recommended way to delete a record.
 
 ```csharp
-public int DeleteOrder(int id,
-    IDbTransaction transaction = null)
+public int Delete<TEntity>(object id)
 {
-    return Delete<Order>(id,
-        transaction: transaction);
-}
-
-public int DeleteProduct(int id,
-    IDbTransaction transaction = null)
-{
-    return Delete<Product>(id,
-        transaction: transaction);
-}
-```
-
-Below is the recommended way to delete a record with children.
-
-```csharp
-public int DeleteCustomer(int id,
-    IDbTransaction transaction = null)
-{
-    // Delete the child orders first
-    var deletedOrders = Delete<Order>(o => o.CustomerId == id,
-        transaction: transaction);
-
-    // No need to check (if deletedOrders > 0) as some customers does not have orders
-    return Delete<Customer>(id,
-        transaction: transaction);
-}
-```
-
-We suggest that you check the presence of the transaction object.
-
-```csharp
-if (transaction == null)
-{
-    var connection = CreateConnection();
-    try
+    using (var connection = CreateConnection())
     {
-        using (var implicitTransaction = connection.BeginTransaction())
-        {
-            return DeleteCustomer(id, implicitTransaction);
-        }
-    }
-    finally
-    {
-        if (ConnectionPersistency == ConnectionPersistency.PerCall)
-        {
-            connection.Dispose();
-        }
+        return connection.Delete<TEntity>(id,
+            commandTimeout: m_settings.CommandTimeout,
+            trace: Trace);
     }
 }
 ```
@@ -247,75 +181,42 @@ if (transaction == null)
 Below is the recommended way when exposing a method that merge a record.
 
 ```csharp
-public object MergeCustomer(Customer customer,
+public object Merge<TEntity>(TEntity entity,
     IDbTransaction transaction = null)
 {
-    return Merge<Customer>(customer,
-        transaction: transaction);
-}
-
-public object MergeOrder(Order order,
-    IDbTransaction transaction = null)
-{
-    return Merge<Order>(order,
-        transaction: transaction);
-}
-
-public object MergeProduct(Product product,
-    IDbTransaction transaction = null)
-{
-    return Merge<Product>(product,
-        transaction: transaction);
+    using (var connection = CreateConnection())
+    {
+        return connection.Merge<TEntity>(entity,
+            commandTimeout: m_settings.CommandTimeout,
+            trace: Trace);
+    }
 }
 ```
 
 Below is the recommended way when exposing a method that save a record.
 
 ```csharp
-public object SaveCustomer(Customer customer,
+public object Save<TEntity>(TEntity entity,
     IDbTransaction transaction = null)
 {
-    return Insert<Customer>(customer,
-        transaction: transaction);
-}
-
-public object SaveOrder(Order order,
-    IDbTransaction transaction = null)
-{
-    return Insert<Order>(order,
-        transaction: transaction);
-}
-
-public object SaveProduct(Product product,
-    IDbTransaction transaction = null)
-{
-    return Insert<Product>(product,
-        transaction: transaction);
+    using (var connection = CreateConnection())
+    {
+        return connection.Merge<TEntity>(entity,
+            commandTimeout: m_settings.CommandTimeout,
+            trace: Trace);
+    }
 }
 ```
 
 Below is the recommended way when exposing a method that update a record.
 
 ```csharp
-public int UpdateCustomer(Customer customer,
+public int Update<TEntity>(TEntity entity,
     IDbTransaction transaction = null)
 {
-    return Update<Customer>(customer,
-        transaction: transaction);
-}
-
-public int UpdateOrder(Order order,
-    IDbTransaction transaction = null)
-{
-    return Update<Order>(order,
-        transaction: transaction);
-}
-
-public int UpdateProduct(Product product,
-    IDbTransaction transaction = null)
-{
-    return Update<Product>(product,
-        transaction: transaction);
+    return Update<TEntity>(entity,
+        transaction: transaction,
+            trace: Trace);
 }
 ```
 
@@ -326,149 +227,76 @@ Ensure that all records you had created has corresponding asynchronous methods w
 ```csharp
 // Get (Many)
 
-public async Task<IEnumerable<Customer>> GetCustomersyAsync(string cacheKey = null,
-    IDbTransaction transaction = null)
+public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = null)
 {
-    return await QueryAllAsync<Customer>(cacheKey: cacheKey,
-        transaction: transaction);
-}
-
-public async Task<IEnumerable<Product>> GetProductsyAsync(string cacheKey = null,
-    IDbTransaction transaction = null)
-{
-    return await QueryAllAsync<Product>(cacheKey: cacheKey,
-        transaction: transaction);
-}
-
-public async Task<IEnumerable<Order>> GetCustomerOrdersyAsync(int customerId,
-    IDbTransaction transaction = null)
-{
-    return await QueryAllAsync<Order>(o => o.CustomerId == customerId,
-        transaction: transaction);
-}
-
-public async Task<Customer> GetCustomeryAsync(int id,
-    string cacheKey = null,
-    IDbTransaction transaction = null)
-{
-    return (await QueryAsync<Customer>(id,
-        cacheKey: cacheKey,
-        transaction: transaction)).FirstOrDefault();
+    using (var connection = CreateConnection())
+    {
+        return await connection.QueryAllAsync<TEntity>(cacheKey: cacheKey,
+            commandTimeout: m_settings.CommandTimeout,
+            cache: Cache,
+            cacheItemExpiration: m_settings.CacheItemExpiration,
+            trace: Trace);
+    }
 }
 
 // Get
 
-public async Task<Product> GetProductyAsync(int id,
-    string cacheKey = null,
-    IDbTransaction transaction = null)
+public async Task<TEntity> GetAsync<TEntity>(object id)
 {
-    return await QueryAsync<Product>(p => p.Name == name,
-        cacheKey: cacheKey,
-        transaction: transaction).FirstOrDefault();
-}
-
-public async Task<Order> GetOrderyAsync(int id,
-    IDbTransaction transaction = null)
-{
-    return await QueryAsync<Order>(id,
-        transaction: transaction).FirstOrDefault();
+    using (var connection = CreateConnection())
+    {
+        return await connection.QueryAsync<TEntity>(id,
+            commandTimeout: m_settings.CommandTimeout,
+            trace: Trace);
+    }
 }
 
 // Delete
 
-public async Task<int> DeleteOrderyAsync(int id,
-    IDbTransaction transaction = null)
+public async Task<int> DeleteAsync<TEntity>(object id)
 {
-    return await DeleteAsync<Order>(id,
-        transaction: transaction);
-}
-
-public async Task<int> DeleteProductyAsync(int id,
-    IDbTransaction transaction = null)
-{
-    return await DeleteAsync<Product>(id,
-        transaction: transaction);
-}
-
-public async Task<int> DeleteCustomeryAsync(int id,
-    IDbTransaction transaction = null)
-{
-    // Delete the child orders first
-    var deletedOrders = await DeleteAsync<Order>(o => o.CustomerId == id,
-        transaction: transaction);
-
-    // No need to check (if deletedOrders > 0) as some customers does not have orders
-    return await DeleteAsync<Customer>(id,
-        transaction: transaction);
+    using (var connection = CreateConnection())
+    {
+        return await connection.DeleteAsync<TEntity>(id,
+            commandTimeout: m_settings.CommandTimeout,
+            trace: Trace);
+    }
 }
 
 // Merge
 
-public async Task<object> MergeCustomeryAsync(Customer customer,
-    IDbTransaction transaction = null)
+public async Task<objec> MergeAsync<TEntity>(TEntity entity)
 {
-    return await MergeAsync<Customer>(customer,
-        transaction: transaction);
-}
-
-public async Task<object> MergeOrderyAsync(Order order,
-    IDbTransaction transaction = null)
-{
-    return await MergeAsync<Order>(order,
-        transaction: transaction);
-}
-
-public async Task<object> MergeProductyAsync(Product product,
-    IDbTransaction transaction = null)
-{
-    return await MergeAsync<Product>(product,
-        transaction: transaction);
+    using (var connection = CreateConnection())
+    {
+        return await connection.MergeAsync<TEntity>(entity,
+            commandTimeout: m_settings.CommandTimeout,
+            trace: Trace);
+    }
 }
 
 // Save
 
-public async Task<object> SaveCustomeryAsync(Customer customer,
-    IDbTransaction transaction = null)
+public async Task<object> SaveAsync<TEntity>(TEntity entity)
 {
-    return await InsertAsync<Customer>(customer,
-        transaction: transaction);
-}
-
-public async Task<object> SaveOrderyAsync(Order order,
-    IDbTransaction transaction = null)
-{
-    return await InsertAsync<Order>(order,
-        transaction: transaction);
-}
-
-public async Task<object> SaveProductyAsync(Product product,
-    IDbTransaction transaction = null)
-{
-    return await InsertAsync<Product>(product,
-        transaction: transaction);
+    using (var connection = CreateConnection())
+    {
+        return await connection.MergeAsync<TEntity>(entity,
+            commandTimeout: m_settings.CommandTimeout,
+            trace: Trace);
+    }
 }
 
 // Update
 
-public async Task<int> UpdateCustomeryAsync(Customer customer,
-    IDbTransaction transaction = null)
+public async Task<int> UpdateAsync<TEntity>(TEntity entity)
 {
-    return await UpdateAsync<Customer>(customer,
-        transaction: transaction);
-}
-
-public async Task<int> UpdateOrderyAsync(Order order,
-    IDbTransaction transaction = null)
-{
-    return await UpdateAsync<Order>(order,
-        transaction: transaction);
-}
-
-public async Task<int> UpdateProductyAsync(Product product,
-    IDbTransaction transaction = null)
-{
-    return await UpdateAsync<Product>(product,
-        transaction: transaction);
+    using (var connection = CreateConnection())
+    {
+        return await connection.UpdateAsync<TEntity>(entity,
+            commandTimeout: m_settings.CommandTimeout,
+            trace: Trace);
+    }
 }
 ```
 
@@ -477,156 +305,104 @@ public async Task<int> UpdateProductyAsync(Product product,
 Create an interface that contains all the necessary methods. The name must be identitical on the purpose of the repository.
 
 ```csharp
-public interface IRepositoryBase
+public interface IRepositoryBase<TDbConnection>
+    where TDbConnection : DbConnection
 {
+    /*** Helper ***/
+
+    TDbConnection GetConnection();
+
     /*** Non-Async ***/
 
-    // Get (Many)
+    IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null);
 
-    IEnumerable<Customer> GetCustomers(string cacheKey = null,
-        IDbTransaction transaction = null);
+    TEntity Get<TEntity>(object id);
 
-    IEnumerable<Product> GetProducts(string cacheKey = null,
-        IDbTransaction transaction = null);
+    int Delete<TEntity>(object id);
 
-    IEnumerable<Order> GetCustomerOrders(int customerId,
-        IDbTransaction transaction = null);
+    object Merge<TEntity>(TEntity entity);
 
-    // Get
+    object Save<TEntity>(TEntity entity);
 
-    Customer GetCustomer(int id,
-        string cacheKey = null,
-        IDbTransaction transaction = null);
-
-    Product GetProduct(int id,
-        string cacheKey = null,
-        IDbTransaction transaction = null);
-
-    Order GetOrder(int id,
-        IDbTransaction transaction = null);
-
-    // Delete
-
-    int DeleteOrder(int id,
-        IDbTransaction transaction = null);
-
-    int DeleteProduct(int id,
-        IDbTransaction transaction = null);
-
-    int DeleteCustomer(int id,
-        IDbTransaction transaction = null);
-
-    // Merge
-
-    object MergeCustomer(Customer customer,
-        IDbTransaction transaction = null);
-
-    object MergeOrder(Order order,
-        IDbTransaction transaction = null);
-
-    object MergeProduct(Product product,
-        IDbTransaction transaction = null);
-
-    // Save
-
-    object SaveCustomer(Customer customer,
-        IDbTransaction transaction = null);
-
-    object SaveOrder(Order order,
-        IDbTransaction transaction = null);
-
-    object SaveProduct(Product product,
-        IDbTransaction transaction = null);
-
-    // Update
-
-    int UpdateCustomer(Customer customer,
-        IDbTransaction transaction = null);
-
-    int UpdateOrder(Order order,
-        IDbTransaction transaction = null);
-
-    int UpdateProduct(Product product,
-        IDbTransaction transaction = null);
+    int Update<TEntity>(TEntity entity);
 
     /*** Async ***/
 
-    // Get (Many)
+    Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = null);
 
-    Task<IEnumerable<Customer>> GetCustomersyAsync(string cacheKey = null,
-        IDbTransaction transaction = null);
+    Task<TEntity> GetAsync<TEntity>(object id);
 
-    Task<IEnumerable<Product>> GetProductsyAsync(string cacheKey = null,
-        IDbTransaction transaction = null);
+    Task<int> DeleteAsync<TEntity>(object id);
 
-    Task<IEnumerable<Order>> GetCustomerOrdersyAsync(int customerId,
-        IDbTransaction transaction = null);
+    Task<objec> MergeAsync<TEntity>(TEntity entity);
+    
+    Task<object> SaveAsync<TEntity>(TEntity entity);
 
-    Task<Customer> GetCustomeryAsync(int id,
-        string cacheKey = null,
-        IDbTransaction transaction = null);
-
-    // Get
-
-    Task<Product> GetProductyAsync(int id,
-        string cacheKey = null,
-        IDbTransaction transaction = null);
-
-    Task<Order> GetOrderyAsync(int id,
-        IDbTransaction transaction = null);
-
-    // Delete
-
-    Task<int> DeleteOrderyAsync(int id,
-        IDbTransaction transaction = null);
-
-    Task<int> DeleteProductyAsync(int id,
-        IDbTransaction transaction = null);
-
-    Task<int> DeleteCustomeryAsync(int id,
-        IDbTransaction transaction = null);
-
-    // Merge
-
-    Task<object> MergeCustomeryAsync(Customer customer,
-        IDbTransaction transaction = null);
-
-    Task<object> MergeOrderyAsync(Order order,
-        IDbTransaction transaction = null);
-
-    Task<object> MergeProductyAsync(Product product,
-        IDbTransaction transaction = null);
-
-    // Save
-
-    Task<object> SaveCustomeryAsync(Customer customer,
-        IDbTransaction transaction = null);
-
-    Task<object> SaveOrderyAsync(Order order,
-        IDbTransaction transaction = null);
-
-    Task<object> SaveProductyAsync(Product product,
-        IDbTransaction transaction = null);
-
-    // Update
-
-    Task<int> UpdateCustomeryAsync(Customer customer,
-        IDbTransaction transaction = null);
-
-    Task<int> UpdateOrderyAsync(Order order,
-        IDbTransaction transaction = null);
-
-    Task<int> UpdateProductyAsync(Product product,
-        IDbTransaction transaction = null);
+    Task<int> UpdateAsync<TEntity>(TEntity entity);
 }
 ```
 
 Then implement it on the repository.
 
 ```csharp
-public class RepositoryBase : ConnectionRepository<Customer, SqlConnection>, IRepositoryBase
+public class RepositoryBase<DbConnection> : IRepositoryBase<DbConnection>
+    where TDbConnection : DbConnection
 {
     ...
+}
+```
+
+#### Using the RepositoryBase
+
+Create a class that inherits the repository.
+
+```csharp
+public class NorthwindRepository : RepositoryBase<SqlConnection>
+{
+    public NorthwindRepository(IOptions<AppSetting> settings)
+        : base(settings)
+    { }
+}
+```
+
+#### Derived Repository Methods
+
+Create a method that calls the base method.
+
+```csharp
+public object SaveCustomer(Customer customer)
+{
+    return base.Save(customer);
+}
+```
+
+> Do the same calls for the other methods.
+
+#### Unit of Work
+
+Create a method that accepts multiple entities and wrap it all with transaction object. The connection object must be created explicitly.
+
+```csharp
+public void SaveCustomerOrder(int customerId,
+    Order order,
+    OrderDetail orderDetail)
+{
+    using (var connection = CreateConnection())
+    {
+        using (var transaction = connection.BeginTransaction())
+        {
+            // Save the order
+            order.CustomerId = customerId;
+            var orderId = connection.Save<Order>(order, transaction: transaction);
+
+            // Save the order detail
+            orderDetail.OrderId = orderId;
+            var orderDetailId = connection.Save<OrderDetail>(orderDetail, transaction: transaction);
+
+            // Commit the transaction
+            transaction.Commit();
+        }
+    }
 }
 ```
 
