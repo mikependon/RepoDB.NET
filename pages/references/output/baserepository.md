@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BaseRepository Reference Output (RepoDb)"
-permalink: /reference/baserepository-output
+permalink: /reference/output/baserepository
 tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
