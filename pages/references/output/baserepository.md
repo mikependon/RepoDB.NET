@@ -47,6 +47,20 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
             transaction: transaction).FirstOrDefault();
     }
     
+    public int Delete(int id,
+        IDbTransaction transaction = null)
+    {
+        return base.Delete(id,
+            transaction: transaction);
+    }
+
+    public object Merge(Person person,
+        IDbTransaction transaction = null)
+    {
+        return base.Merge(person,
+            transaction: transaction);
+    }
+
     public object Save(Person person,
         IDbTransaction transaction = null)
     {
@@ -86,6 +100,20 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
         return (await QueryAsync(p => p.Name == name,
             cacheKey: cacheKey,
             transaction: transaction)).FirstOrDefault();
+    }
+
+    public Task<int> DeleteAsync(int id,
+        IDbTransaction transaction = null)
+    {
+        return await base.DeleteAsync(id,
+            transaction: transaction);
+    }
+
+    public Task<object> MergeAsync(Person person,
+        IDbTransaction transaction = null)
+    {
+        return await base.MergeAsync(person,
+            transaction: transaction);
     }
 
     public async Task<object> SaveAsync(Person person,

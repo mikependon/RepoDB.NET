@@ -153,9 +153,27 @@ public Person GetByName(string name,
 }
 ```
 
+Below is the recommended way to delete a record.
+
+```csharp
+public int Delete(int id,
+    IDbTransaction transaction = null)
+{
+    return base.Delete(id,
+        transaction: transaction);
+}
+```
+
 Below is the recommended way when exposing a method that push a record.
 
 ```csharp
+public object Merge(Person person,
+    IDbTransaction transaction = null)
+{
+    return base.Merge(person,
+        transaction: transaction);
+}
+
 public object Save(Person person,
     IDbTransaction transaction = null)
 {
@@ -201,6 +219,20 @@ public async Task<Person> GetByNameAsync(string name,
         transaction: transaction)).FirstOrDefault();
 }
 
+public Task<int> DeleteAsync(int id,
+    IDbTransaction transaction = null)
+{
+    return await base.DeleteAsync(id,
+        transaction: transaction);
+}
+
+public Task<object> MergeAsync(Person person,
+    IDbTransaction transaction = null)
+{
+    return await base.MergeAsync(person,
+        transaction: transaction);
+}
+
 public async Task<object> SaveAsync(Person person,
     IDbTransaction transaction = null)
 {
@@ -236,6 +268,12 @@ public interface IPersonRepository
         string cacheKey = null,
         IDbTransaction transaction = null);
 
+    int Delete(int id,
+        IDbTransaction transaction = null);
+
+    object Merge(Person person,
+        IDbTransaction transaction = null);
+
     object Save(Person person,
         IDbTransaction transaction = null);
 
@@ -253,6 +291,12 @@ public interface IPersonRepository
 
     Task<Person> GetByNameAsync(string name,
         string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    Task<int> DeleteAsync(int id,
+        IDbTransaction transaction = null);
+
+    Task<object> Merge(Person person,
         IDbTransaction transaction = null);
 
     Task<object> SaveAsync(Person person,
