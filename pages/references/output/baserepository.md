@@ -102,14 +102,14 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
             transaction: transaction)).FirstOrDefault();
     }
 
-    public Task<int> DeleteAsync(int id,
+    public async Task<int> DeleteAsync(int id,
         IDbTransaction transaction = null)
     {
         return await base.DeleteAsync(id,
             transaction: transaction);
     }
 
-    public Task<object> MergeAsync(Person person,
+    public async Task<object> MergeAsync(Person person,
         IDbTransaction transaction = null)
     {
         return await base.MergeAsync(person,
