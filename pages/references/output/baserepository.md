@@ -12,10 +12,10 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 {
     public PersonRepository(IOptions<AppSetting> settings)
         : base(settings.ConnectionString,
-            commandTimeout: 0,
+            commandTimeout: settings.CommandTimeout,
             connectionPersistency: ConnectionPersistency.PerCall,
             cache: CacheFactory.CreateCacher(),
-            cacheItemExpiration: 180 /* 3 hours */,
+            cacheItemExpiration: settings.CacheItemExpiration,
             trace: TraceFactory.CreateTracer(),
             statementBuilder: null /* Not necessary */ )
     { }
@@ -138,6 +138,8 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 public class AppSetting
 {
     public string ConnectionString { get; set; }
+    public int CommandTimeout { get; set; }
+    public int CacheItemExpiration { get; set; }
 }
 ```
 

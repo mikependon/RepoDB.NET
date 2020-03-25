@@ -12,7 +12,7 @@ This page contains all the recommended-way of implementing objects when using th
 
 - [BaseRepository](/reference/baserepository)
 - [DbRepository](/reference/dbrepository)
-- [Repository via DbConnection]()
+- [Connection Repository](/reference/connectionrepository)
 
 #### Other Implementations
 
