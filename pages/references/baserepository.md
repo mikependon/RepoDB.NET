@@ -11,7 +11,7 @@ This page contains the reference implementation when implementing a repository t
 
 The consolidated output of this page can be found [here](/reference/output/baserepository).
 
-> The [BaseRepository](/class/baserepository) class is only used for implementing an entity-based repository.
+> The [BaseRepository](/class/baserepository) class is only used for implementing an entity-based repository. Imagine that you are only working with `[dbo].[Person]` table.
 
 ###### Recommended Objects (Optional)
 

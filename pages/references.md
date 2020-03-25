@@ -11,7 +11,7 @@ This page contains all the recommended-way of implementing objects when using th
 #### Repository Implementations
 
 - [BaseRepository](/reference/baserepository)
-- [DbRepository]()
+- [DbRepository](/reference/dbrepository)
 - [Repository via DbConnection]()
 
 #### Other Implementations
