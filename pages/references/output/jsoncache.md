@@ -41,15 +41,7 @@ public class JsonCache : ICache
 
     /*** Methods ***/
 
-    public void Add(string key,
-        object value,
-        int expiration = 180,
-        bool throwException = true)
-    {
-        Add(new CacheItem(key, value, expiration), throwException);
-    }
-
-    public void Add(CacheItem item,
+    public void Add<T>(CacheItem<T> item,
         bool throwException = true)
     {
         var fileName = GetFileName(item.Key);
@@ -61,8 +53,7 @@ public class JsonCache : ICache
                 throw new Exception($"File '{fileName}' already exists.");
             }
         }
-        var contents = JsonConvert.SerializeObject(item.Value);
-        File.WriteAllText(fileName, contents);
+        File.WriteAllText(fileName, JsonConvert.SerializeObject(item));
     }
 
     public void Clear()
@@ -77,14 +68,13 @@ public class JsonCache : ICache
         return File.Exists(fileName);
     }
 
-    public CacheItem Get<T>(string key,
+    public CacheItem<T> Get<T>(string key,
         bool throwException = true)
     {
         var fileName = GetFileName(key);
         if (File.Exists(fileName))
         {
-            var value = JsonConvert.DeserializeObject<IEnumerable<Person>>(File.ReadAllText(fileName));
-            return new CacheItem(key, value);
+            return JsonConvert.DeserializeObject<CacheItem<T>>(File.ReadAllText(fileName));
         }
         if (throwException)
         {
@@ -93,11 +83,11 @@ public class JsonCache : ICache
         return null;
     }
 
-    public IEnumerator<CacheItem> GetEnumerator()
+    public IEnumerator<CacheItem<T>> GetEnumerator()
     {
         foreach (var fileName in Directory.GetFiles(Path))
         {
-            yield return JsonConvert.DeserializeObject<CacheItem>(File.ReadAllText(fileName));
+            yield return JsonConvert.DeserializeObject<CacheItem<T>>(File.ReadAllText(fileName));
         }
     }
 

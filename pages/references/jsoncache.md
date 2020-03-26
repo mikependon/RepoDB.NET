@@ -64,15 +64,7 @@ Implement each method of the [ICache](/interface/icache) interface.
 ```csharp
 /*** Methods ***/
 
-public void Add(string key,
-    object value,
-    int expiration = 180,
-    bool throwException = true)
-{
-    Add(new CacheItem(key, value, expiration), throwException);
-}
-
-public void Add(CacheItem item,
+public void Add<T>(CacheItem<T> item,
     bool throwException = true)
 {
     var fileName = GetFileName(item.Key);
@@ -84,8 +76,7 @@ public void Add(CacheItem item,
             throw new Exception($"File '{fileName}' already exists.");
         }
     }
-    var contents = JsonConvert.SerializeObject(item.Value);
-    File.WriteAllText(fileName, contents);
+    File.WriteAllText(fileName, JsonConvert.SerializeObject(item));
 }
 
 public void Clear()
@@ -100,14 +91,13 @@ public bool Contains(string key)
     return File.Exists(fileName);
 }
 
-public CacheItem Get<T>(string key,
+public CacheItem<T> Get<T>(string key,
     bool throwException = true)
 {
     var fileName = GetFileName(key);
     if (File.Exists(fileName))
     {
-        var value = JsonConvert.DeserializeObject<IEnumerable<T>>(File.ReadAllText(fileName));
-        return new CacheItem(key, value);
+        return JsonConvert.DeserializeObject<CacheItem<T>>(File.ReadAllText(fileName));
     }
     if (throwException)
     {
@@ -116,11 +106,11 @@ public CacheItem Get<T>(string key,
     return null;
 }
 
-public IEnumerator<CacheItem> GetEnumerator()
+public IEnumerator<CacheItem<T>> GetEnumerator()
 {
     foreach (var fileName in Directory.GetFiles(Path))
     {
-        yield return JsonConvert.DeserializeObject<CacheItem>(File.ReadAllText(fileName));
+        yield return JsonConvert.DeserializeObject<CacheItem<T>>(File.ReadAllText(fileName));
     }
 }
 
