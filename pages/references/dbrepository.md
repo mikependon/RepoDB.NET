@@ -144,7 +144,7 @@ public IEnumerable<Order> GetCustomerOrders(int customerId,
 }
 ```
 
-Below is the recommended way when exposing a method that return single record.
+Below is the recommended way when exposing a method that returns a single record.
 
 ```csharp
 public Customer GetCustomer(int id,
@@ -191,7 +191,7 @@ public int DeleteProduct(int id,
 }
 ```
 
-Below is the recommended way to delete a record with children.
+Below is the recommended way to deletes a record with children.
 
 ```csharp
 public int DeleteCustomer(int id,
@@ -230,7 +230,7 @@ if (transaction == null)
 }
 ```
 
-Below is the recommended way when exposing a method that merge a record.
+Below is the recommended way when exposing a method that merges a record.
 
 ```csharp
 public object MergeCustomer(Customer customer,
@@ -255,7 +255,7 @@ public object MergeProduct(Product product,
 }
 ```
 
-Below is the recommended way when exposing a method that save a record.
+Below is the recommended way when exposing a method that saves a record.
 
 ```csharp
 public object SaveCustomer(Customer customer,
@@ -280,7 +280,7 @@ public object SaveProduct(Product product,
 }
 ```
 
-Below is the recommended way when exposing a method that update a record.
+Below is the recommended way when exposing a method that updates a record.
 
 ```csharp
 public int UpdateCustomer(Customer customer,

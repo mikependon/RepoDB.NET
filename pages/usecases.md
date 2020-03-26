@@ -11,6 +11,7 @@ This page contains all the collective real-world scenarios that RepoDb can solve
 #### Author
 
 - [Adding a hints to improve query performance]()
+- [Adding a security to your application using Column Encryption Keys]()
 - [Avoiding a deadlock when executing multiple push in parallel]()
 - [Bulk-operation with targetted columns]()
 - [Controlling the cache time-to-live]()

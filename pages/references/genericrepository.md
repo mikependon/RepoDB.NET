@@ -150,7 +150,7 @@ public IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null)
 }
 ```
 
-Below is the recommended way when exposing a method that return single record.
+Below is the recommended way when exposing a method that returns a single record.
 
 ```csharp
 public TEntity Get<TEntity>(object id)
@@ -178,7 +178,7 @@ public int Delete<TEntity>(object id)
 }
 ```
 
-Below is the recommended way when exposing a method that merge a record.
+Below is the recommended way when exposing a method that merges a record.
 
 ```csharp
 public object Merge<TEntity>(TEntity entity,
@@ -193,7 +193,7 @@ public object Merge<TEntity>(TEntity entity,
 }
 ```
 
-Below is the recommended way when exposing a method that save a record.
+Below is the recommended way when exposing a method that saves a record.
 
 ```csharp
 public object Save<TEntity>(TEntity entity,
@@ -208,7 +208,7 @@ public object Save<TEntity>(TEntity entity,
 }
 ```
 
-Below is the recommended way when exposing a method that update a record.
+Below is the recommended way when exposing a method that updates a record.
 
 ```csharp
 public int Update<TEntity>(TEntity entity,
@@ -386,7 +386,7 @@ public Product GetProduct(object id)
 }
 ```
 
-Below is the recommended way for saving record.
+Below is the recommended way for saving a record.
 
 ```csharp
 public object SaveCustomer(Customer customer)
@@ -501,7 +501,7 @@ public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepo
 
 #### Repository Injection
 
-Register the repository in the service collection.
+Register the derived repository in the service collection.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -515,9 +515,7 @@ public void ConfigureServices(IServiceCollection services)
 
 #### Key Take-aways
 
-- The transaction argument is needed in every methods in order for you to enable the Unit of Work (UOW).
-- The cache key argument is needed in the case you need to cache the result.
-- The interface is needed for dependency injection.
-- The singleton registration is needed for caching and connection persistency.
-- The method names would be targetted to the entity.
+- The dependency injection must happened only in derived repository.
+- The async methods must be provided in all methods.
+- The unit-of-work activity must be on the derived repository (not base).
 - The repository must be short and precise on its purpose.

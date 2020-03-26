@@ -126,7 +126,7 @@ public IEnumerable<Person> GetAll(string cacheKey = null,
 }
 ```
 
-Below is the recommended way when exposing a method that return single record.
+Below is the recommended way when exposing a method that returns a single record.
 
 ```csharp
 public Person Get(int id,
@@ -148,7 +148,7 @@ public Person GetByName(string name,
 }
 ```
 
-Below is the recommended way to delete a record.
+Below is the recommended way to deletes a record.
 
 ```csharp
 public int Delete(int id,
@@ -159,7 +159,7 @@ public int Delete(int id,
 }
 ```
 
-Below is the recommended way when exposing a method that push a record.
+Below is the recommended way when exposing a method that pushes a record.
 
 ```csharp
 public object Merge(Person person,
