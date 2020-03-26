@@ -15,10 +15,10 @@ This page contains all the recommended-way of implementing objects when using th
 - [DbRepository](/reference/dbrepository) - shared repository
 - [GenericRepository](/reference/genericrepository) - customize your own repository
 
-#### Other Implementations
+#### Feature Implementations
 
-- [Caching]() - show how to make SQLite caching (as a standard)
-- [Property Handler]() - show how to handle property in the most simple way.
-- [Query Expression]() - show the 'Contains' (both arrays and strings), 'StartsWith' and 'EndsWith'. Also, show the object-based, dynamic-based and expression-based.
-- [Tracing]() - show the way on how to pass it on the constructor in a Singleton approach.
-- More contents to be placed here
+- [Caching (JSON)](/reference/jsoncache) - a JSON-based caching (file system).
+- [Property Handler (Property Level)](/reference/propertyhandlerpropertylevel) - string database type to .NET CLR type.
+- [Property Handler (Type Level)](/reference/propertyhandlertypelevel) - handling the dates.
+- [Query Expression]() - calls to object-based, dynamic-based, expression-based, method-Contains (both arrays and strings), method-StartsWith and method-EndsWith.
+- [Tracing](/reference/trace) - logging and auditing.
