@@ -214,6 +214,8 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+Or for transient.
+
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
