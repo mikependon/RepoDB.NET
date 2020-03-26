@@ -6,11 +6,11 @@ permalink: /docs
 
 ## Documentation
 
-RepoDb has a bunch of things available for you. You can maximize your development by leveraging most of it.
+RepoDb has bunch of things available for you. You can maximize your development by leveraging most of it.
 
 #### Get Started
 
-Please click any of the link below to fast-track the learning about RepoDb.
+Please click any of the link below to fast-track your learnings about this library.
 
 - [SqlServer](/tutorials/getting-started)
 - [SqLite](/tutorials/getting-started-sqlite)
@@ -21,7 +21,7 @@ To install, please visit our [installation](/tutorials/installation) page for mo
 
 #### Features
 
-Below are the list of features that you may be interested.
+Below are the list of features available.
 
 - [Batch Operations](/feature/batch-operations) - in progress
 - [Bulk Operations](/feature/bulk-operations) - in progress
@@ -40,11 +40,11 @@ Below are the list of features that you may be interested.
 
 #### Methods
 
-Below are the methods available.
+Below are the list of methods available.
 
 ###### Execute Methods
 
-Below are the list of *Execute* methods that you can use. It support all RDBMS data providers.
+Below are the list of execute-methods available. It support all RDBMS data providers.
 
 - [ExecuteNonQuery](/operation/executenonquery)
 - [ExecuteQuery](/operation/executequery)
@@ -54,7 +54,7 @@ Below are the list of *Execute* methods that you can use. It support all RDBMS d
 
 ###### Fluent Methods
 
-Below are the list of *Fluent* methods that you can use. It only support the SQL Server, [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and  [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS data providers.
+Below are the list of fluent-methods available. It only support the SQL Server, [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and  [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS data providers.
 
 - [Average](/operation/average)
 - [AverageAll](/operation/averageall)
@@ -87,7 +87,7 @@ Below are the list of *Fluent* methods that you can use. It only support the SQL
 
 #### Classes
 
-Below are the list of classes that you can use.
+Below are the list of classes available.
 
 - [BaseDbSetting](/class/basedbsetting)
 - [BaseStatementBuilder](/class/basestatementbuilder)
@@ -118,7 +118,7 @@ Below are the list of classes that you can use.
 
 #### Attributes
 
-Below are the list of attributes available per package.
+Below are the list of attributes available (per package).
 
 ###### Core
 
@@ -152,7 +152,7 @@ Below are the list of attributes available per package.
 
 #### Interfaces
 
-Below are the list of interface that you can use for implementation.
+Below are the list of interfaces available.
 
 - [ICache](/interface/icache)
 - [IDbHelper](/interface/idbhelper)
@@ -164,7 +164,7 @@ Below are the list of interface that you can use for implementation.
 
 #### Cachers
 
-Below are the list of cache objects that you can use.
+Below are the list of cache-objects available.
 
 - [ClassMappedNameCache](/cacher/classmappednamecache)
 - [CommandTextCache](/cacher/commandtextcache)
@@ -177,7 +177,7 @@ Below are the list of cache objects that you can use.
 
 #### Mappers
 
-Below are the list of mappers that you can leverage.
+Below are the list of mappers available.
 
 - [DbHelperMapper](/mapper/dbhelpermapper)
 - [DbSettingMapper](/mapper/dbsettingmapper)
@@ -187,7 +187,7 @@ Below are the list of mappers that you can leverage.
 
 #### Extensibility
 
-Below are the list of objects that are useful to support other data provider.
+Below are the list of extensibility-objects available. It is useful to support other RDBMS data providers.
 
 - [Average Type Resolver](/extensibility/averagetyperesolver)
 - [Convert Field Resolver](/extensibility/convertfieldresolver)
