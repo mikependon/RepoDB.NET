@@ -5,7 +5,7 @@ permalink: /reference/output/connectionrepository
 tags: [repodb, class, connectionrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-#### NorthwindRepository (ConnectionRepository)
+#### NorthwindRepository (Connection-Based Repository)
 
 ```csharp
 public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>, INorthwindRepository
@@ -24,263 +24,155 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
 
     // Get (Many)
 
-    public IEnumerable<Customer> GetCustomers(string cacheKey = null,
-        IDbTransaction transaction = null)
+    public IEnumerable<Customer> GetCustomers(string cacheKey = null)
     {
-        return QueryAll<Customer>(cacheKey: cacheKey,
-            transaction: transaction);
-    }
-
-    public IEnumerable<Product> GetProducts(string cacheKey = null,
-        IDbTransaction transaction = null)
-    {
-        return QueryAll<Product>(cacheKey: cacheKey,
-            transaction: transaction);
-    }
-
-    public IEnumerable<Order> GetCustomerOrders(int customerId,
-        IDbTransaction transaction = null)
-    {
-        return QueryAll<Order>(o => o.CustomerId == customerId,
-            transaction: transaction);
+        using (var connection = CreateConnection())
+        {
+            return connection.QueryAll<Customer>(cacheKey: cacheKey,
+                commandTimeout: m_settings.CommandTimeout,
+                cache: Cache,
+                cacheItemExpiration: m_settings.CacheItemExpiration,
+                trace: Trace);
+        }
     }
 
     // Get
 
-    public Customer GetCustomer(int id,
-        string cacheKey = null,
-        IDbTransaction transaction = null)
+    public Customer GetCustomer(object id)
     {
-        return Query<Customer>(id,
-            cacheKey: cacheKey,
-            transaction: transaction).FirstOrDefault();
-    }
-
-    public Product GetProduct(int id,
-        string cacheKey = null,
-        IDbTransaction transaction = null)
-    {
-        return Query<Product>(p => p.Name == name,
-            cacheKey: cacheKey,
-            transaction: transaction).FirstOrDefault();
-    }
-
-    public Order GetOrder(int id,
-        IDbTransaction transaction = null)
-    {
-        return Query<Order>(id,
-            transaction: transaction).FirstOrDefault();
+        using (var connection = CreateConnection())
+        {
+            return connection.Query<Customer>(id,
+                commandTimeout: m_settings.CommandTimeout,
+                trace: Trace);
+        }
     }
 
     // Delete
 
-    public int DeleteOrder(int id,
-        IDbTransaction transaction = null)
+    public int DeleteCustomer(object id)
     {
-        return Delete<Order>(id,
-            transaction: transaction);
-    }
-
-    public int DeleteProduct(int id,
-        IDbTransaction transaction = null)
-    {
-        return Delete<Product>(id,
-            transaction: transaction);
+        using (var connection = CreateConnection())
+        {
+            return connection.Delete<Customer>(id,
+                commandTimeout: m_settings.CommandTimeout,
+                trace: Trace);
+        }
     }
 
     // Merge
 
-    public object MergeCustomer(Customer customer,
+    public object MergeCustomer(Customer entity,
         IDbTransaction transaction = null)
     {
-        return Merge<Customer>(customer,
-            transaction: transaction);
-    }
-
-    public object MergeOrder(Order order,
-        IDbTransaction transaction = null)
-    {
-        return Merge<Order>(order,
-            transaction: transaction);
-    }
-
-    public object MergeProduct(Product product,
-        IDbTransaction transaction = null)
-    {
-        return Merge<Product>(product,
-            transaction: transaction);
+        using (var connection = CreateConnection())
+        {
+            return connection.Merge<Customer>(entity,
+                commandTimeout: m_settings.CommandTimeout,
+                trace: Trace);
+        }
     }
 
     // Save
 
-    public object SaveCustomer(Customer customer,
+    public object SaveCustomer(Customer entity,
         IDbTransaction transaction = null)
     {
-        return Insert<Customer>(customer,
-            transaction: transaction);
-    }
-
-    public object SaveOrder(Order order,
-        IDbTransaction transaction = null)
-    {
-        return Insert<Order>(order,
-            transaction: transaction);
-    }
-
-    public object SaveProduct(Product product,
-        IDbTransaction transaction = null)
-    {
-        return Insert<Product>(product,
-            transaction: transaction);
+        using (var connection = CreateConnection())
+        {
+            return connection.Insert<Customer>(entity,
+                commandTimeout: m_settings.CommandTimeout,
+                trace: Trace);
+        }
     }
 
     // Update
 
-    public int UpdateCustomer(Customer customer,
+    public int UpdateCustomer(Customer entity,
         IDbTransaction transaction = null)
     {
-        return Update<Customer>(customer,
-            transaction: transaction);
-    }
-
-    public int UpdateOrder(Order order,
-        IDbTransaction transaction = null)
-    {
-        return Update<Order>(order,
-            transaction: transaction);
-    }
-
-    public int UpdateProduct(Product product,
-        IDbTransaction transaction = null)
-    {
-        return Update<Product>(product,
-            transaction: transaction);
+        using (var connection = CreateConnection())
+        {
+            return Update<Customer>(entity,
+                transaction: transaction,
+                trace: Trace);
+        }
     }
     
     /*** Async ***/
 
     // Get (Many)
 
-    public async Task<IEnumerable<Customer>> GetCustomersyAsync(string cacheKey = null,
-        IDbTransaction transaction = null)
+    public async Task<IEnumerable<Customer>> GetCustomersAsync(string cacheKey = null)
     {
-        return await QueryAllAsync<Customer>(cacheKey: cacheKey,
-            transaction: transaction);
-    }
-
-    public async Task<IEnumerable<Product>> GetProductsyAsync(string cacheKey = null,
-        IDbTransaction transaction = null)
-    {
-        return await QueryAllAsync<Product>(cacheKey: cacheKey,
-            transaction: transaction);
-    }
-
-    public async Task<IEnumerable<Order>> GetCustomerOrdersyAsync(int customerId,
-        IDbTransaction transaction = null)
-    {
-        return await QueryAllAsync<Order>(o => o.CustomerId == customerId,
-            transaction: transaction);
-    }
-
-    public async Task<Customer> GetCustomeryAsync(int id,
-        string cacheKey = null,
-        IDbTransaction transaction = null)
-    {
-        return (await QueryAsync<Customer>(id,
-            cacheKey: cacheKey,
-            transaction: transaction)).FirstOrDefault();
+        using (var connection = CreateConnection())
+        {
+            return await connection.QueryAllAsync<Customer>(cacheKey: cacheKey,
+                commandTimeout: m_settings.CommandTimeout,
+                cache: Cache,
+                cacheItemExpiration: m_settings.CacheItemExpiration,
+                trace: Trace);
+        }
     }
 
     // Get
 
-    public async Task<Product> GetProductyAsync(int id,
-        string cacheKey = null,
-        IDbTransaction transaction = null)
+    public async Task<Customer> GetAsync(object id)
     {
-        return await QueryAsync<Product>(p => p.Name == name,
-            cacheKey: cacheKey,
-            transaction: transaction).FirstOrDefault();
-    }
-
-    public async Task<Order> GetOrderyAsync(int id,
-        IDbTransaction transaction = null)
-    {
-        return await QueryAsync<Order>(id,
-            transaction: transaction).FirstOrDefault();
+        using (var connection = CreateConnection())
+        {
+            return await connection.QueryAsync<Customer>(id,
+                commandTimeout: m_settings.CommandTimeout,
+                trace: Trace);
+        }
     }
 
     // Delete
 
-    public async Task<int> DeleteOrderyAsync(int id,
-        IDbTransaction transaction = null)
+    public async Task<int> DeleteAsync(object id)
     {
-        return await DeleteAsync<Order>(id,
-            transaction: transaction);
+        using (var connection = CreateConnection())
+        {
+            return await connection.DeleteAsync<Customer>(id,
+                commandTimeout: m_settings.CommandTimeout,
+                trace: Trace);
+        }
     }
 
-    public async Task<int> DeleteProductyAsync(int id,
-        IDbTransaction transaction = null)
-    {
-        return await DeleteAsync<Product>(id,
-            transaction: transaction);
-    }
+    // Merge
 
-    public async Task<int> DeleteCustomeryAsync(int id,
-        IDbTransaction transaction = null)
+    public async Task<objec> MergeAsync(Customer entity)
     {
-        // Delete the child orders first
-        var deletedOrders = await DeleteAsync<Order>(o => o.CustomerId == id,
-            transaction: transaction);
-
-        // No need to check (if deletedOrders > 0) as some customers does not have orders
-        return await DeleteAsync<Customer>(id,
-            transaction: transaction);
+        using (var connection = CreateConnection())
+        {
+            return await connection.MergeAsync<Customer>(entity,
+                commandTimeout: m_settings.CommandTimeout,
+                trace: Trace);
+        }
     }
 
     // Save
 
-    public async Task<object> SaveCustomeryAsync(Customer customer,
-        IDbTransaction transaction = null)
+    public async Task<object> SaveAsync(Customer entity)
     {
-        return await InsertAsync<Customer>(customer,
-            transaction: transaction);
-    }
-
-    public async Task<object> SaveOrderyAsync(Order order,
-        IDbTransaction transaction = null)
-    {
-        return await InsertAsync<Order>(order,
-            transaction: transaction);
-    }
-
-    public async Task<object> SaveProductyAsync(Product product,
-        IDbTransaction transaction = null)
-    {
-        return await InsertAsync<Product>(product,
-            transaction: transaction);
+        using (var connection = CreateConnection())
+        {
+            return await connection.SaveAsync<Customer>(entity,
+                commandTimeout: m_settings.CommandTimeout,
+                trace: Trace);
+        }
     }
 
     // Update
-        
-    public async Task<int> UpdateCustomeryAsync(Customer customer,
-        IDbTransaction transaction = null)
-    {
-        return await UpdateAsync<Customer>(customer,
-            transaction: transaction);
-    }
 
-    public async Task<int> UpdateOrderyAsync(Order order,
-        IDbTransaction transaction = null)
+    public async Task<int> UpdateAsync(Customer entity)
     {
-        return await UpdateAsync<Order>(order,
-            transaction: transaction);
-    }
-
-    public async Task<int> UpdateProductyAsync(Product product,
-        IDbTransaction transaction = null)
-    {
-        return await UpdateAsync<Product>(product,
-            transaction: transaction);
+        using (var connection = CreateConnection())
+        {
+            return await connection.UpdateAsync<Customer>(entity,
+                commandTimeout: m_settings.CommandTimeout,
+                trace: Trace);
+        }
     }
 }
 ```
@@ -294,7 +186,7 @@ public class AppSetting
 }
 ```
 
-#### Dependency Injection (Normal)
+#### Dependency Injection
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -303,18 +195,6 @@ public void ConfigureServices(IServiceCollection services)
 
     // Registration
     services.AddTransient<INorthwindRepository, NorthwindRepository>();
-}
-```
-
-#### Dependency Injection (with Cache or ConnectionPersistency.Instace)
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddControllers();
-
-    // Registration
-    services.AddSingleton<INorthwindRepository, NorthwindRepository>();
 }
 ```
 

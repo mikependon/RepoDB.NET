@@ -141,7 +141,7 @@ public interface INorthwindRepository
 }
 ```
 
-#### GenericRepository
+#### RepositoryBase (GenericRepository)
 
 ```csharp
 public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
@@ -231,7 +231,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
     {
         using (var connection = CreateConnection())
         {
-            return connection.Merge<TEntity>(entity,
+            return connection.Save<TEntity>(entity,
                 commandTimeout: m_settings.CommandTimeout,
                 trace: Trace);
         }
@@ -242,9 +242,12 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
     public int Update<TEntity>(TEntity entity,
         IDbTransaction transaction = null)
     {
-        return Update<TEntity>(entity,
-            transaction: transaction,
+        using (var connection = CreateConnection())
+        {
+            return Update<TEntity>(entity,
+                transaction: transaction,
                 trace: Trace);
+        }
     }
 
     /*** Async ***/
@@ -305,7 +308,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
     {
         using (var connection = CreateConnection())
         {
-            return await connection.MergeAsync<TEntity>(entity,
+            return await connection.SaveAsync<TEntity>(entity,
                 commandTimeout: m_settings.CommandTimeout,
                 trace: Trace);
         }

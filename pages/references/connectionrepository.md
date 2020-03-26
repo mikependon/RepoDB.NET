@@ -1,17 +1,17 @@
 ---
 layout: page
-title: "Connection Repository Reference (RepoDb)"
+title: "Connection-Based Repository Reference (RepoDb)"
 permalink: /reference/connectionrepository
 tags: [repodb, class, connectionrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Connection Repository
+## Connection-Based Repository
 
 This page contains the reference implementation when implementing a repository that is using a connection object per method.
 
 The consolidated output of this page can be found [here](/reference/output/connectionrepository).
 
-> This kind of repository is usually being created as a base or generic repository that can be used by any models and databases. Imagine that you would like to have a reusable repository in any purpose.
+> This kind of repository is direct and is usually unstructured. Use this repository if you are in minimal development.
 
 ###### Recommended Objects (Optional)
 
@@ -20,7 +20,6 @@ The consolidated output of this page can be found [here](/reference/output/conne
 
 ###### Recommended Properties (Optional)
 
-- [ConnectionPersistency](/enumeration/connectionpersistency)
 - [CommandTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand.commandtimeout?view=sqlclient-dotnet-core-1.1)
 
 #### Cache Creation
@@ -97,8 +96,7 @@ public class AppSetting
 #### Repository Creation
 
 ```csharp
-public class RepositoryBase<TDbConnection> : IRepository<TDbConnection>
-    where TDbConnection : DbConnection
+public class NorthwindRepository
 {
     private IOptions<AppSettings> m_settings;
 
@@ -119,29 +117,16 @@ public class RepositoryBase<TDbConnection> : IRepository<TDbConnection>
 }
 ```
 
-#### Helper Methods
-
-Create a method that creates a connection object.
-
-```csharp
-public TDbConnection CreateConnection()
-{
-    var connection = Activator.CreateInstance<TDbConnection>();
-    connection.ConnectionString = m_settings.ConnectionString;
-    return connection.EnsureOpen();
-}
-```
-
 #### Operational Methods
 
 Below is the recommended way when exposing a method that returns the records.
 
 ```csharp
-public IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null)
+public IEnumerable<Customer> GetCustomers(string cacheKey = null)
 {
     using (var connection = CreateConnection())
     {
-        return connection.QueryAll<TEntity>(cacheKey: cacheKey,
+        return connection.QueryAll<Customer>(cacheKey: cacheKey,
             commandTimeout: m_settings.CommandTimeout,
             cache: Cache,
             cacheItemExpiration: m_settings.CacheItemExpiration,
@@ -150,73 +135,76 @@ public IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null)
 }
 ```
 
-Below is the recommended way when exposing a method that return single record.
+Below is the recommended way when exposing a method that returns a single record.
 
 ```csharp
-public TEntity Get<TEntity>(object id)
+public Customer GetCustomer(object id)
 {
     using (var connection = CreateConnection())
     {
-        return connection.Query<TEntity>(id,
+        return connection.Query<Customer>(id,
             commandTimeout: m_settings.CommandTimeout,
             trace: Trace);
     }
 }
 ```
 
-Below is the recommended way to delete a record.
+Below is the recommended way to deletes a record.
 
 ```csharp
-public int Delete<TEntity>(object id)
+public int DeleteCustomer(object id)
 {
     using (var connection = CreateConnection())
     {
-        return connection.Delete<TEntity>(id,
+        return connection.Delete<Customer>(id,
             commandTimeout: m_settings.CommandTimeout,
             trace: Trace);
     }
 }
 ```
 
-Below is the recommended way when exposing a method that merge a record.
+Below is the recommended way when exposing a method that merges a record.
 
 ```csharp
-public object Merge<TEntity>(TEntity entity,
+public object MergeCustomer(Customer entity,
     IDbTransaction transaction = null)
 {
     using (var connection = CreateConnection())
     {
-        return connection.Merge<TEntity>(entity,
+        return connection.Merge<Customer>(entity,
             commandTimeout: m_settings.CommandTimeout,
             trace: Trace);
     }
 }
 ```
 
-Below is the recommended way when exposing a method that save a record.
+Below is the recommended way when exposing a method that saves a record.
 
 ```csharp
-public object Save<TEntity>(TEntity entity,
+public object SaveCustomer(Customer entity,
     IDbTransaction transaction = null)
 {
     using (var connection = CreateConnection())
     {
-        return connection.Merge<TEntity>(entity,
+        return connection.Insert<Customer>(entity,
             commandTimeout: m_settings.CommandTimeout,
             trace: Trace);
     }
 }
 ```
 
-Below is the recommended way when exposing a method that update a record.
+Below is the recommended way when exposing a method that updates a record.
 
 ```csharp
-public int Update<TEntity>(TEntity entity,
+public int UpdateCustomer(Customer entity,
     IDbTransaction transaction = null)
 {
-    return Update<TEntity>(entity,
-        transaction: transaction,
+    using (var connection = CreateConnection())
+    {
+        return Update<Customer>(entity,
+            transaction: transaction,
             trace: Trace);
+    }
 }
 ```
 
@@ -227,11 +215,11 @@ Ensure that all records you had created has corresponding asynchronous methods w
 ```csharp
 // Get (Many)
 
-public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = null)
+public async Task<IEnumerable<Customer>> GetCustomersAsync(string cacheKey = null)
 {
     using (var connection = CreateConnection())
     {
-        return await connection.QueryAllAsync<TEntity>(cacheKey: cacheKey,
+        return await connection.QueryAllAsync<Customer>(cacheKey: cacheKey,
             commandTimeout: m_settings.CommandTimeout,
             cache: Cache,
             cacheItemExpiration: m_settings.CacheItemExpiration,
@@ -241,11 +229,11 @@ public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = n
 
 // Get
 
-public async Task<TEntity> GetAsync<TEntity>(object id)
+public async Task<Customer> GetAsync(object id)
 {
     using (var connection = CreateConnection())
     {
-        return await connection.QueryAsync<TEntity>(id,
+        return await connection.QueryAsync<Customer>(id,
             commandTimeout: m_settings.CommandTimeout,
             trace: Trace);
     }
@@ -253,11 +241,11 @@ public async Task<TEntity> GetAsync<TEntity>(object id)
 
 // Delete
 
-public async Task<int> DeleteAsync<TEntity>(object id)
+public async Task<int> DeleteAsync(object id)
 {
     using (var connection = CreateConnection())
     {
-        return await connection.DeleteAsync<TEntity>(id,
+        return await connection.DeleteAsync<Customer>(id,
             commandTimeout: m_settings.CommandTimeout,
             trace: Trace);
     }
@@ -265,11 +253,11 @@ public async Task<int> DeleteAsync<TEntity>(object id)
 
 // Merge
 
-public async Task<objec> MergeAsync<TEntity>(TEntity entity)
+public async Task<objec> MergeAsync(Customer entity)
 {
     using (var connection = CreateConnection())
     {
-        return await connection.MergeAsync<TEntity>(entity,
+        return await connection.MergeAsync<Customer>(entity,
             commandTimeout: m_settings.CommandTimeout,
             trace: Trace);
     }
@@ -277,11 +265,11 @@ public async Task<objec> MergeAsync<TEntity>(TEntity entity)
 
 // Save
 
-public async Task<object> SaveAsync<TEntity>(TEntity entity)
+public async Task<object> SaveAsync(Customer entity)
 {
     using (var connection = CreateConnection())
     {
-        return await connection.MergeAsync<TEntity>(entity,
+        return await connection.SaveAsync<Customer>(entity,
             commandTimeout: m_settings.CommandTimeout,
             trace: Trace);
     }
@@ -289,11 +277,11 @@ public async Task<object> SaveAsync<TEntity>(TEntity entity)
 
 // Update
 
-public async Task<int> UpdateAsync<TEntity>(TEntity entity)
+public async Task<int> UpdateAsync(Customer entity)
 {
     using (var connection = CreateConnection())
     {
-        return await connection.UpdateAsync<TEntity>(entity,
+        return await connection.UpdateAsync<Customer>(entity,
             commandTimeout: m_settings.CommandTimeout,
             trace: Trace);
     }
@@ -305,7 +293,7 @@ public async Task<int> UpdateAsync<TEntity>(TEntity entity)
 Create an interface that contains all the necessary methods. The name must be identitical on the purpose of the repository.
 
 ```csharp
-public interface IRepositoryBase<TDbConnection>
+public interface INorthwindRepository<TDbConnection>
     where TDbConnection : DbConnection
 {
     /*** Helper ***/
@@ -314,69 +302,43 @@ public interface IRepositoryBase<TDbConnection>
 
     /*** Non-Async ***/
 
-    IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null);
+    IEnumerable<Customer> GetAll<Customer>(string cacheKey = null);
 
-    TEntity Get<TEntity>(object id);
+    Customer Get<Customer>(object id);
 
-    int Delete<TEntity>(object id);
+    int Delete<Customer>(object id);
 
-    object Merge<TEntity>(TEntity entity);
+    object Merge<Customer>(Customer entity);
 
-    object Save<TEntity>(TEntity entity);
+    object Save<Customer>(Customer entity);
 
-    int Update<TEntity>(TEntity entity);
+    int Update<Customer>(Customer entity);
 
     /*** Async ***/
 
-    Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = null);
+    Task<IEnumerable<Customer>> GetAllAsync<Customer>(string cacheKey = null);
 
-    Task<TEntity> GetAsync<TEntity>(object id);
+    Task<Customer> GetAsync<Customer>(object id);
 
-    Task<int> DeleteAsync<TEntity>(object id);
+    Task<int> DeleteAsync<Customer>(object id);
 
-    Task<objec> MergeAsync<TEntity>(TEntity entity);
+    Task<objec> MergeAsync<Customer>(Customer entity);
     
-    Task<object> SaveAsync<TEntity>(TEntity entity);
+    Task<object> SaveAsync<Customer>(Customer entity);
 
-    Task<int> UpdateAsync<TEntity>(TEntity entity);
+    Task<int> UpdateAsync<Customer>(Customer entity);
 }
 ```
 
 Then implement it on the repository.
 
 ```csharp
-public class RepositoryBase<DbConnection> : IRepositoryBase<DbConnection>
+public class NorthwindRepository<DbConnection> : INorthwindRepository<DbConnection>
     where TDbConnection : DbConnection
 {
     ...
 }
 ```
-
-#### Using the RepositoryBase
-
-Create a class that inherits the repository.
-
-```csharp
-public class NorthwindRepository : RepositoryBase<SqlConnection>
-{
-    public NorthwindRepository(IOptions<AppSetting> settings)
-        : base(settings)
-    { }
-}
-```
-
-#### Derived Repository Methods
-
-Create a method that calls the base method.
-
-```csharp
-public object SaveCustomer(Customer customer)
-{
-    return base.Save(customer);
-}
-```
-
-> Do the same calls for the other methods.
 
 #### Unit of Work
 
@@ -408,39 +370,18 @@ public void SaveCustomerOrder(int customerId,
 
 #### Repository Injection
 
-Register it as singleton if you.
-
-- Are using the [ConnectionPersistency.Instance](/enumeration/connectionpersistency#instance) enumeration.
-- Enabled the [ICache](/interface/icache) object.
-
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddControllers();
 
     // Registration
-    services.AddSingleton<IRepositoryBase, RepositoryBase>();
-}
-```
-
-Otherwise, register it as transient.
-
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddControllers();
-
-    // Registration
-    services.AddTransient<IRepositoryBase, RepositoryBase>();
+    services.AddSingleton<INorthwindRepository, NorthwindRepository>();
 }
 ```
 
 #### Key Take-aways
 
-- The transaction argument is needed in every methods in order for you to enable the Unit of Work (UOW).
-- The cache key argument is needed in the case you need to cache the result.
-- The interface is needed for dependency injection.
-- The singleton registration is needed for caching and connection persistency.
-- The method names would be targetted to the entity.
+- The transaction object is needed to passed in all operation for the unit-of-work activity.
+- The async methods must be provided in all methods.
 - The repository must be short and precise on its purpose.

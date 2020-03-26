@@ -20,7 +20,6 @@ The consolidated output of this page can be found [here](/reference/output/gener
 
 ###### Recommended Properties (Optional)
 
-- [ConnectionPersistency](/enumeration/connectionpersistency)
 - [CommandTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand.commandtimeout?view=sqlclient-dotnet-core-1.1)
 
 #### Cache Creation
@@ -201,7 +200,7 @@ public object Save<TEntity>(TEntity entity,
 {
     using (var connection = CreateConnection())
     {
-        return connection.Merge<TEntity>(entity,
+        return connection.Insert<TEntity>(entity,
             commandTimeout: m_settings.CommandTimeout,
             trace: Trace);
     }
@@ -214,9 +213,12 @@ Below is the recommended way when exposing a method that updates a record.
 public int Update<TEntity>(TEntity entity,
     IDbTransaction transaction = null)
 {
-    return Update<TEntity>(entity,
-        transaction: transaction,
+    using (var connection = CreateConnection())
+    {
+        return Update<TEntity>(entity,
+            transaction: transaction,
             trace: Trace);
+    }
 }
 ```
 
@@ -281,7 +283,7 @@ public async Task<object> SaveAsync<TEntity>(TEntity entity)
 {
     using (var connection = CreateConnection())
     {
-        return await connection.MergeAsync<TEntity>(entity,
+        return await connection.InsertAsync<TEntity>(entity,
             commandTimeout: m_settings.CommandTimeout,
             trace: Trace);
     }

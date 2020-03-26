@@ -443,19 +443,9 @@ public class AppSetting
 }
 ```
 
-#### Dependency Injection (Normal)
+#### Dependency Injections
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddControllers();
-
-    // Registration
-    services.AddTransient<INorthwindRepository, NorthwindRepository>();
-}
-```
-
-#### Dependency Injection (with Cache or ConnectionPersistency.Instace)
+For singleton.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -464,6 +454,18 @@ public void ConfigureServices(IServiceCollection services)
 
     // Registration
     services.AddSingleton<INorthwindRepository, NorthwindRepository>();
+}
+```
+
+Or for transient.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddTransient<INorthwindRepository, NorthwindRepository>();
 }
 ```
 

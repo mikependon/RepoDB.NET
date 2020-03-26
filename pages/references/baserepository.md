@@ -11,7 +11,7 @@ This page contains the reference implementation when implementing a repository t
 
 The consolidated output of this page can be found [here](/reference/output/baserepository).
 
-> The [BaseRepository](/class/baserepository) class is only used for implementing an entity-based repository. Imagine that you are only working with `[dbo].[Person]` table.
+> The [BaseRepository](/class/baserepository) class is only used for implementing an entity-based repository. Imagine that you are only working with `[dbo].[Customer]` table.
 
 ###### Recommended Objects (Optional)
 
@@ -97,9 +97,9 @@ public class AppSetting
 #### Repository Creation
 
 ```csharp
-public class PersonRepository : BaseRepository<Person, SqlConnection>
+public class CustomerRepository : BaseRepository<Customer, SqlConnection>
 {
-    public PersonRepository(IOptions<AppSetting> settings)
+    public CustomerRepository(IOptions<AppSetting> settings)
         : base(settings.ConnectionString,
             commandTimeout: settings.CommandTimeout,
             connectionPersistency: ConnectionPersistency.PerCall,
@@ -118,7 +118,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 Below is the recommended way when exposing a method that returns all records.
 
 ```csharp
-public IEnumerable<Person> GetAll(string cacheKey = null,
+public IEnumerable<Customer> GetAll(string cacheKey = null,
     IDbTransaction transaction = null)
 {
     return QueryAll(cacheKey: cacheKey,
@@ -129,7 +129,7 @@ public IEnumerable<Person> GetAll(string cacheKey = null,
 Below is the recommended way when exposing a method that returns a single record.
 
 ```csharp
-public Person Get(int id,
+public Customer Get(int id,
     string cacheKey = null,
     IDbTransaction transaction = null)
 {
@@ -138,7 +138,7 @@ public Person Get(int id,
         transaction: transaction).FirstOrDefault();
 }
 
-public Person GetByName(string name,
+public Customer GetByName(string name,
     string cacheKey = null,
     IDbTransaction transaction = null)
 {
@@ -162,24 +162,24 @@ public int Delete(int id,
 Below is the recommended way when exposing a method that pushes a record.
 
 ```csharp
-public object Merge(Person person,
+public object Merge(Customer customer,
     IDbTransaction transaction = null)
 {
-    return base.Merge(person,
+    return base.Merge(customer,
         transaction: transaction);
 }
 
-public object Save(Person person,
+public object Save(Customer customer,
     IDbTransaction transaction = null)
 {
-    return Insert(person,
+    return Insert(customer,
         transaction: transaction);
 }
 
-public int Update(Person person,
+public int Update(Customer customer,
     IDbTransaction transaction = null)
 {
-    return base.Update(person,
+    return base.Update(customer,
         transaction: transaction);
 }
 ```
@@ -189,14 +189,14 @@ public int Update(Person person,
 Ensure that all records you had created has corresponding asynchronous methods with the same standard as synchronous methods.
 
 ```csharp
-public async Task<IEnumerable<Person>> GetAllAsync(string cacheKey = null,
+public async Task<IEnumerable<Customer>> GetAllAsync(string cacheKey = null,
     IDbTransaction transaction = null)
 {
     return await QueryAllAsync(cacheKey: cacheKey,
         transaction: transaction);
 }
 
-public async Task<Person> GetAsync(int id,
+public async Task<Customer> GetAsync(int id,
     string cacheKey = null,
     IDbTransaction transaction = null)
 {
@@ -205,7 +205,7 @@ public async Task<Person> GetAsync(int id,
         transaction: transaction)).FirstOrDefault();
 }
 
-public async Task<Person> GetByNameAsync(string name,
+public async Task<Customer> GetByNameAsync(string name,
     string cacheKey = null,
     IDbTransaction transaction = null)
 {
@@ -221,24 +221,24 @@ public async Task<int> DeleteAsync(int id,
         transaction: transaction);
 }
 
-public async Task<object> MergeAsync(Person person,
+public async Task<object> MergeAsync(Customer customer,
     IDbTransaction transaction = null)
 {
-    return await base.MergeAsync(person,
+    return await base.MergeAsync(customer,
         transaction: transaction);
 }
 
-public async Task<object> SaveAsync(Person person,
+public async Task<object> SaveAsync(Customer customer,
     IDbTransaction transaction = null)
 {
-    return await InsertAsync(person,
+    return await InsertAsync(customer,
         transaction: transaction);
 }
 
-public async Task<int> UpdateAsync(Person person,
+public async Task<int> UpdateAsync(Customer customer,
     IDbTransaction transaction = null)
 {
-    return await base.UpdateAsync(person,
+    return await base.UpdateAsync(customer,
         transaction: transaction);
 }
 ```
@@ -248,56 +248,56 @@ public async Task<int> UpdateAsync(Person person,
 Create an interface that contains all the necessary methods. The name must be identitical on the purpose of the repository.
 
 ```csharp
-public interface IPersonRepository
+public interface ICustomerRepository
 {
     // Non-Async
 
-    IEnumerable<Person> GetAll(string cacheKey = null,
+    IEnumerable<Customer> GetAll(string cacheKey = null,
         IDbTransaction transaction = null);
 
-    Person Get(int id,
+    Customer Get(int id,
         string cacheKey = null,
         IDbTransaction transaction = null);
 
-    Person GetByName(string name,
+    Customer GetByName(string name,
         string cacheKey = null,
         IDbTransaction transaction = null);
 
     int Delete(int id,
         IDbTransaction transaction = null);
 
-    object Merge(Person person,
+    object Merge(Customer customer,
         IDbTransaction transaction = null);
 
-    object Save(Person person,
+    object Save(Customer customer,
         IDbTransaction transaction = null);
 
-    int Update(Person person,
+    int Update(Customer customer,
         IDbTransaction transaction = null);
 
     // Async
 
-    Task<IEnumerable<Person>> GetAllAsync(string cacheKey = null,
+    Task<IEnumerable<Customer>> GetAllAsync(string cacheKey = null,
         IDbTransaction transaction = null);
 
-    Task<Person> GetAsync(int id,
+    Task<Customer> GetAsync(int id,
         string cacheKey = null,
         IDbTransaction transaction = null);
 
-    Task<Person> GetByNameAsync(string name,
+    Task<Customer> GetByNameAsync(string name,
         string cacheKey = null,
         IDbTransaction transaction = null);
 
     Task<int> DeleteAsync(int id,
         IDbTransaction transaction = null);
 
-    Task<object> Merge(Person person,
+    Task<object> Merge(Customer customer,
         IDbTransaction transaction = null);
 
-    Task<object> SaveAsync(Person person,
+    Task<object> SaveAsync(Customer customer,
         IDbTransaction transaction = null);
 
-    Task<int> UpdateAsync(Person person,
+    Task<int> UpdateAsync(Customer customer,
         IDbTransaction transaction = null);
 }
 ```
@@ -305,7 +305,7 @@ public interface IPersonRepository
 Then implement it on the repository.
 
 ```csharp
-public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
+public class CustomerRepository : BaseRepository<Customer, SqlConnection>, ICustomerRepository
 {
     ...
 }
@@ -324,7 +324,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddControllers();
 
     // Registration
-    services.AddSingleton<IPersonRepository, PersonRepository>();
+    services.AddSingleton<ICustomerRepository, CustomerRepository>();
 }
 ```
 
@@ -337,7 +337,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddControllers();
 
     // Registration
-    services.AddTransient<IPersonRepository, PersonRepository>();
+    services.AddTransient<ICustomerRepository, CustomerRepository>();
 }
 ```
 
