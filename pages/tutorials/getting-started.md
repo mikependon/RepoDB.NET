@@ -6,10 +6,10 @@ tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlserver, sqlite, my
 ---
 
 <p class="preface">
-RepoDb is here to improve the things and experiences when working with the Data Access Technology in .NET space. It is always free and is open for suggestions and more improvements.
+RepoDb is here to improve the things and experiences when working with the Data Access Technology in .NET space.
 <br/>
 <br/>
-We are glad and would like to thank you for your interest in learning RepoDb. We hope that you will learn a lot and improve the development experiences while using this library.
+We are glad and would like to thank you for your interest in learning RepoDb. We hope that you will learn a lot and improve your development experiences while using this library.
 <br/>
 <br/>
 ~Enjoy learning!
