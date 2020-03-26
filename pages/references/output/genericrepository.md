@@ -92,6 +92,8 @@ public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepo
     }
 
     /*** Async ***/
+    
+    ...
 }
 ```
 
@@ -135,6 +137,7 @@ public interface INorthwindRepository
 
     /*** Async **/
 
+    ...
 }
 ```
 
