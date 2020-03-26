@@ -7,7 +7,7 @@ tags: [repodb, tutorial, executequery, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 ## ExecuteQuery
 
-This method is used to execute a raw-SQL directly towards the database. It returns an `IEnumerable<T>` object. This method supports all types of RDMBS data providers. The only requirement is that, user needs to provide the raw-SQL itself.
+This method is used to execute a raw-SQL directly towards the database. It returns an `IEnumerable<T>` object. This method supports all types of RDMBS data providers.
 
 #### Installation
 
@@ -23,7 +23,7 @@ Or visit our [installation](/tutorials/installation) page for more information.
 
 #### Learnings
 
-Below is a very simple codes that query all the rows from the `[dbo].[Person]` table from the database.
+Below is a code that queries all the rows from the `[dbo].[Person]` table from the database.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -101,7 +101,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> You can also use the types defined at the *Passing of Parameters* section when passing a parameter.
+> You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
 
 #### Executing a StoredProcedure
 
@@ -115,7 +115,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, simply using the native SQL calls like below.
+Or, simply use the native SQL calls like below.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

@@ -11,7 +11,7 @@ This page contains the reference implementation when implementing a repository t
 
 The consolidated output of this page can be found [here](/reference/output/dbrepository).
 
-> The [DbRepository](/class/dbrepository) class is used for implementing a shared repository. Imagine you are working with `[dbo].[Customer`, `[dbo].[Product]` and `[dbo].[Order]` tables.
+> The [DbRepository](/class/dbrepository) class is used for implementing a shared repository. Imagine you are working with `[dbo].[Customer]`, `[dbo].[Product]` and `[dbo].[Order]` tables.
 
 ###### Recommended Objects (Optional)
 

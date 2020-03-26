@@ -229,7 +229,7 @@ public async Task<IEnumerable<Customer>> GetCustomersAsync(string cacheKey = nul
 
 // Get
 
-public async Task<Customer> GetAsync(object id)
+public async Task<Customer> GetCustomerAsync(object id)
 {
     using (var connection = CreateConnection())
     {
@@ -241,7 +241,7 @@ public async Task<Customer> GetAsync(object id)
 
 // Delete
 
-public async Task<int> DeleteAsync(object id)
+public async Task<int> DeleteCustomerAsync(object id)
 {
     using (var connection = CreateConnection())
     {
@@ -253,7 +253,7 @@ public async Task<int> DeleteAsync(object id)
 
 // Merge
 
-public async Task<objec> MergeAsync(Customer entity)
+public async Task<objec> MergeCustomerAsync(Customer entity)
 {
     using (var connection = CreateConnection())
     {
@@ -265,7 +265,7 @@ public async Task<objec> MergeAsync(Customer entity)
 
 // Save
 
-public async Task<object> SaveAsync(Customer entity)
+public async Task<object> SaveCustomerAsync(Customer entity)
 {
     using (var connection = CreateConnection())
     {
@@ -277,7 +277,7 @@ public async Task<object> SaveAsync(Customer entity)
 
 // Update
 
-public async Task<int> UpdateAsync(Customer entity)
+public async Task<int> UpdateCustomerAsync(Customer entity)
 {
     using (var connection = CreateConnection())
     {
@@ -302,31 +302,31 @@ public interface INorthwindRepository<TDbConnection>
 
     /*** Non-Async ***/
 
-    IEnumerable<Customer> GetAll<Customer>(string cacheKey = null);
+    IEnumerable<Customer> GetCustomers(string cacheKey = null);
 
-    Customer Get<Customer>(object id);
+    Customer GetCustomer(object id);
 
-    int Delete<Customer>(object id);
+    int DeleteCustomer(object id);
 
-    object Merge<Customer>(Customer entity);
+    object MergeCustomer(Customer entity);
 
-    object Save<Customer>(Customer entity);
+    object SaveCustomer(Customer entity);
 
     int Update<Customer>(Customer entity);
 
     /*** Async ***/
 
-    Task<IEnumerable<Customer>> GetAllAsync<Customer>(string cacheKey = null);
+    Task<IEnumerable<Customer>> GetCustomersAsync(string cacheKey = null);
 
-    Task<Customer> GetAsync<Customer>(object id);
+    Task<Customer> GetCustomerAsync(object id);
 
-    Task<int> DeleteAsync<Customer>(object id);
+    Task<int> DeleteCustomerAsync(object id);
 
-    Task<objec> MergeAsync<Customer>(Customer entity);
+    Task<objec> MergeCustomerAsync(Customer entity);
     
-    Task<object> SaveAsync<Customer>(Customer entity);
+    Task<object> SaveCustomerAsync(Customer entity);
 
-    Task<int> UpdateAsync<Customer>(Customer entity);
+    Task<int> UpdateCustomerAsync(Customer entity);
 }
 ```
 

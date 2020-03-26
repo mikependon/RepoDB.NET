@@ -117,7 +117,7 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
 
     // Get
 
-    public async Task<Customer> GetAsync(object id)
+    public async Task<Customer> GetCustomerAsync(object id)
     {
         using (var connection = CreateConnection())
         {
@@ -129,7 +129,7 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
 
     // Delete
 
-    public async Task<int> DeleteAsync(object id)
+    public async Task<int> DeleteCustomerAsync(object id)
     {
         using (var connection = CreateConnection())
         {
@@ -141,7 +141,7 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
 
     // Merge
 
-    public async Task<objec> MergeAsync(Customer entity)
+    public async Task<objec> MergeCustomerAsync(Customer entity)
     {
         using (var connection = CreateConnection())
         {
@@ -153,7 +153,7 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
 
     // Save
 
-    public async Task<object> SaveAsync(Customer entity)
+    public async Task<object> SaveCustomerAsync(Customer entity)
     {
         using (var connection = CreateConnection())
         {
@@ -165,7 +165,7 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
 
     // Update
 
-    public async Task<int> UpdateAsync(Customer entity)
+    public async Task<int> UpdateCustomerAsync(Customer entity)
     {
         using (var connection = CreateConnection())
         {
@@ -174,6 +174,46 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
                 trace: Trace);
         }
     }
+}
+```
+
+#### Interface
+
+```csharp
+public interface INorthwindRepository<TDbConnection>
+    where TDbConnection : DbConnection
+{
+    /*** Helper ***/
+
+    TDbConnection GetConnection();
+
+    /*** Non-Async ***/
+
+    IEnumerable<Customer> GetCustomers(string cacheKey = null);
+
+    Customer GetCustomer(object id);
+
+    int DeleteCustomer(object id);
+
+    object MergeCustomer(Customer entity);
+
+    object SaveCustomer(Customer entity);
+
+    int Update<Customer>(Customer entity);
+
+    /*** Async ***/
+
+    Task<IEnumerable<Customer>> GetCustomersAsync(string cacheKey = null);
+
+    Task<Customer> GetCustomerAsync(object id);
+
+    Task<int> DeleteCustomerAsync(object id);
+
+    Task<objec> MergeCustomerAsync(Customer entity);
+    
+    Task<object> SaveCustomerAsync(Customer entity);
+
+    Task<int> UpdateCustomerAsync(Customer entity);
 }
 ```
 

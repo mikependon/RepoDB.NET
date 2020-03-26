@@ -7,7 +7,7 @@ tags: [repodb, tutorial, executequerymultiple, orm, hybrid-orm, sqlserver, sqlit
 
 ## ExecuteQueryMultiple
 
-This method is used to execute multiple raw-SQLs directly towards the database in one-go. It returns an object of [QueryMultipleExtractor](/class/querymultipleextractor). It gives you the controllabilities as a developer to manage the extraction of the resultsets. This method supports all types of RDMBS data providers. The only requirement is that, user needs to provide the raw-SQL itself.
+This method is used to execute multiple raw-SQLs directly towards the database in one-go. It returns an object of [QueryMultipleExtractor](/class/querymultipleextractor). It gives you the controllabilities as a developer to manage the extraction of the resultsets. This method supports all types of RDMBS data providers.
 
 #### Installation
 
@@ -23,7 +23,7 @@ Or visit our [installation](/tutorials/installation) page for more information.
 
 #### Learnings
 
-Below is a very simple codes that query a parent person (from `[dbo].[Person]` table) and all its related historical addresses (from `[dbo].[Address]` table) from the database.
+Below is a code that queries a parent person (from `[dbo].[Person]` table) and all its related historical addresses (from `[dbo].[Address]` table) from the database.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -135,7 +135,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> You can also use the types defined at the *Passing of Parameters* section when passing a parameter.
+> You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
 
 #### Executing a StoredProcedure
 
