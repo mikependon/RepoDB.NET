@@ -10,7 +10,7 @@ This page contains all the recommended-way of implementing objects when using th
 
 #### Repository Implementations
 
-- [Connection-Based Repository](/reference/connectionrepository) - simple and popular
+- [Connection-Based Repository](/reference/connectionrepository)
 - [BaseRepository](/reference/baserepository)
 - [DbRepository](/reference/dbrepository)
 - [GenericRepository](/reference/genericrepository)

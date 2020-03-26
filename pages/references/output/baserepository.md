@@ -132,6 +132,63 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 }
 ```
 
+#### Interface
+
+```csharp
+public interface IPersonRepository
+{
+    // Non-Async
+
+    IEnumerable<Person> GetAll(string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    Person Get(int id,
+        string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    Person GetByName(string name,
+        string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    int Delete(int id,
+        IDbTransaction transaction = null);
+
+    object Merge(Person person,
+        IDbTransaction transaction = null);
+
+    object Save(Person person,
+        IDbTransaction transaction = null);
+
+    int Update(Person person,
+        IDbTransaction transaction = null);
+
+    // Async
+
+    Task<IEnumerable<Person>> GetAllAsync(string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    Task<Person> GetAsync(int id,
+        string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    Task<Person> GetByNameAsync(string name,
+        string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    Task<int> DeleteAsync(int id,
+        IDbTransaction transaction = null);
+
+    Task<object> Merge(Person person,
+        IDbTransaction transaction = null);
+
+    Task<object> SaveAsync(Person person,
+        IDbTransaction transaction = null);
+
+    Task<int> UpdateAsync(Person person,
+        IDbTransaction transaction = null);
+}
+```
+
 #### Settings
 
 ```csharp

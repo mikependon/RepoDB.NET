@@ -285,6 +285,153 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>, INorth
 }
 ```
 
+#### Interface
+
+```csharp
+public interface INorthwindRepository
+{
+    /*** Non-Async ***/
+
+    // Get (Many)
+
+    IEnumerable<Customer> GetCustomers(string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    IEnumerable<Product> GetProducts(string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    IEnumerable<Order> GetCustomerOrders(int customerId,
+        IDbTransaction transaction = null);
+
+    // Get
+
+    Customer GetCustomer(int id,
+        string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    Product GetProduct(int id,
+        string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    Order GetOrder(int id,
+        IDbTransaction transaction = null);
+
+    // Delete
+
+    int DeleteOrder(int id,
+        IDbTransaction transaction = null);
+
+    int DeleteProduct(int id,
+        IDbTransaction transaction = null);
+
+    int DeleteCustomer(int id,
+        IDbTransaction transaction = null);
+
+    // Merge
+
+    object MergeCustomer(Customer customer,
+        IDbTransaction transaction = null);
+
+    object MergeOrder(Order order,
+        IDbTransaction transaction = null);
+
+    object MergeProduct(Product product,
+        IDbTransaction transaction = null);
+
+    // Save
+
+    object SaveCustomer(Customer customer,
+        IDbTransaction transaction = null);
+
+    object SaveOrder(Order order,
+        IDbTransaction transaction = null);
+
+    object SaveProduct(Product product,
+        IDbTransaction transaction = null);
+
+    // Update
+
+    int UpdateCustomer(Customer customer,
+        IDbTransaction transaction = null);
+
+    int UpdateOrder(Order order,
+        IDbTransaction transaction = null);
+
+    int UpdateProduct(Product product,
+        IDbTransaction transaction = null);
+
+    /*** Async ***/
+
+    // Get (Many)
+
+    Task<IEnumerable<Customer>> GetCustomersyAsync(string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    Task<IEnumerable<Product>> GetProductsyAsync(string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    Task<IEnumerable<Order>> GetCustomerOrdersyAsync(int customerId,
+        IDbTransaction transaction = null);
+
+    Task<Customer> GetCustomeryAsync(int id,
+        string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    // Get
+
+    Task<Product> GetProductyAsync(int id,
+        string cacheKey = null,
+        IDbTransaction transaction = null);
+
+    Task<Order> GetOrderyAsync(int id,
+        IDbTransaction transaction = null);
+
+    // Delete
+
+    Task<int> DeleteOrderyAsync(int id,
+        IDbTransaction transaction = null);
+
+    Task<int> DeleteProductyAsync(int id,
+        IDbTransaction transaction = null);
+
+    Task<int> DeleteCustomeryAsync(int id,
+        IDbTransaction transaction = null);
+
+    // Merge
+
+    Task<object> MergeCustomeryAsync(Customer customer,
+        IDbTransaction transaction = null);
+
+    Task<object> MergeOrderyAsync(Order order,
+        IDbTransaction transaction = null);
+
+    Task<object> MergeProductyAsync(Product product,
+        IDbTransaction transaction = null);
+
+    // Save
+
+    Task<object> SaveCustomeryAsync(Customer customer,
+        IDbTransaction transaction = null);
+
+    Task<object> SaveOrderyAsync(Order order,
+        IDbTransaction transaction = null);
+
+    Task<object> SaveProductyAsync(Product product,
+        IDbTransaction transaction = null);
+
+    // Update
+
+    Task<int> UpdateCustomeryAsync(Customer customer,
+        IDbTransaction transaction = null);
+
+    Task<int> UpdateOrderyAsync(Order order,
+        IDbTransaction transaction = null);
+
+    Task<int> UpdateProductyAsync(Product product,
+        IDbTransaction transaction = null);
+}
+```
+
 #### Settings
 
 ```csharp
