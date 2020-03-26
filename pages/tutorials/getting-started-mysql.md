@@ -184,7 +184,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-By default, it uses the *Primary* field as the qualifier. You can also use the other field.
+By default, it uses the primary key as the qualifier. You can also use the other field.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
