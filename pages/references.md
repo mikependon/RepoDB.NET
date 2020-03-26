@@ -10,10 +10,10 @@ This page contains all the recommended-way of implementing objects when using th
 
 #### Repository Implementations
 
-- [Connection-Based Repository](/reference/connectionrepository)
-- [BaseRepository](/reference/baserepository)
-- [DbRepository](/reference/dbrepository)
-- [GenericRepository](/reference/genericrepository)
+- [Connection-Based Repository](/reference/connectionrepository) - direct and simple repository (popular)
+- [BaseRepository](/reference/baserepository) - entity-based repository
+- [DbRepository](/reference/dbrepository) - shared repository
+- [GenericRepository](/reference/genericrepository) - customize your own repository
 
 #### Other Implementations
 
