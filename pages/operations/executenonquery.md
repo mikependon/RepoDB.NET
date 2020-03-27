@@ -23,7 +23,7 @@ Or visit our [installation](/tutorials/installation) page for more information.
 
 #### Learnings
 
-Below is a code that delete all the rows from the `[dbo].[Person]` table from the database.
+Below is a code that deletes all the rows from the `[dbo].[Person]` table from the database.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

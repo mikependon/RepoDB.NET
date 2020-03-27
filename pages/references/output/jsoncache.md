@@ -41,11 +41,13 @@ public class JsonCache : ICache
 
     /*** Methods ***/
 
-    public void Add<T>(CacheItem<T> item,
+    public void Add<T>(string key,
+        T value,
+        int expiration = 180,
         bool throwException = true)
     {
-        var fileName = GetFileName(item.Key);
-        var contains = Contains(item.Key);
+        var fileName = GetFileName(key);
+        var contains = Contains(key);
         if (contains)
         {
             if (throwException)
@@ -53,7 +55,13 @@ public class JsonCache : ICache
                 throw new Exception($"File '{fileName}' already exists.");
             }
         }
-        File.WriteAllText(fileName, JsonConvert.SerializeObject(item));
+        File.WriteAllText(fileName, JsonConvert.SerializeObject(value));
+    }
+
+    public void Add<T>(CacheItem<T> item,
+        bool throwException = true)
+    {
+        Add<T>(item.Key, item.Value, item.CacheItemExpiration, throwException);
     }
 
     public void Clear()
@@ -74,21 +82,14 @@ public class JsonCache : ICache
         var fileName = GetFileName(key);
         if (File.Exists(fileName))
         {
-            return JsonConvert.DeserializeObject<CacheItem<T>>(File.ReadAllText(fileName));
+            var value = JsonConvert.DeserializeObject<T>(File.ReadAllText(fileName));
+            return new CacheItem<T>(key, value);
         }
         if (throwException)
         {
             throw new FileNotFoundException($"File '{fileName}' is not found.");
         }
         return null;
-    }
-
-    public IEnumerator<CacheItem<T>> GetEnumerator()
-    {
-        foreach (var fileName in Directory.GetFiles(Path))
-        {
-            yield return JsonConvert.DeserializeObject<CacheItem<T>>(File.ReadAllText(fileName));
-        }
     }
 
     public void Remove(string key,
@@ -107,7 +108,10 @@ public class JsonCache : ICache
 
     IEnumerator IEnumerable.GetEnumerator()
     {
-        return GetEnumerator();
+        foreach (var fileName in Directory.GetFiles(Path))
+        {
+            yield return JsonConvert.DeserializeObject<object>(File.ReadAllText(fileName));
+        }
     }
 }
 ```

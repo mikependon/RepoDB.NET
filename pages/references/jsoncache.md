@@ -64,11 +64,13 @@ Implement each method of the [ICache](/interface/icache) interface.
 ```csharp
 /*** Methods ***/
 
-public void Add<T>(CacheItem<T> item,
+public void Add<T>(string key,
+    T value,
+    int expiration = 180,
     bool throwException = true)
 {
-    var fileName = GetFileName(item.Key);
-    var contains = Contains(item.Key);
+    var fileName = GetFileName(key);
+    var contains = Contains(key);
     if (contains)
     {
         if (throwException)
@@ -76,7 +78,13 @@ public void Add<T>(CacheItem<T> item,
             throw new Exception($"File '{fileName}' already exists.");
         }
     }
-    File.WriteAllText(fileName, JsonConvert.SerializeObject(item));
+    File.WriteAllText(fileName, JsonConvert.SerializeObject(value));
+}
+
+public void Add<T>(CacheItem<T> item,
+    bool throwException = true)
+{
+    Add<T>(item.Key, item.Value, item.CacheItemExpiration, throwException);
 }
 
 public void Clear()
@@ -97,21 +105,14 @@ public CacheItem<T> Get<T>(string key,
     var fileName = GetFileName(key);
     if (File.Exists(fileName))
     {
-        return JsonConvert.DeserializeObject<CacheItem<T>>(File.ReadAllText(fileName));
+        var value = JsonConvert.DeserializeObject<T>(File.ReadAllText(fileName));
+        return new CacheItem<T>(key, value);
     }
     if (throwException)
     {
         throw new FileNotFoundException($"File '{fileName}' is not found.");
     }
     return null;
-}
-
-public IEnumerator<CacheItem<T>> GetEnumerator()
-{
-    foreach (var fileName in Directory.GetFiles(Path))
-    {
-        yield return JsonConvert.DeserializeObject<CacheItem<T>>(File.ReadAllText(fileName));
-    }
 }
 
 public void Remove(string key,
@@ -130,6 +131,11 @@ public void Remove(string key,
 
 IEnumerator IEnumerable.GetEnumerator()
 {
-    return GetEnumerator();
+    foreach (var fileName in Directory.GetFiles(Path))
+    {
+        yield return JsonConvert.DeserializeObject<object>(File.ReadAllText(fileName));
+    }
 }
 ```
+
+> The class [CacheItem](/class/cacheitem) does not have default constructor, by then, you can serialize/deserialize this object into JSON. The only items you can serialize/deserialize is the value itself. If you wish to cache the properties (ie: `Key`, `Expiration`, `ExpirationInMinutes`), then you have to create a class in between before serializing/deserializing it.
