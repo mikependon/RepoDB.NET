@@ -29,7 +29,7 @@ The code below is an explicit call to add a cache in a manual manner.
 ```csharp
 var people = GetPeople();
 var expirationInMinutes = 180;
-var item = new CacheItem("CacheKey:ActivePeople", people, expirationInMinutes);
+var item = new CacheItem<IEnumerable<Person>>("CacheKey:ActivePeople", people, expirationInMinutes);
 
 using (var repository = new PersonRepository())
 {
@@ -46,7 +46,7 @@ To retrieve an item from the cache, directly access the [ICache](/interface/icac
 Let us say, the repository `PersonRepository` is existing.
 
 ```csharp
-var item = repository.Cache.Get("CacheKey:ActivePeople");
+var item = repository.Cache.Get<IEnumerable<Person>>("CacheKey:ActivePeople");
 ```
 
 > If the cache is not found on the given key, by default it will throw an exception. You can set the `throwException` argument to `false` if you wish not to throw an exception.
