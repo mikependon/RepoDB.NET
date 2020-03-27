@@ -157,6 +157,7 @@ Below are the list of interfaces available.
 - [ICache](/interface/icache)
 - [IDbHelper](/interface/idbhelper)
 - [IDbSetting](/interface/idbsetting)
+- [IExpirable](/interface/iexpirable)
 - [IPropertyHandler](/interface/ipropertyhandler)
 - [IResolver](/interface/iresolver)
 - [IStatementBuilder](/interface/istatementbuilder)
