@@ -62,7 +62,7 @@ public class JsonCache : ICache
 }
 ```
 
-Or, please see the [JsonCache](/reference/jsoncache/output) for the actual implementation.
+Or, please see the [JsonCache](/reference/output/jsoncache) for the actual implementation.
 
 > You have to implement all the methods needed by this interface. With this, you have the full control of you cacher object.
 
