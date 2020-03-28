@@ -33,7 +33,7 @@ This is very useful when you would like to handle the following scenarios.
 - Can be used as trigger.
 - Manually override the default handler for the Enumerations.
 
-> The use-cases can be unlimitted depends on your situation.
+> The use-cases can be unlimitted depends on your situation. In addition to this note, by implementing the property handler and mapping it to the property will ignore the automatic conversion of [TypeMapper](/mapper/typemapper#automatic) and enumerations.
 
 #### How to Implement?
 
