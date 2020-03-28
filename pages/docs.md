@@ -54,7 +54,7 @@ Below are the list of execute-methods available. It support all RDBMS data provi
 
 ###### Fluent Methods
 
-Below are the list of fluent-methods available. It only support the SQL Server, [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and  [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS data providers.
+Below are the list of fluent-methods available. It only support the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and  [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS data providers.
 
 - [Average](/operation/average)
 - [AverageAll](/operation/averageall)
