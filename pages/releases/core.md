@@ -11,14 +11,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDb (v1.10.11-beta3):
 
-- [CacheItem](/class/cacheitem): Implemented the [IExpirable](/interface/iexpirable).
-- [CacheItem](/class/cacheitem): Made the property `Key` settable.
-- [CacheItem](/class/cacheitem): Added a `TEntity` generic type.
+- Implemented the [IExpirable](/interface/iexpirable) into [CacheItem](/class/cacheitem).
+- Added a `TEntity` generic type in the [CacheItem](/class/cacheitem) properties.
 - Added the [IExpirable](/interface/iexpirable) interface.
 - Added the [CacheItem.CacheItemExpiration](/class/cacheitem) property.
-- Bug: Enum Bug on Null value on [Insert](/operation/insert) [#401](https://github.com/mikependon/RepoDb/issues/401)
+- Bug: Enum Bug on Null value on [Insert](/operation/insert). [#401](https://github.com/mikependon/RepoDb/issues/401)
 - Added the `ConverterNotFoundException` class.
-- Enhancement: Ensure that [PropertyHandler](/class/propertyhandler)(s) must ignore the [TypeMapper](/mapper/typemapper) automatic conversion and also `Enum` handlers. [#412](https://github.com/mikependon/RepoDb/issues/412)
+- Enhancement: Ensure that [PropertyHandler](/interface/ipropertyhandler)(s) must ignore the [TypeMapper](/mapper/typemapper) automatic conversion and also `Enum` handlers. [#412](https://github.com/mikependon/RepoDb/issues/412)
 - Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `30`. Targetting the bulk operations (ie: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
 
 
