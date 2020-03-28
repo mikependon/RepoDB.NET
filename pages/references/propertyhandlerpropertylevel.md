@@ -63,7 +63,7 @@ public class Person
 
     public DateTime DateOfBirth { get; set; }
 
-    [Map(Address), PropertyHandler(typeof(PersonAddressPropertyHandler))]
+    [Map("Address"), PropertyHandler(typeof(PersonAddressPropertyHandler))]
     public Address Location { get; set; }
 
     public DateTime CreatedDate { get; set; }
