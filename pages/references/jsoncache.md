@@ -11,6 +11,8 @@ This page contains the recommended way of implementing a cacher class for JSON o
 
 The consolidated output of this page can be found [here](/reference/output/jsoncache).
 
+> The class is using the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) package.
+
 #### Class Creation
 
 Create a class that inherits the [ICache](/interface/icache) interface.
