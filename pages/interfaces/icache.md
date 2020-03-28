@@ -28,29 +28,41 @@ You can use this feature to maximize the performance by using the 2nd layer cach
 You have to manually create a class that implements this interface.
 
 ```csharp
-public class FileCache : ICache
+public class JsonCache : ICache
 {
-        public FileCache(string cachingLocation)
-        {
-                // Implementations for the Constructor here
-        }
+    public JsonCache(string path,
+        string extension)
+    {
+        Path = path;
+        Extension = extension;
+        EnsureDirectory();
+    }
 
-        pubilc void Add(string key,
-            object value,
-            int expiration = Constant.DefaultCacheItemExpirationInMinutes,
-            bool throwException = true)
-        {
-                // Implementations for the Add() here
-        }
+    /*** Properties ***/
 
-        public void Clear()
-        {
-                // Implementations for the Clear() here
-        }
+    public string Extension { get; }
+    public string Path { get; }
 
+    /*** Methods ***/
+
+    public void Add<T>(string key,
+        T value,
+        int expiration = 180,
+        bool throwException = true)
+    {
         ...
+    }
+
+    public void Clear()
+    {
+        ...
+    }
+
+    ...
 }
 ```
+
+Or, please see the [JsonCache](/reference/jsoncache/output) for the actual implementation.
 
 > You have to implement all the methods needed by this interface. With this, you have the full control of you cacher object.
 

@@ -11,6 +11,23 @@ This class is used as an item for the [ICache](/interface/icache) object.
 
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
+#### Methods
+
+Please see the [IExpirable](/interface/iexpirable) methods.
+
+#### Properties
+
+- Key - the key to the cache.
+- Value - the value of the class (a generic type).
+- CacheItemExpiration - the expiration of the cache in minutes.
+
+In addition, please see the [IExpirable](/interface/iexpirable) properties.
+
+#### Properties
+
+Below are the methods available from this interface.
+
+
 ##### Creating New Instance
 
 Below is the way on how to create a new instance of this class.
