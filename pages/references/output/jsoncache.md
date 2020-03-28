@@ -7,6 +7,10 @@ tags: [repodb, class, jsoncache, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 #### JsonCache (File System)
 
+Below is a cacher class for JSON (file-system based). Please ensure to add the necessary missing namespaces if you are copying the codes.
+
+> The class is using the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) package.
+
 ```csharp
 public class JsonCache : ICache
 {
