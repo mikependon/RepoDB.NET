@@ -18,16 +18,16 @@ The consolidated output of this page can be found [here](/reference/output/prope
 Create a class that inherits the [IPropertyHandler](/interface/ipropertyhandler) interface.
 
 ```csharp
-public class DateTimeToUtcKindPropertyHandler : IPropertyHandler<datetime?, datetime?>
+public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<datetime?, datetime?>
 {
     public datetime? Get(datetime? input, ClassProperty property)
     {
-        return input.HasValue ? DateTime.SpecificKind(input.Value, Kind.Utc) : null;
+        return input.HasValue ? DateTime.SpecifyKind(input.Value, Kind.Utc) : null;
     }
 
     public datetime? Set(datetime? input, ClassProperty property)
     {
-        return input.HasValue ? DateTime.SpecificKind(input.Value, Kind.Unspecified) : null;
+        return input.HasValue ? DateTime.SpecifyKind(input.Value, Kind.Unspecified) : null;
     }
 }
 ```
@@ -37,7 +37,7 @@ public class DateTimeToUtcKindPropertyHandler : IPropertyHandler<datetime?, date
 Use the [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) class to map the property handler into the class property with specific type.
 
 ```csharp
-PropertyTypeHandlerMapper.Add(typeof(DateTime), new DateTimeToUtcKindPropertyHandler());
+PropertyTypeHandlerMapper.Add(typeof(DateTime), new DateTimeKindToUtcPropertyHandler());
 ```
 
 #### Key Take-aways
