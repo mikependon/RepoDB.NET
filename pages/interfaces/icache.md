@@ -74,7 +74,7 @@ You can pass it on the constructor of the [BaseRepository](/class/baserepository
 public class StateRepository : BaseRepository<State, SqlConnection>
 {
         public StateRepository(ISettings settings)
-                : base(settings.ConnectionString, new FileCache())
+                : base(settings.ConnectionString, new JsonCache(@"C:\cache", "jsoncache"))
         { }
 }
 ```
@@ -94,7 +94,7 @@ Or even to the constructor of [DbRepository](/class/dbrepository) object.
 public class DatabaseRepository : DbRepository<SqlConnection>
 {
         public DatabaseRepository(ISettings settings)
-                : base(settings.ConnectionString, new MyCustomTrace())
+                : base(settings.ConnectionString, new JsonCache(@"C:\cache", "jsoncache"))
         { }
 }
 ```
