@@ -9,6 +9,18 @@ permalink: /releases/core
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
 
+#### RepoDb (v1.10.11-beta3):
+
+- [CacheItem](/class/cacheitem): Implements the [IExpirable](/interface/iexpirable).
+- [CacheItem](/class/cacheitem): Make the property Key settable.
+- [CacheItem](/class/cacheitem): Added a TEntity generic type.
+- Added the [IExpirable](/interface/iexpirable) interface.
+- Added the [CacheItem.CacheItemExpiration](/class/cacheitem) property.
+- Bug: Enum Bug on Null value on [Insert](/operation/insert) [#401](https://github.com/mikependon/RepoDb/issues/401)
+- Added the ConverterNotFoundException class.
+- Enhancement: Ensure that [PropertyHandler](/class/propertyhandler)(s) must ignore the [TypeMapper](/mapper/typemapper) automatic conversion and also Enum handlers. [#412](https://github.com/mikependon/RepoDb/issues/412)
+
+
 #### RepoDb (v1.10.11-beta2):
 
 - Bug: Enum Bug [#400](https://github.com/mikependon/RepoDb/issues/400)
