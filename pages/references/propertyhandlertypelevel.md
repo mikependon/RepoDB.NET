@@ -11,8 +11,6 @@ This page contains the recommended way of implementing a property handler for sp
 
 The consolidated output of this page can be found [here](/reference/output/propertyhandlertypelevel).
 
-> It is very important to take note that on this type of property handler, the targetting type is based on the database column (database-bound).
-
 #### Class Creation
 
 Create a class that inherits the [IPropertyHandler](/interface/ipropertyhandler) interface.
