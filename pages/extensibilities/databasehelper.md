@@ -13,7 +13,7 @@ You have use the [IDbHelper](/interface/idbhelper) interface as the contract for
 
 #### Pre-requisites
 
-- The naming must be `Desired Name` + `DbHelper` (ie: SqlServerDbHelper).
+- The naming must be `Desired Name` + `DbHelper` (ie: `SqlServerDbHelper`).
 - The implementation must be `internal sealed`.
 - The namespace must be `RepoDb.DbHelpers`.
 - The class must be residing inside the `DbHelpers` folder.

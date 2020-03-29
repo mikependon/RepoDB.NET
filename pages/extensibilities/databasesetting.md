@@ -21,7 +21,7 @@ A database setting is an object that contains the information that are specific 
 
 #### Pre-requisites
 
-- The naming must be `Desired Name` + `DbSetting` (ie: SqlServerDbSetting).
+- The naming must be `Desired Name` + `DbSetting` (ie: `SqlServerDbSetting`).
 - The implementation must be `internal sealed`.
 - The namespace must be `RepoDb.DbSettings`.
 - The class must be residing inside the `DbSettings` folder.
