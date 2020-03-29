@@ -21,5 +21,28 @@ public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<datetime?, date
     }
 }
 
+public class GuidToStringPropertyHandler : IPropertyHandler<Guid?, string>
+{
+    public string Get(Guid? input, ClassProperty property)
+    {
+        return input.HasValue ? input.ToString() : null;
+    }
+
+    public Guid? Set(string input, ClassProperty property)
+    {
+        var output = Guid.Empty;
+        if (!string.IsNullOrEmpty(input) && Guid.TryParse(input, out output))
+        {
+            return output;
+        }
+        return null;
+    }
+}
+```
+
+##### Mappings
+
+```csharp
 PropertyTypeHandlerMapper.Add(typeof(DateTime), new DateTimeKindToUtcPropertyHandler());
+PropertyTypeHandlerMapper.Add(typeof(Guid), new GuidToStringPropertyHandler());
 ```

@@ -11,6 +11,8 @@ This page contains the recommended way of implementing a property handler for sp
 
 The consolidated output of this page can be found [here](/reference/output/propertyhandlertypelevel).
 
+> It is important to take note that this property handler is based on database column type (database-bound).
+
 #### Class Creation
 
 Create a class that inherits the [IPropertyHandler](/interface/ipropertyhandler) interface.
@@ -28,6 +30,24 @@ public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<datetime?, date
         return input.HasValue ? DateTime.SpecifyKind(input.Value, Kind.Unspecified) : null;
     }
 }
+
+public class GuidToStringPropertyHandler : IPropertyHandler<Guid?, string>
+{
+    public string Get(Guid? input, ClassProperty property)
+    {
+        return input.HasValue ? input.ToString() : null;
+    }
+
+    public Guid? Set(string input, ClassProperty property)
+    {
+        var output = Guid.Empty;
+        if (!string.IsNullOrEmpty(input) && Guid.TryParse(input, out output))
+        {
+            return output;
+        }
+        return null;
+    }
+}
 ```
 
 #### Property Mapping
@@ -36,6 +56,7 @@ Use the [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) class to 
 
 ```csharp
 PropertyTypeHandlerMapper.Add(typeof(DateTime), new DateTimeKindToUtcPropertyHandler());
+PropertyTypeHandlerMapper.Add(typeof(Guid), new GuidToStringPropertyHandler());
 ```
 
 #### Key Take-aways
