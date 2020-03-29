@@ -227,10 +227,10 @@ div.page pre.highlight {
     font-size: 90%;
     padding: 15px;
 }
-div.page pre.highlight code .n, div.page pre.highlight code .nf {
+div.page pre.highlight code .n, div.page pre.highlight code .nc, div.page pre.highlight code .nf {
     color: #2DAAA6;
 }
-div.page pre.highlight code .nc, div.page pre.highlight code .kt, div.page pre.highlight code .k {
+div.page pre.highlight code .kt, div.page pre.highlight code .k {
     color: #1A1AFF;
 }
 div.page pre.highlight code .cm, div.page pre.highlight code .c1 {

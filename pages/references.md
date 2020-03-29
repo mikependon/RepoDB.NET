@@ -22,5 +22,5 @@ This page contains all the recommended-way of implementing objects when using th
 - [Property Handler (Property Level)](/reference/propertyhandlerpropertylevel) - string database type to .NET CLR type.
 - [Property Handler (Type Level)](/reference/propertyhandlertypelevel) - handling the dates and guids.
 - [Query Expressions](/reference/queryexpressions) - calls to object-based, dynamic-based, expression-based, method-`Contains` (both arrays and strings), method-`StartsWith` and method-`EndsWith`.
-- [Tracing](/reference/trace) - logging and auditing.
+- [Tracing](/reference/trace) - logging and auditing (or [SerilogTrace](/reference/serilogtrace)).
 - [Unit of Work](/reference/unitofwork) - acidity on the multiple operations.
