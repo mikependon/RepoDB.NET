@@ -13,8 +13,8 @@ A cacher class for the class identity property. It provides a 2nd-layer caching 
 
 Below are the methods available from this class.
 
-- Flush - allows you to flush the caches.
-- Get - returns the list of [Field](/class/field) objects.
+- `Flush` - allows you to flush the caches.
+- `Get` - returns the list of [Field](/class/field) objects.
 
 #### Use-Cases
 

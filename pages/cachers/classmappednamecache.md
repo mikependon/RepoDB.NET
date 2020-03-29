@@ -15,8 +15,8 @@ A cacher class for the class name mapping. It provides a 2nd-layer caching for t
 
 Below are the methods available from this class.
 
-- Flush - allows you to flush the caches.
-- Get - returns the mapped name of the class.
+- `Flush` - allows you to flush the caches.
+- `Get` - returns the mapped name of the class.
   
 #### Use-Cases
 

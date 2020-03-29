@@ -17,8 +17,8 @@ Internally, it is abstracting the instance of `DbDataReader`, `IDbConnection` an
 
 These are the methods available on this class.
 
-- Extract - a generic based method that will extract the contents of the `DbDataReader` into a class object.
-- Scalar - a method that is used to get the first column of the result.
+- `Extract` - a generic based method that will extract the contents of the `DbDataReader` into a class object.
+- `Scalar` - a method that is used to get the first column of the result.
 
 > When using scalar, you can pass a generic type as a type of the result. Also, when calling any of the mentioned above, the pointer of the `DbDataReader` advances to the next result by calling the `DbDataReader.NextResult()` method internally.
 

@@ -13,29 +13,29 @@ This interface is used to mark a class to be a statement builder object. I provi
 
 Below are the methods available from this interface.
 
-- CreateAverage - used to create a SQL statement for the [Average](/operation/average) operation.
-- CreateAverageAll - used to create a SQL statement for the [AverageAll](/operation/averageall) operation.
-- CreateBatchQuery - used to create a SQL statement for the [BatchQuery](/operation/batchquery) operation.
-- CreateCount - used to create a SQL statement for the [Count](/operation/count) operation.
-- CreateCountAll - used to create a SQL statement for the [Average](/operation/countall) operation.
-- CreateDelete - used to create a SQL statement for the [Delete](/operation/delete) operation.
-- CreateDeleteAll - used to create a SQL statement for the [DeleteAll](/operation/deleteall) operation.
-- CreateExists - used to create a SQL statement for the [Exists](/operation/exists) operation.
-- CreateInsert - used to create a SQL statement for the [Insert](/operation/insert) operation.
-- CreateInsertAll - used to create a SQL statement for the [InsertAll](/operation/insertall) operation.
-- CreateMax - used to create a SQL statement for the [Max](/operation/max) operation.
-- CreateMaxAll - used to create a SQL statement for the [MaxAll](/operation/maxall) operation.
-- CreateMerge - used to create a SQL statement for the [Merge](/operation/merge) operation.
-- CreateMergeAll - used to create a SQL statement for the [MergeAll](/operation/mergeall) operation.
-- CreateMin - used to create a SQL statement for the [Min](/operation/min) operation.
-- CreateMinAll - used to create a SQL statement for the [MinAll](/operation/minall) operation.
-- CreateQuery - used to create a SQL statement for the [Query](/operation/query) operation.
-- CreateQueryAll - used to create a SQL statement for the [QueryAll](/operation/queryall) operation.
-- CreateSum - used to create a SQL statement for the [Sum](/operation/sum) operation.
-- CreateSumAll - used to create a SQL statement for the [SumAll](/operation/sumall) operation.
-- CreateTruncate - used to create a SQL statement for the [Truncate](/operation/truncate) operation.
-- CreateUpdate - used to create a SQL statement for the [Update](/operation/update) operation.
-- CreateUpdateAll - used to create a SQL statement for the [UpdateAll](/operation/updateall) operation.
+- `CreateAverage` - used to create a SQL statement for the [Average](/operation/average) operation.
+- `CreateAverageAll` - used to create a SQL statement for the [AverageAll](/operation/averageall) operation.
+- `CreateBatchQuery` - used to create a SQL statement for the [BatchQuery](/operation/batchquery) operation.
+- `CreateCount` - used to create a SQL statement for the [Count](/operation/count) operation.
+- `CreateCountAll` - used to create a SQL statement for the [Average](/operation/countall) operation.
+- `CreateDelete` - used to create a SQL statement for the [Delete](/operation/delete) operation.
+- `CreateDeleteAll` - used to create a SQL statement for the [DeleteAll](/operation/deleteall) operation.
+- `CreateExists` - used to create a SQL statement for the [Exists](/operation/exists) operation.
+- `CreateInsert` - used to create a SQL statement for the [Insert](/operation/insert) operation.
+- `CreateInsertAll` - used to create a SQL statement for the [InsertAll](/operation/insertall) operation.
+- `CreateMax` - used to create a SQL statement for the [Max](/operation/max) operation.
+- `CreateMaxAll` - used to create a SQL statement for the [MaxAll](/operation/maxall) operation.
+- `CreateMerge` - used to create a SQL statement for the [Merge](/operation/merge) operation.
+- `CreateMergeAll` - used to create a SQL statement for the [MergeAll](/operation/mergeall) operation.
+- `CreateMin` - used to create a SQL statement for the [Min](/operation/min) operation.
+- `CreateMinAll` - used to create a SQL statement for the [MinAll](/operation/minall) operation.
+- `CreateQuery` - used to create a SQL statement for the [Query](/operation/query) operation.
+- `CreateQueryAll` - used to create a SQL statement for the [QueryAll](/operation/queryall) operation.
+- `CreateSum` - used to create a SQL statement for the [Sum](/operation/sum) operation.
+- `CreateSumAll` - used to create a SQL statement for the [SumAll](/operation/sumall) operation.
+- `CreateTruncate` - used to create a SQL statement for the [Truncate](/operation/truncate) operation.
+- `CreateUpdate` - used to create a SQL statement for the [Update](/operation/update) operation.
+- `CreateUpdateAll` - used to create a SQL statement for the [UpdateAll](/operation/updateall) operation.
 
 #### Use-Cases
 

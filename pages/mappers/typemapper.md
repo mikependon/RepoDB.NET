@@ -13,15 +13,15 @@ A static class that is used to map a .NET CLR Type into its equivalent database 
 
 Below are the properties available from this class.
 
-- ConversionType - is used as a conversion type when converting the instance of `DbDataReader` object into its destination .NET CLR types. The default value is [ConversionType.Default](/enumeration/conversiontype).
+- `ConversionType` - is used as a conversion type when converting the instance of `DbDataReader` object into its destination .NET CLR types. The default value is [ConversionType.Default](/enumeration/conversiontype).
 
 #### Methods
 
 Below are the methods available from this class.
 
-- Map - adds a mapping between the .NET CLR Type and database type.
-- Get - gets the mapped database type based on the .NET CLR Type.
-- Unmap - removes the mapping between the .NET CLR Type and database type.
+- `Map` - adds a mapping between the .NET CLR Type and database type.
+- `Get` - gets the mapped database type based on the .NET CLR Type.
+- `Unmap` - removes the mapping between the .NET CLR Type and database type.
 
 #### Use-Cases
 

@@ -13,9 +13,9 @@ A mapper class for the [IDbHelper](/interface/idbhelper)-based class. The mappin
 
 Below are the methods available from this class.
 
-- Add - adds a mapping between the [IDbHelper](/interface/idbhelper) and the type of the `DbConnection`.
-- Get - gets the mapped [IDbHelper](/interface/idbhelper) based on the type of the `DbConnection`.
-- Remove - removed the mapping between the [IDbHelper](/interface/idbhelper) and the type of the `DbConnection`.
+- `Add` - adds a mapping between the [IDbHelper](/interface/idbhelper) and the type of the `DbConnection`.
+- `Get` - gets the mapped [IDbHelper](/interface/idbhelper) based on the type of the `DbConnection`.
+- `Remove` - removed the mapping between the [IDbHelper](/interface/idbhelper) and the type of the `DbConnection`.
 
 #### Use-Cases
 

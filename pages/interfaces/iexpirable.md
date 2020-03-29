@@ -13,14 +13,14 @@ This interface is used to make a class expirable in a contextual point of view. 
 
 Below are the methods available from this interface.
 
-- IsExpired - identifies whether this class is expired.
+- `IsExpired` - identifies whether this class is expired.
 
 #### Properties
 
 Below are the properties available from this interface.
 
-- CreatedDate - the creation date.
-- Expiration - the expiration date.
+- `CreatedDate` - the creation date.
+- `Expiration` - the expiration date.
 
 #### Use-Cases
 

@@ -13,9 +13,9 @@ A mapper class for the [IDbSetting](/interface/idbsetting)-based class. The mapp
 
 Below are the methods available from this class.
 
-- Add - adds a mapping between the [IDbSetting](/interface/idbsetting) and the type of the `DbConnection`.
-- Get - gets the mapped [IDbSetting](/interface/idbsetting) based on the type of the `DbConnection`.
-- Remove - removed the mapping between the [IDbSetting](/interface/idbsetting) and the type of the `DbConnection`.
+- `Add` - adds a mapping between the [IDbSetting](/interface/idbsetting) and the type of the `DbConnection`.
+- `Get` - gets the mapped [IDbSetting](/interface/idbsetting) based on the type of the `DbConnection`.
+- `Remove` - removed the mapping between the [IDbSetting](/interface/idbsetting) and the type of the `DbConnection`.
 
 #### Use-Cases
 

@@ -13,18 +13,18 @@ This interface is used to mark a class to be a database setting object. It allow
 
 Below are the properties available from this interface.
 
-- AreTableHintsSupported - gets the value that indicates whether the table hints are supported.
-- ClosingQuote - gets the character used for closing quote.
-- AverageableType - gets the default averageable .NET CLR types for the database.
-- DefaultSchema - gets the default schema of the database.
-- IsDirectionSupported - gets a value that indicates whether setting the value of `DbParameter.Direction` object is supported.
-- IsExecuteReaderDisposable - gets a value that indicates whether the `DbCommand` object must be disposed after calling the `DbCommand.ExecuteReader()` method.
-- IsMultiStatementExecutable - gets a value whether the multiple statement execution is supported.
-- IsPreparable - gets a value that indicates whether the current DB Provider supports the `DbCommand.Prepare()` calls.
-- IsUseUpsert - gets a value that indicates whether the [Insert](/operation/insert)/[Update](/operation/update) operation will be used for [Merge](/operation/merge) operation.
-- OpeningQuote - gets the character used for opening quote.
-- ParameterPrefix - gets the character used for the database command parameter prefixing.
-- SchemaSeparator - gets the character (or string) used for dot notation.
+- `AreTableHintsSupported` - gets the value that indicates whether the table hints are supported.
+- `ClosingQuote` - gets the character used for closing quote.
+- `AverageableType` - gets the default averageable .NET CLR types for the database.
+- `DefaultSchema` - gets the default schema of the database.
+- `IsDirectionSupported` - gets a value that indicates whether setting the value of `DbParameter.Direction` object is supported.
+- `IsExecuteReaderDisposable` - gets a value that indicates whether the `DbCommand` object must be disposed after calling the `DbCommand.ExecuteReader()` method.
+- `IsMultiStatementExecutable` - gets a value whether the multiple statement execution is supported.
+- `IsPreparable - gets a value that indicates whether the current DB Provider supports the `DbCommand.Prepare()` calls.
+- `IsUseUpsert` - gets a value that indicates whether the [Insert](/operation/insert)/[Update](/operation/update) operation will be used for [Merge](/operation/merge) operation.
+- `OpeningQuote` - gets the character used for opening quote.
+- `ParameterPrefix` - gets the character used for the database command parameter prefixing.
+- `SchemaSeparator` - gets the character (or string) used for dot notation.
 
 #### How to Implement?
 

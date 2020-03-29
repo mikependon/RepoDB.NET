@@ -13,9 +13,9 @@ A class that is used to map a property handler into a .NET CLR Type. Please see 
 
 Below are the methods available from this class.
 
-- Add - adds a property handler mapping on a specific .NET CLR Type.
-- Get - gets the mapped property handler specific to the .NET CLR Type.
-- Remove - removes the mapping of the .NET CLR Type into a property handler.
+- `Add` - adds a property handler mapping on a specific .NET CLR Type.
+- `Get` - gets the mapped property handler specific to the .NET CLR Type.
+- `Remove` - removes the mapping of the .NET CLR Type into a property handler.
 
 #### Use-Cases
 

@@ -13,8 +13,8 @@ This interface is used to mark a class to be a database helper object. It is ver
 
 Below are the methods available from this interface.
 
-- GetFields - gets the list of [DbField](/class/dbfield) objects from the database.
-- GetScopedIdentity - gets the newly generated identity from the database.
+- `GetFields` - gets the list of [DbField](/class/dbfield) objects from the database.
+- `GetScopedIdentity` - gets the newly generated identity from the database.
 
 #### How to Implement?
 

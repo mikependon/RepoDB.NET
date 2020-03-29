@@ -13,8 +13,8 @@ A cacher class for the `System.Reflection.PropertyInfo`. It provides a 2nd-layer
 
 Below are the methods available from this class.
 
-- Flush - allows you to flush the caches.
-- Get - returns the mapped name of the property.
+- `Flush` - allows you to flush the caches.
+- `Get` - returns the mapped name of the property.
 
 #### Use-Cases
 

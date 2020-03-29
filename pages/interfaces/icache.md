@@ -13,11 +13,11 @@ This interface is used to mark a class to be a cache object. It gives you the fu
 
 Below are the methods available from this interface.
 
-- Add - allows you to add a new cache item value into the cache storage.
-- Clear - allows you to clear the cache storage.
-- Contains - allows you to check whether the cache item exists by cache-key.
-- Get - allows you to get an instance of the cache by cache-key.
-- Remove - allows you to remove an existing cache item from the cache storage.
+- `Add` - allows you to add a new cache item value into the cache storage.
+- `Clear` - allows you to clear the cache storage.
+- `Contains` - allows you to check whether the cache item exists by cache-key.
+- `Get` - allows you to get an instance of the cache by cache-key.
+- `Remove` - allows you to remove an existing cache item from the cache storage.
 
 #### Use-Cases
 

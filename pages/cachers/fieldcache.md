@@ -15,8 +15,8 @@ A cacher class for the class properties (as fields). It provides a 2nd-layer cac
 
 Below are the methods available from this class.
 
-- Flush - allows you to flush the caches.
-- Get - returns the list of [Field](/class/field) objects.
+- `Flush` - allows you to flush the caches.
+- `Get` - returns the list of [Field](/class/field) objects.
 
 #### Use-Cases
 

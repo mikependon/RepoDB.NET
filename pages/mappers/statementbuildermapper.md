@@ -13,9 +13,9 @@ A mapper class for the [IStatementBuilder](/interface/istatementbuilder)-based c
 
 Below are the methods available from this class.
 
-- Add - adds a mapping between the [IStatementBuilder](/interface/istatementbuilder) and the type of the `DbConnection`.
-- Get - gets the mapped [IStatementBuilder](/interface/istatementbuilder) based on the type of the `DbConnection`.
-- Remove - removed the mapping between the [IStatementBuilder](/interface/istatementbuilder) and the type of the `DbConnection`.
+- `Add` - adds a mapping between the [IStatementBuilder](/interface/istatementbuilder) and the type of the `DbConnection`.
+- `Get` - gets the mapped [IStatementBuilder](/interface/istatementbuilder) based on the type of the `DbConnection`.
+- `Remove` - removed the mapping between the [IStatementBuilder](/interface/istatementbuilder) and the type of the `DbConnection`.
 
 #### Use-Cases
 

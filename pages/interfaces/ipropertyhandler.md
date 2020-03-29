@@ -11,13 +11,13 @@ This interface is used to mark a class to be a property handler object. This int
 
 #### Generic Types
 
-- TInput - refers to the type of the database column. The input type for the getter; the output type for the setter.
-- TOutput - refers to the type of the data entity property. The input type for the setter; the output type for the getter.
+- `TInput` - refers to the type of the database column. The input type for the getter; the output type for the setter.
+- `TOutput` - refers to the type of the data entity property. The input type for the setter; the output type for the getter.
 
 #### Methods
 
-- Get - the method that is being invoked when the outbound transformation is triggered (ie: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)).
-- Set - the method that is being invoked when the inbound transformation is triggered (ie: [Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge) and etc).
+- `Get` - the method that is being invoked when the outbound transformation is triggered (ie: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)).
+- `Set` - the method that is being invoked when the inbound transformation is triggered (ie: [Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge) and etc).
 
 > Both methods accept the [ClassProperty](/class/classproperty) to give more context on the current method of the property handler.
 
