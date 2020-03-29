@@ -249,9 +249,9 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Id", Operation.NotIn, new [] { 10045, 10046, 10047, 10048 }));
 ```
 
-#### Complex Expressions
+#### Disclaimer (Complex Expressions)
 
-The Linq-Expression parser of the library is not as extended as Entity Framework. Therefore, we recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expression.
+The support to query objects are massive and well tested with high-quality. However, the Linq-Expression parser of the library is not as extended as Entity Framework. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expressions.
 
 Try not to do this.
 
