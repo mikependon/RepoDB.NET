@@ -21,6 +21,6 @@ This page contains all the recommended-way of implementing objects when using th
 - [Multiple Resultsets](/reference/multipleresultsets) - query single parent and its children / multiple parents and there children.
 - [Property Handler (Property Level)](/reference/propertyhandlerpropertylevel) - string database type to .NET CLR type.
 - [Property Handler (Type Level)](/reference/propertyhandlertypelevel) - handling the dates and guids.
-- [Query Expression]() - calls to object-based, dynamic-based, expression-based, method-`Contains` (both arrays and strings), method-`StartsWith` and method-`EndsWith`.
+- [Query Expressions](/reference/queryexpressions) - calls to object-based, dynamic-based, expression-based, method-`Contains` (both arrays and strings), method-`StartsWith` and method-`EndsWith`.
 - [Tracing](/reference/trace) - logging and auditing.
 - [Unit of Work](/reference/unitofwork) - acidity on the multiple operations.
