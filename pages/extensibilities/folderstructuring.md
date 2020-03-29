@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Folder Structuring (RepoDb)"
+title: `Folder Structuring (RepoDb)`
 permalink: /extensibility/folderstructuring
 tags: [repodb, class, folderstructuring, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
@@ -29,9 +29,9 @@ Let us say you are to support the `Snowflakes`, then below are the recommended s
 
 The namespaces of the classes must be the following.
 
-- All classes that is residing inside the "DbHelpers" folder must have a namespace of "RepoDb.DbHelpers".
-- All classes that is residing inside the "DbSettings" folder must have a namespace of "RepoDb.DbSettings".
-- All classes that is residing inside the "Resolvers" folder must have a namespace of "RepoDb.Resolvers".
-- All classes that is residing inside the "StatementBuilders" folder must have a namespace of "RepoDb.StatementBuilders".
+- All classes that is residing inside the `DbHelpers` folder must have a namespace of `RepoDb.DbHelpers`.
+- All classes that is residing inside the `DbSettings` folder must have a namespace of `RepoDb.DbSettings`.
+- All classes that is residing inside the `Resolvers` folder must have a namespace of `RepoDb.Resolvers`.
+- All classes that is residing inside the `StatementBuilders` folder must have a namespace of `RepoDb.StatementBuilders`.
 
 > They should not be prefixed with RepoDb.Snowflakes.FolderName.

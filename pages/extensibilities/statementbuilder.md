@@ -15,10 +15,10 @@ You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class wh
 
 #### Pre-requisites
 
-- The naming to this object must be "Desired Name" + "StatementBuiler" (ie: SqlServerStatementBuiler).
-- The implementation must be "internal sealed".
-- The namespace must be "RepoDb.StatementBuilders".
-- The class must be residing inside the "StatementBuilders" folder.
+- The naming to this object must be `Desired Name` + `StatementBuiler` (ie: SqlServerStatementBuiler).
+- The implementation must be `internal sealed`.
+- The namespace must be `RepoDb.StatementBuilders`.
+- The class must be residing inside the `StatementBuilders` folder.
 
 > Please see the [folder structuring](/extensibility/folderstructuring) page.
 
