@@ -84,6 +84,6 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Key Take-aways
 
-- Ensure to wrap calls to [ExecuteQueryMultiple](/operation/executequerymultiple) with `using` keyword.
-- You can have a lot of control with [ExecuteQueryMultiple](/operation/executequerymultiple) over [QueryMultiple](/operation/querymultiple) method.
-- The method [QueryMultiple](/operation/querymultiple) is pre-extracting all the resultsets, where as [ExecuteQueryMultiple](/operation/executequerymultiple) is extracting as per call-basis (via `Extract` or `Scalar`) method.
+- The method [QueryMultiple](/operation/querymultiple) is pre-extracting all the resultsets, whereas [ExecuteQueryMultiple](/operation/executequerymultiple) is extracting as per call-basis (via `Extract` or `Scalar` method).
+- Ensure to always wrap the calls to [ExecuteQueryMultiple](/operation/executequerymultiple) with `using` keyword.
+- You can have a lot of controls with [ExecuteQueryMultiple](/operation/executequerymultiple) over [QueryMultiple](/operation/querymultiple) method.
