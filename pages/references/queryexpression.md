@@ -9,20 +9,24 @@ tags: [repodb, class, queryexpressions, orm, hybrid-orm, sqlserver, sqlite, mysq
 
 This page contains the recommended way of using the query expressions.
 
-> Disclaimer: The support to query objects are massive and well tested with high-quality. However, the Linq-Expression parser of the library is not as extended as Entity Framework. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expressions.
+#### Disclaimer
+
+> The support to query objects are massive and well tested with high-quality. However, the Linq-Expression parser of the library is not as extensive as Entity Framework. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expressions.
 
 #### Equal
-
-Via Expression:
-
-```csharp
-var result = connection.Query<Customer>(e => e.Id == 10045);
-```
 
 Via Dynamic:
 
 ```csharp
 var result = connection.Query<Customer>(new { Id = 10045});
+```
+
+> The query via dynamic object is only supporting the `Equal` operation.
+
+Via Expression:
+
+```csharp
+var result = connection.Query<Customer>(e => e.Id == 10045);
 ```
 
 Via [QueryField](/class/queryfield).
@@ -253,12 +257,14 @@ var result = connection.Query<Customer>(new QueryField("Id", Operation.NotIn, ne
 
 #### Complex Expressions
 
-Do not to do this.
+As mentioned in the [disclaimer](#disclaimer) above, do not to do this.
 
 ```csharp
 var result = connection.Query<Customer>(e => (e.IsActive == true && (e.DateInserted >= Yesterday && e.DateInserted <= Today) && (new[] { "Washington", "New York", "California" }).Contains(e.State)) ||
     (e.IsActive == false && (e.DateInserted >= LastMonth && e.DateInserted <= Yesterday) && (new[] { "Washington", "New York", "California" }).Contains(e.State));
 ```
+
+> We will support the complex Linq-expression soon. But, until further notice, please use the query objects when composing complex expressions.
 
 Instead, do this.
 
@@ -275,7 +281,7 @@ var whereStateRight = new QueryField("State", Operation.In, new [] { "Washington
 
 // Expression
 var leftGrouping = new QueryGroup(new [] { whereActive, whereDate, whereState });
-var rightGrouping = new QueryGroup(new [] { whereActive, whereDate, whereState });
+var rightGrouping = new QueryGroup(new [] { whereActiveRight, whereDateRight, whereStateRight });
 var where = new QueryGroup(new [] { leftGrouping, rightGrouping }, Conjunction.Or);
 
 // Query
