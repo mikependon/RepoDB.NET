@@ -401,17 +401,17 @@ public static class CacheFactory
     
     public static ICache CreateCacher()
     {
-        if (m_trace == null)
+        if (m_cache == null)
         {
             lock (m_syncLock)
             {
-                if (m_trace == null)
+                if (m_cache == null)
                 {
-                    m_trace = new MyCustomTrace();
+                    m_cache = new MyCustomCache();
                 }
             }
         }
-        return m_trace;
+        return m_cache;
     }
 }
 ```

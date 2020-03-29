@@ -9,6 +9,8 @@ tags: [repodb, class, queryexpressions, orm, hybrid-orm, sqlserver, sqlite, mysq
 
 This page contains the recommended way of using the query expressions.
 
+> Disclaimer: The support to query objects are massive and well tested with high-quality. However, the Linq-Expression parser of the library is not as extended as Entity Framework. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expressions.
+
 #### Equal
 
 Via Expression:
@@ -249,11 +251,9 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Id", Operation.NotIn, new [] { 10045, 10046, 10047, 10048 }));
 ```
 
-#### Disclaimer (Complex Expressions)
+#### Complex Expressions
 
-The support to query objects are massive and well tested with high-quality. However, the Linq-Expression parser of the library is not as extended as Entity Framework. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expressions.
-
-Try not to do this.
+Do not to do this.
 
 ```csharp
 var result = connection.Query<Customer>(e => (e.IsActive == true && (e.DateInserted >= Yesterday && e.DateInserted <= Today) && (new[] { "Washington", "New York", "California" }).Contains(e.State)) ||

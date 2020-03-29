@@ -11,6 +11,23 @@ Below is a cacher class for JSON (file-system based). Please ensure to add the n
 
 > The class is using the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) package.
 
+#### Interface
+
+```csharp
+public interface IJsonCache : ICache
+{
+    // Properties
+    string Extension { get; }
+    string Path { get; }
+
+    // Methods
+    string GetFileName(string key);
+    void EnsureDirectory();
+}
+```
+
+#### Class
+
 ```csharp
 public class JsonCache : ICache
 {
@@ -29,13 +46,13 @@ public class JsonCache : ICache
 
     /*** Helpers ***/
 
-    private string GetFileName(string key)
+    public string GetFileName(string key)
     {
         var fileName = $"{Regex.Replace(key, "[^a-zA-Z0-9 -]", "_")}.{Extension}";
         return System.IO.Path.Combine(Path, fileName);
     }
 
-    private void EnsureDirectory()
+    public void EnsureDirectory()
     {
         if (Directory.Exists(Path) == false)
         {
@@ -117,5 +134,42 @@ public class JsonCache : ICache
             yield return JsonConvert.DeserializeObject<object>(File.ReadAllText(fileName));
         }
     }
+}
+```
+
+#### Trace
+
+```csharp
+public static class CacheFactory
+{
+    private static object m_syncLock = new object();
+    private static ICache m_cache = null;
+    
+    public static ICache CreateCacher()
+    {
+        if (m_cache == null)
+        {
+            lock (m_syncLock)
+            {
+                if (m_cache == null)
+                {
+                    m_cache = new JsonCache();
+                }
+            }
+        }
+        return m_cache;
+    }
+}
+```
+
+#### Dependency Injection
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddSingleton<IJsonCache, JsonCache>();
 }
 ```

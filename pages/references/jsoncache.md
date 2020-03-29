@@ -15,10 +15,25 @@ The consolidated output of this page can be found [here](/reference/output/jsonc
 
 #### Class Creation
 
-Create a class that inherits the [ICache](/interface/icache) interface.
+Create an interface that implements the [ICache](/interface/icache) to support the dependency injections.
 
 ```csharp
-public class JsonCache : ICache
+public interface IJsonCache : ICache
+{
+    // Properties
+    string Extension { get; }
+    string Path { get; }
+
+    // Methods
+    string GetFileName(string key);
+    void EnsureDirectory();
+}
+```
+
+Create a class and implement the custom interface.
+
+```csharp
+public class JsonCache : IJsonCache
 {
     public JsonCache(string path,
         string extension)
@@ -44,13 +59,13 @@ public string Path { get; }
 A method that compose the filename and creates directory.
 
 ```csharp
-private string GetFileName(string key)
+public string GetFileName(string key)
 {
     var fileName = $"{Regex.Replace(key, "[^a-zA-Z0-9 -]", "_")}.{Extension}";
     return System.IO.Path.Combine(Path, fileName);
 }
 
-private void EnsureDirectory()
+public void EnsureDirectory()
 {
     if (Directory.Exists(Path) == false)
     {
@@ -141,3 +156,42 @@ IEnumerator IEnumerable.GetEnumerator()
 ```
 
 > The class [CacheItem](/class/cacheitem) does not have default constructor, by then, you can serialize/deserialize this object into JSON. The only items you can serialize/deserialize is the value itself. If you wish to cache the properties (ie: `Key`, `Expiration`, `ExpirationInMinutes`), then you have to create a class in between before serializing/deserializing it.
+
+#### Usability
+
+Create a factory class.
+
+```csharp
+public static class CacheFactory
+{
+    private static object m_syncLock = new object();
+    private static ICache m_cache = null;
+    
+    public static ICache CreateCacher()
+    {
+        if (m_cache == null)
+        {
+            lock (m_syncLock)
+            {
+                if (m_cache == null)
+                {
+                    m_cache = new JsonCache();
+                }
+            }
+        }
+        return m_cache;
+    }
+}
+```
+
+Or inject it as Singleton.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddSingleton<IJsonCache, JsonCache>();
+}
+```
