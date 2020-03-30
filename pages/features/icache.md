@@ -13,7 +13,7 @@ This is the feature that would allow you to optimize the operations from your da
 
 #### Raw-SQL
 
-For raw-SQL, the process of adding hints is controlled by you as you are providing the SQL text by yourself.
+For raw-SQL, the process of adding hints is controlled by you as you are the one who is providing the SQL text.
 
 Below is the code that queries all the dirty transactions from the `[dbo].[Order]` table.
 
