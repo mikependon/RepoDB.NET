@@ -7,7 +7,7 @@ tags: [repodb, class, hints, orm, hybrid-orm, sqlserver, sqlite, mysql, postgres
 
 ## Hints
 
-This is the feature that would allow you to optimize the operations from your database. It is a keyword that is usually being added into the DML SQL statements to further optimize the execution of your commands. Please the Microsoft document [here](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-ver15).
+This is the feature that would allow you to optimize the command executions towards the database. It is a keyword that is usually being added into the SQL statements (DML) to further optimize the execution of your commands. Please the Microsoft document [here](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-ver15).
 
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
@@ -41,7 +41,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Fluent-Methods
 
-All [methods](/docs#fluent-methods) of this library accepts the `hints` argument. It allows you to pass the hints as a literal string, those giving you the full control of your optimizations.
+Most [fluent-methods](/docs#fluent-methods) within the library accepts the `hints` argument. It allows you to pass the hints as a literal string, those giving you the full control of your optimizations.
 
 Below are the equivalent fluent-methods of the raw-SQLs execution defined in the previous section.
 
