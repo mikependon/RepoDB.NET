@@ -39,7 +39,7 @@ using (var repository = new PersonRepository(connectionString, ConnectionPersist
 }
 ```
 
-You can do the same with [DbRepository](/class/dbrepository).
+You can do the same with [DbRepository](/class/dbrepository) object.
 
 ```csharp
 // Repository
