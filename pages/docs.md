@@ -30,7 +30,7 @@ Below are the list of features available.
 - [Enumeration](/feature/enumeration) - in progress
 - [Expression Trees](/feature/expression-trees) - in progress
 - [Field/Class Mapping](/feature/field-class-mapping) - in progress
-- [Hints](/feature/hints) - in progress
+- [Hints](/feature/hints)
 - [Multi-Resultset Query](/feature/multi-resultset-query) - in progress
 - [Property Handlers](/feature/property-handlers) - in progress
 - [Repositories](/feature/repositories) - in progress
