@@ -13,36 +13,50 @@ This is the feature that enables you to manage the instance of the `DbConnection
 
 #### Types of Persitency
 
-- PerCall (Default) - in every method call, a new `DbConnection` object is being used.
-- Instance - a single instance of `DbConnection` object is used all throughout the lifespan of the repository.
+- `PerCall (Default)` - in every method call, a new `DbConnection` object is being used.
+- `Instance` - a single instance of `DbConnection` object is used all throughout the lifespan of the repository.
 
 #### Repository
 
 If you are working with [BaseRepository](/class/baserepository) object, you have to pass it on the constructor of your derived repository.
 
 ```csharp
+// Repository
 public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
 {
-    public PersonRepository(IOptions<AppSettings> settings,
+    public PersonRepository(string connectionString,
         ConnectionPersistency persistency)
-        : base(settings.ConnectionString, persistency)
+        : base(connectionString, persistency)
     { }
 
     ...
+}
+
+// Instantiation
+using (var repository = new PersonRepository(connectionString, ConnectionPersistency.Instance))
+{
+        ...
 }
 ```
 
 You can do the same with [DbRepository](/class/dbrepository).
 
 ```csharp
+// Repository
 public class NorthwindRepository : DbRepository<SqlConnection>, INorthwinRepository
 {
-    public NorthwindRepository(IOptions<AppSettings> settings,
+    public NorthwindRepository(string connectionString,
         ConnectionPersistency persistency)
-        : base(settings.ConnectionString, persistency)
+        : base(connectionString, persistency)
     { }
 
     ...
+}
+
+// Instantiation
+using (var repository = new NorthwindRepository(connectionString, ConnectionPersistency.Instance))
+{
+        ...
 }
 ```
 

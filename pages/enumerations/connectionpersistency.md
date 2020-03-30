@@ -13,8 +13,8 @@ This is an enum used to define the persistency of the `DbConnection` within the 
 
 #### Enum Values
 
-- PerCall (Default) - in every method call, a new `DbConnection` object is being used.
-- Instance - a single instance of `DbConnection` object is used all throughout the lifespan of the repository.
+- `PerCall (Default)` - in every method call, a new `DbConnection` object is being used.
+- `Instance` - a single instance of `DbConnection` object is used all throughout the lifespan of the repository.
 
 #### How to Use?
 
@@ -40,7 +40,7 @@ using (var repository = new PersonRepository(connectionString))
 }
 ```
 
-Or for [DbRepository](/class/dbrepository).
+Or for [DbRepository](/class/dbrepository) object.
 
 ```csharp
 // Repository
