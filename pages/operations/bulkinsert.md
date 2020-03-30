@@ -35,7 +35,7 @@ Or visit our [installation](/tutorials/installation) page for more information.
 
 #### Learnings
 
-Let us say you have a methods that create a list of *Person* from the client application.
+Let us say you have a methods that create a list of `Person` from the client application.
 
 ```csharp
 private IEnumerable<Person> GetPeople(int count = 1000)
@@ -93,7 +93,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-Or you can also convert the list of *Person* to a `DataEntityDataReader` object and bulk-insert it.
+Or you can also convert the list of `Person` to a `DataEntityDataReader` object and bulk-insert it.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

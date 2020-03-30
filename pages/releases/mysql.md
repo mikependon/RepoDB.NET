@@ -32,7 +32,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actu
 #### RepoDb.MySql (v1.0.3)
 
 - Referenced the updated version of RepoDb core library (v1.10.4).
-- Error: Invalid expression. The property <Id> is not defined on a target type. [#364](https://github.com/mikependon/RepoDb/issues/364)
+- Error: Invalid expression. The property `Id` is not defined on a target type. [#364](https://github.com/mikependon/RepoDb/issues/364)
 
 
 ##### RepoDb (v1.10.3-beta1)
@@ -52,7 +52,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actu
 
 #### RepoDb.MySql (v1.0.1-beta1)
 
-- Bug (Community Request): The primary field is not found exception when primary key column name is different from Primary attribute property name is different while `Connection.Update` is called. [#356](https://github.com/mikependon/RepoDb/issues/356)
+- Bug (Community Request): The primary field is not found exception when primary key column name is different from `Primary` attribute property name is different while `Connection.Update` is called. [#356](https://github.com/mikependon/RepoDb/issues/356)
 
 
 #### RepoDb.MySql (v1.0.0)

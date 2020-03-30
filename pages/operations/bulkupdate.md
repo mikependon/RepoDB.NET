@@ -49,7 +49,7 @@ Or visit our [installation](/tutorials/installation) page for more information.
 
 #### Learnings
 
-Let us say you have a list of *Person* model at variable `people` that contains both existing and non-existing rows from the database.
+Let us say you have a list of `Person` model at variable `people` that contains both existing and non-existing rows from the database.
 
 Then, below is the code to bulk-update those rows `[dbo].[Person]` table.
 
@@ -89,7 +89,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-Or you can also convert the list of *Person* to a `DataEntityDataReader` object and bulk-insert it.
+Or you can also convert the list of `Person` to a `DataEntityDataReader` object and bulk-insert it.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

@@ -50,7 +50,7 @@ The execution is ACID as the transaction object will be created if not given.
 
 #### Learnings
 
-Let us you have a method that returns a list of *Person* models.
+Let us you have a method that returns a list of `Person` models.
 
 ```csharp
 private IEnumerable<Person> GetPeople()
@@ -77,7 +77,7 @@ private IEnumerable<Person> GetPeople()
 }
 ```
 
-Below is a sample code to update a list of *Person* into the `[dbo].[Person]` table.
+Below is a sample code to update a list of `Person` into the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

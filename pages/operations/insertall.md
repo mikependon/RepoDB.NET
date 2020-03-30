@@ -50,7 +50,7 @@ Or visit our [installation](/tutorials/installation) page for more information.
 
 #### Learnings
 
-Let us you have a method that returns a list of *Person* models.
+Let us you have a method that returns a list of `Person` models.
 
 ```csharp
 private IEnumerable<Person> GetPeople()
@@ -76,7 +76,7 @@ private IEnumerable<Person> GetPeople()
 }
 ```
 
-Below is a sample code to insert a list of *Person* into the `[dbo].[Person]` table.
+Below is a sample code to insert a list of `Person` into the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
