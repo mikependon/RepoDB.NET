@@ -33,7 +33,7 @@ Below are the list of features available.
 - [Hints](/feature/hints)
 - [Multi-Resultset Query](/feature/multi-resultset-query) - in progress
 - [Property Handlers](/feature/property-handlers) - in progress
-- [Repositories](/feature/repositories) - in progress
+- [Repositories](/feature/repositories)
 - [Tracing](/feature/tracing) - in progress
 - [Transaction](/feature/transaction) - in progress
 - [Type Mapping](/feature/type-mapping) - in progress
