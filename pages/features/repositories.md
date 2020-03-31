@@ -275,7 +275,7 @@ public PersonRepository : GenericRepository<Person, SqlConnection>, IPersonRepos
         }
     }
 
-    public TEntity Get(int id)
+    public Person Get(int id)
     {
         using (var connection = CreateConnection())
         {
