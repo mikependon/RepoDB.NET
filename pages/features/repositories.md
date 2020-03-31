@@ -329,5 +329,5 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Please visit our [Generic-Repository (Reference)](/reference/genericerepository) page for more information.
+Please visit our [Generic-Repository (Reference)](/reference/genericrepository) page for more information.
 
