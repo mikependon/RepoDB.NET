@@ -82,6 +82,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+> You can also visit our [Multiple Query](/feature/multiplequery) feature to get more information.
+
 #### Key Take-aways
 
 - The method [QueryMultiple](/operation/querymultiple) is pre-extracting all the resultsets, whereas [ExecuteQueryMultiple](/operation/executequerymultiple) is extracting as per call-basis (via `Extract` or `Scalar` method).
