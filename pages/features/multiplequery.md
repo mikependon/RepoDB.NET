@@ -15,7 +15,7 @@ The underlying implementation of this feature is abstracting the `IDbDataReader`
 
 #### Type of Return Types
 
-The method [ExecuteQueryMultiple](/operation/executequerymultiple) is returning the type of [QueryMultipleExtractor](/class/querymultiplextractor). It allows you to control and manage the way on how to extract the resultsets. The execution is differed as it is relying on the explicit calls you are making towards the `Extract()` and `Scalar()` methods.
+The method [ExecuteQueryMultiple](/operation/executequerymultiple) is returning the type of [QueryMultipleExtractor](/class/querymultipleextractor). It allows you to control and manage the way on how to extract the resultsets. The execution is differed as it is relying on the explicit calls you are making towards the `Extract()` and `Scalar()` methods.
 
 However, the method [QueryMultiple](/operation/querymultiple) is returning the type of `Tuple`. It has a maximum of `7` generic types as also defined on the `Tuple`. The pointer to the item properties of the `Tuple` object is dependent on the order of generic types when call this method.
 
