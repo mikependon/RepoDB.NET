@@ -141,7 +141,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/SqlServerTableHints) class.
+Or, you can use the [SqlServerTableHints](/class[SqlServerTableHints](/class/sqlservertablehints)) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
