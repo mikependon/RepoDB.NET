@@ -32,7 +32,7 @@ Below are the list of features available.
 - [Field/Class Mapping](/feature/field-class-mapping) - in progress
 - [Hints](/feature/hints)
 - [Multiple Query](/feature/multiplequery)
-- [Property Handlers](/feature/property-handlers) - in progress
+- [Property Handlers](/feature/propertyhandlers)
 - [Repositories](/feature/repositories)
 - [Tracing](/feature/tracing) - in progress
 - [Transaction](/feature/transaction) - in progress
