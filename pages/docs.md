@@ -35,7 +35,7 @@ Below are the list of features available.
 - [Property Handlers](/feature/propertyhandlers)
 - [Repositories](/feature/repositories)
 - [Tracing](/feature/tracing)
-- [Transaction](/feature/transaction) - in progress
+- [Transaction/Unit of Work](/feature/transaction) - in progress
 - [Type Mapping](/feature/type-mapping) - in progress
 
 #### Methods
