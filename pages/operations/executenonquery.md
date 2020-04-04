@@ -139,31 +139,3 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 > Notice in the second calls, there is semi-colon at the end of the command text and the command type was not set.
-
-#### Passing a Transaction
-
-To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
-
-```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-	using (var transaction = connection.BeginTransaction())
-	{
-		try
-		{
-			var affectedRows = connection.ExecuteNonQuery("EXEC [dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
-				new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date }, transaction: transaction);
-
-			transaction.Commit();
-		}
-		catch (Exception ex)
-		{
-			// Handles the 'ex' here
-		}
-	}
-}
-```
-
-> To commit the transaction, you have to explicitly call the `Commit()` method.
-
-

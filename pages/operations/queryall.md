@@ -122,30 +122,3 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 > The cache expiration is defaulted to `180` minutes. You can override it by passing an integer value at the `cacheExpirationInMinutes` argument.
-
-#### Passing a Transaction
-
-To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
-
-```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-	using (var transaction = connection.BeginTransaction())
-	{
-		try
-		{
-			var id = connection.QueryAll<Person>(transaction: transaction);
-
-			transaction.Commit();
-		}
-		catch (Exception ex)
-		{
-			// Handles the 'ex' here
-		}
-	}
-}
-```
-
-> To commit the transaction, you have to explicitly call the `Commit()` method.
-
-

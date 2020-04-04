@@ -171,31 +171,3 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 > By using the actual pseudo physical table, it will further help you maximize the performance (over using the `#Table` temp table). However, you need to be aware that the table is shared to any call. So parallelism may fail on this scenario.
-
-#### Passing a Transaction
-
-To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
-
-```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-	using (var transaction = connection.BeginTransaction())
-	{
-		try
-		{
-			var deletedRows = connection.BulkDelete(people,
-				transaction: transaction);
-
-			transaction.Commit();
-		}
-		catch (Exception ex)
-		{
-			// Handles the 'ex' here
-		}
-	}
-}
-```
-
-> To commit the transaction, you have to explicitly call the `Commit()` method.
-
-

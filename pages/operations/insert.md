@@ -97,31 +97,3 @@ using (var connection = new SqlConnection(connectionString))
 		hints: SqlServerTableHints.TabLock);
 }
 ```
-
-#### Passing a Transaction
-
-To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
-
-```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-	using (var transaction = connection.BeginTransaction())
-	{
-		try
-		{
-			var id = connection.Insert<Person>(person,
-				transaction: transaction);
-
-			transaction.Commit();
-		}
-		catch (Exception ex)
-		{
-			// Handles the 'ex' here
-		}
-	}
-}
-```
-
-> To commit the transaction, you have to explicitly call the `Commit()` method.
-
-

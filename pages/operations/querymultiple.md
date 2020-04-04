@@ -125,36 +125,3 @@ using (var connection = new SqlConnection(connectionString))
 	// Do the stuffs for the `customer` and `orders` here
 }
 ```
-
-#### Passing a Transaction
-
-To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
-
-```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-	using (var transaction = connection.BeginTransaction())
-	{
-		try
-		{
-			var result = connection.QueryMultiple<Customer, Order>(p => p.Id == 10045,
-				o => o.PersonId == 10045,
-				transaction: transaction);
-			var customer = result.Item1.FirstOrDefault();
-			var orders = result.Item2.AsList();
-
-			// Do the stuffs for the `customer` and `orders` here
-
-			transaction.Commit();
-		}
-		catch (Exception ex)
-		{
-			// Handles the 'ex' here
-		}
-	}
-}
-```
-
-> To commit the transaction, you have to explicitly call the `Commit()` method.
-
-

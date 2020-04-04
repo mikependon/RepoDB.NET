@@ -170,38 +170,3 @@ using (var connection = new SqlConnection(connectionString))
 		hints: SqlServerTableHints.NoLock);
 }
 ```
-
-#### Passing a Transaction
-
-To pass a transaction on this method, simply create an instance of `IDbConnection` and pass it at the `transaction` argument.
-
-```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-	using (var transaction = connection.BeginTransaction())
-	{
-		try
-		{
-			var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
-            var page = 0;
-            var rowsPerBatch = 20;
-            
-			var people = connection.BatchQuery<Person>(page: page,
-				rowsPerBatch: rowsPerBatch,
-				orderBy: orderBy,
-				where: e => e.IsActive == true,
-				transaction: transaction);
-
-			transaction.Commit();
-		}
-		catch (Exception ex)
-		{
-			// Handles the 'ex' here
-		}
-	}
-}
-```
-
-> To commit the transaction, you have to explicitly call the `Commit()` method.
-
-

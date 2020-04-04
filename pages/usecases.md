@@ -4,7 +4,7 @@ title: Use Cases (RepoDb)
 permalink: /usecases
 ---
 
-## Use Cases
+## Use Cases (In-Progress)
 
 This page contains all the collective real-world use-cases that RepoDb can solve easily. Initial contents were the actual use-cases the author has encountered all throughout the years of experience working with big data.
 
