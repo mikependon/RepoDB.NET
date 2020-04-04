@@ -29,7 +29,7 @@ Below are the list of features available.
 - [Connection Persistency](/feature/connectionpersistency)
 - [Enumeration](/feature/enumeration)
 - [Expression Trees](/feature/expression-trees) - in progress
-- [Field/Class Mapping](/feature/field-class-mapping) - in progress
+- [Field/Class Mapping](/feature/fieldclassmapping)
 - [Hints](/feature/hints)
 - [Multiple Query](/feature/multiplequery)
 - [Property Handlers](/feature/propertyhandlers)
