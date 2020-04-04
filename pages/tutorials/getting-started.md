@@ -314,7 +314,7 @@ To execute a query while expecting a result of class object, then use the [Execu
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var people = connection.ExecuteQuery<Person>("SELECT ` FROM [dbo].[Person] ORDER BY Id ASC;");
+	var people = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] ORDER BY Id ASC;");
 	/* Do the stuffs for the people here */
 }
 ```
@@ -351,7 +351,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-> Beware of *NOT* putting a semi-colon at the end of the calls.
+> Beware of not putting a semi-colon at the end of the calls.
 
 Or, you can direct call using the `EXEC` command. No need to pass the the value of `CommandType.StoredProcedure`.
 
