@@ -25,7 +25,7 @@ Below are the list of features available.
 
 - [Batch Operations](/feature/batch-operations) - in progress
 - [Bulk Operations](/feature/bulk-operations) - in progress
-- [Caching](/feature/caching) - in progress
+- [Caching](/feature/caching)
 - [Connection Persistency](/feature/connectionpersistency)
 - [Enumeration](/feature/enumeration)
 - [Expression Trees](/feature/expression-trees) - in progress
