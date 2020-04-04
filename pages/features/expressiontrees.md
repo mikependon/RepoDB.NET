@@ -1,23 +1,23 @@
 ---
 layout: page
 title: "Expression Trees (RepoDb)"
-permalink: /reference/expressiontrees
+permalink: /feature/expressiontrees
 tags: [repodb, class, expressiontrees, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 ## Expression Tree
 
-This is the feature that would allow you to compose conditional expressions to filter the data when doing an operation in the database. This condition can be applied in both push/pull operations (ie: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and [Query](/opereration/query)).
+This is the feature that would allow you to compose a conditional expressions (to filter a data) when doing an operation in the database. This condition can be applied in both push/pull operations (ie: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and [Query](/opereration/query)).
 
 #### Disclaimer
 
-> The support to query objects are massive and well tested with high-quality. However, the Linq-Expression parser of the library is not as extensive as Entity Framework. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expressions.
+The support to query objects are massive and well tested with high-quality. However, the Linq-Expression parser of the library is not as extensive as Entity Framework. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expressions.
 
 #### Different Ways
 
 There are 3 ways of composing an expression trees in this library.
 
-- `Dynamic` - it is the most simplier and direct way of filterting the results. You can use the `dynamic` object to filter data.
+- `Dynamic` - it is the most simple and direct way of filterting the results. You can use the `dynamic` object to filter data.
 - `Linq-Expression` - it is the most common way of filtering the data.
 - `Query Objects` - it is the most advance, efficient, performant and powerful way of composing the tree expression.
 

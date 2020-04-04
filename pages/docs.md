@@ -23,8 +23,8 @@ To install, please visit our [installation](/tutorials/installation) page for mo
 
 Below are the list of features available.
 
-- [Batch Operations](/feature/batch-operations) - in progress
-- [Bulk Operations](/feature/bulk-operations) - in progress
+- [Batch Operations](/feature/batchoperations)
+- [Bulk Operations](/feature/bulkoperations) - in progress
 - [Caching](/feature/caching)
 - [Connection Persistency](/feature/connectionpersistency)
 - [Enumeration](/feature/enumeration)
