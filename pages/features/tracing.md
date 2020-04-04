@@ -9,7 +9,7 @@ tags: [repodb, class, tracing, orm, hybrid-orm, sqlserver, sqlite, mysql, postgr
 
 This is the feature that would allow you to log, audit and debug the command execution context (ie: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also allows you to cancel the existing execution before even the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class.
 
-A corresponding method in the trace class will be hit by the debugger when you call the `IDbConnection` extended method (or any of the `Repository` method), only if the trace class is passed or injected.
+A corresponding method in the trace class will be hit by the debugger when you call the `IDbConnection` extended method (or any of the `Repository` method), only if the trace object is passed or injected.
 
 To be more precise, if you call the [Insert](/operation/insert) operation, the `BeforeInsert` and `AfterInsert` method of the trace class will be invoked. There you can add the breakpoint to enable the debugging.
 
@@ -40,7 +40,7 @@ public class NorthwindTrace : ITrace
 
 #### Using a Trace in a Connection
 
-Simply pass the trace class when calling the operation.
+Simply pass the trace object when calling the operation.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -103,9 +103,9 @@ using (var repository = new DbRepository<SqlConnection>(settings.ConnectionStrin
 
 #### Create a Trace Factory
 
-Creating a trace factory class is a good way to abstract and ensure single instance of trace class is being created. It is our recommendation when using the trace feature.
+Creating a trace `Factory` class is a good way to abstract and ensure single instance of trace object is being created. It is our recommendation when using the trace feature.
 
-The code below ensures that only a single instance of trace class is being used all throughout the application.
+The code below ensures that only a single instance of trace object is being used all throughout the application.
 
 ```csharp
 public static class TraceFactory
