@@ -28,7 +28,7 @@ Below are the list of features available.
 - [Caching](/feature/caching)
 - [Connection Persistency](/feature/connectionpersistency)
 - [Enumeration](/feature/enumeration)
-- [Expression Trees](/feature/expression-trees) - in progress
+- [Expression Trees](/feature/expressiontrees)
 - [Field/Class Mapping](/feature/fieldclassmapping)
 - [Hints](/feature/hints)
 - [Multiple Query](/feature/multiplequery)
