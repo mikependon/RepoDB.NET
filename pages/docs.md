@@ -34,7 +34,7 @@ Below are the list of features available.
 - [Multiple Query](/feature/multiplequery)
 - [Property Handlers](/feature/propertyhandlers)
 - [Repositories](/feature/repositories)
-- [Tracing](/feature/tracing) - in progress
+- [Tracing](/feature/tracing)
 - [Transaction](/feature/transaction) - in progress
 - [Type Mapping](/feature/type-mapping) - in progress
 
