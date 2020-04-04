@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Installation of Nuget Packages (RepoDb)"
-permalink: /tutorials/installation
+permalink: /tutorial/installation
 tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 

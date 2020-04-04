@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Getting Started (PostgreSQL)"
-permalink: /tutorials/getting-started-postgresql
+permalink: /tutorial/getting-started-postgresql
 tags: [repodb, tutorial, getting-started, orm, hybrid-orm, postgresql]
 ---
 
@@ -25,7 +25,7 @@ Once the installation is complete, call the bootstrapper to initialize all the d
 RepoDb.PostgreSqlBootstrap.Initialize();
 ```
 
-Or visit our [installation](/tutorials/installation) page for more information.
+Or visit our [installation](/tutorial/installation) page for more information.
 
 > In this tutorial, we will use the C# as the programming language.
 

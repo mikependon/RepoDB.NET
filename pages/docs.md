@@ -12,12 +12,12 @@ RepoDb has bunch of things available for you. You can maximize your development 
 
 Please click any of the link below to fast-track your learnings about this library.
 
-- [SqlServer](/tutorials/getting-started)
-- [SqLite](/tutorials/getting-started-sqlite)
-- [MySql](/tutorials/getting-started-mysql)
-- [PostgreSql](/tutorials/getting-started-postgresql)
+- [SqlServer](/tutorial/getting-started)
+- [SqLite](/tutorial/getting-started-sqlite)
+- [MySql](/tutorial/getting-started-mysql)
+- [PostgreSql](/tutorial/getting-started-postgresql)
 
-To install, please visit our [installation](/tutorials/installation) page for more information.
+To install, please visit our [installation](/tutorial/installation) page for more information.
 
 #### Features
 

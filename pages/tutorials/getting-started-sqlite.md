@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Getting Started (SqLite)"
-permalink: /tutorials/getting-started-sqlite
+permalink: /tutorial/getting-started-sqlite
 tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlite]
 ---
 
@@ -25,7 +25,7 @@ Once the installation is complete, call the bootstrapper to initialize all the d
 RepoDb.SqLiteBootstrap.Initialize();
 ```
 
-Or visit our [installation](/tutorials/installation) page for more information.
+Or visit our [installation](/tutorial/installation) page for more information.
 
 > In this tutorial, we will use the C# as the programming language.
 

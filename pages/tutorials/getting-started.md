@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Getting Started (SQL Server)"
-permalink: /tutorials/getting-started
+permalink: /tutorial/getting-started
 tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
@@ -23,9 +23,9 @@ The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/mast
 
 This tutorial page is only meant for SQL Server. If you wish to learn the other data providers, please click any of the link below.
 
-- [Getting Started for SqLite](/tutorials/getting-started-sqlite)
-- [Getting Started for MySql](/tutorials/getting-started-mysql)
-- [Getting Started for PostgreSql](/tutorials/getting-started-postgresql)
+- [Getting Started for SqLite](/tutorial/getting-started-sqlite)
+- [Getting Started for MySql](/tutorial/getting-started-mysql)
+- [Getting Started for PostgreSql](/tutorial/getting-started-postgresql)
 
 #### Installation
 
@@ -49,7 +49,7 @@ In your Package Manager Console, simply type the codes below.
 > Install-Package RepoDb.SqlServer.BulkOperations
 ```
 
-Or visit our [installation](/tutorials/installation) page for more information.
+Or visit our [installation](/tutorial/installation) page for more information.
 
 > In this tutorial, we will use the C# as the programming language.
 

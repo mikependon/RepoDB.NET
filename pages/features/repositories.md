@@ -36,7 +36,7 @@ Then call the bootstrapper once.
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-Or visit our [installation](/tutorials/installation) page for more information.
+Or visit our [installation](/tutorial/installation) page for more information.
 
 #### Creating an Entity-Based Repository
 

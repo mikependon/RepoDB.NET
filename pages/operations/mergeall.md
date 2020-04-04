@@ -34,7 +34,7 @@ Then call the bootstrapper once.
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-Or visit our [installation](/tutorials/installation) page for more information.
+Or visit our [installation](/tutorial/installation) page for more information.
 
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
