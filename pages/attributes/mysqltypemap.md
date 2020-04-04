@@ -1,11 +1,11 @@
 ---
 layout: page
-title: "MySqlTypeMapAttribute (RepoDb)"
+title: "MySqlTypeMap (RepoDb)"
 permalink: /attribute/mysqltypemap
 tags: [repodb, class, mysqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## MySqlTypeMapAttribute
+## MySqlTypeMap
 
 This attribute is used to map a property into its equivalent type from the database (via `MySql.Data.MySqlClient.MySqlDbType`).
 
@@ -19,7 +19,7 @@ Below is a a sample code on how to map an existing property into a `MySql.Data.M
 public class Person
 {
 	public int Id { get; set; }
-	[MySqlTypeMapAttribute(MySqlDbType.VarChar)] // Mapping this to a 'VarChar'
+	[MySqlTypeMap(MySqlDbType.VarChar)] // Mapping this to a 'VarChar'
 	public string Name { get; set; }
 	public DateTime DateOfBirth { get; set; }
 	public int Age { get; set; }
@@ -36,7 +36,7 @@ public class Person
 	public string Name { get; set; }
 	public DateTime DateOfBirth { get; set; }
 	public int Age { get; set; }
-	[MySqlTypeMapAttribute(MySqlDbType.Byte)] // Mapping this to a 'Byte'
+	[MySqlTypeMap(MySqlDbType.Byte)] // Mapping this to a 'Byte'
 	public byte[] Image { get; set; }
 	public DateTime DateInsertedUtc { get; set; }
 }

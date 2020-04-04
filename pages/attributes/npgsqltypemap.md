@@ -1,11 +1,11 @@
 ---
 layout: page
-title: "NpgsqlTypeMapAttribute (RepoDb)"
+title: "NpgsqlTypeMap (RepoDb)"
 permalink: /attribute/npgsqltypemap
 tags: [repodb, class, npgsqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## NpgsqlTypeMapAttribute
+## NpgsqlTypeMap
 
 This attribute is used to map a property into its equivalent type from the database (via `NpgsqlTypes.NpgsqlDbType`).
 
@@ -19,7 +19,7 @@ Below is a a sample code on how to map an existing property into a `NpgsqlTypes.
 public class Person
 {
 	public int Id { get; set; }
-	[NpgsqlTypeMapAttribute(NpgsqlDbType.Text)] // Mapping this to a 'Text'
+	[NpgsqlTypeMap(NpgsqlDbType.Text)] // Mapping this to a 'Text'
 	public string Name { get; set; }
 	public DateTime DateOfBirth { get; set; }
 	public int Age { get; set; }
@@ -36,7 +36,7 @@ public class Person
 	public string Name { get; set; }
 	public DateTime DateOfBirth { get; set; }
 	public int Age { get; set; }
-	[NpgsqlTypeMapAttribute(MySqlDbType.Array)] // Mapping this to a 'Array'
+	[NpgsqlTypeMap(MySqlDbType.Array)] // Mapping this to a 'Array'
 	public int[] ReferenceNumbers { get; set; }
 	public DateTime DateInsertedUtc { get; set; }
 }

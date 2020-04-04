@@ -36,7 +36,7 @@ Below are the list of features available.
 - [Repositories](/feature/repositories)
 - [Tracing](/feature/tracing)
 - [Transaction](/feature/transaction)
-- [Type Mapping](/feature/type-mapping) - in progress
+- [Type Mapping](/feature/type-mapping)
 
 #### Methods
 
@@ -131,16 +131,16 @@ Below are the list of attributes available (per package).
 
 ###### SqlServer
 
-- [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap)
-- [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap)
+- [MicrosoftSqlServerTypeMap](/attribute/microsoftsqlservertypemap)
+- [SystemSqlServerTypeMap](/attribute/systemsqlservertypemap)
 
 ###### MySql
 
-- [MySqlTypeMapAttribute](/attribute/mysqltypemap)
+- [MySqlTypeMap](/attribute/mysqltypemap)
 
 ###### PostgreSql
 
-- [NpgsqlTypeMapAttribute](/attribute/npgsqltypemap)
+- [NpgsqlTypeMap](/attribute/npgsqltypemap)
 
 #### Enumerations
 

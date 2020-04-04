@@ -1,11 +1,11 @@
 ---
 layout: page
-title: "SystemSqlServerTypeMapAttribute (RepoDb)"
+title: "SystemSqlServerTypeMap (RepoDb)"
 permalink: /attribute/systemsqlservertypemap
 tags: [repodb, class, systemsqlservertypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## SystemSqlServerTypeMapAttribute
+## SystemSqlServerTypeMap
 
 This attribute is used to map a property into its equivalent type from the database (via `System.Data.SqlDbType`).
 
