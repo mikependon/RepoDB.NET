@@ -13,15 +13,15 @@ An immutable class that holds the definition of the database columns. This class
 
 ###### List of Properties
 
-- Name - the name of the column.
-- IsPrimary - `True` if the column is primary.
-- IsIdentity - `True` if the column is identity.
-- IsNullable - `True` if the column is nullable.
-- Type - the equivalent .NET CLR type.
-- Size - the size of the column from the database.
-- Precision - the precision of the column from the database.
-- Scale - the scale of the column from the database.
-- DatabaseType - tye type of the column from the database.
+- `Name` - the name of the column.
+- `IsPrimary` - returns `True` if the column is primary.
+- `IsIdentity` - returns `True` if the column is identity.
+- `IsNullable` - returns `True` if the column is nullable.
+- `Type` - the equivalent .NET CLR type.
+- `Size` - the size of the column from the database.
+- `Precision` - the precision of the column from the database.
+- `Scale` - the scale of the column from the database.
+- `DatabaseType` - tye type of the column from the database.
 
 ###### How to Extract?
 

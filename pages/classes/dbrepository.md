@@ -21,15 +21,15 @@ You should use this class if you wish to work with all the database tables (and 
 
 Let us say you have the following tables.
 
-- [dbo].[Customer]
-- [dbo].[Order]
-- [dbo].[Product]
+- `[dbo].[Customer]`
+- `[dbo].[Order]`
+- `[dbo].[Product]`
 
 And the following classes.
 
-- Customer
-- Order
-- Product
+- `Customer`
+- `Order`
+- `Product`
 
 Then you can create your shared repository like below.
 
