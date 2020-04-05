@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: features
 title: "Field/Class Mapping (RepoDb)"
 permalink: /feature/fieldclassmapping
 tags: [repodb, class, fieldmapping, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

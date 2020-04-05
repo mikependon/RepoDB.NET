@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "QueryAll (RepoDb)"
 permalink: /operation/queryall
 tags: [repodb, tutorial, queryall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

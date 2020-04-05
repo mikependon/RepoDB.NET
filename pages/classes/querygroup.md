@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "QueryGroup (RepoDb)"
 permalink: /class/querygroup
 tags: [repodb, class, querygroup, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

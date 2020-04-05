@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "QueryField (RepoDb)"
 permalink: /class/queryfield
 tags: [repodb, class, queryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

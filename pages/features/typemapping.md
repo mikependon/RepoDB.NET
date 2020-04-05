@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: features
 title: "Type Mapping (RepoDb)"
 permalink: /feature/typemapping
 tags: [repodb, class, typemapping, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

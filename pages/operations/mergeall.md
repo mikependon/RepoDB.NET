@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "MergeAll (RepoDb)"
 permalink: /operation/mergeall
 tags: [repodb, tutorial, mergeall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

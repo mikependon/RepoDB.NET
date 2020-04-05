@@ -1,7 +1,8 @@
 title: Documentation
 docs:
 
-- title: "Getting Started"
+- key: getstarted
+  title: "Get Started"
   topics:
 
   - title: "SQL Server"
@@ -16,7 +17,11 @@ docs:
   - title: "PostgreSQL"
     url: "/tutorial/getting-started-postgresql"
 
-- title: "Features"
+  - title: "Installation"
+    url: "/tutorial/installation"
+
+- key: features
+  title: "Features"
   topics:
 
   - title: "Batch Operations"
@@ -24,3 +29,182 @@ docs:
   
   - title: "Bulk Operations"
     url: "/feature/bulkoperations"
+
+- key: operations
+  title: "Operations"
+  topics:
+
+  - title: "Average"
+    url: "/operation/average"
+  
+  - title: "AverageAll"
+    url: "/operation/averageall"
+  
+  - title: "BatchQuery"
+    url: "/operation/batchquery"
+  
+  - title: "BulkDelete"
+    url: "/operation/bulkdelete"
+  
+  - title: "BulkInsert"
+    url: "/operation/bulkinsert"
+    
+  - title: "BulkMerge"
+    url: "/operation/bulkmerge"
+    
+  - title: "BulkUpdate"
+    url: "/operation/bulkupdate"
+    
+  - title: "Count"
+    url: "/operation/count"
+    
+  - title: "CountAll"
+    url: "/operation/countall"
+    
+  - title: "Delete"
+    url: "/operation/delete"
+    
+  - title: "DeleteAll"
+    url: "/operation/deleteall"
+    
+  - title: "ExecuteNonQuery"
+    url: "/operation/executenonquery"
+  
+  - title: "ExecuteQuery"
+    url: "/operation/executequery"
+  
+  - title: "ExecuteQueryMultiple"
+    url: "/operation/executequerymultiple"
+  
+  - title: "ExecuteReader"
+    url: "/operation/executereader"
+  
+  - title: "ExecuteScalar"
+    url: "/operation/executescalar"
+  
+  - title: "Exists"
+    url: "/operation/exists"
+    
+  - title: "Insert"
+    url: "/operation/insert"
+    
+  - title: "InsertAll"
+    url: "/operation/insertall"
+    
+  - title: "Max"
+    url: "/operation/max"
+    
+  - title: "MaxAll"
+    url: "/operation/maxall"
+
+  - title: "Merge"
+    url: "/operation/merge"
+    
+  - title: "MergeAll"
+    url: "/operation/mergeall"
+    
+  - title: "Min"
+    url: "/operation/min"
+    
+  - title: "MinAll"
+    url: "/operation/minall"
+    
+  - title: "Query"
+    url: "/operation/query"
+    
+  - title: "QueryAll"
+    url: "/operation/queryall"
+    
+  - title: "QueryMultiple"
+    url: "/operation/querymultiple"
+    
+  - title: "Sum"
+    url: "/operation/sum"
+    
+  - title: "SumAll"
+    url: "/operation/sumall"
+    
+  - title: "Truncate"
+    url: "/operation/truncate"
+    
+  - title: "Update"
+    url: "/operation/update"
+    
+  - title: "UpdateAll"
+    url: "/operation/updateall"
+
+- key: classes
+  title: "Classes"
+  topics:
+
+  - title: "BaseDbSetting"
+    url: "/class/basedbsetting"
+
+  - title: "BaseStatementBuilder"
+    url: "/class/basestatementbuilder"
+
+  - title: "BaseRepository"
+    url: "/class/baserepository"
+
+  - title: "BulkInsertMapItem"
+    url: "/class/bulkinsertmapitem"
+
+  - title: "CacheItem"
+    url: "/class/cacheitem"
+
+  - title: "CancellableTraceLog"
+    url: "/class/cancellabletracelog"
+
+  - title: "ClassExpression"
+    url: "/class/classexpression"
+
+  - title: "ClassProperty"
+    url: "/class/classproperty"
+
+  - title: "Constant"
+    url: "/class/constant"
+
+  - title: "DataEntityDataReader"
+    url: "/class/dataentitydatareader"
+
+  - title: "DataReader (Compiled)"
+    url: "/class/datareader"
+
+  - title: "DbRepository"
+    url: "/class/dbrepository"
+
+  - title: "DbField"
+    url: "/class/dbfield"
+
+  - title: "Field"
+    url: "/class/field"
+
+  - title: "MemoryCache"
+    url: "/class/memorycache"
+
+  - title: "OrderField"
+    url: "/class/orderfield"
+
+  - title: "Parameter"
+    url: "/class/parameter"
+
+  - title: "PropertyValue"
+    url: "/class/propertyvalue"
+
+  - title: "QueryBuilder"
+    url: "/class/querybuilder"
+
+  - title: "QueryField"
+    url: "/class/queryfield"
+
+  - title: "QueryGroup"
+    url: "/class/querygroup"
+
+  - title: "QueryMultipleExtractor"
+    url: "/class/querymultipleextractor"
+
+  - title: "SqlServerTableHints"
+    url: "/class/sqlservertablehints"
+
+  - title: "TraceLog"
+    url: "/class/tracelog"

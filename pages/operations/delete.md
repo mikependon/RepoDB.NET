@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "Delete (RepoDb)"
 permalink: /operation/delete
 tags: [repodb, tutorial, delete, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: features
 title: "Cache (RepoDb)"
 permalink: /feature/caching
 tags: [repodb, class, cache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

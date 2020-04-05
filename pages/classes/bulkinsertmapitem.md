@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "BulkInsertMapItem (RepoDb)"
 permalink: /class/bulkinsertmapitem
 tags: [repodb, class, bulkinsertmapitem, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

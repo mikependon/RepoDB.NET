@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "BulkUpdate (RepoDb)"
 permalink: /operation/bulkupdate
 tags: [repodb, tutorial, bulkupdate, orm, hybrid-orm, sqlserver]

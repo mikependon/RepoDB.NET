@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "BaseStatementBuilder (RepoDb)"
 permalink: /class/basestatementbuilder
 tags: [repodb, class, basestatementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

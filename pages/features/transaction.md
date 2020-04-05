@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: features
 title: "Transaction (RepoDb)"
 permalink: /feature/transaction
 tags: [repodb, class, transaction, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

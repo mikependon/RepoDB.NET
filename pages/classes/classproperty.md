@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "ClassProperty (RepoDb)"
 permalink: /class/classproperty
 tags: [repodb, class, classproperty, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

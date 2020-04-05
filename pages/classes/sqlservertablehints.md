@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "SqlServerTableHints (RepoDb)"
 permalink: /class/sqlservertablehints
 tags: [repodb, class, sqlservertablehints, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

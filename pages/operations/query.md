@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "Query (RepoDb)"
 permalink: /operation/query
 tags: [repodb, tutorial, query, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

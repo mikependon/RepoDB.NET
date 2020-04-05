@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "Constant (RepoDb)"
 permalink: /class/constant
 tags: [repodb, class, constant, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

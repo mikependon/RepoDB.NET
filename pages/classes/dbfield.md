@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "DbField (RepoDb)"
 permalink: /class/dbfield
 tags: [repodb, class, dbfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

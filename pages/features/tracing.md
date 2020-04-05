@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: features
 title: "Tracing (RepoDb)"
 permalink: /feature/tracing
 tags: [repodb, class, tracing, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

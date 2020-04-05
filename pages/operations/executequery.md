@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "ExecuteQuery (RepoDb)"
 permalink: /operation/executequery
 tags: [repodb, tutorial, executequery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

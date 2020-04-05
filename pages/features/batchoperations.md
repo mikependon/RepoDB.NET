@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: features
 title: "Batch Operations (RepoDb)"
 permalink: /feature/batchoperations
 tags: [repodb, class, batch, batch-operations, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

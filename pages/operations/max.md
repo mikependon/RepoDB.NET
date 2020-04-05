@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "Max (RepoDb)"
 permalink: /operation/max
 tags: [repodb, tutorial, max, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

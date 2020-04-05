@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "BulkMerge (RepoDb)"
 permalink: /operation/bulkmerge
 tags: [repodb, tutorial, bulkmerge, orm, hybrid-orm, sqlserver]

@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "Exists (RepoDb)"
 permalink: /operation/exists
 tags: [repodb, tutorial, exists, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

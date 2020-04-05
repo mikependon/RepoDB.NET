@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: features
 title: "Multiple Query (RepoDb)"
 permalink: /feature/multiplequery
 tags: [repodb, class, multiplequery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

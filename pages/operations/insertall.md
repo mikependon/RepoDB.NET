@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "InsertAll (RepoDb)"
 permalink: /operation/insertall
 tags: [repodb, tutorial, insertall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

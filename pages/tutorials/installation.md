@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: getstarted
 title: "Installation of Nuget Packages (RepoDb)"
 permalink: /tutorial/installation
 tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

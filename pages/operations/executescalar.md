@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "ExecuteScalar (RepoDb)"
 permalink: /operation/executescalar
 tags: [repodb, tutorial, executescalar, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

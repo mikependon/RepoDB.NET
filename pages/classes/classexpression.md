@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "ClassExpression (RepoDb)"
 permalink: /class/classexpression
 tags: [repodb, class, classexpression, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

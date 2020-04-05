@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "PropertyValue (RepoDb)"
 permalink: /class/propertyvalue
 tags: [repodb, class, propertyvalue, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

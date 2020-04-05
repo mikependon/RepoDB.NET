@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "MaxAll (RepoDb)"
 permalink: /operation/maxall
 tags: [repodb, tutorial, maxall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

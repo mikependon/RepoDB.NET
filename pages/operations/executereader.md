@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "ExecuteReader (RepoDb)"
 permalink: /operation/executereader
 tags: [repodb, tutorial, executereader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

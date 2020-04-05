@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: features
 title: "Bulk Operations (RepoDb)"
 permalink: /feature/bulkoperations
 tags: [repodb, class, bulk, bulk-operations, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

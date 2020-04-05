@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: getstarted
 title: "Getting Started (SQL Server)"
 permalink: /tutorial/getting-started
 tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

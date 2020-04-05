@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: features
 title: "Hints (RepoDb)"
 permalink: /feature/hints
 tags: [repodb, class, hints, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: features
 title: "Hints (RepoDb)"
 permalink: /feature/propertyhandlers
 tags: [repodb, class, propertyhandlers, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

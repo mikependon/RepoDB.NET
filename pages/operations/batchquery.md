@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "BatchQuery (RepoDb)"
 permalink: /operation/batchquery
 tags: [repodb, tutorial, batchquery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

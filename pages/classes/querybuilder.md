@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "QueryBuilder (RepoDb)"
 permalink: /class/querybuilder
 tags: [repodb, class, querybuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

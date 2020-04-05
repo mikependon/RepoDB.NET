@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: operations
 title: "AverageAll (RepoDb)"
 permalink: /operation/averageall
 tags: [repodb, tutorial, averageall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

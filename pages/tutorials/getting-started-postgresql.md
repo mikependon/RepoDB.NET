@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: getstarted
 title: "Getting Started (PostgreSQL)"
 permalink: /tutorial/getting-started-postgresql
 tags: [repodb, tutorial, getting-started, orm, hybrid-orm, postgresql]

@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: classes
 title: "TraceLog (RepoDb)"
 permalink: /class/tracelog
 tags: [repodb, class, tracelog, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
