@@ -13,12 +13,12 @@ A database setting is an object that contains the information that are specific 
 - A character for closing quotation, opening quotation, parameter prefix and schema separator.
 - A type that is used for averaging.
 - A database schema.
-- A setting whether to support the hints.
-- A setting whether to use upsert over merge.
-- A setting whether the command direction can be set.
-- A setting whether the data reader must be disposed after the reader execution.
-- A setting whether the multiple-statement execution is supported.
-- A setting whether the command executions are preparable.
+- A support to hints.
+- A usage of upsert over merge.
+- A direction property enability of command object.
+- A dispose behaviour of the data reader after the execution.
+- A support to multiple-statement executions.
+- A preparation of the command executions.
 
 #### Pre-requisites
 

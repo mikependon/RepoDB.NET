@@ -1,17 +1,19 @@
 <div class="sidebar">
     {% for doc in site.data.documentation.docs %}
-    <ul>
-        <li>
-            <b>{{ doc.title }}</b>
-            <ul>
+    <ul class="doc-container">
+        <li class="doc-item">
+            <a href="{{ doc.url }}">{{ doc.title }}</a>
+            {% if doc.key == page.sidebar %}
+            <ul class="topic-container">
                 {% for topic in doc.topics %}
                 {% if topic.url == page.permalink %}
-                <li><a href="{{ topic.url }}"><b>{{ topic.title }}</b></a></li>
+                <li class="topic-item selected"><a href="{{ topic.url }}"><b>{{ topic.title }}</b></a></li>
                 {% else %}
-                <li><a href="{{ topic.url }}">{{ topic.title }}</a></li>
+                <li class="topic-item"><a href="{{ topic.url }}">{{ topic.title }}</a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
+            {% endif %}
         </li>
     </ul>
     {% endfor %}

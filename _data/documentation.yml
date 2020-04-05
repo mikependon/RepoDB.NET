@@ -1,12 +1,27 @@
 title: Documentation
 docs:
 
+- key: introduction
+  title: "RepoDb"
+  url: "/preface"
+  topics:
+
+  - title: "Preface"
+    url: "/preface"
+
+  - title: "Docs"
+    url: "/docs"
+
+  - title: "About"
+    url: "/about"
+
 - key: getstarted
   title: "Get Started"
+  url: "/tutorial/getting-started-sqlserver"
   topics:
 
   - title: "SQL Server"
-    url: "/tutorial/getting-started"
+    url: "/tutorial/getting-started-sqlserver"
 
   - title: "SQLite"
     url: "/tutorial/getting-started-sqlite"
@@ -22,6 +37,7 @@ docs:
 
 - key: features
   title: "Features"
+  url: "/feature/batchoperations"
   topics:
 
   - title: "Batch Operations"
@@ -30,8 +46,45 @@ docs:
   - title: "Bulk Operations"
     url: "/feature/bulkoperations"
 
+  - title: "Caching"
+    url: "/feature/caching"
+
+  - title: "Connection Persistency"
+    url: "/feature/connectionpersistency"
+
+  - title: "Enumeration"
+    url: "/feature/enumeration"
+
+  - title: "Expression Trees"
+    url: "/feature/expressiontrees"
+
+  - title: "Field/Class Mapping"
+    url: "/feature/fieldclassmapping"
+
+  - title: "Hints"
+    url: "/feature/hints"
+
+  - title: "Multiple Query"
+    url: "/feature/multiplequery"
+
+  - title: "Property Handlers"
+    url: "/feature/propertyhandlers"
+
+  - title: "Repositories"
+    url: "/feature/repositories"
+
+  - title: "Tracing"
+    url: "/feature/tracing"
+
+  - title: "Transaction"
+    url: "/feature/transaction"
+
+  - title: "Type Mapping"
+    url: "/feature/typemapping"
+
 - key: operations
   title: "Operations"
+  url: "/operation/average"
   topics:
 
   - title: "Average"
@@ -135,6 +188,7 @@ docs:
 
 - key: classes
   title: "Classes"
+  url: "/class/basedbsetting"
   topics:
 
   - title: "BaseDbSetting"
@@ -211,6 +265,7 @@ docs:
 
 - key: attributes
   title: "Attributes"
+  url: "/attribute/identity"
   topics:
 
   - title: "Identity"
@@ -245,6 +300,7 @@ docs:
 
 - key: enumerations
   title: "Enumerations"
+  url: "/enumeration/conjunction"
   topics:
 
   - title: "Conjunction"
@@ -264,6 +320,7 @@ docs:
 
 - key: interfaces
   title: "Interfaces"
+  url: "/interface/icache"
   topics:
 
   - title: "ICache"
@@ -292,6 +349,7 @@ docs:
 
 - key: cachers
   title: "Cachers"
+  url: "/cacher/classmappednamecache"
   topics:
 
   - title: "ClassMappedNameCache"
@@ -320,6 +378,7 @@ docs:
 
 - key: mappers
   title: "Mappers"
+  url: "/mapper/dbhelpermapper"
   topics:
 
   - title: "DbHelperMapper"
@@ -339,6 +398,7 @@ docs:
     
 - key: extensibilities
   title: "Extensibilities"
+  url: "/extensibility/averagetyperesolver"
   topics:
 
   - title: "Average Type Resolver"

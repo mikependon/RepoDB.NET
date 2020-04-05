@@ -6,6 +6,8 @@ permalink: /releases
 
 ## Releases
 
+Please select the release you would like to view.
+
 - [Core Package](/releases/core)
 - [SQL Server](/releases/sqlserver)
 - [SQLite](/releases/sqlite)

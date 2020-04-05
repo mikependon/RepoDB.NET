@@ -1,10 +1,11 @@
 ---
-layout: page
-title: Documentation (RepoDb)
+layout: navpage
+sidebar: introduction
+title: Docs (RepoDb)
 permalink: /docs
 ---
 
-## Documentation
+## Docs
 
 RepoDb has bunch of things available for you. You can maximize your development by leveraging most of it.
 
@@ -12,7 +13,7 @@ RepoDb has bunch of things available for you. You can maximize your development 
 
 Please click any of the link below to fast-track your learnings about this library.
 
-- [SqlServer](/tutorial/getting-started)
+- [SqlServer](/tutorial/getting-started-sqlserver)
 - [SqLite](/tutorial/getting-started-sqlite)
 - [MySql](/tutorial/getting-started-mysql)
 - [PostgreSql](/tutorial/getting-started-postgresql)
@@ -36,11 +37,11 @@ Below are the list of features available.
 - [Repositories](/feature/repositories)
 - [Tracing](/feature/tracing)
 - [Transaction](/feature/transaction)
-- [Type Mapping](/feature/type-mapping)
+- [Type Mapping](/feature/typemapping)
 
-#### Methods
+#### Operations
 
-Below are the list of methods available.
+Below are the list of operations available.
 
 ###### Execute Methods
 
@@ -144,6 +145,8 @@ Below are the list of attributes available (per package).
 
 #### Enumerations
 
+Below are the list of enumerations available.
+
 - [Conjunction](/enumeration/conjunction)
 - [ConnectionPersistency](/enumeration/connectionpersistency)
 - [ConversionType](/enumeration/conversiontype)
@@ -186,7 +189,7 @@ Below are the list of mappers available.
 - [StatementBuilderMapper](/mapper/statementbuildermapper)
 - [TypeMapper](/mapper/typemapper)
 
-#### Extensibility
+#### Extensibilities
 
 Below are the list of extensibility-objects available. It is useful to support other RDBMS data providers.
 

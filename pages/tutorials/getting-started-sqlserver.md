@@ -2,31 +2,13 @@
 layout: navpage
 sidebar: getstarted
 title: "Getting Started (SQL Server)"
-permalink: /tutorial/getting-started
+permalink: /tutorial/getting-started-sqlserver
 tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-<p class="preface">
-RepoDb is here to improve the things and experiences when working with the Data Access Technology in .NET space.
-<br/>
-<br/>
-We are glad and would like to thank you for your interest in learning RepoDb. We hope that you will learn a lot and improve your development experiences while using this library.
-<br/>
-<br/>
-~Enjoy learning!
-</p>
+## Getting Started for SQL Server
 
-## Getting Started
-
-RepoDb is a hybrid-ORM library for .NET. You can use the library to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) Relational Database Management Systems (RDBMS).
-
-The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
-
-This tutorial page is only meant for SQL Server. If you wish to learn the other data providers, please click any of the link below.
-
-- [Getting Started for SqLite](/tutorial/getting-started-sqlite)
-- [Getting Started for MySql](/tutorial/getting-started-mysql)
-- [Getting Started for PostgreSql](/tutorial/getting-started-postgresql)
+RepoDb is a hybrid .NET ORM library for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
 #### Installation
 
