@@ -97,9 +97,16 @@ nav.header {
 }
 .brand-logo img {
     border: 2px solid white;
-    /*box-shadow: 1px 1px 4px rgb(26, 76, 92);*/
     display: block;
+    height: 36px;
     margin-top: 10px;
+}
+
+@media only screen and (min-width: 600px)
+{
+    .brand-logo img {
+        height: 46px;
+    }
 }
 
 /*
@@ -134,6 +141,33 @@ nav.header {
     padding-bottom: 50px;
 }
 
+/*
+ * Sidebar
+ */
+ .sidebar {
+    margin: 0px;
+    margin-top: 20px;
+    padding: 0px;
+}
+
+.sidebar ul {
+    list-style-type: none !important;
+    padding-top: 10px;
+}
+
+.sidebar ul li {
+    list-style-type: none !important;
+}
+
+.sidebar .doc-container
+{
+    margin: 0px;
+}
+
+.sidebar .doc-item {
+    margin: 0px;
+}
+
  /*
   * Footer
   */
@@ -145,7 +179,7 @@ nav.header {
 .page-footer .footer-contents a:hover {
     text-decoration: underline;
 }
- 
+
 /*
  * Page
  */
@@ -198,10 +232,10 @@ div.page hr {
     padding: none;
 }
 div.page ul {
-    list-style-type: disc !important;
+    list-style-type: disc;
 }
 div.page ul li {
-    list-style-type: inherit !important;
+    list-style-type: inherit;
     margin-left: 20px;
 }
 div.page p .highlighter-rouge, div.page li .highlighter-rouge {
