@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: interfaces
 title: "IDbSetting (RepoDb)"
 permalink: /interface/idbsetting
 tags: [repodb, class, idbsetting, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

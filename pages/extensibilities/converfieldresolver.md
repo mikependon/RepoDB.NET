@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: extensibilities
 title: "Convert Field Resolver (RepoDb)"
 permalink: /extensibility/convertfieldresolver
 tags: [repodb, class, convertfieldresolver, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

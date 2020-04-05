@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: cachers
 title: "ClassMappedNameCache (RepoDb)"
 permalink: /cacher/classmappednamecache
 tags: [repodb, class, classmappednamecache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

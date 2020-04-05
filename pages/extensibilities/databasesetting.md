@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: extensibilities
 title: "Database Setting (RepoDb)"
 permalink: /extensibility/databasesetting
 tags: [repodb, class, databasesetting, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

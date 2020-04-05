@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: extensibilities
 title: "Folder Structuring (RepoDb)"
 permalink: /extensibility/folderstructuring
 tags: [repodb, class, folderstructuring, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: extensibilities
 title: "Average Type Resolver (RepoDb)"
 permalink: /extensibility/averagetyperesolver
 tags: [repodb, class, averagetyperesolver, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

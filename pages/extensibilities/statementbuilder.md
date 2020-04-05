@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: extensibilities
 title: "Statement Builder (RepoDb)"
 permalink: /extensibility/statementbuilder
 tags: [repodb, class, statementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

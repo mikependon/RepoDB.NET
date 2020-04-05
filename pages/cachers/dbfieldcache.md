@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: cachers
 title: "DbFieldCache (RepoDb)"
 permalink: /cacher/dbfieldcache
 tags: [repodb, class, dbfieldcache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

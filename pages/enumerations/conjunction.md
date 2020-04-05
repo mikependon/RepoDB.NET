@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: enumerations
 title: "Conjunction (RepoDb)"
 permalink: /enumeration/conjunction
 tags: [repodb, class, conjunction, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

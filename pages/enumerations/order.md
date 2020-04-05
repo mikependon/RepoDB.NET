@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: enumerations
 title: "Order (RepoDb)"
 permalink: /enumeration/order
 tags: [repodb, class, order, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

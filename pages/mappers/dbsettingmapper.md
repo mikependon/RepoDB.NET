@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: mappers
 title: "DbSettingMapper (RepoDb)"
 permalink: /mapper/dbsettingmapper
 tags: [repodb, class, dbsettingmapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

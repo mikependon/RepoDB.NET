@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: mappers
 title: "PropertyTypeHandlerMapper (RepoDb)"
 permalink: /mapper/propertytypehandlermapper
 tags: [repodb, class, propertytypehandlermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
