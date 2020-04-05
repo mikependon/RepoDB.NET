@@ -6,7 +6,7 @@ permalink: /feature/caching
 tags: [repodb, class, cache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Cache
+## Caching
 
 In general terms, a `Cache` is a component that stores an object (or its states) that is accessible for future used. The object that is being stored can be a result of computational, operational, inputs/outputs or analytical operations and calculations.
 
