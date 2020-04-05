@@ -208,3 +208,38 @@ docs:
 
   - title: "TraceLog"
     url: "/class/tracelog"
+
+- key: attributes
+  title: "Attributes"
+  topics:
+
+  - title: "Identity"
+    url: "/attribute/identity"
+
+  - title: "Map"
+    url: "/attribute/map"
+
+  - title: "Primary"
+    url: "/attribute/primary"
+
+  - title: "PropertyHandler"
+    url: "/attribute/propertyhandler"
+
+  - title: "Text"
+    url: "/attribute/text"
+
+  - title: "TypeMap"
+    url: "/attribute/typemap"
+
+  - title: "MicrosoftSqlServerTypeMap"
+    url: "/attribute/microsoftsqlservertypemap"
+
+  - title: "MySqlTypeMap"
+    url: "/attribute/mysqltypemap"
+
+  - title: "NpgsqlTypeMap"
+    url: "/attribute/npgsqltypemap"
+
+  - title: "SystemSqlServerTypeMap"
+    url: "/attribute/systemsqlservertypemap"
+

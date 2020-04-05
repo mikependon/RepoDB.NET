@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: attributes
 title: "Identity (RepoDb)"
 permalink: /attribute/identity
 tags: [repodb, class, identity, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

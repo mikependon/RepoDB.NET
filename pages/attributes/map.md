@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: attributes
 title: "Map (RepoDb)"
 permalink: /attribute/map
 tags: [repodb, class, map, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

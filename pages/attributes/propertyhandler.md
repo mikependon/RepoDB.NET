@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: attributes
 title: "PropertyHandler (RepoDb)"
 permalink: /attribute/propertyhandler
 tags: [repodb, class, propertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
