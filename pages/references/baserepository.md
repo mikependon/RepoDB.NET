@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: references
 title: "BaseRepository Reference (RepoDb)"
 permalink: /reference/baserepository
 tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

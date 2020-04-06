@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: references
 title: "Multiple Resultsets Reference (RepoDb)"
 permalink: /reference/multipleresultsets
 tags: [repodb, class, multipleresultsets, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

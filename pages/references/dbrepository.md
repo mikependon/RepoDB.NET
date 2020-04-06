@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: references
 title: "DbRepository Reference (RepoDb)"
 permalink: /reference/dbrepository
 tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

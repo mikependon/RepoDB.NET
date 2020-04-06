@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: releases
 title: Releases for MySQL (RepoDb)
 permalink: /releases/mysql
 ---

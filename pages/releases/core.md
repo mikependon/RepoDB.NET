@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: releases
 title: Releases for Core Package (RepoDb)
 permalink: /releases/core
 ---
@@ -58,14 +59,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDb (v1.10.8)
 
-- Bug: `InvalidCastException` Converting Enums to Strings in Postgres [#388](https://github.com/mikependon/RepoDb/issues/388)
+- Bug: `InvalidCastException` Converting `Enums` to `Strings` in Postgres [#388](https://github.com/mikependon/RepoDb/issues/388)
 
 
 #### RepoDb (v1.10.7)
 
 - Enhancement: Separate the `Bulk` operations into a separate Solution and Nuget Package. [#385](https://github.com/mikependon/RepoDb/issues/385)
-- Enhancement: Separete all SqlServer related stuffs to a different library named RepoDb.SqlServer. [#282](https://github.com/mikependon/RepoDb/issues/282)
-- Enhancement: Remove the support to System.Data.SqlClient in the RepoDb.Core. [#386](https://github.com/mikependon/RepoDb/issues/386)
+- Enhancement: Separete all `SqlServer` related stuffs to a different library named `RepoDb.SqlServer`. [#282](https://github.com/mikependon/RepoDb/issues/282)
+- Enhancement: Remove the support to `System.Data.SqlClient` in the `RepoDb.Core`. [#386](https://github.com/mikependon/RepoDb/issues/386)
 
 
 #### RepoDb (v1.10.6)

@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: navpage
+sidebar: references
 title: "Property Handler for Specific Type Reference (RepoDb)"
 permalink: /reference/propertyhandlertypelevel
 tags: [repodb, class, propertyhandlertypelevel, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

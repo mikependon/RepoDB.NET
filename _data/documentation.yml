@@ -418,4 +418,64 @@ docs:
     
   - title: "Statement Builder"
     url: "/extensibility/statementbuilder"
-    
+   
+- key: references
+  title: "References"
+  url: "/reference/connectionrepository"
+  topics:
+
+  - title: "Connection-Based Repository"
+    url: "/reference/connectionrepository"
+
+  - title: "BaseRepository"
+    url: "/reference/baserepository"
+
+  - title: "DbRepository"
+    url: "/reference/dbrepository"
+
+  - title: "GenericRepository"
+    url: "/reference/genericrepository"
+
+  - title: "Caching (JSON)"
+    url: "/reference/jsoncache"
+
+  - title: "Multiple Resultsets"
+    url: "/reference/multipleresultsets"
+
+  - title: "Property Handler"
+    url: "/reference/propertyhandlerpropertylevel"
+
+  - title: "Property Handler (Type Level)"
+    url: "/reference/propertyhandlertypelevel"
+
+  - title: "Query Expressions"
+    url: "/reference/queryexpressions"
+
+  - title: "Tracing"
+    url: "/reference/trace"
+
+  - title: "Unit of Work"
+    url: "/reference/unitofwork"
+
+- key: releases
+  title: "Releases"
+  url: "/releases/core"
+  topics:
+
+  - title: "Core"
+    url: "/releases/core"
+
+  - title: "SQL Server"
+    url: "/releases/sqlserver"
+
+  - title: "SQL Server (Bulk)"
+    url: "/releases/sqlserverbulk"
+
+  - title: "SQLite"
+    url: "/releases/sqlite"
+
+  - title: "MySQL"
+    url: "/releases/mysql"
+
+  - title: "PostgreSQL"
+    url: "/releases/postgresql"
