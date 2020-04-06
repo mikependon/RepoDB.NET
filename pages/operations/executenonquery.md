@@ -36,10 +36,11 @@ using (var connection = new SqlConnection(connectionString))
 #### Passing of Parameters
 
 You can pass a parameter via the following objects.
-- Dynamic
-- ExpandoObject
-- Dictionary<string, object>
-- Query Objects
+
+- `Dynamic`
+- `ExpandoObject`
+- `Dictionary<string, object>`
+- `Query Objects`
 
 ##### Dynamic
 
