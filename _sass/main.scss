@@ -57,7 +57,7 @@ h1.page-title {
 .txt-center {
     text-align: center;
 }
-.post-header h1.post-title {
+.post-header h1article.post-title {
     color: #29b6f6;
     font-size: 2.8em;
     font-weight: 800;
@@ -189,69 +189,71 @@ nav.header {
 }
 
 /*
- * Page
+ * Post
  */
  
 /* Markup - HTML */
-div.page {
+.post, .page {
     margin-bottom: 50px;
 }
-div.page h1 {
+.post h1, .page h1 {
+    color: #29b6f6;
     font-size: 300%;
 }
-div.page h2 {
+.post h2, .page h2 {
+    color: #29b6f6;
     font-size: 250%;
 }
-div.page h3 {
+.post h3, .page h3 {
     font-size: 200%;
 }
-div.page h4 {
+.post h4, .page h4 {
     font-size: 150%;
 }
-div.page h5 {
+.post h5, .page h4 {
     font-size: 120%;
 }
-div.page h6 {
+.post h6, .page h6 {
     font-weight: bold;
     text-decoration: underline;
 }
-div.page h1, div.page h2 {
+.post h1, .post h2, .page h1, .page h2 {
     border-bottom: 2px solid #E7E7E7;
     display: block;
     font-weight: bold;
     margin-top: 20px;
     padding: 10px 0px;
 }
-div.page h3, div.page h4, div.page h5 {
+.post h3, .post h4, .post h5, .page h3, .page h4, .page h5 {
     border-bottom: 1px solid #E7E7E7;
     display: block;
     font-weight: bold;
     margin-top: 20px;
     padding: 10px 0px;
 }
-div.page h5 {
+.post h5, .page h5 {
     border-bottom: 1px dotted #E7E7E7;
 }
-div.page hr {
+.post hr, .page hr {
     border: none;
     border-top: 2px solid #E7E7E7;
     display: block;
     margin: 20px 0px;
     padding: none;
 }
-div.page ul {
+.post ul, .page ul {
     list-style-type: disc;
 }
-div.page ul li {
+.post ul li, .page ul li {
     list-style-type: inherit;
     margin-left: 20px;
 }
-div.page p .highlighter-rouge, div.page li .highlighter-rouge {
-    font-family: 'Courier New', Courier, monospace;
-}
 
 /* Code - coding colors */
-div.page pre.highlight {
+p .highlighter-rouge, .li .highlighter-rouge {
+    font-family: 'Courier New', Courier, monospace;
+}
+pre.highlight {
     background-color: #FDFDFD;
     border: 1px solid #E7E7E7;
     border-radius: 3px;
@@ -260,26 +262,29 @@ div.page pre.highlight {
     font-size: 90%;
     padding: 15px;
 }
-div.page pre.highlight code .n, div.page pre.highlight code .nc, div.page pre.highlight code .nf {
+pre.highlight code .n, pre.highlight code .nc, pre.highlight code .nf {
     color: #2DAAA6;
 }
-div.page pre.highlight code .kt, div.page pre.highlight code .k {
+pre.highlight code .kt, pre.highlight code .k {
     color: #1A1AFF;
 }
-div.page pre.highlight code .cm, div.page pre.highlight code .c1 {
+pre.highlight code .cm, pre.highlight code .c1 {
     color: #57A64A;
 }
-div.page pre.highlight code .s {
+pre.highlight code .s {
     color: #BE4B16;
 }
-div.page blockquote {
+blockquote {
     background: #FAFAFA;
     border: 1px dashed #E7E7E7;
     border-left: 5px solid #EE6E73;
     border-radius: 3px;
     padding: 0px;
 }
-div.page blockquote p {
+blockquote p {
     color:  gray;
     margin: 10px;
+}
+em {
+    font-family: 'Courier New', Courier, monospace;
 }
