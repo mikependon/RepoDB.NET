@@ -42,5 +42,4 @@ RepoDb is the best alternative ORM to both Dapper and EntityFramework.
 
 #### Author
 
-[Michael Camara Pendon](https://twitter.com/mike_pendon)
-Email: [{{ site.email_address }}](mailto::{{ site.email_address }})
+[Michael Camara Pendon](https://twitter.com/mike_pendon) ([{{ site.email_address }}](mailto::{{ site.email_address }}))
