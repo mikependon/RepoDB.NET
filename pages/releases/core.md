@@ -606,7 +606,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Removed the `orderBy` and `top` argument in the [Query](/operation/query) method with `primaryKey` argument.
 - Removed the `DbConnection.BatchQuery` method with `primaryKey` argument.
 - Removed the `DbConnection.Count` method with `primaryKey` argument.
-- Removed the `DbConnection.Delete` method without the `where` parameter.
+- Removed the `DbConnection.Delete` method without the `WHERE` parameter.
 - Removed the support on `dynamic` object query tree expressions.
 
 #### Discontinued
@@ -645,7 +645,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Removed the `orderBy` and `top` argument in the [Query](/operation/query) method with `primaryKey` argument.
 - Removed the `DbConnection.BatchQuery` method with `primaryKey` argument.
 - Removed the `DbConnection.Count` method with `primaryKey` argument.
-- Removed the `DbConnection.Delete` method without the `where` parameter.
+- Removed the `DbConnection.Delete` method without the `WHERE` parameter.
 
 
 #### RepoDb (v1.8.0-beta1)
@@ -1087,7 +1087,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - `Trace` (ITrace) object
 - Added Constant class
 - Added support for Operation.Like and Operation.NotLike
-- Allow Querying, Deleting, Updating by `PrimaryKey` (when the value is passed in the method of `where` argument)
+- Allow Querying, Deleting, Updating by `PrimaryKey` (when the value is passed in the method of `WHERE` argument)
 - Support of Operation.Between and Operation.NotBetween
 - Support `Operation.In` and Operation.NotIn
 - Optimized Statement Builder (SqlDbStatementBuilder)
@@ -1112,7 +1112,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - `Trace` (ITrace) object
 - Added Constant class
 - Added support for Operation.Like and Operation.NotLike
-- Allow Querying, Deleting, Updating by `PrimaryKey` (when the value is passed in the method of `where` argument)
+- Allow Querying, Deleting, Updating by `PrimaryKey` (when the value is passed in the method of `WHERE` argument)
 - Support of Operation.Between and Operation.NotBetween
 - Support `Operation.In` and Operation.NotIn
 - Optimized Statement Builder (SqlDbStatementBuilder)

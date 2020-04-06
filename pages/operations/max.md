@@ -39,7 +39,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 
 #### Learnings
 
-Below is a sample code that gets the maximum value of column *Value* from the *[dbo].[Sales]* table for a specific customer since yesterday.
+Below is a sample code that gets the maximum value of column `Value` from the `[dbo].[Sales]` table for a specific customer since yesterday.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -60,7 +60,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the *where* expressions.
+Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the `WHERE` expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

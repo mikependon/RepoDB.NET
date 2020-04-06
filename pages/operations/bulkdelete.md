@@ -59,7 +59,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Then, below is the code that bulk-deletes all those inactive rows from the *[dbo].[Sales]* table.
+Then, below is the code that bulk-deletes all those inactive rows from the `[dbo].[Sales]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

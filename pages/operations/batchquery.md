@@ -44,14 +44,14 @@ Below is a sample code that query the 1st 20 batch of active rows from the `[dbo
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
+    var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0; // Starts at 0 for the first batch
     var rowsPerBatch = 20;
 
-	var people = connection.BatchQuery<Person>(page: page,
-		rowsPerBatch: rowsPerBatch,
-		orderBy: orderBy,
-		where: e => e.IsActive == true);
+    var people = connection.BatchQuery<Person>(page: page,
+        rowsPerBatch: rowsPerBatch,
+        orderBy: orderBy,
+        where: e => e.IsActive == true);
 }
 ```
 
@@ -114,7 +114,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Filtering the Results
 
-You can also use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the *where* expressions.
+You can also use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the `WHERE` expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

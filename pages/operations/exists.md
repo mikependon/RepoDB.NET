@@ -48,7 +48,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the *Linq* to enhance the expression.
+Or, you can use the `Linq` to enhance the expression.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

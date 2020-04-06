@@ -39,7 +39,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 
 #### Leanings
 
-Below is a sample code that returns the maximum value of the column *Value* from a *[dbo].[Sales]* table.
+Below is a sample code that returns the maximum value of the column `Value` from a `[dbo].[Sales]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
