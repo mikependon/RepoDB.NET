@@ -150,7 +150,7 @@ nav.header {
     padding: 0px;
 }
 
-.sidebar ul {
+.sidebar ul.doc-container {
     list-style-type: none !important;
     padding-top: 10px;
 }
@@ -166,6 +166,14 @@ nav.header {
 
 .sidebar .doc-item {
     margin: 0px;
+}
+
+.sidebar .topic-item {
+    margin: 3px 10px;
+}
+
+.sidebar .selected {
+    color: #EE6E73;
 }
 
  /*

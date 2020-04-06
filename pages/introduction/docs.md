@@ -7,7 +7,7 @@ permalink: /docs
 
 ## Docs
 
-RepoDb has bunch of things available for you. You can maximize your development by leveraging most of it.
+Below are the list of objects that you can use while using this library. You can also click on the link provided in the sidebar at the left.
 
 #### Get Started
 
@@ -45,8 +45,6 @@ Below are the list of operations available.
 
 ###### Execute Methods
 
-Below are the list of execute-methods available. It support all RDBMS data providers.
-
 - [ExecuteNonQuery](/operation/executenonquery)
 - [ExecuteQuery](/operation/executequery)
 - [ExecuteQueryMultiple](/operation/executequerymultiple)
@@ -54,8 +52,6 @@ Below are the list of execute-methods available. It support all RDBMS data provi
 - [ExecuteScalar](/operation/executescalar)
 
 ###### Fluent Methods
-
-Below are the list of fluent-methods available. It only support the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and  [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS data providers.
 
 - [Average](/operation/average)
 - [AverageAll](/operation/averageall)
