@@ -18,6 +18,19 @@ The objects that are not frequently changing but is mostly in used in the applic
 
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
+#### How to use the Cache?
+
+Simply pass a value to the `cacheKey` when calling the operation.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var products = connection.QueryAll<Product>(cacheKey: "AllProducts");
+}
+```
+
+As mentioned, by default the cache is placed in the computer memory via [MemoryCache](/class/memorycache) object. It is a simple dictionary object (key/value pairs).
+
 #### Create a Customize Cache Class
 
 Create a class that implements the [ICache](/interface/icache) interface.
@@ -67,12 +80,12 @@ public class JsonCache : ICache
 
 #### Using a Cache in a Connection
 
-Simply pass the cache object when calling the operation.
+Simply pass the `cacheKey` and `cache` object when calling the operation.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    connection.Insert<Customer>(customer, cache: new JsonCache());
+    var products = connection.QueryAll<Product>(cacheKey: "AllProducts", cache: new JsonCache());
 }
 ```
 
@@ -162,7 +175,7 @@ And use it in the `IDbConnection` object like below.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    connection.Insert<Customer>(customer, cache: CacheFactory.CreateCacher());
+    var products = connection.QueryAll<Product>cacheKey: "AllProducts", cache: CacheFactory.CreateCacher());
 }
 ```
 
