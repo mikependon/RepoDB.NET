@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 body {
+    font-family: 'Segoe UI', Helvetica, Tahoma, Arial, sans-serif, Geneva, Verdana;
     font-size: 16px;
 }
 
@@ -57,14 +58,14 @@ h1.page-title {
 .txt-center {
     text-align: center;
 }
-.post-header h1article.post-title {
-    color: #29b6f6;
-    font-size: 2.8em;
-    font-weight: 800;
+.post-header {
+    border-bottom: 2px solid #D7D7D7;
 }
-.post-header time {
-    color: #cacaca;
-    font-size: 0.9em;
+.post-header .post-title {
+    border: 0px;
+    color: #29b6f6;
+    margin: 0px;
+    padding: 0px;
 }
 p.rss-subscribe {
     margin: 0;
@@ -189,7 +190,7 @@ nav.header {
 }
 
 /*
- * Post
+ * Post/Page
  */
  
 /* Markup - HTML */
@@ -210,7 +211,7 @@ nav.header {
 .post h4, .page h4 {
     font-size: 150%;
 }
-.post h5, .page h4 {
+.post h5, .page h5 {
     font-size: 120%;
 }
 .post h6, .page h6 {
@@ -247,6 +248,38 @@ nav.header {
 .post ul li, .page ul li {
     list-style-type: inherit;
     margin-left: 20px;
+}
+
+/*
+ * Blogs
+ */
+ .blogs-container .blog-title {
+    border-bottom: 2px solid #D7D7D7;
+    margin: 0px;
+    padding-bottom: 30px;
+}
+
+.blogs {
+    list-style-type: none;
+    margin: 0px;
+}
+
+.blogs .blog-entry {
+    border-bottom: 1px solid #E7E7E7;
+    list-style-type: none;
+    margin: 0px;
+    padding: 20px 0px;
+}
+
+.blogs .blog-entry .title {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.blogs .blog-entry .author {
+    display: block;
+    margin-top: 10px;
 }
 
 /* Code - coding colors */
@@ -286,5 +319,6 @@ blockquote p {
     margin: 10px;
 }
 em {
-    font-family: 'Courier New', Courier, monospace;
+    color: #777777;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

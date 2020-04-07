@@ -92,7 +92,7 @@ var queryGroup = new QueryGroup(queryFields);
 The SQL statement expression will be generated as follows.
 
 ```csharp
-WHERE ([LastName] LIKE @LastName AND [State] = @State AND [Age] BETWEEN (@Age_1, @Age_2));
+> WHERE ([LastName] LIKE @LastName AND [State] = @State AND [Age] BETWEEN (@Age_1, @Age_2));
 ```
 
 You can change it by passing the conjunction value to `OR`.
