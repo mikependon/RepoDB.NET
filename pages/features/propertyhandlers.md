@@ -12,7 +12,7 @@ This is the feature that would allow you to handle the tranformation of the clas
 
 The execution of the transformation contains the actual values and the affected class property context provided by [ClassProperty](/class/classproperty) class.
 
-It uses the following objects.
+###### It uses the following objects
 
 - [IPropertyHandler](/interface/ipropertyhandler) - an interface to mark your class as property handler.
 - [PropertyHandler](/attribute/propertyhandler) - an attribute used to map to specific class property.
