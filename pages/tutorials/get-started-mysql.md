@@ -1,27 +1,27 @@
 ---
 layout: navpage
 sidebar: getstarted
-title: "Getting Started (SQLite)"
-permalink: /tutorial/getting-started-sqlite
-tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlite]
+title: "Get Started (MySql)"
+permalink: /tutorial/get-started-mysql
+tags: [repodb, tutorial, get-started, orm, hybrid-orm, mysql]
 ---
 
-# Getting Started for SQLite
+# Get Started for MySQL
 
-RepoDb is a hybrid .NET ORM library for [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqLite) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
+RepoDb is a hybrid .NET ORM library for [MySQL](https://www.nuget.org/packages/RepoDb.MySql) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
 #### Installation
 
 The library can be installed via Nuget. In your Package Manager Console, you can type the codes below.
 
 ```csharp
-> Install-Package RepoDb.SqLite
+> Install-Package RepoDb.MySql
 ```
 
-Once the installation is complete, call the bootstrapper to initialize all the dependencies for *SQLite*.
+Once the installation is complete, call the bootstrapper to initialize all the dependencies for *MySql*.
 
 ```csharp
-RepoDb.SqLiteBootstrap.Initialize();
+RepoDb.MySqlBootstrap.Initialize();
 ```
 
 Or visit our [installation](/tutorial/installation) page for more information.
@@ -31,12 +31,12 @@ Or visit our [installation](/tutorial/installation) page for more information.
 #### Create a Table
 
 ```csharp
-CREATE TABLE IF NOT EXISTS [Person]
+CREATE TABLE IF NOT EXISTS `Person`
 (
-	Id INTEGER PRIMARY KEY AUTOINCREMENT,
-	Name TEXT,
-	Age INTEGER,
-	CreatedDateUtc DATETIME
+	`Id` bigint(20) NOT NULL AUTO_INCREMENT,
+	`Name` text,
+	`Age` int(11) DEFAULT NULL,
+	`CreatedDateUtc` datetime DEFAULT NULL
 );
 ```
 
@@ -65,7 +65,7 @@ var person = new Person
 	Age = 54,
 	CreatedDateUtc = DateTime.UtcNow
 };
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var id = connection.Insert(person);
 }
@@ -94,7 +94,7 @@ Then simply create a list of `Person` and passed it when you call the [InsertAll
 
 ```csharp
 var people = GetPeople(100);
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var rowsInserted = connection.InsertAll(people);
 }
@@ -107,7 +107,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 To query a record, you must use the [Query](/operation/query) method.
 
 ```csharp
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var person = connection.Query<Person>(e => e.Id == 1);
 	/* Do the stuffs for the 'person' here */
@@ -117,7 +117,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 To query all the rows, use the [QueryAll](/operation/queryall) method instead.
 
 ```csharp
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var people = connection.QueryAll<Person>();
 	/* Do the stuffs for the 'people' here */
@@ -136,7 +136,7 @@ var person = new Person
 	Age = 57,
 	CreatedDateUtc = DateTime.UtcNow
 };
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var id = connection.Merge(person);
 }
@@ -151,7 +151,7 @@ var person = new Person
 	Age = 57,
 	CreatedDateUtc = DateTime.UtcNow
 };
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var id = connection.Merge(person, qualifiers: Field.From("Name"));
 }
@@ -164,7 +164,7 @@ var people = GetPeople(100);
 people
 	.AsList()
 	.ForEach(p => p.Name = $"{p.Name} (Merged)");
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var affectedRecords = connection.MergeAll<Person>(people);
 }
@@ -177,7 +177,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 To delete a record, you must use the [Delete](/operation/delete) method.
 
 ```csharp
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var deletedRows = connection.Delete<Person>(1);
 }
@@ -186,7 +186,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 By default, it uses the primary key as the qualifier. You can also use the other field.
 
 ```csharp
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var deletedRows = connection.Delete<Person>(p => p.Name == "John Doe");
 }
@@ -195,7 +195,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 To delete all the rows, use the [DeleteAll](/operation/deleteall) method instead.
 
 ```csharp
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var deletedRows = connection.DeleteAll<Person>();
 }
@@ -225,7 +225,7 @@ var person = new Person
 	Age = 55,
 	DateInsertedUtc = DateTime.UtcNow
 };
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var updatedRows = connection.Update<Person>(person);
 }
@@ -234,7 +234,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 You can also update via dynamic by targetting certain columns.
 
 ```csharp
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var updatedRows = connection.Update("Person", new { Id = 1, Name = "James Doe" });
 }
@@ -247,7 +247,7 @@ var people = GetPeople(100);
 people
 	.AsList()
 	.ForEach(p => p.Name = $"{p.Name} (Updated)");
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var updatedRows = connection.UpdateAll<Person>(people);
 }
@@ -260,7 +260,7 @@ var people = GetPeople(100);
 people
 	.AsList()
 	.ForEach(p => p.Name = $"{p.Name} (Updated)");
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
 	var updatedRows = connection.UpdateAll<Person>(people, qualifiers: Field.From("Name"));
 }
@@ -273,37 +273,37 @@ using (var connection = new SQLiteConnection(ConnectionString))
 To execute a query use the [ExecuteNonQuery](/operation/executenonquery) method.
 
 ```csharp
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
-	var affectedRecords = connection.ExecuteNonQuery("DELETE FROM [Person] WHERE Id = @Id;", new { Id = 1 });
+	var affectedRecords = connection.ExecuteNonQuery("DELETE FROM `Person` WHERE Id = @Id;", new { Id = 1 });
 }
 ```
 
 To execute a query while expecting a result of class object, then use the [ExecuteQuery](/operation/executequery) method.
 
 ```csharp
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
-	var people = connection.ExecuteQuery<Person>("SELECT * FROM [Person] ORDER BY Id ASC;");
-	/* Do the stuffs for the people here */
+	var people = connection.ExecuteQuery<Person>("SELECT * FROM `Person` ORDER BY Id ASC;");
+	/* Do the stuffs for the 'people' here */
 }
 ```
 
 To execute a query while expecting a single result, then use the [ExecuteScalar](/operation/executescalar) method.
 
 ```csharp
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
-	var maxId = connection.ExecuteQuery<Person>("SELECT MAX(Id) FROM [Person];");
+	var maxId = connection.ExecuteQuery<Person>("SELECT MAX(Id) FROM `Person`;");
 }
 ```
 
 To execute a query while expecting a result of `DbDataReader`, then use the [ExecuteReader](/operation/executereader) method.
 
 ```csharp
-using (var connection = new SQLiteConnection(ConnectionString))
+using (var connection = new MySqlConnection(ConnectionString))
 {
-	using (var reader = connection.ExecuteReader("SELECT * FROM [Person] ORDER BY Id ASC;"))
+	using (var reader = connection.ExecuteReader("SELECT * FROM `Person` ORDER BY Id ASC;"))
 	{
 		/* Do the stuffs for the data reader here */
 	}

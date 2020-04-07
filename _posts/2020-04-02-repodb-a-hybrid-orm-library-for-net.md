@@ -10,7 +10,7 @@ categories: blogs repodb
 
 Introducing RepoDb, a new high performant and efficient hybrid ORM library for .NET.
 
-To begin with, you can start reading our [Getting Started](/tutorial/getting-started-sqlserver) page or learn more from our [documentation](/docs).
+To begin with, you can start reading our [Get Started](/tutorial/get-started-sqlserver) page or learn more from our [documentation](/docs).
 
 ## Why use RepoDb?
 

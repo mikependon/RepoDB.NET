@@ -29,7 +29,7 @@ A database setting is an object that contains the information that are specific 
 
 > Please see the [folder structuring](/extensibility/folderstructuring) page.
 
-#### Getting Started
+#### Get Started
 
 You have to implement the class that inherits the [BaseDbSetting](/class/basedbsetting) class.
 

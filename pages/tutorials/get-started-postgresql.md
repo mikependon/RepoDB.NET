@@ -1,12 +1,12 @@
 ---
 layout: navpage
 sidebar: getstarted
-title: "Getting Started (PostgreSQL)"
-permalink: /tutorial/getting-started-postgresql
-tags: [repodb, tutorial, getting-started, orm, hybrid-orm, postgresql]
+title: "Get Started (PostgreSQL)"
+permalink: /tutorial/get-started-postgresql
+tags: [repodb, tutorial, get-started, orm, hybrid-orm, postgresql]
 ---
 
-# Getting Started for PostgreSQL
+# Get Started for PostgreSQL
 
 RepoDb is a hybrid .NET ORM library for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 

@@ -13,10 +13,10 @@ Below are the list of objects that you can use while using this library. You can
 
 Please click any of the link below to fast-track your learnings about this library.
 
-- [SqlServer](/tutorial/getting-started-sqlserver)
-- [SqLite](/tutorial/getting-started-sqlite)
-- [MySql](/tutorial/getting-started-mysql)
-- [PostgreSql](/tutorial/getting-started-postgresql)
+- [SqlServer](/tutorial/get-started-sqlserver)
+- [SqLite](/tutorial/get-started-sqlite)
+- [MySql](/tutorial/get-started-mysql)
+- [PostgreSql](/tutorial/get-started-postgresql)
 
 To install, please visit our [installation](/tutorial/installation) page for more information.
 

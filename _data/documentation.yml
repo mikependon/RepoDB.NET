@@ -17,20 +17,20 @@ docs:
 
 - key: getstarted
   title: "Get Started"
-  url: "/tutorial/getting-started-sqlserver"
+  url: "/tutorial/get-started-sqlserver"
   topics:
 
   - title: "SQL Server"
-    url: "/tutorial/getting-started-sqlserver"
+    url: "/tutorial/get-started-sqlserver"
 
   - title: "SQLite"
-    url: "/tutorial/getting-started-sqlite"
+    url: "/tutorial/get-started-sqlite"
 
   - title: "MySQL"
-    url: "/tutorial/getting-started-mysql"
+    url: "/tutorial/get-started-mysql"
 
   - title: "PostgreSQL"
-    url: "/tutorial/getting-started-postgresql"
+    url: "/tutorial/get-started-postgresql"
 
   - title: "Installation"
     url: "/tutorial/installation"

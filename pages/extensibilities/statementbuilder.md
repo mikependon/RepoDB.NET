@@ -23,7 +23,7 @@ You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class wh
 
 > Please see the [folder structuring](/extensibility/folderstructuring) page.
 
-#### Getting Started
+#### Get Started
 
 To create a statement builder class, simply inherits the [BaseStatementBuilder](/class/basestatementbuilder) class.
 

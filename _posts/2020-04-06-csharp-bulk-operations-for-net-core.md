@@ -102,7 +102,7 @@ RepoDb is automatically setting the value of options argument to `SqlBulkCopyOpt
 
 In addition, when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to `CREATE` a table in the database, otherwise a `SqlException` will be thrown.
 
-## Getting Started
+## Get Started
 
 To start with, simply install the library. At the Package Manager Console, type the command below.
 

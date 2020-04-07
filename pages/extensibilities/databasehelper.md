@@ -21,7 +21,7 @@ You have use the [IDbHelper](/interface/idbhelper) interface as the contract for
 
 > Please see the [folder structuring](/extensibility/folderstructuring) page.
 
-#### Getting Started
+#### Get Started
 
 First, you have to manually create a class that implements the [IDbHelper](/interface/idbhelper) interface.
 
