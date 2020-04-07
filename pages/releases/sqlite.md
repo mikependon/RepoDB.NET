@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: releases
 title: Releases for SQLite (RepoDb)
-permalink: /releases/sqlite
+permalink: /release/sqlite
 ---
 
 # Releases for RepoDb.SqLite

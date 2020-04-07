@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: releases
 title: Releases for SQL Server (RepoDb)
-permalink: /releases/sqlserver
+permalink: /release/sqlserver
 ---
 
 # Releases for RepoDb.SqlServer

@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: releases
 title: Releases for MySQL (RepoDb)
-permalink: /releases/mysql
+permalink: /release/mysql
 ---
 
 # Releases for RepoDb.MySql

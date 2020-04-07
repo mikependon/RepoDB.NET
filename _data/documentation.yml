@@ -459,23 +459,23 @@ docs:
 
 - key: releases
   title: "Releases"
-  url: "/releases/core"
+  url: "/release/core"
   topics:
 
   - title: "Core"
-    url: "/releases/core"
+    url: "/release/core"
 
   - title: "SQL Server"
-    url: "/releases/sqlserver"
+    url: "/release/sqlserver"
 
   - title: "SQL Server (Bulk)"
-    url: "/releases/sqlserverbulk"
+    url: "/release/sqlserverbulk"
 
   - title: "SQLite"
-    url: "/releases/sqlite"
+    url: "/release/sqlite"
 
   - title: "MySQL"
-    url: "/releases/mysql"
+    url: "/release/mysql"
 
   - title: "PostgreSQL"
-    url: "/releases/postgresql"
+    url: "/release/postgresql"

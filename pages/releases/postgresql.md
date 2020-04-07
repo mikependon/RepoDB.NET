@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: releases
 title: Releases for PostgreSQL (RepoDb)
-permalink: /releases/postgresql
+permalink: /release/postgresql
 ---
 
 # Releases for RepoDb.PostgreSql

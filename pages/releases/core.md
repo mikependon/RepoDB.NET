@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: releases
 title: Releases for Core Package (RepoDb)
-permalink: /releases/core
+permalink: /release/core
 ---
 
 # Releases for RepoDb (Core)
