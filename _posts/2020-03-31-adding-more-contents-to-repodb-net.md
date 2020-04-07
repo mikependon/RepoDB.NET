@@ -21,8 +21,6 @@ The [docs](/docs) page has been introduced with the following sections.
 - [Mappers](/docs#mappers)
 - [Extensibilities](/docs#extensibilities)
 
-The links has provided but there is no content yet to the pages.
-
-The initial version of our [about](/about) page has also been introduced.
+The links has provided but there is no content yet to the pages, but the initial version of our [about](/about) page has also been introduced.
 
 Lastly, the design of the site has already been in placed (header, footer, foooter-links and icons).

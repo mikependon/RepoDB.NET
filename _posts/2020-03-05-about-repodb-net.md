@@ -8,7 +8,7 @@ categories: blogs update
 
 This site will contain all the important information regarding [RepoDb](https://github.com/mikependon/RepoDb).
 
-###### The following will soon be placed here.
+###### The following will soon to be placed here
 
 - Features
 - Operations/Methods
