@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What will you make choose RepoDb over Dapper"
+title: "What will make you choose RepoDb over Dapper"
 author: "Michael Camara Pendon"
 date: 2020-04-06 15:05:00 +0100
 categories: blogs repodb
