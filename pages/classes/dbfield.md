@@ -6,7 +6,7 @@ permalink: /class/dbfield
 tags: [repodb, class, dbfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## DbField
+# DbField
 
 An immutable class that holds the definition of the database columns. This class is hugely used internally in the the library.
 

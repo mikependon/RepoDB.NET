@@ -6,7 +6,7 @@ permalink: /enumeration/conversiontype
 tags: [repodb, class, conversiontype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ConversionType
+# ConversionType
 
 This enum is used to set the value of the `ConversionType` property of [TypeMapper](/mapper/typemapper) object. It defines how the conversion type is when extracting the `DbDataReader` into its equivalent .NET CLR Type.
 

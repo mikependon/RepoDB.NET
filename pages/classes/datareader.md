@@ -6,7 +6,7 @@ permalink: /class/datareader
 tags: [repodb, class, datareader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## DataReader
+# DataReader
 
 This class is used to convert the `DbDataReader` object into an `IEnumerable<T>` or `IEnumerable<dynamic>` object. This is the heart of the library when it comes to data extraction from the database.
 

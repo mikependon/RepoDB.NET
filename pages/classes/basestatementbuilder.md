@@ -6,7 +6,7 @@ permalink: /class/basestatementbuilder
 tags: [repodb, class, basestatementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## BaseStatementBuilder
+# BaseStatementBuilder
 
 This class stands as the base class of all [IStatementBuilder](/interface/istatementbuilder)-based classes.
 

@@ -6,7 +6,7 @@ permalink: /reference/dbrepository
 tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## DbRepository
+# DbRepository
 
 This page contains the reference implementation when implementing a repository that inherits the [DbRepository](/class/dbrepository) class.
 

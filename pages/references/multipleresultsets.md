@@ -6,7 +6,7 @@ permalink: /reference/multipleresultsets
 tags: [repodb, class, multipleresultsets, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Multiple Resultsets
+# Multiple Resultsets
 
 This page contains the recommended way of querying the records with multiple resultsets.
 

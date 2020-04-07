@@ -6,7 +6,7 @@ permalink: /class/dataentitydatareader
 tags: [repodb, class, dataentitydatareader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## DataEntityDataReader
+# DataEntityDataReader
 
 This class is used to convert an array of `IEnumerable<T>` to a `DbDataReader` object.
 

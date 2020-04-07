@@ -6,7 +6,7 @@ permalink: /feature/batchoperations
 tags: [repodb, class, batch, batch-operations, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Batch Operations
+# Batch Operations
 
 The batch operation is the process of making the multiple single-operations be executed against the database in one-go. The execution is ACID; an implicit transaction is provided if not present.
 

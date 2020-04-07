@@ -6,7 +6,7 @@ permalink: /interface/ipropertyhandler
 tags: [repodb, class, ipropertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## IPropertyHandler
+# IPropertyHandler
 
 This interface is used to mark a class to be a property handler object. This interface has `TInput` and `TResult` generic types in which being mapped into `Get` and `Set` methods.
 

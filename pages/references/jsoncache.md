@@ -6,7 +6,7 @@ permalink: /reference/jsoncache
 tags: [repodb, class, jsoncache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## JSON Cache
+# JSON Cache
 
 This page contains the recommended way of implementing a cacher class for JSON objects in the file system.
 

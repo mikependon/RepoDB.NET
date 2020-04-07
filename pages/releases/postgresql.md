@@ -5,7 +5,7 @@ title: Releases for PostgreSQL (RepoDb)
 permalink: /releases/postgresql
 ---
 
-## Releases for RepoDb.PostgreSql
+# Releases for RepoDb.PostgreSql
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql) to download it.
 

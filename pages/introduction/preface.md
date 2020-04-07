@@ -5,7 +5,7 @@ title: Preface (RepoDb)
 permalink: /preface
 ---
 
-## Preface
+# Preface
 
 RepoDb is an open-source .NET ORM that bridge the gaps between micro-ORMs and full-ORMs. It helps the developer to simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
 

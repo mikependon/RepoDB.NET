@@ -5,7 +5,7 @@ title: Releases for Core Package (RepoDb)
 permalink: /releases/core
 ---
 
-## Releases for RepoDb (Core)
+# Releases for RepoDb (Core)
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 

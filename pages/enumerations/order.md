@@ -6,7 +6,7 @@ permalink: /enumeration/order
 tags: [repodb, class, order, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Order
+# Order
 
 This enum is used to define an ordering of the query results. It is usually used in [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery) operations.
 

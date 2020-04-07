@@ -6,7 +6,7 @@ permalink: /attribute/primary
 tags: [repodb, class, primary, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Primary
+# Primary
 
 This is an attribute that is being used to mark the property of the class as a primary property.
 

@@ -6,7 +6,7 @@ permalink: /extensibility/databasehelper
 tags: [repodb, class, databasehelper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Database Helper
+# Database Helper
 
 A database helper is an object that is used by the library as a helper class for a specific RDBMS data provider. It is a part of the extensibility feature in order for you (as a developer) to override the default implementation of the library, specially when it comes to optimizing the database fields extraction.
 

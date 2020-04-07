@@ -6,7 +6,7 @@ permalink: /mapper/statementbuildermapper
 tags: [repodb, class, statementbuildermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## StatementBuilderMapper
+# StatementBuilderMapper
 
 A mapper class for the [IStatementBuilder](/interface/istatementbuilder)-based class. The mapping can be made based on the type of the target RDBMS data provider. Please visit the [Database Setting](/extensibility/databasesetting) for more information.
 

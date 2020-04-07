@@ -6,7 +6,7 @@ permalink: /operation/countall
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## CountAll
+# CountAll
 
 This method is used to count all the number of rows on a single table from the database.
 

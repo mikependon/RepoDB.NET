@@ -6,7 +6,7 @@ permalink: /enumeration/operation
 tags: [repodb, class, operation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Operation
+# Operation
 
 This enum is used to set the value of the `Operation` property of [QueryField](/class/queryfield) object.
 

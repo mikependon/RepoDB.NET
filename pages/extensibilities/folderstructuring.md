@@ -6,7 +6,7 @@ permalink: /extensibility/folderstructuring
 tags: [repodb, class, folderstructuring, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Folder Structuring
+# Folder Structuring
 
 This page will guide you on the folder structuring when extending the library with different RDBMS data providers.
 

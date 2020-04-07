@@ -6,7 +6,7 @@ permalink: /operation/queryall
 tags: [repodb, tutorial, queryall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## QueryAll
+# QueryAll
 
 This method is used to fetch all the rows from the database.
 

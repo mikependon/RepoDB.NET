@@ -6,7 +6,7 @@ permalink: /attribute/npgsqltypemap
 tags: [repodb, class, npgsqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## NpgsqlTypeMap
+# NpgsqlTypeMap
 
 This attribute is used to map a property into its equivalent type from the database (via `NpgsqlTypes.NpgsqlDbType`).
 

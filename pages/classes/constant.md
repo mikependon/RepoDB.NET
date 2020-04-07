@@ -6,7 +6,7 @@ permalink: /class/constant
 tags: [repodb, class, constant, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Constant
+# Constant
 
 A class that holds the constant values for the library.
 

@@ -6,7 +6,7 @@ permalink: /interface/itrace
 tags: [repodb, class, itrace, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ITrace
+# ITrace
 
 This interface is used to mark a class to be a trace object. This interface provides all the `BEFORE` and `AFTER` operation events.
 

@@ -6,7 +6,7 @@ permalink: /operation/batchquery
 tags: [repodb, tutorial, batchquery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## BatchQuery
+# BatchQuery
 
 This method is used to query the rows from the database by batch.
 

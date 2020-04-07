@@ -6,7 +6,7 @@ permalink: /operation/min
 tags: [repodb, tutorial, min, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Min
+# Min
 
 This method is used to get the minimum value of the column from the database.
 

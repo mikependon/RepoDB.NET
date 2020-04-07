@@ -6,7 +6,7 @@ permalink: /operation/sum
 tags: [repodb, tutorial, sum, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Sum
+# Sum
 
 This method is used to get the summation value of the column from the database.
 

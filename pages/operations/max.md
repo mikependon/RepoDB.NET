@@ -6,7 +6,7 @@ permalink: /operation/max
 tags: [repodb, tutorial, max, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Max
+# Max
 
 This method is used to get the maximum value of the column from the database.
 

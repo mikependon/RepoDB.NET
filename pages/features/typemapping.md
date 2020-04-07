@@ -6,7 +6,7 @@ permalink: /feature/typemapping
 tags: [repodb, class, typemapping, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Type Mapping
+# Type Mapping
 
 This is the feature that would allow you to map the .NET CLR Type into its equivalent database type.
 

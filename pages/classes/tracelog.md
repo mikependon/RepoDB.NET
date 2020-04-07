@@ -6,7 +6,7 @@ permalink: /class/tracelog
 tags: [repodb, class, tracelog, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## TraceLog
+# TraceLog
 
 A trace-logging class that is used when executing an operation. It provides vital information of the actual execution via the [ITrace](/interface/itrace) object.
 

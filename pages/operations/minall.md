@@ -6,7 +6,7 @@ permalink: /operation/minall
 tags: [repodb, tutorial, minall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## MinAll
+# MinAll
 
 This method is used to get the minimum value of the column from the database.
 

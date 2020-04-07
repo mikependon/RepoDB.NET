@@ -6,7 +6,7 @@ permalink: /feature/multiplequery
 tags: [repodb, class, multiplequery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Multiple Query
+# Multiple Query
 
 This is the feature that would allow you to fetch multiple resultsets in a single call. The methods [ExecuteQueryMultiple](/operation/executequerymultiple) and [QueryMultiple](/operation/querymultiple) is provided to enable this. The [ExecuteQueryMultiple](/operation/executequerymultiple) is a method that would allow you to pass your own SQL statements to extract the results, whereas the [QueryMultiple](/operation/querymultiple) is a fluent-method that would allow you to pass a `Linq`-based query expression and that automatically compose the SQL statements for your.
 

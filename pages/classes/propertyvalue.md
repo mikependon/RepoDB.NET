@@ -6,7 +6,7 @@ permalink: /class/propertyvalue
 tags: [repodb, class, propertyvalue, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## PropertyValue
+# PropertyValue
 
 This class is used to handle the `Name` and `Value` of the class property. It also handles an instance of [ClassProperty](/class/classproperty).
 

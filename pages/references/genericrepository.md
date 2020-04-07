@@ -6,7 +6,7 @@ permalink: /reference/genericrepository
 tags: [repodb, class, genericrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Generic Repository
+# Generic Repository
 
 This page contains the reference implementation when implementing a generic repository.
 

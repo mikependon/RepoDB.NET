@@ -6,7 +6,7 @@ permalink: /feature/hints
 tags: [repodb, class, hints, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Hints
+# Hints
 
 This is the feature that would allow you to optimize the command executions towards the database. It is a keyword that is usually being added into the SQL statements (DML) to further optimize the execution of your commands. Please the Microsoft document [here](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-ver15).
 

@@ -6,7 +6,7 @@ permalink: /class/memorycache
 tags: [repodb, class, memorycache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## MemoryCache
+# MemoryCache
 
 This class gives your application the maximum performance as it eliminates the round-trips towards the database for the next 180 minutes (overridable). It implements the [ICache](/interface/icache) interface.
 

@@ -6,7 +6,7 @@ permalink: /operation/insertall
 tags: [repodb, tutorial, insertall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## InsertAll
+# InsertAll
 
 This method is used to insert an array of rows into the database.
 

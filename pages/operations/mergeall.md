@@ -6,7 +6,7 @@ permalink: /operation/mergeall
 tags: [repodb, tutorial, mergeall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## MergeAll
+# MergeAll
 
 This method is used to merge an array of rows in the database.
 

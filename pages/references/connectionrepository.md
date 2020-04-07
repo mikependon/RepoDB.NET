@@ -6,7 +6,7 @@ permalink: /reference/connectionrepository
 tags: [repodb, class, connectionrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Connection-Based Repository
+# Connection-Based Repository
 
 This page contains the reference implementation when implementing a repository that is using a connection object per method.
 

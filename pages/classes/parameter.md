@@ -6,7 +6,7 @@ permalink: /class/parameter
 tags: [repodb, class, parameter, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Parameter
+# Parameter
 
 This class is used to handle the necesasry information when constructing a data parameter. It is used by both [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects to manage all the parameters creation. It is a very direct class and is doing nothing at all.
 

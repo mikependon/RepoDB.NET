@@ -6,7 +6,7 @@ permalink: /operation/bulkinsert
 tags: [repodb, tutorial, bulkinsert, orm, hybrid-orm, sqlserver]
 ---
 
-## BulkInsert
+# BulkInsert
 
 This method is used to bulk-insert all the rows from the client into the database. For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 

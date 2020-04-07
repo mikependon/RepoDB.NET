@@ -6,7 +6,7 @@ permalink: /enumeration/connectionpersistency
 tags: [repodb, class, connectionpersistency, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ConnectionPersistency
+# ConnectionPersistency
 
 This is an enum used to define the persistency of the `DbConnection` within the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects.
 

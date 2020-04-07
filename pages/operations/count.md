@@ -6,7 +6,7 @@ permalink: /operation/count
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Count
+# Count
 
 This method is used to count the number rows on a single table from the database.
 

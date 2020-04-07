@@ -6,7 +6,7 @@ permalink: /operation/executescalar
 tags: [repodb, tutorial, executescalar, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ExecuteScalar
+# ExecuteScalar
 
 This method is used to execute a raw-SQL directly towards the database. It returns a value of the first-row's first-column of the resultset. This method supports all types of RDMBS data providers.
 

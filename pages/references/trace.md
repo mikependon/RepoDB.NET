@@ -6,7 +6,7 @@ permalink: /reference/trace
 tags: [repodb, class, trace, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Trace
+# Trace
 
 This page contains the recommended way of implementing a trace object.
 

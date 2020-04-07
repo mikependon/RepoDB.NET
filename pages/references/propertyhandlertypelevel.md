@@ -6,7 +6,7 @@ permalink: /reference/propertyhandlertypelevel
 tags: [repodb, class, propertyhandlertypelevel, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Property Handler for Specific Type
+# Property Handler for Specific Type
 
 This page contains the recommended way of implementing a property handler for specific type.
 

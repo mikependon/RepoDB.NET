@@ -6,7 +6,7 @@ permalink: /tutorial/getting-started-sqlserver
 tags: [repodb, tutorial, getting-started, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Getting Started for SQL Server
+# Getting Started for SQL Server
 
 RepoDb is a hybrid .NET ORM library for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 

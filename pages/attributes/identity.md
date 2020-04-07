@@ -6,7 +6,7 @@ permalink: /attribute/identity
 tags: [repodb, class, identity, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Identity
+# Identity
 
 This is an attribute that is being used to mark the property of the class as an identity property.
 

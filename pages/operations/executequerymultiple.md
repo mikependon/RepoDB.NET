@@ -6,7 +6,7 @@ permalink: /operation/executequerymultiple
 tags: [repodb, tutorial, executequerymultiple, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ExecuteQueryMultiple
+# ExecuteQueryMultiple
 
 This method is used to execute multiple raw-SQLs directly towards the database in one-go. It returns an object of [QueryMultipleExtractor](/class/querymultipleextractor). It gives you the controllabilities as a developer to manage the extraction of the resultsets. This method supports all types of RDMBS data providers.
 

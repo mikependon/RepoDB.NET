@@ -6,7 +6,7 @@ permalink: /operation/truncate
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Truncate
+# Truncate
 
 This method is used to truncate all the rows on a single table from the database.
 

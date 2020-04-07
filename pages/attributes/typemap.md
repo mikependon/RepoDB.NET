@@ -6,7 +6,7 @@ permalink: /attribute/typemap
 tags: [repodb, class, typemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## TypeMap
+# TypeMap
 
 This attribute is used to map a property into its equivalent type from the database (via `System.Data.DbType`).
 

@@ -6,7 +6,7 @@ permalink: /tutorial/installation
 tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Installation
+# Installation
 
 The package can be installed using Package Manager Console.
 

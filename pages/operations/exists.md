@@ -6,7 +6,7 @@ permalink: /operation/exists
 tags: [repodb, tutorial, exists, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Exists
+# Exists
 
 This method is used to check whether a record is present in the database.
 

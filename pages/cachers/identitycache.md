@@ -6,7 +6,7 @@ permalink: /cacher/identitycache
 tags: [repodb, class, identitycache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## IdentityCache
+# IdentityCache
 
 A cacher class for the class identity property. It provides a 2nd-layer caching for the library when it comes to the class identity property extraction. As a result, the library is fast-enough when reusing the already extracted class identity property on any execution.
 

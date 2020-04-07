@@ -6,7 +6,7 @@ permalink: /class/basedbsetting
 tags: [repodb, class, basedbsetting, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## BaseDbSetting
+# BaseDbSetting
 
 This class stands as the base class of all [IDbSetting](/interface/idbsetting)-based classes.
 

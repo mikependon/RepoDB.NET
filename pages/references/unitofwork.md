@@ -6,7 +6,7 @@ permalink: /reference/unitofwork
 tags: [repodb, class, unitofwork, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Unit of Work
+# Unit of Work
 
 This page contains the recommended way of implementing Unit of Work.
 

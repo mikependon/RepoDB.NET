@@ -7,7 +7,7 @@ tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 ---
 
 
-## DbRepository
+# DbRepository
 
 This is the base class of repository classes. It accepts the type of `DbConnection` as the generic type.
 

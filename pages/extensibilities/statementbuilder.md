@@ -6,7 +6,7 @@ permalink: /extensibility/statementbuilder
 tags: [repodb, class, statementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Statement Builder
+# Statement Builder
 
 A statement builder is an object that is being used by the library to generate the SQL statements for all operations. To be more practical, when you call the [QueryAll](/operation/queryall) operation, a SQL statement below is being constructed via statement builder and is being executed by the engine against the database.
 

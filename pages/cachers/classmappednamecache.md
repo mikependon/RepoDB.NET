@@ -6,7 +6,7 @@ permalink: /cacher/classmappednamecache
 tags: [repodb, class, classmappednamecache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ClassMappedNameCache
+# ClassMappedNameCache
 
 A cacher class for the class name mapping. It provides a 2nd-layer caching for the library when it comes to the class name mapping extraction. As a result, the library is fast-enough when reusing the already extracted class mapped name on any execution.
 

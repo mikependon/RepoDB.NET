@@ -6,7 +6,7 @@ permalink: /class/classproperty
 tags: [repodb, class, classproperty, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ClassProperty
+# ClassProperty
 
 This class is used as a container of the `System.Reflection.PropertyInfo` object. It is one of the core class that helps the library speed up the manipulation of the class properties.
 

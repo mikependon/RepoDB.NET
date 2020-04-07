@@ -6,7 +6,7 @@ permalink: /attribute/text
 tags: [repodb, class, text, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Text
+# Text
 
 This attribute is used to decorate a special string value on any class, property, enumeration or interface.
 

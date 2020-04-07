@@ -6,7 +6,7 @@ permalink: /operation/insert
 tags: [repodb, tutorial, insert, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Insert
+# Insert
 
 This method is used to insert a record in the database.
 

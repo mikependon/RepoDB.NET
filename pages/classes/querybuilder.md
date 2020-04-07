@@ -6,7 +6,7 @@ permalink: /class/querybuilder
 tags: [repodb, class, querybuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## QueryBuilder
+# QueryBuilder
 
 This class is used to compose a SQL statement in a fluent manner. It is very fluent as it only appending the specific string based on the name of the methods.
 

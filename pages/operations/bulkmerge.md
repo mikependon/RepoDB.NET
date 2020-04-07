@@ -6,7 +6,7 @@ permalink: /operation/bulkmerge
 tags: [repodb, tutorial, bulkmerge, orm, hybrid-orm, sqlserver]
 ---
 
-## BulkMerge
+# BulkMerge
 
 This method is used to bulk-merge all the rows from the client into the database. For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 

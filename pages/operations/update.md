@@ -6,7 +6,7 @@ permalink: /operation/update
 tags: [repodb, tutorial, update, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Update
+# Update
 
 This method is used to update a record in the database.
 

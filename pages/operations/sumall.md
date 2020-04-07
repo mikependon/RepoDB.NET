@@ -6,7 +6,7 @@ permalink: /operation/sumall
 tags: [repodb, tutorial, sumall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## SumAll
+# SumAll
 
 This method is used to get the summation value of the column from the database.
 

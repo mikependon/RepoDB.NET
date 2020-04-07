@@ -6,7 +6,7 @@ permalink: /enumeration/conjunction
 tags: [repodb, class, conjunction, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Conjunction
+# Conjunction
 
 This is an enum used to define a conjunction when grouping an expression via [QueryGroup](/class/querygroup) object.
 

@@ -6,7 +6,7 @@ permalink: /interface/iexpirable
 tags: [repodb, class, icache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ICache
+# ICache
 
 This interface is used to make a class expirable in a contextual point of view. Is is used by [CacheItem](/class/cacheitem) class.
 

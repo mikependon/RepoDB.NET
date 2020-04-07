@@ -6,7 +6,7 @@ permalink: /extensibility/averagetyperesolver
 tags: [repodb, class, averagetyperesolver, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Average Type Resolver
+# Average Type Resolver
 
 This object is used within the [BaseStatementBuilder](/class/basestatementbuilder) class as a resolver of which system type to be used for conversion when calling the [Average](/operation/average) and [AverageAll](/operation/averageall) operations.
 

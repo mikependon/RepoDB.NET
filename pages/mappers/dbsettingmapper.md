@@ -6,7 +6,7 @@ permalink: /mapper/dbsettingmapper
 tags: [repodb, class, dbsettingmapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## DbSettingMapper
+# DbSettingMapper
 
 A mapper class for the [IDbSetting](/interface/idbsetting)-based class. The mapping can be made based on the type of the target RDBMS data provider. Please visit the [Database Setting](/extensibility/databasesetting) for more information.
 

@@ -6,7 +6,7 @@ permalink: /cacher/propertycache
 tags: [repodb, class, propertycache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## PropertyCache
+# PropertyCache
 
 A hugely-used cacher class for the [ClassProperty](/class/classproperty). It provides a 2nd-layer caching for the library when it comes to the class properties extraction. As a result, the library is fast-enough when reusing the already extracted class properties on any execution.
 

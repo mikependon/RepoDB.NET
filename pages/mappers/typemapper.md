@@ -6,7 +6,7 @@ permalink: /mapper/typemapper
 tags: [repodb, class, typemapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## TypeMapper
+# TypeMapper
 
 A static class that is used to map a .NET CLR Type into its equivalent database type.
 

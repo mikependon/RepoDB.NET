@@ -6,7 +6,7 @@ permalink: /class/cacheitem
 tags: [repodb, class, cacheitem, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## CacheItem
+# CacheItem
 
 This class is used as an item for the [ICache](/interface/icache) object.
 

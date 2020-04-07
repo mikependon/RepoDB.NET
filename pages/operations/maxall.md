@@ -6,7 +6,7 @@ permalink: /operation/maxall
 tags: [repodb, tutorial, maxall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## MaxAll
+# MaxAll
 
 This method is used to get the maximum value of the column from the database.
 

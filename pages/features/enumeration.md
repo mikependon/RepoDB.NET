@@ -6,7 +6,7 @@ permalink: /feature/enumeration
 tags: [repodb, class, enumeration, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Enumeration
+# Enumeration
 
 This is the feature that enables you to work with enumerations within the class objects. The library supports various kind of transformation for enumerations.
 

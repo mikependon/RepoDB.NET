@@ -6,7 +6,7 @@ permalink: /operation/deleteall
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## DeleteAll
+# DeleteAll
 
 This method is used to delete all the rows on a single table from the database.
 

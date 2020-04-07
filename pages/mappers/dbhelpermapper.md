@@ -6,7 +6,7 @@ permalink: /mapper/dbhelpermapper
 tags: [repodb, class, dbhelpermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## DbHelperMapper
+# DbHelperMapper
 
 A mapper class for the [IDbHelper](/interface/idbhelper)-based class. The mapping can be made based on the type of the target RDBMS data provider. Please visit the [Database Helper](/extensibility/databasehelper) for more information.
 

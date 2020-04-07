@@ -6,7 +6,7 @@ permalink: /interface/idbhelper
 tags: [repodb, class, idbhelper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## IDbHelper
+# IDbHelper
 
 This interface is used to mark a class to be a database helper object. It is very useful if you would like optimize and override the default implementation of the library (ie: retrieving the list of fields, retrieving newly generated identity).
 

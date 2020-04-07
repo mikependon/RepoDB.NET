@@ -6,7 +6,7 @@ permalink: /extensibility/databasesetting
 tags: [repodb, class, databasesetting, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Database Setting
+# Database Setting
 
 A database setting is an object that contains the information that are specific to a single RDBMS data providers. It holds the information of the following.
 

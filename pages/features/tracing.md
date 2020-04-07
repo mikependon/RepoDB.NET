@@ -6,7 +6,7 @@ permalink: /feature/tracing
 tags: [repodb, class, tracing, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Tracing
+# Tracing
 
 This is the feature that would allow you to log, audit and debug the command execution context (ie: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also allows you to cancel the existing execution before even the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class.
 

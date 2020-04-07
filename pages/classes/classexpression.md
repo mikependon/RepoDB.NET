@@ -6,7 +6,7 @@ permalink: /class/classexpression
 tags: [repodb, class, classexpression, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ClassExpression
+# ClassExpression
 
 This is a helper class used for extracting class objects via `Linq.Expressions`. The operations residing on this class are all pre-compiled operations.
 

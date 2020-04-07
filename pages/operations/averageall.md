@@ -6,7 +6,7 @@ permalink: /operation/averageall
 tags: [repodb, tutorial, averageall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## AverageAll
+# AverageAll
 
 This method is used to average all rows target column from the database.
 

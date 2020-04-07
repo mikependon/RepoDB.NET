@@ -6,7 +6,7 @@ permalink: /feature/fieldclassmapping
 tags: [repodb, class, fieldmapping, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Field/Class Mapping
+# Field/Class Mapping
 
 This is the feature that would allow you to map the class (or a property) into its equivalent object in the database. It uses the [Map](/attribute/map) attribute.
 

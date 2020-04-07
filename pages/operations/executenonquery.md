@@ -6,7 +6,7 @@ permalink: /operation/executenonquery
 tags: [repodb, tutorial, executenonquery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ExecuteNonQuery
+# ExecuteNonQuery
 
 This method is used to execute a raw-SQL directly towards the database. It returns the number of rows affected during the execution. This method supports all types of RDMBS data providers.
 

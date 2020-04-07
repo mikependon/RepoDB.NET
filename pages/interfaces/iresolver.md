@@ -6,7 +6,7 @@ permalink: /interface/iresolver
 tags: [repodb, class, iresolver, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## IResolver
+# IResolver
 
 This interface is used to mark a class to be a resolver object. This interface accepts upto the maximum 7 input generic types and 1 output generic type.
 

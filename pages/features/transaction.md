@@ -6,7 +6,7 @@ permalink: /feature/transaction
 tags: [repodb, class, transaction, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Transaction
+# Transaction
 
 The way transaction works in the library is very identical with the way how it works with ADO.NET.
 

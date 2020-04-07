@@ -6,7 +6,7 @@ permalink: /class/cancellabletracelog
 tags: [repodb, class, cancellabletracelog, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## CancellableTraceLog
+# CancellableTraceLog
 
 A trace-logging class that is used to cancel the existing operation. It is used in all *Before* methods of the [ITrace](/interface/itrace) object. It derives from [TraceLog](/class/tracelog) class.
 

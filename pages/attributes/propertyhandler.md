@@ -6,7 +6,7 @@ permalink: /attribute/propertyhandler
 tags: [repodb, class, propertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## PropertyHandler
+# PropertyHandler
 
 This attribute is used to signal a property handling operation on the class property. By having this attribute, the library compiler (transformer) will automatically trigger the property handler `Get` and `Set` method for custom handling.
 

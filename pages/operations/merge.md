@@ -6,7 +6,7 @@ permalink: /operation/merge
 tags: [repodb, tutorial, merge, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Merge
+# Merge
 
 This method is used to merge a record in the database.
 

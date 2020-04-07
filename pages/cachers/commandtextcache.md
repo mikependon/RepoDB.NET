@@ -6,7 +6,7 @@ permalink: /cacher/commandtextcache
 tags: [repodb, class, commandtextcache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## CommandTextCache
+# CommandTextCache
 
 A cacher class for the generated command texts. It provides certain important internal methods for the library when it comes to SQL command text caching. As a result, the library is fast-enough when reusing the already generated SQL statements on any execution.
 

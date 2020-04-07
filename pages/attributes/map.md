@@ -6,7 +6,7 @@ permalink: /attribute/map
 tags: [repodb, class, map, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Map
+# Map
 
 This is an attribute that is being used to map the class and its properties into its equivalent table and columns in the database.
 

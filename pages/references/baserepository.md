@@ -6,7 +6,7 @@ permalink: /reference/baserepository
 tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## BaseRepository
+# BaseRepository
 
 This page contains the reference implementation when implementing a repository that inherits the [BaseRepository](/class/baserepository) class.
 

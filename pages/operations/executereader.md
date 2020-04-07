@@ -6,7 +6,7 @@ permalink: /operation/executereader
 tags: [repodb, tutorial, executereader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ExecuteReader
+# ExecuteReader
 
 This method is used to execute a raw-SQL directly towards the database. It returns an instance of `IDbDataReader` object. This method supports all types of RDMBS data providers.
 

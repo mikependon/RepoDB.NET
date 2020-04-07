@@ -6,7 +6,7 @@ permalink: /reference/queryexpressions
 tags: [repodb, class, queryexpressions, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Query Expressions
+# Query Expressions
 
 This page contains the recommended way of using the query expressions.
 

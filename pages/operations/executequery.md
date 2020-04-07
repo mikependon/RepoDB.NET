@@ -6,7 +6,7 @@ permalink: /operation/executequery
 tags: [repodb, tutorial, executequery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ExecuteQuery
+# ExecuteQuery
 
 This method is used to execute a raw-SQL directly towards the database. It returns an `IEnumerable<T>` object. This method supports all types of RDMBS data providers.
 

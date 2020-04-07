@@ -6,7 +6,7 @@ permalink: /attribute/mysqltypemap
 tags: [repodb, class, mysqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## MySqlTypeMap
+# MySqlTypeMap
 
 This attribute is used to map a property into its equivalent type from the database (via `MySql.Data.MySqlClient.MySqlDbType`).
 

@@ -6,7 +6,7 @@ permalink: /operation/average
 tags: [repodb, tutorial, average, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Average
+# Average
 
 This method is used to average a column from the database.
 

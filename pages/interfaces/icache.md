@@ -6,7 +6,7 @@ permalink: /interface/icache
 tags: [repodb, class, icache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## ICache
+# ICache
 
 This interface is used to mark a class to be a cache object. It gives you the full control on the implementations of your own cacher object (ie: File Caching, SqLite Caching, XML Caching, Memory Caching, etc).
 

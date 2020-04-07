@@ -6,7 +6,7 @@ permalink: /operation/updateall
 tags: [repodb, tutorial, updateall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## UpdateAll
+# UpdateAll
 
 This method is used to update an array of rows in the database.
 

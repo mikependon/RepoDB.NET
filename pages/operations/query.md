@@ -6,7 +6,7 @@ permalink: /operation/query
 tags: [repodb, tutorial, query, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## Query
+# Query
 
 This method is used to fetch the rows from the database.
 

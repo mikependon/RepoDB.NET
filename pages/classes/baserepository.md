@@ -6,7 +6,7 @@ permalink: /class/baserepository
 tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## BaseRepository
+# BaseRepository
 
 This is the base class of all entity-based repository classes. It accepts 2 generic types, the model type and the `DbConnection` type. It also use the [DbRepository](/class/dbrepository) as the underlying controlling repository.
 

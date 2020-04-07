@@ -6,7 +6,7 @@ permalink: /cacher/propertymappednamecache
 tags: [repodb, class, propertymappednamecache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## PropertyMappedNameCache
+# PropertyMappedNameCache
 
 A cacher class for the `System.Reflection.PropertyInfo`. It provides a 2nd-layer caching for the library when it comes to the property name mapping extraction. As a result, the library is fast-enough when reusing the already extracted property mapped name on any execution.
 

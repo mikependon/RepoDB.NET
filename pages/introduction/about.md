@@ -5,7 +5,7 @@ title: About (RepoDb)
 permalink: /about
 ---
 
-## About
+# About
 
 [RepoDb](https://github.com/mikependon/RepoDb) is a hybrid-ORM library for .NET. It is the best alternative ORM to both [Dapper](#) and [EntityFramework](#).
 

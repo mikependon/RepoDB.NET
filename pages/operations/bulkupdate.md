@@ -6,7 +6,7 @@ permalink: /operation/bulkupdate
 tags: [repodb, tutorial, bulkupdate, orm, hybrid-orm, sqlserver]
 ---
 
-## BulkUpdate
+# BulkUpdate
 
 This method is used to bulk-update all the rows from the client into the database. For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 

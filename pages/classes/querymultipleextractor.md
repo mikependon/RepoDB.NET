@@ -6,7 +6,7 @@ permalink: /class/querymultipleextractor
 tags: [repodb, class, querymultipleextractor, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## QueryMultipleExtractor
+# QueryMultipleExtractor
 
 This class is a result object of the [ExecuteQueryMultiple](/operation/executequerymultiple) operation. It offers you a much more controllability on how to extract the results from the `DbDataReader`.
 

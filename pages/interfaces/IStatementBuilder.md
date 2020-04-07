@@ -6,7 +6,7 @@ permalink: /interface/istatementbuilder
 tags: [repodb, class, istatementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-## IStatementBuilder
+# IStatementBuilder
 
 This interface is used to mark a class to be a statement builder object. I provides necessary methods for your to be able to override the way how the SQL statements are being constructed.
 
