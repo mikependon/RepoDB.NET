@@ -36,6 +36,6 @@ I remember a one comment that brought me to [RawDataAccessBencher](https://githu
 
 I analyzed the culprits in the codes and also tried to optimized the IL. I solved the problem and brought RepoDb as the fastest ORM a month after. The official technique was posted by me on my old blog (can be found [here](https://codesdirectory.blogspot.com/2018/09/repodb-net-lightweight-orm-library.html)).
 
-It was also 2 years ago, 4 months after pushing the first version, RepoDb has been accepted by FransBouma to be a part of the [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher) ORM bencher. That is amazing and gave me more spirit to futher develop RepoDb.
+It was also 2 years ago (4 months after pushing the first version), RepoDb has been officially accepted by FransBouma to be a part of the [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher) ORM bencher. That is amazing and gave me more spirit to futher develop the library.
 
 

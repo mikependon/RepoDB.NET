@@ -974,6 +974,7 @@ The features of like `Bulk` & `Batch` operations, `PropertyHandlers`, `2nd-Level
 
 ---------
 
-Thank you for reading this article. The original post was posted at [DEV.to](https://dev.to/mikependon/c-what-will-make-you-choose-repodb-over-dapper-orm-3eb8) by the author itself.
+The original post was posted at [DEV.to](https://dev.to/mikependon/c-what-will-make-you-choose-repodb-over-dapper-orm-3eb8) by the author.
 
-We are asking your help to please support this repository and solution. Your stars to our [Github](https://github.com/mikependon/RepoDb) page is very valuable.
+Thank you for reading this article.
+
