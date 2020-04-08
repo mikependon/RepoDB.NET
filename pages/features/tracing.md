@@ -153,7 +153,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 }
 ```
 
-#### Injecting a Trace Class
+#### Dependency Injection Implementation
 
 Create a custom interface that implements the [ITrace](/interface/itrace) interface.
 

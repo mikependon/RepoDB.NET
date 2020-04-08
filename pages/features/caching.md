@@ -192,7 +192,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 }
 ```
 
-#### Injecting a Cache Class
+#### Dependency Injection Implementation
 
 Create a custom interface that implements the [ICache](/interface/icache) interface.
 
