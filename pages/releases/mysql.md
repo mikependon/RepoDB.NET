@@ -10,6 +10,16 @@ permalink: /release/mysql
 Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySql) to download it.
 
 
+#### RepoDb.MySql (v1.0.9)
+
+- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](http://repodb.net/release/core#repodb-v11011)).
+
+
+#### RepoDb.MySql (v1.0.8)
+
+- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](http://repodb.net/release/core#repodb-v11011)).
+
+
 #### RepoDb.MySql (v1.0.7)
 
 - Referenced the latest version of RepoDb.Core (v1.10.10).
