@@ -26,9 +26,20 @@ Below are the methods available from this class.
 
 #### Use-Cases
 
-You should use this class if you would like to override the [ConversionType](/enumeration/conversiontype) of the library and if you would like to override the ADO.NET default mapping between .NET CLR Type and database type.
+- Use this class if you would like to override the type conversion of the library.
+- Use this class if you would like to override the ADO.NET default mapping between .NET CLR Type and database type.
 
-#### How to Use?
+#### How to auto map the conversion?
+
+Simply set the `ConversionType` to `Automatic`.
+
+```csharp
+TypeMapper.ConversionType = ConversionType.Automatic;
+```
+
+Please visit the [ConversionType](/enumeration/conversiontype) enumeration to learn more.
+
+#### How to Map/Unmap?
 
 To add a mapping, simply call the `Map` method.
 
