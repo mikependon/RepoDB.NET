@@ -16,7 +16,7 @@ By today (April 10, 2020), FransBouma reach out to me to have some collaboration
 
 Right after the PR's approval, I received a Tweet about the bencher's execution.
 
-<img src="https://raw.githubusercontent.com/mikependon/RepoDb.NET/master/assets/images/blogs/rdab/2020-04-10/Tweet.PNG" height="300" />
+<img src="/assets/images/blogs/rdab/2020-04-10/Tweet.PNG" height="300" />
 
 **RepoDb remains as the fastest and the most-efficient in .NET ORM library in SET fetches. It is 2 years in a row as of writing this.**
 
@@ -24,13 +24,13 @@ Right after the PR's approval, I received a Tweet about the bencher's execution.
 
 #### Result for NET Core (Set Fetches)
 
-<img src="https://raw.githubusercontent.com/mikependon/RepoDb.NET/master/assets/images/blogs/rdab/2020-04-10/NetCore.PNG" height="420" />
+<img src="/assets/images/blogs/rdab/2020-04-10/NetCore.PNG" height="420" />
 
 The actual result can be found [here](https://github.com/FransBouma/RawDataAccessBencher/blob/master/Results/20200410_netcore31.txt).
 
 #### Result for NET Framework (Set Fetches)
 
-<img src="https://raw.githubusercontent.com/mikependon/RepoDb.NET/master/assets/images/blogs/rdab/2020-04-10/NetFX.PNG" height="420" />
+<img src="/assets/images/blogs/rdab/2020-04-10/NetFX.PNG" height="420" />
 
 The actual result can be found [here](https://github.com/FransBouma/RawDataAccessBencher/blob/master/Results/20200410_netfx.txt).
 
@@ -38,7 +38,7 @@ The actual result can be found [here](https://github.com/FransBouma/RawDataAcces
 
 RepoDb has downed to 4th place (previous 1st place) in INDIVIDUAL fetches. See the result below.
 
-<img src="https://raw.githubusercontent.com/mikependon/RepoDb.NET/master/assets/images/blogs/rdab/2020-04-10/NetCoreIndividual.PNG" height="420" />
+<img src="/assets/images/blogs/rdab/2020-04-10/NetCoreIndividual.PNG" height="420" />
 
 The actual result can be found [here](https://github.com/FransBouma/RawDataAccessBencher/blob/ac9310c0992dd3a9ed4ffdd01a4bee18bef2fb40/Results/20200410_netcore31.txt#L113).
 
