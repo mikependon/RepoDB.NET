@@ -9,6 +9,25 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+
+#### RepoDb (v1.11.0-alpha1):
+
+- Added the [ClassMapper](/mapper/classmapper) class.
+- Added the [PropertyMapper](/mapper/propertymapper) class.
+- Added the [PrimaryMapper](/mapper/primarymapper) class.
+- Added the [IdentityMapper](/mapper/identitymapper) class.
+- Added the [TypeMapCache](/cache/typemapcache) class.
+- Added the `Add<T>`, `Get<T>` and `Remove<T>` methods in the [TypeMapper](/mapper/typemapper) class.
+- Made the `Map` method of the [TypeMapper](/mapper/typemapper) class obsolete.
+- Made the `Unmap` method of the [TypeMapper](/mapper/typemapper) class obsolete.
+- Added the `PropertyNotFoundException` exception class.
+- Added a method named `GenerateCustomizedHashCode` in the `PropertyExtension` class.
+- Added the [Converter](/class/converter) class to handle the [TypeMapper.Conversion](/class/typemapper) property.
+- Removed the internal class named `ObjectConverter`. All methods has been placed to a newly created class named [Converter](/class/converter).
+- Made the `Get(Type)` method of [ClassMappedNameCache](/cache/classmappednamecache] class exposed as `public`.
+- Added more thorough Unit Tests for `Class`, `Property`, `Primary`, `Identity` and `Type` mappings (both [Cachers](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core/RepoDb.Tests/RepoDb.UnitTests/Caches) and [Mappers](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core/RepoDb.Tests/RepoDb.UnitTests/Mappers)).
+
+
 #### RepoDb (v1.10.11):
 
 - Implemented the [IExpirable](/interface/iexpirable) into [CacheItem](/class/cacheitem).
