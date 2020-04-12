@@ -64,6 +64,9 @@ docs:
   - title: "Hints"
     url: "/feature/hints"
 
+  - title: "Implicit Mapping"
+    url: "/feature/implicitmapping"
+
   - title: "Multiple Query"
     url: "/feature/multiplequery"
 
@@ -233,6 +236,9 @@ docs:
   - title: "Field"
     url: "/class/field"
 
+  - title: "IdentityCache"
+    url: "/class/identitycache"
+
   - title: "MemoryCache"
     url: "/class/memorycache"
 
@@ -241,6 +247,9 @@ docs:
 
   - title: "Parameter"
     url: "/class/parameter"
+
+  - title: "PrimaryCache"
+    url: "/class/primarycache"
 
   - title: "PropertyValue"
     url: "/class/propertyvalue"
@@ -262,6 +271,9 @@ docs:
 
   - title: "TraceLog"
     url: "/class/tracelog"
+
+  - title: "TypeMapCache"
+    url: "/class/typemapcache"
 
 - key: attributes
   title: "Attributes"
@@ -376,16 +388,31 @@ docs:
   - title: "PropertyMappedNameCache"
     url: "/cacher/propertymappednamecache"
 
+  - title: "TypeMapCache"
+    url: "/cacher/typemapcache"
+
 - key: mappers
   title: "Mappers"
   url: "/mapper/dbhelpermapper"
   topics:
 
+  - title: "ClassMapper"
+    url: "/mapper/classmapper"
+    
   - title: "DbHelperMapper"
     url: "/mapper/dbhelpermapper"
     
   - title: "DbSettingMapper"
     url: "/mapper/dbsettingmapper"
+    
+  - title: "IdentityMapper"
+    url: "/mapper/identitymapper"
+    
+  - title: "PrimaryMapper"
+    url: "/mapper/primarymapper"
+    
+  - title: "PropertyMapper"
+    url: "/mapper/propertymapper"
     
   - title: "PropertyTypeHandlerMapper"
     url: "/mapper/propertytypehandlermapper"
