@@ -388,6 +388,9 @@ docs:
   - title: "PropertyMappedNameCache"
     url: "/cacher/propertymappednamecache"
 
+  - title: "PropertyTypeHandlerCache"
+    url: "/cacher/propertytypehandlercache"
+
   - title: "TypeMapCache"
     url: "/cacher/typemapcache"
 
