@@ -1,11 +1,11 @@
 ---
 layout: navpage
 sidebar: mappers
-title: "PrimaryMapper (RepoDb)"
-permalink: /mapper/primarymapper
-tags: [repodb, class, primarymapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+title: "IdentityMapper (RepoDb)"
+permalink: /mapper/identitymapper
+tags: [repodb, class, identitymapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-# PrimaryMapper
+# IdentityMapper
 
 This page is still in-progress.
