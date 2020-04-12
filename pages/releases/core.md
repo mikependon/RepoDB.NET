@@ -16,7 +16,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added the [PropertyMapper](/mapper/propertymapper) class.
 - Added the [PrimaryMapper](/mapper/primarymapper) class.
 - Added the [IdentityMapper](/mapper/identitymapper) class.
-- Added the [TypeMapCache](/cache/typemapcache) class.
+- Added the [TypeMapCache](/cacher/typemapcache) class.
 - Added the `Add<T>`, `Get<T>` and `Remove<T>` methods in the [TypeMapper](/mapper/typemapper) class.
 - Made the `Map` method of the [TypeMapper](/mapper/typemapper) class obsolete.
 - Made the `Unmap` method of the [TypeMapper](/mapper/typemapper) class obsolete.
