@@ -95,7 +95,7 @@ IdentityMapper.Add<Customer>(c => c.Id);
 PropertyTypeHandlerMapper.Add<Customer>(c => c.DateOfBirth, typeof(PersonDateOfBirthPropertyHandler));
 
 // PropertyHandler Mapping (Type Level) - all properties with DateTime column
-PropertyTypeHandlerCache.Get<DateTime>(typeof(DateTimePropertyHandler));
+PropertyTypeHandlerMapper.Add<DateTime>(typeof(DateTimePropertyHandler));
 
 // Type Mapping (Property Level)
 TypeMapper.Add<Customer>(c => c.DateOfBirth, DbType.DateTime2);
