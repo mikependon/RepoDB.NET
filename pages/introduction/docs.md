@@ -174,13 +174,17 @@ Below are the list of cache-objects available.
 - [PrimaryCache](/cacher/primarycache)
 - [PropertyCache](/cacher/propertycache)
 - [PropertyMappedNameCache](/cacher/propertymappednamecache)
+- [TypeMapCache](/cacher/typemapcache)
 
 #### Mappers
 
 Below are the list of mappers available.
 
+- [ClassMapper](/mapper/classmapper)
 - [DbHelperMapper](/mapper/dbhelpermapper)
 - [DbSettingMapper](/mapper/dbsettingmapper)
+- [IdentityMapper](/mapper/identitymapper)
+- [PrimaryMapper](/mapper/primarymapper)
 - [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper)
 - [StatementBuilderMapper](/mapper/statementbuildermapper)
 - [TypeMapper](/mapper/typemapper)
