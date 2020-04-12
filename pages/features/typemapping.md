@@ -8,9 +8,9 @@ tags: [repodb, class, typemapping, classmapping, orm, hybrid-orm, sqlserver, sql
 
 # Type Mapping
 
-This is the feature that would allow you to map the .NET CLR Type into its equivalent database type.
+This is the feature that would allow you to map the .NET CLR type into its equivalent database type.
 
-#### Mapping a .NET CLR Type
+#### Mapping a .NET CLR type
 
 To map a .NET CLR type, simply use the [TypeMapper](/mapper/typemapper) class.
 

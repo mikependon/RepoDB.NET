@@ -52,7 +52,7 @@ To retrieve the identity property, you can use the [IdentityCache](/cacher/ident
 var identity = IdentityCache.Get<Person>();
 ```
 
-Or via .NET CLR Type.
+Or via .NET CLR type.
 
 ```csharp
 var identity = IdentityCache.Get(typeof(Person));

@@ -15,6 +15,7 @@ A mapper class for the [IDbHelper](/interface/idbhelper)-based class. The mappin
 Below are the methods available from this class.
 
 - `Add` - adds a mapping between the [IDbHelper](/interface/idbhelper) and the type of the `DbConnection`.
+- `Clear` - clears all the mappings for the database helpers.
 - `Get` - gets the mapped [IDbHelper](/interface/idbhelper) based on the type of the `DbConnection`.
 - `Remove` - removed the mapping between the [IDbHelper](/interface/idbhelper) and the type of the `DbConnection`.
 
@@ -27,22 +28,20 @@ You should use this class if you would like to override the default mapping of t
 To add a mapping, simply call the `Add` method.
 
 ```csharp
-DbHelperMapper.Add(typeof(SqlConnection), new OptimizedSqlServerDbHelper(), true);
+DbHelperMapper.Add<SqlConnection>(new OptimizedSqlServerDbHelper(), true);
 ```
 
-> An exception will be be thrown if the mapping is already exists and you passed a `FALSE` value in the `override` argument.
+> An exception will be be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
 
 To get the mapping, use the `Get` method.
 
 ```csharp
-var helper = DbHelperMapper.Get(typeof(SqlConnection));
+var helper = DbHelperMapper.Get<SqlConnection>();
 ```
 
 To remove the mapping, use the `Remove` method.
 
 ```csharp
-var isRemoved = DbHelperMapper.Remove(typeof(SqlConnection), false);
+DbHelperMapper.Remove<SqlConnection>();
 ```
-
-> An exception will be be thrown if the mapping is not existing and you passed a `TRUE` value in the `throwException` argument.
 

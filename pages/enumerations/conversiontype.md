@@ -8,11 +8,11 @@ tags: [repodb, class, conversiontype, orm, hybrid-orm, sqlserver, sqlite, mysql,
 
 # ConversionType
 
-This enum is used to set the value of the `ConversionType` property of [TypeMapper](/mapper/typemapper) object. It defines how the conversion type is when extracting the `DbDataReader` into its equivalent .NET CLR Type.
+This enum is used to set the value of the `ConversionType` property of [TypeMapper](/mapper/typemapper) object. It defines how the conversion type is when extracting the `DbDataReader` into its equivalent .NET CLR type.
 
 #### Enum Values
 
-- `Simple (Default)` - the conversion is strict and there is no additional implied logic during the conversion of `DbDataReader` object into its destination .NET CLR Type.
+- `Simple (Default)` - the conversion is strict and there is no additional implied logic during the conversion of `DbDataReader` object into its destination .NET CLR type.
 - `Automatic` - the data type conversion is not strict. An additional logic from `System.Convert` object will be used to properly map the `DbDataReader` data type into its destination .NET CLR type. The operation will only succeed if the data types are convertible.
 
 #### Use-Cases

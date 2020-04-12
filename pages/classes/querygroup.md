@@ -59,7 +59,7 @@ var queryGroup = new QueryGroup(new [] { new QueryGroup(whereA), new QueryGroup(
 You can also create a query group by parsing any object (.NET CLR Types or Dynamic).
 
 ```csharp
-var param = new // This is a dynamic, can also be .NET CLR Type
+var param = new // This is a dynamic, can also be .NET CLR type
 {
     LastName = "Doe",
     State = "Michigan"

@@ -109,7 +109,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Type Level Handling
 
-On the other hand, you can also handle the property transformation on a type level. It is useful on a situation if you would like to handle a specific database type transformation into a .NET CLR Type (ie: converting the `DateTime` object `Kind` to `Utc`).
+On the other hand, you can also handle the property transformation on a type level. It is useful on a situation if you would like to handle a specific database type transformation into a .NET CLR type (ie: converting the `DateTime` object `Kind` to `Utc`).
 
 To enable this, you have to use the [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) class for the mappings.
 

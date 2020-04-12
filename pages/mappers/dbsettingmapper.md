@@ -15,6 +15,7 @@ A mapper class for the [IDbSetting](/interface/idbsetting)-based class. The mapp
 Below are the methods available from this class.
 
 - `Add` - adds a mapping between the [IDbSetting](/interface/idbsetting) and the type of the `DbConnection`.
+- `Clear` - clears all the mappings for the database settings.
 - `Get` - gets the mapped [IDbSetting](/interface/idbsetting) based on the type of the `DbConnection`.
 - `Remove` - removed the mapping between the [IDbSetting](/interface/idbsetting) and the type of the `DbConnection`.
 
@@ -27,22 +28,20 @@ You should use this class if you would like to override the default mapping of t
 To add a mapping, simply call the `Add` method.
 
 ```csharp
-DbSettingMapper.Add(typeof(SqlConnection), new MyCustomSqlServerDbSetting(), true);
+DbSettingMapper.Add<SqlConnection>(new MyCustomSqlServerDbSetting(), true);
 ```
 
-> An exception will be be thrown if the mapping is already exists and you passed a `FALSE` value in the `override` argument.
+> An exception will be be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
 
 To get the mapping, use the `Get` method.
 
 ```csharp
-var dbSetting = DbSettingMapper.Get(typeof(SqlConnection));
+var dbSetting = DbSettingMapper.Get<SqlConnection>();
 ```
 
 To remove the mapping, use the `Remove` method.
 
 ```csharp
-var isRemoved = DbSettingMapper.Remove(typeof(SqlConnection), false);
+DbSettingMapper.Remove<SqlConnection>();
 ```
-
-> An exception will be be thrown if the mapping is not existing and you passed a `TRUE` value in the `throwException` argument.
 

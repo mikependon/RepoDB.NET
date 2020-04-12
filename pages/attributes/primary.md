@@ -52,7 +52,7 @@ To retrieve the primary property, you can use the [PrimaryCache](/cacher/primary
 var primary = PrimaryCache.Get<Person>();
 ```
 
-Or via .NET CLR Type.
+Or via .NET CLR type.
 
 ```csharp
 var primary = PrimaryCache.Get(typeof(Person));

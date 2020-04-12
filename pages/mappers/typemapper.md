@@ -8,53 +8,65 @@ tags: [repodb, class, typemapper, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 # TypeMapper
 
-A static class that is used to map a .NET CLR Type into its equivalent database type.
-
-#### Properties
-
-Below are the properties available from this class.
-
-- `ConversionType` - is used as a conversion type when converting the instance of `DbDataReader` object into its destination .NET CLR types. The default value is [ConversionType.Default](/enumeration/conversiontype).
+A class that is used to map a .NET CLR type or class property into its equivalent database type (via `DbType` object). This class is used as an alternative to [TypeMap](/attribute/typemap) attribute.
 
 #### Methods
 
 Below are the methods available from this class.
 
-- `Map` - adds a mapping between the .NET CLR Type and database type.
-- `Get` - gets the mapped database type based on the .NET CLR Type.
-- `Unmap` - removes the mapping between the .NET CLR Type and database type.
+- `Add` - adds a mapping between the .NET CLR type and database type.
+- `Clear` - clears all the database type mappings.
+- `Get` - gets the mapped database type based on the .NET CLR type.
+- `Remove` - removes the mapping between the .NET CLR type and database type.
 
 #### Use-Cases
 
-- Use this class if you would like to override the type conversion of the library.
-- Use this class if you would like to override the ADO.NET default mapping between .NET CLR Type and database type.
+You should use this class if you do not like to use the [TypeMap](/attribute/typemap) attribute. Usually, the purpose of the usability is to make sure that the model is attribute-free and is not bound to a specific ORM.
 
-#### How to auto map the conversion?
+#### How to Use?
 
-Simply set the `ConversionType` to `Automatic`.
+Let us say you would like to map the `System.DateTime` .NET CLR type into a `DbType.DateTime2` database type.
 
-```csharp
-TypeMapper.ConversionType = ConversionType.Automatic;
-```
+###### Property Level Mapping
 
-Please visit the [ConversionType](/enumeration/conversiontype) enumeration to learn more.
-
-#### How to Map/Unmap?
-
-To add a mapping, simply call the `Map` method.
+To add a property level mapping, simply call the `Add` method and pass the target property and the value of `DbType` object.
 
 ```csharp
-TypeMapper.Map(typeof(DateTime), DbType.DateTime2);
+TypeMapper.Add<Customer>(e => e.DateOfBirth, DbType.DateTime2, true);
 ```
+
+> An exception will be be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
 
 To get the mapping, use the `Get` method.
 
 ```csharp
-var dbType = TypeMapper.Get(typeof(DateTime));
+var dbType = TypeMapper.Get<Customer>(e => e.DateOfBirth);
 ```
 
-To remove the mapping, use the `Unmap` method.
+To remove the mapping, use the `Remove` method.
 
 ```csharp
-TypeMapper.Unmap(typeof(DateTime));
+TypeMapper.Remove<Customer>(e => e.DateOfBirth);
+```
+
+###### Type Level Mapping
+
+To add a class level mapping, simply call the `Add` method and pass the target .NET CLR type and the value of `DbType` object.
+
+```csharp
+TypeMapper.Add<DateTime>(DbType.DateTime2, true);
+```
+
+> An exception will be be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
+
+To get the mapping, use the `Get` method.
+
+```csharp
+var propertyHandler = TypeMapper.Get<DateTime>();
+```
+
+To remove the mapping, use the `Remove` method.
+
+```csharp
+TypeMapper.Remove<DateTime>();
 ```

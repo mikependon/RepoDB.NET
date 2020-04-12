@@ -234,6 +234,9 @@ docs:
   - title: "Constant"
     url: "/class/constant"
 
+  - title: "Converter"
+    url: "/class/converter"
+
   - title: "DataEntityDataReader"
     url: "/class/dataentitydatareader"
 
