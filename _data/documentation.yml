@@ -393,7 +393,7 @@ docs:
 
 - key: mappers
   title: "Mappers"
-  url: "/mapper/dbhelpermapper"
+  url: "/mapper/classmapper"
   topics:
 
   - title: "ClassMapper"
