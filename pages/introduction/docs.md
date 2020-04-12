@@ -32,6 +32,7 @@ Below are the list of features available.
 - [Expression Trees](/feature/expressiontrees)
 - [Field/Class Mapping](/feature/fieldclassmapping)
 - [Hints](/feature/hints)
+- [Implicit Mapping](/feature/implicitmapping)
 - [Multiple Query](/feature/multiplequery)
 - [Property Handlers](/feature/propertyhandlers)
 - [Repositories](/feature/repositories)
