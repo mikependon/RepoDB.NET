@@ -49,6 +49,9 @@ docs:
   - title: "Caching"
     url: "/feature/caching"
 
+  - title: "Class Mapping"
+    url: "/feature/classmapping"
+
   - title: "Connection Persistency"
     url: "/feature/connectionpersistency"
 
