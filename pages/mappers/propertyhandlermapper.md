@@ -1,9 +1,9 @@
 ---
 layout: navpage
 sidebar: mappers
-title: "PropertyTypeHandlerMapper (RepoDb)"
-permalink: /mapper/propertytypehandlermapper
-tags: [repodb, class, propertytypehandlermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+title: "PropertyHandlerMapper (RepoDb)"
+permalink: /mapper/propertyhandlermapper
+tags: [repodb, class, propertyhandlermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # PropertyTypeHandlerMapper

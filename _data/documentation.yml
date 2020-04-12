@@ -4,6 +4,8 @@ docs:
 - key: introduction
   title: "RepoDb"
   url: "/preface"
+  isdoc: false
+  description: null
   topics:
 
   - title: "Preface"
@@ -18,6 +20,8 @@ docs:
 - key: getstarted
   title: "Get Started"
   url: "/tutorial/get-started-sqlserver"
+  isdoc: true
+  description: "Please click any of the link below to fast-track your learnings about this library."
   topics:
 
   - title: "SQL Server"
@@ -38,6 +42,8 @@ docs:
 - key: features
   title: "Features"
   url: "/feature/batchoperations"
+  isdoc: true
+  description: "Below are the list of features available."
   topics:
 
   - title: "Batch Operations"
@@ -91,6 +97,8 @@ docs:
 - key: operations
   title: "Operations"
   url: "/operation/average"
+  isdoc: true
+  description: "Below are the list of operations available"
   topics:
 
   - title: "Average"
@@ -195,6 +203,8 @@ docs:
 - key: classes
   title: "Classes"
   url: "/class/basedbsetting"
+  isdoc: true
+  description: "Below are the list of classes available"
   topics:
 
   - title: "BaseDbSetting"
@@ -281,6 +291,8 @@ docs:
 - key: attributes
   title: "Attributes"
   url: "/attribute/identity"
+  isdoc: true
+  description: "Below are the list of attributes available"
   topics:
 
   - title: "Identity"
@@ -316,6 +328,8 @@ docs:
 - key: enumerations
   title: "Enumerations"
   url: "/enumeration/conjunction"
+  isdoc: true
+  description: "Below are the list of enumerations available"
   topics:
 
   - title: "Conjunction"
@@ -336,6 +350,8 @@ docs:
 - key: interfaces
   title: "Interfaces"
   url: "/interface/icache"
+  isdoc: true
+  description: "Below are the list of interfaces available"
   topics:
 
   - title: "ICache"
@@ -365,6 +381,8 @@ docs:
 - key: cachers
   title: "Cachers"
   url: "/cacher/classmappednamecache"
+  isdoc: true
+  description: "Below are the list of cachers available"
   topics:
 
   - title: "ClassMappedNameCache"
@@ -391,8 +409,8 @@ docs:
   - title: "PropertyMappedNameCache"
     url: "/cacher/propertymappednamecache"
 
-  - title: "PropertyTypeHandlerCache"
-    url: "/cacher/propertytypehandlercache"
+  - title: "PropertyHandlerCache"
+    url: "/cacher/propertyhandlercache"
 
   - title: "TypeMapCache"
     url: "/cacher/typemapcache"
@@ -400,6 +418,8 @@ docs:
 - key: mappers
   title: "Mappers"
   url: "/mapper/classmapper"
+  isdoc: true
+  description: "Below are the list of mappers available"
   topics:
 
   - title: "ClassMapper"
@@ -420,8 +440,8 @@ docs:
   - title: "PropertyMapper"
     url: "/mapper/propertymapper"
     
-  - title: "PropertyTypeHandlerMapper"
-    url: "/mapper/propertytypehandlermapper"
+  - title: "PropertyHandlerMapper"
+    url: "/mapper/propertyhandlermapper"
     
   - title: "StatementBuilderMapper"
     url: "/mapper/statementbuildermapper"
@@ -432,6 +452,8 @@ docs:
 - key: extensibilities
   title: "Extensibilities"
   url: "/extensibility/averagetyperesolver"
+  isdoc: true
+  description: "Below are the list of extensibility implementations available"
   topics:
 
   - title: "Average Type Resolver"
@@ -455,6 +477,8 @@ docs:
 - key: references
   title: "References"
   url: "/reference/connectionrepository"
+  isdoc: false
+  description: null
   topics:
 
   - title: "Connection-Based Repository"
@@ -493,6 +517,8 @@ docs:
 - key: releases
   title: "Releases"
   url: "/release/core"
+  isdoc: false
+  description: null
   topics:
 
   - title: "Core"

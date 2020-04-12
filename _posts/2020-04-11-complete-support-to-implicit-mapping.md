@@ -54,10 +54,10 @@ Then following mappers were added.
 - [PropertyMapper](/mapper/propertymapper) - as an alternative to [Map](/attribute/map), it is used to map a property into its equivalent column in the database.
 - [PrimaryMapper](/mapper/primarymapper) - as an alternative to [Primary](/attribute/primary), it is used to mark a class property to be a primary.
 - [IdentityMapper](/mapper/identitymapper) - as an alternative to [Identity](/attribute/identity), it is used to mark a class property to be an identity.
-- [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) - as an alternative to [PropertyHandler](/attribute/propertyhandler), it is used to map a property handler into a class property.
+- [PropertyHandlerMapper](/mapper/propertyhandlermapper) - as an alternative to [PropertyHandler](/attribute/propertyhandler), it is used to map a property handler into a class property.
 - [TypeMapper](/mapper/typemapper) - as an alternative to [TypeMap](/attribute/typemap), it is used the map a class property and the database type in both type and property level.
 
-> The [TypeMapper](/mapper/typemapper) and [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) were already given since the early days of the library. 
+> The [TypeMapper](/mapper/typemapper) and [PropertyHandlerMapper](/mapper/propertyhandlermapper) were already given since the early days of the library. 
 
 ###### Examples:
 
@@ -92,10 +92,10 @@ PrimaryMapper.Add<Customer>(c => c.Id);
 IdentityMapper.Add<Customer>(c => c.Id);
 
 // PropertyHandler Mapping (Property Level)
-PropertyTypeHandlerMapper.Add<Customer>(c => c.DateOfBirth, typeof(PersonDateOfBirthPropertyHandler));
+PropertyHandlerMapper.Add<Customer>(c => c.DateOfBirth, typeof(PersonDateOfBirthPropertyHandler));
 
 // PropertyHandler Mapping (Type Level) - all properties with DateTime column
-PropertyTypeHandlerMapper.Add<DateTime>(typeof(DateTimePropertyHandler));
+PropertyHandlerMapper.Add<DateTime>(typeof(DateTimePropertyHandler));
 
 // Type Mapping (Property Level)
 TypeMapper.Add<Customer>(c => c.DateOfBirth, DbType.DateTime2);
@@ -112,7 +112,7 @@ Then following cachers were added to cache the mappings. It is usually used for 
 - [PropertyMappedNameCache](/cacher/propertymappednamecache) - a cacher for [PropertyMapper](/mapper/propertymapper) mapper class and [Map](/attribute/map) attribute (property level).
 - [PrimaryCache](/cacher/primarycache) - a cacher for [PrimaryMapper](/mapper/primarymapper) mapper class and [Primary](/attribute/primary) attribute.
 - [IdentityCache](/cacher/identitycache) - a cacher for [IdentityMapper](/mapper/identitymapper) mapper class and [Identity](/attribute/identity) attribute.
-- [PropertyTypeHandlerCache](/cacher/propertytypehandlercache) - a cacher for [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) mapper class and [PropertyHandler](/attribute/propertyhandler) attribute.
+- [PropertyHandlerCache](/cacher/propertyhandlercache) - a cacher for [PropertyHandlerMapper](/mapper/propertyhandlermapper) mapper class and [PropertyHandler](/attribute/propertyhandler) attribute.
 - [TypeMapCache](/cacher/typemapcache) - a cacher for [TypeMapper](/mapper/typemapper) mapper class and [TypeMap](/attribute/typemap) attribute.
 
 ###### Examples
@@ -133,10 +133,10 @@ var primary = PrimaryCache.Get<Customer>();
 var identity = IdentityCache.Get<Customer>();
 
 // PropertyHandler Mapping (Property Level)
-var propertyHandler = PropertyTypeHandlerCache.Get<Customer>(c => c.DateOfBirth);
+var propertyHandler = PropertyHandlerCache.Get<Customer>(c => c.DateOfBirth);
 
 // PropertyHandler Mapping (Type Level) - all properties with DateTime column
-var propertyHandler = PropertyTypeHandlerCache.Get<DateTime>();
+var propertyHandler = PropertyHandlerCache.Get<DateTime>();
 
 // Type Mapping (Property Level)
 var dbType = TypeMapCache.Get<Customer>(c => c.DateOfBirth);
