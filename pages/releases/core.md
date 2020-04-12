@@ -10,6 +10,15 @@ permalink: /release/core
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
 
+#### RepoDb (v1.11.0-beta1)
+
+- Added the [PropertyHandlerCache](/cacher/propertyhandlercache) class.
+- Added the methods `Add`, `Remove` and `Get` at the `PropertyTypeHandlerMapper` class to cater the property level mapping.
+- Added a class named [PropertyHandlerMapper](/mapper/propertyhandlermapper) as a replacement of [PropertyTypeHandlerMapper](/mapper/propertyhandlermapper) class.
+- Added the `ObseleteAttribute` attribute at the [PropertyTypeHandlerMapper](/mapper/propertyhandlermapper) class.
+- Rename all the mappers `Flush()` method into `Clear()`.
+
+
 #### RepoDb (v1.11.0-alpha1):
 
 - Added the [ClassMapper](/mapper/classmapper) class.

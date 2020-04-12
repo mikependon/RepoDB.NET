@@ -6,9 +6,11 @@ permalink: /mapper/propertyhandlermapper
 tags: [repodb, class, propertyhandlermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
-# PropertyTypeHandlerMapper
+# PropertyHandlerMapper
 
 A class that is used to map a property handler into a .NET CLR Type. Please see the [IPropertyHandler](/interface/ipropertyhandler) for more details about the property handling implementation.
+
+This class is a replacement of `PropertyTypeHandlerMapper` class.
 
 #### Methods
 
