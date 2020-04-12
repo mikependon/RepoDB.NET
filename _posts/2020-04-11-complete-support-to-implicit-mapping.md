@@ -10,7 +10,7 @@ Happy Easter 2020! In the middle of my development of this site ([repodb.net](ht
 
 The requests can be found [here](https://github.com/mikependon/RepoDb/issues/415).
 
-#### What is Implicit Mapping?
+#### What is an Implicit Mapping?
 
 It is feature that would allow you to map your desired attributes into your class (or class property) without even explicitly using the `Attribute`. This is to make sure that your models are attribute-free and is not bound to a specific ORM.
 
