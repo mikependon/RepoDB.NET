@@ -53,8 +53,8 @@ Then following mappers were added.
 - [ClassMapper](/mapper/typemapper) - as an alternative to [Map](/attribute/map), it is used to map a class into its equivalent database object.
 - [PropertyMapper](/mapper/propertymapper) - as an alternative to [Map](/attribute/map), it is used to map a property into its equivalent column in the database.
 - [PrimaryMapper](/mapper/primarymapper) - as an alternative to [Primary](/attribute/primary), it is used to mark a class property to be a primary.
-- [IdentityMapper](/mapper/primarymapper) - as an alternative to [Identity](/attribute/identity), it is used to mark a class property to be an identity.
-- [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) - as an alternative to [Identity](/PropertyHandler/propertyhanlder), it is used to mark a class property handler.
+- [IdentityMapper](/mapper/identitymapper) - as an alternative to [Identity](/attribute/identity), it is used to mark a class property to be an identity.
+- [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) - as an alternative to [PropertyHandler](/attribute/propertyhandler), it is used to mark a class property handler.
 - [TypeMapper](/mapper/typemapper) - as an alternative to [TypeMap](/attribute/typemap), it is used the map a class property and the database type in both type and property level.
 
 > The [TypeMapper](/mapper/typemapper) and [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) were already given since the early days of the library. 
@@ -108,12 +108,12 @@ TypeMapper.Add<DateTime>(DbType.DateTime2);
 
 Then following cachers were added to cache the mappings. It is usually used for retrieval purposes.
 
-- [ClassMappedNameCache](/cache/classmappednamecache) - a cacher for [ClassMapper](/mapper/typemapper) mapper class and [Map](/attribute/map) attribute (class level).
-- [PropertyMappedNameCache](/cache/propertymappednamecache) - a cacher for [PropertyMapper](/mapper/propertymapper) mapper class and [Map](/attribute/map) attribute (property level).
-- [PrimaryCache](/cache/primarycache) - a cacher for [PrimaryMapper](/mapper/primarymapper) mapper class and [Primary](/attribute/primary) attribute.
-- [IdentityCache](/cache/identitycache) - a cacher for [IdentityMapper](/mapper/identitymapper) mapper class and [Identity](/attribute/identity) attribute.
-- [PropertyTypeHandlerCache](/cache/propertytypehandlercache) - a cacher for [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) mapper class and [PropertyHandler](/attribute/propertyhandler) attribute.
-- [TypeMapCache](/cache/typemapcache) - a cacher for [TypeMapper](/mapper/typemapper) mapper class and [TypeMap](/attribute/typemap) attribute.
+- [ClassMappedNameCache](/cacher/classmappednamecache) - a cacher for [ClassMapper](/mapper/typemapper) mapper class and [Map](/attribute/map) attribute (class level).
+- [PropertyMappedNameCache](/cacher/propertymappednamecache) - a cacher for [PropertyMapper](/mapper/propertymapper) mapper class and [Map](/attribute/map) attribute (property level).
+- [PrimaryCache](/cacher/primarycache) - a cacher for [PrimaryMapper](/mapper/primarymapper) mapper class and [Primary](/attribute/primary) attribute.
+- [IdentityCache](/cacher/identitycache) - a cacher for [IdentityMapper](/mapper/identitymapper) mapper class and [Identity](/attribute/identity) attribute.
+- [PropertyTypeHandlerCache](/cacher/propertytypehandlercache) - a cacher for [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) mapper class and [PropertyHandler](/attribute/propertyhandler) attribute.
+- [TypeMapCache](/cacher/typemapcache) - a cacher for [TypeMapper](/mapper/typemapper) mapper class and [TypeMap](/attribute/typemap) attribute.
 
 ###### Examples
 
