@@ -54,7 +54,7 @@ Then following mappers were added.
 - [PropertyMapper](/mapper/propertymapper) - as an alternative to [Map](/attribute/map), it is used to map a property into its equivalent column in the database.
 - [PrimaryMapper](/mapper/primarymapper) - as an alternative to [Primary](/attribute/primary), it is used to mark a class property to be a primary.
 - [IdentityMapper](/mapper/identitymapper) - as an alternative to [Identity](/attribute/identity), it is used to mark a class property to be an identity.
-- [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) - as an alternative to [PropertyHandler](/attribute/propertyhandler), it is used to mark a class property handler.
+- [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) - as an alternative to [PropertyHandler](/attribute/propertyhandler), it is used to map a property handler into a class property.
 - [TypeMapper](/mapper/typemapper) - as an alternative to [TypeMap](/attribute/typemap), it is used the map a class property and the database type in both type and property level.
 
 > The [TypeMapper](/mapper/typemapper) and [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) were already given since the early days of the library. 
