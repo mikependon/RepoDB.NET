@@ -12,9 +12,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDb (v1.11.0-beta2)
 
-- Removed the return value of the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuilder).
-- Added the expression-based invocation in the `Add()`, `Get()` and `Remove()` methods of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuilder) classes.
-- Removed the `throwException` arguments in the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuilder) classes.
+- Removed the return value of the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper).
+- Added the expression-based invocation in the `Add()`, `Get()` and `Remove()` methods of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
+- Removed the `throwException` arguments in the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
 - Refactor the `Parse()` method of the `OrderField` and `Field` classes.
 - Refactor the `GetProperty()` method of the `ExpressionExtension` class to solve the problem in the mappers.
 - Added more integration tests on the implicit mappings feature.
