@@ -10,7 +10,7 @@ tags: [repodb, class, implicitmapping, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 This is the feature that would allow you to implicitly map the .NET CLR objects or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes in the classes.
 
-Below are the list of mappers that can be used for mapping.
+Below are the list of mappers that can be used.
 
 - [ClassMapper](/mapper/classmapper)
 - [IdentityMapper](/mapper/identitymapper)
@@ -18,6 +18,15 @@ Below are the list of mappers that can be used for mapping.
 - [PropertyHandlerMapper](/mapper/propertyhandlermapper)
 - [PropertyMapper](/mapper/propertymapper)
 - [TypeMapper](/mapper/typemapper)
+
+Below are the list of cachers that can be used.
+
+- [ClassMappedNameCache](/cacher/classmappednamecache)
+- [IdentityCache](/cacher/identitycache)
+- [PrimaryCache](/cacher/primarycache)
+- [PropertyHandlerCache](/cacher/propertyhandlercache)
+- [PropertyMappedNameCache](/cacher/propertymappednamecache)
+- [TypeMapCache](/cacher/typemapcache)
 
 #### Class Name Mapping
 
