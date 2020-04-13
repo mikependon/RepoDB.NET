@@ -10,6 +10,16 @@ permalink: /release/core
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
 
+#### RepoDb (v1.11.0-beta2)
+
+- Removed the return value of the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuilder).
+- Added the expression-based invocation in the `Add()`, `Get()` and `Remove()` methods of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuilder) classes.
+- Removed the `throwException` arguments in the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuilder) classes.
+- Refactor the `Parse()` method of the `OrderField` and `Field` classes.
+- Refactor the `GetProperty()` method of the `ExpressionExtension` class to solve the problem in the mappers.
+- Added more integration tests on the implicit mappings feature.
+
+
 #### RepoDb (v1.11.0-beta1)
 
 - Added the [PropertyHandlerCache](/cacher/propertyhandlercache) class.
