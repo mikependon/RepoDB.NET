@@ -33,7 +33,7 @@ ClassMapper.Add<Customer>(c => c.LastName, "[LName]", true);
 ClassMapper.Add<Customer>(c => c.DateOfBirth, "[DOB]", true);
 ```
 
-> An exception will be be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
+> An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
 
 To get the mapping, use the `Get` method.
 

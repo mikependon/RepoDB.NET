@@ -34,7 +34,7 @@ public class PersonAgePropertyHandler : IPropertyHandler<int?, string>
 Use the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) package if you are using JSON conversion.
 
 ```csharp
-public class PersonAddressPropertyHandler : IPropertyHandler<string, string>
+public class PersonAddressPropertyHandler : IPropertyHandler<string, Address>
 {
     public Address Get(string input, ClassProperty property)
     {
