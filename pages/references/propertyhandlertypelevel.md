@@ -53,11 +53,11 @@ public class GuidToStringPropertyHandler : IPropertyHandler<Guid?, string>
 
 #### Property Mapping
 
-Use the [PropertyTypeHandlerMapper](/mapper/propertytypehandlermapper) class to map the property handler into the class property with specific type.
+Use the [PropertyHandlerMapper](/mapper/propertytypehandlermapper) class to map the property handler into the class property with specific type.
 
 ```csharp
-PropertyTypeHandlerMapper.Add(typeof(DateTime), new DateTimeKindToUtcPropertyHandler());
-PropertyTypeHandlerMapper.Add(typeof(Guid), new GuidToStringPropertyHandler());
+PropertyHandlerMapper.Add(typeof(DateTime), new DateTimeKindToUtcPropertyHandler());
+PropertyHandlerMapper.Add(typeof(Guid), new GuidToStringPropertyHandler());
 ```
 
 #### Key Take-aways

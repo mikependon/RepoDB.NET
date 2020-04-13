@@ -8,7 +8,7 @@ tags: [repodb, class, primarycache, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 
 # PrimaryCache
 
-A cacher class for the class primary property. It provides a 2nd-layer caching for the library when it comes to the class primary property extraction. As a result, the library is fast-enough when reusing the already extracted class primary property on any execution.
+A cacher class for the class primary property. Underneath, it uses the [PrimaryMapper](/mapper/primarymapper) class to extract the results and caching it for future use. It provides a 2nd-layer caching for the library when it comes to the class primary property extraction. As a result, the library is fast-enough when reusing the already extracted class primary property on any execution.
 
 > Internally, this class is widely used within the library.
 
@@ -39,4 +39,4 @@ var primary = PrimaryCache.Get<Person>();
 // Use the 'primary' here
 ```
 
-> Internally, it uses the [PropertyCache](/cacher/propertycache) class to extract the list of [ClassProperty](/class/classproperty) and filter the result using the given [IsPrimary()](/class/classproperty#isprimary) method.
+> Internally, it uses the [PrimaryMapper](/mapper/primarymapper) and [PropertyCache](/cacher/propertycache) classes to extract the list of [ClassProperty](/class/classproperty) and filter the result using the given [IsPrimary()](/class/classproperty#isprimary) method.

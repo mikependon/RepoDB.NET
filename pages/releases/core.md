@@ -13,9 +13,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 #### RepoDb (v1.11.0-beta1)
 
 - Added the [PropertyHandlerCache](/cacher/propertyhandlercache) class.
-- Added the methods `Add`, `Remove` and `Get` at the `PropertyTypeHandlerMapper` class to cater the property level mapping.
-- Added a class named [PropertyHandlerMapper](/mapper/propertyhandlermapper) as a replacement of [PropertyTypeHandlerMapper](/mapper/propertyhandlermapper) class.
-- Added the `ObseleteAttribute` attribute at the [PropertyTypeHandlerMapper](/mapper/propertyhandlermapper) class.
+- Added the methods `Add`, `Remove` and `Get` at the `PropertyHandlerMapper` class to cater the property level mapping.
+- Added a class named [PropertyHandlerMapper](/mapper/propertyhandlermapper) as a replacement of [PropertyHandlerMapper](/mapper/propertyhandlermapper) class.
+- Added the `ObseleteAttribute` attribute at the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class.
 - Rename all the mappers `Flush()` method into `Clear()`.
 
 
@@ -85,7 +85,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: XML Documentation updates for the SQL statement Builders.
 - Enhancement: Add a `Type` extended method named `IsNullable`.
 - Bug: Solve the intermittent `NullReferenceException` when calling the Batch Operations (ie: [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall)). [#392](https://github.com/mikependon/RepoDb/issues/392)
-- Bug: The property handlers mapped via `PropertyTypeHandlerMapper` is failing if both `NULLABLE` and `NON-NULLABLE` property types are present in the class. [#394](https://github.com/mikependon/RepoDb/issues/394)
+- Bug: The property handlers mapped via `PropertyHandlerMapper` is failing if both `NULLABLE` and `NON-NULLABLE` property types are present in the class. [#394](https://github.com/mikependon/RepoDb/issues/394)
 
 
 #### RepoDb (v1.10.10-beta1)

@@ -39,4 +39,4 @@ var properties = PropertyCache.Get<Person>();
 // Use the 'properties' here
 ```
 
-> Internally, it uses the [ClassExpression](/class/classexpression) class to extract and cache the list of [ClassProperty](/class/classproperty) objects.
+> Internally, it uses the [PropertyMapper](/mapper/propertymapper) and [ClassExpression](/class/classexpression) classes to extract and cache the list of [ClassProperty](/class/classproperty) objects.

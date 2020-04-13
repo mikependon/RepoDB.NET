@@ -43,6 +43,6 @@ public class GuidToStringPropertyHandler : IPropertyHandler<Guid?, string>
 ##### Mappings
 
 ```csharp
-PropertyTypeHandlerMapper.Add(typeof(DateTime), new DateTimeKindToUtcPropertyHandler());
-PropertyTypeHandlerMapper.Add(typeof(Guid), new GuidToStringPropertyHandler());
+PropertyHandlerMapper.Add(typeof(DateTime), new DateTimeKindToUtcPropertyHandler());
+PropertyHandlerMapper.Add(typeof(Guid), new GuidToStringPropertyHandler());
 ```

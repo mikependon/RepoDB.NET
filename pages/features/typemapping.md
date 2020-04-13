@@ -90,13 +90,3 @@ public class Person
 	public DateTime DateInsertedUtc { get; set; }
 }
 ```
-
-#### Automatic Type Conversion
-
-The class [TypeMapper](/class/typemapper) consists of property `ConversionType` which allows you to enable the automatic type conversion.
-
-```csharp
-TypeMapper.ConversionType = ConversionType.Automatic;
-```
-
-Please visit the [ConversionType](/enumeration/conversiontype) enumeration for more details.

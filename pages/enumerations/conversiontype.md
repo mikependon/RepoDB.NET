@@ -12,7 +12,7 @@ This enum is used to set the value of the `ConversionType` property of [TypeMapp
 
 #### Enum Values
 
-- `Simple (Default)` - the conversion is strict and there is no additional implied logic during the conversion of `DbDataReader` object into its destination .NET CLR type.
+- `Default` - the conversion is strict and there is no additional implied logic during the conversion of the `DbDataReader` object into its destination .NET CLR type.
 - `Automatic` - the data type conversion is not strict. An additional logic from `System.Convert` object will be used to properly map the `DbDataReader` data type into its destination .NET CLR type. The operation will only succeed if the data types are convertible.
 
 #### Use-Cases
