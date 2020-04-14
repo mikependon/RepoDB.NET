@@ -10,6 +10,13 @@ permalink: /release/core
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
 
+#### RepoDb (v1.11.0-beta3)
+
+- Issue in the [PrimaryMapper](/mapper/primarymapper) and [IdentityMapper](/mapper/identitymapper) for the interface property collision reported by the user in RepoDb v1.11.0-beta2.
+- Removed the exposure of the `PropertyInfo` and [ClassProperty](/class/classproperty) in [PropertyHandlerCache](/cacher/propertyhandlercache), [TypeMapCache](/cacher/typemapcache), [PropertyHandlerMapper](/mapper/propertyhandlermapper) and [TypeMapper](/class/typemapper) classes.
+- Removed the `Add`, `Get`, `Remove` methods of the [PropertyMapper](/mapper/propertymapper) with both `PropertyInfo` and [ClassProperty](/class/classproperty) arguments.
+
+
 #### RepoDb (v1.11.0-beta2)
 
 - Removed the return value of the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper).
