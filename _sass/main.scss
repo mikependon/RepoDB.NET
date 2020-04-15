@@ -8,71 +8,15 @@ body {
 h1, h2, h3, h4, h5, h6 {
     -webkit-font-smoothing: antialiased;
 }
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-	font-size: inherit;
-}
-.shadow-demo {
-    background-color: #26a69a;
-    width: 100px;
-    height: 100px;
-    margin: 20px auto;
-}
-h1.page-title {
-    font-weight: 500;
-    font-size: 2.3em;
-    text-align: center;
-    color: #29b6f6;
-}
-.col.grid-example {
-    border: 1px solid #eee;
-    margin: 7px 0;
-    text-align: center;
-    line-height: 50px;
-    font-size: 28px;
-    background-color: tomato;
-    color: white;
-    padding: 0;
-}
-.collection .collection-item.avatar {
-    padding-right: 30px;
-}
-.last-post {
-    padding: 10px 0 15px;
-}
-.last-post .collection .collection-item.avatar>.date-post {
-    position: absolute;
-    width: 54px;
-    height: 54px;
-    overflow: hidden;
-    left: 10px;
-    display: inline-block;
-    padding: 16px 0;
-    vertical-align: middle;
-    background: #ad1457;
-    color: #fff;
-    text-align: center;
-}
-.txt-center {
-    text-align: center;
-}
-.post-header {
-    border-bottom: 2px solid #D7D7D7;
-}
-.post-header .post-title {
-    border: 0px;
-    color: #29b6f6;
-    margin: 0px;
-    padding: 0px;
-}
-p.rss-subscribe {
-    margin: 0;
-}
 
 /* Customized by Michael Camara Pendon */
 
+.inline-block {
+    display: inline-block;
+}
+.block {
+    display: block;
+}
 .capitalize {
     text-transform: capitalize;
 }
@@ -85,7 +29,7 @@ p.rss-subscribe {
 .lighter {
     font-weight: lighter;
 }
-.circled-large {
+.circle-large {
     border-radius: 50px;
 }
 
@@ -108,38 +52,6 @@ nav.header {
     .brand-logo img {
         height: 46px;
     }
-}
-
-/*
- * Home
- */
-.banner-section {
-    background-color: #2DAAA6;
-    /*background-color: #FAFAFA;
-    background-image: url('/assets/backgrounds/banner.png');
-    border-bottom: 1px solid #E7E7E7;*/
-}
-.icon-section {
-    border-bottom: 1px solid #D7D7D7;
-}
-.main-section .title {
-    color: #FFFFFF; // rgb(82, 82, 82);
-    font-size: 500%;
-    font-weight: lighter;
-    margin-bottom: 10px;
-    /*text-shadow: 1px 1px 3px rgb(190, 190, 190);*/
-    text-shadow: 0px -1px rgb(20, 116, 112);
-}
-.main-section .description {
-    color: #FFFFFF;
-    font-size: 150%;
-    font-weight: lighter;
-}
-.main-section .button {
-    text-shadow: -0px -1px rgb(221, 149, 16);
-}
-.detail-section {
-    padding-bottom: 50px;
 }
 
 /*
@@ -188,6 +100,73 @@ nav.header {
 .page-footer .footer-contents a:hover {
     text-decoration: underline;
 }
+
+/*
+ * Home
+ */
+
+ /* Banner */
+
+.banner-section {
+    background-color: #2DAAA6;
+    /*background-color: #FAFAFA;
+    background-image: url('/assets/backgrounds/banner.png');
+    border-bottom: 1px solid #E7E7E7;*/
+    padding: 40px 0px;
+}
+.banner-section .title {
+    color: #FFFFFF;
+    font-size: 500%;
+    font-weight: lighter;
+    text-shadow: 0px -1px rgb(20, 116, 112);
+    margin: 0px;
+    padding: 0px;
+}
+.banner-section .description {
+    color: #FFFFFF;
+    font-size: 150%;
+    font-weight: lighter;
+}
+.banner-section .button {
+    text-shadow: -0px -1px rgb(221, 149, 16);
+}
+
+/* Icons */
+
+.icons-section {
+    border-bottom: 1px solid #D7D7D7;
+}
+.icons-section .icon-block {
+    padding: 0 15px;
+}
+.icons-section .icon-block .material-icons {
+      font-size: inherit;
+  }
+
+/* Codes */
+
+.codes-section .title {
+    margin: 0px;
+    padding: 0px;
+}
+
+.codes-section .highlighter-rouge {
+    font-size: 90%;
+}
+
+.codes-section .highlighter-rouge .highlight {
+    background: #F7F7F7;
+    border: 0px;
+    border-radius: 4px;
+}
+
+.codes-section .code-title {
+    border-bottom: 1px dotted #E7E7E7;
+    display: block;
+    font-weight: lighter;
+    padding-bottom: 10px;
+}
+
 
 /*
  * Post/Page

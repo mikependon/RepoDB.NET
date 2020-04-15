@@ -1,0 +1,16 @@
+<h5 class="center code-title">Trace</h5>
+
+**Audit**, **debug** and **control** the current execution context prior to the actual operation execution via **tracers**. [Learn more](#)
+
+```csharp
+public class CustomTrace : ITrace
+{
+    ...
+}
+
+using (var connection = new SqlConnection(connectionString))
+{
+    connection.Query<Customer>(c => c.CustomerId == 10045,
+        trace: new CustomTrace());
+}
+```

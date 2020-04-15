@@ -1,0 +1,56 @@
+<div class="codes-container">
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+                <h3 class="center uppercase">What you will learn today?</h3>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative codes/connection.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative codes/transaction.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative codes/hints.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative codes/cache.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative codes/trace.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative codes/repository.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>  
