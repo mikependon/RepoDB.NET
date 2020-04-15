@@ -3,7 +3,7 @@
         <div class="section">
 
             <div class="row">
-                <h3 class="center uppercase">What you will learn</h3>
+                <h3 class="center uppercase title">What you will learn</h3>
             </div>
 
             <div class="row">
@@ -46,6 +46,25 @@
                 <div class="col s12 m6">
                     <div class="code-block">
                         {% capture var %}{% include_relative codes/repository.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <h3 class="center uppercase title">Entity Mappings</h3>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative codes/explicitmappings.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative codes/implicitmappings.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
