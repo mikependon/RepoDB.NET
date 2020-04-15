@@ -145,28 +145,26 @@ nav.header {
 
 /* Codes */
 
+.codes-section {
+    font-weight: lighter;
+}
 .codes-section .title {
     margin: 0px;
     padding: 0px;
 }
-
 .codes-section .highlighter-rouge {
     font-size: 90%;
 }
-
 .codes-section .highlighter-rouge .highlight {
     background: #F7F7F7;
     border: 0px;
     border-radius: 4px;
 }
-
 .codes-section .code-title {
     border-bottom: 1px dotted #E7E7E7;
     display: block;
-    font-weight: lighter;
     padding-bottom: 10px;
 }
-
 
 /*
  * Post/Page
