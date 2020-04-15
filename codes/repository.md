@@ -12,6 +12,6 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 
 using (var repository = new PersonRepository(connectionString))
 {
-    connection.Insert(person);
+    repository.Insert(person);
 }
 ```
