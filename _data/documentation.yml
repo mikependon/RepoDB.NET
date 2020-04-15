@@ -61,6 +61,9 @@ docs:
   - title: "Connection Persistency"
     url: "/feature/connectionpersistency"
 
+  - title: "Dynamics"
+    url: "/feature/dynamics"
+
   - title: "Enumeration"
     url: "/feature/enumeration"
 

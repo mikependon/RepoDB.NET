@@ -134,9 +134,8 @@ nav.header {
 /* Icons */
 
 .icons-section {
+    background: #FAFAFA;
     border-bottom: 1px solid #D7D7D7;
-    box-shadow: 1px 1px 5px #E7E7E7;
-    margin-bottom: 20px;
 }
 .icons-section .icon-block {
     padding: 0 15px;
@@ -153,9 +152,7 @@ nav.header {
 .codes-section .title {
     background: #F4F4F4;
     border-radius: 4px;
-    font-size: 200%;
     font-weight: bolder;
-    margin: 0px;
     padding: 20px;
     text-shadow: 0px 1px #FFFFFF;
 }
