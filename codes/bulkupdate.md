@@ -1,6 +1,6 @@
 <h5 class="center code-title">Bulk Update</h5>
 
-Process all the changes at once bulk update. [Learn more](/operation/bulkupdate)
+Process all the changes at once using bulk update. [Learn more](/operation/bulkupdate)
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

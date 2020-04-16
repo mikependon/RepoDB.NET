@@ -29,6 +29,7 @@ campaign_slogan: >-
   It is your best alternative to both Dapper and Entity Framework.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.repodb.net" # the base hostname & protocol for your site, e.g. http://example.com
+disqus_username: mikependon
 twitter_username: mikependon
 github_username: mikependon
 email_address: michael.c.pendon@outlook.com

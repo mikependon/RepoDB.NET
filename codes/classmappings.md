@@ -1,6 +1,6 @@
-<h5 class="center code-title">Explicit Mapping</h5>
+<h5 class="center code-title">Class Mapping</h5>
 
-Create a much more descriptive class and properties by maximing the object mapping capability. [Learn more](/feature/classmapping)
+Organize the names of your entity models by placing the correct mappings towards your database objects. [Learn more](/feature/classmapping)
 
 ```csharp
 [Map("[sales].[Customer]")]

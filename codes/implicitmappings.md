@@ -1,6 +1,6 @@
 <h5 class="center code-title">Implicit Mapping</h5>
 
-Make your models free from attributes by leveraging the implicit mapping functionality. [Learn more](/feature/implicitmapping)
+Make your entity models free from any attribute by leveraging the implicit mapping functionality. [Learn more](/feature/implicitmapping)
 
 ```csharp
 public class Customer

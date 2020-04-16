@@ -1,6 +1,6 @@
 <h5 class="center code-title">Property Handler</h5>
 
-Customize the column transformations in and out from your database via property handlers. [Learn more](/feature/propertyhandlers)
+Customize the column transformations in/out from your database with property handlers. [Learn more](/feature/propertyhandlers)
 
 ```csharp
 public class Customer
