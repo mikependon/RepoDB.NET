@@ -1,6 +1,6 @@
 <h5 class="center code-title">Bulk Delete</h5>
 
-Identity the records to be removed in the application and delete it all a very speedy manner via bulk delete. [Learn more](/operation/bulkdelete)
+Identify the records to be removed in the application and delete it all a very speedy manner via bulk delete. [Learn more](/operation/bulkdelete)
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
