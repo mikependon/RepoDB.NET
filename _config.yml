@@ -26,7 +26,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 extended_description: >- # this means to ignore newlines until "baseurl:"
   An easy-to-use, high-performant and efficient hybrid ORM library for .NET.
 campaign_slogan: >-
-  It is your best alternative to both Dapper and Entity Framework.
+  It is your best alternative ORM to both Dapper and Entity Framework.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.repodb.net" # the base hostname & protocol for your site, e.g. http://example.com
 disqus_username: mikependon
