@@ -115,7 +115,8 @@ nav.header {
 }
 .banner-section .title {
     color: #FFFFFF;
-    font-size: 500%;
+    font-size: 600%;
+    font-weight: lighter;
     text-shadow: 0px -1px rgb(20, 116, 112);
     margin: 0px;
     padding: 0px;
@@ -247,6 +248,21 @@ nav.header {
 .post ul li, .page ul li {
     list-style-type: inherit;
     margin-left: 20px;
+}
+.post .post-header {
+    border-bottom: 2px solid #E7E7E7;
+}
+.post .post-title
+{
+    border-bottom: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+.post .post-meta {
+    color: #777;
+    font-weight: lighter;
+    margin: 10px 0px;
+    padding: 0px;
 }
 
 /*
