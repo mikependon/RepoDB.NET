@@ -3,7 +3,7 @@
 Organize your class lookups via enumerations. [Learn more](/feature/enumeration)
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = CreateDbConnection(connectionString))
 {
     connection.QueryAll<Customer>(e => e.Gender == Gender.Male);
 }
