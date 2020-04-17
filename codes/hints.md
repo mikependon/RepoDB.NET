@@ -3,7 +3,7 @@
 Optimize your query execution by maximizing and leveraging the power of table optimizers. [Learn more](/feature/hints)
 
 ```csharp
-using (var connection = CreateDbConnection(connectionString))
+using (var connection = new SqlConnection(connectionString))
 {
     connection.Query<Customer>(c => c.Id == 10045,
         hints: SqlServerTableHints.NoLock);
