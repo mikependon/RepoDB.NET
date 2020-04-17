@@ -22,6 +22,7 @@ This site is powered by [Jekyll](https://github.com/jekyll/jekyll) and is hosted
 
 This site has different pages that describe the organization of the contents.
 
+- [Home](/) - informative front page about the purpose of this library.
 - [Docs](/docs) - where all the links were consolidated to simplify your navigation within the site.
 - [References](/reference/connectionrepository) - our recommended way of implementing the things.
 - [Releases](/release/core) - for us to showcase the changes and improvements in all packages.
@@ -54,4 +55,13 @@ Various pages were provided and has been grouped on its purpose.
 
 #### Community
 
-This site is open for contribution from the community. If you have something place on this site, please do contact us directly or direct send a PR on our [repository](https://github.com/mikependon/RepoDb.NET).
+This site is open for contribution from the community. If you have something would like to place on this site, please do a PR on our [repository](https://github.com/mikependon/RepoDb.NET).
+
+###### Official Channels
+
+- [GitHub](https://github.com/mikependon/RepoDb/issues) - for any issues, requests and problems.
+- [StackOverflow](https://stackoverflow.com/questions/tagged/repodb) - for any technical questions.
+- [Twitter](https://twitter.com/search?q=%23repodb) - for the latest news.
+- [Gitter Chat](https://gitter.im/RepoDb/community) - for direct and live Q&A.
+
+You can directly send an email at my personal email address by clicking [here](mailto::michael.c.pendon@outlook.com).
