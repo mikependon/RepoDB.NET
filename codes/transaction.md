@@ -3,7 +3,7 @@
 Make the execution more ACID by placing the execution context into a transaction object. [Learn more](/feature/transaction)
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = CreateDbConnection(connectionString))
 {
     using (var transaction = connection.BeginTransaction())
     {
