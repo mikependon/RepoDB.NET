@@ -32,10 +32,10 @@ This site has different pages that describe the organization of the contents.
 
 Each supported RDBMS data providers has its own get-started page.
 
-- [Get-Started for SQL Server](tutorial/get-started-sqlserver)
-- [Get-Started for SQLite](/tutorial/get-started-sqlite)
-- [Get-Started for MySQL](/tutorial/get-started-mysql)
-- [Get-Started for PostgreSQL](/tutorial/get-started-postgresql)
+- [SQL Server](tutorial/get-started-sqlserver)
+- [SQLite](/tutorial/get-started-sqlite)
+- [MySQL](/tutorial/get-started-mysql)
+- [PostgreSQL](/tutorial/get-started-postgresql)
 - [Installation](/tutorial/installation)
 
 #### Site Contents
@@ -52,31 +52,6 @@ Various pages were provided and has been grouped on its purpose.
 - [Mappers](/mapper/classmapper) - it contains the pages that describe all mapper classes of the library.
 - [Extensibilities](/extensibility/averagetyperesolver) - it contains the pages that describe the extensibilities of the library.
 
-> Most pages has a use-case section that describe which case this page is addressing.
+#### Community
 
-#### Project Repositories
-
-The projects are hosted in Github. Each package is separated in a different folder within the same repositories.
-
-- [Core](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core) - 
-- [SQL Server](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer)
-- [SQL Server (Bulk)](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Extensions/RepoDb.SqlServer.BulkOperations)
-- [SQLite](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqLite)
-- [MySQL](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql)
-- [PostgreSQL](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql)
-
-#### Unit Tests
-
-The library has a massive Unit and Integration Test suites. There were more than 8K test scenarios written.
-
-- [Core Unit Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core/RepoDb.Tests/RepoDb.UnitTests)
-- [Core Integration Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core/RepoDb.Tests/RepoDb.IntegrationTests)
-- [SqlServer Unit Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer/RepoDb.SqlServer.UnitTests)
-- [SqlServer Integration Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer/RepoDb.SqlServer.IntegrationTests)
-- [SqLite Unit Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqLite/RepoDb.SqLite.UnitTests)
-- [SqLite Integration Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqLite/RepoDb.SqLite.IntegrationTests)
-- [MySql Unit Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql/RepoDb.MySql.UnitTests)
-- [MySql Integration Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql/RepoDb.MySql.IntegrationTests)
-- [PostgreSql Unit Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql/RepoDb.PostgreSql.UnitTests)
-- [PostgreSql Integration Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql/RepoDb.PostgreSql.IntegrationTests)
-- [RepoDb.SqlServer.BulkOperations Integration Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Extensions/RepoDb.SqlServer.BulkOperations/RepoDb.SqlServer.BulkOperations.IntegrationTests)
+This site is open for contribution from the community. If you have something place on this site, please do contact us directly or direct send a PR on our [repository](https://github.com/mikependon/RepoDb.NET).
