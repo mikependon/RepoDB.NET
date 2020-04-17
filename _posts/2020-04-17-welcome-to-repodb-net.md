@@ -32,7 +32,7 @@ This site has different pages that describe the organization of the contents.
 
 Each supported RDBMS data providers has its own get-started page.
 
-- [SQL Server](tutorial/get-started-sqlserver)
+- [SQL Server](/tutorial/get-started-sqlserver)
 - [SQLite](/tutorial/get-started-sqlite)
 - [MySQL](/tutorial/get-started-mysql)
 - [PostgreSQL](/tutorial/get-started-postgresql)
