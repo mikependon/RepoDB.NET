@@ -3,7 +3,7 @@
 Make a targetted operations by directly working with dynamics. [Learn more](/feature/dynamics)
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = CreateDbConnection(connectionString))
 {
     var entity = new
     {
