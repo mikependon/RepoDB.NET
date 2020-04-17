@@ -3,7 +3,7 @@
 Avoid the frequent roundtrips in your database by placing the shared datasets into a cache object. [Learn more](/feature/caching)
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = CreateDbConnection(connectionString))
 {
     connection.QueryAll<Product>(cacheKey: "AllProducts");
 }
