@@ -72,7 +72,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-> The default value of the batchSize is `30`. The value can be seen at [Constant.DefaultBatchOperationSize](/class/constant).
+> The default value of the batchSize is `10`. The value can be seen at [Constant.DefaultBatchOperationSize](/class/constant).
 
 The library will then create the packed-statements that is executable in one-go. In the case above, the library will create the following SQL statements that is batched by 100.
 
@@ -102,7 +102,7 @@ The properties of your class (or model) is being extracted and is cached in the 
 
 ###### Caching the SQL statement
 
-The SQL statements are being generated and cached automatically by the library. The generated SQL statement is a multiple packed-statements that varies on the number of batches you passed in the batchSize argument. Let us say, you passed `30`, then the number of packed-statements are `30`.
+The SQL statements are being generated and cached automatically by the library. The generated SQL statement is a multiple packed-statements that varies on the number of batches you passed in the batchSize argument. Let us say, you passed `10`, then the number of packed-statements are `10`.
 
 ###### Caching the execution context
 

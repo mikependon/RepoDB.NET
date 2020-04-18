@@ -118,7 +118,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Batch Size
 
-You can adjust the size of your batch by simply passing the value at the `batchSize` argument. By default, the value is `30` (found at `Constant.DefaultBatchOperationSize`).
+You can adjust the size of your batch by simply passing the value at the `batchSize` argument. By default, the value is `10` (found at `Constant.DefaultBatchOperationSize`).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
