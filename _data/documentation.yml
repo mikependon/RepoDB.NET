@@ -267,9 +267,6 @@ docs:
   - title: "Parameter"
     url: "/class/parameter"
 
-  - title: "PrimaryCache"
-    url: "/class/primarycache"
-
   - title: "PropertyValue"
     url: "/class/propertyvalue"
 
