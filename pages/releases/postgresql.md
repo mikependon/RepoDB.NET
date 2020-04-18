@@ -10,6 +10,12 @@ permalink: /release/postgresql
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql) to download it.
 
 
+#### RepoDb.PostgreSql (v1.0.7-beta1)
+
+- Bug: (Direct Reports) Fixed the issue at DeleteAll() via primary keys if the items is beyond 2100.
+- Performance: Reverted the value of Constant.DefaultBatchOperationSize into 10.
+
+
 #### RepoDb.PostgreSql (v1.0.6)
 
 - Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](http://repodb.net/release/core#repodb-v11011)).
