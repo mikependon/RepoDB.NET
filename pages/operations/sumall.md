@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: operations
-title: "SumAll (RepoDb)"
+title: "SumAll"
 permalink: /operation/sumall
 tags: [repodb, tutorial, sumall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

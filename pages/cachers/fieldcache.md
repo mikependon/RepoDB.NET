@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: cachers
-title: "FieldCache (RepoDb)"
+title: "FieldCache"
 permalink: /cacher/fieldcache
 tags: [repodb, class, fieldcache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: mappers
-title: "DbHelperMapper (RepoDb)"
+title: "DbHelperMapper"
 permalink: /mapper/dbhelpermapper
 tags: [repodb, class, dbhelpermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "DbField (RepoDb)"
+title: "DbField"
 permalink: /class/dbfield
 tags: [repodb, class, dbfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

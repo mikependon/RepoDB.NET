@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: releases
-title: Releases for SQL Server Bulk (RepoDb)
+title: Releases for SQL Server Bulk
 permalink: /release/sqlserverbulk
 ---
 

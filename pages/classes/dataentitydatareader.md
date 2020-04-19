@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "DataEntityDataReader (RepoDb)"
+title: "DataEntityDataReader"
 permalink: /class/dataentitydatareader
 tags: [repodb, class, dataentitydatareader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

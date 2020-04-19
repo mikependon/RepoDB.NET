@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: operations
-title: "Count (RepoDb)"
+title: "Count"
 permalink: /operation/count
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

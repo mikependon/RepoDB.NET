@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: enumerations
-title: "ConversionType (RepoDb)"
+title: "ConversionType"
 permalink: /enumeration/conversiontype
 tags: [repodb, class, conversiontype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

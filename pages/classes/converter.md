@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "Converter (RepoDb)"
+title: "Converter"
 permalink: /class/converter
 tags: [repodb, class, converter, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

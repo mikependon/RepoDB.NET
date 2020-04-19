@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: interfaces
-title: "IResolver (RepoDb)"
+title: "IResolver"
 permalink: /interface/iresolver
 tags: [repodb, class, iresolver, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

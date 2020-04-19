@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "MemoryCache (RepoDb)"
+title: "MemoryCache"
 permalink: /class/memorycache
 tags: [repodb, class, memorycache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

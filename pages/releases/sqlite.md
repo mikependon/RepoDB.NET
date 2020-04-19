@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: releases
-title: Releases for SQLite (RepoDb)
+title: Releases for SQLite
 permalink: /release/sqlite
 ---
 

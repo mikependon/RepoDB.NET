@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: features
-title: "Expression Trees (RepoDb)"
+title: "Expression Trees"
 permalink: /feature/expressiontrees
 tags: [repodb, class, expressiontrees, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

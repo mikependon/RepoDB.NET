@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: operations
-title: "Sum (RepoDb)"
+title: "Sum"
 permalink: /operation/sum
 tags: [repodb, tutorial, sum, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

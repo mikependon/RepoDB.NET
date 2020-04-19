@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: references
-title: "JSON Cache (RepoDb)"
+title: "JSON Cache"
 permalink: /reference/jsoncache
 tags: [repodb, class, jsoncache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

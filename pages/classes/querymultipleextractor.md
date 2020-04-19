@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "QueryMultipleExtractor (RepoDb)"
+title: "QueryMultipleExtractor"
 permalink: /class/querymultipleextractor
 tags: [repodb, class, querymultipleextractor, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

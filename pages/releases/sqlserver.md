@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: releases
-title: Releases for SQL Server (RepoDb)
+title: Releases for SQL Server
 permalink: /release/sqlserver
 ---
 

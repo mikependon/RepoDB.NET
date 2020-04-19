@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: cachers
-title: "PropertyMappedNameCache (RepoDb)"
+title: "PropertyMappedNameCache"
 permalink: /cacher/propertymappednamecache
 tags: [repodb, class, propertymappednamecache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

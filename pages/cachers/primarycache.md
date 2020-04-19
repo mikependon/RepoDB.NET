@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: cachers
-title: "PrimaryCache (RepoDb)"
+title: "PrimaryCache"
 permalink: /cacher/primarycache
 tags: [repodb, class, primarycache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

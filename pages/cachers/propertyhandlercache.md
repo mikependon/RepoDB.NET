@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: cachers
-title: "PropertyHandlerCache (RepoDb)"
+title: "PropertyHandlerCache"
 permalink: /cacher/propertyhandlercache
 tags: [repodb, class, propertyhandlercache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

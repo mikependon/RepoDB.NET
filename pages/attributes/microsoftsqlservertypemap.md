@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "MicrosoftSqlServerTypeMap (RepoDb)"
+title: "MicrosoftSqlServerTypeMap"
 permalink: /attribute/microsoftsqlservertypemap
 tags: [repodb, class, microsoftsqlservertypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: features
-title: "Dynamics (RepoDb)"
+title: "Dynamics"
 permalink: /feature/dynamics
 tags: [repodb, class, dynamics, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Property Handler for Properties Reference Output (RepoDb)"
+title: "Property Handler for Properties Reference Output"
 permalink: /reference/output/propertyhandlerpropertylevel
 tags: [repodb, class, propertyhandlerpropertylevel, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

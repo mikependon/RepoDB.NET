@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "MySqlTypeMap (RepoDb)"
+title: "MySqlTypeMap"
 permalink: /attribute/mysqltypemap
 tags: [repodb, class, mysqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

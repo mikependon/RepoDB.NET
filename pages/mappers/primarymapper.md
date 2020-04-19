@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: mappers
-title: "PrimaryMapper (RepoDb)"
+title: "PrimaryMapper"
 permalink: /mapper/primarymapper
 tags: [repodb, class, primarymapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "SystemSqlServerTypeMap (RepoDb)"
+title: "SystemSqlServerTypeMap"
 permalink: /attribute/systemsqlservertypemap
 tags: [repodb, class, systemsqlservertypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

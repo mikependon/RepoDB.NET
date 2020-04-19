@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: cachers
-title: "TypeMapCache (RepoDb)"
+title: "TypeMapCache"
 permalink: /cacher/typemapcache
 tags: [repodb, class, typemapcache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

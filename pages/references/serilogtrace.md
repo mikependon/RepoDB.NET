@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: references
-title: "SerilogTrace Reference (RepoDb)"
+title: "SerilogTrace Reference"
 permalink: /reference/serilogtrace
 tags: [repodb, class, serilogtrace, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

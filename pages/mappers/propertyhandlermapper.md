@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: mappers
-title: "PropertyHandlerMapper (RepoDb)"
+title: "PropertyHandlerMapper"
 permalink: /mapper/propertyhandlermapper
 tags: [repodb, class, propertyhandlermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

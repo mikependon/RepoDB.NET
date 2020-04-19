@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "Field (RepoDb)"
+title: "Field"
 permalink: /class/field
 tags: [repodb, class, field, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: introduction
-title: Docs (RepoDb)
+title: Docs
 permalink: /docs
 ---
 

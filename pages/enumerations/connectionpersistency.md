@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: enumerations
-title: "ConnectionPersistency (RepoDb)"
+title: "ConnectionPersistency"
 permalink: /enumeration/connectionpersistency
 tags: [repodb, class, connectionpersistency, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

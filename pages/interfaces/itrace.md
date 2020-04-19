@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: interfaces
-title: "ITrace (RepoDb)"
+title: "ITrace"
 permalink: /interface/itrace
 tags: [repodb, class, itrace, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: enumerations
-title: "Operation (RepoDb)"
+title: "Operation"
 permalink: /enumeration/operation
 tags: [repodb, class, operation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

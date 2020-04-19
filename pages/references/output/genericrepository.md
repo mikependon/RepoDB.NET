@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "GenericRepository Reference Output (RepoDb)"
+title: "GenericRepository Reference Output"
 permalink: /reference/output/genericrepository
 tags: [repodb, class, genericrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: introduction
-title: About (RepoDb)
+title: About
 permalink: /about
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "BaseStatementBuilder (RepoDb)"
+title: "BaseStatementBuilder"
 permalink: /class/basestatementbuilder
 tags: [repodb, class, basestatementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

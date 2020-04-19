@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Use Cases (RepoDb)
+title: Use Cases
 permalink: /usecases
 ---
 

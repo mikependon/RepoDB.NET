@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: features
-title: "Repositories (RepoDb)"
+title: "Repositories"
 permalink: /feature/repositories
 tags: [repodb, class, repository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

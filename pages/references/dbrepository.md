@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: references
-title: "DbRepository Reference (RepoDb)"
+title: "DbRepository Reference"
 permalink: /reference/dbrepository
 tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

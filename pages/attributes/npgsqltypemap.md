@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "NpgsqlTypeMap (RepoDb)"
+title: "NpgsqlTypeMap"
 permalink: /attribute/npgsqltypemap
 tags: [repodb, class, npgsqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

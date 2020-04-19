@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: mappers
-title: "StatementBuilderMapper (RepoDb)"
+title: "StatementBuilderMapper"
 permalink: /mapper/statementbuildermapper
 tags: [repodb, class, statementbuildermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

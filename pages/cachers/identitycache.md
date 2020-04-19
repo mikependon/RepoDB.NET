@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: cachers
-title: "IdentityCache (RepoDb)"
+title: "IdentityCache"
 permalink: /cacher/identitycache
 tags: [repodb, class, identitycache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "CacheItem (RepoDb)"
+title: "CacheItem"
 permalink: /class/cacheitem
 tags: [repodb, class, cacheitem, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

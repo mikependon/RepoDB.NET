@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: features
-title: "Connection Persistency (RepoDb)"
+title: "Connection Persistency"
 permalink: /feature/connectionpersistency
 tags: [repodb, class, connectionpersistency, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

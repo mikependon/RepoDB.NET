@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: operations
-title: "Min (RepoDb)"
+title: "Min"
 permalink: /operation/min
 tags: [repodb, tutorial, min, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

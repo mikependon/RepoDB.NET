@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: operations
-title: "QueryMultiple (RepoDb)"
+title: "QueryMultiple"
 permalink: /operation/querymultiple
 tags: [repodb, tutorial, querymultiple, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

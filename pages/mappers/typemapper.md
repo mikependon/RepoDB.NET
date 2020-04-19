@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: mappers
-title: "TypeMapper (RepoDb)"
+title: "TypeMapper"
 permalink: /mapper/typemapper
 tags: [repodb, class, typemapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "DbRepository (RepoDb)"
+title: "DbRepository"
 permalink: /class/dbrepository
 tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

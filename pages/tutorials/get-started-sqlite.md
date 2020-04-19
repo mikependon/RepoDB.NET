@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: getstarted
-title: "Get Started (SQLite)"
+title: "Get Started for SQLite"
 permalink: /tutorial/get-started-sqlite
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, sqlite]
 ---

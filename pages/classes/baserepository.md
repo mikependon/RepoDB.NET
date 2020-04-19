@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "BaseRepository (RepoDb)"
+title: "BaseRepository"
 permalink: /class/baserepository
 tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

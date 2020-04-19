@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: references
-title: "Query Expressions Reference (RepoDb)"
+title: "Query Expressions Reference"
 permalink: /reference/queryexpressions
 tags: [repodb, class, queryexpressions, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

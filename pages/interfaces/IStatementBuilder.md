@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: interfaces
-title: "IStatementBuilder (RepoDb)"
+title: "IStatementBuilder"
 permalink: /interface/istatementbuilder
 tags: [repodb, class, istatementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

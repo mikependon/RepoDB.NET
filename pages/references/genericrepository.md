@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: references
-title: "Generic Repository Reference (RepoDb)"
+title: "Generic Repository Reference"
 permalink: /reference/genericrepository
 tags: [repodb, class, genericrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

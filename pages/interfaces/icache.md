@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: interfaces
-title: "ICache (RepoDb)"
+title: "ICache"
 permalink: /interface/icache
 tags: [repodb, class, icache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

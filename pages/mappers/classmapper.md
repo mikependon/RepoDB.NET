@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: mappers
-title: "ClassMapper (RepoDb)"
+title: "ClassMapper"
 permalink: /mapper/classmapper
 tags: [repodb, class, classmapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

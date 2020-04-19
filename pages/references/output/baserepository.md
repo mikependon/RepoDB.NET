@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "BaseRepository Reference Output (RepoDb)"
+title: "BaseRepository Reference Output"
 permalink: /reference/output/baserepository
 tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

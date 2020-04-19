@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: references
-title: "Trace Reference (RepoDb)"
+title: "Trace Reference"
 permalink: /reference/trace
 tags: [repodb, class, trace, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

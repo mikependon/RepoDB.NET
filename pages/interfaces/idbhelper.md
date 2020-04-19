@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: interfaces
-title: "IDbHelper (RepoDb)"
+title: "IDbHelper"
 permalink: /interface/idbhelper
 tags: [repodb, class, idbhelper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

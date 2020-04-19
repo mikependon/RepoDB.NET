@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "OrderField (RepoDb)"
+title: "OrderField"
 permalink: /class/orderfield
 tags: [repodb, class, orderfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

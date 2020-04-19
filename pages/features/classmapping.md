@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: features
-title: "Class Mapping (RepoDb)"
+title: "Class Mapping"
 permalink: /feature/classmapping
 tags: [repodb, class, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

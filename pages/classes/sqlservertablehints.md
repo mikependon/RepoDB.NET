@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "SqlServerTableHints (RepoDb)"
+title: "SqlServerTableHints"
 permalink: /class/sqlservertablehints
 tags: [repodb, class, sqlservertablehints, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

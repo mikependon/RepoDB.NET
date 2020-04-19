@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: operations
-title: "DeleteAll (RepoDb)"
+title: "DeleteAll"
 permalink: /operation/deleteall
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

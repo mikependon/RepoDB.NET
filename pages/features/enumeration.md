@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: features
-title: "Enumeration (RepoDb)"
+title: "Enumeration"
 permalink: /feature/enumeration
 tags: [repodb, class, enumeration, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

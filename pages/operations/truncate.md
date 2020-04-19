@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: operations
-title: "Truncate (RepoDb)"
+title: "Truncate"
 permalink: /operation/truncate
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

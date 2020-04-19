@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: interfaces
-title: "IPropertyHandler (RepoDb)"
+title: "IPropertyHandler"
 permalink: /interface/ipropertyhandler
 tags: [repodb, class, ipropertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

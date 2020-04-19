@@ -1,6 +1,6 @@
 ---
 layout: smallpage
-title: Blogs (RepoDb)
+title: Blogs
 permalink: /blogs
 ---
 

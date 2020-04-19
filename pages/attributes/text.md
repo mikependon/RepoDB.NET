@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "Text (RepoDb)"
+title: "Text"
 permalink: /attribute/text
 tags: [repodb, class, text, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

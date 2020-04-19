@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: operations
-title: "Insert (RepoDb)"
+title: "Insert"
 permalink: /operation/insert
 tags: [repodb, tutorial, insert, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

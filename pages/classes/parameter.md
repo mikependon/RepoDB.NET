@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "Parameter (RepoDb)"
+title: "Parameter"
 permalink: /class/parameter
 tags: [repodb, class, parameter, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

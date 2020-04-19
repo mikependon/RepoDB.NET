@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: releases
-title: Releases for Core Package (RepoDb)
+title: Releases for Core Package
 permalink: /release/core
 ---
 

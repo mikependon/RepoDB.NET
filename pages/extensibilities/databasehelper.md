@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: extensibilities
-title: "Database Helper (RepoDb)"
+title: "Database Helper"
 permalink: /extensibility/databasehelper
 tags: [repodb, class, databasehelper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

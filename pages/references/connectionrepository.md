@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: references
-title: "Connection-Based Repository Reference (RepoDb)"
+title: "Connection-Based Repository Reference"
 permalink: /reference/connectionrepository
 tags: [repodb, class, connectionrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

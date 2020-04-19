@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "CancellableTraceLog (RepoDb)"
+title: "CancellableTraceLog"
 permalink: /class/cancellabletracelog
 tags: [repodb, class, cancellabletracelog, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

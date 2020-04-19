@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: classes
-title: "BaseDbSetting (RepoDb)"
+title: "BaseDbSetting"
 permalink: /class/basedbsetting
 tags: [repodb, class, basedbsetting, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

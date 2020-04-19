@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: introduction
-title: Preface (RepoDb)
+title: Preface
 permalink: /preface
 ---
 

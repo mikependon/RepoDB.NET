@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "Primary (RepoDb)"
+title: "Primary"
 permalink: /attribute/primary
 tags: [repodb, class, primary, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

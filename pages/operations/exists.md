@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: operations
-title: "Exists (RepoDb)"
+title: "Exists"
 permalink: /operation/exists
 tags: [repodb, tutorial, exists, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "JSON Cache (RepoDb)"
+title: "JSON Cache"
 permalink: /reference/output/jsoncache
 tags: [repodb, class, jsoncache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: releases
-title: Releases for PostgreSQL (RepoDb)
+title: Releases for PostgreSQL
 permalink: /release/postgresql
 ---
 

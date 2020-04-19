@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "ConnectionRepository Reference Output (RepoDb)"
+title: "ConnectionRepository Reference Output"
 permalink: /reference/output/connectionrepository
 tags: [repodb, class, connectionrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

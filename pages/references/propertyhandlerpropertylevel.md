@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: references
-title: "Property Handler for Properties Reference (RepoDb)"
+title: "Property Handler for Properties Reference"
 permalink: /reference/propertyhandlerpropertylevel
 tags: [repodb, class, propertyhandlerpropertylevel, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

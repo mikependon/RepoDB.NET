@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: operations
-title: "Update (RepoDb)"
+title: "Update"
 permalink: /operation/update
 tags: [repodb, tutorial, update, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

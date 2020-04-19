@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "DbRepository Reference Output (RepoDb)"
+title: "DbRepository Reference Output"
 permalink: /reference/output/dbrepository
 tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

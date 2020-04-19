@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: mappers
-title: "IdentityMapper (RepoDb)"
+title: "IdentityMapper"
 permalink: /mapper/identitymapper
 tags: [repodb, class, identitymapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

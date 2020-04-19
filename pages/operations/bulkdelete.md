@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: operations
-title: "BulkDelete (RepoDb)"
+title: "BulkDelete"
 permalink: /operation/bulkdelete
 tags: [repodb, tutorial, bulkdelete, orm, hybrid-orm, sqlserver]
 ---

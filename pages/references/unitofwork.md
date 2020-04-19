@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: references
-title: "Unit of Work Reference (RepoDb)"
+title: "Unit of Work Reference"
 permalink: /reference/unitofwork
 tags: [repodb, class, unitofwork, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

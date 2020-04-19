@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: cachers
-title: "CommandTextCache (RepoDb)"
+title: "CommandTextCache"
 permalink: /cacher/commandtextcache
 tags: [repodb, class, commandtextcache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

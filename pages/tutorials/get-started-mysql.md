@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: getstarted
-title: "Get Started (MySql)"
+title: "Get Started for MySql"
 permalink: /tutorial/get-started-mysql
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, mysql]
 ---
