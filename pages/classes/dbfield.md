@@ -28,7 +28,7 @@ An immutable class that holds the definition of the database columns. This class
 Below is the way on how to extract the database columns using [IDbHelper](/interface/idbhelper).
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var helper = connection.GetDbHelper();
     var dbFields = helper.GetFields(connection, "[dbo].[Person]");

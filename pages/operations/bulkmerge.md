@@ -55,7 +55,7 @@ Let us say you have a list of `Person` model at variable `people` that contains 
 Then, below is the code to bulk-merge those rows `[dbo].[Person]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var mergedRows = connection.BulkMerge(people);
 }
@@ -66,7 +66,7 @@ using (var connection = new SqlConnection(connectionString))
 Below is a sample code to bulk-merge by data table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var table = ConvertToDataTable(people);
 	var mergedRows = connection.BulkMerge<Person>(table);
@@ -93,7 +93,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 Or you can also convert the list of `Person` to a `DataEntityDataReader` object and bulk-insert it.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople(10000);
 	using (var reader = new DataEntityDataReader<Person>(people))
@@ -108,7 +108,7 @@ using (var connection = new SqlConnection(connectionString))
 By default, this method is using the primary key (or identify field) as the qualifier. You can override it by passing the list of `Field` objects in the `qualifiers` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople(10000);
 	var mergedRows = connection.BulkMerge<Person>(people,
@@ -132,7 +132,7 @@ mappings.Add(new BulkInsertMapItem("IsActive", "Active"));
 mappings.Add(new BulkInsertMapItem("DateInsertedUtc", "CreatedDateUtc"));
 
 // Execute
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople(10000);
 	var mergedRows = connection.BulkMerge(people,
@@ -145,7 +145,7 @@ using (var connection = new SqlConnection(connectionString))
 You can define your bulk-copy options by passing a value of `SqlBulkCopyOptions` in the `options` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople(10000);
 	var mergedRows = connection.BulkMerge(people,
@@ -158,7 +158,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target a specific table by passing the literal table and field name like below.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople(10000);
 	var mergedRows = connection.BulkMerge("[dbo].[Person]", people);
@@ -170,7 +170,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople(10000);
 	var mergedRows = connection.BulkMerge(people,
@@ -181,7 +181,7 @@ using (var connection = new SqlConnection(ConnectionString))
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople(10000);
 	var mergedRows = connection.BulkMerge(people,

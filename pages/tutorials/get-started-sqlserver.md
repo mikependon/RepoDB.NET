@@ -76,7 +76,7 @@ var person = new Person
 	Age = 54,
 	CreatedDateUtc = DateTime.UtcNow
 };
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var id = connection.Insert(person);
 }
@@ -105,7 +105,7 @@ Then simply create a list of `Person` and passed it when you call the [InsertAll
 
 ```csharp
 var people = GetPeople(100);
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var rowsInserted = connection.InsertAll(people);
 }
@@ -118,7 +118,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To query a record, you must use the [Query](/operation/query) method.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var person = connection.Query<Person>(e => e.Id == 1);
 	/* Do the stuffs for person here */
@@ -128,7 +128,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To query all the rows, use the [QueryAll](/operation/queryall) method instead.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.QueryAll<Person>();
 	/* Do the stuffs for the people here */
@@ -147,7 +147,7 @@ var person = new Person
 	Age = 57,
 	CreatedDateUtc = DateTime.UtcNow
 };
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var id = connection.Merge(person);
 }
@@ -162,7 +162,7 @@ var person = new Person
 	Age = 57,
 	CreatedDateUtc = DateTime.UtcNow
 };
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var id = connection.Merge(person, qualifiers: Field.From("Name"));
 }
@@ -175,7 +175,7 @@ var people = GetPeople(100);
 people
 	.AsList()
 	.ForEach(p => p.Name = $"{p.Name} (Merged)");
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var affectedRecords = connection.MergeAll<Person>(people);
 }
@@ -188,7 +188,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To delete a record, you must use the [Delete](/operation/delete) method.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var deletedRows = connection.Delete<Person>(1);
 }
@@ -197,7 +197,7 @@ using (var connection = new SqlConnection(ConnectionString))
 By default, it uses the primary key as the qualifier. You can also use the other field.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var deletedRows = connection.Delete<Person>(p => p.Name == "John Doe");
 }
@@ -206,7 +206,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To delete all the rows, use the [DeleteAll](/operation/deleteall) method instead.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var deletedRows = connection.DeleteAll<Person>();
 }
@@ -215,7 +215,7 @@ using (var connection = new SqlConnection(ConnectionString))
 You can also pass the list of primary keys to be deleted.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var primaryKeys = new [] { 10045, 11001, ..., 12011 };
 	var deletedRows = connection.DeleteAll<Person>(primaryKeys);
@@ -236,7 +236,7 @@ var person = new Person
 	Age = 55,
 	DateInsertedUtc = DateTime.UtcNow
 };
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var affectedRecords = connection.UpdateAll<Person>(people);
 	var updatedRows = connection.Update<Person>(person);
@@ -246,7 +246,7 @@ using (var connection = new SqlConnection(ConnectionString))
 You can also update via dynamic by targetting certain columns.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var affectedRecords = connection.UpdateAll<Person>(people);
 	var updatedRows = connection.Update("Person", new { Id = 1, Name = "James Doe" });
@@ -260,7 +260,7 @@ var people = GetPeople(100);
 people
 	.AsList()
 	.ForEach(p => p.Name = $"{p.Name} (Updated)");
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var updatedRows = connection.UpdateAll<Person>(people);
 }
@@ -273,7 +273,7 @@ var people = GetPeople(100);
 people
 	.AsList()
 	.ForEach(p => p.Name = $"{p.Name} (Updated)");
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var updatedRows = connection.UpdateAll<Person>(people, qualifiers: Field.From("Name"));
 }
@@ -286,7 +286,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To execute a query use the [ExecuteNonQuery](/operation/executenonquery) method.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var affectedRecords = connection.ExecuteNonQuery("DELETE FROM [dbo].[Person] WHERE Id = @Id;", new { Id = 1 });
 }
@@ -295,7 +295,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To execute a query while expecting a result of class object, then use the [ExecuteQuery](/operation/executequery) method.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] ORDER BY Id ASC;");
 	/* Do the stuffs for the people here */
@@ -305,7 +305,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To execute a query while expecting a single result, then use the [ExecuteScalar](/operation/executescalar) method.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var maxId = connection.ExecuteQuery<Person>("SELECT MAX(Id) FROM [dbo].[Person];");
 }
@@ -314,7 +314,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To execute a query while expecting a result of `DbDataReader`, then use the [ExecuteReader](/operation/executereader) method.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
 	{
@@ -328,7 +328,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To execute a stored procedure, then you can use any of the `Execute` methods mentioned above, but you have to passed the `CommandType` as `CommandType.StoredProcedure`.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.ExecuteQuery<Person>("[dbo].[sp_GetPeople]", commandType: CommandType.StoredProcedure);
 }
@@ -339,7 +339,7 @@ using (var connection = new SqlConnection(ConnectionString))
 Or, you can direct call using the `EXEC` command. No need to pass the the value of `CommandType.StoredProcedure`.
 
 ```csharp
-using (var connection = new SqlConnection(ConnectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetPeople];");
 }

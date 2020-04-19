@@ -42,7 +42,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 Below is a sample code to fetch a row from the `[dbo].[Person]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.QueryAll<Person>();
 }
@@ -53,7 +53,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target a specific table by passing the literal table like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.QueryAll("[dbo].[Person]");
 }
@@ -66,7 +66,7 @@ using (var connection = new SqlConnection(connectionString))
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.QueryAll<Person>(hints: "WITH (NOLOCK)");
 }
@@ -75,7 +75,7 @@ using (var connection = new SqlConnection(connectionString))
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.QueryAll<Person>(hints: SqlServerTableHints.TabLock);
 }
@@ -86,7 +86,7 @@ using (var connection = new SqlConnection(connectionString))
 To order the results, you have to pass an array of `OrderField` objects in the `orderBy` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var orderBy = OrderField.Parse(new
 	{
@@ -103,7 +103,7 @@ using (var connection = new SqlConnection(connectionString))
 To filter the results, you have to pass a value at the `top` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.QueryAll<Person>(top: 100);
 	// Do the stuffs for 'people' here
@@ -115,7 +115,7 @@ using (var connection = new SqlConnection(connectionString))
 To cache the results, simply pass a literal string key into the `cacheKey` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.QueryAll<Person>(cacheKey: "CackeKey:AllPeople");
 	// Do the stuffs for 'people' here

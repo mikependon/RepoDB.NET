@@ -23,7 +23,7 @@ The objects that are not frequently changing but is mostly in used in the applic
 Simply pass a value to the `cacheKey` when calling the operation.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var products = connection.QueryAll<Product>(cacheKey: "AllProducts");
 }
@@ -83,7 +83,7 @@ public class JsonCache : ICache
 Simply pass the `cacheKey` and `cache` object when calling the operation.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var products = connection.QueryAll<Product>(cacheKey: "AllProducts", cache: new JsonCache());
 }
@@ -173,7 +173,7 @@ public static class CacheFactory
 And use it in the `IDbConnection` object like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var products = connection.QueryAll<Product>cacheKey: "AllProducts", cache: CacheFactory.CreateCacher());
 }

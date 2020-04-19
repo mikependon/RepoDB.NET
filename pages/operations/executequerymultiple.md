@@ -27,7 +27,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 Below is a code that queries a parent person (from `[dbo].[Person]` table) and all its related historical addresses (from `[dbo].[Address]` table) from the database.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	using (var result = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Person] WHERE [Id] = 10045; SELECT * FROM [dbo].[Address] WHERE PersonId = 10045;"))
 	{
@@ -40,7 +40,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also get a single value by calling the `Scalar` method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	using (var result = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Person] WHERE [Id] = 10045; SELECT COUNT(*) AS AddressCount FROM [dbo].[Address] WHERE PersonId = 10045;"))
 	{
@@ -64,7 +64,7 @@ You can pass a parameter via the following objects.
 ##### Dynamic
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	using (var result = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Person] WHERE [Id] = @PersonId; SELECT * FROM [dbo].[Address] WHERE PersonId = @PersonId;", new { PersonId = 10045 }))
 	{
@@ -76,7 +76,7 @@ using (var connection = new SqlConnection(connectionString))
 ##### ExpandoObject
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new ExpandoObject() as IDictionary<string, object>;
 	param.Add("PersonId", 10045);
@@ -90,7 +90,7 @@ using (var connection = new SqlConnection(connectionString))
 ##### Dictionary
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new Dictionary<string, object>
 	{
@@ -106,7 +106,7 @@ using (var connection = new SqlConnection(connectionString))
 ##### Query Objects
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new []
 	{
@@ -124,7 +124,7 @@ using (var connection = new SqlConnection(connectionString))
 You can pass an array of values if you are using the `IN` keyword.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new
 	{
@@ -144,7 +144,7 @@ using (var connection = new SqlConnection(connectionString))
 The calls to execute a stored procedure is by simply calling the `EXEC` command of the SQL Server. It can be combined together with other raw-SQL statements.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	using (var result = connection.ExecuteQueryMultiple("EXEC [dbo].[sp_GetPerson](@PersonId); SELECT * FROM [dbo].[Address] WHERE PersonId = @PersonId;", new { Id = 10045 }))
 	{

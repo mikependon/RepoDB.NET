@@ -19,7 +19,7 @@ For raw-SQL, the process of adding hints is controlled by you as you are the one
 Below is the code that queries all the dirty transactions from the `[dbo].[Order]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var orders = connection.ExecuteQuery<Order>("SELECT * FROM [dbo].[Order] WITH (NOLOCK);");
 }
@@ -34,7 +34,7 @@ var person = new
     BirthDay = DateTime.Parse("1970-01-01"),
     IsActive = true
 };
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var affectedRows = connection.ExecuteNonQuery("INSERT INTO [dbo].[Person] WITH (TABLOCK) ([Name], [DateOfBirth], [IsActive], [CreatedDateUtc]) VALUES (@Name, @BirthDay, @IsActive, GETUTCDATE());");
 }
@@ -47,7 +47,7 @@ Most [fluent-methods](/docs#fluent-methods) within the library accepts the `hint
 Below are the equivalent fluent-methods of the raw-SQLs execution defined in the previous section.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var orders = connection.Query<Order>(hints: "WITH (NOLOCK)");
 }
@@ -62,7 +62,7 @@ var person = new
     BirthDay = DateTime.Parse("1970-01-01"),
     IsActive = true
 };
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var id = connection.Insert<Person>(person, hints: "WITH (TABLOCK)");
 }
@@ -77,7 +77,7 @@ var person = new
     BirthDay = DateTime.Parse("1970-01-01"),
     IsActive = true
 };
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var id = connection.Insert<Person>(person, hints: SqlServerTableHints.TabLock);
 }

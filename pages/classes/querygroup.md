@@ -283,7 +283,7 @@ We sometimes have a scenario to reuse the instance of this class just to avoid c
 To reuse the instance, simply call the `Reset()` method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var queryFields = new []
     {

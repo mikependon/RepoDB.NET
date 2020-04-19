@@ -42,7 +42,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 Below is a sample code to insert a row into the `[dbo].[Person]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var id = connection.Insert<Person>(new Person
 	{
@@ -62,7 +62,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target a specific table by passing the literal table and dynamic object like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var person = new
 	{
@@ -82,7 +82,7 @@ using (var connection = new SqlConnection(connectionString))
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var id = connection.Insert<Person>(person,
 		hints: "WITH (TABLOCK)");
@@ -92,7 +92,7 @@ using (var connection = new SqlConnection(connectionString))
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var id = connection.Insert<Person>(person,
 		hints: SqlServerTableHints.TabLock);

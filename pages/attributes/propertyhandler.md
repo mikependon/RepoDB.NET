@@ -48,7 +48,7 @@ public class Person
 After that, when read the records, you can automatically read the `Address` values from the `Address` property.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var person = connection.Query<Person>(10045);
 	Console.WriteLine($"Name: {person.Name}, Address: {person.Address.Street}, {person.Address.Region}, {person.Address.Country} ({person.Address.ZipCode})")

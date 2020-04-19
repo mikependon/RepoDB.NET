@@ -27,7 +27,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 Below is a code that gets the server date time from the database.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var serverDateTime = connection.ExecuteScalar<DateTime>("SELECT GETUTCDATE();");
 }
@@ -45,7 +45,7 @@ You can pass a parameter via the following objects.
 ##### Dynamic
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM [dbo].[Person] WHERE DateInsertedUtc <= @DateInsertedUtc;", new { DateInsertedUtc = DateTime.UtcNow });
 }
@@ -54,7 +54,7 @@ using (var connection = new SqlConnection(connectionString))
 ##### ExpandoObject
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new ExpandoObject() as IDictionary<string, object>;
 	param.Add("DateInsertedUtc", DateTime.UtcNow);
@@ -65,7 +65,7 @@ using (var connection = new SqlConnection(connectionString))
 ##### Dictionary
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new Dictionary<string, object>
 	{
@@ -78,7 +78,7 @@ using (var connection = new SqlConnection(connectionString))
 ##### Query Objects
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new []
 	{
@@ -93,7 +93,7 @@ using (var connection = new SqlConnection(connectionString))
 You can pass an array of values if you are using the `IN` keyword.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new
 	{
@@ -110,7 +110,7 @@ using (var connection = new SqlConnection(connectionString))
 There are 2 ways of executing a stored procedure. First, simply pass the name of the stored procedure and set the command type to `CommandType.StoredProcedure`.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var count = connection.ExecuteScalar<DateTime>("[dbo].[sp_GetServerDateTime]", commandType: CommandType.StoredProcedure);
 }
@@ -119,7 +119,7 @@ using (var connection = new SqlConnection(connectionString))
 Or, simply use the native SQL calls like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var count = connection.ExecuteScalar<DateTime>("EXEC [dbo].[sp_GetServerDateTime];");
 }

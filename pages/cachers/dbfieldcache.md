@@ -26,7 +26,7 @@ You should use this class if you would like to get the references of the databas
 You can simply call the `Get()` method of this class passing the literal table name.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var dbFields = DbFieldCache.Get("[dbo].[Person]", connection, transaction: null);
     // Use the 'dbFields' here
@@ -36,7 +36,7 @@ using (var connection = new SqlConnection(connectionString))
 Or, you can use the [ClassMappedNameCache](/cacher/classmappednamecache) to extract the mapped entity name.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var dbFields = DbFieldCache.Get(ClassMappedNameCache.Get<Person>(), connection, transaction: null);
     // Use the 'dbFields' here

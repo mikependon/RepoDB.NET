@@ -8,7 +8,7 @@ public class CustomTrace : ITrace
     ...
 }
 
-using (var connection = CreateDbConnection(connectionString))
+using (var connection = new SqlConnection(connectionString))
 {
     connection.Query<Customer>(c => c.CustomerId == 10045,
         trace: new CustomTrace());

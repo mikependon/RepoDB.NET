@@ -19,7 +19,7 @@ It is very useful if you wish to do CRUD for targetted columns or CRUD operation
 Use the [Query](/operation/query) operation and pass the target table as a literal string and a filter expression as a dynamic object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customer = connection.Query("[dbo].[Customer]", 10045).FirstOrDefault();
 }
@@ -28,7 +28,7 @@ using (var connection = new SqlConnection(connectionString))
 Or via dynamics.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customer = connection.Query("[dbo].[Customer]", new { FirstName = "John", "Doe" }).FirstOrDefault();
 }
@@ -37,7 +37,7 @@ using (var connection = new SqlConnection(connectionString))
 Or with specific columns.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customer = connection.Query("[dbo].[Customer]", 10045, Field.From("Id","FirstName", "LastName")).FirstOrDefault();
 }
@@ -48,7 +48,7 @@ using (var connection = new SqlConnection(connectionString))
 Use the [Insert](/operation/insert) operation and pass the target table as a literal string and a dynamic entity object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entity = new
     {
@@ -65,7 +65,7 @@ using (var connection = new SqlConnection(connectionString))
 Use the [Delete](/operation/delete) operation and pass the target table as a literal string and a filter expression as a dynamic object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var deletedRows = connection.Delete("[dbo].[Customer]", new { IsActive = false });
 }
@@ -76,7 +76,7 @@ using (var connection = new SqlConnection(connectionString))
 Use the [Merge](/operation/merge) operation and pass the target table as a literal string and a dynamic entity object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entity = new
     {
@@ -95,7 +95,7 @@ using (var connection = new SqlConnection(connectionString))
 Use the [Update](/operation/update) operation and pass the target table as a literal string and a dynamic entity object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entity = new
     {

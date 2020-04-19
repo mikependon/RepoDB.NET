@@ -42,7 +42,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 Below is a sample code that delete all the rows from the `[dbo].[Person]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var deletedRows = connection.DeleteAll<Person>();
 }
@@ -51,7 +51,7 @@ using (var connection = new SqlConnection(connectionString))
 Or you can target the list of primary keys.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var primaryKeys = new [] { 10045, 11921, 12001 }; 
 	var deletedRows = connection.DeleteAll<Person>(primaryKeys);
@@ -63,7 +63,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target a specific table by passing the literal table name like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var deletedRows = connection.DeleteAll("[dbo].[Person]");
 }
@@ -74,7 +74,7 @@ using (var connection = new SqlConnection(connectionString))
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var deletedRows = connection.DeleteAll<Person>(hints: "WITH (NOLOCK)");
 }
@@ -83,7 +83,7 @@ using (var connection = new SqlConnection(connectionString))
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var deletedRows = connection.DeleteAll<Person>(hints: SqlServerTableHints.TabLock);
 }

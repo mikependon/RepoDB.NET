@@ -96,7 +96,7 @@ Below are the ways on how to call the operations.
 The codes below only showcasing the [BulkDelete](/operation/bulkdelete) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
     var rows = connection.BulkDelete<Customer>(customers);
@@ -106,7 +106,7 @@ using (var connection = new SqlConnection(connectionString))
 Or with qualifiers.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
     var qualifiers = Field.From(nameof(Customer.LastName), nameof(Customer.BirthDate));
@@ -117,7 +117,7 @@ using (var connection = new SqlConnection(connectionString))
 Or via primary keys.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var keys = new object[] { 10045, ..., 11211 }
     var rows = connection.BulkDelete<Customer>(keys);
@@ -127,7 +127,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target via table-name.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
     var rows = connection.BulkDelete("[dbo].[Customer]", customers);
@@ -139,7 +139,7 @@ using (var connection = new SqlConnection(connectionString))
 The codes below only showcasing the [BulkInsert](/operation/bulkinsert) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
     var rows = connection.BulkInsert<Customer>(customers);
@@ -149,7 +149,7 @@ using (var connection = new SqlConnection(connectionString))
 Or via table-name.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
     var rows = connection.BulkInsert("[dbo].[Customer]", customers);
@@ -161,7 +161,7 @@ using (var connection = new SqlConnection(connectionString))
 The codes below only showcasing the [BulkMerge](/operation/bulkmerge) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
     var rows = connection.BulkMerge<Customer>(customers);
@@ -171,7 +171,7 @@ using (var connection = new SqlConnection(connectionString))
 Or with qualifiers.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
     var qualifiers = Field.From(nameof(Customer.LastName), nameof(Customer.BirthDate));
@@ -182,7 +182,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target via table-name.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
     var rows = connection.BulkMerge("[dbo].[Customer]", customers);
@@ -194,7 +194,7 @@ using (var connection = new SqlConnection(connectionString))
 The codes below only showcasing the [BulkUpdate](/operation/bulkupdate) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
     var rows = connection.BulkUpdate<Customer>(customers);
@@ -204,7 +204,7 @@ using (var connection = new SqlConnection(connectionString))
 Or with qualifiers.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
     var qualifiers = Field.From(nameof(Customer.LastName), nameof(Customer.BirthDate));
@@ -215,7 +215,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target via table-name.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
     var rows = connection.BulkUpdate("[dbo].[Customer]", customers);

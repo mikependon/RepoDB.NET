@@ -81,7 +81,7 @@ private IEnumerable<Person> GetPeople()
 Below is a sample code to update a list of `Person` into the `[dbo].[Person]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople();
 	var updatedRows = connection.UpdateAll(people);
@@ -93,7 +93,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target a specific table by passing the literal table and dynamic object like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople();
 	var updatedRows = connection.UpdateAll("[dbo].[Person]",
@@ -106,7 +106,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target a specific columns to be updated by passing the list of fields to be included in the `fields` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople();
 	var updatedRows = connection.UpdateAll("[dbo].[Person]",
@@ -122,7 +122,7 @@ using (var connection = new SqlConnection(connectionString))
 You can adjust the size of your batch by simply passing the value at the `batchSize` argument. By default, the value is `10` (found at `Constant.DefaultBatchOperationSize`).
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople();
 	var updatedRows = connection.UpdateAll(people,
@@ -135,7 +135,7 @@ using (var connection = new SqlConnection(connectionString))
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var updatedRows = connection.UpdateAll<Person>(person,
 		hints: "WITH (TABLOCK)");
@@ -145,7 +145,7 @@ using (var connection = new SqlConnection(connectionString))
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var updatedRows = connection.UpdateAll<Person>(person,
 		hints: SqlServerTableHints.TabLock);

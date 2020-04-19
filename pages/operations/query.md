@@ -42,7 +42,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 Below is a sample code to fetch a row from the `[dbo].[Person]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var person = connection.Query<Person>(10045).FirstOrDefault();
 }
@@ -51,7 +51,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also query via expression.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var person = connection.Query<Person>(e => e.Id == 10045).FirstOrDefault();
 }
@@ -60,7 +60,7 @@ using (var connection = new SqlConnection(connectionString))
 Or like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var person = connection.Query<Person>(e => e.FirstName == "John" && e.LastName == "Doe").FirstOrDefault();
 }
@@ -73,7 +73,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target a specific table by passing the literal table like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var person = connection.Query("[dbo].[Person]",
 		10045).FirstOrDefualt();
@@ -87,7 +87,7 @@ using (var connection = new SqlConnection(connectionString))
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var person = connection.Query<Person>(10045,
 		hints: "WITH (NOLOCK)").FirstOrDefault();
@@ -97,7 +97,7 @@ using (var connection = new SqlConnection(connectionString))
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var person = connection.Query<Person>(10045,
 		hints: SqlServerTableHints.TabLock).FirstOrDefault();
@@ -109,7 +109,7 @@ using (var connection = new SqlConnection(connectionString))
 To order the results, you have to pass an array of `OrderField` objects in the `orderBy` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var orderBy = OrderField.Parse(new
 	{
@@ -127,7 +127,7 @@ using (var connection = new SqlConnection(connectionString))
 To filter the results, you have to pass a value at the `top` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.Query<Person>(e => e.IsActive == true,
 		top: 100);
@@ -140,7 +140,7 @@ using (var connection = new SqlConnection(connectionString))
 To cache the results, simply pass a literal string key into the `cacheKey` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.Query<Person>(e => e.IsActive == true,
 		cacheKey: "CackeKey:ActivePeople");

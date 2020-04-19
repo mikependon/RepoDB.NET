@@ -42,7 +42,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 Below is a sample code that truncates the `[dbo].[Person]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	connection.Truncate<Person>();
 }
@@ -53,7 +53,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target a specific table by passing the literal table and field name like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	connection.Truncate("[dbo].[Person]");
 }

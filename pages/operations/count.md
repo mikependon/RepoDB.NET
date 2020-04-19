@@ -42,7 +42,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 Below is a sample code that counts the rows from the `[dbo].[Person]` table since yesterday.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var counted = connection.Count<Person>(e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1));
 }
@@ -53,7 +53,7 @@ using (var connection = new SqlConnection(connectionString))
 You can also target a specific table by passing the literal table and field name like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var counted = connection.Count("[dbo].[Person]", new { State = "Michigan" });
 }
@@ -62,7 +62,7 @@ using (var connection = new SqlConnection(connectionString))
 Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the `WHERE` expressions.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var where = new []
 	{
@@ -77,7 +77,7 @@ using (var connection = new SqlConnection(connectionString))
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var counted = connection.Count<Person>(e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
 		hints: "WITH (NOLOCK)");
@@ -87,7 +87,7 @@ using (var connection = new SqlConnection(connectionString))
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var counted = connection.Count<Person>(e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
 		hints: SqlServerTableHints.NoLock);

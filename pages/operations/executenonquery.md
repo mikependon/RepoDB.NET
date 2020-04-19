@@ -27,7 +27,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 Below is a code that deletes all the rows from the `[dbo].[Person]` table from the database.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var affectedRows = connection.ExecuteNonQuery("DELETE FROM [dbo].[Person];");
 }
@@ -45,7 +45,7 @@ You can pass a parameter via the following objects.
 ##### Dynamic
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new
 	{
@@ -60,7 +60,7 @@ using (var connection = new SqlConnection(connectionString))
 ##### ExpandoObject
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new ExpandoObject() as IDictionary<string, object>;
 	param.Add("IsEnabled", true);
@@ -73,7 +73,7 @@ using (var connection = new SqlConnection(connectionString))
 ##### Dictionary
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new Dictionary<string, object>
 	{
@@ -88,7 +88,7 @@ using (var connection = new SqlConnection(connectionString))
 ##### Query Objects
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new []
 	{
@@ -105,7 +105,7 @@ using (var connection = new SqlConnection(connectionString))
 You can pass an array of values if you are using the `IN` keyword.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var param = new
 	{
@@ -123,7 +123,7 @@ using (var connection = new SqlConnection(connectionString))
 There are 2 ways of executing a stored procedure. First, simply pass the name of the stored procedure and set the command type to `CommandType.StoredProcedure`.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var affectedRows = connection.ExecuteNonQuery("[dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
 		new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date }, commandType: CommandType.StoredProcedure);
@@ -133,7 +133,7 @@ using (var connection = new SqlConnection(connectionString))
 Or, simply use the native SQL calls like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var affectedRows = connection.ExecuteNonQuery("EXEC [dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
 		new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date });

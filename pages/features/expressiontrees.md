@@ -27,7 +27,7 @@ There are 3 ways of composing an expression trees in this library.
 Below is a sample way of querying via `dynamics`. 
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customer = connection.Query<Customer>(new { Id = 10045 }).FirstOrDefault();
 }
@@ -36,7 +36,7 @@ using (var connection = new SqlConnection(connectionString))
 Or with multiple column.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customer = connection.Query<Customer>(new { FirstName = "John", LastName = "Doe" }).FirstOrDefault();
 }
@@ -49,7 +49,7 @@ using (var connection = new SqlConnection(connectionString))
 Below is a sample way of querying via `Linq Expression`. 
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customer = connection.Query<Customer>(e => e.Id == 10045).FirstOrDefault();
 }
@@ -58,7 +58,7 @@ using (var connection = new SqlConnection(connectionString))
 Or with multiple column.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customer = connection.Query<Customer>(e => e.FirstName == "John" && e.LastName == "Doe" }).FirstOrDefault();
 }
@@ -67,7 +67,7 @@ using (var connection = new SqlConnection(connectionString))
 Or with other operations.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var states = new [] { "Chicago", "Washington", "Kansas" };
     var customers = connection.Query<Customer>(e => states.Contains(e.State) && e.IsActive == false && e.DateOfBirth >= DateTime.Parse("1970-01-01") });
@@ -79,7 +79,7 @@ using (var connection = new SqlConnection(connectionString))
 Below is a sample way of querying via [QueryField](/class/queryfield). 
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customer = connection.Query<Customer>(new QueryField(nameof(Customer.Id), 10045)).FirstOrDefault();
 }
@@ -88,7 +88,7 @@ using (var connection = new SqlConnection(connectionString))
 Or with multiple column.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var where = new []
     {
@@ -102,7 +102,7 @@ using (var connection = new SqlConnection(connectionString))
 Or with other operations.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var states = new [] { "Chicago", "Washington", "Kansas" };
     var where = new []

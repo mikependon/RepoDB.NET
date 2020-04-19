@@ -44,7 +44,7 @@ public class NorthwindTrace : ITrace
 Simply pass the trace object when calling the operation.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     connection.Insert<Customer>(customer, trace: new NorthwindTrace());
 }
@@ -134,7 +134,7 @@ public static class TraceFactory
 And use it in the `IDbConnection` object like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     connection.Insert<Customer>(customer, trace: TraceFactory.CreateTracer());
 }

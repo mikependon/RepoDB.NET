@@ -160,7 +160,7 @@ public class Person
 You can as well use the enumeration in your query expression.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var females = connection.Query<Person>(e => e.Gender == Gender.Female);
 }
@@ -169,7 +169,7 @@ using (var connection = new SqlConnection(connectionString))
 Or even in the raw-SQL.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var females = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE [Gender] = @Gender;", new { Gender = Gender.Female });
 }

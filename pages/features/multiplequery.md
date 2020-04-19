@@ -66,7 +66,7 @@ var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, /
 For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     using (var extractor = connection.ExecuteQueryMultiple(@"SELECT * FROM [dbo].[Customer] WITH (NOLOCK) WHERE [Id] = @CustomerId;
         SELECT * FROM [dbo].[Order] WITH (NOLOCK) WHERE [CustomerId] = @CustomerId",
@@ -89,7 +89,7 @@ using (var connection = new SqlConnection(connectionString))
 For fluent-method, call the [QueryMultiple](/operation/querymultiple) method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     // The target key
     var customerId = 10045;
@@ -115,7 +115,7 @@ using (var connection = new SqlConnection(connectionString))
 For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     using (var extractor = connection.ExecuteQueryMultiple(@"SELECT [Id], [Name] FROM [dbo].[Customer] WITH (NOLOCK) WHERE [Id] IN (@Keys);
         SELECT [Id], [CustomerId], [ProductId], [Price], [Quantity], [OrderDateUtc] FROM [dbo].[Order] WITH (NOLOCK) WHERE [CustomerId] IN (@Keys);",
@@ -139,7 +139,7 @@ using (var connection = new SqlConnection(connectionString))
 For fluent-method, call the [QueryMultiple](/operation/querymultiple) method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     // List of keys to query
     var keys = new [] { 10045, ..., 11211 };

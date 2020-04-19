@@ -116,7 +116,7 @@ You can instantiate a new instance and pass it when you are calling any [fluent 
 
 ```csharp
 var statementBuilder = new OptimizedSqlServerStatementBuilder();
-using (var connection = new SqlConnection(connectionString))
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
         var people = connection.QueryAll<Person>(statementBuilder: statementBuilder);
 }
