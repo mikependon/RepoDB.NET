@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "Field"
+description: "A class that defines a context of field object."
 permalink: /class/field
 tags: [repodb, class, field, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

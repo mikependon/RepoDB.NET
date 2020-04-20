@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: attributes
 title: "Map"
+description: "Learn on how to use the RepoDb Map attribute."
 permalink: /attribute/map
 tags: [repodb, class, map, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

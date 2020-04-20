@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: cachers
 title: "PropertyHandlerCache"
+description: "A class that is being used to retrieve the cached property handler of the class or data entity property."
 permalink: /cacher/propertyhandlercache
 tags: [repodb, class, propertyhandlercache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

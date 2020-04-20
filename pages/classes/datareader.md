@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "DataReader"
+description: "The most fastest data reader extractor in .NET. RepoDb is using this class to extract the content of the data reader object."
 permalink: /class/datareader
 tags: [repodb, class, datareader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

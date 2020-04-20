@@ -2,9 +2,31 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 
-    <title>{% if page.title %}{{ site.title }} - {{ page.title | escape }}{% else %}{{ site.title | escape }} - {{ site.description }}{% endif %}</title>
-    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
-  
+    {% if page.title %}
+    {% capture page_title %}{{ site.title }} - {{ page.title }}{% endcapture %}
+    {% else %}
+    {% capture page_title %}{{ site.title }} - {{ site.description }}{% endcapture %}
+    {% endif %}
+
+    {% if page.description %}
+    {% capture page_description %}{{ page.description }}{% endcapture %}
+    {% else %}
+    {% capture page_description %}{{ site.extended_description }}{% endcapture %}
+    {% endif %}
+
+    <title>{{ page_title }}</title>
+    <meta name="title" content="{{ page_title }}" />
+    <meta data-rh="true" property="og:title" content="{{ page_title }}"/>
+    <meta data-rh="true" property="twitter:title" content="{{ page_title }}"/>
+    <meta name="description" content="{{ page_description }}" />
+    <meta data-rh="true" property="og:description" content="{{ page_description }}"/>
+    <meta data-rh="true" property="twitter:description" content="{{ page_description }}"/>
+    {% if site.twitter_username %}
+    <meta data-rh="true" name="twitter:creator" content="@{{ site.twitter_username }}"/>
+    {% endif %}
+    <meta data-rh="true" name="robots" content="index,follow"/>
+    <meta data-rh="true" name="referrer" content="unsafe-url"/>
+    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ "/assets/materialize.css" | relative_url }}" />
     <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ "/assets/main.css" | relative_url }}">

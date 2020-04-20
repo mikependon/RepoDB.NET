@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "MemoryCache"
+description: "An advance class that is used to cache an object into a memory within RepoDb library."
 permalink: /class/memorycache
 tags: [repodb, class, memorycache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

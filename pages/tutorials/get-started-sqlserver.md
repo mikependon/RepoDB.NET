@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: getstarted
 title: "Get Started for SQL Server"
+description: "Learn on how to work with SQL Server databases using RepoDb library."
 permalink: /tutorial/get-started-sqlserver
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

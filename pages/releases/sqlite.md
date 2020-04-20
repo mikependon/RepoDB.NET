@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: releases
 title: Releases for SQLite
+description: "This page contains the latest information of the releases of RepoDb.SqLite library."
 permalink: /release/sqlite
 ---
 

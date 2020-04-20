@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "BaseRepository"
+description: "A base repository class of all entity-based repository."
 permalink: /class/baserepository
 tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

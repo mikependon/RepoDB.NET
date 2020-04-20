@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: releases
 title: Releases for SQL Server
+description: "This page contains the latest information of the releases of RepoDb.SqlServer library."
 permalink: /release/sqlserver
 ---
 

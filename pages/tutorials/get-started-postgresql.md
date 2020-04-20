@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: getstarted
 title: "Get Started for PostgreSQL"
+description: "Learn on how to work with PostgreSQL databases using RepoDb library."
 permalink: /tutorial/get-started-postgresql
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, postgresql]
 ---

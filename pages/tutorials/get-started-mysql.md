@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: getstarted
 title: "Get Started for MySql"
+description: "Learn on how to work with MySQL databases using RepoDb library."
 permalink: /tutorial/get-started-mysql
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, mysql]
 ---

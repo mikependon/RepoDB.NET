@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "Parameter"
+description: "A class that defines a parameter of the data command object."
 permalink: /class/parameter
 tags: [repodb, class, parameter, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

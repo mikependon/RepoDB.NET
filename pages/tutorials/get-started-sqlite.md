@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: getstarted
 title: "Get Started for SQLite"
+description: "Learn on how to work with SQLite databases using RepoDb library."
 permalink: /tutorial/get-started-sqlite
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, sqlite]
 ---

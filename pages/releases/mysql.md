@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: releases
 title: Releases for MySQL
+description: "This page contains the latest information of the releases of RepoDb.MySql library."
 permalink: /release/mysql
 ---
 

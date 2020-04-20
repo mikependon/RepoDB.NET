@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "ClassProperty"
+description: "A container class that holds an instance of property object. It also contains all the necesarry methods that is relevant to the current property object."
 permalink: /class/classproperty
 tags: [repodb, class, classproperty, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

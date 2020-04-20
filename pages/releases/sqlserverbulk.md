@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: releases
 title: Releases for SQL Server Bulk
+description: "This page contains the latest information of the releases of RepoDb.SqlServer.BulkOperations library."
 permalink: /release/sqlserverbulk
 ---
 

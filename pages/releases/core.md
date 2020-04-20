@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: releases
 title: Releases for Core Package
+description: "This page contains the latest information of the releases of RepoDb library."
 permalink: /release/core
 ---
 

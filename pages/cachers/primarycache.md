@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: cachers
 title: "PrimaryCache"
+description: "A class that is being used to retrieve the cached primary field of the class or data entity."
 permalink: /cacher/primarycache
 tags: [repodb, class, primarycache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

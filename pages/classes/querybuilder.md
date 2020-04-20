@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "QueryBuilder"
+description: "An advance fluent class that is used to construct a SQL statements all throughout the RepoDb library."
 permalink: /class/querybuilder
 tags: [repodb, class, querybuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

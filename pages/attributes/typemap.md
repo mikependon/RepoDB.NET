@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: attributes
 title: "TypeMap"
+description: "Learn on how to use the RepoDb TypeMap attribute."
 permalink: /attribute/typemap
 tags: [repodb, class, typemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

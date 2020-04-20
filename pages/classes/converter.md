@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "Converter"
+description: "A converter class that is used to convert an object into a specific type within the RepoDb library."
 permalink: /class/converter
 tags: [repodb, class, converter, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

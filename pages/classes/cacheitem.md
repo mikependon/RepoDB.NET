@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "CacheItem"
+description: "A class that is used as an item for the cache object."
 permalink: /class/cacheitem
 tags: [repodb, class, cacheitem, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

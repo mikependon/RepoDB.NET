@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: cachers
 title: "IdentityCache"
+description: "A class that is being used to retrieve the cached identity field of the class or data entity."
 permalink: /cacher/identitycache
 tags: [repodb, class, identitycache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

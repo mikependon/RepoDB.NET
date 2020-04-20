@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "TraceLog"
+description: "A class that contains all the information of the trace."
 permalink: /class/tracelog
 tags: [repodb, class, tracelog, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
