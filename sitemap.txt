@@ -1,3 +1,5 @@
+http://repodb.net/preface
+http://repodb.net/docs
 http://repodb.net/about
 http://repodb.net/tutorial/get-started-sqlserver
 http://repodb.net/tutorial/get-started-sqlite
