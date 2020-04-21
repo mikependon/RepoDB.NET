@@ -255,9 +255,6 @@ docs:
   - title: "Field"
     url: "/class/field"
 
-  - title: "IdentityCache"
-    url: "/class/identitycache"
-
   - title: "MemoryCache"
     url: "/class/memorycache"
 
@@ -287,9 +284,6 @@ docs:
 
   - title: "TraceLog"
     url: "/class/tracelog"
-
-  - title: "TypeMapCache"
-    url: "/class/typemapcache"
 
 - key: attributes
   title: "Attributes"

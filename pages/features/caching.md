@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: features
-title: "Cache"
+title: "Caching"
 permalink: /feature/caching
 tags: [repodb, class, cache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
