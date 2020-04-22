@@ -40,7 +40,7 @@ var property = PrimaryMapper.Get<Customer>();
 ```
 
 > Please consider to always use the [PrimaryCache](/cacher/identitycache) class when extracting the mapped class property primary.
-> 
+
 To remove the mapping, use the `Remove` method.
 
 ```csharp
