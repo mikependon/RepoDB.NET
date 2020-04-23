@@ -35,12 +35,12 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 
     public Person GetById(int id)
     {
-        return Query<Person>(id).FirstOrDefault();
+        return Query(id).FirstOrDefault();
     }
 
     public IEnumerable<Person> GetAll()
     {
-        return QueryAll<Person>();
+        return QueryAll();
     }
 
     public int Update(Person person)
