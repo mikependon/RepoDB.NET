@@ -148,7 +148,7 @@ public class CustomerAddressPropertyHandler : IPropertyHandler<string, Address>
 To add a mapping, use the `Add()` method.
 
 ```csharp
-PropertyHandlerMapper.Add<Customer, CustomerAddressPropertyHandler>(e => e.Address, new CustomerAddressPropertyHandler());
+PropertyHandlerMapper.Add<Customer, CustomerAddressPropertyHandler>(e => e.Address);
 ```
 
 To retrieve the mapping, use the `Get()` method. The method returns an instance [ClassProperty](/class/classproperty) object.
