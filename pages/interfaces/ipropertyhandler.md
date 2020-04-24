@@ -111,7 +111,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 On the other hand, you can also handle the property transformation on a type level. It is useful on a situation if you would like to handle a specific database type transformation into a .NET CLR type (ie: converting the `DateTime` object `Kind` to `Utc`).
 
-To enable this, you have to use the [PropertyHandlerMapper](/mapper/propertytypehandlermapper) class for the mappings.
+To enable this, you have to use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class for the mappings.
 
 Let us say, the scenario is to convert all the `DateTime.Kind` properties to Utc in all read operations.
 
@@ -132,7 +132,7 @@ public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<DateTime?, Date
 }
 ```
 
-Then, simply call the Add method of the [PropertyHandlerMapper](/mapper/propertytypehandlermapper) class to add a mapping directly to `DateTime` type.
+Then, simply call the Add method of the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to add a mapping directly to `DateTime` type.
 
 ```csharp
 PropertyHandlerMapper.Add(typeof(DateTime), new DateTimeKindToUtcPropertyHandler(), true);

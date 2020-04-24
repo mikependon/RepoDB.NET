@@ -16,7 +16,7 @@ The execution of the transformation contains the actual values and the affected 
 
 - [IPropertyHandler](/interface/ipropertyhandler) - an interface to mark your class as property handler.
 - [PropertyHandler](/attribute/propertyhandler) - an attribute used to map to specific class property.
-- [PropertyHandlerMapper](/mapper/propertytypehandlermapper) - a mapper used map into a specific type.
+- [PropertyHandlerMapper](/mapper/propertyhandlermapper) - a mapper used map into a specific type.
 
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
@@ -102,7 +102,7 @@ public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<DateTime?, Date
 }
 ```
 
-Then use the [PropertyHandlerMapper](/mapper/propertytypehandlermapper) mapper class to map it.
+Then use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) mapper class to map it.
 
 ```csharp
 PropertyHandlerMapper.Add(typeof(DateTime), new DateTimeKindToUtcPropertyHandler(), true);

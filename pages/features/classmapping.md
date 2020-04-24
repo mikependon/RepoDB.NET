@@ -71,7 +71,7 @@ public class Customer
 Or, use the [PrimaryMapper](/mapper/primarymapper) class for attribute-free setup.
 
 ```csharp
-PropertyMapper.Add<Customer>(e => e.Id);
+PrimaryMapper.Add<Customer>(e => e.Id);
 ```
 
 #### Identity Mapping
