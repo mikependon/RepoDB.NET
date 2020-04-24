@@ -191,7 +191,7 @@ public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<datetime?, date
 To add a mapping, use the type-level `Add()` method.
 
 ```csharp
-PropertyHandlerMapper.Add<DateTime, DateTimeKindToUtcPropertyHandler>(new CustomerAddressPropertyHandler());
+PropertyHandlerMapper.Add<DateTime, DateTimeKindToUtcPropertyHandler>();
 ```
 
 To retrieve the mapping, use the type-level `Get()` method.
