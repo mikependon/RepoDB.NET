@@ -49,9 +49,6 @@ Then use the `Add()` method to map it.
 ```csharp
 ClassMapper.Add<Customer>("[sales].[Customer]");
 ```
-
-> An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
-
 To retrieve the mapped name, use the `Get()` method.
 
 ```csharp
@@ -80,8 +77,6 @@ To add a mapping, use the `Add()` method.
 IdentityMapper.Add<Customer>(e => e.Id);
 ```
 
-> An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
-
 To retrieve the mapping, use the `Get()` method. The method returns an instance [ClassProperty](/class/classproperty) object.
 
 ```csharp
@@ -109,9 +104,6 @@ To add a mapping, use the `Add()` method.
 ```csharp
 PrimaryMapper.Add<Customer>(e => e.Id);
 ```
-
-> An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
-
 To retrieve the mapping, use the `Get()` method. The method returns an instance [ClassProperty](/class/classproperty) object.
 
 ```csharp
@@ -159,8 +151,6 @@ To add a mapping, use the `Add()` method.
 PropertyHandlerMapper.Add<Customer, CustomerAddressPropertyHandler>(e => e.Address, new CustomerAddressPropertyHandler());
 ```
 
-> An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
-
 To retrieve the mapping, use the `Get()` method. The method returns an instance [ClassProperty](/class/classproperty) object.
 
 ```csharp
@@ -203,8 +193,6 @@ To add a mapping, use the type-level `Add()` method.
 ```csharp
 PropertyHandlerMapper.Add<DateTime, DateTimeKindToUtcPropertyHandler>(new CustomerAddressPropertyHandler());
 ```
-
-> An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
 
 To retrieve the mapping, use the type-level `Get()` method.
 
@@ -265,8 +253,6 @@ PropertyMapper.Add<Customer>(e => e.LastName, "[LName]");
 PropertyMapper.Add<Customer>(e => e.DateOfBirth, "[DOB]");
 ```
 
-> An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
-
 To retrieve the mapped name, use the `Get()` method.
 
 ```csharp
@@ -317,8 +303,6 @@ Then, use the `Add()` method to map it.
 TypeMapper.Add<Customer>(e => e.DateOfBirth, DbType.DateTime2);
 ```
 
-> An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
-
 To retrieve the mapping, use the `Get()` method.
 
 ```csharp
@@ -347,8 +331,6 @@ Then use the type-level mapping via `Add()` method.
 TypeMapper.Add<DateTime>(DbType.DateTime2);
 ```
 
-> An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
-
 To retrieve the mapping, use the type-level `Get()` method.
 
 ```csharp
@@ -368,3 +350,5 @@ TypeMapper.Remove<DateTime>();
 ```
 
 Please visit the [Type Mapping](/feature/typemapping) feature for further information.
+
+> In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
