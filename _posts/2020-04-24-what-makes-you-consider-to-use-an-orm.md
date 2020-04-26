@@ -2,7 +2,7 @@
 layout: post
 title: "Practical Reason why choose an ORM over raw ADO.NET"
 author: "Michael Camara Pendon"
-date: 2020-04-23 5:30:00 +0100
+date: 2020-04-25 5:55:00 +0200
 categories: blogs repodb
 ---
 
@@ -10,7 +10,7 @@ The extent of this post is generally targetting the whole ORM families running i
 
 I am the author of `RepoDb` and most samples could be specifics to this ORM, but again, the rationale of this post is beyond the technology stacks and libraries you preferred to work with. Think of all the samples as a code for your favorite ORM (ie: `Entity Framework`, `NHibernate`, `LLBLGen` or `Dapper`).
 
-After reading this article, you may realize some technicalities you will consider when writing a raw implementations. In that point in time, you can only beat the ORM. But until to the fact that you are not writing the perfect codes (or putting extra time and effort into it), then using the raw implementation could not ever beat the ORM (performance, efficiency, maintainability and simplicity).
+After reading this article, you may realize some technicalities you will consider when writing a raw implementations. In that point in time, you can certainly beat the ORM in all cases. But until to the fact that you are not writing the perfect codes (or putting extra time and effort into it), then using the raw implementation could not ever beat the ORM in all cases (ie: `Performance`, `Efficiency`, `Maintainability` and `Simplicity`).
 
 > The content written is based on the actual experiences when developing an ORM, and also, a collective information provided by different authors of different ORMs.
 
@@ -66,7 +66,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-We are comparing `20` lines of codes against `4` lines of codes. You had saved `75%` of your efforts, and by using an intelligent IDE with auto-completion, you may be saved the additional `95%` of your efforts!
+We are comparing `20` lines of codes against `4` lines of codes. You had saved `75%` of your efforts, and by using an intelligent IDE with auto-completion (via `Resharper` or whatever), you may be saved the additional `95%` of your efforts!
 
 Also, imagine that you would like to bring a multiple datasets into the database with some considerations of `deletes`, `updates` and `merges` operation. In raw ADO.NET, that will take time to implement and maintain.
 
@@ -886,3 +886,7 @@ The collaborations is beyond on the things that you usually get with your own ci
 The qualities can be measured in a different way like number of Tests (`Unit`/`Integration`), number of Users, number of running applications in Production, etc.
 
 However, when writing your own implementation, you have to spend time writing such Test Suites and convince multiple users to use and test your code before even usable for actual Production environment. Otherwise, one can rely in a low-quality written codes with a risks of error post-production.
+
+------
+
+I will not give a conclusion this post. In anyway, <strong>I thanked you for reading this article.</strong>
