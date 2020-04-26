@@ -10,7 +10,7 @@ The extent of this post is generally targetting the whole ORM families running i
 
 I am the author of `RepoDb` and most samples could be specifics to this ORM, but again, the rationale of this post is beyond the technology stacks and libraries you preferred to work with. Think of all the samples as a code for your favorite ORM (ie: `Entity Framework`, `NHibernate`, `LLBLGen` or `Dapper`).
 
-After reading this article, you may realize some technicalities you will consider when writing a raw implementations. In that point in time, you can certainly beat the ORM in all cases. But until to the fact that you are not writing the perfect codes (or putting extra time and effort into it), then using the raw implementation could not ever beat the ORM in all cases (ie: `Performance`, `Efficiency`, `Maintainability` and `Simplicity`).
+After reading this article, you may realize some technicalities you will consider when writing a raw implementations. In that point in time, you can certainly beat the ORM in all cases. But until to the fact that you are not writing the perfect  (or putting extra time and effort into it), then using the raw implementation could not ever beat the ORM in all cases (ie: `Performance`, `Efficiency`, `Maintainability` and `Simplicity`).
 
 > The content written is based on the actual experiences when developing an ORM, and also, a collective information provided by different authors of different ORMs.
 
@@ -20,15 +20,15 @@ Anyway, below are the low-level technical reasons why you should choose an ORM o
 
 By today, we mostly develop micro-components to sustain business demands in a fast-changing industry (via `On-Premise` or `Cloud`, `Windows` or `Linux`, etc).
 
-When using an ORM, there is no doubt that you write less-codes that does the same functionalities as you can write with raw ADO.NET. You also deliver more working codes in a very short amount of time by using it.
+When using an ORM, there is no doubt that you write less- that does the same functionalities as you can write with raw ADO.NET. You also deliver more working  in a very short amount of time by using it.
 
 Somebody may claims that he/she can write more features using ADO.NET than by using an ORM.
 
 Well, then you have to help them realize how many times their fingers stroke the keyboard just provide the same functionalities the ORMs can.
 
-*A good programmer who wrote good codes via raw implementations can provide better results using an ORM.*
+*A good programmer who wrote good  via raw implementations can provide better results using an ORM.*
 
-The codes below are very-squeezed raw implementation that you need to write just to query the contents of a single table.
+The  below are very-squeezed raw implementation that you need to write just to query the contents of a single table.
 
 ```csharp
 var customers = new List<Customer>();
@@ -56,7 +56,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 > Not to mention the validations that you need to write on top (ie: columns nullability, conversions, etc).
 
-In ORM, you just have to write the codes below.
+In ORM, you just have to write the  below.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -66,7 +66,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-We are comparing `20` lines of codes against `4` lines of codes. You had saved `75%` of your efforts, and by using an intelligent IDE with auto-completion (via `Resharper` or whatever), you may be saved the additional `95%` of your efforts!
+We are comparing `20` lines of  against `4` lines of . You had saved `75%` of your efforts, and by using an intelligent IDE with auto-completion (via `Resharper` or whatever), you may be saved the additional `95%` of your efforts!
 
 Also, imagine that you would like to bring a multiple datasets into the database with some considerations of `deletes`, `updates` and `merges` operation. In raw ADO.NET, that will take time to implement and maintain.
 
@@ -117,7 +117,7 @@ private T ToData<T>(DbDataReader reader,
 }
 ```
 
-**Well, TBH, the problem on the codes above are the following.**
+**Well, TBH, the problem on the  above are the following.**
 
 - The `IsDbNull` check is slow if you place that in every property.
 - The calls to method indexer is much slower than the method `Get<Type>()`.
@@ -132,13 +132,13 @@ When using an ORM, such implementation is already considered internally. And sin
 - Skipping the nullability check
 - Reusability of the already extracted objects (taken from cache)
 
-#### Ahead of Time-Compilation
+#### Ahead-of-Time Compilation
 
 When you write your own code (as a developer), you mostly do not care about the pre-compilation techniques, what you only care is to make your code run fast and efficient (in your own way). Of course, I cannot generalize this to all developers, but this is the common case.
 
 **So what behinds it?** Well, it matters to the real concern of `performance` and `efficiency`.
 
-Most codes are binaries and logical expressions. If it is not `1` then it is `0`. Same goes with the compilers, with AOT compilation, the codes that you are trying to execute is pre-compiled and that brings you to the shortest path possible to attain the results.
+Most  are binaries and logical expressions. If it is not `1` then it is `0`. Same goes with the compilers, with AOT compilation, the  that you are trying to execute is pre-compiled and that brings you to the shortest path possible to attain the results.
 
 Below is a very simple explanation concerning the compilation path.
 
@@ -174,9 +174,9 @@ The method `WriteName()` is provided by you and is part of the runtime compilati
 WriteName(3); // Human
 ```
 
-When you call the `WriteName()` method, the codes inside this method will be executed `1-by-1`. A hit to first `if` is considered 1 hit, a hit to second `if` is considered the 2nd hit and so on.
+When you call the `WriteName()` method, the  inside this method will be executed `1-by-1`. A hit to first `if` is considered 1 hit, a hit to second `if` is considered the 2nd hit and so on.
 
-The output of literal text `Human` is written after hitting `3` lines of code. These hits will happen everytime you call the `WriteName()` method and if you're passing the value of `3`. In short, if you do iterate `1000` times, then you actually hits `3000` line of codes.
+The output of literal text `Human` is written after hitting `3` lines of code. These hits will happen everytime you call the `WriteName()` method and if you're passing the value of `3`. In short, if you do iterate `1000` times, then you actually hits `3000` line of .
 
 Well, you can further improve this way when you do a manual pre-compilation of the `WriteName()` method ahead of time. You can create a targetted compiled-expression to specifically write the output in the first hit. The process of compiling this code is to generate a compiled-IL (or Expression) that accepts the same argument but is only doing the logic specifics to that purpose.
 
@@ -224,7 +224,7 @@ var humanExpression = GetExpression(3);
 expression.Invoke();
 ```
 
-With this, when you iterate `1000` times, you only hit `1000` lines of codes. Well, TBH, it is a bit tricky!
+With this, when you iterate `1000` times, you only hit `1000` lines of . Well, TBH, it is a bit tricky!
 
 In anyway, such implementations are considered by ORM and is not being considered by the developers during the development. Well, it is just crazy if the developer will write such consideration on their project.
 
@@ -283,7 +283,7 @@ The ORM is creating a seperate compiled-IL (or expression) for the type `Person`
 
 #### Performance
 
-Concerning to performance, one can say that no-one can beat the raw implementation. I certainly agree to this `100%`, but you have to realize that in order for your to maximize the performance, you have to write the codes perfectly.
+Concerning to performance, one can say that no-one can beat the raw implementation. I certainly agree to this `100%`, but you have to realize that in order for your to maximize the performance, you have to write the  perfectly.
 
 We (as a developer) oftenly forgotten (or never consider) some low-level technicalities about which specific raw methods we can use to maximize the performance.
 
@@ -298,7 +298,7 @@ We (as a developer) oftenly forgotten (or never consider) some low-level technic
 
 ###### Int/Name Indexer vs `Get<Type>` Methods
 
-As a developer, we often write the codes below.
+As a developer, we often write the  below.
 
 ```csharp
 while (reader.Read())
@@ -313,7 +313,7 @@ while (reader.Read())
 }
 ```
 
-Over the codes below.
+Over the  below.
 
 ```csharp
 while (reader.Read())
@@ -328,7 +328,7 @@ while (reader.Read())
 }
 ```
 
-The reason why we used the `int` and `name` indexer is code-readability and index mapping positions. So even we changed the position of our columns in query text, the codes will still work.
+The reason why we used the `int` and `name` indexer is code-readability and index mapping positions. So even we changed the position of our columns in query text, the  will still work.
 
 In the underlying implementation of ADO.NET, the `int` and `name` indexer is first finding the position of the column by name (ie: `GetOrdinal` method), then returning a value of `System.Object`. Once you retrieved the value (as `System.Object`), you are obligued to cast or convert it back to a target .NET CLR type (based on class property type).
 
@@ -357,7 +357,7 @@ We often forgot to try casting it first (boxing) before converting. Definitely, 
 
 You can visit the Microsoft documentation [here](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions) or a post from StackOverflow [here](https://stackoverflow.com/questions/638496/what-is-fastest-int-convert-toint32x-or-int32-parsex).
 
-As a developer, we usually write the codes below.
+As a developer, we usually write the  below.
 
 ```csharp
 while (reader.Read())
@@ -372,7 +372,7 @@ while (reader.Read())
 }
 ```
 
-Over the codes below.
+Over the  below.
 
 ```csharp
 while (reader.Read())
@@ -387,7 +387,7 @@ while (reader.Read())
 }
 ```
 
-or the codes below.
+or the  below.
 
 ```csharp
 while (reader.Read())
@@ -479,7 +479,7 @@ private T ToData<T>(DbDataReader reader,
 
 Well, as mentioned in the [ORM is Intelligent](#orm-is-intelligent) section, most of the ORM understand your schemas and it tries to skip this null check.
 
-When you call the fetch operation of ORM, it tries to create a compiled-IL (or expression) that is equivalent to the codes below.
+When you call the fetch operation of ORM, it tries to create a compiled-IL (or expression) that is equivalent to the  below.
 
 ```csharp
 var people = new List<People>();
@@ -518,7 +518,7 @@ Well, one can say *I am iterating it!* or somebody can say *We are creating UDT 
 
 When you are using an ORM, the batch operations are considered as you are using it.
 
-Let us give you a sample, you wrote the codes below to insert `100` customers using raw implementation.
+Let us give you a sample, you wrote the  below to insert `100` customers using raw implementation.
 
 ```csharp
 public void InsertCustomers(IEnumerable<Customer> customers)
@@ -605,7 +605,7 @@ public void InsertCustomers(IEnumerable<Customer> customers)
 
 ###### Reflection vs Compilation
 
-As a developer, we are all lazy and would like to simplify everything. We usually write codes that is pluggable and reusable. In the case of data access, what we always do is to create a base implementation (ie: `Repository`) that will contain the CRUD operations.
+As a developer, we are all lazy and would like to simplify everything. We usually write  that is pluggable and reusable. In the case of data access, what we always do is to create a base implementation (ie: `Repository`) that will contain the CRUD operations.
 
 ```csharp
 public class RepositoryBase<T> where T : class
@@ -667,7 +667,7 @@ Just to mention, the code above is expecting a pre-defined property named `Id` a
 
 **Well, TBH, there is no way in the world that the code above can beat the ORM when it comes to performance!**
 
-It is using the evil `reflection` in which it significantly affect the type manipulation of your application. When you run the codes and you process multi-thousand rows, you will notice the memory consumptions out of it.
+It is using the evil `reflection` in which it significantly affect the type manipulation of your application. When you run the  and you process multi-thousand rows, you will notice the memory consumptions out of it.
 
 > I will definitely call you the craziest and dumbiest developer if you will spend time writing your own compiler just for this sake (within your application). Why not just install an ORM, it only takes 5 seconds.
 
@@ -723,7 +723,7 @@ Imagine the difference and the benefits you are getting here.
 
 #### Maintainabilities
 
-One of the main reason why most developers opt to use an ORM is the maintainability of the codes. When you use an ORM, the codes that you are written is relatively small, thus making it more faster, more easy to read and maintain.
+One of the main reason why most developers opt to use an ORM is the maintainability of the . When you use an ORM, the  that you are written is relatively small, thus making it more faster, more easy to read and maintain.
 
 **Imagine the efforts and complexities when creating a repository like this** without you concerning the other possibilities (ie: different `primary keys`, `identities`, generic `column projections`, etc) and the qualities.
 
@@ -885,7 +885,7 @@ The collaborations is beyond on the things that you usually get with your own ci
 
 The qualities can be measured in a different way like number of Tests (`Unit`/`Integration`), number of Users, number of running applications in Production, etc.
 
-However, when writing your own implementation, you have to spend time writing such Test Suites and convince multiple users to use and test your code before even usable for actual Production environment. Otherwise, one can rely in a low-quality written codes with a risks of error post-production.
+However, when writing your own implementation, you have to spend time writing such Test Suites and convince multiple users to use and test your code before even usable for actual Production environment. Otherwise, one can rely in a low-quality written  with a risks of error post-production.
 
 ------
 
