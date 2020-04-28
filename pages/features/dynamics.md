@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: features
 title: "Dynamics"
+description: "This feature allows you to create a simplified and targetted operations by simply maximizing the usage of dynamics."
 permalink: /feature/dynamics
 tags: [repodb, class, dynamics, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

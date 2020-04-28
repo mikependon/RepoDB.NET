@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: features
 title: "Repositories"
+description: "A repository is a software design pattern and practice in which it is being implemented as an additional layer between your application and your database. It is being represented as a class object within the application. Through repository, you are managing how the data is being manipulated from/to the database."
 permalink: /feature/repositories
 tags: [repodb, class, repository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
@@ -12,7 +13,7 @@ A `repository` is a software design pattern and practice in which it is being im
 
 In this class (the `Repository`), we usually add the basic database operations/methods (ie: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and etc). But in most cases, we place the advance and reporting operations/methods here (ie: `GetTotalOrdersByMonth` or `RecalculateCustomerOrdersByDateRange`).
 
-Then, the codes in your application is using the repository object instead of directly accessing the database. Those allow the developers to follow the correct chain-of calls and reusability when it comes to data-accessibility.
+Then, the code snippets in your application is using the repository object instead of directly accessing the database. Those allow the developers to follow the correct chain-of calls and reusability when it comes to data-accessibility.
 
 > In this tutorial, we will use the SQL Server as the database and C# as the programming language.
 
@@ -25,7 +26,7 @@ In this library, there are 2 kinds of repositories available for implementation.
 
 #### Installation
 
-To install, simply type the codes below in your Package Manager Console.
+To install, simply type the code snippets below in your Package Manager Console.
 
 ```csharp
 > Install-Package RepoDb.SqlServer

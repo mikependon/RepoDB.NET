@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "DataEntityDataReader"
-description: "A customized data reader class that is used to handle the list of the data entity objects."
+description: "A customized data reader class that is used to handle the list of data entity objects."
 permalink: /class/dataentitydatareader
 tags: [repodb, class, dataentitydatareader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

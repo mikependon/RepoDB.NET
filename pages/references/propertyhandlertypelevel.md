@@ -63,6 +63,6 @@ PropertyHandlerMapper.Add(typeof(Guid), new GuidToStringPropertyHandler());
 #### Key Take-aways
 
 - Ensure to always make both the `TInput` and `TResult` generic types `Nullable`. It is handling both properties/columns that are nullables/non-nullables.
-- Make the codes to both `Get` and `Set` method concise and highly performant.
+- Make the code snippets to both `Get` and `Set` method concise and highly performant.
 - Name the property handler corresponds to its purpose.
 - Mishandling of the implementation would make your application suffer in performance.

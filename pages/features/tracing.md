@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: features
 title: "Tracing"
+description: "This is the feature that would allow you to log, audit and debug the command execution context (ie: SQL Statement, Parameters, Elapsed Time) via TraceLog class."
 permalink: /feature/tracing
 tags: [repodb, class, tracing, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

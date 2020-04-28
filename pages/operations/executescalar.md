@@ -12,7 +12,7 @@ This method is used to execute a raw-SQL directly towards the database. It retur
 
 #### Installation
 
-To install, simply type the codes below in your Package Manager Console.
+To install, simply type the code snippets below in your Package Manager Console.
 
 ```csharp
 > Install-Package RepoDb

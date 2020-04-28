@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: features
 title: "Hints"
+description: "This is the feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound)."
 permalink: /feature/propertyhandlers
 tags: [repodb, class, propertyhandlers, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

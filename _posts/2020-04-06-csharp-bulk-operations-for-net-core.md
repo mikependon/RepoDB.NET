@@ -21,7 +21,7 @@ The actual repository can be found at [RepoDb.SqlServer.BulkOperations](https://
 
 If you are usually working with large datasets, then this feature is for you. By using this, it will drastically improve the performance of your application. Together-with, increasing your productivity during the development.
 
-In addition, it will remove your worries by writing and maintaining the complex and tedious codes (implementation complexity) just to achieve your "BASIC" goals with high-performance.
+In addition, it will remove your worries by writing and maintaining the complex and tedious code snippets (implementation complexity) just to achieve your "BASIC" goals with high-performance.
 
 *As an author and being an OSS contributor, I am trying to improve more the experience of most .NET Developers when it comes to data accessibility. The features, within the library is free and will always be. In return, I only like to hear your thoughts, feedbacks and experiences about this library. With this, we can help each other to further improve it.*
 
@@ -118,11 +118,11 @@ Then, call the boostrapper once.
 SqlServerBootstrap.Initialize();
 ```
 
-After that, you can then start calling the Bulk Operations. See the sample codes below.
+After that, you can then start calling the Bulk Operations. See the sample code snippets below.
 
 ### BulkDelete
 
-The codes below only showcasing the [BulkDelete](/operation/bulkdelete) via `System.Collections.Generic.IEnumerable<T>`.
+The code snippets below only showcasing the [BulkDelete](/operation/bulkdelete) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -176,7 +176,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 ### BulkInsert
 
-The codes below only showcasing the [BulkInsert](/operation/bulkinsert) via `System.Collections.Generic.IEnumerable<T>`.
+The code snippets below only showcasing the [BulkInsert](/operation/bulkinsert) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -198,7 +198,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 ### BulkMerge
 
-The codes below only showcasing the [BulkMerge](/operation/bulkmerge) via `System.Collections.Generic.IEnumerable<T>`.
+The code snippets below only showcasing the [BulkMerge](/operation/bulkmerge) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -242,7 +242,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 ### BulkUpdate
 
-The codes below only showcasing the [BulkUpdate](/operation/bulkupdate) via `System.Collections.Generic.IEnumerable<T>`.
+The code snippets below only showcasing the [BulkUpdate](/operation/bulkupdate) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -302,7 +302,7 @@ By using the [RepoDb.SqlServer.BulkOperations](https://github.com/mikependon/Rep
 - No need to write complex implementation of the BulkOperations. Every call is a single-line of code.
 - Handled in OSS community, reviewed and used by the others.
 - Packed with high-quality.
-- Simple implementation. The codes are very easy to operate and maintain.
+- Simple implementation. The code snippets are very easy to operate and maintain.
 
 ----------
 

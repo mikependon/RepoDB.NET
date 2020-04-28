@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "Constant"
-description: "A constant class that is being used by RepoDb library."
+description: "A constant class that is being used by the library."
 permalink: /class/constant
 tags: [repodb, class, constant, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

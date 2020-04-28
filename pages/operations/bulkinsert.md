@@ -18,7 +18,7 @@ If you are working to insert range of rows from 1000 or beyond, then use this me
 
 #### Installation
 
-To install, simply type the codes below in your Package Manager Console.
+To install, simply type the code snippets below in your Package Manager Console.
 
 ```csharp
 > Install-Package RepoDb.SqlServer.BulkOperations

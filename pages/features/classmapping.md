@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: features
 title: "Class Mapping"
+description: "This is the feature that would allow you to map the .NET CLR type (or class properties) into its equivalent database objects and types."
 permalink: /feature/classmapping
 tags: [repodb, class, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

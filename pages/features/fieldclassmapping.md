@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: features
 title: "Field/Class Mapping"
+description: "This is the feature that would allow you to map the class (or a property) into its equivalent object in the database."
 permalink: /feature/fieldclassmapping
 tags: [repodb, class, fieldmapping, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
@@ -75,7 +76,7 @@ public class Supplier
 }
 ```
 
-Since the `FName` column and `FirstName` property is not matching, then you can solve it via mapping (same goes for the other fields). Please see the codes below.
+Since the `FName` column and `FirstName` property is not matching, then you can solve it via mapping (same goes for the other fields). Please see the code snippets below.
 
 ```csharp
 public class Supplier

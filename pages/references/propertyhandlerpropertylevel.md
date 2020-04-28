@@ -74,6 +74,6 @@ public class Person
 #### Key Take-aways
 
 - Ensure to make the `TInput` generic type `Nullable` if the database column is `NULLABLE`.
-- Make the codes to both `Get` and `Set` method concise and highly performant.
+- Make the code snippets to both `Get` and `Set` method concise and highly performant.
 - Name the property handler corresponds to its purpose.
 - Mishandling of the implementation would make your application suffer in performance.

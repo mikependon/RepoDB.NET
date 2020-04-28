@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: features
 title: "Expression Trees"
+description: "This is the feature that would allow you to compose a conditional expressions (to filter a data) when doing an operation in the database."
 permalink: /feature/expressiontrees
 tags: [repodb, class, expressiontrees, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

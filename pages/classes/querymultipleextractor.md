@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "QueryMultipleExtractor"
-description: "A class that is used to extract the information of the multiple resultsets."
+description: "A class that is used to extract the information of the multiple resultsets returned by the ExecuteQueryMultiple operation."
 permalink: /class/querymultipleextractor
 tags: [repodb, class, querymultipleextractor, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

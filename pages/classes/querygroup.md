@@ -78,7 +78,7 @@ var queryGroup = QueryGroup.Parse<Person>(p => p.LastName == "Doe" && State == "
 
 #### Setting the Conjunction
 
-By default, the conjuction is equals to `AND`. Let us say you have the codes below.
+By default, the conjuction is equals to `AND`. Let us say you have the code snippets below.
 
 ```csharp
 var queryFields = new []

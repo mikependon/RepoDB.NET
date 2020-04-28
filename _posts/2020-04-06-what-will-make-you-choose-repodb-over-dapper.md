@@ -964,7 +964,7 @@ RepoDb is more efficient than Dapper (same claim as in Performance).
 
 ###### Experience
 
-It is more easier and faster to develop the codes with RepoDb. It has a rich feature sets which can be used right-away (ie: 2nd-Layer Cache, Fluent Methods). It will help you as a developer deliver more codes in fast and clean manner.
+It is more easier and faster to develop the code snippets with RepoDb. It has a rich feature sets which can be used right-away (ie: 2nd-Layer Cache, Fluent Methods). It will help you as a developer deliver more code snippets in fast and clean manner.
 
 ###### Features
 

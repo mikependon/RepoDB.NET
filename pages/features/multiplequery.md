@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: features
 title: "Multiple Query"
+description: "This is the feature that would allow you to fetch multiple resultsets in a single call."
 permalink: /feature/multiplequery
 tags: [repodb, class, multiplequery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: introduction
 title: Preface
+description: "RepoDb is a hybrid-ORM library for .NET. It is the best alternative ORM to both Dapper and EntityFramework."
 permalink: /preface
 ---
 

@@ -32,7 +32,7 @@ In addition, when calling this method, the library is creating a pseudo temporar
 
 #### Installation
 
-To install, simply type the codes below in your Package Manager Console.
+To install, simply type the code snippets below in your Package Manager Console.
 
 ```csharp
 > Install-Package RepoDb.SqlServer.BulkOperations

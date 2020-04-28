@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: enumerations
 title: "Order"
+description: "A enumeration that defines the list of ordering when querying a data from the database."
 permalink: /enumeration/order
 tags: [repodb, class, order, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: classes
 title: "DbRepository"
-description: "A base class for all repository objects. This is very useful if you would like to develop a shared or database level repository."
+description: "A base class that is used to implement a repository object. This is very useful if you would like to develop a shared or database level repository."
 permalink: /class/dbrepository
 tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

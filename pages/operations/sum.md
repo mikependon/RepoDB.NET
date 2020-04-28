@@ -21,7 +21,7 @@ Below are the supported data providers by this operation.
 
 #### Installation
 
-To install, simply type the codes below in your Package Manager Console.
+To install, simply type the code snippets below in your Package Manager Console.
 
 ```csharp
 > Install-Package RepoDb.SqlServer

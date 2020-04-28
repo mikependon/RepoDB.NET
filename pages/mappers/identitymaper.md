@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: mappers
 title: "IdentityMapper"
+description: "A mapper class that is used to map a class property to be an identity property. This class is used as an alternative to Identity attribute."
 permalink: /mapper/identitymapper
 tags: [repodb, class, identitymapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

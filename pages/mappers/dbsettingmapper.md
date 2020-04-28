@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: mappers
 title: "DbSettingMapper"
+description: "A mapper class for all the database setting classes. The mapping can be made based on the type of the target RDBMS data provider."
 permalink: /mapper/dbsettingmapper
 tags: [repodb, class, dbsettingmapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

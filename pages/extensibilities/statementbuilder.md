@@ -126,7 +126,7 @@ public override string CreateMerge(QueryBuilder queryBuilder,
 }
 ```
 
-> The codes above is just a sample, it was not tested and is not working. In addition to this note, you have to manually implement all the abstract methods.
+> The code snippets above is just a sample, it was not tested and is not working. In addition to this note, you have to manually implement all the abstract methods.
 
 #### Overriding the Virtual Methods
 

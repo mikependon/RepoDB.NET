@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: features
 title: "Enumeration"
+description: "This is the feature that enables you to work with enumerations within the class objects."
 permalink: /feature/enumeration
 tags: [repodb, class, enumeration, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

@@ -74,7 +74,7 @@ public class Customer
 }
 ```
 
-You can then associate the mappings via the codes below.
+You can then associate the mappings via the code snippets below.
 
 ```csharp
 // Class Mapping
@@ -117,7 +117,7 @@ Then following cachers were added to cache the mappings. It is usually used for 
 
 ###### Examples
 
-To get the mappings, use the codes below.
+To get the mappings, use the code snippets below.
 
 ```csharp
 // Class Mapping

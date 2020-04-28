@@ -33,7 +33,7 @@ The execution is ACID as the transaction object will be created if not given.
 
 #### Installation
 
-To install, simply type the codes below in your Package Manager Console.
+To install, simply type the code snippets below in your Package Manager Console.
 
 ```csharp
 > Install-Package RepoDb.SqlServer

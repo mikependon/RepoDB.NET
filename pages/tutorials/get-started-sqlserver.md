@@ -13,7 +13,7 @@ RepoDb is a hybrid .NET ORM library for [SQL Server](https://www.nuget.org/packa
 
 #### Installation
 
-The library can be installed via Nuget. In your Package Manager Console, you can type the codes below.
+The library can be installed via Nuget. In your Package Manager Console, you can type the code snippets below.
 
 ```csharp
 > Install-Package RepoDb.SqlServer
@@ -27,7 +27,7 @@ RepoDb.SqlServerBootstrap.Initialize();
 
 If you are to work with Bulk Operations (ie: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then you must install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
 
-In your Package Manager Console, simply type the codes below.
+In your Package Manager Console, simply type the code snippets below.
 
 ```csharp
 > Install-Package RepoDb.SqlServer.BulkOperations

@@ -2,6 +2,7 @@
 layout: navpage
 sidebar: features
 title: "Bulk Operations"
+description: "It is the process of bringing all the data from the application into the database server at once, and at the same time, ignoring some database specific activities behind the scene, thus gives you maximum performance during the operation."
 permalink: /feature/bulkoperations
 tags: [repodb, class, bulk, bulk-operations, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
@@ -93,7 +94,7 @@ Below are the ways on how to call the operations.
 
 ###### For BulkDelete
 
-The codes below only showcasing the [BulkDelete](/operation/bulkdelete) via `System.Collections.Generic.IEnumerable<T>`.
+The code snippets below only showcasing the [BulkDelete](/operation/bulkdelete) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -136,7 +137,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 ###### For BulkInsert
 
-The codes below only showcasing the [BulkInsert](/operation/bulkinsert) via `System.Collections.Generic.IEnumerable<T>`.
+The code snippets below only showcasing the [BulkInsert](/operation/bulkinsert) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -158,7 +159,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 ###### For BulkMerge
 
-The codes below only showcasing the [BulkMerge](/operation/bulkmerge) via `System.Collections.Generic.IEnumerable<T>`.
+The code snippets below only showcasing the [BulkMerge](/operation/bulkmerge) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -191,7 +192,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 ###### For BulkUpdate
 
-The codes below only showcasing the [BulkUpdate](/operation/bulkupdate) via `System.Collections.Generic.IEnumerable<T>`.
+The code snippets below only showcasing the [BulkUpdate](/operation/bulkupdate) via `System.Collections.Generic.IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())

@@ -263,14 +263,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Add `AsFields()` extended methods for the `IEnumerable` of `DbField` objects.
 - To Consider: Enable [BulkInsert](/operation/bulkinsert) with System.`DataTable` [#277](https://github.com/mikependon/RepoDb/issues/277)
 - Test: Add IntegrationTests on [BulkInsert](/operation/bulkinsert) that accepts DataEntities and TableName.
-- Refactoring: Refactor the codes for `DbFieldCache` to accept `IDbTransaction` objects. These affected too many chain of calls.
+- Refactoring: Refactor the code snippets for `DbFieldCache` to accept `IDbTransaction` objects. These affected too many chain of calls.
 - Refactoring: Removed the `ToLower()` and replaced by `StringComparer.OrdinalIgnoreCase`.
 
 
 #### RepoDb (v1.9.9-beta5)
 
 - Bug: `SqlDbHelper.GetFields` is failing if the transaction object is present. [#278](https://github.com/mikependon/RepoDb/issues/278)
-- Refactoring: Refactor the codes for `DbFieldCache` to accept `IDbTransaction` objects. These affected too many chain of calls.
+- Refactoring: Refactor the code snippets for `DbFieldCache` to accept `IDbTransaction` objects. These affected too many chain of calls.
 
 
 #### RepoDb (v1.9.9-beta4)
