@@ -140,8 +140,15 @@ nav.header {
     padding: 0 15px;
 }
 .icons-section .icon-block .material-icons {
-      font-size: inherit;
-  }
+    font-size: inherit;
+}
+
+/* Statistics */
+
+.statitics-section img.statistics {
+    display: inline-block;
+    max-width: 80%;
+}
 
 /* Codes */
 
