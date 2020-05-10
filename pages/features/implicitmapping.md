@@ -364,7 +364,7 @@ Use the [FluentMapper](/mapper/fluentmapper) class to manage the fluent mappings
 
 ###### Entity Mapping
 
-To define the mappings for entity, use the `Entity()` method.
+To define the mappings for an entity, use the `Entity()` method.
 
 ```csharp
 FluentMapper
@@ -381,11 +381,11 @@ FluentMapper
 
 ###### Type-Level Mapping
 
-To define the mappings for specfic .NET CLR type, use the `Type()` method.
+To define the mappings for a specfic .NET CLR type, use the `Type()` method.
 
 ```csharp
 FluentMapper
     .Type<DateTime>()
-    .DbType(e => e.DateOfBirth)
+    .DbType(DbType.DateTime2)
     .PropertyHandler<DateTimeKindToUtcPropertyHandler>(new DateTimeKindToUtcPropertyHandler());
 ```
