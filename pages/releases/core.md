@@ -11,7 +11,7 @@ permalink: /release/core
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
 
-#### RepoDb
+#### RepoDb (v1.11.0)
 
 - Enhancement: Use lambda to define property handlers within DTO constructor. [#421](https://github.com/mikependon/RepoDb/issues/421)
 - Enhancement: Consider Mapping class [#415](https://github.com/mikependon/RepoDb/issues/415)
