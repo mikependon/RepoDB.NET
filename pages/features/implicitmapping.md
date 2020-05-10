@@ -29,6 +29,8 @@ Below are the list of cachers that can be used.
 - [PropertyMappedNameCache](/cacher/propertymappednamecache)
 - [TypeMapCache](/cacher/typemapcache)
 
+> Use the [FluentMapper](/mapper/fluentmapper) class to simplify the implementation of the entity mappings.
+
 #### Class Name Mapping
 
 Use the [ClassMapper](/mapper/classmapper) class to manage the mappings of the class into its equivalent object in the database (ie: Table, View).
@@ -353,3 +355,37 @@ TypeMapper.Remove<DateTime>();
 Please visit the [Type Mapping](/feature/typemapping) feature for further information.
 
 > In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
+
+
+#### Fluent Mapping
+
+Use the [FluentMapper](/mapper/fluentmapper) class to manage the fluent mappings for `Table`, `Column`, `Primary`, `Identity`, `Database Types` and `Property Handlers`.
+
+
+###### Entity Mapping
+
+To define the mappings for entity, use the `Entity()` method.
+
+```csharp
+FluentMapper
+    .Entity<Customer>()
+    .Table("[sales].[Customer]")
+    .Primary(e => e.Id)
+    .Identity(e => e.Id)
+    .Column(e => e.FirstName, "[FName]")
+    .Column(e => e.LastName, "[LName]")
+    .Column(e => e.DateOfBirth, "[DOB]")
+    .DbType(e => e.DateOfBirth, DbType.DateTime2)
+    .PropertyHandler<CustomerAddressPropertyHandler>(e => e.Address);
+```
+
+###### Type-Level Mapping
+
+To define the mappings for specfic .NET CLR type, use the `Type()` method.
+
+```csharp
+FluentMapper
+    .Type<DateTime>()
+    .DbType(e => e.DateOfBirth)
+    .PropertyHandler<DateTimeKindToUtcPropertyHandler>(new DateTimeKindToUtcPropertyHandler());
+```
