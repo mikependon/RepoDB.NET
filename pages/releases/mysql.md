@@ -11,14 +11,20 @@ permalink: /release/mysql
 Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySql) to download it.
 
 
+#### RepoDb.MySql (v1.0.10-beta1)
+
+- Bug: insert&lt;T&gt; issue - parameter 'xxx' already added [#432](https://github.com/mikependon/RepoDb/issues/432)
+- Referenced the latest beta version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.0-beta4](/release/core#repodb-v1110-beta4)).
+
+
 #### RepoDb.MySql (v1.0.9)
 
-- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](http://repodb.net/release/core#repodb-v11011)).
+- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
 
 
 #### RepoDb.MySql (v1.0.8)
 
-- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](http://repodb.net/release/core#repodb-v11011)).
+- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
 
 
 #### RepoDb.MySql (v1.0.7)
