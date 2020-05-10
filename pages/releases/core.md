@@ -11,12 +11,34 @@ permalink: /release/core
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
 
+#### RepoDb
+
+- Enhancement: Use lambda to define property handlers within DTO constructor. [#421](https://github.com/mikependon/RepoDb/issues/421)
+- Enhancement: Consider Mapping class [#415](https://github.com/mikependon/RepoDb/issues/415)
+- Request: Allow custom implementation without attribute [#399](https://github.com/mikependon/RepoDb/issues/399)
+- Question: ColumnName Resolver [#387](https://github.com/mikependon/RepoDb/issues/387)
+- Added the [FluentMapper](/class/fluentmapper), [EntityMapFluentDefinition](/class/entitymapfluentdefinition) and [TypeMapFluentDefinition](/class/typemapfluentdefinition).
+- Added the expression-based invocation in the `Add()`, `Get()` and `Remove()` methods of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
+- Refactor the `Parse()` method of the `OrderField` and `Field` classes.
+- Refactor the `GetProperty()` method of the `ExpressionExtension` class to solve the problem in the mappers.
+- Added the [PropertyHandlerCache](/cacher/propertyhandlercache) class.
+- Added the methods `Add`, `Remove` and `Get` at the `PropertyHandlerMapper` class to cater the property level mapping.
+- Added a class named [PropertyHandlerMapper](/mapper/propertyhandlermapper) as a replacement of [PropertyHandlerMapper](/mapper/propertyhandlermapper) class.
+- Added more Integration Tests on the implicit mappings feature.
+- Added Unit and Integration Tests for the fluent mappings.
+- Added the `ObseleteAttribute` attribute at the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class.
+- Removed the `throwException` arguments in the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
+- Removed the return value of the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper).
+- Rename all the mappers `Flush()` method into `Clear()`.
+
+
 #### RepoDb (v1.11.0-beta4)
 
 - Refactor: Renamed the argument `objectName` to `databaseObjectName` of [ClassMapper](/mapper/classmapper) class.
 - Added: Added the method `Get()` via `propertyName`, [Field](/class/field) and Linq expression at [PropertyCache](/cache/propertycache) class.
 - Refactor: Hide the method `Get()` via [ClassProperty](/class/classproperty) at [ClassExpression](/class/classexpression) class.
 - Removed: Removed the method `Get()` via [DbField](/class/dbfield) at [ClassExpression](/class/classexpression) class.
+
 
 ###### All packages are affected:
 - Bug: (Direct Reports) Fixed the issue at `DeleteAll()` via primary keys if the items is beyond `2100`.
@@ -37,7 +59,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Removed the `throwException` arguments in the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
 - Refactor the `Parse()` method of the `OrderField` and `Field` classes.
 - Refactor the `GetProperty()` method of the `ExpressionExtension` class to solve the problem in the mappers.
-- Added more integration tests on the implicit mappings feature.
+- Added more Integration Tests on the implicit mappings feature.
 
 
 #### RepoDb (v1.11.0-beta1)
