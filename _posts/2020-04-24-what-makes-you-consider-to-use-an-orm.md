@@ -176,7 +176,7 @@ WriteName(3); // Human
 
 When you call the `WriteName()` method, the code inside this method will be executed `1-by-1`. A hit to first `if` is considered 1 hit, a hit to second `if` is considered the 2nd hit and so on.
 
-The output of literal text `Human` is written after hitting `3` lines of code. These hits will happen everytime you call the `WriteName()` method and if you're passing the value of `3`. In short, if you do iterate `1000` times, then you actually hits `3000` line of code.
+The output of literal text `Human` is written after hitting `3` lines of code. These hits will happen everytime you call the `WriteName()` method and if you're passing the value of `3`. In short, if you do iterate `1000` times, then you actually hits `3000` lines of code.
 
 Well, you can further improve this way when you do a manual pre-compilation of the `WriteName()` method ahead of time. You can create a targetted compiled-expression to specifically write the output in the first hit. The process of compiling this code is to generate a compiled-IL (or Expression) that accepts the same argument but is only doing the logic specifics to that purpose.
 
