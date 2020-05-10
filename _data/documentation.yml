@@ -252,6 +252,9 @@ docs:
   - title: "DbField"
     url: "/class/dbfield"
 
+  - title: "EntityMapFluentDefinition"
+    url: "/class/entitymapfluentdefinition"
+
   - title: "Field"
     url: "/class/field"
 
@@ -284,6 +287,9 @@ docs:
 
   - title: "TraceLog"
     url: "/class/tracelog"
+
+  - title: "TypeMapFluentDefinition"
+    url: "/class/typemapfluentdefinition"
 
 - key: attributes
   title: "Attributes"
@@ -427,6 +433,9 @@ docs:
     
   - title: "DbSettingMapper"
     url: "/mapper/dbsettingmapper"
+    
+  - title: "FluentMapper"
+    url: "/mapper/fluentmapper"
     
   - title: "IdentityMapper"
     url: "/mapper/identitymapper"

@@ -17,7 +17,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Consider Mapping class [#415](https://github.com/mikependon/RepoDb/issues/415)
 - Request: Allow custom implementation without attribute [#399](https://github.com/mikependon/RepoDb/issues/399)
 - Question: ColumnName Resolver [#387](https://github.com/mikependon/RepoDb/issues/387)
-- Added the [FluentMapper](/class/fluentmapper), [EntityMapFluentDefinition](/class/entitymapfluentdefinition) and [TypeMapFluentDefinition](/class/typemapfluentdefinition).
+- Added the [FluentMapper](/mapper/fluentmapper), [EntityMapFluentDefinition](/class/entitymapfluentdefinition) and [TypeMapFluentDefinition](/class/typemapfluentdefinition).
 - Added the expression-based invocation in the `Add()`, `Get()` and `Remove()` methods of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
 - Refactor the `Parse()` method of the `OrderField` and `Field` classes.
 - Refactor the `GetProperty()` method of the `ExpressionExtension` class to solve the problem in the mappers.
