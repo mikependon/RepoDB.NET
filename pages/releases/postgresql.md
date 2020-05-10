@@ -19,12 +19,12 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 
 #### RepoDb.PostgreSql (v1.0.6)
 
-- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](http://repodb.net/release/core#repodb-v11011)).
+- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
 
 
 #### RepoDb.PostgreSql (v1.0.5)
 
-- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](http://repodb.net/release/core#repodb-v11011)).
+- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
 
 
 #### RepoDb.PostgreSql (v1.0.4)

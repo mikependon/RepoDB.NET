@@ -13,13 +13,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 
 #### RepoDb.SqlServer.BulkOperations (v1.0.6)
 
-- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](http://repodb.net/release/core#repodb-v11011)).
-- Referenced the latest version of [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.0.6](http://repodb.net/release/sqlserver#repodb-v106)).
+- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
+- Referenced the latest version of [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.0.6](/release/sqlserver#repodb-v106)).
 
 
 #### RepoDb.SqlServer.BulkOperations (v1.0.5)
 
-- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](http://repodb.net/release/core#repodb-v11011)).
+- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
 
 
 #### RepoDb.SqlServer.BulkOperations (v1.0.4)
