@@ -137,7 +137,7 @@ public class JsonCache : ICache
 }
 ```
 
-#### Trace
+#### Cache Factory
 
 ```csharp
 public static class CacheFactory
