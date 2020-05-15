@@ -30,6 +30,26 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
+#### Selecting the proper cache key
+Each cache key should preferably be unique to the query executed, so that different methods don't end up unintentionally sharing data.
+
+Constructing a unique key is left to the developer,
+but a good best practice is to adopt a convention for generating the cache keys, such as
+`className-methodName-queryArgument1Value-queryArgument2Value` or `entityName-queryArgument1Name-queryArgument1Value--queryArgument1Name-queryArgument2Value` etc.
+
+
+Following this naming convention makes it easy to examine keys at run-time and establish the source and guarantees uniqueness.
+```csharp
+// An example of the second cache key convention:
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+    var productId = 5;
+    Query<Product>(product => product.Id == productId,
+        cacheKey: $"product-id-{productId}");
+}
+```
+
+
 As mentioned, by default the cache is placed in the computer memory via [MemoryCache](/class/memorycache) object. It is a simple dictionary object (key/value pairs).
 
 #### Create a Customize Cache Class
