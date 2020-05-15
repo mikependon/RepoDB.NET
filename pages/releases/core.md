@@ -11,6 +11,11 @@ permalink: /release/core
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
 
+#### RepoDb (v1.11.1-beta1)
+
+- Bug: The property handler mapping via FluentMapper or PropertyHandlerMapper is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
+- Added an extensive Integration Tests for Property Handler Implicit Mapping.
+
 #### RepoDb (v1.11.0)
 
 - Enhancement: Use lambda to define property handlers within DTO constructor. [#421](https://github.com/mikependon/RepoDb/issues/421)
