@@ -13,7 +13,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDb (v1.11.1-beta1)
 
-- Bug: The property handler mapping via FluentMapper or PropertyHandlerMapper is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
+- Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
 - Added an extensive Integration Tests for Property Handler Implicit Mapping.
 
 #### RepoDb (v1.11.0)
