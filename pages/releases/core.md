@@ -23,10 +23,10 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Refactor the `GetProperty()` method of the `ExpressionExtension` class to solve the problem in the mappers.
 - Added the [PropertyHandlerCache](/cacher/propertyhandlercache) class.
 - Added the methods `Add`, `Remove` and `Get` at the `PropertyHandlerMapper` class to cater the property level mapping.
-- Added a class named [PropertyHandlerMapper](/mapper/propertyhandlermapper) as a replacement of [PropertyHandlerMapper](/mapper/propertyhandlermapper) class.
+- Added a class named [PropertyHandlerMapper](/mapper/propertyhandlermapper) as a replacement of `PropertyTypeHandlerMapper` class.
 - Added more Integration Tests on the implicit mappings feature.
 - Added Unit and Integration Tests for the fluent mappings.
-- Added the `ObseleteAttribute` attribute at the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class.
+- Added the `ObseleteAttribute` attribute at the `PropertyTypeHandlerMapper` class.
 - Removed the `throwException` arguments in the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
 - Removed the return value of the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper).
 - Rename all the mappers `Flush()` method into `Clear()`.
