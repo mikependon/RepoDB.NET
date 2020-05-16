@@ -10,9 +10,11 @@ public class Customer
     public string LastName { get; set; }
 }
 
-ClassMapper.Add<Customer>("[sales].[Customer]");
-PrimaryMapper.Add<Customer>(e => e.Id);
-IdentityMapper.Add<Customer>(e => e.Id);
-PropertyMapper.Add<Customer>(e => e.FirstName, "FName");
-PropertyMapper.Add<Customer>(e => e.Id, "LName");
+FluentMapper
+    .Entity<Customer>()
+    .Table("[sales].[Customer]")
+    .Primary(e => e.Id)
+    .Identity(e => e.Id)
+    .Column(e => e.FirstName, "FName")
+    .Column(e => e.LastName, "LName");
 ```

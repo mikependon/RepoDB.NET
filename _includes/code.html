@@ -7,28 +7,13 @@
             <div class="row">
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/connection.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/connection.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/transaction.md %}{% endcapture %}
-                        {{ var | markdownify }}
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s12 m6">
-                    <div class="code-block">
-                        {% capture var %}{% include_relative codes/hints.md %}{% endcapture %}
-                        {{ var | markdownify }}
-                    </div>
-                </div>
-                <div class="col s12 m6">
-                    <div class="code-block">
-                        {% capture var %}{% include_relative codes/cache.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/transaction.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
@@ -37,28 +22,13 @@
             <div class="row">
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/classmappings.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/hints.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/implicitmappings.md %}{% endcapture %}
-                        {{ var | markdownify }}
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s12 m6">
-                    <div class="code-block">
-                        {% capture var %}{% include_relative codes/dynamics.md %}{% endcapture %}
-                        {{ var | markdownify }}
-                    </div>
-                </div>
-                <div class="col s12 m6">
-                    <div class="code-block">
-                        {% capture var %}{% include_relative codes/propertyhandler.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/cache.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
@@ -67,13 +37,13 @@
             <div class="row">
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/batchoperation.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/classmappings.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/enumeration.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/implicitmappings.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
@@ -82,13 +52,43 @@
             <div class="row">
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/trace.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/dynamics.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/repository.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/propertyhandler.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative code/batchoperation.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative code/enumeration.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative code/trace.md %}{% endcapture %}
+                        {{ var | markdownify }}
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="code-block">
+                        {% capture var %}{% include_relative code/repository.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
@@ -99,13 +99,13 @@
             <div class="row">
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/bulkinsert.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/bulkinsert.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/bulkmerge.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/bulkmerge.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
@@ -114,13 +114,13 @@
             <div class="row">
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/bulkupdate.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/bulkupdate.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
                 <div class="col s12 m6">
                     <div class="code-block">
-                        {% capture var %}{% include_relative codes/bulkdelete.md %}{% endcapture %}
+                        {% capture var %}{% include_relative code/bulkdelete.md %}{% endcapture %}
                         {{ var | markdownify }}
                     </div>
                 </div>
