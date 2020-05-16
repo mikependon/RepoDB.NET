@@ -11,25 +11,42 @@ tags: [repodb, class, implicitmapping, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 This is the feature that would allow you to implicitly map the .NET CLR objects or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes in the classes.
 
-Below are the list of mappers that can be used.
+#### Fluent Mapping
 
-- [ClassMapper](/mapper/classmapper)
-- [IdentityMapper](/mapper/identitymapper)
-- [PrimaryMapper](/mapper/primarymapper)
-- [PropertyHandlerMapper](/mapper/propertyhandlermapper)
-- [PropertyMapper](/mapper/propertymapper)
-- [TypeMapper](/mapper/typemapper)
+Use the [FluentMapper](/mapper/fluentmapper) class to manage the fluent mappings for `Table`, `Column`, `Primary`, `Identity`, `Database Types` and `Property Handlers`.
 
-Below are the list of cachers that can be used.
 
-- [ClassMappedNameCache](/cacher/classmappednamecache)
-- [IdentityCache](/cacher/identitycache)
-- [PrimaryCache](/cacher/primarycache)
-- [PropertyHandlerCache](/cacher/propertyhandlercache)
-- [PropertyMappedNameCache](/cacher/propertymappednamecache)
-- [TypeMapCache](/cacher/typemapcache)
+###### Entity Mapping
 
-> Use the [FluentMapper](/mapper/fluentmapper) class to simplify the implementation of the entity mappings.
+To define the mappings for an entity, use the `Entity()` method.
+
+```csharp
+FluentMapper
+    .Entity<Customer>() // Define which Class or Model
+    .Table("[sales].[Customer]") // Map the Class/Table
+    .Primary(e => e.Id) // Define the Primary
+    .Identity(e => e.Id) // Define the Identity
+    .Column(e => e.FirstName, "[FName]") // Map the Property/Column
+    .Column(e => e.LastName, "[LName]") // Map the Property/Column
+    .Column(e => e.DateOfBirth, "[DOB]") // Map the Property/Column
+    .DbType(e => e.DateOfBirth, DbType.DateTime2) // Map the Property/DatabaseType
+    .PropertyHandler<CustomerAddressPropertyHandler>(e => e.Address); // Map the Property/PropertyHandler
+```
+
+###### Type-Level Mapping
+
+To define the mappings for a specfic .NET CLR type, use the `Type()` method.
+
+```csharp
+FluentMapper
+    .Type<DateTime>() // Define which .NET CLR type
+    .DbType(DbType.DateTime2) // Define the equivalent DatabaseType
+    .PropertyHandler<DateTimeKindToUtcPropertyHandler>(); // Define the PropertyHandler
+```
+
+The priority of the mapping is first identified via  `Attribute-Level` followed by `Property-Level` and then by `Type-Level`.
+
+> The [FluentMapper](/mapper/fluentmapper) is using the following classes ([ClassMapper](/mapper/classmapper), [IdentityMapper](/mapper/identitymapper), [PrimaryMapper](/mapper/primarymapper), [PropertyHandlerMapper](/mapper/propertyhandlermapper), [PropertyMapper](/mapper/propertymapper) and [TypeMapper](/mapper/typemapper)) underneath to establish the proper mappings.
 
 #### Class Name Mapping
 
@@ -355,37 +372,3 @@ TypeMapper.Remove<DateTime>();
 Please visit the [Type Mapping](/feature/typemapping) feature for further information.
 
 > In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
-
-
-#### Fluent Mapping
-
-Use the [FluentMapper](/mapper/fluentmapper) class to manage the fluent mappings for `Table`, `Column`, `Primary`, `Identity`, `Database Types` and `Property Handlers`.
-
-
-###### Entity Mapping
-
-To define the mappings for an entity, use the `Entity()` method.
-
-```csharp
-FluentMapper
-    .Entity<Customer>()
-    .Table("[sales].[Customer]")
-    .Primary(e => e.Id)
-    .Identity(e => e.Id)
-    .Column(e => e.FirstName, "[FName]")
-    .Column(e => e.LastName, "[LName]")
-    .Column(e => e.DateOfBirth, "[DOB]")
-    .DbType(e => e.DateOfBirth, DbType.DateTime2)
-    .PropertyHandler<CustomerAddressPropertyHandler>(e => e.Address);
-```
-
-###### Type-Level Mapping
-
-To define the mappings for a specfic .NET CLR type, use the `Type()` method.
-
-```csharp
-FluentMapper
-    .Type<DateTime>()
-    .DbType(DbType.DateTime2)
-    .PropertyHandler<DateTimeKindToUtcPropertyHandler>(new DateTimeKindToUtcPropertyHandler());
-```
