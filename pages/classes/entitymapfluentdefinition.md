@@ -20,6 +20,8 @@ var definition = FluentMapper.Entity<Customer>();
 definition.Table("[sales].[Customer]");
 ```
 
+It is using the [ClassMapper](/mapper/classmapper) class underneath.
+
 #### Mapping a Table Column
 
 To map a data entity property into a specific table column, use the `Column` method.
@@ -43,6 +45,8 @@ var definition = FluentMapper.Entity<Customer>();
 var field = new Field("FirstName");
 definition.Column(field, "[FName]");
 ```
+
+It is using the [PropertyMapper](/mapper/propertymapper) class underneath.
 
 #### Defining a Primary Property
 
@@ -68,6 +72,8 @@ var field = new Field("Id");
 definition.Primary(field);
 ```
 
+It is using the [PrimaryMapper](/mapper/primarymapper) class underneath.
+
 #### Defining an Identity Property
 
 To define the data entity identity property, use the `Identity` method.
@@ -91,6 +97,8 @@ var definition = FluentMapper.Entity<Customer>();
 var field = new Field("Id");
 definition.Identity(field);
 ```
+
+It is using the [IdentityMapper](/mapper/identitymapper) class underneath.
 
 #### Mapping a Database Type
 
@@ -116,6 +124,8 @@ var field = new Field("DateOfBirth");
 definition.Identity(field, DbType.DateTime2);
 ```
 
+It is using the [TypeMapper](/mapper/typemapper) class underneath.
+
 #### Defining a Property Handler
 
 To define the property handler for the data entity property, use the `PropertyHandler` method.
@@ -140,5 +150,5 @@ var field = new Field("Address");
 definition.PropertyHandler<CustomerAddressPropertyHandler>("Address");
 ```
 
-
+It is using the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class underneath.
 
