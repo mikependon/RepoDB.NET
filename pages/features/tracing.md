@@ -15,8 +15,6 @@ A corresponding method in the trace class will be hit by the debugger when you c
 
 To be more precise, if you call the [Insert](/operation/insert) operation, the `BeforeInsert` and `AfterInsert` method of the trace class will be invoked. There you can add the breakpoint to enable the debugging.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Create a Customize Trace Class
 
 Create a class that implements the [ITrace](/interface/itrace) interface.

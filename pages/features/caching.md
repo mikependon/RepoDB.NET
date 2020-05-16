@@ -17,8 +17,6 @@ In this library, by default, the `Cache` is implemented as a storage in computer
 
 The objects that are not frequently changing but is mostly in used in the application are the candidate for caching.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### How to use the Cache?
 
 Simply pass a value to the `cacheKey` argument when calling the operation.

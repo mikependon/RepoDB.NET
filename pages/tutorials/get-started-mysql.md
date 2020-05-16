@@ -27,8 +27,6 @@ RepoDb.MySqlBootstrap.Initialize();
 
 Or visit our [installation](/tutorial/installation) page for more information.
 
-> In this tutorial, we will use the C# as the programming language.
-
 #### Create a Table
 
 ```csharp

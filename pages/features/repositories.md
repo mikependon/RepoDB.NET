@@ -15,8 +15,6 @@ In this class (the `Repository`), we usually add the basic database operations/m
 
 Then, the code snippets in your application is using the repository object instead of directly accessing the database. Those allow the developers to follow the correct chain-of calls and reusability when it comes to data-accessibility.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Type of Repositories
 
 In this library, there are 2 kinds of repositories available for implementation.

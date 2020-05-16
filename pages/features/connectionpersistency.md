@@ -11,8 +11,6 @@ tags: [repodb, class, connectionpersistency, orm, hybrid-orm, sqlserver, sqlite,
 
 This is the feature that enables you to manage the instance of the `DbConnection` object within the repository objects (ie: [BaseRepository](/class/baserepository) or [DbRepository](/class/dbrepository)). Please see the [ConnectionPersistency](/enumeration/connectionpersistency) enumeration for more information.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Types of Persitency
 
 - `PerCall (Default)` - in every method call, a new `DbConnection` object is being used.

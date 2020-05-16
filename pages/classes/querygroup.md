@@ -15,8 +15,6 @@ It contains the list of child Query Group(s) and [QueryField](/class/queryfield)
 
 By using this class, it would increase the performance of your application as the library's core implementation is very dependent on the tree structuring of the query objects.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Creating an Instance
 
 Below is the way on how to create an instance of this class.

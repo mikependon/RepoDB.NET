@@ -13,8 +13,6 @@ This class is a result object of the [ExecuteQueryMultiple](/operation/executequ
 
 Internally, it is abstracting the instance of `DbDataReader`, `IDbConnection` and `IDbTransaction` (if present). It is managing how the pointer of the `DbDataReader` object when you (as the developer) is calling its method. Underneath, it also calls the `DbDataReader.NextResult()` method.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Methods
 
 These are the methods available on this class.

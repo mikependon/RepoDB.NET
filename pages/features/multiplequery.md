@@ -13,8 +13,6 @@ This is the feature that would allow you to fetch multiple resultsets in a singl
 
 The underlying implementation of this feature is abstracting the `DbDataReader` methods (ie: `Read()` and `NextResult`) when extracting the results.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Type of Return Types
 
 The method [ExecuteQueryMultiple](/operation/executequerymultiple) is returning the type of [QueryMultipleExtractor](/class/querymultipleextractor). It allows you to control and manage the way on how to extract the resultsets. The execution is differed as it is relying on the explicit calls you are making towards the `Extract()` and `Scalar()` methods.

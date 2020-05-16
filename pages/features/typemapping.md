@@ -19,6 +19,12 @@ To map a .NET CLR type, simply use the [TypeMapper](/mapper/typemapper) class.
 TypeMapper.Map(typeof(DateTime), DbType.DateTime2);
 ```
 
+Or via [FluentMapper](/mapper/fluentmapper) class.
+
+```csharp
+FluentMapper.Type<DateTime>(DbType.DateTime2);
+```
+
 #### Mapping a Specific Property
 
 To map a specific class property, simply use the [TypeMap](/attribute/typemap) attribute.

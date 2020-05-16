@@ -19,8 +19,6 @@ The execution of the transformation contains the actual values and the affected 
 - [PropertyHandler](/attribute/propertyhandler) - an attribute used to map to specific class property.
 - [PropertyHandlerMapper](/mapper/propertyhandlermapper) - a mapper used map into a specific type.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Relevant Use-Cases
 
 - A `String` to `Class` conversion. Imagine you have a column `Address` of type `NVARCHAR` and you would like it to be an `Address` class with different properties if you are extracting a record.

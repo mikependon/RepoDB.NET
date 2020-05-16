@@ -11,8 +11,6 @@ tags: [repodb, class, cacheitem, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 This class is used as an item for the [ICache](/interface/icache) object.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Methods
 
 Please see the [IExpirable](/interface/iexpirable) methods.

@@ -46,8 +46,6 @@ RepoDb.SqlServerBootstrap.Initialize();
 
 Or visit our [installation](/tutorial/installation) page for more information.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Learnings
 
 Let us say you have a list of `Person` model at variable `people` that contains both existing and non-existing rows from the database.

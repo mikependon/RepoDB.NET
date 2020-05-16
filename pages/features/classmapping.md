@@ -13,7 +13,7 @@ This is the feature that would allow you to map the .NET CLR type (or class prop
 
 #### Class Name Mapping
 
-To map the class name, simply use the [Map](/attribute/map) attribute.
+To map the class name, simply use the [Map](/attribute/map) attribute (or the `Table` attribute of `System.ComponentModel.DataAnnotations.Schema` namespace) .
 
 ```csharp
 [Map("[sales].[Customer"])]
@@ -31,7 +31,7 @@ ClassMapper.Add<Customer>("[sales].[Customer]");
 
 #### Property Name Mapping
 
-To map the property name, simply use the [Map](/attribute/map) attribute.
+To map the property name, simply use the [Map](/attribute/map) attribute (or the `Column` attribute of `System.ComponentModel.DataAnnotations.Schema` namespace).
 
 ```csharp
 public class Customer
@@ -57,7 +57,7 @@ PropertyMapper.Add<Customer>(e => e.LastName, "[LName]");
 
 #### Primary Mapping
 
-To map the class primary property, simply use the [Primary](/attribute/primary) attribute.
+To map the class primary property, simply use the [Primary](/attribute/primary) attribute (or the `Key` attribute of `System.ComponentModel.DataAnnotations` namespace).
 
 ```csharp
 public class Customer

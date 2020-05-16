@@ -11,8 +11,6 @@ tags: [repodb, class, enumeration, orm, hybrid-orm, sqlserver, sqlite, mysql, po
 
 This is the feature that enables you to work with enumerations within the class objects. The library supports various kind of transformation for enumerations.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Property String
 
 Let us say you have a table named `[dbo].[Person]` with the following structure.

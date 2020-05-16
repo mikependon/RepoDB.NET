@@ -11,8 +11,6 @@ tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql,
 
 This is the base class of all entity-based repository classes. It accepts 2 generic types, the model type and the `DbConnection` type. It also use the [DbRepository](/class/dbrepository) as the underlying controlling repository.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Use-Cases
 
 You should use this class if you wish to work with table-specific operations.

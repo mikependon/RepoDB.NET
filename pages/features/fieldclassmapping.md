@@ -11,8 +11,6 @@ tags: [repodb, class, fieldmapping, classmapping, orm, hybrid-orm, sqlserver, sq
 
 This is the feature that would allow you to map the class (or a property) into its equivalent object in the database. It uses the [Map](/attribute/map) attribute.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Mapping a Class
 
 Let us say you have the table below that resides on a different schema.

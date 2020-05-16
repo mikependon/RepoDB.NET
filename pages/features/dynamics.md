@@ -13,8 +13,6 @@ This feature allows you to create a simplified and targetted operations by simpl
 
 It is very useful if you wish to do CRUD for targetted columns or CRUD operations without a class models.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Querying a Data
 
 Use the [Query](/operation/query) operation and pass the target table as a literal string and a filter expression as a dynamic object.

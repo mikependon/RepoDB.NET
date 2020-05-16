@@ -11,8 +11,6 @@ tags: [repodb, class, hints, orm, hybrid-orm, sqlserver, sqlite, mysql, postgres
 
 This is the feature that would allow you to optimize the command executions towards the database. It is a keyword that is usually being added into the SQL statements (DML) to further optimize the execution of your commands. Please the Microsoft document [here](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-ver15).
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Raw-SQL
 
 For raw-SQL, the process of adding hints is controlled by you as you are the one who is providing the SQL text.

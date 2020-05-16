@@ -11,8 +11,6 @@ tags: [repodb, class, tracelog, orm, hybrid-orm, sqlserver, sqlite, mysql, postg
 
 A trace-logging class that is used when executing an operation. It provides vital information of the actual execution via the [ITrace](/interface/itrace) object.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 ##### Properties
 
 - `ExecutionTime` - handles the total elapsed time of the actual execution.

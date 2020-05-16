@@ -12,8 +12,6 @@ tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 
 This is the base class of repository classes. It accepts the type of `DbConnection` as the generic type.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Use-Cases
 
 You should use this class if you wish to work with all the database tables (and multiple models) together within the same repository. This is a common design which we called a shared-repository.

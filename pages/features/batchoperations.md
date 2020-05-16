@@ -17,8 +17,6 @@ The batch operations are only targeting certain operations (ie: [InsertAll](/ope
 
 Below are some practical explanation to give you more insights about the batch operation.
 
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Normal executions
 
 Let us say you have a model named `Customer` that corresponds to the `[dbo].[Customer]` table.

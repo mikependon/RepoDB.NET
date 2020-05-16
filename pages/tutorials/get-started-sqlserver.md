@@ -35,8 +35,6 @@ In your Package Manager Console, simply type the code snippets below.
 
 Or visit our [installation](/tutorial/installation) page for more information.
 
-> In this tutorial, we will use the C# as the programming language.
-
 #### Create a Table
 
 ```csharp

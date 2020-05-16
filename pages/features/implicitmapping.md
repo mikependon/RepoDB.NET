@@ -29,8 +29,8 @@ FluentMapper
     .Column(e => e.FirstName, "[FName]") // Map the Property/Column
     .Column(e => e.LastName, "[LName]") // Map the Property/Column
     .Column(e => e.DateOfBirth, "[DOB]") // Map the Property/Column
-    .DbType(e => e.DateOfBirth, DbType.DateTime2) // Map the Property/DatabaseType
-    .PropertyHandler<CustomerAddressPropertyHandler>(e => e.Address); // Map the Property/PropertyHandler
+    .DbType(e => e.DateOfBirth, DbType.DateTime2) // Defines the DatabaseType of the Property
+    .PropertyHandler<CustomerAddressPropertyHandler>(e => e.Address); // Defines the PropertyHandler of the Property
 ```
 
 ###### Type-Level Mapping
@@ -40,8 +40,8 @@ To define the mappings for a specfic .NET CLR type, use the `Type()` method.
 ```csharp
 FluentMapper
     .Type<DateTime>() // Define which .NET CLR type
-    .DbType(DbType.DateTime2) // Define the equivalent DatabaseType
-    .PropertyHandler<DateTimeKindToUtcPropertyHandler>(); // Define the PropertyHandler
+    .DbType(DbType.DateTime2) // Define the DatabaseType of the .NET CLR type
+    .PropertyHandler<DateTimeKindToUtcPropertyHandler>(); // Define the PropertyHandler of the .NET CLR type
 ```
 
 The priority of the mapping is first identified via  `Attribute-Level` followed by `Property-Level` and then by `Type-Level`.
