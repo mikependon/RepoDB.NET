@@ -10,10 +10,12 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+
 #### RepoDb (v1.11.1-beta2)
 
 - Requests: Support for Table attribute [#360](https://github.com/mikependon/RepoDb/issues/360)
 - Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
+- Bug: No coercion operator is defined between types 'System.String' and 'System.Guid'. [#437](https://github.com/mikependon/RepoDb/issues/437)
 - Added an extensive Unit and Integration Tests for `Key`, `Column` and `Table` attributes support. [#435](https://github.com/mikependon/RepoDb/issues/435)
 - Added more Unit Tests for `Key/Primary` and `Table/Column/Map` collisions. [#435](https://github.com/mikependon/RepoDb/issues/435)
 
@@ -22,6 +24,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 - Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
 - Added an extensive Integration Tests for Property Handler Implicit Mapping.
+
 
 #### RepoDb (v1.11.0)
 
