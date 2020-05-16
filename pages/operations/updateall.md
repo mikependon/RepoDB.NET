@@ -10,33 +10,6 @@ tags: [repodb, tutorial, updateall, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 
 This method is used to update an array of rows in the database.
 
-#### Data Providers
-
-Below are the supported data providers by this operation.
-
-- [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer)
-- [SQLite](https://www.nuget.org/packages/RepoDb.SqLite)
-- [MySQL](https://www.nuget.org/packages/RepoDb.MySql)
-- [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql)
-
-#### Installation
-
-To install, simply type the code snippets below in your Package Manager Console.
-
-```csharp
-> Install-Package RepoDb.SqlServer
-```
-
-Then call the bootstrapper once.
-
-```csharp
-RepoDb.SqlServerBootstrap.Initialize();
-```
-
-Or visit our [installation](/tutorial/installation) page for more information.
-
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
 #### Use Case
 
 If you are updating multiple rows in the database, do not ever "iterate and merge it in atomic way". This method solves that problem by creating a multi-packed SQL statements and pass it all in one-go.
@@ -49,7 +22,7 @@ The execution is ACID as the transaction object will be created if not given.
 
 > Be aware that if you are managing the size of your batch, it may collide on the number of maximum allowable parameters of ADO.NET. The max parameters are `2100`.
 
-#### Learnings
+#### Code Snippets
 
 Let us you have a method that returns a list of `Person` models.
 

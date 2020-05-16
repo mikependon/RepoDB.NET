@@ -21,12 +21,12 @@ The objects that are not frequently changing but is mostly in used in the applic
 
 #### How to use the Cache?
 
-Simply pass a value to the `cacheKey` when calling the operation.
+Simply pass a value to the `cacheKey` argument when calling the operation.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var products = connection.QueryAll<Product>(cacheKey: "AllProducts");
+    var products = connection.QueryAll<Product>(cacheKey: "products");
 }
 ```
 
@@ -51,6 +51,19 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 
 As mentioned, by default the cache is placed in the computer memory via [MemoryCache](/class/memorycache) object. It is a simple dictionary object (key/value pairs).
+
+#### Setting the Cache Expiration
+
+Simply pass a value to the `cacheItemExpiration` argument when calling the operation. This value will be ignored if the `cacheKey` is not provided.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+    var expirationInMinutes = 60 * 24; // 1 day
+    var products = connection.QueryAll<Product>(cacheKey: "products",
+        cacheItemExpiration: expirationInMinutes);
+}
+```
 
 #### Create a Customize Cache Class
 
@@ -99,7 +112,7 @@ public class JsonCache : ICache
 
 > You have to implement all the interface methods and manually handle each of them. Please see our [reference implementation](/reference/jsoncache) for more information.
 
-#### Using a Cache in a Connection
+#### Using a Cache in the Connection
 
 Simply pass the `cacheKey` and `cache` object when calling the operation.
 

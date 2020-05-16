@@ -10,34 +10,7 @@ tags: [repodb, tutorial, sum, orm, hybrid-orm, sqlserver, sqlite, mysql, postgre
 
 This method is used to get the summation value of the column from the database.
 
-#### Data Providers
-
-Below are the supported data providers by this operation.
-
-- [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer)
-- [SQLite](https://www.nuget.org/packages/RepoDb.SqLite)
-- [MySQL](https://www.nuget.org/packages/RepoDb.MySql)
-- [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql)
-
-#### Installation
-
-To install, simply type the code snippets below in your Package Manager Console.
-
-```csharp
-> Install-Package RepoDb.SqlServer
-```
-
-Then call the bootstrapper once.
-
-```csharp
-RepoDb.SqlServerBootstrap.Initialize();
-```
-
-Or visit our [installation](/tutorial/installation) page for more information.
-
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
-#### Learnings
+#### Code Snippets
 
 Below is a sample code that gets the summation value of column `Value` from the `[dbo].[Sales]` table for a specific customer since yesterday.
 

@@ -10,19 +10,7 @@ tags: [repodb, tutorial, executequerymultiple, orm, hybrid-orm, sqlserver, sqlit
 
 This method is used to execute multiple raw-SQLs directly towards the database in one-go. It returns an object of [QueryMultipleExtractor](/class/querymultipleextractor). It gives you the controllabilities as a developer to manage the extraction of the resultsets. This method supports all types of RDMBS data providers.
 
-#### Installation
-
-To install, simply type the code snippets below in your Package Manager Console.
-
-```csharp
-> Install-Package RepoDb
-```
-
-Or visit our [installation](/tutorial/installation) page for more information.
-
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
-#### Learnings
+#### Code Snippets
 
 Below is a code that queries a parent person (from `[dbo].[Person]` table) and all its related historical addresses (from `[dbo].[Address]` table) from the database.
 

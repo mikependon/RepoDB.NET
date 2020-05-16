@@ -10,19 +10,7 @@ tags: [repodb, tutorial, executescalar, orm, hybrid-orm, sqlserver, sqlite, mysq
 
 This method is used to execute a raw-SQL directly towards the database. It returns a value of the first-row's first-column of the resultset. This method supports all types of RDMBS data providers.
 
-#### Installation
-
-To install, simply type the code snippets below in your Package Manager Console.
-
-```csharp
-> Install-Package RepoDb
-```
-
-Or visit our [installation](/tutorial/installation) page for more information.
-
-> In this tutorial, we will use the SQL Server as the database and C# as the programming language.
-
-#### Learnings
+#### Code Snippets
 
 Below is a code that gets the server date time from the database.
 
