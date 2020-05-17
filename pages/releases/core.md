@@ -20,6 +20,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added more Unit Tests for `Key/Primary` and `Table/Column/Map` collisions. [#435](https://github.com/mikependon/RepoDb/issues/435)
 - Added the `GetTypeMapAttribute()`, `GetPropertyHandler()`, `GetPropertyHandlerAttribute()` methods in the [ClassProperty](/class/classproperty) class.
 - Optimization: Transfer the logic of [ClassProperty](/class/classproperty) into various mappers.
+- Optimization: Added an `IResolver` interface that does not require an `input` argument.
+- Added the `PrimaryResolver` to resolve the primary [ClassProperty](/class/classproperty) of the data entity type.
+- Added the `IdentityResolver` to resolve the identity [ClassProperty](/class/classproperty) of the data entity type.
+- Added the `ClassMappedNameResolver` to resolve the database object name mapping of the data entity type.
+- Added the `PropertyMappedNameResolver` to resolve the cached column name mappings of the property.
+- Added both the `TypeMapPropertyLevelResolver` and `TypeMapTypeLevelResolver` classes to resolve the equivalent `DbType` object of both the property and .NET CLR type.
+- Added both the `PropertyHandlerPropertyLevelResolver` and `PropertyHandlerTypeLevelResolver` classes to resolve the equivalent property handler of both the property and .NET CLR type.
 
 
 #### RepoDb (v1.11.1-beta1)
