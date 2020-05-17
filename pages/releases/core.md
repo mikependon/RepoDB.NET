@@ -18,6 +18,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: No coercion operator is defined between types `System.String` and `System.Guid`. [#437](https://github.com/mikependon/RepoDb/issues/437)
 - Added an extensive Unit and Integration Tests for `Key`, `Column` and `Table` attributes support. [#435](https://github.com/mikependon/RepoDb/issues/435)
 - Added more Unit Tests for `Key/Primary` and `Table/Column/Map` collisions. [#435](https://github.com/mikependon/RepoDb/issues/435)
+- Added the `GetTypeMapAttribute()`, `GetPropertyHandler()`, `GetPropertyHandlerAttribute()` methods in the [ClassProperty](/class/classproperty) class.
+- Optimization: Transfer the logic of [ClassProperty](/class/classproperty) into various mappers.
 
 
 #### RepoDb (v1.11.1-beta1)
