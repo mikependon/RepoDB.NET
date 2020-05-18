@@ -45,6 +45,22 @@ var dbType = primary.GetDbType();
 
 > This is useful when you are creating a `DbParameter` object before passing it to the actual `DbCommand` object for execution.
 
+##### GetPropertyHandler
+
+This method is used to get the existing mapped property handler of the property.
+
+```csharp
+var properties = PropertyCache.Get<Person>();
+foreach (var property in properties)
+{
+    var propertyHandler = property.GetPropertyHandler();
+    if (propertyHandler != null)
+    {
+        // This property has property handler
+    }
+}
+```
+
 ##### GetIdentityAttribute
 
 This method is used to get the existing [Identity](/attribute/identity) attribute if present.
