@@ -371,4 +371,4 @@ TypeMapper.Remove<DateTime>();
 
 Please visit the [Type Mapping](/feature/typemapping) feature for further information.
 
-> In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
+> In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument. Please be noted that the `force` argument is not overriding that attribute-based mapping (ie: by using the `System.ComponentModel.DataAnnotations.Schema.Table`, `System.ComponentModel.DataAnnotations.Schema.Column`, [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap) and [PropertyHandler](/attribute/propertyhandler)).
