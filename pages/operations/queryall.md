@@ -71,18 +71,6 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-#### Filtering the Results
-
-To filter the results, you have to pass a value at the `top` argument.
-
-```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
-{
-	var people = connection.QueryAll<Person>(top: 100);
-	// Do the stuffs for 'people' here
-}
-```
-
 #### Caching the Results
 
 To cache the results, simply pass a literal string key into the `cacheKey` argument.
