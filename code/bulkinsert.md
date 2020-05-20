@@ -5,7 +5,7 @@ Brings all the data into the database in one-go via bulk insert. [Learn more](/o
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetNewCustomers();
+    var customers = GenerateCustomers();
     connection.BulkInsert<Customer>(customers);
 }
 ```
