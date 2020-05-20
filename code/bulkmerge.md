@@ -5,7 +5,7 @@ Migrates the big chunks of data back to database via bulk merge. [Learn more](/o
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var zipCodes = GetWorldZipCodes();
+    var zipCodes = GetZipCodes();
     connection.BulkMerge<ZipCode>(zipCodes);
 }
 ```
