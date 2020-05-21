@@ -11,6 +11,32 @@ permalink: /release/core
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
 
+#### RepoDb (v1.11.1)
+
+- Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
+- Requests: Support for Table attribute [#360](https://github.com/mikependon/RepoDb/issues/360)
+- Optimization: Transfer the logic of [ClassProperty](/class/classproperty) into various mappers.
+- Optimization: Added an `IResolver` interface that does not require an `input` argument.
+- Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
+- Bug: No coercion operator is defined between types `System.String` and `System.Guid`. [#437](https://github.com/mikependon/RepoDb/issues/437)
+- - Added an extensive Integration Tests for Property Handler Implicit Mapping.
+- Added an extensive Unit and Integration Tests for `Key`, `Column` and `Table` attributes support. [#435](https://github.com/mikependon/RepoDb/issues/435)
+- Added more Unit Tests for `Key/Primary` and `Table/Column/Map` collisions. [#435](https://github.com/mikependon/RepoDb/issues/435)
+- Added the `GetTypeMapAttribute()`, `GetPropertyHandler()`, `GetPropertyHandlerAttribute()` methods in the [ClassProperty](/class/classproperty) class.
+- Added the `PrimaryResolver` to resolve the primary [ClassProperty](/class/classproperty) of the data entity type.
+- Added the `IdentityResolver` to resolve the identity [ClassProperty](/class/classproperty) of the data entity type.
+- Added the `ClassMappedNameResolver` to resolve the database object name mapping of the data entity type.
+- Added the `PropertyMappedNameResolver` to resolve the cached column name mappings of the property.
+- Added both the `TypeMapPropertyLevelResolver` and `TypeMapTypeLevelResolver` classes to resolve the equivalent `DbType` object of both the property and .NET CLR type.
+- Added both the `PropertyHandlerPropertyLevelResolver` and `PropertyHandlerTypeLevelResolver` classes to resolve the equivalent property handler of both the property and .NET CLR type.
+- Added the `entityType` argument in the `DbCommandExtensions.CreateParameters()` method.
+
+
+#### RepoDb (v1.11.1-beta3)
+
+- Added the `entityType` argument in the `DbCommandExtensions.CreateParameters()` method.
+
+
 #### RepoDb (v1.11.1-beta2)
 
 - Requests: Support for Table attribute [#360](https://github.com/mikependon/RepoDb/issues/360)

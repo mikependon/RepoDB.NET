@@ -11,27 +11,32 @@ permalink: /release/sqlserver
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
 
 
+#### RepoDb.SqlServer (v1.0.8)
+
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.1](/release/core#repodb-v1111)).
+
+
 #### RepoDb.SqlServer (v1.0.7)
 
 - Bug: Truncates string and bytes [#423](https://github.com/mikependon/RepoDb/issues/423)
 - Referenced the Microsoft.Data.SqlClient version 1.1.2.
 - Referenced the System.Data.SqlClient version 4.8.1. 
-- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.0](/release/core#repodb-v1110)).
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.0](/release/core#repodb-v1110)).
 
 
 #### RepoDb.SqlServer (v1.0.6)
 
-- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
 
 
 #### RepoDb.SqlServer (v1.0.5)
 
-- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
 
 
 #### RepoDb.SqlServer (v1.0.4)
 
-- Referenced with the latest version of RepoDb.Core v1.10.10.
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.10](/release/core#repodb-v11010)).
 
 
 #### RepoDb.SqlServer (v1.0.3)

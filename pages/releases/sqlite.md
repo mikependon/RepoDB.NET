@@ -11,29 +11,35 @@ permalink: /release/sqlite
 Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqLite) to download it.
 
 
+#### RepoDb.SqlServer (v1.0.10)
+
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.1](/release/core#repodb-v1111)).
+- Upgraded the reference of `System.Data.SQLite` version `1.0.112.2`.
+
+
 #### RepoDb.SqLite (v1.0.9)
 
-- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
 
 
 #### RepoDb.SqLite (v1.0.8)
 
-- Referenced the latest version of [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
 
 
 #### RepoDb.SqLite (v1.0.7)
 
-- Referenced the latest version of RepoDb.Core (v1.10.10).
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.10](/release/core#repodb-v11010)).
 
 
 #### RepoDb.SqLite (v1.0.6)
 
-- Referenced the latest version of RepoDb v1.10.6.
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.6](/release/core#repodb-v1106)).
 
 
 #### RepoDb.SqLite (v1.0.5)
 
-- Referenced the latest version of RepoDb v1.10.5.
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.5](/release/core#repodb-v1105)).
 
 
 #### RepoDb.SqLite (v1.0.4)
