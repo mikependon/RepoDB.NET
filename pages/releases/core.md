@@ -11,6 +11,12 @@ permalink: /release/core
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
 
+#### RepoDb (v1.11.2)
+
+- Bug: [SQL Server 2019] RepoDb truncates strings of "Text" types [#444](https://github.com/mikependon/RepoDb/issues/444)
+- Request: [SQL Server] Provide better exception message when table mapping is wrong [#443](https://github.com/mikependon/RepoDb/issues/443)
+
+
 #### RepoDb (v1.11.1)
 
 - Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)

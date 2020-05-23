@@ -11,6 +11,11 @@ permalink: /release/sqlserverbulk
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
 
+#### RepoDb.SqlServer.BulkOperations (v1.0.8)
+
+- Referenced the version [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.0.9](/release/sqlserver#repodb-v109)).
+
+
 #### RepoDb.SqlServer.BulkOperations (v1.0.7)
 
 - Referenced the version [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.0.8](/release/sqlserver#repodb-v108)).
