@@ -20,7 +20,7 @@ The library is deployed as Nuget Package named [RepoDb.MySqlConnector](https://w
 
 The library is currently on its first version release as of writing this. The test suites (both [Unit](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector/RepoDb.MySqlConnector.UnitTests) and [Integration](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector/RepoDb.MySqlConnector.IntegrationTests) tests) were written to cover hundred of real-life business scenarios for all its operations.
 
-By using this library, you had inheritted all the capabilities of both powerful packages in one installation.
+By using this library, you had inherited all the capabilities of both powerful packages in one installation.
 
 #### Get Started
 
