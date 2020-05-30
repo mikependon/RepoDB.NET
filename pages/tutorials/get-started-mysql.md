@@ -205,7 +205,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 You can also pass the list of primary keys to be deleted.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new MySqlConnection(connectionString).EnsureOpen())
 {
 	var primaryKeys = new [] { 10045, 11001, ..., 12011 };
 	var deletedRows = connection.DeleteAll<Person>(primaryKeys);

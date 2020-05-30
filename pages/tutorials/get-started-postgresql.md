@@ -203,7 +203,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 You can also pass the list of primary keys to be deleted.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new NpgsqlConnection(connectionString).EnsureOpen())
 {
 	var primaryKeys = new [] { 10045, 11001, ..., 12011 };
 	var deletedRows = connection.DeleteAll<Person>(primaryKeys);
