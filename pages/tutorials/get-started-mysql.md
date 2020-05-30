@@ -11,6 +11,8 @@ tags: [repodb, tutorial, get-started, orm, hybrid-orm, mysql]
 
 RepoDb is a hybrid .NET ORM library for [MySQL](https://www.nuget.org/packages/RepoDb.MySql) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
+The [MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector) driver has newly been supported  and is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector) as well.
+
 #### Installation
 
 The library can be installed via Nuget. In your Package Manager Console, you can type the code snippets below.

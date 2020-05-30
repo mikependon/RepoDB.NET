@@ -322,6 +322,9 @@ docs:
   - title: "MySqlTypeMap"
     url: "/attribute/mysqltypemap"
 
+  - title: "MySqlConnectorTypeMap"
+    url: "/attribute/mysqlconnectortypemap"
+
   - title: "NpgsqlTypeMap"
     url: "/attribute/npgsqltypemap"
 
@@ -541,6 +544,9 @@ docs:
 
   - title: "MySQL"
     url: "/release/mysql"
+
+  - title: "MySQL (MySqlConnector)"
+    url: "/release/mysqlconnector"
 
   - title: "PostgreSQL"
     url: "/release/postgresql"
