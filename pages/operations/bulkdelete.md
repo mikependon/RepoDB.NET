@@ -51,7 +51,7 @@ Or visit our [installation](/tutorial/installation) page for more information.
 Let us say you are retrieving all inactive people from the database.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = connection.Query<Person>(e => e.IsActive == false);
 }
@@ -60,7 +60,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Then, below is the code that bulk-deletes all those inactive rows from the `[dbo].[Sales]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.BulkDelete<Person>(people);
 }
@@ -71,7 +71,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Below is a sample code to bulk-delete by primary keys.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var primaryKeys = people.Select(e => e.Id);
 	var deletedRows = connection.BulkDelete<Person>(primaryKeys);
@@ -83,7 +83,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Below is a sample code to bulk-delete by data table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var table = ConvertToDataTable(people);
 	var deletedRows = connection.BulkDelete<Person>(table);
@@ -112,7 +112,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 You can also target a specific table by passing the literal table and field name like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.BulkDelete("[dbo].[Person]", people);
 }
@@ -123,7 +123,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 By default, this operation is using the primary field (or identity field) as the qualifier. You can override the qualifiers by simply passing the list of `Field` object in the `qualifiers` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.BulkDelete<Person>(people,
 		qualifiers: Field.From("LastName", "DateOfBirth"));
@@ -137,7 +137,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.BulkDelete("[dbo].[Person]",
 		people,
@@ -148,7 +148,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.BulkDelete("[dbo].[Person]",
 		people,
@@ -161,7 +161,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 To ensure using a physical pseudo-temporary table, simply pass `true` in the `usePhysicalPseudoTempTable` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.BulkDelete("[dbo].[Person]",
 		people,

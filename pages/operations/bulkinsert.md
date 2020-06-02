@@ -55,7 +55,7 @@ private IEnumerable<Person> GetPeople(int count = 1000)
 Then, below is the code that bulk-inserts 10K of rows towards `[dbo].[Person]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
 	var insertedRows = connection.BulkInsert(people);
@@ -67,7 +67,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Below is a sample code to bulk-insert by data table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
 	var table = ConvertToDataTable(people);
@@ -95,7 +95,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 Or you can also convert the list of `Person` to a `DataEntityDataReader` object and bulk-insert it.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
 	using (var reader = new DataEntityDataReader<Person>(people))
@@ -119,7 +119,7 @@ mappings.Add(new BulkInsertMapItem("IsActive", "Active"));
 mappings.Add(new BulkInsertMapItem("DateInsertedUtc", "CreatedDateUtc"));
 
 // Execute
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
 	var insertedRows = connection.BulkInsert(people,
@@ -132,7 +132,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can define your bulk-copy options by passing a value of `SqlBulkCopyOptions` in the `options` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
 	var insertedRows = connection.BulkInsert(people,
@@ -145,7 +145,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can also target a specific table by passing the literal table and field name like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
 	var insertedRows = connection.BulkInsert("[dbo].[Person]", people);
@@ -157,7 +157,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
 	var insertedRows = connection.BulkInsert(people,
@@ -168,7 +168,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
 	var insertedRows = connection.BulkInsert(people,
