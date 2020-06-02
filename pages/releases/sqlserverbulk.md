@@ -11,6 +11,11 @@ permalink: /release/sqlserverbulk
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
 
+#### RepoDb.SqlServer.BulkOperations (v1.0.10)
+
+- Added the XML comments file (a missing from previous release).
+
+
 #### RepoDb.SqlServer.BulkOperations (v1.0.9)
 
 - Enhacement: Return the identity values during the BulkInsert and BulkMerge. [#396](https://github.com/mikependon/RepoDb/issues/396)
