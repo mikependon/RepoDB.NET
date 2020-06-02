@@ -21,6 +21,15 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
+You can also execute a SQL statement that returns a dynamic object with properties equals to the selected fields of the SQL statement.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var dynamicPeople = connection.ExecuteQuery("SELECT * FROM [dbo].[Person];");
+}
+```
+
 #### Passing of Parameters
 
 You can pass a parameter via the following objects.
