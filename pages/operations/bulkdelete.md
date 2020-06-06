@@ -126,9 +126,11 @@ By default, this operation is using the primary field (or identity field) as the
 using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.BulkDelete<Person>(people,
-		qualifiers: Field.From("LastName", "DateOfBirth"));
+		qualifiers: e => new { e.LastName, e.DateOfBirth });
 }
 ```
+
+Or by parsing the field expression.
 
 > When using the qualifiers, we recommend that you use the list of columns that has the correct index from the original table.
 

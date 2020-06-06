@@ -110,7 +110,7 @@ using (var connection = new SqlConnection(connectionString))
 {
 	var people = GetPeople(10000);
 	var updatedRows = connection.BulkUpdate<Person>(people,
-		qualifiers: Field.From("Name", "DateOfBirth"));
+		qualifiers: new { e.LastName, e.DateOfBirth });
 }
 ```
 

@@ -11,6 +11,11 @@ permalink: /release/sqlserverbulk
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
 
+#### RepoDb.SqlServer.BulkOperations (v1.0.11)
+
+- Enhancement: Enable Field class to Parse the Expression for Multiple Properties at BulkOperations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)). [#453](https://github.com/mikependon/RepoDb/issues/453)
+
+
 #### RepoDb.SqlServer.BulkOperations (v1.0.10)
 
 - Enhancement: Create a compiler for the SQL Server Bulk Operations Set Identities #450
