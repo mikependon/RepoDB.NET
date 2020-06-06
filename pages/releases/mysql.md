@@ -10,9 +10,11 @@ permalink: /release/mysql
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySql) to download it.
 
-- Initial support to MySqlConnector. Reference ([#446](https://github.com/mikependon/RepoDb/pull/446), [Commits](https://github.com/mikependon/RepoDb/commit/fa13702718ba8ace68a3c99505fdcaa5525bf73a)).
-- Added the extensive Unit Tests and Integration Tests for MySqlConnector. 
-- Added the AppVeyor for MySqlConnector.
+
+#### RepoDb.MySql (v1.0.12)
+
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.3](/release/core#repodb-v1113)).
+
 
 #### RepoDb.MySql (v1.0.11)
 

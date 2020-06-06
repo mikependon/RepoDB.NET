@@ -11,6 +11,11 @@ permalink: /release/sqlite
 Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqLite) to download it.
 
 
+#### RepoDb.SqLite (v1.0.12)
+
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.3](/release/core#repodb-v1113)).
+
+
 #### RepoDb.SqLite (v1.0.11)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.2](/release/core#repodb-v1112)).
