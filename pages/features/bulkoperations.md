@@ -76,9 +76,11 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 
 #### Special Arguments
 
-The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided at [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations.
+The arguments `qualifiers`, `isReturnIdentity` and `usePhysicalPseudoTempTable` is provided either at [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations.
 
 The argument `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the `WHERE` expression of SQL statements. If not given, the primary key (or identity) field will be used.
+
+The argument `isReturnIdentity` is used to define the behaviour of the execution whether the newly generated identity will be set-back to the data entities. By default, it is disabled.
 
 The argument `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (ie: `#TableName`) is used.
 

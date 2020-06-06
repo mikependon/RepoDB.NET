@@ -152,7 +152,7 @@ var person = new Person
 };
 using (var connection = new SQLiteConnection(ConnectionString))
 {
-	var id = connection.Merge(person, qualifiers: Field.From("Name"));
+	var id = connection.Merge(person, qualifiers: (p => new { p.Name }));
 }
 ```
 
@@ -261,7 +261,7 @@ people
 	.ForEach(p => p.Name = $"{p.Name} (Updated)");
 using (var connection = new SQLiteConnection(ConnectionString))
 {
-	var updatedRows = connection.UpdateAll<Person>(people, qualifiers: Field.From("Name"));
+	var updatedRows = connection.UpdateAll<Person>(people, qualifiers: (p => new { p.Name }));
 }
 ```
 

@@ -10,6 +10,15 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+#### RepoDb (v1.11.3)
+
+- Community Request: Enhancement: Enable Field class to Parse the Expression for Multiple Properties [#453](https://github.com/mikependon/RepoDb/issues/453)
+- Enhancement: Set the return type `Field.Parse<T>()` to `IEnumerable<Field>` (instead of `Field`).
+- Added more Unit Tests on [Field](/class/field) class parsing method.
+- Removed the `BeforeBulkInsert` and `AfterBulkInsert` from the [ITrace](/interface/itrace) interface.
+- Made the [CancellableTraceLog](/class/cancellabletracelog) class non-sealed, and also, exposed the constructor.
+- Added an overload method for the [Merge](/operation/merge), [MergeAll](/operation/mergeall) and [UpdateAll](/operation/updateall) operations that accepts the `expression` for the `qualifiers` argument.
+
 
 #### RepoDb (v1.11.2)
 

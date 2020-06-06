@@ -56,12 +56,18 @@ var fields = Field.Parse(typeof(Person));
 You can also extract by parsing an expression.
 
 ```csharp
-var fields = Field.Parse<Person>(e => e.Id).AsEnumerable();
+var fields = Field.Parse<Person>(e => e.Id);
+```
+
+Or by parsing the multiple properties.
+
+```csharp
+var fields = Field.Parse<Person>(e => new { e.Id, e.Name, e.DateOfBirth });
 ```
 
 #### Parse Object
 
-You can also extract by parsing an object.
+You can also extract by parsing an object (or dynamic).
 
 ```csharp
 var person = new Person();

@@ -47,7 +47,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 		DateInsertedUtc = DateTime.UtcNow
 	};
 	var id = connection.Merge<Person>(person,
-		qualifiers: Field.From("Name", "DateOfBirth"));
+		qualifiers: (p => new { p.Name, p.DateOfBirth }));
 }
 ```
 

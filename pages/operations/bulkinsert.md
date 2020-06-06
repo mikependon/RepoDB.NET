@@ -16,6 +16,14 @@ This method is very useful if you are inserting multiple rows towards the databa
 
 If you are working to insert range of rows from 1000 or beyond, then use this method over [InsertAll](/operation/insertall).
 
+#### Special Arguments
+
+The arguments `isReturnIdentity`, and `usePhysicalPseudoTempTable` is provded on this operation.
+
+The `isReturnIdentity` is used to define the behaviour of the execution whether the newly generated identity will be set-back to the data entities. By default, it is disabled.
+
+The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. This only works if the `isReturnIdentity` is `true`. By default, a temporary table (ie: `#TableName`) is used.
+
 #### Installation
 
 To install, simply type the code snippets below in your Package Manager Console.

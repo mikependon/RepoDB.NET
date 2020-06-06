@@ -18,9 +18,11 @@ If you are working to merge range of rows from 1000 or beyond, then use this met
 
 #### Special Arguments
 
-The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
+The arguments `qualifiers`, `isReturnIdentity`, and `usePhysicalPseudoTempTable` is provided on this operation.
 
 The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the `WHERE` expression of SQL statements. If not given, the primary key (or identity) field will be used.
+
+The `isReturnIdentity` is used to define the behaviour of the execution whether the newly generated identity will be set-back to the data entities. By default, it is disabled.
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (ie: `#TableName`) is used.
 

@@ -61,6 +61,17 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
+By default, it uses the primary (or identity) field as the qualifier. You can override by simply passing the list of fields in the `qualifiers` argument.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var people = GetPeople();
+	var updatedRows = connection.UpdateAll(people,
+        qualifiers: (p => new { p.Name, p.DateOfBirth }));
+}
+```
+
 #### Targetting a Table
 
 You can also target a specific table by passing the literal table and dynamic object like below.
