@@ -27,7 +27,7 @@ Or
 > Install-Package RepoDb.MySqlConnector
 ```
 
-Once the installation is complete, call the bootstrapper to initialize all the dependencies for *MySql*.
+Once the installation is complete, call the bootstrapper to initialize all the dependencies for MySql.
 
 ```csharp
 RepoDb.MySqlBootstrap.Initialize();
