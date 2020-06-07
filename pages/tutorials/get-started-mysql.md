@@ -21,7 +21,13 @@ The library can be installed via Nuget. In your Package Manager Console, you can
 > Install-Package RepoDb.MySql
 ```
 
-Once the installation is complete, call the bootstrapper to initialize all the dependencies for *MySql*.
+Or
+
+```csharp
+> Install-Package RepoDb.MySqlConnector
+```
+
+Once the installation is complete, call the bootstrapper to initialize all the dependencies for MySql.
 
 ```csharp
 RepoDb.MySqlBootstrap.Initialize();
