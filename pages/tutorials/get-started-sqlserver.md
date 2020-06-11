@@ -103,7 +103,7 @@ private IEnumerable<Person> GetPeople(int count = 10)
 Then simply create a list of `Person` and passed it when you call the [InsertAll](/operation/insertall) method.
 
 ```csharp
-var people = GetPeople(100);
+var people = GetPeople(100).AsList();
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var rowsInserted = connection.InsertAll(people);
@@ -170,10 +170,8 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 To merge all the rows, use the [MergeAll](/operation/mergeall) method instead.
 
 ```csharp
-var people = GetPeople(100);
-people
-	.AsList()
-	.ForEach(p => p.Name = $"{p.Name} (Merged)");
+var people = GetPeople(100).AsList();
+people.ForEach(p => p.Name = $"{p.Name} (Merged)");
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var affectedRecords = connection.MergeAll<Person>(people);
@@ -280,7 +278,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 > Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution.
 
-#### Executing a Query
+#### Executing a SQL Text
 
 To execute a query use the [ExecuteNonQuery](/operation/executenonquery) method.
 
