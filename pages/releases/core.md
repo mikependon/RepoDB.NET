@@ -10,6 +10,11 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+#### RepoDb (v1.11.4-beta2)
+
+- Community Request: Additional fix for [#457](https://github.com/mikependon/RepoDb/issues/457)
+
+
 #### RepoDb (v1.11.4-beta1)
 
 - Bug: Regression Issue [#457](https://github.com/mikependon/RepoDb/issues/457)
