@@ -10,6 +10,12 @@ tags: [repodb, tutorial, bulkdelete, orm, hybrid-orm, sqlserver]
 
 This method is used to bulk-delete the targetted rows in the database. For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 
+#### Call Flow Diagram
+
+The diagram below shows the flow when calling this operation.
+
+<img src="../../assets/images/site/bulk-delete.png" />
+
 #### Use Case
 
 This method is very useful if you are deleting multiple rows in the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
