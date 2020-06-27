@@ -6,7 +6,7 @@ This is the official raw files for [RepoDb](https://github.com/mikependon/RepoDb
 
 First, install the git by following this [tutorial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Then, install the Jekyll by following this [tutorial](https://jekyllrb.com/docs/installation/).
 
-Once both is installed, clone the project by following the commands below.
+After the installation installed, clone the project by following the commands below.
 
 ```
 > mkdir c:\src
@@ -14,14 +14,14 @@ Once both is installed, clone the project by following the commands below.
 > git clone https://github.com/mikependon/RepoDb.NET.git
 ```
 
-Run the site via Jekyll.
+Then run the site via Jekyll.
 
 ```
 > cd c:\src\RepoDb.NET
 > bundle exec jekyll serve
 ```
 
-Open a browser and visit [http://127.0.0.1:4000/](http://127.0.0.1:4000/).
+Lastly, open a browser and visit the link [http://127.0.0.1:4000/](http://127.0.0.1:4000/).
 
 ### Engagements
 
