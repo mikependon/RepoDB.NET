@@ -18,7 +18,7 @@ Run the site via Jekyll.
 
 ```
 > cd c:\src\RepoDb.NET
-> bundle exec jekyll server
+> bundle exec jekyll serve
 ```
 
 Open a browser and visit [http://127.0.0.1:4000/](http://127.0.0.1:4000/).
