@@ -19,34 +19,47 @@ The objects that are not frequently changing but is mostly in used in the applic
 
 #### How to use the Cache?
 
-Simply pass a value to the `cacheKey` argument when calling the operation.
+Simply pass a value to the `cacheKey` argument when calling the operation. When directly using the `IDbConnection` object, an instance of [ICache](/interface/icache) must be passed to `cache` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var products = connection.QueryAll<Product>(cacheKey: "products");
+    var cache = new MemoryCache();
+    var products = connection.QueryAll<Product>(cacheKey: "products", cache: cache);
 }
 ```
 
-#### Selecting the proper cache key
+Below is the code if the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) is used.
+
+```csharp
+using (var repository = new DbRepository<Product, SqlConnection>(connectionString))
+{
+    var products = repository.QueryAll(cacheKey: "products");
+}
+```
+
+> It is highly recommended to use the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects if you tend to skip managing the cache object.
+
+#### Selecting the Proper Cache Key
+
 Each cache key should preferably be unique to the query executed, so that different methods don't end up unintentionally sharing data.
 
-Constructing a unique key is left to the developer,
-but a good best practice is to adopt a convention for generating the cache keys, such as
+Constructing a unique key is left to the developer, but a good best practice is to adopt a convention for generating the cache keys, such as
 `className-methodName-queryArgument1Value-queryArgument2Value` or `entityName-queryArgument1Name-queryArgument1Value--queryArgument1Name-queryArgument2Value` etc.
 
-
 Following this naming convention makes it easy to examine keys at run-time and establish the source and guarantees uniqueness.
+
 ```csharp
 // An example of the second cache key convention:
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
+    var cache = new MemoryCache();
     var productId = 5;
     Query<Product>(product => product.Id == productId,
-        cacheKey: $"product-id-{productId}");
+        cacheKey: $"product-id-{productId}",
+        cache: cache);
 }
 ```
-
 
 As mentioned, by default the cache is placed in the computer memory via [MemoryCache](/class/memorycache) object. It is a simple dictionary object (key/value pairs).
 
@@ -57,9 +70,46 @@ Simply pass a value to the `cacheItemExpiration` argument when calling the opera
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
+    var cache = new MemoryCache();
     var expirationInMinutes = 60 * 24; // 1 day
     var products = connection.QueryAll<Product>(cacheKey: "products",
-        cacheItemExpiration: expirationInMinutes);
+        cacheItemExpiration: expirationInMinutes,
+        cache: cache);
+}
+```
+
+#### Removing the Cache Item
+
+To remove the cache item, use the `Remove()` method of the [ICache](/interface/icache) interface.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+    var cache = new MemoryCache();
+    var products = connection.QueryAll<Product>(cacheKey: "products", cache: cache);
+    cache.Remove("products"); /* Remove */
+}
+```
+
+Alternatively, the `Expiration` property can be used to force the expiration.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+    var cache = new MemoryCache();
+    var products = connection.QueryAll<Product>(cacheKey: "products", cache: cache);
+    var item = cache.Get<Product>("products");
+    item.Expiration = DateTime.UtcNow.AddSecond(-1);
+}
+```
+
+When using the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects, the `Cache` property can be used directly.
+
+```csharp
+using (var repository = new DbRepository<Product, SqlConnection>(connectionString))
+{
+    var products = repository.QueryAll(cacheKey: "products");
+    repository.Cache.Remove("products"); /* Remove */
 }
 ```
 
@@ -109,17 +159,6 @@ public class JsonCache : ICache
 ```
 
 > You have to implement all the interface methods and manually handle each of them. Please see our [reference implementation](/reference/jsoncache) for more information.
-
-#### Using a Cache in the Connection
-
-Simply pass the `cacheKey` and `cache` object when calling the operation.
-
-```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
-{
-    var products = connection.QueryAll<Product>(cacheKey: "AllProducts", cache: new JsonCache());
-}
-```
 
 #### Injecting the Cache in the Repository
 
