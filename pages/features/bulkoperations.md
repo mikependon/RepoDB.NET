@@ -13,6 +13,8 @@ The bulk operation is the process of bringing all the data from the application 
 
 Basically, we do the normal [Delete](/operation/delete), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations when interacting with the database. The data is processed in an atomic way. If we do call the [batch operations](/feature/batchoperations), the multiple single operation is just being batched and executed at the same time. In short, there are round-trips between your application and the database. Thus does not give you the maximum performance when doing the CRUD operations.
 
+<img src="../../assets/images/site/bulk-insert.png" />
+
 With bulk operations, all data is brought from the client application to the database via [BulkInsert](/operation/bulkinsert) process (underneath via `SqlBulkCopy` class). It ignores the `audit`, `logs`, `constraints` and any other database special handling. After that, the data is being processed at the same time in the database (server).
 
 The bulk operations can hugely improve the performance by more than `90%` when processing a large datasets.
@@ -26,6 +28,8 @@ It is leveraging the ADO.NET `SqlBulkCopy` class (both `System.Data.SqlClient/Mi
 For [BulkInsert](/operation/bulkinsert) operation, it simply calls the `WriteToServer()` method to bring all the data from the application into the database. No additional logic is implied.
 
 For [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, an implied logic and technique has been utilized.
+
+<img src="../../assets/images/site/bulk-merge.png" />
 
 Basically, a pseudo-temporary table will be created in the database under the transaction context. It then uses the [BulkInsert](/operation/bulkinsert) operation to target that pseudo-temporary table and process the data afterwards. Through this technique, we brought all the data together from the client application into the database server (at one-go) and process them together at the same time.
 
