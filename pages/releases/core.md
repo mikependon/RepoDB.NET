@@ -11,7 +11,7 @@ permalink: /release/core
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
 
-#### RepoDb (v1.11.4)
+#### RepoDb (v1.11.4) - not yet released
 
 - Bug: Table schema is ignored for the identical table names [#456](https://github.com/mikependon/RepoDb/issues/456)
 - Bug: Regression Issue [#457](https://github.com/mikependon/RepoDb/issues/457)
