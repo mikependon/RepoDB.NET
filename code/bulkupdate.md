@@ -7,6 +7,6 @@ using (var connection = new SqlConnection(connectionString))
 {
     var orders = connection.Query<Order>(e =>
         e.DateUpdated < DateTime.UtcNow.Date.AddDays(-1));
-    connection.BulkMerge<Order>(orders);
+    connection.BulkUpdate<Order>(orders);
 }
 ```
