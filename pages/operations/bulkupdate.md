@@ -65,6 +65,17 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+And below if you would like to specify the batch size.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var updatedRows = connection.BulkUpdate(people, batchSize: 100);
+}
+```
+
+> By default, the batch size is `10`, equals to `Constant.DefaultBatchOperationSize` value.
+
 ##### DataTable
 
 Below is a sample code to bulk-update by data table.

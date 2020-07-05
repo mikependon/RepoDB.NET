@@ -24,9 +24,9 @@ The objects that are not frequently changing but is mostly in used in the applic
 Simply pass a value to the `cacheKey` argument when calling the operation. When directly using the `IDbConnection` object, an instance of [ICache](/interface/icache) must be passed to `cache` argument.
 
 ```csharp
+var cache = CacheFactory.GetMemoryCache();
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var cache = new MemoryCache();
     var products = connection.QueryAll<Product>(cacheKey: "products", cache: cache);
 }
 ```
@@ -53,9 +53,9 @@ Following this naming convention makes it easy to examine keys at run-time and e
 
 ```csharp
 // An example of the second cache key convention:
+var cache = CacheFactory.GetMemoryCache();
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var cache = new MemoryCache();
     var productId = 5;
     Query<Product>(product => product.Id == productId,
         cacheKey: $"product-id-{productId}",
@@ -70,9 +70,9 @@ As mentioned, by default the cache is placed in the computer memory via [MemoryC
 Simply pass a value to the `cacheItemExpiration` argument when calling the operation. This value will be ignored if the `cacheKey` is not provided.
 
 ```csharp
+var cache = CacheFactory.GetMemoryCache();
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var cache = new MemoryCache();
     var expirationInMinutes = 60 * 24; // 1 day
     var products = connection.QueryAll<Product>(cacheKey: "products",
         cacheItemExpiration: expirationInMinutes,
@@ -85,20 +85,20 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 To remove the cache item, use the `Remove()` method of the [ICache](/interface/icache) interface.
 
 ```csharp
+var cache = CacheFactory.GetMemoryCache();
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var cache = new MemoryCache();
     var products = connection.QueryAll<Product>(cacheKey: "products", cache: cache);
-    cache.Remove("products"); /* Remove */
+    cache.Remove("products"); /* Remove later-on */
 }
 ```
 
 Alternatively, the `Expiration` property can be used to force the expiration.
 
 ```csharp
+var cache = CacheFactory.GetMemoryCache();
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var cache = new MemoryCache();
     var products = connection.QueryAll<Product>(cacheKey: "products", cache: cache);
     var item = cache.Get<Product>("products");
     item.Expiration = DateTime.UtcNow.AddSecond(-1);

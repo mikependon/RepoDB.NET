@@ -76,6 +76,18 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+And below if you would like to specify the batch size.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+	var people = GetPeople(10000);
+	var insertedRows = connection.BulkInsert(people, batchSize: 100);
+}
+```
+
+> By default, the batch size is `10`, equals to `Constant.DefaultBatchOperationSize` value.
+
 ##### DataTable
 
 Below is a sample code to bulk-insert by data table.

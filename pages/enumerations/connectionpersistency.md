@@ -9,7 +9,7 @@ tags: [repodb, class, connectionpersistency, orm, hybrid-orm, sqlserver, sqlite,
 
 # ConnectionPersistency
 
-This is an enum used to define the persistency of the `DbConnection` within the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects.
+This is the enumeration used to define the persistency of the `DbConnection` instance within the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects.
 
 > This enumueration is very useful when you are on a situation that you do need to control the way how repository instantiate a connection object.
 

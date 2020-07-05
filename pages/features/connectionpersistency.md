@@ -9,7 +9,7 @@ tags: [repodb, class, connectionpersistency, orm, hybrid-orm, sqlserver, sqlite,
 
 # Connection Persistency
 
-This is the feature that enables you to manage the instance of the `DbConnection` object within the repository objects (ie: [BaseRepository](/class/baserepository) or [DbRepository](/class/dbrepository)). Please see the [ConnectionPersistency](/enumeration/connectionpersistency) enumeration for more information.
+This is the feature that enables you to control the persistency of the IDbConnection instance within the repository objects (aka: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)). Please see the [ConnectionPersistency](/enumeration/connectionpersistency) enumeration for more information.
 
 #### Types of Persitency
 
