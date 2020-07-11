@@ -36,7 +36,7 @@ email_address: michael.c.pendon@outlook.com
 github_link: https://github.com/mikependon/RepoDb
 twitter_link: https://twitter.com/search?q=%23repodb
 gitter_link: https://gitter.im/RepoDb/community
-stackoverflow_link: https://stackoverflow.com/questions/tagged/repodb
+stackoverflow_link: https://stackoverflow.com/search?tab=newest&q=RepoDb
 
 # Build settings
 theme: minima
