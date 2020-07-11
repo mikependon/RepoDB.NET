@@ -11,6 +11,13 @@ permalink: /release/sqlserver
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
 
 
+#### RepoDb.SqlServer (v1.0.11)
+
+- Updated the version of `Microsoft.Data.SqlClient` into `v2.0.0`.
+- Bug: table schema are ignored [#456](https://github.com/mikependon/RepoDb/issues/456)
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.4](/release/core#repodb-v1114)).
+
+
 #### RepoDb.SqlServer (v1.0.11-beta1)
 
 - Bug: table schema are ignored [#456](https://github.com/mikependon/RepoDb/issues/456)
