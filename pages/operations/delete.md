@@ -8,7 +8,7 @@ tags: [repodb, tutorial, delete, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # Delete
 
-This method is used to delete a record from the database.
+This method is used to delete a row from the database.
 
 #### Code Snippets
 

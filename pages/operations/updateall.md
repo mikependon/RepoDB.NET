@@ -8,7 +8,7 @@ tags: [repodb, tutorial, updateall, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 
 # UpdateAll
 
-This method is used to update an array of rows in the database.
+This method is used to update an array of rows from the database.
 
 #### Use Case
 

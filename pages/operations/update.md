@@ -8,7 +8,7 @@ tags: [repodb, tutorial, update, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # Update
 
-This method is used to update a record in the database.
+This method is used to update an existing row from the database.
 
 #### Code Snippets
 

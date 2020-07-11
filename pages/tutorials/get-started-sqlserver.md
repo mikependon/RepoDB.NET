@@ -235,7 +235,6 @@ var person = new Person
 };
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var affectedRecords = connection.UpdateAll<Person>(people);
 	var updatedRows = connection.Update<Person>(person);
 }
 ```
@@ -245,7 +244,6 @@ You can also update via dynamic by targetting certain columns.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var affectedRecords = connection.UpdateAll<Person>(people);
 	var updatedRows = connection.Update("Person", new { Id = 1, Name = "James Doe" });
 }
 ```
