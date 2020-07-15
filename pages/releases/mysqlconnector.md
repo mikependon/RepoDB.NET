@@ -10,6 +10,12 @@ permalink: /release/mysqlconnector
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector) to download it.
 
+#### RepoDb.MySqlConnector (v1.0.1)
+
+- Update to MySqlConnector 1.0 [#455](https://github.com/mikependon/RepoDb/pull/455)
+- Referenced the version [MySqlConnector](https://github.com/mysql-net/MySqlConnector) ([v1.0.0](https://www.nuget.org/packages/MySqlConnector/1.0.0)).
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.4](/release/core#repodb-v1114)).
+
 
 #### RepoDb.MySqlConnector (v1.0.1)
 
