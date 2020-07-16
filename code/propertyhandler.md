@@ -8,6 +8,6 @@ public class Customer
     public int Id { get; set; }
 
     [PropertyHandler(typeof(CustomerAddressPropertyHandler))]
-    public string Address { get; set; }
+    public Address Address { get; set; }
 }
 ```
