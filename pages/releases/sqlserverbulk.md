@@ -10,10 +10,23 @@ permalink: /release/sqlserverbulk
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
+
+#### RepoDb.SqlServer.BulkOperations (v1.0.13)
+
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.5](/release/core#repodb-v1115)).
+- Referenced the version [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.0.12](/release/sqlserver#repodbsqlserver-v1012)).
+
+
+#### RepoDb.SqlServer.BulkOperations (v1.0.12)
+
+- Enhancement: Support commandTimeout parameter in Bulk Operations [#466](https://github.com/mikependon/RepoDb/issues/466).
+- Referenced the version [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.0.11](/release/sqlserver#repodbsqlserver-v1011))
+
+
 #### RepoDb.SqlServer.BulkOperations (v1.0.12-beta1)
 
 - Enhancement: Support commandTimeout parameter in Bulk Operations [#466](https://github.com/mikependon/RepoDb/issues/466).
-- Referenced the version [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.0.11](/release/sqlserver#repodb-v1011))
+- Referenced the version [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.0.11](/release/sqlserver#repodbsqlserver-v1011))
 
 
 #### RepoDb.SqlServer.BulkOperations (v1.0.11)

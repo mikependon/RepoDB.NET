@@ -10,6 +10,12 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+#### RepoDb (v1.11.5)
+
+- Fixed the problem when installing the library in .NET Framework 4.7.x.
+- Restored the referenced `System.ComponentModel.Annotations` package to `v4.7.0`.
+
+
 #### RepoDb (v1.11.4)
 
 - Bug: Table schema is ignored for the identical table names [#456](https://github.com/mikependon/RepoDb/issues/456)
