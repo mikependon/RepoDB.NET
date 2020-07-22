@@ -1,6 +1,6 @@
 <h5 class="center code-title">Class Mapping</h5>
 
-Organize the names of your entity models by placing the correct mappings towards your database objects. [Learn more](/feature/classmapping)
+Organize the name of your entity models by placing the correct mappings equivalent to your database objects. [Learn more](/feature/classmapping)
 
 ```csharp
 [Map("[sales].[Customer]")]
