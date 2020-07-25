@@ -22,7 +22,7 @@ A database setting is an object that contains the information that are specific 
 
 #### Pre-requisites
 
-- The naming must be `Desired Name` + `DbSetting` (ie: `SqlServerDbSetting`).
+- The naming must be `Desired Name` + `DbSetting` (i.e.: `SqlServerDbSetting`).
 - The implementation must be `internal sealed`.
 - The namespace must be `RepoDb.DbSettings`.
 - The class must be residing inside the `DbSettings` folder.
@@ -71,7 +71,7 @@ DbSettingMapper.Add(typeof(SqlConnection), new MyCustomSqlServerDbSetting(), tru
 
 The library will then use your customized database setting for all its database specific activity.
 
-A sample is the SQL statement generation. Behind the scene, the library has auto-formatted the created SQL statement with some information from the settings (ie: OpeningQuote, ClosingQuote, SchemaSeparator and ParameterPrefix).
+A sample is the SQL statement generation. Behind the scene, the library has auto-formatted the created SQL statement with some information from the settings (i.e.: OpeningQuote, ClosingQuote, SchemaSeparator and ParameterPrefix).
 
 Let say you had called the [Query](/operation/query) operation for SQL Server. 
 
@@ -89,7 +89,7 @@ Then the following SQL statement will be generated.
 > SELECT [Id], [Name], ..., [CreatedDateUtc] FROM [dbo].[Person] WHERE ([Id] = @Id);
 ```
 
-> As you noticed on the generated SQL statement, the following settings (ie: OpeningQuote, ClosingQuote, SchemaSeparator and ParameterPrefix) were used.
+> As you noticed on the generated SQL statement, the following settings (i.e.: OpeningQuote, ClosingQuote, SchemaSeparator and ParameterPrefix) were used.
 
 #### How to Retrieve?
 

@@ -9,7 +9,7 @@ tags: [repodb, class, orderfield, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 # OrderField
 
-This is the class that is used to define an ordering of the results from any fetch operations (ie: [Query](/operation/query), [QueryAll](/operation/queryall) or [BatchQuery](/operation/batchquery)).
+This is the class that is used to define an ordering of the results from any fetch operations (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) or [BatchQuery](/operation/batchquery)).
 
 #### Creating an Instance
 

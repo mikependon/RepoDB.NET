@@ -9,7 +9,7 @@ tags: [repodb, class, bulkinsertmapitem, orm, hybrid-orm, sqlserver, sqlite, mys
 
 # BulkInsertMapItem
 
-This class is used to map a source and destination column when doing Bulk Operations (ie: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
+This class is used to map a source and destination column when doing Bulk Operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 
 #### Create a new Instance
 
@@ -84,4 +84,4 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-> You can also do the same for (ie: [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)). Please also be reminded that the `mappings` argument are not mandatory. Leaving this blank would make the Bulk Operations auto-map the columns based on the equality of the source and destination column-names (case-insensitive).
+> You can also do the same for (i.e.: [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)). Please also be reminded that the `mappings` argument are not mandatory. Leaving this blank would make the Bulk Operations auto-map the columns based on the equality of the source and destination column-names (case-insensitive).

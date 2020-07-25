@@ -8,9 +8,9 @@ categories: blogs repodb
 
 The extent of this post is generally targeting the whole ORM families running in various technology stacks. But I will limit the explanation to only .NET (`C#` or `VB`) and will write the samples in `C#`.
 
-I am the author of [RepoDb](http://repodb.net/) and most samples could be specifics to this ORM, but again, the rationale of this post is beyond the technology stacks and libraries you preferred to work with. Think of all the samples as a code for your favorite ORM (ie: `Entity Framework`, `NHibernate`, `LLBLGen` or `Dapper`).
+I am the author of [RepoDb](http://repodb.net/) and most samples could be specifics to this ORM, but again, the rationale of this post is beyond the technology stacks and libraries you preferred to work with. Think of all the samples as a code for your favorite ORM (i.e.: `Entity Framework`, `NHibernate`, `LLBLGen` or `Dapper`).
 
-After reading this article, you may realize some technicalities you will consider when writing a raw implementations. In that point in time, you can certainly beat the ORM in all cases. But until to the fact that you are not writing the perfect code (or putting extra time and effort into it), then using the raw implementation could not ever beat the ORM in all cases (ie: `Performance`, `Efficiency`, `Maintainability` and `Simplicity`).
+After reading this article, you may realize some technicalities you will consider when writing a raw implementations. In that point in time, you can certainly beat the ORM in all cases. But until to the fact that you are not writing the perfect code (or putting extra time and effort into it), then using the raw implementation could not ever beat the ORM in all cases (i.e.: `Performance`, `Efficiency`, `Maintainability` and `Simplicity`).
 
 > The content written is based on the actual experiences when developing an ORM, and also, a collective information provided by different authors of different ORMs.
 
@@ -54,7 +54,7 @@ using (var connection = new SqlConnection(ConnectionString))
 // Process the `customers` here
 ```
 
-> Not to mention the validations that you need to write on top (ie: columns nullability, conversions, etc).
+> Not to mention the validations that you need to write on top (i.e.: columns nullability, conversions, etc).
 
 In ORM, you just have to write the code below.
 
@@ -330,7 +330,7 @@ while (reader.Read())
 
 The reason why we used the `int` and `name` indexer is code-readability and index mapping positions. So even we changed the position of our columns in query text, the code will still work.
 
-In the underlying implementation of ADO.NET, the `int` and `name` indexer is first finding the position of the column by name (ie: `GetOrdinal` method), then returning a value of `System.Object`. Once you retrieved the value (as `System.Object`), you are obligued to cast or convert it back to a target .NET CLR type (based on class property type).
+In the underlying implementation of ADO.NET, the `int` and `name` indexer is first finding the position of the column by name (i.e.: `GetOrdinal` method), then returning a value of `System.Object`. Once you retrieved the value (as `System.Object`), you are obligued to cast or convert it back to a target .NET CLR type (based on class property type).
 
 The reason why the `Get<Type>()` method is much more faster is because you issued the index position by default and had defined the target .NET CLR type concerning to that specific position. The position mapping is handled by ORM internally in the pre-compilation.
 
@@ -512,7 +512,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 **How do you insert multiple rows in the database?** Let us say, the responsibility of your application is to replicate a data from the source DB into a destination DB and the frequency is to insert atleast `100` rows for every 5 seconds.
 
-By using `SqlBulkCopy` to just only insert few hundred records is not advisable (though it is a separate debate). Otherwise, you are are committing on the CONS of using the bulk operations (ie: keep locking the table itself, etc).
+By using `SqlBulkCopy` to just only insert few hundred records is not advisable (though it is a separate debate). Otherwise, you are are committing on the CONS of using the bulk operations (i.e.: keep locking the table itself, etc).
 
 Well, one can say *I am iterating it!* or somebody can say *We are creating UDT types!*. Both scenario are correct as this is the underlying capability of ADO.NET. But in some cases, iteration seems to be slow and using a UDT type requires a special implementations in both client application and the database.
 
@@ -605,7 +605,7 @@ public void InsertCustomers(IEnumerable<Customer> customers)
 
 ###### Reflection vs Compilation
 
-As a developer, we are all lazy and would like to simplify everything. We usually write code that is pluggable and reusable. In the case of data access, what we always do is to create a base implementation (ie: `Repository`) that will contain the CRUD operations.
+As a developer, we are all lazy and would like to simplify everything. We usually write code that is pluggable and reusable. In the case of data access, what we always do is to create a base implementation (i.e.: `Repository`) that will contain the CRUD operations.
 
 ```csharp
 public class RepositoryBase<T> where T : class
@@ -725,7 +725,7 @@ Imagine the difference and the benefits you are getting here.
 
 One of the main reason why most developers opt to use an ORM is the maintainability of the code. When you use an ORM, the code that you are written is relatively small, thus making it more faster, more easy to read and maintain.
 
-**Imagine the efforts and complexities when creating a repository like this** without you concerning the other possibilities (ie: different `primary keys`, `identities`, generic `column projections`, etc) and the qualities.
+**Imagine the efforts and complexities when creating a repository like this** without you concerning the other possibilities (i.e.: different `primary keys`, `identities`, generic `column projections`, etc) and the qualities.
 
 ```csharp
 public interface IRepositoryBase<T> where T : class
@@ -867,7 +867,7 @@ public class RepositoryBase<T> : BaseRepository<T, SqlConnection>, IRepositoryBa
 }
 ```
 
-Atleast, I personally preferred that the object (ie: `Repository`) have single responsibility and lesser-code possible for maintainability purposes. **That's being said!**
+Atleast, I personally preferred that the object (i.e.: `Repository`) have single responsibility and lesser-code possible for maintainability purposes. **That's being said!**
 
 ###### OSS Responsibility
 
@@ -879,7 +879,7 @@ That is correct or wrong, as it is all up to you as a developer to choose which 
 
 #### Quality
 
-Most ORMs are well-tested and is being used by thousand of developers. The community itself are helping the ORM authors to stabilize and improve the library. The way it happens is through an open collaboration via various channels (ie: `GitHub`, `StackOverflow`, `GitterChat`, etc) and discussing specific things (features) to be employed, in the end, the requestor itself or the contributor does the validation and testing (in actual real-world scenarios).
+Most ORMs are well-tested and is being used by thousand of developers. The community itself are helping the ORM authors to stabilize and improve the library. The way it happens is through an open collaboration via various channels (i.e.: `GitHub`, `StackOverflow`, `GitterChat`, etc) and discussing specific things (features) to be employed, in the end, the requestor itself or the contributor does the validation and testing (in actual real-world scenarios).
 
 The collaborations is beyond on the things that you usually get with your own circles, and it is free if you're using an open-source ORM.
 

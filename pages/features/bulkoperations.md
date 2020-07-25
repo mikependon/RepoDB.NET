@@ -9,7 +9,7 @@ tags: [repodb, class, bulk, bulk-operations, orm, hybrid-orm, sqlserver, sqlite,
 
 # Bulk Operations
 
-The bulk operation is the process of bringing all the data from the application into the database server at once, and at the same time, ignoring some database specific activities (ie: `Logging`, `Audits`, `Data-Type Checks`, `Constraints`, etc) behind the scene, thus gives you maximum performance during the operation.
+The bulk operation is the process of bringing all the data from the application into the database server at once, and at the same time, ignoring some database specific activities (i.e.: `Logging`, `Audits`, `Data-Type Checks`, `Constraints`, etc) behind the scene, thus gives you maximum performance during the operation.
 
 Basically, we do the normal [Delete](/operation/delete), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations when interacting with the database. The data is processed in an atomic way. If we do call the [batch operations](/feature/batchoperations), the multiple single operation is just being batched and executed at the same time. In short, there are round-trips between your application and the database. Thus does not give you the maximum performance when doing the CRUD operations.
 
@@ -86,7 +86,7 @@ The argument `qualifiers` is used to define the qualifier fields to be used in t
 
 The argument `isReturnIdentity` is used to define the behaviour of the execution whether the newly generated identity will be set-back to the data entities. By default, it is disabled.
 
-The argument `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (ie: `#TableName`) is used.
+The argument `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 
 #### Caveats
 
@@ -231,7 +231,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 ###### When to use the Batch and Bulk Operations?
 
-There is no standard of when to use what. It all depends on your situation (ie: Network Latency, Data, No of Columns, etc).
+There is no standard of when to use what. It all depends on your situation (i.e.: Network Latency, Data, No of Columns, etc).
 
 The pros of using bulk is maximum performance. However, there are also cons of usually using it. One of it is it keeps blocking the target table while being under the bulk operations transaction. It can however trigger (or also solve) a deadlock if not handled properly by the developers.
 

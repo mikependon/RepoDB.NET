@@ -19,7 +19,7 @@ You should use this class if you wish to cache all the fetched objects from the 
 
 #### How to Use?
 
-Simply pass the instance in the constructor of the repositories (ie: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)) or when calling the fetched operations (ie: [Query](/operation/query) and [QueryAll](/operation/queryall)).
+Simply pass the instance in the constructor of the repositories (i.e.: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)) or when calling the fetched operations (i.e.: [Query](/operation/query) and [QueryAll](/operation/queryall)).
 
 As a recommendation, create a factory class that returns the cacher.
 

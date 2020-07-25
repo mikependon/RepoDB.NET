@@ -10,6 +10,10 @@ permalink: /release/sqlite
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqLite) to download it.
 
+#### Next Version
+
+- Enhancement: Remove the SchemaSeparator property from the IDbSetting interface #475
+
 
 #### RepoDb.SqLite (v1.0.14)
 

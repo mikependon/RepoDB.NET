@@ -16,7 +16,7 @@ If you are updating multiple rows in the database, do not ever "iterate and merg
 
 The performance of this not comparable to the atomic way of updating. It is more performant and efficient.
 
-You can adjust the size of the batch on how much rows you want to process per batch. This scenario applies depends on your situation (ie: *No of Columns*, *Network Latency*, etc).
+You can adjust the size of the batch on how much rows you want to process per batch. This scenario applies depends on your situation (i.e.: *No of Columns*, *Network Latency*, etc).
 
 The execution is ACID as the transaction object will be created if not given.
 

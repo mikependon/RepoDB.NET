@@ -10,6 +10,16 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+#### Next Version
+
+- Enhancement: Remove the SchemaSeparator property from the IDbSetting interface #475
+- Enhancement: Using async DbFieldCache #481
+- Added some micro optimizations #476
+- Added a `DataEntityReader.Connection` property.
+- Added a `DataEntityReader.Transaction` property.
+- Added a `DataEntityReader.Initialize` method
+- Added a `DataEntityReader.InitializeAsync()` method.
+
 #### RepoDb (v1.11.5)
 
 - Fixed the problem when installing the library in .NET Framework 4.7.x.
@@ -192,7 +202,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added the `ConverterNotFoundException` class.
 - At the [CancellableTraceLog.Cancel()](/class/cancellabletracelog) method, the `throwException` argument has been defaulted the `True`.
 - Enhancement: Ensure that [PropertyHandler](/interface/ipropertyhandler)(s) must ignore the [TypeMapper](/mapper/typemapper) automatic conversion and also `Enum` handlers. [#412](https://github.com/mikependon/RepoDb/issues/412)
-- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targetting the bulk operations (ie: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
+- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targetting the bulk operations (i.e.: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
 - Bug: UnaryExpression: Add support for `&&` and `||` operators in the expressions [398](https://github.com/mikependon/RepoDb/issues/#398)
 - Bug: Enum Bug [#400](https://github.com/mikependon/RepoDb/issues/400)
 - Bug: Enum Bug on Null value on [Insert](/operation/insert). [#401](https://github.com/mikependon/RepoDb/issues/401)
@@ -209,7 +219,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: Enum Bug on Null value on [Insert](/operation/insert). [#401](https://github.com/mikependon/RepoDb/issues/401)
 - Added the `ConverterNotFoundException` class.
 - Enhancement: Ensure that [PropertyHandler](/interface/ipropertyhandler)(s) must ignore the [TypeMapper](/mapper/typemapper) automatic conversion and also `Enum` handlers. [#412](https://github.com/mikependon/RepoDb/issues/412)
-- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targetting the bulk operations (ie: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
+- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targetting the bulk operations (i.e.: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
 
 
 #### RepoDb (v1.10.11-beta2):
@@ -230,7 +240,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: `AsFieldsAsAliasFields` - added left and right aliases.
 - Enhancement: XML Documentation updates for the SQL statement Builders.
 - Enhancement: Add a `Type` extended method named `IsNullable`.
-- Bug: Solve the intermittent `NullReferenceException` when calling the Batch Operations (ie: [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall)). [#392](https://github.com/mikependon/RepoDb/issues/392)
+- Bug: Solve the intermittent `NullReferenceException` when calling the Batch Operations (i.e.: [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall)). [#392](https://github.com/mikependon/RepoDb/issues/392)
 - Bug: The property handlers mapped via `PropertyHandlerMapper` is failing if both `NULLABLE` and `NON-NULLABLE` property types are present in the class. [#394](https://github.com/mikependon/RepoDb/issues/394)
 
 

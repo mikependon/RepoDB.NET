@@ -20,7 +20,7 @@ The programming language and database provider we are using on our samples below
 
 Both library is an ORM framework for .NET. They are both lightweight, fast and efficient. The Dapper is a full-fledge micro-ORM whereas RepoDb is a hybrid-ORM.
 
-> To avoid the bias on the comparisson, we will not cover the features that is present in RepoDb but is absent in Dapper (ie: `Cache`, `Trace`, `Hints`, `Extensibility`, `StatementBuilder` and `Repositories`) (vice-versa). Also, the comparisson does not included any other extension libraries of both (ie: `RepoDb.SqLite`, `RepoDb.MySql`, `RepoDb.PostgreSql`, `Dapper.Contrib`, `DapperExtensions`, `Dapper.SqlBuilder`, etc).
+> To avoid the bias on the comparisson, we will not cover the features that is present in RepoDb but is absent in Dapper (i.e.: `Cache`, `Trace`, `Hints`, `Extensibility`, `StatementBuilder` and `Repositories`) (vice-versa). Also, the comparisson does not included any other extension libraries of both (i.e.: `RepoDb.SqLite`, `RepoDb.MySql`, `RepoDb.PostgreSql`, `Dapper.Contrib`, `DapperExtensions`, `Dapper.SqlBuilder`, etc).
 
 ##### Tables
 
@@ -871,7 +871,7 @@ Supports all RDBMS data providers.
 
 #### Performance and Efficiency
 
-We only refer to one of the the community-approved ORM bencher, the [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher).
+We only refer to one of the community-approved ORM bencher, the [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher).
 
 **Net Core:**
 
@@ -916,7 +916,7 @@ Below are the links to our test suites.
 - [PostgreSql Integration Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql/RepoDb.PostgreSql.IntegrationTests)
 - [RepoDb.SqlServer.BulkOperations Integration Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Extensions/RepoDb.SqlServer.BulkOperations/RepoDb.SqlServer.BulkOperations.IntegrationTests)
 
-> We (or I as an author) has been challenged that the quality of the software does not depends on the number of tests. However, we strongly believe that spending much efforts on writing a test will give confidence to the library consumers (ie: .NET community). Practially, it helps us to avoid manual revisits on the already-working features if somebody is doing a PR to us; it prevents the library from any surprising bugs.
+> We (or I as an author) has been challenged that the quality of the software does not depends on the number of tests. However, we strongly believe that spending much efforts on writing a test will give confidence to the library consumers (i.e.: .NET community). Practially, it helps us to avoid manual revisits on the already-working features if somebody is doing a PR to us; it prevents the library from any surprising bugs.
 
 ###### Conclusion to the Quality
 
@@ -964,7 +964,7 @@ RepoDb is more efficient than Dapper (same claim as in Performance).
 
 ###### Experience
 
-It is more easier and faster to develop the code snippets with RepoDb. It has a rich feature sets which can be used right-away (ie: 2nd-Layer Cache, Fluent Methods). It will help you as a developer deliver more code snippets in fast and clean manner.
+It is more easier and faster to develop the code snippets with RepoDb. It has a rich feature sets which can be used right-away (i.e.: 2nd-Layer Cache, Fluent Methods). It will help you as a developer deliver more code snippets in fast and clean manner.
 
 ###### Features
 

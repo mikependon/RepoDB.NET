@@ -9,7 +9,7 @@ tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 # Installation
 
-The package can be installed using Package Manager Console.
+The package can be installed using the Package Manager Console window.
 
 #### Raw SQLs
 
@@ -27,13 +27,13 @@ If you wish to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlS
 > Install-Package RepoDb.SqlServer
 ```
 
-Or, if you are working with bulk operations.
+Or, if you are to work with the bulk operations.
 
 ```csharp
 > Install-Package RepoDb.SqlServer.BulkOperations
 ```
 
-Then call the bootstrapper once.
+Then call the bootstrapper to initialize the needed references.
 
 ```csharp
 RepoDb.SqlServerBootstrap.Initialize();
@@ -47,7 +47,7 @@ If you wish to work with [SQLite](https://www.nuget.org/packages/RepoDb.SqLite).
 > Install-Package RepoDb.SqLite
 ```
 
-Then call the bootstrapper once.
+Then call the bootstrapper to initialize the needed references.
 
 ```csharp
 RepoDb.SqLiteBootstrap.Initialize();
@@ -61,7 +61,7 @@ If you wish to work with [MySQL](https://www.nuget.org/packages/RepoDb.MySql).
 > Install-Package RepoDb.MySql
 ```
 
-Then call the bootstrapper once.
+Then call the bootstrapper to initialize the needed references.
 
 ```csharp
 RepoDb.MySqlBootstrap.Initialize();
@@ -75,7 +75,7 @@ If you wish to work with [PostgreSQL](https://www.nuget.org/packages/RepoDb.Post
 > Install-Package RepoDb.PostgreSql
 ```
 
-Then call the bootstrapper once.
+Then call the bootstrapper to initialize the needed references.
 
 ```csharp
 RepoDb.PostgreSqlBootstrap.Initialize();

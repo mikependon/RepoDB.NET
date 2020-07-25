@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: features
 title: "Tracing"
-description: "This is the feature that would allow you to log, audit and debug the command execution context (ie: SQL Statement, Parameters, Elapsed Time) via TraceLog class."
+description: "This is the feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via TraceLog class."
 permalink: /feature/tracing
 tags: [repodb, class, tracing, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Tracing
 
-This is the feature that would allow you to log, audit and debug the command execution context (ie: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also allows you to cancel the existing execution before even the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class.
+This is the feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also allows you to cancel the existing execution before even the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class.
 
 A corresponding method in the trace class will be hit by the debugger when you call the `IDbConnection` extended method (or any of the `Repository` method), only if the trace object is passed or injected.
 

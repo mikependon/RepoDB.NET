@@ -19,7 +19,7 @@ To simplify your implementation, always use this class over [IStatementBuilder](
 
 This class has virtual methods pre-implemented with the defined logics. It is the author's choices to add this virtual methods on this base class.
 
-The reason to have these virtual methods are the commonality of most RDBMS data providers (ie: the SQL Server and [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) almost have the same way of SQL generation).
+The reason to have these virtual methods are the commonality of most RDBMS data providers (i.e.: the SQL Server and [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) almost have the same way of SQL generation).
 
 ###### Below are the list of virtual methods.
 
@@ -46,7 +46,7 @@ The reason to have these virtual methods are the commonality of most RDBMS data 
 
 This class has some abstract methods that is required to be implemented in the derived classes. It is the author's choices to add this abstract methods on this base class.
 
-The reason to have these abstract methods are the implementation-difference between different RDBMS data providers (ie: the SQL Server is using `MERGE` keyword for merging whereas the [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) is using `INSERT OR REPLACE`).
+The reason to have these abstract methods are the implementation-difference between different RDBMS data providers (i.e.: the SQL Server is using `MERGE` keyword for merging whereas the [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) is using `INSERT OR REPLACE`).
 
 ###### Below are the list of abstract methods.
 

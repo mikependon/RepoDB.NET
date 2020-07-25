@@ -10,6 +10,11 @@ permalink: /release/mysqlconnector
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector) to download it.
 
+#### Next Version
+
+- Enhancement: Remove the SchemaSeparator property from the IDbSetting interface #475
+
+
 #### RepoDb.MySqlConnector (v1.0.2)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.5](/release/core#repodb-v1115)).

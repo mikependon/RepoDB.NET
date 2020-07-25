@@ -9,7 +9,7 @@ tags: [repodb, class, expressiontrees, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 # Expression Trees
 
-This is the feature that would allow you to compose a conditional expressions (to filter a data) when doing an operation in the database. This condition can be applied in both push/pull operations (ie: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and [Query](/opereration/query)).
+This is the feature that would allow you to compose a conditional expressions (to filter a data) when doing an operation in the database. This condition can be applied in both push/pull operations (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and [Query](/opereration/query)).
 
 ###### There are 3 ways of composing an expression trees.
 
@@ -41,7 +41,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-> Please be aware that the compiler does not understand dynamic, any change on the column name would not trigger a pre-compilation exception. Also, the dynamic only supports the `expression-equality` and cannot be used with other operations (ie: `NotEqual`, `GreaterThan`, etc).
+> Please be aware that the compiler does not understand dynamic, any change on the column name would not trigger a pre-compilation exception. Also, the dynamic only supports the `expression-equality` and cannot be used with other operations (i.e.: `NotEqual`, `GreaterThan`, etc).
 
 #### Linq-Expression
 

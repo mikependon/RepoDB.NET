@@ -29,9 +29,9 @@ In addition, it will remove your worries by writing and maintaining the complex 
 
 **Nothing else, but PERFORMANCE!**
 
-Although, the same exact goal can be achieved by Batch Operations (ie: [DeleteAll](/operation/deleteall), [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall) and [UpdateAll](/operation/updateall)), but, by leveraging the real Bulk Operations functionalities, you are extremely improving the performance of your data manipulation with a huge-percentage gap.
+Although, the same exact goal can be achieved by Batch Operations (i.e.: [DeleteAll](/operation/deleteall), [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall) and [UpdateAll](/operation/updateall)), but, by leveraging the real Bulk Operations functionalities, you are extremely improving the performance of your data manipulation with a huge-percentage gap.
 
-To explain further, when you only use the Batch operations, it is only batching the multiple atomic activities and still does the multiple round-trips from your application into the database server. However, when you use the Bulk operations, you are bringing all the data from the application into the database server at once and at the same time ignoring some database specific activities (ie: `Logging`, `Audits`, `Data-Type Checks`, `Constraints`, etc) behind the scene, thus gives you maximum performance during the operation.
+To explain further, when you only use the Batch operations, it is only batching the multiple atomic activities and still does the multiple round-trips from your application into the database server. However, when you use the Bulk operations, you are bringing all the data from the application into the database server at once and at the same time ignoring some database specific activities (i.e.: `Logging`, `Audits`, `Data-Type Checks`, `Constraints`, etc) behind the scene, thus gives you maximum performance during the operation.
 
 #### How does it works?
 
@@ -94,7 +94,7 @@ The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided at [Bulk
 
 The argument `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the *WHERE* expression of SQL Statements. If not given, the primary key (or identity) field will be used.
 
-The argument `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (ie: #TableName) is used.
+The argument `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: #TableName) is used.
 
 ## Caveats
 
@@ -288,7 +288,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 ## When to use the Batch and Bulk Operations?
 
-Here, we can only advice based on our experience. To be honest, there is no standard of when to use what. It all depends on your situation (ie: Network Latency, Data, No of Columns, etc).
+Here, we can only advice based on our experience. To be honest, there is no standard of when to use what. It all depends on your situation (i.e.: Network Latency, Data, No of Columns, etc).
 
 The PROS of using Bulk is maximum performance. However, there are also CONS of usually using it. One of it is it keeps blocking the target table while being under the Bulk operations transaction. It can however trigger (or also solve) a deadlock if not handled properly by the developers.
 

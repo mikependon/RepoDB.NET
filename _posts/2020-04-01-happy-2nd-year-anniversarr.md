@@ -16,7 +16,7 @@ I started writing the first code last March 15, 2018. The first offical class th
 
 The next day, I came to office early and check-in the RepoDb code snippets in our internal repository. Few minutes after, I broadcasted an email to all the developers of Orsted A/S at Kuala Lumpur, Malaysia without knowing the effect of it.
 
-I received much criticism from various architects the same day (ie: re-inventing the wheel, too much ambitious, etc).
+I received much criticism from various architects the same day (i.e.: re-inventing the wheel, too much ambitious, etc).
 
 However, I got a good feedback from my direct Team Lead.
 

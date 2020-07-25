@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: classes
 title: "TypeMapFluentDefinition"
-description: "A class that is used to define a type-level mappings (ie: DB Type and Property Handler)."
+description: "A class that is used to define a type-level mappings (i.e.: DB Type and Property Handler)."
 permalink: /class/typemapfluentdefinition
 tags: [repodb, class, typemapfluentdefinition, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # TypeMapFluentDefinition
 
-A class that is used to define a type level mappings (ie: `DB Type` and `Property Handler`). It is the result of the `Type()` method of the [FluentMapper](/mapper/fluentmapper) mapper class.
+A class that is used to define a type level mappings (i.e.: `DB Type` and `Property Handler`). It is the result of the `Type()` method of the [FluentMapper](/mapper/fluentmapper) mapper class.
 
 > The mapping will be applied (at the least) to all data entity properties with the same .NET CLR type.
 

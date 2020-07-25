@@ -11,9 +11,9 @@ tags: [repodb, class, batch, batch-operations, orm, hybrid-orm, sqlserver, sqlit
 
 The batch operation is the process of making the multiple single-operations be executed against the database in one-go. The execution is ACID; an implicit transaction is provided if not present.
 
-In this library, the implementation of the batch operation is flexible. It allows you (as the developer) to control the number of operations to be batched during the execution. That flexibility helps you manage the performance based on your own situations (ie: Network Latency, Number of Columns, etc).
+In this library, the implementation of the batch operation is flexible. It allows you (as the developer) to control the number of operations to be batched during the execution. That flexibility helps you manage the performance based on your own situations (i.e.: Network Latency, Number of Columns, etc).
 
-The batch operations are only targeting certain operations (ie: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) and [MergeAll](/operation/mergeall)). They are all ACID in nature.
+The batch operations are only targeting certain operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) and [MergeAll](/operation/mergeall)). They are all ACID in nature.
 
 Below are some practical explanation to give you more insights about the batch operation.
 
@@ -89,7 +89,7 @@ The packed-statements above cached and is being executed `10` times with `100` r
 
 #### Behind the scene of the Batch Operations
 
-When you call any of the push batch operations (ie: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) or [MergeAll](/operation/mergeall)), then the following activities are happening behind the scene.
+When you call any of the push batch operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) or [MergeAll](/operation/mergeall)), then the following activities are happening behind the scene.
 
 ###### Understanding your schema
 
@@ -117,6 +117,6 @@ Before executing the `DbCommand` object, the `Prepare()` method is being called 
 
 ###### Batch execution
 
-The generated packed statements is being executed against the database only once. Though in reality, the library is also batching due to the fact that ADO.NET is limited only to `2100` parameters. Also, through these batches, the caller is able to define the best batch number based on the situations and scenarios (ie: Number of Columns, Network Latency, etc).
+The generated packed statements is being executed against the database only once. Though in reality, the library is also batching due to the fact that ADO.NET is limited only to `2100` parameters. Also, through these batches, the caller is able to define the best batch number based on the situations and scenarios (i.e.: Number of Columns, Network Latency, etc).
 
 > We highly recommend to always use the batch operations over normal operation when working with multiple rows. Also, use the batch operations over bulk operations if the number of rows you are working is less than `1000`.

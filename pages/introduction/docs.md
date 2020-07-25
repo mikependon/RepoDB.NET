@@ -8,7 +8,7 @@ permalink: /docs
 
 # Docs
 
-Below are the list of objects that you can use while using this library. You can also click on the link provided in the sidebar at the left.
+Below are the list of things  you can leverage while using this library. You can also click on the link provided in the sidebar at the left.
 
 {% for doc in site.data.documentation.docs %}
 {% if doc.isdoc == true %}

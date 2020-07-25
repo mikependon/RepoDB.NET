@@ -76,7 +76,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-You can also execute a raw SQLs via `Execute` methods (ie: [ExecuteQuery](/operation/executequery), [ExecuteNonQuery](/operation/executenonquery), [ExecuteScalar](/operation/executescalar) and [ExecuteReader](/operation/executereader)).
+You can also execute a raw SQLs via `Execute` methods (i.e.: [ExecuteQuery](/operation/executequery), [ExecuteNonQuery](/operation/executenonquery), [ExecuteScalar](/operation/executescalar) and [ExecuteReader](/operation/executereader)).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())

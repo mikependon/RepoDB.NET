@@ -78,9 +78,9 @@ public class Customer
 }
 ```
 
-When calling the pull operations (ie: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)), then the `Get` method will be invoked.
+When calling the pull operations (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)), then the `Get` method will be invoked.
 
-On the other hand, when you call the push operations (ie: [Insert](/operation/insert), [Update](/operation/update) and [Merge](/operation/merge)), then the `Set` method will be invoked. 
+On the other hand, when you call the push operations (i.e.: [Insert](/operation/insert), [Update](/operation/update) and [Merge](/operation/merge)), then the `Set` method will be invoked. 
 
 #### Creating a Type-Level Property Handler
 

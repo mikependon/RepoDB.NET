@@ -17,8 +17,8 @@ This interface is used to mark a class to be a property handler object. This int
 
 #### Methods
 
-- `Get` - the method that is being invoked when the outbound transformation is triggered (ie: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)).
-- `Set` - the method that is being invoked when the inbound transformation is triggered (ie: [Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge) and etc).
+- `Get` - the method that is being invoked when the outbound transformation is triggered (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)).
+- `Set` - the method that is being invoked when the inbound transformation is triggered (i.e.: [Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge) and etc).
 
 > Both methods accept the [ClassProperty](/class/classproperty) to give more context on the current method of the property handler.
 
@@ -109,7 +109,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 #### Type Level Handling
 
-On the other hand, you can also handle the property transformation on a type level. It is useful on a situation if you would like to handle a specific database type transformation into a .NET CLR type (ie: converting the `DateTime` object `Kind` to `Utc`).
+On the other hand, you can also handle the property transformation on a type level. It is useful on a situation if you would like to handle a specific database type transformation into a .NET CLR type (i.e.: converting the `DateTime` object `Kind` to `Utc`).
 
 To enable this, you have to use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class for the mappings.
 

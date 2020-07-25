@@ -57,7 +57,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To insert multiple rows, use the [InsertAll](http://repodb.net/operation/insertall) method instead.
+To insert multiple rows, use the [InsertAll](http://repodb.net/operation/insertall) method.
 
 ```csharp
 var people = GetPeople(100);
@@ -79,7 +79,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To query all the rows, use the [QueryAll](http://repodb.net/operation/queryall) method instead.
+To query all the rows, use the [QueryAll](http://repodb.net/operation/queryall) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -107,7 +107,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To merge all the rows, use the [MergeAll](http://repodb.net/operation/mergeall) method instead.
+To merge all the rows, use the [MergeAll](http://repodb.net/operation/mergeall) method.
 
 ```csharp
 var people = GetPeople(100);
@@ -131,7 +131,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-By default, it uses the primary key as the qualifier. The other fields can also be used via Linq expression.
+By default, it uses the primary key as a qualifier. The other fields can also be used via Linq expression.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -140,7 +140,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To delete all the rows, use the [DeleteAll](http://repodb.net/operation/deleteall) method instead.
+To delete all the rows, use the [DeleteAll](http://repodb.net/operation/deleteall) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -177,7 +177,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To update all the rows, use the [UpdateAll](http://repodb.net/operation/updateall) method instead.
+To update all the rows, use the [UpdateAll](http://repodb.net/operation/updateall) method.
 
 ```csharp
 var people = GetPeople(100);
@@ -214,7 +214,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of class object, then use the [ExecuteQuery](http://repodb.net/operation/executequery) method.
+To execute a query while expecting a result of class object, use the [ExecuteQuery](http://repodb.net/operation/executequery) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -224,7 +224,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a single result, then use the [ExecuteScalar](http://repodb.net/operation/executescalar) method.
+To execute a query while expecting a single result, use the [ExecuteScalar](http://repodb.net/operation/executescalar) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -233,7 +233,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of `DbDataReader`, then use the [ExecuteReader](http://repodb.net/operation/executereader) method.
+To execute a query while expecting a result of `DbDataReader`, use the [ExecuteReader](http://repodb.net/operation/executereader) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))

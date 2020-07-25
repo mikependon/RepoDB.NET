@@ -50,7 +50,7 @@ The priority of the mapping is first identified via  `Attribute-Level` followed 
 
 #### Class Name Mapping
 
-Use the [ClassMapper](/mapper/classmapper) class to manage the mappings of the class into its equivalent object in the database (ie: Table, View).
+Use the [ClassMapper](/mapper/classmapper) class to manage the mappings of the class into its equivalent object in the database (i.e.: Table, View).
 
 Let us say you have a `Customer` class which has an equivalent table named `Customer` under `sales` schema.
 
@@ -371,4 +371,4 @@ TypeMapper.Remove<DateTime>();
 
 Please visit the [Type Mapping](/feature/typemapping) feature for further information.
 
-> In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument. Please be noted that the `force` argument is not overriding that attribute-based mapping (ie: by using the `System.ComponentModel.DataAnnotations.Schema` (`Table`, `Column`), [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap) and [PropertyHandler](/attribute/propertyhandler)).
+> In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument. Please be noted that the `force` argument is not overriding that attribute-based mapping (i.e.: by using the `System.ComponentModel.DataAnnotations.Schema` (`Table`, `Column`), [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap) and [PropertyHandler](/attribute/propertyhandler)).
