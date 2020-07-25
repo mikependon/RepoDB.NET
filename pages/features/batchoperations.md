@@ -11,9 +11,9 @@ tags: [repodb, class, batch, batch-operations, orm, hybrid-orm, sqlserver, sqlit
 
 A batch operation is a process of executing multiple single-operations against the database in one-go. The execution is ACID; an implicit transaction is provided if not present.
 
-This operation comes with flexibility as it allows you to control the number of rows to be batched during the execution. It also helps you manage the performance based on your own scenarios (i.e.: Network Latency, Number of Columns, etc).
+This operation comes with flexibility as it allows you to control the number of rows to be batched during the execution, and because of this, you can manage the performance based on your own scenarios (i.e.: Network Latency, Number of Columns, etc).
 
-In RepoDb, the following operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) and [MergeAll](/operation/mergeall)) are batch operations. They are all ACID in nature.
+In RepoDb, the following operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) and [MergeAll](/operation/mergeall)) are the batch operations. They are all ACID in nature.
 
 #### Normal executions
 
