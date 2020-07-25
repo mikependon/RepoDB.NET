@@ -105,7 +105,7 @@ The execution context is being cached. It enables the library to reuse the exist
 
 > The execution context contains the SQL Statements, Parameters, Preparations and even the Compiled ILs or Expressions. 
 
-###### Adding an implicit transaction
+###### Adding an Implicit Transaction
 
 A new `Transaction` object is being assigned to the execution if the caller does not passed any explicit transaction.
 
