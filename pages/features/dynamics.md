@@ -52,7 +52,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = connection.Query("[dbo].[Customer]", new { Country = "Denmark" },
         Field.From("Id","FirstName", "LastName"));
-    
+
     foreach (var customer in customers)
     {
         ...
@@ -120,7 +120,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         FirstName = "James",
         LastUpdatedDateUtc = DateTime.UtcNow
     }
-    var updatedRows = connection.Update("[dbo].[Customer]", entity);
+var updatedRows = connection.Update("[dbo].[Customer]", entity);
 }
 ```
 

@@ -29,9 +29,9 @@ You should use this class if you do not like to use the [Map](/attribute/map) at
 To add a mapping, simply call the `Add` method.
 
 ```csharp
-ClassMapper.Add<Customer>(c => c.FirstName, "[FName]", true);
-ClassMapper.Add<Customer>(c => c.LastName, "[LName]", true);
-ClassMapper.Add<Customer>(c => c.DateOfBirth, "[DOB]", true);
+PropertyMapper.Add<Customer>(c => c.FirstName, "[FName]", true);
+PropertyMapper.Add<Customer>(c => c.LastName, "[LName]", true);
+PropertyMapper.Add<Customer>(c => c.DateOfBirth, "[DOB]", true);
 ```
 
 > An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
@@ -39,7 +39,7 @@ ClassMapper.Add<Customer>(c => c.DateOfBirth, "[DOB]", true);
 To get the mapping, use the `Get` method.
 
 ```csharp
-var mappedName = ClassMapper.Get<Customer>(c => c.FirstName);
+var mappedName = PropertyMapper.Get<Customer>(c => c.FirstName);
 ```
 
 > Please consider to always use the [PropertyMappedNameCache](/cacher/classmappednamecache) class when extracting the mapped property name.
@@ -47,5 +47,5 @@ var mappedName = ClassMapper.Get<Customer>(c => c.FirstName);
 To remove the mapping, use the `Remove` method.
 
 ```csharp
-ClassMapper.Remove<Customer>(c => c.FirstName);
+PropertyMapper.Remove<Customer>(c => c.FirstName);
 ```

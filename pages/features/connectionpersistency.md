@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: features
 title: "Connection Persistency"
-description: "This is the feature that enables you to manage the instance of the database connection object within the repository objects."
+description: "This is a feature that enables you to manage the instance of the database connection object within the repository objects."
 permalink: /feature/connectionpersistency
 tags: [repodb, class, connectionpersistency, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Connection Persistency
 
-This is the feature that enables you to control the persistency of the IDbConnection instance within the repository objects (aka: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)). Please see the [ConnectionPersistency](/enumeration/connectionpersistency) enumeration for more information.
+This is a feature that enables you to control the persistency of the IDbConnection instance within the repository objects (aka: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)). Please see the [ConnectionPersistency](/enumeration/connectionpersistency) enumeration for more information.
 
 #### Types of Persitency
 
@@ -56,7 +56,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>, INorthwinReposit
 // Instantiation
 using (var repository = new NorthwindRepository(connectionString, ConnectionPersistency.Instance))
 {
-        ...
+    ...
 }
 ```
 
@@ -71,16 +71,10 @@ using (var repository = new DbRepository<SqlConnection>(settings.ConnectionStrin
 
 #### CreateConnection Method
 
-This method behaves differently based on the type of the persistency you had chosen.
+This method behaves differently based on the type of the persistency you had chosen. If it is used with `PerCall`, it always returns a new instance of `IDbConnection` object. If it is used with `Instance`, it always return the already created instance of `IDbConnection` object.
 
-When using the `PerCall`, calling this method will always create and return a new instance of `IDbConnection` object.
-
-When using the `Instance`, calling this method will always return the already created instance of `IDbConnection` object. However, by passing the value of `true` in the `force` argument, a new instance of `IDbConnection` object is being returned. 
+Simply set the value of `force` argument to  `true` if you wish to always return a new instance of `IDbConnection` object. 
 
 #### Dispose Process
 
-If you are using the `PerCall`, the instance of the `IDbConnection` object is always being disposed right after the method call.
-
-By using the `Instance`, the active instance of the `IDbConnection` object is only being disposed when the repository object is being disposed.
-
-> Please be aware of when to call the repository `Dispose()` method when you are using the `Instance`, otherwise it will behaved unexpectedly.
+If you are using the `PerCall`, the instance of the `IDbConnection` object is always being disposed right after the method call. However, if you are using the `Instance`, the active instance of the `IDbConnection` object is only being disposed when the parent repository object is being disposed. Please be aware of when to call the repository `Dispose()` method, otherwise it may behave unexpectedly.

@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: features
 title: "Expression Trees"
-description: "This is the feature that would allow you to compose a conditional expressions (to filter a data) when doing an operation in the database."
+description: "This is a feature that would allow you to compose a conditional expressions (to filter a data) when doing an operation in the database."
 permalink: /feature/expressiontrees
 tags: [repodb, class, expressiontrees, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Expression Trees
 
-This is the feature that would allow you to compose a conditional expressions (to filter a data) when doing an operation in the database. This condition can be applied in both push/pull operations (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and [Query](/opereration/query)).
+This is a feature that would allow you to compose a conditional expressions (to filter a data) when doing an operation in the database. This condition can be applied in both push/pull operations (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and [Query](/opereration/query)).
 
 ###### There are 3 ways of composing an expression trees.
 

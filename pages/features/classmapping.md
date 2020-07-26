@@ -2,36 +2,48 @@
 layout: navpage
 sidebar: features
 title: "Class Mapping"
-description: "This is the feature that would allow you to map the .NET CLR type (or class properties) into its equivalent database objects and types."
+description: "This is a feature that would allow you to map the .NET CLR type (or class properties) into its equivalent database objects and types."
 permalink: /feature/classmapping
 tags: [repodb, class, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Class Mapping
 
-This is the feature that would allow you to map the .NET CLR type (or class properties) into its equivalent database objects and types. It includes the `Class Name`, `Property Name`, `Primary`, `Identity` and `Database Type` mappings.
+This is a feature that would allow you to map the .NET CLR type (or class properties) into its equivalent database objects and types. It includes the `Class Name`, `Property Name`, `Primary`, `Identity` and `Database Type` mappings.
 
 #### Class Name Mapping
 
-To map the class name, simply use the [Map](/attribute/map) attribute (or the `Table` attribute of `System.ComponentModel.DataAnnotations.Schema` namespace) .
+To map the class name, simply use the [Map](/attribute/map) attribute.
 
 ```csharp
-[Map("[sales].[Customer"])]
+[Map("[sales].[Customer]")]
 public class Customer
 {
     ...
 }
 ```
 
-Or, use the [ClassMapper](/mapper/classmapper) class for attribute-free setup.
+Or, use the `Table` attribute of `System.ComponentModel.DataAnnotations.Schema` namespace.
 
 ```csharp
-ClassMapper.Add<Customer>("[sales].[Customer]");
+[Table(""[sales].[Customer]")]
+public class Customer
+{
+    ...
+}
+```
+
+Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [ClassMapper](/mapper/classmapper) underneath.
+
+```csharp
+FluentMapper
+    .Entity<Customer>()
+    .Table("[sales].[Customer]")
 ```
 
 #### Property Name Mapping
 
-To map the property name, simply use the [Map](/attribute/map) attribute (or the `Column` attribute of `System.ComponentModel.DataAnnotations.Schema` namespace).
+To map the property name, simply use the [Map](/attribute/map) attribute.
 
 ```csharp
 public class Customer
@@ -48,16 +60,35 @@ public class Customer
 }
 ```
 
-Or, use the [PropertyMapper](/mapper/propertymapper) class for attribute-free setup.
+Or, use the the `Column` attribute of `System.ComponentModel.DataAnnotations.Schema` namespace.
 
 ```csharp
-PropertyMapper.Add<Customer>(e => e.FirstName, "[FName]");
-PropertyMapper.Add<Customer>(e => e.LastName, "[LName]");
+public class Customer
+{
+    public int Id { get; set; }
+
+    [Column("FName")]
+    public string FirstName { get; set;}
+    
+    [Column("LName")]
+    public string LastName { get; set;}
+
+    ...
+}
+```
+
+Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [PropertyMapper](/mapper/propertymapper) underneath.
+
+```csharp
+FluentMapper
+    .Entity<Customer>()
+    .Column(e => e.FirstName, "[FName]")
+    .Column(e => e.LastName, "[LName]");
 ```
 
 #### Primary Mapping
 
-To map the class primary property, simply use the [Primary](/attribute/primary) attribute (or the `Key` attribute of `System.ComponentModel.DataAnnotations` namespace).
+To map the class primary property, simply use the [Primary](/attribute/primary) attribute.
 
 ```csharp
 public class Customer
@@ -69,10 +100,24 @@ public class Customer
 }
 ```
 
-Or, use the [PrimaryMapper](/mapper/primarymapper) class for attribute-free setup.
+Or, use the `Key` attribute of `System.ComponentModel.DataAnnotations` namespace.
 
 ```csharp
-PrimaryMapper.Add<Customer>(e => e.Id);
+public class Customer
+{
+    [Key]
+    public int Id { get; set; }
+
+    ...
+}
+```
+
+Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [PrimaryMapper](/mapper/primarymapper) underneath.
+
+```csharp
+FluentMapper
+    .Entity<Customer>()
+    .Primary(e => e.Id);
 ```
 
 #### Identity Mapping
@@ -89,10 +134,38 @@ public class Customer
 }
 ```
 
-Or, use the [IdentityMapper](/mapper/identitymapper) class for attribute-free setup.
+Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [IdentityMapper](/mapper/identitymapper) underneath.
 
 ```csharp
-IdentityMapper.Add<Customer>(e => e.Id);
+FluentMapper
+    .Entity<Customer>()
+    .Identity(e => e.Id);
+```
+
+#### Property Handler  Mapping
+
+To map the class property equivalent property handler, simply use the [PropertyHandler](/attribute/propertyhandler) attribute.
+
+```csharp
+public class Customer
+{
+    public int Id { get; set; }
+
+    ...
+
+    [PropertyHandler(PersonAddressPropertyHandler)]
+    public Address Address { get; set; }
+
+    ...
+}
+```
+
+Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [PropertyHandlerMapper](/mapper/propertyhandlermapper) underneath.
+
+```csharp
+FluentMapper
+    .Entity<Customer>()
+    .PropertyHandler<PersonAddressPropertyHandler>(e => e.Address);
 ```
 
 #### Database Type Mapping
@@ -113,20 +186,24 @@ public class Customer
 }
 ```
 
-Or, use the [TypeMapper](/mapper/typemapper) class for attribute-free setup.
+Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [TypeMapper](/mapper/typemapper) underneath.
 
 ```csharp
-TypeMapper.Add<Customer>(e => e.DateOfBirth, DbType.DateTime2);
+FluentMapper
+    .Entity<Customer>()
+    .Column(e => e.DateOfBirth, DbType.DateTime2);
 ```
 
 ###### Type Level
 
-You can also use the [TypeMapper](/mapper/typemapper) class to map the class .NET CLR type into its equivalent database type mapping.
+You can also use the [FluentMapper](/mapper/fluentmapper) or the [TypeMapper](/mapper/typemapper) classes to map the .NET CLR type into its equivalent database type mapping.
 
 It is useful if you would like to always map the `System.DateTime` .NET CLR type equivalent to `DbType.DateTime2` database type.
 
 ```csharp
-TypeMapper.Add<DateTime>(DbType.DateTime2);
+FluentMapper
+    .Type<DateTime>()
+    .DbType(DbType.DateTime2);
 ```
 
 Please visit the [Type Mapping](/feature/typemapping) feature for further information.

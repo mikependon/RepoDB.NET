@@ -79,7 +79,7 @@ The library will then create the packed-statements that is executable in one-go.
 > INSERT INTO [Customer] (Name, Address) VALUES (@Name99, @Address99);
 ```
 
-The packed-statements above are cached and is being executed `10` times with `100` rows each. All the parameters will be passed into its proper indexes, depending on the number of batches. The execution is more optimal than it was in the previous section as it is executing the multiple SQL statements in one-go. Without having the batch operations, the executions will be `1000` times.
+The packed-statements above are cached and is being executed 10 times with 100 rows each. All the parameters will be passed into its proper indexes, depending on the number of batches. The execution is more optimal than it was in the previous section as it is executing the multiple SQL statements in one-go. Without having the batch operations, the executions will be 1000 times.
 
 > In SQL Server, the ADO.NET maximum number of parameters are 2100. The batch operation will fail if you reach that number. You can set the batch number by passing the value in the `batchSize` argument.
 

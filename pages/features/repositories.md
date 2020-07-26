@@ -11,9 +11,9 @@ tags: [repodb, class, repository, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 A `repository` is a software design pattern and practice in which it is being implemented as an additional layer between your application and your database. It is being represented as a class object within the application. Through repository, you are managing how the data is being manipulated from/to the database.
 
-In this class (the `Repository`), we usually add the basic database operations/methods (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and etc). But in most cases, we place the advance and reporting operations/methods here (i.e.: `GetTotalOrdersByMonth` or `RecalculateCustomerOrdersByDateRange`).
+In the repository, we usually add the basic database operations (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and etc). But, we also place the advance operations (i.e.: `GetTotalOrdersByMonth` or `RecalculateCustomerOrdersByDateRange`).
 
-Then, the code snippets in your application is using the repository object instead of directly accessing the database. Those allow the developers to follow the correct chain-of calls and reusability when it comes to data-accessibility.
+The code within your application is using the repository object instead of directly accessing the database. Those allow the developers to follow the correct chain-of calls and reusability when it comes to data-accessibility.
 
 #### Type of Repositories
 
@@ -328,6 +328,4 @@ public void ConfigureServices(IServiceCollection services)
     services.AddTransient<IPersonRepository, PersonRepository>();
 }
 ```
-
-Please visit our [Generic-Repository (Reference)](/reference/genericrepository) page for more information.
 

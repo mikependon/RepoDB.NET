@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: features
 title: "Enumeration"
-description: "This is the feature that enables you to work with enumerations within the class objects."
+description: "This is a feature that enables you to work with enumerations within the class objects."
 permalink: /feature/enumeration
 tags: [repodb, class, enumeration, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Enumeration
 
-This is the feature that enables you to work with enumerations within the class objects. The library supports various kind of transformation for enumerations.
+This is a feature that enables you to work with enumerations within the class objects. The library supports various kind of transformation for enumerations.
 
 #### Property String
 
@@ -18,11 +18,11 @@ Let us say you have a table named `[dbo].[Person]` with the following structure.
 ```csharp
 CREATE TABLE [dbo].[Person]
 (
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](128) NOT NULL,
-	[Gender] [nvarchar](16) NOT NULL,
-	[CreatedDateUtc] [datetime2](5) NOT NULL,
-	CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
+    [Id] [bigint] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](128) NOT NULL,
+    [Gender] [nvarchar](16) NOT NULL,
+    [CreatedDateUtc] [datetime2](5) NOT NULL,
+    CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
 )
 ON [PRIMARY];
 GO
@@ -44,10 +44,10 @@ And map it to the `Gender` column of the `Person` class.
 ```csharp
 public class Person
 {
-	public long Id { get; set; }
-	public string Name { get; set; }
-	public Gender Gender { get; set; } // Enumeration (As String)
-	public DateTime CreatedDateUtc { get; set; }
+    public long Id { get; set; }
+    public string Name { get; set; }
+    public Gender Gender { get; set; } // Enumeration (As String)
+    public DateTime CreatedDateUtc { get; set; }
 }
 ```
 
@@ -60,11 +60,11 @@ You can force the value to be saved as `String` type if you are using the [TypeM
 ```csharp
 public class Person
 {
-	public long Id { get; set; }
-	public string Name { get; set; }
+    public long Id { get; set; }
+    public string Name { get; set; }
     [TypeMap(DbType.Int32)]
-	public Gender Gender { get; set; } // Enumeration (As Forced Int)
-	public DateTime CreatedDateUtc { get; set; }
+    public Gender Gender { get; set; } // Enumeration (As Forced Int)
+    public DateTime CreatedDateUtc { get; set; }
 }
 ```
 
@@ -81,11 +81,11 @@ Let us say you have a table named `[dbo].[Person]` with the following structure.
 ```csharp
 CREATE TABLE [dbo].[Person]
 (
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](128) NOT NULL,
-	[Gender] [int] NOT NULL,
-	[CreatedDateUtc] [datetime2](5) NOT NULL,
-	CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
+    [Id] [bigint] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](128) NOT NULL,
+    [Gender] [int] NOT NULL,
+    [CreatedDateUtc] [datetime2](5) NOT NULL,
+    CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
 )
 ON [PRIMARY];
 GO
@@ -107,10 +107,10 @@ And map it to the `Gender` column of the `Person` class.
 ```csharp
 public class Person
 {
-	public long Id { get; set; }
-	public string Name { get; set; }
-	public Gender Gender { get; set; } // Enumeration (As Int)
-	public DateTime CreatedDateUtc { get; set; }
+    public long Id { get; set; }
+    public string Name { get; set; }
+    public Gender Gender { get; set; } // Enumeration (As Int)
+    public DateTime CreatedDateUtc { get; set; }
 }
 ```
 
@@ -131,7 +131,7 @@ public class PersonGenderPropertyHandler : IPropertyHandler<Gender?, string>
         }
         return null;
     }
-    
+
     public string Get(Gender? input, ClassProperty property)
     {
         return input?.ToString();

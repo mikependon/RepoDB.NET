@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: features
 title: "Type Mapping"
-description: "This is the feature that would allow you to map the .NET CLR type into its equivalent database type."
+description: "This is a feature that would allow you to map the .NET CLR type into its equivalent database type."
 permalink: /feature/typemapping
 tags: [repodb, class, typemapping, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Type Mapping
 
-This is the feature that would allow you to map the .NET CLR type into its equivalent database type.
+This is a feature that would allow you to map the .NET CLR type into its equivalent database type.
 
 #### Mapping a .NET CLR type
 
@@ -22,7 +22,9 @@ TypeMapper.Map(typeof(DateTime), DbType.DateTime2);
 Or via [FluentMapper](/mapper/fluentmapper) class.
 
 ```csharp
-FluentMapper.Type<DateTime>(DbType.DateTime2);
+FluentMapper
+    .Type<DateTime>
+    .DbType(DbType.DateTime2);
 ```
 
 #### Mapping a Specific Property

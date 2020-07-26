@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: features
 title: "Hints"
-description: "This is the feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound)."
+description: "This is a feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound)."
 permalink: /feature/propertyhandlers
 tags: [repodb, class, propertyhandlers, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Property Handlers
 
-This is the feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound). It allows you to customize the conversion of the class properties or specific .NET CLR types.
+This is a feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound). It allows you to customize the conversion of the class properties or specific .NET CLR types.
 
 The execution of the transformation contains the actual values and the affected class property context provided by [ClassProperty](/class/classproperty) class.
 
@@ -24,7 +24,7 @@ The execution of the transformation contains the actual values and the affected 
 - A `String` to `Class` conversion. Imagine you have a column `Address` of type `NVARCHAR` and you would like it to be an `Address` class with different properties if you are extracting a record.
 - A `Date` kind handler. Imagine you would like to convert the `Kind` property of the `DateTime` everytime you pull/push the record towards the database.
 
-The scenarios can be unlimitted depends on your situation (like below).
+The scenarios can be unlimitted depends on your own situation (like below).
 
 - Overriding the monetary columns conversion into a specific .NET type.
 - Querying a child records of the parent rows.
@@ -78,6 +78,14 @@ public class Customer
 }
 ```
 
+Or, use the [FluentMapper](/mapper/fluentmapper) class. It uses the [PropertyHandlerMapper](/mapper/propertyhandlermapper) underneath.
+
+```csharp
+FluentMapper
+    .Entity<Customer>()
+    .PropertyHandler<PersonAddressPropertyHandler>(e => e.Address);
+```
+
 When calling the pull operations (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)), then the `Get` method will be invoked.
 
 On the other hand, when you call the push operations (i.e.: [Insert](/operation/insert), [Update](/operation/update) and [Merge](/operation/merge)), then the `Set` method will be invoked. 
@@ -105,4 +113,12 @@ Then use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) mapper class
 
 ```csharp
 PropertyHandlerMapper.Add(typeof(DateTime), new DateTimeKindToUtcPropertyHandler(), true);
+```
+
+Or, use the [FluentMapper](/mapper/fluentmapper) class type level mapping. Again, it also uses the [PropertyHandlerMapper](/mapper/propertyhandlermapper) underneath.
+
+```csharp
+FluentMapper
+    .Type<DateTime>()
+    .PropertyHandler<PersonAddressPropertyHandler>();
 ```

@@ -2,22 +2,22 @@
 layout: navpage
 sidebar: features
 title: "Caching"
-description: "In general terms, a `Cache` is a component that stores an object (or its states) that is accessible for future used. The object that is being stored can be a result of computational, operational, inputs/outputs or analytical operations and calculations."
+description: "In general terms, a `Cache` is a component that stores an object (or its states) in any form of temporary storage that is accessible for future used. The object that is being stored can be a result of computational, operational, inputs/outputs or analytical operations and calculations."
 permalink: /feature/caching
 tags: [repodb, class, cache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Caching
 
-In general terms, a `Cache` is a component that stores an object (or its states) that is accessible for future used. The object that is being stored can be a result of computational, operational, inputs/outputs or analytical operations and calculations.
+In general terms, a `Cache` is a component that stores an object (or its states) in any form of temporary storage that is accessible for future used. The object that is being stored can be a result of computational, operational, inputs/outputs or analytical operations and calculations.
 
-Usually, it is implemented as a 2nd-layer data storage to provide fast accessibility to the requestor of the data. It is by design to prevent frequent access to the underlying data-store, thus helps provide maximum performance to the software.
+Usually, it is implemented as a 2nd-layer data storage to provide fast accessibility to the requestor of the data. It is by design to prevent the frequent calls towards the underlying data-store, thus helps improve the underlying performance of the application.
 
 <img src="../../assets/images/site/cache.png" />
 
-In this library, by default, the `Cache` is implemented as a storage in computer memory. By nature, it is simply a dictionary object that holds the `Key` that represents as the pointer to the actual `Data` in the cache storage. It is persisting the data in the cache storage for `180` minutes. But, the user can manually set the time of the persistency.
+In this library, by default, the `Cache` is implemented as a storage in the computer memory. It is simply a dictionary object that holds the `Key` that represents as the pointer to the actual `Data` in the cache storage. It is persisting the data in the cache storage for `180` minutes. But, the user can manually set the time of the persistency.
 
-The objects that are not frequently changing but is mostly in used in the application are the candidate for caching.
+The database tables that are not frequently changing but is mostly in used in the application are the candidate for caching.
 
 #### How to use the Cache?
 
@@ -44,10 +44,10 @@ using (var repository = new DbRepository<Product, SqlConnection>(connectionStrin
 
 #### Selecting the Proper Cache Key
 
-Each cache key should preferably be unique to the query executed, so that different methods don't end up unintentionally sharing data.
+Each cache key should preferably be unique to the query executed, so that different methods do not ended up unintentionally sharing the same data.
 
 Constructing a unique key is left to the developer, but a good best practice is to adopt a convention for generating the cache keys, such as
-`className-methodName-queryArgument1Value-queryArgument2Value` or `entityName-queryArgument1Name-queryArgument1Value--queryArgument1Name-queryArgument2Value` etc.
+`ClassName-MethodName-QueryArgument1-QueryArgument2` or `EntityName-Argument1Name-Argument2Name--Argument1Value-Argument2Value` etc.
 
 Following this naming convention makes it easy to examine keys at run-time and establish the source and guarantees uniqueness.
 
@@ -58,7 +58,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var productId = 5;
     Query<Product>(product => product.Id == productId,
-        cacheKey: $"product-id-{productId}",
+        cacheKey: $"Product-Id-{productId}",
         cache: cache);
 }
 ```
@@ -214,57 +214,6 @@ using (var repository = new DbRepository<SqlConnection>(settings.ConnectionStrin
 }
 ```
 
-#### Create a Cache Factory
-
-Creating a cache `Factory` class is a good way to abstract and ensure single instance of cache object is being created. It is our recommendation when using the cache feature.
-
-The code below ensures that only a single instance of cache object is being used all throughout the application.
-
-```csharp
-public static class CacheFactory
-{
-    private static object m_syncLock = new object();
-    private static ICache m_trace = null;
-    
-    public static ICache CreateCacher()
-    {
-        if (m_trace == null)
-        {
-            lock (m_syncLock)
-            {
-                if (m_trace == null)
-                {
-                    m_trace = new JsonCache();
-                }
-            }
-        }
-        return m_trace;
-    }
-}
-```
-
-And use it in the `IDbConnection` object like below.
-
-```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
-{
-    var products = connection.QueryAll<Product>cacheKey: "AllProducts", cache: CacheFactory.CreateCacher());
-}
-```
-
-Or via repositories.
-
-```csharp
-public class NorthwindRepository : DbRepository<SqlConnection>
-{
-    public NorthwindRepository(IOptions<AppSettings> settings)
-        : base(settings.ConnectionString, CacheFactory.CreateCacher())
-    { }
-
-    ...
-}
-```
-
 #### Dependency Injection Implementation
 
 Create a custom interface that implements the [ICache](/interface/icache) interface.
@@ -305,6 +254,62 @@ public class NorthwindRepository : DbRepository<SqlConnection>
     public NorthwindRepository(IOptions<AppSettings> settings,
         IJsonCache cache) // Injected
         : base(settings.ConnectionString, cache)
+    { }
+
+    ...
+}
+```
+
+#### Create a Cache Factory
+
+If you do no prefer injecting a cache object, creating a cache `Factory` class is a good way to abstract and ensure single instance of cache object is being created.
+
+The code below ensures that only a single instance of cache object is being used all throughout the application.
+
+```csharp
+public static class CacheFactory
+{
+    private readonly static object syncLock;
+    private static ICache jsonCache = null;
+
+    static CacheFactory()
+    {
+        syncLock = new object();
+    }
+    
+    public static ICache GetJsonCache()
+    {
+        if (jsonCache == null)
+        {
+            lock (syncLock)
+            {
+                if (jsonCache == null)
+                {
+                    jsonCache = new JsonCache();
+                }
+            }
+        }
+        return jsonCache;
+    }
+}
+```
+
+And use it in the `IDbConnection` object like below.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+    var products = connection.QueryAll<Product>cacheKey: "AllProducts", cache: CacheFactory.GetJsonCache());
+}
+```
+
+Or via repositories.
+
+```csharp
+public class NorthwindRepository : DbRepository<SqlConnection>
+{
+    public NorthwindRepository(IOptions<AppSettings> settings)
+        : base(settings.ConnectionString, CacheFactory.GetJsonCache())
     { }
 
     ...

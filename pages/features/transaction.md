@@ -11,8 +11,6 @@ tags: [repodb, class, transaction, orm, hybrid-orm, sqlserver, sqlite, mysql, po
 
 The way transaction works in the library is very identical with the way how it works with ADO.NET.
 
-> The full implementation of [unit-of-work](/reference/unitofwork) is not being supported in the library. However, the support to transaction is very useful if we are to implement a unit-of-work using this library.
-
 #### Using a Transaction via Connection
 
 Creates a transaction object and pass it when you call any of the operation.

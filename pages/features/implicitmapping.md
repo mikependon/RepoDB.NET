@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: features
 title: "Implicit Mapping"
-description: "This is the feature that would allow you to implicitly map the .NET CLR objects or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes in the classes."
+description: "This is a feature that would allow you to implicitly map the .NET CLR objects or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes in the classes."
 permalink: /feature/implicitmapping
 tags: [repodb, class, implicitmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Implicit Mapping
 
-This is the feature that would allow you to implicitly map the .NET CLR objects or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes in the classes.
+This is a feature that would allow you to implicitly map the .NET CLR objects or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes in the classes.
 
 #### Fluent Mapping
 

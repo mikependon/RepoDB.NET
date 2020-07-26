@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: features
 title: "Tracing"
-description: "This is the feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via TraceLog class."
+description: "This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via TraceLog class."
 permalink: /feature/tracing
 tags: [repodb, class, tracing, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Tracing
 
-This is the feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also allows you to cancel the existing execution before even the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class.
+This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also allows you to cancel the existing execution before even the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class.
 
 A corresponding method in the trace class will be hit by the debugger when you call the `IDbConnection` extended method (or any of the `Repository` method), only if the trace object is passed or injected.
 
@@ -101,57 +101,6 @@ using (var repository = new DbRepository<SqlConnection>(settings.ConnectionStrin
 }
 ```
 
-#### Create a Trace Factory
-
-Creating a trace `Factory` class is a good way to abstract and ensure single instance of trace object is being created. It is our recommendation when using the trace feature.
-
-The code below ensures that only a single instance of trace object is being used all throughout the application.
-
-```csharp
-public static class TraceFactory
-{
-    private static object m_syncLock = new object();
-    private static ITrace m_trace = null;
-    
-    public static ITrace CreateTracer()
-    {
-        if (m_trace == null)
-        {
-            lock (m_syncLock)
-            {
-                if (m_trace == null)
-                {
-                    m_trace = new NorthwindRepository();
-                }
-            }
-        }
-        return m_trace;
-    }
-}
-```
-
-And use it in the `IDbConnection` object like below.
-
-```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
-{
-    connection.Insert<Customer>(customer, trace: TraceFactory.CreateTracer());
-}
-```
-
-Or via repositories.
-
-```csharp
-public class NorthwindRepository : DbRepository<SqlConnection>
-{
-    public NorthwindRepository(IOptions<AppSettings> settings)
-        : base(settings.ConnectionString, TraceFactory.CreateTracer())
-    { }
-
-    ...
-}
-```
-
 #### Dependency Injection Implementation
 
 Create a custom interface that implements the [ITrace](/interface/itrace) interface.
@@ -192,6 +141,62 @@ public class NorthwindRepository : DbRepository<SqlConnection>
     public NorthwindRepository(IOptions<AppSettings> settings,
         INorthwindTrace trace) // Injected
         : base(settings.ConnectionString, trace)
+    { }
+
+    ...
+}
+```
+
+#### Create a Trace Factory
+
+If you do not prefer the dependency injection way, creating a trace `Factory` class is a good way to abstract and ensure single instance of trace object is being created.
+
+The code below ensures that only a single instance of trace object is being used all throughout the application.
+
+```csharp
+public static class TraceFactory
+{
+    private readonly static object syncLock;
+    private static ITrace trace = null;
+
+    static TraceFactory()
+    {
+        syncLock = new object();
+    }
+    
+    public static ITrace CreateTrace()
+    {
+        if (trace == null)
+        {
+            lock (syncLock)
+            {
+                if (trace == null)
+                {
+                    trace = new NorthwindRepository();
+                }
+            }
+        }
+        return trace;
+    }
+}
+```
+
+And use it in the `IDbConnection` object like below.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+    connection.Insert<Customer>(customer, trace: TraceFactory.CreateTrace());
+}
+```
+
+Or via repositories.
+
+```csharp
+public class NorthwindRepository : DbRepository<SqlConnection>
+{
+    public NorthwindRepository(IOptions<AppSettings> settings)
+        : base(settings.ConnectionString, TraceFactory.CreateTrace())
     { }
 
     ...
