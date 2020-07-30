@@ -12,7 +12,10 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the act
 
 #### Next Version
 
-- Enhancement: Remove the SchemaSeparator property from the IDbSetting interface #475
+- Updated the underlying driver from `System.Data.SQLite` to `Microsoft.Data.Sqlite.Core`.
+- Request: RepoDb.SqLite remove dependency on `EntityFramework` [#486](https://github.com/mikependon/RepoDb/issues/486)
+- Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
+- Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
 
 
 #### RepoDb.SqLite (v1.0.14)

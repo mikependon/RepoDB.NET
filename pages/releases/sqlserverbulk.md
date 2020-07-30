@@ -13,7 +13,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 
 #### Next Version
 
-- Async all the way #477
+- Enhancement: Async all the way [#477](https://github.com/mikependon/RepoDb/issues/477)
 
 
 #### RepoDb.SqlServer.BulkOperations (v1.0.13)

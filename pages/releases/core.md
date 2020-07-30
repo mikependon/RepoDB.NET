@@ -12,8 +12,10 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### Next Version
 
-- Enhancement: Remove the SchemaSeparator property from the IDbSetting interface #475
-- Enhancement: Using async DbFieldCache #481
+- Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
+- Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
+- Bug: RepoDb does not seem to work for SQL Server tables with dot in the name [#492](https://github.com/mikependon/RepoDb/issues/492)
+- Enhancement: Using async `DbFieldCache` [#481](https://github.com/mikependon/RepoDb/issues/481)
 - Added some micro optimizations #476
 - Added a `DataEntityReader.Connection` property.
 - Added a `DataEntityReader.Transaction` property.
