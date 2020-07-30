@@ -17,7 +17,12 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: RepoDb does not seem to work for SQL Server tables with dot in the name [#492](https://github.com/mikependon/RepoDb/issues/492)
 - Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
 - Enhancement: Using async `DbFieldCache` [#481](https://github.com/mikependon/RepoDb/issues/481)
+- Enhancement: Add a SessionId property in the TraceLog class. [#484](https://github.com/mikependon/RepoDb/issues/484)
 - Request: Enable the Enumerable when calling the operations with IN operation. [#495](https://github.com/mikependon/RepoDb/issues/495)
+- Obsolete: Completely removed the `PropertyTypeHandlerMapper` class.
+- Obsolete: Completely removed the `TypeMapper.Map()` method.
+- Obsolete: Completely removed the `TypeMapper.Unmap()` method.
+- Obsolete: Completely removed the `TypeMapper.ConversionType` property.
 - Added some micro optimizations #476
 - Added a `DataEntityReader.Connection` property.
 - Added a `DataEntityReader.Transaction` property.
