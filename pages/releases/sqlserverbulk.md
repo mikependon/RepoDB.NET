@@ -14,6 +14,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 #### Next Version
 
 - Enhancement: Async all the way [#477](https://github.com/mikependon/RepoDb/issues/477)
+- Enhancement: Refactor the usage of 'Count()' and 'ElementAt()'
 
 
 #### RepoDb.SqlServer.BulkOperations (v1.0.13)

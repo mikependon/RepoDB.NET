@@ -14,6 +14,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 
 - Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
 - Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
+- Enhancement: Refactor the usage of 'Count()' and 'ElementAt()'
 
 
 #### RepoDb.MySqlConnector (v1.0.2)
