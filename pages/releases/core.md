@@ -12,14 +12,15 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDb (v1.11.6)
 
-- Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
-- Bug: Typed "UpdateAsync" fails for composite key table [#493](https://github.com/mikependon/RepoDb/issues/493)
+- - Code and XML comments refactoring.
+- Bug: `NullReferenceException` occurs when [InsertAllAsync](/operation/insertall) is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
+- Bug: Typed `U`pdateAsync` fails for composite key table [#493](https://github.com/mikependon/RepoDb/issues/493)
 - Bug: RepoDb does not seem to work for SQL Server tables with dot in the name [#492](https://github.com/mikependon/RepoDb/issues/492)
 - Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
 - Enhancement: Using async `DbFieldCache` [#481](https://github.com/mikependon/RepoDb/issues/481)
 - Enhancement: Add a SessionId property in the TraceLog class. [#484](https://github.com/mikependon/RepoDb/issues/484)
 - Enhancement: Refactor the usage of `Count()` and `ElementAt()`.
-- Request: Enable the Enumerable when calling the operations with IN operation. [#495](https://github.com/mikependon/RepoDb/issues/495)
+- Request: Enable the Enumerable when calling the operations with `IN` operation. [#495](https://github.com/mikependon/RepoDb/issues/495)
 - Obsolete: Completely removed the `PropertyTypeHandlerMapper` class.
 - Obsolete: Completely removed the `TypeMapper.Map()` method.
 - Obsolete: Completely removed the `TypeMapper.Unmap()` method.
@@ -32,7 +33,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDb (v1.11.5)
 
-- Fixed the problem when installing the library in .NET Framework 4.7.x.
+- Fixed the problem when installing the library in .NET Framework `4.7.x`.
 - Restored the referenced `System.ComponentModel.Annotations` package to `v4.7.0`.
 
 
