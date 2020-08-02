@@ -12,7 +12,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDb (v1.11.6)
 
-- - Code and XML comments refactoring.
+- Code and XML comments refactoring.
 - Bug: `NullReferenceException` occurs when [InsertAllAsync](/operation/insertall) is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
 - Bug: Typed `UpdateAsync` fails for composite key table [#493](https://github.com/mikependon/RepoDb/issues/493)
 - Bug: RepoDb does not seem to work for SQL Server tables with dot in the name [#492](https://github.com/mikependon/RepoDb/issues/492)
