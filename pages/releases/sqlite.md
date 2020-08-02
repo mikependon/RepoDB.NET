@@ -13,6 +13,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the act
 #### RepoDb.SqLite (v1.0.16)
 
 - Supported both the drivers from `System.Data.SQLite.Core` and `Microsoft.Data.Sqlite`.
+- The switch from System.Data.SQLite.Core to Microsoft.Data.SQLite.Core is a pretty big breaking change [#497](https://github.com/mikependon/RepoDb/issues/497)
 
 
 #### RepoDb.SqLite (v1.0.15)
