@@ -8,7 +8,7 @@ tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postg
 
 # Truncate
 
-This method is used to truncate all the rows on a single table from the database.
+This method is used to truncates a table from the database.
 
 #### Code Snippets
 

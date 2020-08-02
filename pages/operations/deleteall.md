@@ -8,7 +8,7 @@ tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postg
 
 # DeleteAll
 
-This method is used to delete an array of (and/or all) rows on a single table from the database.
+This method is used to delete an array-of (and/or all) rows from the table.
 
 #### Code Snippets
 

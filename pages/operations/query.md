@@ -8,7 +8,7 @@ tags: [repodb, tutorial, query, orm, hybrid-orm, sqlserver, sqlite, mysql, postg
 
 # Query
 
-This method is used to fetch the rows from the database.
+This method is used to query the data from the table.
 
 #### Code Snippets
 

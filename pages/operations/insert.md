@@ -8,7 +8,7 @@ tags: [repodb, tutorial, insert, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # Insert
 
-This method is used to insert a new row into the database.
+This method is used to inserts a data entity object (as a new row) in the table.
 
 #### Code Snippets
 

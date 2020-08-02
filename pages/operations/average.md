@@ -8,7 +8,7 @@ tags: [repodb, tutorial, average, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 # Average
 
-This method is used to average a column from the database.
+This method is used to computes the average value of the target field.
 
 #### Code Snippets
 

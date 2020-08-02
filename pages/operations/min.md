@@ -8,7 +8,7 @@ tags: [repodb, tutorial, min, orm, hybrid-orm, sqlserver, sqlite, mysql, postgre
 
 # Min
 
-This method is used to get the minimum value of the column from the database.
+This method is used to computes the min value of the target field.
 
 #### Code Snippets
 

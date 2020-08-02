@@ -8,7 +8,7 @@ tags: [repodb, tutorial, insertall, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 
 # InsertAll
 
-This method is used to insert an array of rows into the database.
+This method is used to inserts the multiple data entity objects (as new rows) in the table.
 
 #### Use Case
 

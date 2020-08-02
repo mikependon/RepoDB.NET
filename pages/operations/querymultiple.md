@@ -8,7 +8,7 @@ tags: [repodb, tutorial, querymultiple, orm, hybrid-orm, sqlserver, sqlite, mysq
 
 # QueryMultiple
 
-This method is used to fetch the multiple resultsets from the database.
+This method is used to query the data as multiple resultsets from the table based on the given number of target types.
 
 #### Code Snippets
 

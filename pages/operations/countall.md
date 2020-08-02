@@ -8,7 +8,7 @@ tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postg
 
 # CountAll
 
-This method is used to count all the number of rows on a single table from the database.
+This method is used to count the number of rows from the table.
 
 #### Code Snippets
 

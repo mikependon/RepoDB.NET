@@ -8,7 +8,7 @@ tags: [repodb, tutorial, averageall, orm, hybrid-orm, sqlserver, sqlite, mysql, 
 
 # AverageAll
 
-This method is used to average all rows target column from the database.
+This method is used to computes the average value of the target field.
 
 #### Code Snippets
 

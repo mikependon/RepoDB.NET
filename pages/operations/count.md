@@ -8,7 +8,7 @@ tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postg
 
 # Count
 
-This method is used to count the number rows on a single table from the database.
+This method is used to count the number of rows from the table.
 
 #### Code Snippets
 

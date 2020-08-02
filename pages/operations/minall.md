@@ -8,7 +8,7 @@ tags: [repodb, tutorial, minall, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # MinAll
 
-This method is used to get the minimum value of the column from the database.
+This method is used to computes the min value of the target field.
 
 #### Code Snippets
 

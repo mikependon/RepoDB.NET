@@ -8,7 +8,7 @@ tags: [repodb, tutorial, maxall, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # MaxAll
 
-This method is used to get the maximum value of the column from the database.
+This method is used to computes the max value of the target field.
 
 #### Code Snippets
 

@@ -8,7 +8,7 @@ tags: [repodb, tutorial, queryall, orm, hybrid-orm, sqlserver, sqlite, mysql, po
 
 # QueryAll
 
-This method is used to fetch all the rows from the database.
+This method is used to query all the data from the table.
 
 #### Code Snippets
 

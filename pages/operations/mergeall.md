@@ -8,7 +8,7 @@ tags: [repodb, tutorial, mergeall, orm, hybrid-orm, sqlserver, sqlite, mysql, po
 
 # MergeAll
 
-This method is used to merge an array of rows into the database.
+This method is used to insert the multiple data entity objects (as new rows) or update the existing rows in the table. This merge operation only works like upsert, it does not do any deletion.
 
 > This operation inserts all non-existing rows into the database, otherwise, it will update it based on the qualifiers.
 

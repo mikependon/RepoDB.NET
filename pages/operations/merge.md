@@ -8,7 +8,7 @@ tags: [repodb, tutorial, merge, orm, hybrid-orm, sqlserver, sqlite, mysql, postg
 
 # Merge
 
-This method is used to insert a new row (if not yet existing), or update an existing row from the database. The merge is controlled by the list of qualifier fields. 
+This method is used to inserts a new row or updates an existing row in the table. This merge operation only works like upsert, it does not do any deletion.
 
 #### Code Snippets
 

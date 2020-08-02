@@ -8,7 +8,7 @@ tags: [repodb, tutorial, sumall, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # SumAll
 
-This method is used to get the summation value of the column from the database.
+This method is used to computes the sum value of the target field.
 
 #### Code Snippets
 

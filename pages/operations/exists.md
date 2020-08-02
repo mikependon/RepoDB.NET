@@ -8,7 +8,7 @@ tags: [repodb, tutorial, exists, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # Exists
 
-This method is used to check whether a record is present in the database.
+This method is used to check whether the rows are existing in the table.
 
 #### Code Snippets
 
