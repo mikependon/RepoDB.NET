@@ -10,7 +10,7 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-#### Next Version
+#### RepoDb (v1.11.6)
 
 - Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
 - Bug: Typed "UpdateAsync" fails for composite key table [#493](https://github.com/mikependon/RepoDb/issues/493)
@@ -18,7 +18,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
 - Enhancement: Using async `DbFieldCache` [#481](https://github.com/mikependon/RepoDb/issues/481)
 - Enhancement: Add a SessionId property in the TraceLog class. [#484](https://github.com/mikependon/RepoDb/issues/484)
-- Enhancement: Refactor the usage of 'Count()' and 'ElementAt()'
+- Enhancement: Refactor the usage of `Count()` and `ElementAt()`.
 - Request: Enable the Enumerable when calling the operations with IN operation. [#495](https://github.com/mikependon/RepoDb/issues/495)
 - Obsolete: Completely removed the `PropertyTypeHandlerMapper` class.
 - Obsolete: Completely removed the `TypeMapper.Map()` method.

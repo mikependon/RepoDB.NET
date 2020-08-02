@@ -10,19 +10,19 @@ permalink: /release/mysqlconnector
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector) to download it.
 
-#### Next Version
+#### RepoDb.MySqlConnector (v1.0.4)
 
 - Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
 - Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
-- Enhancement: Refactor the usage of 'Count()' and 'ElementAt()'
+- Enhancement: Refactor the usage of `Count()` and `ElementAt()`.
 
 
-#### RepoDb.MySqlConnector (v1.0.2)
+#### RepoDb.MySqlConnector (v1.0.3)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.5](/release/core#repodb-v1115)).
 
 
-#### RepoDb.MySqlConnector (v1.0.1)
+#### RepoDb.MySqlConnector (v1.0.2)
 
 - Update to MySqlConnector 1.0 [#455](https://github.com/mikependon/RepoDb/pull/455)
 - Referenced the version [MySqlConnector](https://github.com/mysql-net/MySqlConnector) ([v1.0.0](https://www.nuget.org/packages/MySqlConnector/1.0.0)).

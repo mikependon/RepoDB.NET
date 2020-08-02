@@ -10,13 +10,13 @@ permalink: /release/sqlite
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqLite) to download it.
 
-#### Next Version
+#### RepoDb.SqLite (v1.0.15)
 
 - Updated the underlying driver from `System.Data.SQLite` to `Microsoft.Data.Sqlite.Core`.
 - Request: RepoDb.SqLite remove dependency on `EntityFramework` [#486](https://github.com/mikependon/RepoDb/issues/486)
 - Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
 - Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
-- Enhancement: Refactor the usage of 'Count()' and 'ElementAt()'
+- Enhancement: Refactor the usage of `Count()` and `ElementAt()`.
 
 
 #### RepoDb.SqLite (v1.0.14)

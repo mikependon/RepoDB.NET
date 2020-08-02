@@ -11,10 +11,10 @@ permalink: /release/sqlserverbulk
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
 
-#### Next Version
+#### RepoDb.SqlServer.BulkOperations (v1.0.14)
 
 - Enhancement: Async all the way [#477](https://github.com/mikependon/RepoDb/issues/477)
-- Enhancement: Refactor the usage of 'Count()' and 'ElementAt()'
+- Enhancement: Refactor the usage of `Count()` and `ElementAt()`.
 
 
 #### RepoDb.SqlServer.BulkOperations (v1.0.13)

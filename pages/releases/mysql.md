@@ -10,11 +10,12 @@ permalink: /release/mysql
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySql) to download it.
 
-#### Next Version
+#### RepoDb.MySql (v1.0.15)
 
 - Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
 - Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
-- Enhancement: Refactor the usage of 'Count()' and 'ElementAt()'
+- Enhancement: Refactor the usage of `Count()` and `ElementAt()`.
+- Upgraded the driver version of `MySql.Data` to `v8.0.21`
 
 
 #### RepoDb.MySql (v1.0.14)
