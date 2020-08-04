@@ -8,7 +8,7 @@ permalink: /docs
 
 # Docs
 
-Below are the list of the things you can learn with RepoDb. You can also click on the link provided in the sidebar at the left.
+Below are the list of the things you can learn with RepoDb. You can also click the links provided in the sidebar at the left.
 
 {% for doc in site.data.documentation.docs %}
 {% if doc.isdoc == true %}
