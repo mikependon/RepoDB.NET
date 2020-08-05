@@ -10,6 +10,12 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+#### Next Version
+
+- Enhancement: Complete support to the Fluent named-based operation [#499](https://github.com/mikependon/RepoDb/issues/499)
+- Bug: QueryAsync with empty QueryField list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498)
+
+
 #### RepoDb (v1.11.6)
 
 - Code optimizations and XML comments refactoring.
@@ -30,6 +36,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added a `DataEntityReader.Transaction` property.
 - Added a `DataEntityReader.Initialize` method
 - Added a `DataEntityReader.InitializeAsync()` method.
+
 
 #### RepoDb (v1.11.5)
 
