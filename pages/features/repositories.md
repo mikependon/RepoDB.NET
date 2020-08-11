@@ -137,7 +137,7 @@ public interface INorthwindRepository
 Then implement the class that inherits the [DbRepository](/class/dbrepository) and implements the custom interface.
 
 ```csharp
-public NorthwindRepository : DbRepository<SqlConnection>, IPersonRepository
+public NorthwindRepository : DbRepository<SqlConnection>, INorthwindRepository
 {
     public PersonRepository(IOptions<AppSettings> settings)
         : base(settings.ConnectionString)

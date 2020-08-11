@@ -262,7 +262,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 
 #### Create a Cache Factory
 
-If you do no prefer injecting a cache object, creating a cache `Factory` class is a good way to abstract and ensure single instance of cache object is being created.
+If you do not prefer injecting a cache object, creating a cache `Factory` class is good to ensure a single instance of cache object is being managed.
 
 The code below ensures that only a single instance of cache object is being used all throughout the application.
 
