@@ -12,9 +12,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### Next Version
 
+- Enhancement: Use the `Identity` field if the `Primary` field is not available during the [Query](/operation/query), [Delete](/operation/delete) and [Update](/operation/update) operations.
+- Enhacement: Renamed the argument `whereOrPrimaryKey` to `whereOrKey`.
+- Added: Added the `KeyFieldNotFoundException` and the `IdentityFieldNotFoundException`.
+- Added: Integration Tests for the `NonKeyedTable`.
 - Refactoring: Enhance the coding in the Core Compiler [#479](https://github.com/mikependon/RepoDb/issues/479)
 - Enhancement: Complete support to the Fluent named-based operation [#499](https://github.com/mikependon/RepoDb/issues/499)
 - Bug: QueryAsync with empty QueryField list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498)
+- Added the `UpdateAllExecutionContextProvider` internal class for the [UpdateAll](/operation/updateall) operation execution context generator.
 - Added the Release shields on READMEs.
 - Added the Conversion/Coerce section on the main README.
 
