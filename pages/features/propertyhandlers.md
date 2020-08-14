@@ -1,7 +1,7 @@
 ---
 layout: navpage
 sidebar: features
-title: "Hints"
+title: "Property Handlers"
 description: "This is a feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound)."
 permalink: /feature/propertyhandlers
 tags: [repodb, class, propertyhandlers, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
@@ -27,7 +27,7 @@ The execution of the transformation contains the actual values and the affected 
 The scenarios can be unlimitted depends on your own situation (like below).
 
 - Overriding the monetary columns conversion into a specific .NET type.
-- Querying a child records of the parent rows.
+- Querying the related child records of the parent rows.
 - Updating a record as a reaction to the transformation.
 - Can be used as trigger.
 - Manually override the default handler for the `Enumerations`.
