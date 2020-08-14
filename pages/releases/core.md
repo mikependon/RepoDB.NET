@@ -16,12 +16,20 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhacement: Renamed the argument `whereOrPrimaryKey` to `whereOrKey`.
 - Added: Added the `KeyFieldNotFoundException` and the `IdentityFieldNotFoundException`.
 - Added: Integration Tests for the `NonKeyedTable`.
-- Refactoring: Enhance the coding in the Core Compiler [#479](https://github.com/mikependon/RepoDb/issues/479)
-- Enhancement: Complete support to the Fluent named-based operation [#499](https://github.com/mikependon/RepoDb/issues/499)
-- Bug: QueryAsync with empty QueryField list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498)
-- Added the `UpdateAllExecutionContextProvider` internal class for the [UpdateAll](/operation/updateall) operation execution context generator.
+- Refactoring: Enhance the coding in the Core Compiler [#479](https://github.com/mikependon/RepoDb/issues/479).
+- Enhancement: Complete support to the Fluent named-based operation [#499](https://github.com/mikependon/RepoDb/issues/499).
+- Enhancement: Replaces the usage of `IsNullOrEmpty` to `IsNullOrWhiteSpace`.
+- Enhancement: Replaces the usage of `ToLower()` to `ToLowerInvariant()`.
+- Enhancement: Replaces the usage of string equality to `string.Equals(value1, value2, StringComparer.OrdinalIgnoreCase)`.
+- Bug: QueryAsync with empty QueryField list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
 - Added the Release shields on READMEs.
 - Added the Conversion/Coerce section on the main README.
+- Added the `InsertExecutionContextProvider` internal class for the [Insert](/operation/insert) operation execution context generator.
+- Added the `MergeExecutionContextProvider` internal class for the [Merge](/operation/merge) operation execution context generator.
+- Added the `UpdateExecutionContextProvider` internal class for the [Update](/operation/update) operation execution context generator.
+- Added the `InsertAllExecutionContextProvider` internal class for the [InsertAll](/operation/insertall) operation execution context generator.
+- Added the `MergeAllExecutionContextProvider` internal class for the [MergeAll](/operation/mergeall) operation execution context generator.
+- Added the `UpdateAllExecutionContextProvider` internal class for the [UpdateAll](/operation/updateall) operation execution context generator.
 
 
 #### RepoDb (v1.11.6)
