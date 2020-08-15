@@ -12,16 +12,26 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### Next Version
 
+- Bug: QueryAsync with empty QueryField list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
 - Enhancement: Use the `Identity` field if the `Primary` field is not available during the [Query](/operation/query), [Delete](/operation/delete) and [Update](/operation/update) operations.
-- Enhacement: Renamed the argument `whereOrPrimaryKey` to `whereOrKey`.
-- Added: Added the `KeyFieldNotFoundException` and the `IdentityFieldNotFoundException`.
-- Added: Integration Tests for the `NonKeyedTable`.
 - Refactoring: Enhance the coding in the Core Compiler [#479](https://github.com/mikependon/RepoDb/issues/479).
 - Enhancement: Complete support to the Fluent named-based operation [#499](https://github.com/mikependon/RepoDb/issues/499).
 - Enhancement: Replaces the usage of `IsNullOrEmpty` to `IsNullOrWhiteSpace`.
 - Enhancement: Replaces the usage of `ToLower()` to `ToLowerInvariant()`.
 - Enhancement: Replaces the usage of string equality to `string.Equals(value1, value2, StringComparer.OrdinalIgnoreCase)`.
-- Bug: QueryAsync with empty QueryField list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
+- Enhancement: Added the `Async` methods in the compiler. #482 #477
+- Added: Added the `KeyFieldNotFoundException` and the `IdentityFieldNotFoundException`.
+- Added: Integration Tests for the `NonKeyedTable`.
+- Added the `<TEntity>(TableName)` methods to the [BatchQuery](/operation/batchquery) operation.
+- Added the `<TEntity>(TableName)` methods to the [Query](/operation/query) and [DeleteAll](/operation/queryall) operations.
+- Added the `<TEntity>(TableName)` methods to the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall operations).
+- Added the `<TEntity>(TableName)` methods to the [Insert](/operation/insert) and [AverageAll](/operation/insertall) operations.
+- Added the `<TEntity>(TableName)` methods to the [Merge](/operation/merge) and [MergeAll](/operation/mergeall) operations.
+- Added the `<TEntity>(TableName)` methods to the [Update](/operation/update) and [AverageAll](/operation/updateall) operations.
+- Added the `<TEntity, TResult>` methods to the [Average](/operation/average) and [AverageAll](/operation/averageall operations).
+- Added the `<TEntity, TResult>` methods to the [Max](/operation/max) and [MaxAll](/operation/maxall operations).
+- Added the `<TEntity, TResult>` methods to the [Min](/operation/min) and [MinAll](/operation/minall operations).
+- Added the `<TEntity, TResult>` methods to the [Sum](/operation/sum) and [SumAll](/operation/sumall operations).
 - Added the Release shields on READMEs.
 - Added the Conversion/Coerce section on the main README.
 - Added the `InsertExecutionContextProvider` internal class for the [Insert](/operation/insert) operation execution context generator.
