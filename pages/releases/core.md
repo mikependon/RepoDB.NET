@@ -20,6 +20,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Replaces the usage of `ToLower()` to `ToLowerInvariant()`.
 - Enhancement: Replaces the usage of string equality to `string.Equals(value1, value2, StringComparer.OrdinalIgnoreCase)`.
 - Enhancement: Added the `Async` methods in the compiler. #482 #477
+- Enhancement: Renamed the `whereOrPrimaryKey` argument to `what` to extend the support to both (data entity object, dynamic/object expression, primary key and identity key), to further support the F# community.
 - Added: Added the `KeyFieldNotFoundException` and the `IdentityFieldNotFoundException`.
 - Added: Integration Tests for the `NonKeyedTable`.
 - Added the `<TEntity>(TableName)` methods to the [BatchQuery](/operation/batchquery) operation.
