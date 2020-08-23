@@ -25,6 +25,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Added the `Async` methods in the compiler. #482 #477
 - Enhancement: Add the dynamic [ExecuteQuery](/operation/executequery) method in the [DbRepository](/class/dbrepository). #517
 - Enhancement: Renamed the `whereOrPrimaryKey` argument to `what` to extend the support to both (data entity object, dynamic/object expression, primary key and identity key), to further support the `F#` community.
+- Refactoring: Make all the `cacheItemExpiration` arguments nullable.
+- Refactoring: Make the [BaseRepository](/class/dbrepository) and [DbRepository](/class/dbrepository) objects `CacheItemExpiration` property nullable.
+- Refactoring: Make the [CacheItem](/class/cacheitem) object `CacheItemExpiration` property nullable.
 - Added the Integration Tests for the `NonKeyedTable`.
 - Added the `KeyFieldNotFoundException`, `MissingQualifierFieldsException` and the `IdentityFieldNotFoundException`.
 - Added the `<TEntity>(TableName)` methods to the [BatchQuery](/operation/batchquery) operation.
