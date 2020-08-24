@@ -32,11 +32,11 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added the Integration Tests for the `NonKeyedTable`.
 - Added the `KeyFieldNotFoundException`, `MissingQualifierFieldsException` and the `IdentityFieldNotFoundException`.
 - Added the `<TEntity>(TableName)` methods to the [BatchQuery](/operation/batchquery) operation.
-- Added the `<TEntity>(TableName)` methods to the [Query](/operation/query) and [DeleteAll](/operation/queryall) operations.
+- Added the `<TEntity>(TableName)` methods to the [Query](/operation/query) and [QueryAll](/operation/queryall) operations.
 - Added the `<TEntity>(TableName)` methods to the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall operations).
-- Added the `<TEntity>(TableName)` methods to the [Insert](/operation/insert) and [AverageAll](/operation/insertall) operations.
+- Added the `<TEntity>(TableName)` methods to the [Insert](/operation/insert) and [InsertAll](/operation/insertall) operations.
 - Added the `<TEntity>(TableName)` methods to the [Merge](/operation/merge) and [MergeAll](/operation/mergeall) operations.
-- Added the `<TEntity>(TableName)` methods to the [Update](/operation/update) and [AverageAll](/operation/updateall) operations.
+- Added the `<TEntity>(TableName)` methods to the [Update](/operation/update) and [UpdateAll](/operation/updateall) operations.
 - Added the `<TEntity, TResult>` methods to the [Average](/operation/average) and [AverageAll](/operation/averageall operations).
 - Added the `<TEntity, TResult>` methods to the [Max](/operation/max) and [MaxAll](/operation/maxall operations).
 - Added the `<TEntity, TResult>` methods to the [Min](/operation/min) and [MinAll](/operation/minall operations).
