@@ -13,8 +13,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 #### Next Version
 
 - Bug: QueryAsync with empty QueryField list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
-- Request: Add overload for [QueryAll<TEntity>](/operation/queryall) that takes `tableName` parameter. [#521](https://github.com/mikependon/RepoDb/issues/521)
-- Request: Add caching for [ExecuteQuery](/operation/executequery) and [ExecuteQuery<TEntity>](/operation/executequery) [#522](https://github.com/mikependon/RepoDb/issues/522)
+- Request: Completely expose the `fields` argument in the [BatchQuery](/operation/batchquery), [Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations (and all its Batch operations). #523
+- Request: Adds an overloaded method for [QueryAll&lt;TEntity&gt;](/operation/queryall) operation that takes the `tableName` parameter. [#521](https://github.com/mikependon/RepoDb/issues/521)
+- Request: Add caching for [ExecuteQuery](/operation/executequery) and [ExecuteQuery&lt;TEntity&gt;](/operation/executequery) [#522](https://github.com/mikependon/RepoDb/issues/522)
 - Request: Support the Immutable Entities [#465](https://github.com/mikependon/RepoDb/issues/465)
 - Enhancement: Use the `Identity` field if the `Primary` field is not available during the [Query](/operation/query), [Delete](/operation/delete) and [Update](/operation/update) operations.
 - Refactoring: Enhance the coding in the Core Compiler [#479](https://github.com/mikependon/RepoDb/issues/479).
