@@ -12,7 +12,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 
 #### RepoDb.PostgreSql (v1.1.0-beta1)
 
-- Breaking: Complete support F# programming language as requested by the Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
+- Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
 - Breaking: Introduced the `fields` argument to the fetch (i.e.: [Query](/operation/query), [ExecuteQuery](/operation/executequery) and [BatchQuery](/operation/batchquery)) and push (i.e.: [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update)) operations.
 - Breaking: Introduced the `tableName` argument to all entity based operations. This completely resolves the `F#` anonymous invocations.
 - Breaking: Renamed of argument `whereOrPrimaryKey` to `what`.

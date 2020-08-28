@@ -12,6 +12,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDB (v1.12.0-beta1)
 
+- Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
 - Bug: [QueryAsync](/operation/query) with empty [QueryField](/class/queryfield) list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
 - Bug: [IPropertyHandler](/interface/ipropertyhandler) not being called [#514](https://github.com/mikependon/RepoDb/issues/514)
 - Request: Completely expose the `fields` argument in the [BatchQuery](/operation/batchquery), [Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations (and all its Batch operations). #523
@@ -42,12 +43,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added the `<TEntity, TResult>` methods to the [Max](/operation/max) and [MaxAll](/operation/maxall operations).
 - Added the `<TEntity, TResult>` methods to the [Min](/operation/min) and [MinAll](/operation/minall operations).
 - Added the `<TEntity, TResult>` methods to the [Sum](/operation/sum) and [SumAll](/operation/sumall operations).
-- Added the `InsertExecutionContextProvider` internal class for the [Insert](/operation/insert) operation execution context generator.
-- Added the `MergeExecutionContextProvider` internal class for the [Merge](/operation/merge) operation execution context generator.
-- Added the `UpdateExecutionContextProvider` internal class for the [Update](/operation/update) operation execution context generator.
-- Added the `InsertAllExecutionContextProvider` internal class for the [InsertAll](/operation/insertall) operation execution context generator.
-- Added the `MergeAllExecutionContextProvider` internal class for the [MergeAll](/operation/mergeall) operation execution context generator.
-- Added the `UpdateAllExecutionContextProvider` internal class for the [UpdateAll](/operation/updateall) operation execution context generator.
+- Added the execution context provider internal classes for the [Insert](/operation/insert), [Merge](/operation/merge), [Update](/operation/update), internal class for the [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall) and [UpdateAll](/operation/updateall)operations.
 
 
 #### RepoDB (v1.11.6)
