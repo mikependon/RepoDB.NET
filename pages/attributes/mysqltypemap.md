@@ -1,10 +1,10 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "MySqlTypeMap"
+title: "MySqlTypeMapAttribute"
 description: "Learn on how to use the RepoDB MySqlTypeMap attribute."
-permalink: /attribute/mysqltypemap
-tags: [repodb, class, mysqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+permalink: /attribute/mysqltypemapattribute
+tags: [repodb, class, mysqltypemapattribute, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # MySqlTypeMap

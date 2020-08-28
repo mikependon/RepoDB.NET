@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: classes
 title: "EntityMapFluentDefinition"
-description: "A class that is used to define a data entity level mappings (i.e.: Table, Column, Primary, Identity, DB Type and Property Handler)."
+description: "A class that is used to define a data entity level mappings (i.e.: Table, Column, Primary, Identity, DB Type and Class/Property Handler)."
 permalink: /class/entitymapfluentdefinition
 tags: [repodb, class, entitymapfluentdefinition, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # EntityMapFluentDefinition
 
-A class that is used to define a data entity level mappings (i.e.: `Table`, `Column`, `Primary`, `Identity`, `DB Type` and `Property Handler`). It is the result of the `Entity()` method of the [FluentMapper](/mapper/fluentmapper) mapper class.
+A class that is used to define a data entity level mappings (i.e.: `Table`, `Column`, `Primary`, `Identity`, `DB Type` and `Class/Property Handler`). It is the result of the `Entity()` method of the [FluentMapper](/mapper/fluentmapper) mapper class.
 
 #### Mapping a Database Table/View
 
@@ -125,6 +125,17 @@ definition.Identity(field, DbType.DateTime2);
 ```
 
 It is using the [TypeMapper](/mapper/typemapper) class underneath.
+
+#### Defining a Class Handler
+
+To define the class handler for the data entity, use the `ClassHandler` method.
+
+```csharp
+var definition = FluentMapper.Entity<Customer>();
+definition.PropertyHandler<CustomerClassHandler>();
+```
+
+It is using the [ClassHandlerMapper](/mapper/classhandlermapper) class underneath.
 
 #### Defining a Property Handler
 

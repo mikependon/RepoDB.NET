@@ -1,10 +1,10 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "PropertyHandler"
+title: "PropertyHandlerAttribute"
 description: "Learn on how to use the RepoDB PropertyHandler attribute."
-permalink: /attribute/propertyhandler
-tags: [repodb, class, propertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+permalink: /attribute/propertyhandlerattribute
+tags: [repodb, class, propertyhandlerattribute, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # PropertyHandler
@@ -44,7 +44,7 @@ public class Person
 }
 ```
 
-After that, when read the records, you can automatically read the `Address` values from the `Address` property.
+After that, when you read the records, you can automatically read the `Address` values from the `Address` property.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())

@@ -13,8 +13,6 @@ A class that is used to map a property handler into a .NET CLR type or a class p
 
 Please see the [IPropertyHandler](/interface/ipropertyhandler) for more details about the property handling implementation.
 
-This class is a replacement of `PropertyHandlerMapper` class.
-
 #### Methods
 
 Below are the methods available from this class.
@@ -30,7 +28,7 @@ You should use this class if you do not like to use the [PropertyHandler](/attri
 
 #### How to Use?
 
-Let us say you implemented a `DateTime` handler like below.
+Let us say you had implemented a `DateTime` handler like below.
 
 ```csharp
 public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<DateTime?, DateTime?>

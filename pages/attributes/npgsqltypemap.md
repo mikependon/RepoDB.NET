@@ -1,10 +1,10 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "NpgsqlTypeMap"
+title: "NpgsqlTypeMapAttribute"
 description: "Learn on how to use the RepoDB NpgsqlTypeMap attribute."
-permalink: /attribute/npgsqltypemap
-tags: [repodb, class, npgsqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+permalink: /attribute/npgsqltypemapattribute
+tags: [repodb, class, npgsqltypemapattribute, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # NpgsqlTypeMap

@@ -1,10 +1,10 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "Text"
+title: "TextAttribute"
 description: "Learn on how to use the RepoDB Text attribute."
-permalink: /attribute/text
-tags: [repodb, class, text, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+permalink: /attribute/textattribute
+tags: [repodb, class, textattribute, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Text

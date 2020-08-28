@@ -1,10 +1,10 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "Map"
+title: "MapAttribute"
 description: "Learn on how to use the RepoDB Map attribute."
-permalink: /attribute/map
-tags: [repodb, class, map, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+permalink: /attribute/mapattribute
+tags: [repodb, class, mapattribute, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Map

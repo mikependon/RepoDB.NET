@@ -1,10 +1,10 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "SystemSqlServerTypeMap"
+title: "SystemSqlServerTypeMapAttribute"
 description: "Learn on how to use the RepoDB SystemSqlServerTypeMap attribute."
-permalink: /attribute/systemsqlservertypemap
-tags: [repodb, class, systemsqlservertypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+permalink: /attribute/systemsqlservertypemapattribute
+tags: [repodb, class, systemsqlservertypemapattribute, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # SystemSqlServerTypeMap
