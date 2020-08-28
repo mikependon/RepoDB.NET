@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: getstarted
 title: "Get Started for MySql"
-description: "Learn on how to work with MySQL databases using RepoDb library."
+description: "Learn on how to work with MySQL databases using RepoDB library."
 permalink: /tutorial/get-started-mysql
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, mysql]
 ---
 
 # Get Started for MySQL
 
-RepoDb is a hybrid .NET ORM library for [MySQL](https://www.nuget.org/packages/RepoDb.MySql) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
+RepoDB is a hybrid .NET ORM library for [MySQL](https://www.nuget.org/packages/RepoDb.MySql) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
 The [MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector) driver has newly been supported  and is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector) as well.
 

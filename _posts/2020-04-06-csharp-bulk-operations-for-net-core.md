@@ -8,7 +8,7 @@ categories: blogs repodb
 
 #### Introduction
 
-We would like to share you the latest and greatest updates of RepoDb ORM. Recently, we just published the complete out-of-the-box support of Bulk Operations for SQL Server in .NET data access space.
+We would like to share you the latest and greatest updates of RepoDB ORM. Recently, we just published the complete out-of-the-box support of Bulk Operations for SQL Server in .NET data access space.
 
 The actual repository can be found at [RepoDb.SqlServer.BulkOperations](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Extensions/RepoDb.SqlServer.BulkOperations).
 
@@ -98,7 +98,7 @@ The argument `usePhysicalPseudoTempTable` is used to define whether a physical p
 
 ## Caveats
 
-RepoDb is automatically setting the value of options argument to `SqlBulkCopyOptions.KeepIdentity` when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) if you have not passed any `qualifiers` and if your table has an `IDENTITY` primary key column. The same logic will apply if there is no primary key but has an `IDENTITY` column defined in the table.
+RepoDB is automatically setting the value of options argument to `SqlBulkCopyOptions.KeepIdentity` when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) if you have not passed any `qualifiers` and if your table has an `IDENTITY` primary key column. The same logic will apply if there is no primary key but has an `IDENTITY` column defined in the table.
 
 In addition, when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to `CREATE` a table in the database, otherwise a `SqlException` will be thrown.
 

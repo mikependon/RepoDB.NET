@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: attributes
 title: "Identity"
-description: "Learn on how to use the RepoDb Identity attribute."
+description: "Learn on how to use the RepoDB Identity attribute."
 permalink: /attribute/identity
 tags: [repodb, class, identity, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

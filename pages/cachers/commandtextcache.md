@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: cachers
 title: "CommandTextCache"
-description: "A class that is being used to retrieve the cached command texts within RepoDb library."
+description: "A class that is being used to retrieve the cached command texts within RepoDB library."
 permalink: /cacher/commandtextcache
 tags: [repodb, class, commandtextcache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

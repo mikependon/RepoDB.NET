@@ -86,33 +86,33 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actu
 
 #### RepoDb.MySql (v1.0.5)
 
-- Referenced the version RepoDb v1.10.6.
+- Referenced the version RepoDB v1.10.6.
 
 
 #### RepoDb.MySql (v1.0.4)
 
-- Referenced the version RepoDb v1.10.5.
+- Referenced the version RepoDB v1.10.5.
 
 
 #### RepoDb.MySql (v1.0.3)
 
-- Referenced the updated version of RepoDb core library (v1.10.4).
+- Referenced the updated version of RepoDB core library (v1.10.4).
 - Error: Invalid expression. The property `Id` is not defined on a target type. [#364](https://github.com/mikependon/RepoDb/issues/364)
 
 
-##### RepoDb (v1.10.3-beta1)
+##### RepoDB (v1.10.3-beta1)
 
-- Referenced the updated version of RepoDb core library (v1.10.4-beta1).
+- Referenced the updated version of RepoDB core library (v1.10.4-beta1).
 
 
 #### RepoDb.MySql (v1.0.2)
 
-- Referenced the updated version of RepoDb core library (v1.10.3).
+- Referenced the updated version of RepoDB core library (v1.10.3).
 
 
 #### RepoDb.MySql(v1.0.1)
 
-- Referenced the updated version of RepoDb core library (v1.10.2).
+- Referenced the updated version of RepoDB core library (v1.10.2).
 
 
 #### RepoDb.MySql (v1.0.1-beta1)

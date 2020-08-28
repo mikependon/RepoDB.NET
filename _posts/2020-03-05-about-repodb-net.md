@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "About RepoDb.NET"
+title: "About RepoDB.NET"
 author: "Michael Camara Pendon"
 date: 2020-03-05 08:30:00 +0100
 categories: blogs update
 ---
 
-This site will contain all the important information regarding [RepoDb](https://github.com/mikependon/RepoDb).
+This site will contain all the important information regarding [RepoDB](https://github.com/mikependon/RepoDb).
 
 ###### The following will soon to be placed here
 

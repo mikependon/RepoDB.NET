@@ -2,15 +2,15 @@
 layout: navpage
 sidebar: releases
 title: Releases for Core Package
-description: "This page contains the latest information of the releases of RepoDb library."
+description: "This page contains the latest information of the releases of RepoDB library."
 permalink: /release/core
 ---
 
-# Releases for RepoDb (Core)
+# Releases for RepoDB (Core)
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-#### RepoDb (v1.12.0-beta1)
+#### RepoDB (v1.12.0-beta1)
 
 - Bug: [QueryAsync](/operation/query) with empty [QueryField](/class/queryfield) list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
 - Bug: [IPropertyHandler](/interface/ipropertyhandler) not being called [#514](https://github.com/mikependon/RepoDb/issues/514)
@@ -50,12 +50,12 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added the `UpdateAllExecutionContextProvider` internal class for the [UpdateAll](/operation/updateall) operation execution context generator.
 
 
-#### RepoDb (v1.11.6)
+#### RepoDB (v1.11.6)
 
 - Code optimizations and XML comments refactoring.
 - Bug: `NullReferenceException` occurs when [InsertAllAsync](/operation/insertall) is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
 - Bug: Typed `UpdateAsync` fails for composite key table [#493](https://github.com/mikependon/RepoDb/issues/493)
-- Bug: RepoDb does not seem to work for SQL Server tables with dot in the name [#492](https://github.com/mikependon/RepoDb/issues/492)
+- Bug: RepoDB does not seem to work for SQL Server tables with dot in the name [#492](https://github.com/mikependon/RepoDb/issues/492)
 - Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
 - Enhancement: Using async `DbFieldCache` [#481](https://github.com/mikependon/RepoDb/issues/481)
 - Enhancement: Add a `SessionId` property in the [TraceLog](/class/tracelog) class. [#484](https://github.com/mikependon/RepoDb/issues/484)
@@ -72,13 +72,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added a `DataEntityReader.InitializeAsync()` method.
 
 
-#### RepoDb (v1.11.5)
+#### RepoDB (v1.11.5)
 
 - Fixed the problem when installing the library in .NET Framework `4.7.x`.
 - Restored the referenced `System.ComponentModel.Annotations` package to `v4.7.0`.
 
 
-#### RepoDb (v1.11.4)
+#### RepoDB (v1.11.4)
 
 - Bug: Table schema is ignored for the identical table names [#456](https://github.com/mikependon/RepoDb/issues/456)
 - Bug: Regression Issue [#457](https://github.com/mikependon/RepoDb/issues/457)
@@ -87,7 +87,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Updated the XML documentations of the `cache` argument for both [Query](/operation/query) and [QueryAll](/operation/queryall) operations.
 
 
-#### RepoDb (v1.11.4-beta3)
+#### RepoDB (v1.11.4-beta3)
 
 - Bug: Table schema is ignored for the identical table names [#456](https://github.com/mikependon/RepoDb/issues/456)
 - Bug: Regression Issue [#457](https://github.com/mikependon/RepoDb/issues/457)
@@ -96,17 +96,17 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Updated the XML documentations of the `cache` argument for both [Query](/operation/query) and [QueryAll](/operation/queryall) operations.
 
 
-#### RepoDb (v1.11.4-beta2)
+#### RepoDB (v1.11.4-beta2)
 
 - Community Request: Additional fix for [#457](https://github.com/mikependon/RepoDb/issues/457)
 
 
-#### RepoDb (v1.11.4-beta1)
+#### RepoDB (v1.11.4-beta1)
 
 - Bug: Regression Issue [#457](https://github.com/mikependon/RepoDb/issues/457)
 
 
-#### RepoDb (v1.11.3)
+#### RepoDB (v1.11.3)
 
 - Community Request: Enhancement: Enable Field class to Parse the Expression for Multiple Properties [#453](https://github.com/mikependon/RepoDb/issues/453)
 - Enhancement: Set the return type `Field.Parse<T>()` to `IEnumerable<Field>` (instead of `Field`).
@@ -116,13 +116,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added an overload method for the [Merge](/operation/merge), [MergeAll](/operation/mergeall) and [UpdateAll](/operation/updateall) operations that accepts the `expression` for the `qualifiers` argument.
 
 
-#### RepoDb (v1.11.2)
+#### RepoDB (v1.11.2)
 
-- Bug: [SQL Server 2019] RepoDb truncates strings of "Text" types [#444](https://github.com/mikependon/RepoDb/issues/444)
+- Bug: [SQL Server 2019] RepoDB truncates strings of "Text" types [#444](https://github.com/mikependon/RepoDb/issues/444)
 - Request: [SQL Server] Provide better exception message when table mapping is wrong [#443](https://github.com/mikependon/RepoDb/issues/443)
 
 
-#### RepoDb (v1.11.1)
+#### RepoDB (v1.11.1)
 
 - Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
 - Requests: Support for Table attribute [#360](https://github.com/mikependon/RepoDb/issues/360)
@@ -143,12 +143,12 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added the `entityType` argument in the `DbCommandExtensions.CreateParameters()` method.
 
 
-#### RepoDb (v1.11.1-beta3)
+#### RepoDB (v1.11.1-beta3)
 
 - Added the `entityType` argument in the `DbCommandExtensions.CreateParameters()` method.
 
 
-#### RepoDb (v1.11.1-beta2)
+#### RepoDB (v1.11.1-beta2)
 
 - Requests: Support for Table attribute [#360](https://github.com/mikependon/RepoDb/issues/360)
 - Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
@@ -166,13 +166,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added both the `PropertyHandlerPropertyLevelResolver` and `PropertyHandlerTypeLevelResolver` classes to resolve the equivalent property handler of both the property and .NET CLR type.
 
 
-#### RepoDb (v1.11.1-beta1)
+#### RepoDB (v1.11.1-beta1)
 
 - Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
 - Added an extensive Integration Tests for Property Handler Implicit Mapping.
 
 
-#### RepoDb (v1.11.0)
+#### RepoDB (v1.11.0)
 
 - Enhancement: Use lambda to define property handlers within DTO constructor. [#421](https://github.com/mikependon/RepoDb/issues/421)
 - Enhancement: Consider Mapping class [#415](https://github.com/mikependon/RepoDb/issues/415)
@@ -193,7 +193,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Rename all the mappers `Flush()` method into `Clear()`.
 
 
-#### RepoDb (v1.11.0-beta4)
+#### RepoDB (v1.11.0-beta4)
 
 - Refactor: Renamed the argument `objectName` to `databaseObjectName` of [ClassMapper](/mapper/classmapper) class.
 - Added: Added the method `Get()` via `propertyName`, [Field](/class/field) and Linq expression at [PropertyCache](/cache/propertycache) class.
@@ -206,14 +206,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Performance: Reverted the value of `Constant.DefaultBatchOperationSize` into `10`.
 
 
-#### RepoDb (v1.11.0-beta3)
+#### RepoDB (v1.11.0-beta3)
 
-- Issue in the [PrimaryMapper](/mapper/primarymapper) and [IdentityMapper](/mapper/identitymapper) for the interface property collision reported by the user in RepoDb v1.11.0-beta2.
+- Issue in the [PrimaryMapper](/mapper/primarymapper) and [IdentityMapper](/mapper/identitymapper) for the interface property collision reported by the user in RepoDB v1.11.0-beta2.
 - Removed the exposure of the `PropertyInfo` and [ClassProperty](/class/classproperty) in [PropertyHandlerCache](/cacher/propertyhandlercache), [TypeMapCache](/cacher/typemapcache), [PropertyHandlerMapper](/mapper/propertyhandlermapper) and [TypeMapper](/class/typemapper) classes.
 - Removed the `Add`, `Get`, `Remove` methods of the [PropertyMapper](/mapper/propertymapper) with both `PropertyInfo` and [ClassProperty](/class/classproperty) arguments.
 
 
-#### RepoDb (v1.11.0-beta2)
+#### RepoDB (v1.11.0-beta2)
 
 - Removed the return value of the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper).
 - Added the expression-based invocation in the `Add()`, `Get()` and `Remove()` methods of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
@@ -223,7 +223,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added more Integration Tests on the implicit mappings feature.
 
 
-#### RepoDb (v1.11.0-beta1)
+#### RepoDB (v1.11.0-beta1)
 
 - Added the [PropertyHandlerCache](/cacher/propertyhandlercache) class.
 - Added the methods `Add`, `Remove` and `Get` at the `PropertyHandlerMapper` class to cater the property level mapping.
@@ -231,7 +231,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added the `ObseleteAttribute` attribute at the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class.
 - Rename all the mappers `Flush()` method into `Clear()`.
 
-#### RepoDb (v1.11.0-alpha1):
+#### RepoDB (v1.11.0-alpha1):
 
 - Added the [ClassMapper](/mapper/classmapper), [PropertyMapper](/mapper/propertymapper), [PrimaryMapper](/mapper/primarymapper), [IdentityMapper](/mapper/identitymapper) and [TypeMapCache](/cacher/typemapcache) classes.
 - Added the `Add<T>`, `Get<T>` and `Remove<T>` methods in the [TypeMapper](/mapper/typemapper) class.
@@ -245,7 +245,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added more thorough Unit Tests for `Class`, `Property`, `Primary`, `Identity` and `Type` mappings (both [Cachers](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core/RepoDb.Tests/RepoDb.UnitTests/Caches) and [Mappers](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core/RepoDb.Tests/RepoDb.UnitTests/Mappers)).
 
 
-#### RepoDb (v1.10.11):
+#### RepoDB (v1.10.11):
 
 - Implemented the [IExpirable](/interface/iexpirable) into [CacheItem](/class/cacheitem).
 - Added a `TEntity` generic type in the [CacheItem](/class/cacheitem) properties.
@@ -262,7 +262,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: Calling to [DeleteAll](/operation/deleteall) operation with the list of `PrimaryKeys` and `Transaction` object is failing. Reported by Christian Franck. [#404](https://github.com/mikependon/RepoDb/issues/404).
 
 
-#### RepoDb (v1.10.11-beta3):
+#### RepoDB (v1.10.11-beta3):
 
 - Implemented the [IExpirable](/interface/iexpirable) into [CacheItem](/class/cacheitem).
 - Added a `TEntity` generic type in the [CacheItem](/class/cacheitem) properties.
@@ -274,19 +274,19 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targetting the bulk operations (i.e.: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
 
 
-#### RepoDb (v1.10.11-beta2):
+#### RepoDB (v1.10.11-beta2):
 
 - Bug: Enum Bug [#400](https://github.com/mikependon/RepoDb/issues/400)
 - Bug; [PropertyHandler](/interface/ipropertyhandler) for Nullable Enum [#402](https://github.com/mikependon/RepoDb/issues/402)
 
 
-#### RepoDb (v1.10.11-beta1):
+#### RepoDB (v1.10.11-beta1):
 
 - At the [CancellableTraceLog.Cancel()](/class/cancellabletracelog) method, the `throwException` argument has been defaulted the `True`.
 - Bug: Calling to [DeleteAll](/operation/deleteall) operation with the list of `PrimaryKeys` and `Transaction` object is failing. Reported by Christian Franck. [#404](https://github.com/mikependon/RepoDb/issues/404).
 
 
-#### RepoDb (v1.10.10)
+#### RepoDB (v1.10.10)
 
 - Features: Full support to Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 - Enhancement: `AsFieldsAsAliasFields` - added left and right aliases.
@@ -296,38 +296,38 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: The property handlers mapped via `PropertyHandlerMapper` is failing if both `NULLABLE` and `NON-NULLABLE` property types are present in the class. [#394](https://github.com/mikependon/RepoDb/issues/394)
 
 
-#### RepoDb (v1.10.10-beta1)
+#### RepoDB (v1.10.10-beta1)
 
 - Full support to Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 - `AsFieldsAsAliasFields` - added left and right aliases.
 - XML Documentation updates for the SQL statement Builders.
 
 
-#### RepoDb (v1.10.9)
+#### RepoDB (v1.10.9)
 
 - Enhancement: Compiler changes for `ClassProperty.GetDbType()` calls.
 - Feature: Support for `SqlServer.SqlDbType` (Microsoft and System), `PostgreSql.NpgsqlDbType` [#390](https://github.com/mikependon/RepoDb/issues/390) and `MySql.MySqlDbType`.
 
 
-#### RepoDb (v1.10.8)
+#### RepoDB (v1.10.8)
 
 - Bug: `InvalidCastException` Converting `Enums` to `Strings` in Postgres [#388](https://github.com/mikependon/RepoDb/issues/388)
 
 
-#### RepoDb (v1.10.7)
+#### RepoDB (v1.10.7)
 
 - Enhancement: Separate the `Bulk` operations into a separate Solution and Nuget Package. [#385](https://github.com/mikependon/RepoDb/issues/385)
 - Enhancement: Separete all `SqlServer` related stuffs to a different library named `RepoDb.SqlServer`. [#282](https://github.com/mikependon/RepoDb/issues/282)
 - Enhancement: Remove the support to `System.Data.SqlClient` in the `RepoDb.Core`. [#386](https://github.com/mikependon/RepoDb/issues/386)
 
 
-#### RepoDb (v1.10.6)
+#### RepoDB (v1.10.6)
 
 - Added the class property as an argument context in the `Get` and `Set` method.
 - Exposed the underlying `DbRepository` property at the ``BaseRepository`` object.
 
 
-#### RepoDb (v1.10.5)
+#### RepoDB (v1.10.5)
 
 ##### Highlights
 
@@ -347,7 +347,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - NTH: Add a table hints in [Insert](/operation/insert) and [InsertAll](/operation/insertall). [#379](https://github.com/mikependon/RepoDb/issues/379)
 
 
-#### RepoDb (v1.10.4)
+#### RepoDB (v1.10.4)
 
 - Initial support of RepoDb.PostgreSql.
 - Added `IsPreparable` Property for `IDbSetting`.
@@ -358,46 +358,46 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Introduced the `DbConvertFieldResolver` as the base converter field.
 
 
-#### RepoDb (v1.10.4-beta2)
+#### RepoDB (v1.10.4-beta2)
 
 - Initial support of RepoDb.PostgreSql.
 
 
-#### RepoDb (v1.10.4-beta1)
+#### RepoDB (v1.10.4-beta1)
 
 - Error: Invalid expression. The property `Id` is not defined on a target type #364 - MySql Support.
 
 
-#### RepoDb (v1.10.3)
+#### RepoDB (v1.10.3)
 
 - Revert the recurrent calls to `DbFieldCache`.Get() in the `ExecuteQuery` method.
 
 
-#### RepoDb (v1.10.2)
+#### RepoDB (v1.10.2)
 
 - Bug (Community Request): The primary field is not found exception when primary key column name is different from `Primary` attribute property name is different while `Connection.Update` is called. [#356](https://github.com/mikependon/RepoDb/issues/356)
 - Bug: Set the return value of `Max` and `Min` operations to object. [#357](https://github.com/mikependon/RepoDb/issues/357)
 - Performance: Refactor to remove the recurrent calls to `DbFieldCache`.Get() in the `ExecuteQuery` method.
 
 
-#### RepoDb (v1.10.2-alpha2)
+#### RepoDB (v1.10.2-alpha2)
 
 - Bug: Set the return value of `Max` and `Min` operations to object. [#357](https://github.com/mikependon/RepoDb/issues/357)
 - Refactor to remove the recurrent calls to `DbFieldCache`.Get() in the `ExecuteQuery` method.
 
 
-#### RepoDb (v1.10.2-alpha1)
+#### RepoDB (v1.10.2-alpha1)
 
 - Bug (Community Request): The primary field is not found exception when primary key column name is different from `Primary` attribute property name is different while `Connection.Update` is called. [#356](https://github.com/mikependon/RepoDb/issues/356)
 
 
-#### RepoDb (v1.10.1)
+#### RepoDB (v1.10.1)
 
 - Removed the NetFramework Specific Library at Nuget.
 - Supported the RepoDb.MySql extended library.
 
 
-#### RepoDb (v1.10.0)
+#### RepoDB (v1.10.0)
 
 - Breaking changes from the previous versions.
 - This release contains major code refactoring for performance optimization purposes.
@@ -420,20 +420,20 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: Where expression using IEnumerable`s contains throws error when using inherited class property [#301](https://github.com/mikependon/RepoDb/issues/301)
 
 
-#### RepoDb (v1.9.11)
+#### RepoDB (v1.9.11)
 
 - Stable release.
 - Enhancement: Check current transaction (System.Transactions.Transaction.Current) before applying an explicit System.Data.`IDbTransaction` object. [#279](https://github.com/mikependon/RepoDb/issues/279)
 - Enhancement: Table Hints is not passing properly in the `BatchQuery`. [#283](https://github.com/mikependon/RepoDb/issues/283)
 
 
-#### RepoDb (v1.9.10)
+#### RepoDB (v1.9.10)
 
 - Stable release.
 - v1.9.9 changes + more Integration Tests for `DbConnection`.
 
 
-#### RepoDb (v1.9.9)
+#### RepoDB (v1.9.9)
 
 - Bug: `SqlException`: Login failed for user `xxx`
 - Bug: Calling [InsertAll](/operation/insertall) with `MapAttribute` leads to `System.NullReferenceException`: Object reference not set to an instance of an object. [#274](https://github.com/mikependon/RepoDb/issues/274)
@@ -450,19 +450,19 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Refactoring: Removed the `ToLower()` and replaced by `StringComparer.OrdinalIgnoreCase`.
 
 
-#### RepoDb (v1.9.9-beta5)
+#### RepoDB (v1.9.9-beta5)
 
 - Bug: `SqlDbHelper.GetFields` is failing if the transaction object is present. [#278](https://github.com/mikependon/RepoDb/issues/278)
 - Refactoring: Refactor the code snippets for `DbFieldCache` to accept `IDbTransaction` objects. These affected too many chain of calls.
 
 
-#### RepoDb (v1.9.9-beta4)
+#### RepoDB (v1.9.9-beta4)
 
 - To Consider: Enable [BulkInsert](/operation/bulkinsert) with System.`DataTable` [#277](https://github.com/mikependon/RepoDb/issues/277)
 - v1.9.9 release candidate
 
 
-#### RepoDb (v1.9.9-beta3)
+#### RepoDB (v1.9.9-beta3)
 
 - Enhancement: Add `DbFieldCache.GetAsync` method. [#275](https://github.com/mikependon/RepoDb/issues/275)
 - Enhancement: Add `DataEntityDataReader` into [BulkInsert](/operation/bulkinsert) that accepts TableName and Entities [#271](https://github.com/mikependon/RepoDb/issues/271)
@@ -470,19 +470,19 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Test: Add IntegrationTests on [BulkInsert](/operation/bulkinsert) that accepts DataEntities and TableName.
 
 
-#### RepoDb (v1.9.9-beta2)
+#### RepoDB (v1.9.9-beta2)
 
 - Enhancement: Add `AsFields()` extended methods for the `IEnumerable<DbField>` [#273](https://github.com/mikependon/RepoDb/issues/273)
 - Bug: Calling [InsertAll](/operation/insertall) with `MapAttribute` leads to `System.NullReferenceException`: Object reference not set to an instance of an object. [#274](https://github.com/mikependon/RepoDb/issues/274)
 
 
-#### RepoDb (v1.9.9-beta1)
+#### RepoDB (v1.9.9-beta1)
 
 - Bug: SqlException: Login failed for user `xxx`
 - Enhancement: Remove database streaming when extracting table schema.
 
 
-#### RepoDb (v1.9.8)
+#### RepoDB (v1.9.8)
 
 - Stable release of RepoDb.
 - Enum Supports.
@@ -490,35 +490,35 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug Fixes.
 
 
-#### RepoDb (v1.9.8-beta4)
+#### RepoDB (v1.9.8-beta4)
 
 - Title: A hybrid ORM library for .NET.
 - Fix: Fixed the issue in the `[QueryGroup](/class/querygroup).Fix()` method if the depth of the Tree is at Level 4.
 
 
-#### RepoDb (v1.9.8-beta3)
+#### RepoDB (v1.9.8-beta3)
 
 - Fixed: Fixed the issue when using the Mapped/Quoted/Unorganized property in `[QueryGroup](/class/querygroup).Parse()` method.
 
 
-#### RepoDb (v1.9.8-beta2)
+#### RepoDB (v1.9.8-beta2)
 
 - Fixed: Failing operations on a purposely quoted class property. Reported by Christian Franck.
 
 
-#### RepoDb (v1.9.8-beta1)
+#### RepoDB (v1.9.8-beta1)
      
 - Requested: Document Enum Support [#261](https://github.com/mikependon/RepoDb/issues/261)
 - Bug: Operations are failing on the Unorganized Table - by Christian Franck [#262](https://github.com/mikependon/RepoDb/issues/262)
 
 
-#### RepoDb (v1.9.7)
+#### RepoDB (v1.9.7)
 
 - Stable release with complete feature sets.
 - Added netstandard2.0 as the default target framework at Nuget Package.
 
 
-#### RepoDb (v1.9.6)
+#### RepoDB (v1.9.6)
 
 - [Note] This version is the first ever version release with complete features. The next version will be only be bug-fixes from this version (if we found some).
 - [Core] Optimize the Expression field iteration between the number of Class properties and `DbDataReader` columns. [#136](https://github.com/mikependon/RepoDb/issues/136)
@@ -542,7 +542,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - [Minor] Hide the exposed extended internal methods. [#244](https://github.com/mikependon/RepoDb/issues/244)
 
 
-#### RepoDb (v1.9.5)
+#### RepoDB (v1.9.5)
 
 - [Note] This version is the first ever version release with complete features. The next version will be only be bug-fixes from this version (if we found some).
 - [Core] Introduce `UpdateMultiple`, different from [UpdateAll](/operation/updateall). [#94](https://github.com/mikependon/RepoDb/issues/94)
@@ -581,7 +581,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - [Removed] DbIdentityCache Class
 
 
-#### RepoDb (v1.9.4)
+#### RepoDB (v1.9.4)
 
 - [Note] This version is the first ever version release with complete features. The next version will be only be bug-fixes from this version (if we found some).
 - [Core] Introduce `UpdateMultiple`, different from [UpdateAll](/operation/updateall). [#94](https://github.com/mikependon/RepoDb/issues/94)
@@ -619,7 +619,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - [Removed] `DbIdentityCache` Class
 
 
-#### RepoDb (v1.9.3)
+#### RepoDB (v1.9.3)
 
 - [Core] Introduce ExecutionContext to hold the caching of the execution for [InsertAll](/operation/insertall). [#204](https://github.com/mikependon/RepoDb/issues/204)
 - [Enhancement, Performance] [InsertAll](/operation/insertall) Compiled Expressions
@@ -644,7 +644,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - [Added] `InsertAllExecutionContextCache`
 
 
-#### RepoDb (v1.9.2)
+#### RepoDB (v1.9.2)
 
 - [Core] Introduce the [InsertAll](/operation/insertall), different from `InsertMultiple`. [#91](https://github.com/mikependon/RepoDb/issues/91)
 - [Core] Return the number of affected rows during [BulkInsert](/operation/bulkinsert) for `DbDataReader`. [#192](https://github.com/mikependon/RepoDb/issues/192)
@@ -665,13 +665,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - [Enhancement] Auto-set the `PrimaryField` value of the object after calling the `Insert<T>` operation. [#187](https://github.com/mikependon/RepoDb/issues/187)
 
 
-#### RepoDb (v1.9.1)
+#### RepoDB (v1.9.1)
 
 - Stable Release of RepoDb.
 - [Update] Exposed BulkCopyOptions and Transaction to [BulkInsert](/operation/bulkinsert) Operation.
 
 
-#### RepoDb (v1.9.0)
+#### RepoDB (v1.9.0)
 
 - [Core] Introduced table-based operations for  [Count](/operation/count), `[CountAll](/operation/countall)`, [Delete](/operation/delete), [DeleteAll](/operation/deleteall), [Insert](/operation/insert), [Merge](/operation/merge), `[Truncate](/operation/truncate)` and [Update](/operation/update).
 - [Core] Introduced `[CountAll](/operation/countall)` and [QueryAll](/operation/queryall) operations.
@@ -696,7 +696,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - See v1.9.0-beta1 and v1.9.0-beta2 for complete set of changes.
 
 
-#### RepoDb (v1.9.0-beta2)
+#### RepoDB (v1.9.0-beta2)
 
 - [Core] Make the `DbHelper` Pluggable by Provider. [#137](https://github.com/mikependon/RepoDb/issues/137)
 - [Core] [NTH]: Support `InlineDelete(string tableName, object where ...)` [#113](https://github.com/mikependon/RepoDb/issues/113) -- Moved to Delete
@@ -733,7 +733,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - [Documentation] Add a separate documentation entry for Execute<Method> with Array parameters argument. [#143](https://github.com/mikependon/RepoDb/issues/143)
 
 
-#### RepoDb (v1.9.0-beta1)
+#### RepoDB (v1.9.0-beta1)
 
 - [New] Updated the description to "A dynamic, lightweight, efficient and very fast Hybrid ORM library for .NET.".
 - [New] Re-instate the row deletion by entity level (connection.Delete<T>(T entity)) [#112](https://github.com/mikependon/RepoDb/issues/112)
@@ -752,16 +752,16 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - [Enhancement] Support passing of IDictionary<string, object> as `param` in the Execute<Methods> operation. [#125](https://github.com/mikependon/RepoDb/issues/125)
 - [Enhancement] Allow passing of cache expiration time during creation and in the repository. [#128](https://github.com/mikependon/RepoDb/issues/128)
 
-#### RepoDb (v1.8.4)
+#### RepoDB (v1.8.4)
 
 - Stable Spring Release of RepoDb. Enjoy!
 
 
-#### RepoDb (v1.8.3)
+#### RepoDB (v1.8.3)
 
 - Stable Spring Release of RepoDb. Enjoy!
 
-#### RepoDb (v1.8.2)
+#### RepoDB (v1.8.2)
 
 ##### Updates
 
@@ -775,7 +775,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Additional Integration Tests for the `Dynamics` and `Expressions` query expression for `DbConnection`, `DbRepository` and ``BaseRepository``.
 
 
-#### RepoDb (v1.8.1)
+#### RepoDB (v1.8.1)
 
 #### New Features
 
@@ -809,7 +809,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Fixed: An issue in the `QueryMultiple` if the same expression is are used multiple times.
 
 
-#### RepoDb (v1.8.1-beta1)
+#### RepoDB (v1.8.1-beta1)
 
 #### New Features
 
@@ -836,7 +836,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - The version 1.8.1 will be the highest production-grade release of the library.
 
 
-#### RepoDb (v1.8.0)
+#### RepoDB (v1.8.0)
 
 #### New Features
 
@@ -873,27 +873,27 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Refactor the Linq (IEnumerable<T>.ToList()) into an old-school (foreach / for (var i..)) approach.
 
 
-#### RepoDb (v1.8.0-beta5)
+#### RepoDB (v1.8.0-beta5)
 
 - (Major [Update](/operation/update)) Introduced the support for `DbConnection.QueryMultiple`.
 - (Major [Update](/operation/update)) Introduced the support for `DbConnection.ExecuteQueryMultiple`.
 - Added class [QueryMultipleExtractor](/class/querymultipleextractor).
 
 
-#### RepoDb (v1.8.0-beta4)
+#### RepoDB (v1.8.0-beta4)
 
 - Introduced a `hints` argument in the `DbConnection.Query` operation.
 - Added class `SqlTableHints`.
 
 
-#### RepoDb (v1.8.0-beta3)
+#### RepoDB (v1.8.0-beta3)
 
 - Supported [BulkInsert](/operation/bulkinsert) for `DbDataReader`.
 - Removed the `Operation.Any`.
 - Removed the `Operation.All`.
 
 
-#### RepoDb (v1.8.0-beta2)
+#### RepoDB (v1.8.0-beta2)
 
 - Removed the `orderBy` and `top` argument in the [Query](/operation/query) method with `primaryKey` argument.
 - Removed the `DbConnection.BatchQuery` method with `primaryKey` argument.
@@ -901,14 +901,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Removed the `DbConnection.Delete` method without the `WHERE` parameter.
 
 
-#### RepoDb (v1.8.0-beta1)
+#### RepoDB (v1.8.0-beta1)
 
 - Remove the support on dynamic query tree expresssions.
 - Removed the Command enumeration.
 - Removed the Ignored attribute.
 
 
-#### RepoDb (v1.7.0)
+#### RepoDB (v1.7.0)
    
 - `Async` Method Calls Optimizations
 - Expression-Based Queries
@@ -916,7 +916,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Initial Support for Different Database Providers
 
 
-#### RepoDb (v1.7.0-beta5)
+#### RepoDB (v1.7.0-beta5)
    
 - Fixed the invalid binaries deployed at v1.7.0-beta4.
 - Modified `async` operations implementation to leverage the awaitable features.
@@ -925,7 +925,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Removed the recursive query features (DataEntity, DataEntityChildItemData, DataEntityChildListData, RecursionManager, ForeignAttribute).
 
 
-#### RepoDb (v1.7.0-beta4)
+#### RepoDB (v1.7.0-beta4)
 
 - Modified `async` operations implementation to leverage the awaitable features.
 - Exposed the `IsForProvider` and `GetProvider` `DbConnection` extended methods.
@@ -933,14 +933,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Removed the recursive query features (DataEntity, DataEntityChildItemData, DataEntityChildListData, RecursionManager, ForeignAttribute).
 
 
-#### RepoDb (v1.7.0-beta3)
+#### RepoDB (v1.7.0-beta3)
 
 - Fixed Target Framework Referencing Issues of NuGet Package
 - Added a new enumeration for data providers.
 - Updated the statement builder mapper to use the Provider object instead of `DbConnection` type.
 
 
-#### RepoDb (v1.7.0-beta2)
+#### RepoDB (v1.7.0-beta2)
 
 - Introduced Expression-Based `Query` for Connection and Repository Operations
 - Introduced Support to All (as `Operation.Al`l), Any (as `Operation.Any`), Contains (as `Operation.Like`, `Operation.NotLike`, `Operation.In`, Operation.NotIn`)
@@ -948,7 +948,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Unit Test updates for `All`, `Any`, and `Contains` operation
 
 
-#### RepoDb (v1.7.0-beta1)
+#### RepoDB (v1.7.0-beta1)
 
 - Introduced Expression-Based `Query` for Connection and Repository Operations
 - Introduced Expression-Based Parsing for [QueryGroup](/class/querygroup), [QueryField](/class/queryfield), [Field](/class/field), [OrderField](/class/orderfield)
@@ -957,41 +957,41 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug Fixes: https://github.com/RepoDb/RepoDb/issues?q=is:issue+is:closed
 
 
-#### RepoDb (v1.6.4)
+#### RepoDB (v1.6.4)
 
 - Performance: Introduced the field definitions for NULL checks at IL. [#48](https://github.com/mikependon/RepoDb/issues/48)
 - Performance: Added a compiled-functions (Expression) when converting the DataReader to Entity. FransBouma Recommendation #47
 
 
-#### RepoDb (v1.6.2)
+#### RepoDB (v1.6.2)
 
 - Performance: Introduced the field definitions for NULL checks at IL. [#48](https://github.com/mikependon/RepoDb/issues/48)
 - Performance: Added a compiled-functions (Expression) when converting the DataReader to Entity. FransBouma Recommendation #47
 
 
-#### RepoDb (v1.6.0)
+#### RepoDB (v1.6.0)
 
 - Performance: Introduced the field definitions for NULL checks at IL. [#48](https://github.com/mikependon/RepoDb/issues/48)
 - Performance: Added a compiled-functions (Expression) when converting the DataReader to Entity. FransBouma Recommendation #47
 
 
-#### RepoDb (v1.5.3)
+#### RepoDB (v1.5.3)
 
 - Optimization: This release has an extreme performance improvement. This is an update at v1.5.2.
 - Bug: Fixed the packages.config dependencies issues.
 
 
-#### RepoDb (v1.5.2)
+#### RepoDB (v1.5.2)
 
 - Performance Optimization: This release has an extreme performance improvement.
 
 
-#### RepoDb (v1.5.0)
+#### RepoDB (v1.5.0)
 
 - Performance Optimization: This release has an extreme performance improvement.
 
 
-#### RepoDb (v1.3.5)
+#### RepoDB (v1.3.5)
 
 - Refactor: Removed the `DataEntity` base class (request from the community)
 - Performance: Added a mechanism to cache the command texts
@@ -999,7 +999,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug Fix: Incorrect milliseconds is being saved for nullable `System.DateTime` properties
 
 
-#### RepoDb (v1.3.0)
+#### RepoDB (v1.3.0)
 
 - Refactor: Removed `DataEntity` - requested from the community
 - Performance: Cached the command texts
@@ -1007,55 +1007,55 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug Fix: Incorrect milliseconds is being saved for nullable `System.DateTime` properties
 
 
-#### RepoDb (v1.2.0)
+#### RepoDB (v1.2.0)
 
 - Stable Release (v1.2.0)
 
 
-#### RepoDb (v1.2.0-beta5)
+#### RepoDB (v1.2.0-beta5)
 
 - Stabilization: Enabled the recursive query, recursion depth and cyclomatic stack overflow complexity features.
 
 
-#### RepoDb (v1.2.0-beta4)
+#### RepoDB (v1.2.0-beta4)
 
 - Stabilization: Enabled the Recursive `Query` feature.
 
 
-#### RepoDb (v1.2.0-beta3)
+#### RepoDB (v1.2.0-beta3)
 
 - Stabilizing: Added additional validator for query expressions.
 - Stabilizing: Enabling the NULL values for `Field` when composing a query expression.
 
 
-#### RepoDb (v1.2.0-beta2)
+#### RepoDB (v1.2.0-beta2)
 
 - Stabilizing: Enabled the (Field.Name = (object)null)
 - Stabilizing: Enabled the Repository.Query if `PrimaryKey` is not Present
 
 
-#### RepoDb (v1.2.0-beta1)
+#### RepoDB (v1.2.0-beta1)
 
 - Beta Release 1
 
 
-#### RepoDb (v1.1.11)
+#### RepoDB (v1.1.11)
 
 - Supported multi-targetted framework (net40, netstandard1.3, netcore1.1)
 
 
-#### RepoDb (v1.1.10)
+#### RepoDB (v1.1.10)
 
 - Candidate for Beta Release
 
 
-#### RepoDb (v1.1.10-beta1)
+#### RepoDB (v1.1.10-beta1)
 
 - Supported multi-targetted framework (net40, netstandard1.3, netcore1.1)
 - Beta release 1 for v1.2.0
 
 
-#### RepoDb (v1.1.9)
+#### RepoDB (v1.1.9)
 
 - Introduced the IDbConnection Extended Operational Methods.
 - Optimized the `DbRepository` to use the IDbConnection Extended Operational Methods.
@@ -1065,7 +1065,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Documented the ConnectionPersistency, [DeleteAll](/operation/deleteall), InlineInsert, InlineMerge, InlineUpdate and [Truncate](/operation/truncate) operations.
 
 
-#### RepoDb (v1.1.8)
+#### RepoDB (v1.1.8)
 
 ##### Updates for v1.1.7 and v1.1.8
 
@@ -1079,7 +1079,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Next release is to support the .Net Core.
 
 
-#### RepoDb (v1.1.7)
+#### RepoDB (v1.1.7)
 
 - Supported identity primary key field identification from the database.
 - Fixed the parallelism issues by removing the unnecessary cache classes from the library.
@@ -1091,7 +1091,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Next release is to support the .Net Core.
 
 
-#### RepoDb (v1.1.6)
+#### RepoDB (v1.1.6)
 
 - Supported identity primary key field identification from the database.
 - Fixed the parallelism issues by removing the unnecessary cache objects from the library.
@@ -1102,7 +1102,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Next release is to support the .Net Core.
 
 
-#### RepoDb (v1.1.5)
+#### RepoDB (v1.1.5)
 
 - Built on a lower target framework 4.0 for earlier compatibility.
 - Solution clean-up, removed interfaces that is not unnecessary for extensions.
@@ -1111,7 +1111,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Next release is to support the .Net Core.
 
 
-#### RepoDb (v1.1.4)
+#### RepoDB (v1.1.4)
 
 - Built on a lower target framework 4.0 for earlier compatibility.
 - Solution clean-up, removed interfaces that is not unnecessary for extensions.
@@ -1119,7 +1119,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Next release is to support the .Net Core.
 
 
-#### RepoDb (v1.1.3)
+#### RepoDB (v1.1.3)
 
 - Built on a target framework 4.0 for earlier compatibility
 - Renamed CacheItem.Timestamp to CacheItem.CreatedDate
@@ -1141,7 +1141,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Removed IBaseRepository
 
 
-#### RepoDb (v1.1.2)
+#### RepoDB (v1.1.2)
 
 - Built on a target framework 4.0 for earlier compatibility
 - Renamed CacheItem.Timestamp to CacheItem.CreatedDate
@@ -1160,34 +1160,34 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Removed IDataEntityMap
 
 
-#### RepoDb (v1.1.1)
+#### RepoDB (v1.1.1)
 
 - Version 1.1.0
 
 
-#### RepoDb (v1.1.0)
+#### RepoDB (v1.1.0)
 
 - Version 1.1.0
 
 
-#### RepoDb (v1.0.20)
+#### RepoDB (v1.0.20)
 
 - Version 1.0.20
 
 
-#### RepoDb (v1.0.19)
+#### RepoDB (v1.0.19)
 
 - Version 1.0.19
 
 
-#### RepoDb (v1.0.18-beta01)
+#### RepoDB (v1.0.18-beta01)
 
 ##### Updates
 - Supported the `DbConnection`.ExecuteQuery<TEntity> method, to return the `IEnumerable` list of RepoDb.Interfaces.IDataEntity.
 - IL Emit the conversion of System.Data.`DbDataReader` to System.Dynamic.DynamicObject when calling the `DbConnection`.ExecuteQuery method.
 
 
-#### RepoDb (v1.0.17-alpha3)
+#### RepoDB (v1.0.17-alpha3)
 
 ##### Updates
 
@@ -1199,7 +1199,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Next version will be the Beta version of the library.
 
 
-#### RepoDb (v1.0.17-alpha02)
+#### RepoDB (v1.0.17-alpha02)
 
 ##### Updates
 
@@ -1211,7 +1211,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Next version will be the Alpha version of the library.
 
 
-#### RepoDb (v1.0.16)
+#### RepoDB (v1.0.16)
 
 ##### Updates
 
@@ -1223,7 +1223,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Next version will be the Alpha version of the library.
 
 
-#### RepoDb (v1.0.16-alpha-01)
+#### RepoDB (v1.0.16-alpha-01)
 
 ##### Updates
 
@@ -1235,7 +1235,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Next version will be the Alpha version of the library.
 
 
-#### RepoDb (v1.0.15)
+#### RepoDB (v1.0.15)
 
 - Added RepoDb.Reflection.Delegates.DataReaderToEntityMapperDelegate
 - Added RepoDb.Reflection.ConstructorInfoCache
@@ -1258,26 +1258,26 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Support Multi-Mapping for Class-Level
 
 
-#### RepoDb (v1.0.14)
+#### RepoDB (v1.0.14)
 
 - Reflection (IL Emitting)
 
 
-#### RepoDb (v1.0.13)
+#### RepoDB (v1.0.13)
 
 - Reflection (IL Emitting)
 
 
-#### RepoDb (v1.0.12)
+#### RepoDB (v1.0.12)
 
-- Same as RepoDb (v1.0.11)
+- Same as RepoDB (v1.0.11)
 
 
-## RepoDb (v1.0.11)
+## RepoDB (v1.0.11)
 
 ##### Updates
 
-- Same as RepoDb (v1.0.10)
+- Same as RepoDB (v1.0.10)
 
 #### Fixes
 
@@ -1285,7 +1285,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Issue 1: Class Entity `Map` Attribute `PrimaryKey` Identification
 
 
-#### RepoDb (v1.0.10)
+#### RepoDB (v1.0.10)
 
 ##### Updates
 
@@ -1313,14 +1313,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Issue 1: Class Entity `Map` Attribute `PrimaryKey` Identification
 
 
-#### RepoDb (v1.0.9)
+#### RepoDB (v1.0.9)
 
 - Renamed `ICache.Has` to `ICache.Contains`
 - Removed `ICache.GetAll` and implement the `IEnumerable` interface instead
 - Optimized the mapping for SqlBulkCopy for [BulkInsert](/operation/bulkinsert)
 
 
-#### RepoDb (v1.0.8)
+#### RepoDB (v1.0.8)
 
 - Fix the bug found when injecting the `IStatementBuilder` at the `BaseRepository`.
 - Renamed argument name `orderFields` to `orderBy`.
@@ -1331,7 +1331,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Remove the `sealed` keyword at `CacheItem` to make it inheritable
 
 
-#### RepoDb (v1.0.7)
+#### RepoDB (v1.0.7)
 
 ##### Updates
 
@@ -1356,7 +1356,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - EventNotifier class has been obsolete by the `Trace` class
 
 
-#### RepoDb (v1.0.6)
+#### RepoDB (v1.0.6)
 
 ##### Updates
 
@@ -1381,7 +1381,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - EventNotifier class has been obsolete by the `Trace` class
 
 
-#### RepoDb (v1.0.5)
+#### RepoDB (v1.0.5)
 
 ##### Updates
 
@@ -1421,28 +1421,28 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - CancelledExecution
 
 
-#### RepoDb (v1.0.4)
+#### RepoDB (v1.0.4)
 
 - Bug Fix: Error when converting the SqlDataReader data back to the class object when the value is DBNull.Value
 - Minor code optimizations and refactoring
 
 
-#### RepoDb (v1.0.3)
+#### RepoDB (v1.0.3)
 
 - Bug Fix: Error when converting the SqlDataReader data back to the class object when the value is DBNull.Value
 - Minor code optimizations and refactoring
 
 
-#### RepoDb (v1.0.2)
+#### RepoDB (v1.0.2)
 
 - Converting DataReader to Object
 - `Async` Calls (Task.Factory.StartNew)
 - Added support to auto find (Id) property as prospected `PrimaryKey` if the [Primary] attribute is not on place
 
 
-#### RepoDb (v1.0.1)
+#### RepoDB (v1.0.1)
 
-- Initial Release for RepoDb (.Net Extension)
+- Initial Release for RepoDB (.Net Extension)
 - Supported Dynamic `DbConnection`
 - Supported Mapping Command Type (Entity Level)
 - Supported ExecuteScalar, ExecuteNonQuery, ExecuteReader (DataEntity and ExpandoObject)
@@ -1461,9 +1461,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Supported Type Mapper
 
 
-#### RepoDb (v1.0.0)
+#### RepoDB (v1.0.0)
 
-- Initial Release for RepoDb (.Net Extension)
+- Initial Release for RepoDB (.Net Extension)
 - Supported Dynamic `DbConnection`
 - Supported Mapping Command Type (Entity Level)
 - Supported Execute Scalar

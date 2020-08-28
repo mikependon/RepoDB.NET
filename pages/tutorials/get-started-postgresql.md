@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: getstarted
 title: "Get Started for PostgreSQL"
-description: "Learn on how to work with PostgreSQL databases using RepoDb library."
+description: "Learn on how to work with PostgreSQL databases using RepoDB library."
 permalink: /tutorial/get-started-postgresql
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, postgresql]
 ---
 
 # Get Started for PostgreSQL
 
-RepoDb is a hybrid .NET ORM library for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
+RepoDB is a hybrid .NET ORM library for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
 #### Installation
 

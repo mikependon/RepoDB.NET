@@ -13,7 +13,7 @@ A batch operation is a process of executing multiple single-operations against t
 
 This operation comes with flexibility as it allows you to control the number of rows to be batched during the execution, and because of this, you can manage the performance based on your own scenarios (i.e.: Network Latency, Number of Columns, etc).
 
-In RepoDb, the following operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) and [MergeAll](/operation/mergeall)) are the batch operations. They are all ACID in nature.
+In RepoDB, the following operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) and [MergeAll](/operation/mergeall)) are the batch operations. They are all ACID in nature.
 
 #### Normal executions
 

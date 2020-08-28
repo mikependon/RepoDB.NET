@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What will make you choose RepoDb over Dapper"
+title: "What will make you choose RepoDB over Dapper"
 author: "Michael Camara Pendon"
 date: 2020-04-06 15:05:00 +0100
 categories: blogs repodb
@@ -8,7 +8,7 @@ categories: blogs repodb
 
 #### Introduction
 
-In this page, we will share you the differences and what sets RepoDb apart from Dapper. We tried our best to make a 1-to-1 comparisson for most area. This page will hopefully help you decide as a developer to choose RepoDb as your micro-ORM (with compelling reason).
+In this page, we will share you the differences and what sets RepoDB apart from Dapper. We tried our best to make a 1-to-1 comparisson for most area. This page will hopefully help you decide as a developer to choose RepoDB as your micro-ORM (with compelling reason).
 
 *&ldquo;I am  an open source contributor and I am here to share you what I had done. I worked hard for it to improve the space of data access in .NET. I personally ask your support towards this library. I hope you share, you blog and use it.&rdquo;*
 
@@ -18,9 +18,9 @@ In this page, we will share you the differences and what sets RepoDb apart from 
 
 The programming language and database provider we are using on our samples below are C# and SQL Server. 
 
-Both library is an ORM framework for .NET. They are both lightweight, fast and efficient. The Dapper is a full-fledge micro-ORM whereas RepoDb is a hybrid-ORM.
+Both library is an ORM framework for .NET. They are both lightweight, fast and efficient. The Dapper is a full-fledge micro-ORM whereas RepoDB is a hybrid-ORM.
 
-> To avoid the bias on the comparisson, we will not cover the features that is present in RepoDb but is absent in Dapper (i.e.: `Cache`, `Trace`, `Hints`, `Extensibility`, `StatementBuilder` and `Repositories`) (vice-versa). Also, the comparisson does not included any other extension libraries of both (i.e.: `RepoDb.SqLite`, `RepoDb.MySql`, `RepoDb.PostgreSql`, `Dapper.Contrib`, `DapperExtensions`, `Dapper.SqlBuilder`, etc).
+> To avoid the bias on the comparisson, we will not cover the features that is present in RepoDB but is absent in Dapper (i.e.: `Cache`, `Trace`, `Hints`, `Extensibility`, `StatementBuilder` and `Repositories`) (vice-versa). Also, the comparisson does not included any other extension libraries of both (i.e.: `RepoDb.SqLite`, `RepoDb.MySql`, `RepoDb.PostgreSql`, `Dapper.Contrib`, `DapperExtensions`, `Dapper.SqlBuilder`, etc).
 
 ##### Tables
 
@@ -104,7 +104,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-###### RepoDb
+###### RepoDB
 
 Raw-SQL:
 
@@ -137,7 +137,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-###### RepoDb
+###### RepoDB
 
 Raw-SQL:
 
@@ -193,7 +193,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-###### RepoDb
+###### RepoDB
 
 Raw-SQL:
 
@@ -242,7 +242,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-###### RepoDb
+###### RepoDB
 
 Raw-SQL:
 
@@ -287,7 +287,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-###### RepoDb
+###### RepoDB
 
 Raw-SQL:
 
@@ -371,7 +371,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-###### RepoDb
+###### RepoDB
 
 The `JOIN` feature is not being supported yet. However, there is an alternative way to do this in RepoDb. It can be done via [multi-query](/feature/multiplequery) that executes packed `SELECT`-statements in a single-call.
 
@@ -437,7 +437,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-###### RepoDb
+###### RepoDB
 
 Raw-SQL:
 
@@ -487,7 +487,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 Please correct me here so I can update this page right away.
 
-###### RepoDb
+###### RepoDB
 
 Batch operation:
 
@@ -515,7 +515,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 The above operation can be batched by passing a value on the `batchSize` argument.
 
-**Note:** This is just an FYI. The operation is using the `SqlBulkCopy` of ADO.Net. This should not be compared to Dapper performance due to the fact that this is a real bulk-operation. This is far (extremely fast) when compared to both Dapper (multi-inserts) and RepoDb (`InsertAll`) operations.
+**Note:** This is just an FYI. The operation is using the `SqlBulkCopy` of ADO.Net. This should not be compared to Dapper performance due to the fact that this is a real bulk-operation. This is far (extremely fast) when compared to both Dapper (multi-inserts) and RepoDB (`InsertAll`) operations.
 
 ##### Merging multiple rows
 
@@ -554,7 +554,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 Here, I have the same question as the previous section.
 
-###### RepoDb
+###### RepoDB
 
 Fluent:
 
@@ -584,7 +584,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-###### RepoDb
+###### RepoDB
 
 Fluent:
 
@@ -621,7 +621,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 **Note:** You can as well pass an instance of `DbDataReader` (instead of `DataTable`).
 
-###### RepoDb
+###### RepoDB
 
 Fluent:
 
@@ -676,7 +676,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 **Note:** You can as well execute it via (LIMIT) keyword. It is on your preference.
 
-###### RepoDb
+###### RepoDB
 
 Fluent:
 
@@ -707,7 +707,7 @@ using (var sourceConnection = new SqlConnection(SourceConnectionString))
 }
 ```
 
-###### RepoDb
+###### RepoDB
 
 Fluent ([InsertAll](/operation/insertall)):
 
@@ -775,7 +775,7 @@ parameters.Add("Address", "New York");
 Query<T>(sql, parameters);
 ```
 
-###### RepoDb
+###### RepoDB
 
 Dynamic:
 
@@ -822,7 +822,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-###### RepoDb
+###### RepoDB
 
 ExecuteQuery:
 
@@ -849,14 +849,14 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 #### Expression Trees
 
 - Dapper do not support `Linq Expressions`, only `Dynamics` and `DynamicParameters`.
-- RepoDb supports `Linq Expressions`, `Dynamics` and `QueryObjects`.
+- RepoDB supports `Linq Expressions`, `Dynamics` and `QueryObjects`.
 
 **Note:** The `DynamicParameters` is just a subset of `QueryObjects`. The `QueryObjects` has much more capability that can further support the `Linq Expressions`.
 
 Please visit both documentation.
 
 - [Dapper](https://dapper-tutorial.net/parameter-dynamic)
-- [RepoDb](https://github.com/mikependon/RepoDb/wiki/Expression-Trees)
+- [RepoDB](https://github.com/mikependon/RepoDb/wiki/Expression-Trees)
 
 #### Supported Databases
 
@@ -864,7 +864,7 @@ Please visit both documentation.
 
 Supports all RDBMS data providers.
 
-###### RepoDb
+###### RepoDB
 
 1. Raw-SQLs support all RDBMS data providers.
 2. Fluent calls only supports SQL Server, SqLite, MySql and PostgreSql.
@@ -879,18 +879,18 @@ Here is our observation from the official execution results. The official result
 
 Performance:
 
-- RepoDb is the fastest ORM when fetching set-records. Both raw-SQL and fluent calls.
-- Dapper and RepoDb speed is identical when fetching single-record.
-- Dapper is faster than RepoDb's fluent calls when fetching single-record.
+- RepoDB is the fastest ORM when fetching set-records. Both raw-SQL and fluent calls.
+- Dapper and RepoDB speed is identical when fetching single-record.
+- Dapper is faster than RepoDB's fluent calls when fetching single-record.
 
 Efficiency:
 
-- RepoDb is the most-efficient ORM when fetching set-records. Both raw-SQL and fluent calls.
-- Dapper is must more efficient than RepoDb when fetching single-record.
+- RepoDB is the most-efficient ORM when fetching set-records. Both raw-SQL and fluent calls.
+- Dapper is must more efficient than RepoDB when fetching single-record.
 
 **NetFramework:**
 
-RepoDb is the fastest and the most-efficient ORM for fetching both single and set records. The official results can been found [here](https://github.com/FransBouma/RawDataAccessBencher/blob/master/Results/20190520_netfx.txt).
+RepoDB is the fastest and the most-efficient ORM for fetching both single and set records. The official results can been found [here](https://github.com/FransBouma/RawDataAccessBencher/blob/master/Results/20190520_netfx.txt).
 
 #### Quality
 
@@ -898,7 +898,7 @@ RepoDb is the fastest and the most-efficient ORM for fetching both single and se
 
 Dapper is already running since 2012 and is being used by [StackOverflow.com](https://stackoverflow.com). It has a huge consumers and is hugely backed by the community.
 
-###### RepoDb
+###### RepoDB
 
 We did our best to write one-test per scenario and we have delivered thousand of items (approximately 8K) for both `Unit` and `Integration` tests. We would like your help to review it as well.
 
@@ -928,7 +928,7 @@ Both is with high-quality but the Dapper is far matured over RepoDb. We will not
 
 Proven and is backed hugely by the .NET Community; funded by [StackOverflow.com](https://stackoverflow.com).
 
-###### RepoDb
+###### RepoDB
 
 Backed by one person and is not funded nor sponsored by any entity. Just starting to expand and asking for more supports from the .NET Community.
 
@@ -938,7 +938,7 @@ Both is under the [Apache-2.0](http://apache.org/licenses/LICENSE-2.0.html) lice
 
 ###### Disclaimer
 
-We are not an expert in legal but we are consulting. If any conflict arises on the copyright or trademark in-front of RepoDb, then that is not yet addressed.
+We are not an expert in legal but we are consulting. If any conflict arises on the copyright or trademark in-front of RepoDB, then that is not yet addressed.
 
 ---------
 
@@ -950,17 +950,17 @@ We hope that you somehow consider and revisits this library. It has improve a lo
 
 Dapper is lightweight but will drag you to the most complex-level of code development. It is always tedious to write raw-SQLs and it is hard to maintain due to the fact that it is not a compiler friendly. In addition, to obtain necessary task, you need to implement necessary features.
 
-RepoDb is a very easy-to-use ORM with enough feature sets that you can play on.
+RepoDB is a very easy-to-use ORM with enough feature sets that you can play on.
 
 ###### Performance
 
-RepoDb is faster than Dapper, enough reason to choose this library if the only factor is performance.
+RepoDB is faster than Dapper, enough reason to choose this library if the only factor is performance.
 
-> RepoDb is the fastest ORM in .NET. This claim is supported by the official run of the community-approved ORM bencher [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher).
+> RepoDB is the fastest ORM in .NET. This claim is supported by the official run of the community-approved ORM bencher [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher).
 
 ###### Efficiency
 
-RepoDb is more efficient than Dapper (same claim as in Performance).
+RepoDB is more efficient than Dapper (same claim as in Performance).
 
 ###### Experience
 
@@ -968,7 +968,7 @@ It is more easier and faster to develop the code snippets with RepoDb. It has a 
 
 ###### Features
 
-In RepoDb, by having the necessary features within the space of a micro-ORM will help you a lot on your development.
+In RepoDB, by having the necessary features within the space of a micro-ORM will help you a lot on your development.
 
 The features of like `Bulk` & `Batch` operations, `PropertyHandlers`, `2nd-Level Cache`, `Expression Trees`, `Multi Queries` and inline `Hints` are the most common in-used features. The major pain points are, it is absent in Dapper.
 

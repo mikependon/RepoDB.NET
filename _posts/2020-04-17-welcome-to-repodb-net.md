@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Welcome to RepoDb.NET"
+title: "Welcome to RepoDB.NET"
 author: "Michael Camara Pendon"
 date: 2020-04-17 5:30:00 +0100
 categories: blogs repodb
 ---
 
-This is the official site of [RepoDb](https://github.com/mikependon/RepoDb) library. The intention of this site is to provide and guide you as a developer with all the information needed when using the RepoDb library.
+This is the official site of [RepoDB](https://github.com/mikependon/RepoDb) library. The intention of this site is to provide and guide you as a developer with all the information needed when using the RepoDB library.
 
-[RepoDb](https://github.com/mikependon/RepoDb) is an open-source .NET ORM that bridge the gaps between micro-ORMs and full-ORMs. It helps the developer to simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
+[RepoDB](https://github.com/mikependon/RepoDb) is an open-source .NET ORM that bridge the gaps between micro-ORMs and full-ORMs. It helps the developer to simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
 
 You can use the library to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) Relational Database Management Systems (RDBMS).
 
@@ -16,7 +16,7 @@ It is here to improve the things and experiences when working with the Data Acce
 
 #### About the Site
 
-This site is powered by [Jekyll](https://github.com/jekyll/jekyll) and is hosted as [Github Pages](https://github.com/mikependon/RepoDb.NET). The design utilizes the [Material](https://material.io/resources/icons/?style=baseline) design of Google (and also the [icons](https://material.io/resources/icons/?style=baseline)).
+This site is powered by [Jekyll](https://github.com/jekyll/jekyll) and is hosted as [Github Pages](https://github.com/mikependon/RepoDB.NET). The design utilizes the [Material](https://material.io/resources/icons/?style=baseline) design of Google (and also the [icons](https://material.io/resources/icons/?style=baseline)).
 
 #### Site Map
 
@@ -55,7 +55,7 @@ Various pages were provided and has been grouped on its purpose.
 
 #### Community
 
-This site is open for contribution from the community. If you have something would like to place on this site, please do a PR on our [repository](https://github.com/mikependon/RepoDb.NET).
+This site is open for contribution from the community. If you have something would like to place on this site, please do a PR on our [repository](https://github.com/mikependon/RepoDB.NET).
 
 ###### Official Channels
 

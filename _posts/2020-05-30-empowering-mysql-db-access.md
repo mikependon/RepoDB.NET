@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Empowering MySQL DB Access with MySqlConnector + RepoDb"
+title: "Empowering MySQL DB Access with MySqlConnector + RepoDB"
 author: "Michael Camara Pendon"
 date: 2020-05-30 5:55:00 +0200
 categories: blogs repodb
@@ -10,13 +10,13 @@ categories: blogs repodb
 
 [MySqlConnector](https://mysqlconnector.net/) is an ADO.NET data provider for MySQL Server, MariaDB, Percona Server, Amazon Aurora, Azure Database for MySQL, Google Cloud SQL for MySQL and more. It provides implementations of DbConnection, DbCommand, DbDataReader, DbTransaction — the classes needed to query and update databases from managed code. MySqlConnector claims to be the real asynchronous data provider for MySQL in .NET space. It is known to much more faster and optimal than [MySql.Data](https://www.nuget.org/packages/MySql.Data/) data provider the Oracle has written.
 
-[RepoDb](http://repodb.net/) is an open-source .NET ORM that bridge the gaps between micro-ORMs and full-ORMs. It helps the developer to simplify the switch-over of when to use the BASIC and ADVANCE operations during the development. It is your best alternative ORM to both Dapper and Entity Framework. RepoDb claims to be the most-fastest and most-efficient ORM library in .NET in which even surpassed the [Dapper](https://www.nuget.org/packages/Dapper/) performance by huge gap. It is best suited for the developers who wish to control the Data Access Layers with a more simple and dynamic implementations.
+[RepoDB](http://repodb.net/) is an open-source .NET ORM that bridge the gaps between micro-ORMs and full-ORMs. It helps the developer to simplify the switch-over of when to use the BASIC and ADVANCE operations during the development. It is your best alternative ORM to both Dapper and Entity Framework. RepoDB claims to be the most-fastest and most-efficient ORM library in .NET in which even surpassed the [Dapper](https://www.nuget.org/packages/Dapper/) performance by huge gap. It is best suited for the developers who wish to control the Data Access Layers with a more simple and dynamic implementations.
 
 We are knocking on the windows of .NET/MySQL community about this newly built and released capability for MySQL DB accessibility space. With the combination of these 2 libraries, the DB accessibility for MySQL is now very powerful as both packages are offering different advantages for its users.
 
 #### About the Library
 
-The library is deployed as Nuget Package named [RepoDb.MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector) in which both being authored by the authors of RepoDb and MySqlConnector. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector) as extension of RepoDb.
+The library is deployed as Nuget Package named [RepoDb.MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector) in which both being authored by the authors of RepoDB and MySqlConnector. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector) as extension of RepoDb.
 
 The library is currently on its first version release as of writing this. The test suites (both [Unit](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector/RepoDb.MySqlConnector.UnitTests) and [Integration](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector/RepoDb.MySqlConnector.IntegrationTests) tests) were written to cover hundred of real-life business scenarios for all its operations.
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "RepoDb - a hybrid ORM library for .NET"
+title: "RepoDB - a hybrid ORM library for .NET"
 author: "Michael Camara Pendon"
 date: 2020-04-02 12:00:00 +0100
 categories: blogs repodb
@@ -8,11 +8,11 @@ categories: blogs repodb
 
 ## Introduction
 
-Introducing RepoDb, a new high performant and efficient hybrid ORM library for .NET.
+Introducing RepoDB, a new high performant and efficient hybrid ORM library for .NET.
 
 To begin with, you can start reading our [Get Started](/tutorial/get-started-sqlserver) page or learn more from our [documentation](/docs).
 
-## Why use RepoDb?
+## Why use RepoDB?
 
 - Easy installation, only takes few seconds.
 - No controlled layer like `DbContext`, those make the developers speed-up the usability.

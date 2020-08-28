@@ -2,7 +2,7 @@ title: Documentation
 docs:
 
 - key: introduction
-  title: "RepoDb"
+  title: "RepoDB"
   url: "/preface"
   isdoc: false
   description: null

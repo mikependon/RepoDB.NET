@@ -2,7 +2,7 @@
 layout: navpage
 sidebar: attributes
 title: "Text"
-description: "Learn on how to use the RepoDb Text attribute."
+description: "Learn on how to use the RepoDB Text attribute."
 permalink: /attribute/text
 tags: [repodb, class, text, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---

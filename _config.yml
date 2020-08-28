@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: RepoDb
+title: RepoDB
 author: Michael Camara Pendon
 email: michael.c.pendon@outlook.com
 description: >- # this means to ignore newlines until "baseurl:"
@@ -36,7 +36,7 @@ email_address: michael.c.pendon@outlook.com
 github_link: https://github.com/mikependon/RepoDb
 twitter_link: https://twitter.com/search?q=%23repodb
 gitter_link: https://gitter.im/RepoDb/community
-stackoverflow_link: https://stackoverflow.com/search?tab=newest&q=RepoDb
+stackoverflow_link: https://stackoverflow.com/search?tab=newest&q=RepoDB
 
 # Build settings
 theme: minima

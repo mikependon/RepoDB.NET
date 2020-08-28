@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "RepoDb complete support to Implicit Mapping"
+title: "RepoDB complete support to Implicit Mapping"
 author: "Michael Camara Pendon"
 date: 2020-04-12 5:24:00 +0100
 categories: blogs repodb
 ---
 
-Happy Easter 2020! In the middle of my development of this site ([repodb.net](http://repodb.net)), 2 of the users of the library has asked me to introduce the [Implicit Mapping](/feature/implicitmapping) feature in [RepoDb](https://github.com/mikependon/RepoDb).
+Happy Easter 2020! In the middle of my development of this site ([repodb.net](http://repodb.net)), 2 of the users of the library has asked me to introduce the [Implicit Mapping](/feature/implicitmapping) feature in [RepoDB](https://github.com/mikependon/RepoDb).
 
 The requests can be found [here](https://github.com/mikependon/RepoDb/issues/415).
 
@@ -16,7 +16,7 @@ It is feature that would allow you to map your desired attributes into your clas
 
 #### Attributes
 
-In RepoDb, the following attributes were already given.
+In RepoDB, the following attributes were already given.
 
 - [Map](/attribute/map) - is used to map the class (or class property) into its equivalent object in the database.
 - [Primary](/attribute/primary) - is used to mark a class property to be a primary.

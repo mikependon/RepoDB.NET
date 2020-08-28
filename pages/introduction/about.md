@@ -2,17 +2,17 @@
 layout: navpage
 sidebar: introduction
 title: About
-description: "RepoDb is a hybrid-ORM library for .NET. It is the best alternative ORM to both Dapper and EntityFramework."
+description: "RepoDB is a hybrid-ORM library for .NET. It is the best alternative ORM to both Dapper and EntityFramework."
 permalink: /about
 ---
 
 # About
 
-[RepoDb](https://github.com/mikependon/RepoDb) is a hybrid-ORM library for .NET. It is your best alternative ORM to both [Dapper](#) and [EntityFramework](#).
+[RepoDB](https://github.com/mikependon/RepoDb) is a hybrid-ORM library for .NET. It is your best alternative ORM to both [Dapper](#) and [EntityFramework](#).
 
 #### Packages
 
-- [RepoDb (Core)](https://www.nuget.org/packages/RepoDb)
+- [RepoDB (Core)](https://www.nuget.org/packages/RepoDb)
 - [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer)
 - [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations)
 - [RepoDb.SqLite](https://www.nuget.org/packages/RepoDb.SqLite)
@@ -31,7 +31,7 @@ permalink: /about
 #### Official Channels
 
 - [GitHub](https://github.com/mikependon/RepoDb/issues) - for any issues, requests and problems.
-- [StackOverflow](https://stackoverflow.com/search?tab=newest&q=RepoDb) - for any technical questions.
+- [StackOverflow](https://stackoverflow.com/search?tab=newest&q=RepoDB) - for any technical questions.
 - [Twitter](https://twitter.com/search?q=%23repodb) - for the latest news.
 - [Gitter Chat](https://gitter.im/RepoDb/community) - for direct and live Q&A.
 

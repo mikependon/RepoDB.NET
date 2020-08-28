@@ -1,6 +1,6 @@
 # RepoDb.NET
 
-This is the official raw files for [RepoDb](https://github.com/mikependon/RepoDb) website. The official website can be visited at [RepoDb.NET](http://repodb.net).
+This is the official raw files for [RepoDB](https://github.com/mikependon/RepoDb) website. The official website can be visited at [RepoDb.NET](http://repodb.net).
 
 ## Clone and Run Locally
 
@@ -28,7 +28,7 @@ Lastly, open a browser and visit the link [http://127.0.0.1:4000/](http://127.0.
 Please get in touch with us via:
 
 - [GitHub](https://github.com/mikependon/RepoDb.NET/issues) - for any issues, requests and problems.
-- [StackOverflow](https://stackoverflow.com/search?q=RepoDb) - for any technical questions.
+- [StackOverflow](https://stackoverflow.com/search?q=RepoDB) - for any technical questions.
 - [Twitter](https://twitter.com/search?q=%23repodb) - for the latest news.
 - [Gitter Chat](https://gitter.im/RepoDb/community) - for direct and live Q&A.
 

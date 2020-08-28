@@ -2,14 +2,14 @@
 layout: navpage
 sidebar: getstarted
 title: "Get Started for SQLite"
-description: "Learn on how to work with SQLite databases using RepoDb library."
+description: "Learn on how to work with SQLite databases using RepoDB library."
 permalink: /tutorial/get-started-sqlite
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, sqlite]
 ---
 
 # Get Started for SQLite
 
-RepoDb is a hybrid .NET ORM library for [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqLite) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
+RepoDB is a hybrid .NET ORM library for [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqLite) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
 #### Installation
 

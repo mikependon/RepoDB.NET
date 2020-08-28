@@ -84,19 +84,19 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Feature: Introduce PostgreSql support to `NpgsqlDbType` via [PostgreSqlTypeMapAttribute](/attribute/postgresqltypemapattribute) attribute. [#390](https://github.com/mikependon/RepoDb/issues/390)
 
 
-##### RepoDb (v1.10.3-beta1)
+##### RepoDB (v1.10.3-beta1)
 
-- Referenced the updated version of RepoDb core library (v1.10.4-beta1).
+- Referenced the updated version of RepoDB core library (v1.10.4-beta1).
 
 
 #### RepoDb.PostgreSql (v1.0.2)
 
-- Referenced the version RepoDb v1.10.6.
+- Referenced the version RepoDB v1.10.6.
 
 
 #### RepoDb.PostgreSql(v1.0.1)
 
-- Referenced the version RepoDb v1.10.5.
+- Referenced the version RepoDB v1.10.5.
 
 
 #### RepoDb.PostgreSql (v1.0.0)

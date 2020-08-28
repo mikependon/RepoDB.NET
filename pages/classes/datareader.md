@@ -41,4 +41,4 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-> This class is the reason why the RepoDb is the fastest .NET ORM in the world when it comes to data extraction. 
+> This class is the reason why the RepoDB is the fastest .NET ORM in the world when it comes to data extraction. 
