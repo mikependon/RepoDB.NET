@@ -10,7 +10,7 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-#### Next Version
+#### RepoDb (v1.12.0-beta1)
 
 - Bug: QueryAsync with empty QueryField list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
 - Bug: IPropertyHandler not being called [#514](https://github.com/mikependon/RepoDb/issues/514)

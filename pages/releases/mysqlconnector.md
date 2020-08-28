@@ -10,6 +10,19 @@ permalink: /release/mysqlconnector
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector) to download it.
 
+#### RepoDb.MySqlConnector (v1.1.0-beta1)
+
+- Breaking: Complete support F# programming language as requested by the Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
+- Breaking: Introduced the `fields` argument to the fetch (i.e.: [Query](/operation/query), [ExecuteQuery](/operation/executequery) and [BatchQuery](/operation/batchquery)) and push (i.e.: [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update)) operations.
+- Breaking: Introduced the `tableName` argument to all entity based operations. This completely resolves the `F#` anonymous invocations.
+- Breaking: Renamed of argument `whereOrPrimaryKey` to `what`.
+- Enhacement: Complete support to the immutable classes and/or types.
+- Refactoring: Refactored the compiler implementations by simplifying the code from Monolithic to Smaller/Shorter/Cleaner code.
+- Feature: Introduced the support to the [Class Handler](/feature/classhandler).
+- Test: More coverage of Integration Tests and Unit Tests.
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta1](/release/core#repodb-v1120-beta1)).
+
+
 #### RepoDb.MySqlConnector (v1.0.4)
 
 - Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
