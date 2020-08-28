@@ -12,25 +12,25 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDb (v1.12.0-beta1)
 
-- Bug: QueryAsync with empty QueryField list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
-- Bug: IPropertyHandler not being called [#514](https://github.com/mikependon/RepoDb/issues/514)
+- Bug: [QueryAsync](/operation/query) with empty [QueryField](/class/queryfield) list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
+- Bug: [IPropertyHandler](/interface/ipropertyhandler) not being called [#514](https://github.com/mikependon/RepoDb/issues/514)
 - Request: Completely expose the `fields` argument in the [BatchQuery](/operation/batchquery), [Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations (and all its Batch operations). #523
-- Request: Adds an overloaded method for [QueryAll&lt;TEntity&gt;](/operation/queryall) operation that takes the `tableName` parameter. [#521](https://github.com/mikependon/RepoDb/issues/521)
+- Request: Adds an overloaded method for [QueryAll&lt;TEntity&gt;](/operation/queryall) operation that takes the `tableName` parameter. [#521](https://github.com/mikependon/RepoDb/issues/521) - **BREAKING**
 - Request: Add caching for [ExecuteQuery](/operation/executequery) and [ExecuteQuery&lt;TEntity&gt;](/operation/executequery) [#522](https://github.com/mikependon/RepoDb/issues/522)
-- Request: Support the Immutable Entities [#465](https://github.com/mikependon/RepoDb/issues/465)
-- Enhancement: Use the `Identity` field if the `Primary` field is not available during the [Query](/operation/query), [Delete](/operation/delete) and [Update](/operation/update) operations.
-- Refactoring: Enhance the coding in the Core Compiler [#479](https://github.com/mikependon/RepoDb/issues/479).
+- Request: Support the Immutable Entities [#465](https://github.com/mikependon/RepoDb/issues/465) - **NEW**
+- Enhancement: Use the `Identity` field if the `Primary` field is not available during the [Query](/operation/query), [Delete](/operation/delete) and [Update](/operation/update) operations. **NEW**
+- Refactoring: Enhance the coding in the Core Compiler [#479](https://github.com/mikependon/RepoDb/issues/479). **BREAKING**
 - Enhancement: Complete support to the Fluent named-based operation [#499](https://github.com/mikependon/RepoDb/issues/499).
 - Enhancement: Replaces the usage of `IsNullOrEmpty` to `IsNullOrWhiteSpace`.
 - Enhancement: Replaces the usage of `ToLower()` to `ToLowerInvariant()`.
 - Enhancement: Replaces the usage of string equality to `string.Equals(value1, value2, StringComparer.OrdinalIgnoreCase)`.
 - Enhancement: Added the `Async` methods in the compiler. #482 #477
 - Enhancement: Add the dynamic [ExecuteQuery](/operation/executequery) method in the [DbRepository](/class/dbrepository). #517
-- Enhancement: Renamed the `whereOrPrimaryKey` argument to `what` to extend the support to both (data entity object, dynamic/object expression, primary key and identity key), to further support the `F#` community.
-- Refactoring: Make all the `cacheItemExpiration` arguments nullable.
+- Enhancement: Renamed the `whereOrPrimaryKey` argument to `what` to extend the support to both (data entity object, dynamic/object expression, primary key and identity key), to further support the `F#` community. **BREAKING**
+- Refactoring: Make all the `cacheItemExpiration` arguments nullable. **BREAKING**
 - Refactoring: Make the [BaseRepository](/class/dbrepository) and [DbRepository](/class/dbrepository) objects `CacheItemExpiration` property nullable.
 - Refactoring: Make the [CacheItem](/class/cacheitem) object `CacheItemExpiration` property nullable.
-- Added the Integration Tests for the `NonKeyedTable`.
+- Test: Added the Integration Tests for the `NonKeyedTable`.
 - Added the `KeyFieldNotFoundException`, `MissingQualifierFieldsException` and the `IdentityFieldNotFoundException`.
 - Added the `<TEntity>(TableName)` methods to the [BatchQuery](/operation/batchquery) operation.
 - Added the `<TEntity>(TableName)` methods to the [Query](/operation/query) and [QueryAll](/operation/queryall) operations.
@@ -42,8 +42,6 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added the `<TEntity, TResult>` methods to the [Max](/operation/max) and [MaxAll](/operation/maxall operations).
 - Added the `<TEntity, TResult>` methods to the [Min](/operation/min) and [MinAll](/operation/minall operations).
 - Added the `<TEntity, TResult>` methods to the [Sum](/operation/sum) and [SumAll](/operation/sumall operations).
-- Added the Release shields on READMEs.
-- Added the Conversion/Coerce section on the main README.
 - Added the `InsertExecutionContextProvider` internal class for the [Insert](/operation/insert) operation execution context generator.
 - Added the `MergeExecutionContextProvider` internal class for the [Merge](/operation/merge) operation execution context generator.
 - Added the `UpdateExecutionContextProvider` internal class for the [Update](/operation/update) operation execution context generator.
