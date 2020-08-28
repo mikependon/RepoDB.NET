@@ -16,8 +16,9 @@ The execution of the transformation contains the actual values and the affected 
 ###### It uses the following objects
 
 - [IPropertyHandler](/interface/ipropertyhandler) - an interface to mark your class as property handler.
-- [PropertyHandler](/attribute/propertyhandler) - an attribute used to map to specific class property.
-- [PropertyHandlerMapper](/mapper/propertyhandlermapper) - a mapper used map into a specific type.
+- [PropertyHandler](/attribute/propertyhandler) - an attribute used to map a property handler into a specific property.
+- [PropertyHandlerMapper](/mapper/propertyhandlermapper) - a mapper used to map into a property handler into a specific property.
+- [FluentMapper](/mapper/fluentmapper) - a fluent mapper class used to map into a property handler into a specific property.
 
 #### Relevant Use-Cases
 
@@ -69,7 +70,7 @@ The property handler above is meant for a scenario of converting a `String` colu
 To attach a property handler into a class property, simply use the [PropertyHandller](/attribute/propertyhandler) attribute.
 
 ```csharp
-public class Customer
+public class Person
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -82,7 +83,7 @@ Or, use the [FluentMapper](/mapper/fluentmapper) class. It uses the [PropertyHan
 
 ```csharp
 FluentMapper
-    .Entity<Customer>()
+    .Entity<Person>()
     .PropertyHandler<PersonAddressPropertyHandler>(e => e.Address);
 ```
 

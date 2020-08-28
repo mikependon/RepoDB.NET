@@ -1,10 +1,10 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "MySqlConnectorTypeMapAttribute"
+title: "MySqlConnectorTypeMap"
 description: "Learn on how to use the RepoDB MySqlConnectorTypeMap attribute."
-permalink: /attribute/mysqltypemapattribute
-tags: [repodb, class, mysqlconnectortypemapattribute, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+permalink: /attribute/mysqltypemap
+tags: [repodb, class, mysqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # MySqlConnectorTypeMap

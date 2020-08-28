@@ -58,6 +58,9 @@ docs:
   - title: "Class Mapping"
     url: "/feature/classmapping"
 
+  - title: "Class Handlers"
+    url: "/feature/classhandlers"
+
   - title: "Connection Persistency"
     url: "/feature/connectionpersistency"
 

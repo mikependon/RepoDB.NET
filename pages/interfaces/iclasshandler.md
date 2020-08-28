@@ -42,7 +42,7 @@ public class PersonClassHandler : IClassHandler<Person>
 
 #### How to Map?
 
-There are 3 ways of doing the map. You can either do the following.
+There are various ways of mapping a class handler into an entity model. You can use either do the following approach.
 
 Via the [ClassHandlerMapper](/mapper/classhandlermapper) class.
 

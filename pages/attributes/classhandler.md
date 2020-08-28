@@ -1,10 +1,10 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "ClassHandlerAttribute"
+title: "ClassHandler"
 description: "Learn on how to use the RepoDB ClassHandler attribute."
-permalink: /attribute/classhandlerattribute
-tags: [repodb, class, classhandlerattribute, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+permalink: /attribute/classhandler
+tags: [repodb, class, classhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # ClassHandler

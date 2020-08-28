@@ -23,7 +23,7 @@ Below are the methods available from this class.
 - Maps the equivalent `database object` of the data entity.
 - Define the data entity `primary` and `identity` property.
 - Maps the equivalent `column` of the property.
-- Defines the database type and `property handler` of the property and .NET CLR type.
+- Defines the database type and `class/property handler` of the property and .NET CLR type.
 
 #### Entity Mapping
 
@@ -46,6 +46,7 @@ customerMappingDefinition
     .Column(e => e.LastName, "[LName]") // Map the Property/Column
     .Column(e => e.DateOfBirth, "[DOB]") // Map the Property/Column
     .DbType(e => e.DateOfBirth, DbType.DateTime2) // Defines the DatabaseType of the Property
+    .ClassHandler<CustomerClassHandler>() // Defines the ClassHandler of the Model
     .PropertyHandler<CustomerAddressPropertyHandler>(e => e.Address); // Defines the PropertyHandler of the Property
 ```
 
@@ -61,6 +62,7 @@ FluentMapper
     .Column(e => e.LastName, "[LName]") // Map the Property/Column
     .Column(e => e.DateOfBirth, "[DOB]") // Map the Property/Column
     .DbType(e => e.DateOfBirth, DbType.DateTime2) // Defines the DatabaseType of the Property
+    .ClassHandler<CustomerClassHandler>() // Defines the ClassHandler of the Model
     .PropertyHandler<CustomerAddressPropertyHandler>(e => e.Address); // Defines the PropertyHandler of the Property
 ```
 

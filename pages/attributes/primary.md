@@ -1,10 +1,10 @@
 ---
 layout: navpage
 sidebar: attributes
-title: "PrimaryAttribute"
+title: "Primary"
 description: "Learn on how to use the RepoDB Primary attribute."
-permalink: /attribute/primaryattribute
-tags: [repodb, class, primaryattribute, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+permalink: /attribute/primary
+tags: [repodb, class, primary, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Primary
