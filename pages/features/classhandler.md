@@ -22,6 +22,10 @@ The execution of the event contains the actual `DbDataReader` in used and the af
 - [ClassHandlerMapper](/mapper/classhandlermapper) - a mapper used to map a class handler into a specific .NET CLR type.
 - [FluentMapper](/mapper/fluentmapper) - a fluent mapper class used to map a class handler into a specific .NET CLR type.
 
+#### How does it works?
+
+If you are reading a data from the DB (i.e. [ExecuteQuery](/operation/executequery), [Query](/operation/query), [BatchQuery](/operation/batchquery)), the method `Get` will be invoked after deserializing the model. On the other hand, if you are pushing a data into the DB (i.e. [Insert](/operation/insert), [Merge](/operation/merge), [Update](/operation/update)), the method `Set` will be invoked prior the actual DB operation.
+
 #### Implementing a Class Handler
 
 Create a class that implements the [IClassHandler](/interface/iclasshandler) interface.
@@ -48,8 +52,8 @@ There are various ways of mapping a class handler into an entity model. You can 
 Firstly, via the [ClassHandlerMapper](/mapper/classhandlermapper) class.
 
 ```csharp
-PropertyHandlerMapper
-    .Add(typeof(Person), new PersonClassHandler(), true);
+ClassHandlerMapper
+    .Add<Person, PersonClassHandler>(true);
 ```
 
 Secondly, via the [FluentMapper](/mapper/fluentmapper) class.
@@ -57,7 +61,7 @@ Secondly, via the [FluentMapper](/mapper/fluentmapper) class.
 ```csharp
 FluentMapper
     .Entity<Person>()
-    .ClassHandler<PersonClassHandler>();
+    .ClassHandler<PersonClassHandler>(true);
 ```
 
 Lastly, via an explicit [ClassHandler](/attribute/classhandler) attribute.
