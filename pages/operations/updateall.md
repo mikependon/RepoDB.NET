@@ -96,7 +96,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-##### Updating Specific Columns
+#### Specific Columns
 
 You can also target a specific columns to be updated by passing the list of fields to be included in the `fields` argument.
 

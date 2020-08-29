@@ -98,7 +98,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-##### Merging Specific Columns
+#### Specific Columns
 
 You can also target a specific columns to be merged by passing the list of fields to be included in the `fields` argument.
 

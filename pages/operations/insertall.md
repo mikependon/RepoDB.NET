@@ -84,7 +84,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-##### Inserting Specific Columns
+#### Specific Columns
 
 You can also target a specific columns to be inserted by passing the list of fields to be included in the `fields` argument.
 
