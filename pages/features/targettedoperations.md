@@ -86,7 +86,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         FirstName = "John",
         LastName = "Doe"
     };
-    var customer = connection.Insert<int>("[dbo].[Customer]", entity);
+    var id = connection.Insert<int>("[dbo].[Customer]", entity);
 }
 ```
 
@@ -101,7 +101,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastName = "Doe"
     };
     var fields = Field.From("Id","FirstName", "LastName");
-    var customer = connection.Insert<int>("[dbo].[Customer]", entity, fields: fields);
+    var id = connection.Insert<int>("[dbo].[Customer]", entity, fields: fields);
 }
 ```
 
@@ -124,7 +124,7 @@ Or via dynamics.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GenerateCustomers();
-    var insertedRows = connection.Insert("[dbo].[Customer]", entities);
+    var insertedRows = connection.InsertAll("[dbo].[Customer]", entities);
 }
 ```
 
@@ -135,7 +135,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GenerateCustomers();
     var fields = Field.From("Id","FirstName", "LastName");
-    var customer = connection.Insert("[dbo].[Customer]", entities, fields: fields);
+    var insertedRows = connection.InsertAll("[dbo].[Customer]", entities, fields: fields);
 }
 ```
 
@@ -170,7 +170,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastName = "Doe",
         LastUpdatedDateUtc = DateTime.UtcNow
     };
-    var customer = connection.Merge<int>("[dbo].[Customer]", entity);
+    var id = connection.Merge<int>("[dbo].[Customer]", entity);
 }
 ```
 
@@ -187,7 +187,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastUpdatedDateUtc = DateTime.UtcNow
     };
     var fields = Field.From("Id","FirstName", "LastName", "LastUpdatedDateUtc");
-    var customer = connection.Merge<int>("[dbo].[Customer]", entity, fields: fields);
+    var id = connection.Merge<int>("[dbo].[Customer]", entity, fields: fields);
 }
 ```
 
@@ -240,7 +240,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastUpdatedDateUtc = DateTime.UtcNow
     };
     var fields = Field.Parse<Customer>(e => new { e.Id, e.FirstName, e.LastName, LastUpdatedUtc });
-    var affectedRows = connection.Update<Customer>(entity, fields: fields);
+    var updatedRows = connection.Update<Customer>(entity, fields: fields);
 }
 ```
 
@@ -256,7 +256,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastName = "Doe",
         LastUpdatedDateUtc = DateTime.UtcNow
     };
-    var affectedRows = connection.Update("[dbo].[Customer]", entity);
+    var updatedRows = connection.Update("[dbo].[Customer]", entity);
 }
 ```
 
@@ -273,7 +273,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastUpdatedDateUtc = DateTime.UtcNow
     };
     var fields = Field.From("Id","FirstName", "LastName", "LastUpdatedDateUtc");
-    var affectedRows = connection.Update("[dbo].[Customer]", entity, fields: fields);
+    var updatedRows = connection.Update("[dbo].[Customer]", entity, fields: fields);
 }
 ```
 
