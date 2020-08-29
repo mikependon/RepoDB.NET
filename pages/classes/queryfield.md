@@ -57,7 +57,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-Or in the update operations (for targetted columns).
+Or in the update operations (for targeted columns).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())

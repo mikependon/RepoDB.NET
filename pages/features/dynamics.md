@@ -9,7 +9,7 @@ tags: [repodb, class, dynamics, orm, hybrid-orm, sqlserver, sqlite, mysql, postg
 
 # Dynamics
 
-This feature allows you to create a simplified and targeted operation by simply maximizing the usage of dynamics. It is also very useful if you wish to do CRUD for targetted columns or a CRUD operation without even a class model.
+This feature allows you to create a simplified and targeted operation by simply maximizing the usage of dynamics. It is also very useful if you wish to do CRUD for targeted columns or a CRUD operation without even a class model.
 
 #### Querying a Data
 

@@ -147,7 +147,7 @@ Then the statement will be generated as below.
 > WHERE NOT ([IsActive] = @IsActive OR [Gender] = @Gender);
 ```
 
-> By default, the value is `False`. Please be reminded that negating does not gives you the most performant condition when writing SQL. It still recommended to create a targetted query expression rather than negating it.
+> By default, the value is `False`. Please be reminded that negating does not gives you the most performant condition when writing SQL. It still recommended to create a targeted query expression rather than negating it.
 
 #### Getting all the Children
 

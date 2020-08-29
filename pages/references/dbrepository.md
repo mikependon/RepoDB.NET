@@ -653,5 +653,5 @@ public void ConfigureServices(IServiceCollection services)
 - The cache key argument is needed in the case you need to cache the result.
 - The interface is needed for dependency injection.
 - The singleton registration is needed for caching and connection persistency.
-- The method names would be targetted to the entity.
+- The method names would be targeted to the entity.
 - The repository must be short and precise on its purpose.

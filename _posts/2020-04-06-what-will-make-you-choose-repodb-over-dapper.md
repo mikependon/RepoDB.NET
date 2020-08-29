@@ -635,7 +635,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 **Note:** You can as well pass an instance of `DbDataReader`.
 
-- Fluent (Targetted):
+- Fluent (Targeted):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())

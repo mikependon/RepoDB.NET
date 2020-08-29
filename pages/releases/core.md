@@ -1041,7 +1041,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDB (v1.1.11)
 
-- Supported multi-targetted framework (net40, netstandard1.3, netcore1.1)
+- Supported multi-targeted framework (net40, netstandard1.3, netcore1.1)
 
 
 #### RepoDB (v1.1.10)
@@ -1051,7 +1051,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDB (v1.1.10-beta1)
 
-- Supported multi-targetted framework (net40, netstandard1.3, netcore1.1)
+- Supported multi-targeted framework (net40, netstandard1.3, netcore1.1)
 - Beta release 1 for v1.2.0
 
 

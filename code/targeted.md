@@ -1,6 +1,6 @@
-<h5 class="center code-title">Targetted</h5>
+<h5 class="center code-title">Targeted</h5>
 
-Make a targetted operations within your entity models and/or dynamic objects. [Learn more](/feature/targettedoperations)
+Make a targeted operations within your entity models and/or dynamic objects. [Learn more](/feature/targeted)
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
