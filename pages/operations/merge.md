@@ -113,8 +113,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         e.DateOfBirth,
         e.DateInsertedUtc
     })
-	var id = connection.Merge<Person>("[dbo].[Person]",
-		entity: person,
+	var id = connection.Merge<Person>(entity: person,
         fields: fields);
 }
 ```

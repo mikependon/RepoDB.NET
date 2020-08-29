@@ -98,8 +98,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         e.Name,
         e.DateInsertedUtc
     });
-	var insertedRows = connection.InsertAll("[dbo].[Person]",
-		entities: people,
+	var insertedRows = connection.InsertAll(entities: people,
 		fields: fields);
 }
 ```

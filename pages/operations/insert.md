@@ -89,8 +89,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         e.DateOfBirth,
         e.DateInsertedUtc
     })
-	var id = connection.Insert<Person>("[dbo].[Person]",
-		entity: person,
+	var id = connection.Insert<Person>(entity: person,
         fields: fields);
 }
 ```

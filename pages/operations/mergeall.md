@@ -112,8 +112,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         e.Name,
         e.DateInsertedUtc
     });
-	var mergedRows = connection.MergeAll<Person>("[dbo].[Person]",
-		entities: people,
+	var mergedRows = connection.MergeAll<Person>(entities: people,
 		fields: fields);
 }
 ```

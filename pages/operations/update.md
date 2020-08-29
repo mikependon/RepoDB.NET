@@ -110,8 +110,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         e.DateOfBirth,
         e.DateInsertedUtc
     })
-	var id = connection.Update<Person>("[dbo].[Person]",
-		entity: person,
+	var id = connection.Update<Person>(entity: person,
         fields: fields);
 }
 ```

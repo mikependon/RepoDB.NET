@@ -91,7 +91,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var person = connection.Query("[dbo].[Person]",
         new { Id = 10045 },
-        fields: Field.From("Id", "Name", "DateOfBirth", "DateInsertedUtc"));
+        fields: Field.From("Id", "Name", "DateOfBirth", "DateInsertedUtc")).FirstOrDefault();
 }
 ```
 

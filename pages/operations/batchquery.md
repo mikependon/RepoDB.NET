@@ -94,8 +94,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         e.Name,
         e.DateInsertedUtc
     });
-	var people = connection.BatchQuery<Person>("Person",
-		page: page,
+	var people = connection.BatchQuery<Person>(page: page,
 		rowsPerBatch: rowsPerBatch,
 		orderBy: orderBy,
 		where: e => e.IsActive == true,

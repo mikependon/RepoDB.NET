@@ -110,8 +110,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         e.Name,
         e.DateInsertedUtc
     });
-	var updatedRows = connection.UpdateAll<Person>("[dbo].[Person]",
-		entities: people,
+	var updatedRows = connection.UpdateAll<Person>(entities: people,
 		fields: fields);
 }
 ```
