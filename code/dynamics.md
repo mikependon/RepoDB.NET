@@ -1,6 +1,6 @@
 <h5 class="center code-title">Dynamics</h5>
 
-Make a targetted operations by directly working with dynamics. [Learn more](/feature/dynamics)
+Work without even a data model in place with the use of dynamics. [Learn more](/feature/dynamics)
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

@@ -116,7 +116,7 @@ Or with qualifiers.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
-    var qualifiers = Field.From(nameof(Customer.LastName), nameof(Customer.BirthDate));
+    var qualifiers = Field.Parse<Customer>(e => new { e.LastName, e.BirthDate });
     var rows = connection.BulkDelete<Customer>(customers, qualifiers: qualifiers);
 }
 ```
@@ -181,7 +181,7 @@ Or with qualifiers.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
-    var qualifiers = Field.From(nameof(Customer.LastName), nameof(Customer.BirthDate));
+    var qualifiers = Field.Parse<Customer>(e => new { e.LastName, e.BirthDate });
     var rows = connection.BulkMerge<Customer>(customers, qualifiers: qualifiers);
 }
 ```
@@ -214,7 +214,7 @@ Or with qualifiers.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var customers = GetCustomers();
-    var qualifiers = Field.From(nameof(Customer.LastName), nameof(Customer.BirthDate));
+    var qualifiers = Field.Parse<Customer>(e => new { e.LastName, e.BirthDate });
     var rows = connection.BulkUpdate<Customer>(customers, qualifiers: qualifiers);
 }
 ```

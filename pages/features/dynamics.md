@@ -2,16 +2,14 @@
 layout: navpage
 sidebar: features
 title: "Dynamics"
-description: "This feature allows you to create a simplified and targetted operations by simply maximizing the usage of dynamics."
+description: "This feature allows you to work with RepoDB by maximizing the usage of dynamics."
 permalink: /feature/dynamics
 tags: [repodb, class, dynamics, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 ---
 
 # Dynamics
 
-This feature allows you to create a simplified and targeted operation by simply maximizing the usage of dynamics.
-
-It is very useful if you wish to do CRUD for targeted columns or a CRUD operation without even a class model.
+This feature allows you to create a simplified and targeted operation by simply maximizing the usage of dynamics. It is also very useful if you wish to do CRUD for targetted columns or a CRUD operation without even a class model.
 
 #### Querying a Data
 
@@ -29,7 +27,7 @@ Or via dynamics.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var customer = connection.Query("[dbo].[Customer]", new { FirstName = "John", "Doe" }).FirstOrDefault();
+    var customer = connection.Query("[dbo].[Customer]", new { FirstName = "John", LastName = "Doe" }).FirstOrDefault();
 }
 ```
 
