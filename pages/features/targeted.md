@@ -55,7 +55,7 @@ Or via dynamics.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var fields = Field.From("Id","FirstName", "LastName");
-    var customers = connection.Query("[dbo].[Customer]", fields: fields);
+    var customers = connection.QueryAll("[dbo].[Customer]", fields: fields);
 }
 ```
 
