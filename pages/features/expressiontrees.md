@@ -113,5 +113,3 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
     var customers = connection.Query<Customer>(where);
 }
 ```
-
-> Use this way over `Linq-Expression` if you are composing an advance or complex expression. See the reference implementation [here](/reference/queryexpressions/complex-expressions) for more details.
