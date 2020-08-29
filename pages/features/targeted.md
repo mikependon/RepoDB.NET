@@ -342,7 +342,13 @@ Use the [UpdateAll](/operation/updateall) operation and pass the target fields t
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GetCustomersWithUpdatedAddress();
-    var fields = Field.Parse<Customer>(e => new { e.Id, e.Address });
+    var fields = Field.Parse<Customer>(e => new
+    {
+        e.Id,
+        e.FirstName,
+        e.LastName,
+        e.LastUpdatedUtc
+    });
     var updatedRows = connection.UpdateAll<Customer>(entities,
         fields: fields);
 }
