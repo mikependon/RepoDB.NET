@@ -22,8 +22,14 @@ Use the [Query](/operation/query) operation and pass the target fields to query.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var fields = Field.Parse<Customer>(e => new { e.Id, e.FirstName, e.LastName });
-    var customer = connection.Query<Customer>(10045, fields: fields).FirstOrDefault();
+    var fields = Field.Parse<Customer>(e => new
+    {
+        e.Id,
+        e.FirstName,
+        e.LastName
+    });
+    var customer = connection.Query<Customer>(10045,
+        fields: fields).FirstOrDefault();
 }
 ```
 
@@ -32,8 +38,10 @@ Or via dynamics.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var fields = Field.From("Id","FirstName", "LastName");
-    var customer = connection.Query("[dbo].[Customer]", 10045, fields: fields).FirstOrDefault();
+    var fields = Field.From("Id", "FirstName", "LastName");
+    var customer = connection.Query("[dbo].[Customer]",
+        10045,
+        fields: fields).FirstOrDefault();
 }
 ```
 
@@ -44,7 +52,12 @@ Use the [QueryAll](/operation/queryall) operation and pass the target fields to 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var fields = Field.Parse<Customer>(e => new { e.Id, e.FirstName, e.LastName });
+    var fields = Field.Parse<Customer>(e => new
+    {
+        e.Id,
+        e.FirstName,
+        e.LastName
+    });
     var customers = connection.QueryAll<Customer>(fields: fields);
 }
 ```
@@ -54,8 +67,9 @@ Or via dynamics.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var fields = Field.From("Id","FirstName", "LastName");
-    var customers = connection.QueryAll("[dbo].[Customer]", fields: fields);
+    var fields = Field.From("Id", "FirstName", "LastName");
+    var customers = connection.QueryAll("[dbo].[Customer]",
+        fields: fields);
 }
 ```
 
@@ -71,8 +85,14 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         FirstName = "John",
         LastName = "Doe"
     };
-    var fields = Field.Parse<Customer>(e => new { e.Id, e.FirstName, e.LastName });
-    var id = connection.Insert<Customer, int>(entity, fields: fields);
+    var fields = Field.Parse<Customer>(e => new
+    {
+        e.Id,
+        e.FirstName,
+        e.LastName
+    });
+    var id = connection.Insert<Customer, int>(entity,
+        fields: fields);
 }
 ```
 
@@ -86,7 +106,8 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         FirstName = "John",
         LastName = "Doe"
     };
-    var id = connection.Insert<int>("[dbo].[Customer]", entity);
+    var id = connection.Insert<int>("[dbo].[Customer]",
+        entity);
 }
 ```
 
@@ -100,8 +121,9 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         FirstName = "John",
         LastName = "Doe"
     };
-    var fields = Field.From("Id","FirstName", "LastName");
-    var id = connection.Insert<int>("[dbo].[Customer]", entity, fields: fields);
+    var fields = Field.From("Id", "FirstName", "LastName");
+    var id = connection.Insert<int>("[dbo].[Customer]",
+        entity, fields: fields);
 }
 ```
 
@@ -113,8 +135,14 @@ Use the [InsertAll](/operation/insertall) operation and pass the target fields t
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GenerateCustomers();
-    var fields = Field.Parse<Customer>(e => new { e.Id, e.FirstName, e.LastName });
-    var insertedRows = connection.InsertAll<Customer, int>(entities, fields: fields);
+    var fields = Field.Parse<Customer>(e => new
+    {
+        e.Id,
+        e.FirstName,
+        e.LastName
+    });
+    var insertedRows = connection.InsertAll<Customer, int>(entities,
+        fields: fields);
 }
 ```
 
@@ -124,7 +152,8 @@ Or via dynamics.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GenerateCustomers();
-    var insertedRows = connection.InsertAll("[dbo].[Customer]", entities);
+    var insertedRows = connection.InsertAll("[dbo].[Customer]",
+        entities);
 }
 ```
 
@@ -134,8 +163,10 @@ Or via dynamics with fields.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GenerateCustomers();
-    var fields = Field.From("Id","FirstName", "LastName");
-    var insertedRows = connection.InsertAll("[dbo].[Customer]", entities, fields: fields);
+    var fields = Field.From("Id", "FirstName", "LastName");
+    var insertedRows = connection.InsertAll("[dbo].[Customer]",
+        entities,
+        fields: fields);
 }
 ```
 
@@ -153,8 +184,15 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastName = "Doe",
         LastUpdatedDateUtc = DateTime.UtcNow
     };
-    var fields = Field.Parse<Customer>(e => new { e.Id, e.FirstName, e.LastName, LastUpdatedUtc });
-    var id = connection.Merge<Customer, int>(entity, fields: fields);
+    var fields = Field.Parse<Customer>(e => new
+    {
+        e.Id,
+        e.FirstName,
+        e.LastName,
+        e.LastUpdatedUtc
+    });
+    var id = connection.Merge<Customer, int>(entity,
+        fields: fields);
 }
 ```
 
@@ -170,7 +208,8 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastName = "Doe",
         LastUpdatedDateUtc = DateTime.UtcNow
     };
-    var id = connection.Merge<int>("[dbo].[Customer]", entity);
+    var id = connection.Merge<int>("[dbo].[Customer]",
+        entity);
 }
 ```
 
@@ -186,8 +225,10 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastName = "Doe",
         LastUpdatedDateUtc = DateTime.UtcNow
     };
-    var fields = Field.From("Id","FirstName", "LastName", "LastUpdatedDateUtc");
-    var id = connection.Merge<int>("[dbo].[Customer]", entity, fields: fields);
+    var fields = Field.From("Id", "FirstName", "LastName", "LastUpdatedDateUtc");
+    var id = connection.Merge<int>("[dbo].[Customer]",
+        entity,
+        fields: fields);
 }
 ```
 
@@ -199,8 +240,13 @@ Use the [MergeAll](/operation/mergeall) operation and pass the target fields to 
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GetCustomersWithUpdatedAddress();
-    var fields = Field.Parse<Customer>(e => new { e.Id, e.Address });
-    var mergedRows = connection.MergeAll<Customer>(entities, fields: fields);
+    var fields = Field.Parse<Customer>(e => new
+    {
+        e.Id,
+        e.Address
+    });
+    var mergedRows = connection.MergeAll<Customer>(entities,
+        fields: fields);
 }
 ```
 
@@ -210,7 +256,8 @@ Or via dynamics.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GetCustomersWithUpdatedAddress();
-    var mergedRows = connection.MergeAll("[dbo].[Customer]", entities);
+    var mergedRows = connection.MergeAll("[dbo].[Customer]",
+        entities);
 }
 ```
 
@@ -220,8 +267,10 @@ Or via dynamics with fields.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GetCustomersWithUpdatedAddress();
-    var fields = Field.From("Id","Address");
-    var mergedRows = connection.MergeAll("[dbo].[Customer]", entities, fields: fields);
+    var fields = Field.From("Id", "Address");
+    var mergedRows = connection.MergeAll("[dbo].[Customer]",
+        entities,
+        fields: fields);
 }
 ```
 
@@ -239,8 +288,15 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastName = "Doe",
         LastUpdatedDateUtc = DateTime.UtcNow
     };
-    var fields = Field.Parse<Customer>(e => new { e.Id, e.FirstName, e.LastName, LastUpdatedUtc });
-    var updatedRows = connection.Update<Customer>(entity, fields: fields);
+    var fields = Field.Parse<Customer>(e => new
+    {
+        e.Id,
+        e.FirstName,
+        e.LastName,
+        e.LastUpdatedUtc
+    });
+    var updatedRows = connection.Update<Customer>(entity,
+        fields: fields);
 }
 ```
 
@@ -256,7 +312,8 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastName = "Doe",
         LastUpdatedDateUtc = DateTime.UtcNow
     };
-    var updatedRows = connection.Update("[dbo].[Customer]", entity);
+    var updatedRows = connection.Update("[dbo].[Customer]",
+        entity);
 }
 ```
 
@@ -272,8 +329,10 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         LastName = "Doe",
         LastUpdatedDateUtc = DateTime.UtcNow
     };
-    var fields = Field.From("Id","FirstName", "LastName", "LastUpdatedDateUtc");
-    var updatedRows = connection.Update("[dbo].[Customer]", entity, fields: fields);
+    var fields = Field.From("Id", "FirstName", "LastName", "LastUpdatedDateUtc");
+    var updatedRows = connection.Update("[dbo].[Customer]",
+        entity,
+        fields: fields);
 }
 ```
 
@@ -286,7 +345,8 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GetCustomersWithUpdatedAddress();
     var fields = Field.Parse<Customer>(e => new { e.Id, e.Address });
-    var updatedRows = connection.UpdateAll<Customer>(entities, fields: fields);
+    var updatedRows = connection.UpdateAll<Customer>(entities,
+        fields: fields);
 }
 ```
 
@@ -296,7 +356,8 @@ Or via dynamics.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GetCustomersWithUpdatedAddress();
-    var updatedRows = connection.UpdateAll("[dbo].[Customer]", entities);
+    var updatedRows = connection.UpdateAll("[dbo].[Customer]",
+        entities);
 }
 ```
 
@@ -306,7 +367,9 @@ Or via dynamics with fields.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GetCustomersWithUpdatedAddress();
-    var fields = Field.From("Id","Address");
-    var updatedRows = connection.UpdateAll("[dbo].[Customer]", entities, fields: fields);
+    var fields = Field.From("Id", "Address");
+    var updatedRows = connection.UpdateAll("[dbo].[Customer]",
+        entities,
+        fields: fields);
 }
 ```
