@@ -141,7 +141,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 #### Merging a Data
 
-Use the [Merge](/operation/merge) operation and pass the target fields to insert.
+Use the [Merge](/operation/merge) operation and pass the target fields to merge.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -193,7 +193,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 #### Merging Multiple Data
 
-Use the [MergeAll](/operation/mergeall) operation and pass the target fields to insert.
+Use the [MergeAll](/operation/mergeall) operation and pass the target fields to merge.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -227,7 +227,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 #### Updating a Data
 
-Use the [Update](/operation/update) operation and pass the target fields to insert.
+Use the [Update](/operation/update) operation and pass the target fields to update.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -279,7 +279,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 #### Updating Multiple Data
 
-Use the [UpdateAll](/operation/updateall) operation and pass the target fields to insert.
+Use the [UpdateAll](/operation/updateall) operation and pass the target fields to update.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
