@@ -91,6 +91,9 @@ docs:
   - title: "Repositories"
     url: "/feature/repositories"
 
+  - title: "Targetted Operations"
+    url: "/feature/targettedoperations"
+
   - title: "Tracing"
     url: "/feature/tracing"
 
