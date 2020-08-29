@@ -76,7 +76,18 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 #### Targetting a Table
 
-You can also target a specific table by passing the literal table and dynamic object like below.
+You can also target a specific table by passing the literal table like below.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var people = GetPeople();
+	var mergedRows = connection.MergeAll<Person>("[dbo].[Person]",
+		entities: people);
+}
+```
+
+Or via dynamics.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -95,13 +106,29 @@ You can also target a specific columns to be merged by passing the list of field
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople();
+    var fields = Field.Parse<Person>(e => new
+    {
+        e.Id,
+        e.Name,
+        e.DateInsertedUtc
+    });
+	var mergedRows = connection.MergeAll<Person>("[dbo].[Person]",
+		entities: people,
+		fields: fields);
+}
+```
+
+Or via dynamics.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var people = GetPeople();
 	var mergedRows = connection.MergeAll("[dbo].[Person]",
 		entities: people,
 		fields: Field.From("Id", "Name", "DateInsertedUtc"));
 }
 ```
-
-> Even your model has so many properties, only the `Id`, `Name` and `DateInsertedUtc` will be merged.
 
 #### Batch Size
 

@@ -62,7 +62,18 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 #### Targetting a Table
 
-You can also target a specific table by passing the literal table and dynamic object like below.
+You can also target a specific table by passing the literal table like below.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var people = GetPeople();
+	var insertedRows = connection.InsertAll<Person>("[dbo].[Person]",
+		entities: people);
+}
+```
+
+Or via dynamics.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -81,13 +92,29 @@ You can also target a specific columns to be inserted by passing the list of fie
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = GetPeople();
+    var fields = Field.Parse<Person>(e => new
+    {
+        e.Id,
+        e.Name,
+        e.DateInsertedUtc
+    });
+	var insertedRows = connection.InsertAll("[dbo].[Person]",
+		entities: people,
+		fields: fields);
+}
+```
+
+Or via dynamics.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var people = GetPeople();
 	var insertedRows = connection.InsertAll("[dbo].[Person]",
 		entities: people,
 		fields: Field.From("Id", "Name", "DateInsertedUtc"));
 }
 ```
-
-> Even your model has so many properties, only the `Id`, `Name` and `DateInsertedUtc` will be inserted.
 
 #### Batch Size
 

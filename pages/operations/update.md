@@ -50,7 +50,26 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 #### Targetting a Table
 
-You can also target a specific table by passing the literal table and dynamic object like below.
+You can also target a specific table by passing the literal table like below.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var person = new Person
+	{
+		Id = 10045,
+		Name = "John Doe",
+		Address = "New York",
+		DateOfBirth = DateTime.Parse("2020-01-01"),
+		IsActive = true,
+		DateInsertedUtc = DateTime.UtcNow
+	};
+	var updatedRows = connection.Update<Person>("[dbo].[Person]",
+		entity: person);
+}
+```
+
+Or via dynamics.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -66,6 +85,54 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 	};
 	var updatedRows = connection.Update("[dbo].[Person]",
 		entity: person);
+}
+```
+
+#### Specific Columns
+
+You can also target a specific columns to be updated by passing the list of fields to be included in the `fields` argument.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var person = new Person
+	{
+		Id = 10045,
+		Name = "John Doe",
+		Address = "New York",
+		DateOfBirth = DateTime.Parse("2020-01-01"),
+		IsActive = true,
+		DateInsertedUtc = DateTime.UtcNow
+	};
+    var fields = Field.Parse<Person>(e => new
+    {
+        e.Name,
+        e.DateOfBirth,
+        e.DateInsertedUtc
+    })
+	var id = connection.Update<Person>("[dbo].[Person]",
+		entity: person,
+        fields: fields);
+}
+```
+
+Or via dynamics.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var person = new
+	{
+		Id = 10045,
+		Name = "John Doe",
+		Address = "New York",
+		DateOfBirth = DateTime.Parse("2020-01-01"),
+		IsActive = true,
+		DateInsertedUtc = DateTime.UtcNow
+	};
+	var id = connection.Update("[dbo].[Person]",
+		entity: person,
+        fields: Field.From("Name", "DateOfBirth", "DateInsertedUtc"));
 }
 ```
 

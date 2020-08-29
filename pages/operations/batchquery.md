@@ -20,7 +20,6 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
     var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0; // Starts at 0 for the first batch
     var rowsPerBatch = 20;
-
     var people = connection.BatchQuery<Person>(page: page,
         rowsPerBatch: rowsPerBatch,
         orderBy: orderBy,
@@ -38,7 +37,6 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 2;// This is the 3rd batch
     var rowsPerBatch = 20;
-
 	var people = connection.BatchQuery<Person>(page: page,
 		rowsPerBatch: rowsPerBatch,
 		orderBy: orderBy,
@@ -48,7 +46,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 #### Targetting a Table
 
-You can also target a specific table by passing the literal table and field name like below.
+You can also target a specific table by passing the literal table name like below.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -56,7 +54,22 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0;
     var rowsPerBatch = 20;
+	var people = connection.BatchQuery<Person>("Person",
+		page: page,
+		rowsPerBatch: rowsPerBatch,
+		orderBy: orderBy,
+		where: e => e.IsActive == true);
+}
+```
 
+Or, via dynamics.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
+    var page = 0;
+    var rowsPerBatch = 20;
 	var people = connection.BatchQuery("Person",
 		page: page,
 		rowsPerBatch: rowsPerBatch,
@@ -75,7 +88,29 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0;
     var rowsPerBatch = 20;
+    var fields = Field.Parse<Person>(e => new
+    {
+        e.Id,
+        e.Name,
+        e.DateInsertedUtc
+    });
+	var people = connection.BatchQuery<Person>("Person",
+		page: page,
+		rowsPerBatch: rowsPerBatch,
+		orderBy: orderBy,
+		where: e => e.IsActive == true,
+		fields: fields);
+}
+```
 
+Or, via dynamics.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
+    var page = 0;
+    var rowsPerBatch = 20;
 	var people = connection.BatchQuery("Person",
 		page: page,
 		rowsPerBatch: rowsPerBatch,
@@ -100,7 +135,6 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending })
     var page = 0;
     var rowsPerBatch = 20;
-
 	var people = connection.BatchQuery("Person",
 		page: page,
 		rowsPerBatch: rowsPerBatch,
@@ -119,7 +153,6 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0;
     var rowsPerBatch = 20;
-
 	var people = connection.BatchQuery<Person>(page: page,
 		rowsPerBatch: rowsPerBatch,
 		orderBy: orderBy,
@@ -136,7 +169,6 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0;
     var rowsPerBatch = 20;
-
 	var people = connection.BatchQuery<Person>(page: page,
 		rowsPerBatch: rowsPerBatch,
 		orderBy: orderBy,
