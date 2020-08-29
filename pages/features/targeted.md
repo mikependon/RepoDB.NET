@@ -345,9 +345,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
     var fields = Field.Parse<Customer>(e => new
     {
         e.Id,
-        e.FirstName,
-        e.LastName,
-        e.LastUpdatedUtc
+        e.Address
     });
     var updatedRows = connection.UpdateAll<Customer>(entities,
         fields: fields);
