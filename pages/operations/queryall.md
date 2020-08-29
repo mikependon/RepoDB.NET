@@ -28,11 +28,48 @@ You can also target a specific table by passing the literal table like below.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
+	var people = connection.QueryAll<Person>("[dbo].[Person]");
+}
+```
+
+Or via dynamics.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
 	var people = connection.QueryAll("[dbo].[Person]");
 }
 ```
 
 > The result is a list of dynamic objects of type `ExpandoObject`.
+
+#### Specific Columns
+
+You can also target a specific columns to be queried by passing the list of fields to be included in the `fields` argument.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+    var fields = Field.Parse<Person>(e => new
+    {
+        e.Id,
+        e.Name,
+        e.DateOfBirth,
+        e.DateInsertedUtc
+    });
+	var people = connection.QueryAll<Person>(fields: fields);
+}
+```
+
+Or via dynamics.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var people = connection.Query("[dbo].[Person]",
+        fields: Field.From("Id", "Name", "DateOfBirth", "DateInsertedUtc"));
+}
+```
 
 #### Table Hints
 
