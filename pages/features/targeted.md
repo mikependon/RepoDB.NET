@@ -87,7 +87,6 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
     };
     var fields = Field.Parse<Customer>(e => new
     {
-        e.Id,
         e.FirstName,
         e.LastName
     });
@@ -121,7 +120,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         FirstName = "John",
         LastName = "Doe"
     };
-    var fields = Field.From("Id", "FirstName", "LastName");
+    var fields = Field.From("FirstName", "LastName");
     var id = connection.Insert<int>("[dbo].[Customer]",
         entity, fields: fields);
 }
@@ -137,7 +136,6 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
     var entities = GenerateCustomers();
     var fields = Field.Parse<Customer>(e => new
     {
-        e.Id,
         e.FirstName,
         e.LastName
     });
@@ -163,7 +161,7 @@ Or via dynamics with fields.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var entities = GenerateCustomers();
-    var fields = Field.From("Id", "FirstName", "LastName");
+    var fields = Field.From("FirstName", "LastName");
     var insertedRows = connection.InsertAll("[dbo].[Customer]",
         entities,
         fields: fields);
