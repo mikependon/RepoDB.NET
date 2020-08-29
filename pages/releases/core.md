@@ -15,18 +15,22 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
 - Bug: [QueryAsync](/operation/query) with empty [QueryField](/class/queryfield) list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
 - Bug: [IPropertyHandler](/interface/ipropertyhandler) not being called [#514](https://github.com/mikependon/RepoDb/issues/514)
-- Request: Completely expose the `fields` argument in the [BatchQuery](/operation/batchquery), [Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations (and all its Batch operations). #523
+- Bug: Property mapping fails with Turkish locale [#502](https://github.com/mikependon/RepoDb/issues/502)
+- Feature: Introduce the ClassHandler Support [#524](https://github.com/mikependon/RepoDb/issues/524)
+- Request: Completely expose the `fields` argument in the [BatchQuery](/operation/batchquery), [Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations (and all its Batch operations). [#523](https://github.com/mikependon/RepoDb/issues/523)
+- Request: Add caching for [ExecuteQuery](/operation/executequery) and [ExecuteQuery&lt;TEntity&gt;](/operation/executequery) [#522](https://github.com/mikependon/RepoDb/issues/522)
 - Request: Adds an overloaded method for [QueryAll&lt;TEntity&gt;](/operation/queryall) operation that takes the `tableName` parameter. [#521](https://github.com/mikependon/RepoDb/issues/521) - **BREAKING**
 - Request: Add caching for [ExecuteQuery](/operation/executequery) and [ExecuteQuery&lt;TEntity&gt;](/operation/executequery) [#522](https://github.com/mikependon/RepoDb/issues/522)
-- Request: Support the Immutable Entities [#465](https://github.com/mikependon/RepoDb/issues/465) - **NEW**
-- Enhancement: Use the `Identity` field if the `Primary` field is not available during the [Query](/operation/query), [Delete](/operation/delete) and [Update](/operation/update) operations. **NEW**
+- Request: Support the Immutable Entities [#465](https://github.com/mikependon/RepoDb/issues/465)
+- Question: Question on how to properly configure type mapping for FSharp Option types [#483](https://github.com/mikependon/RepoDb/issues/483)
+- Enhancement: Use the `Identity` field if the `Primary` field is not available during the [Query](/operation/query), [Delete](/operation/delete) and [Update](/operation/update) operations.
 - Refactoring: Enhance the coding in the Core Compiler [#479](https://github.com/mikependon/RepoDb/issues/479). **BREAKING**
 - Enhancement: Complete support to the Fluent named-based operation [#499](https://github.com/mikependon/RepoDb/issues/499).
 - Enhancement: Replaces the usage of `IsNullOrEmpty` to `IsNullOrWhiteSpace`.
 - Enhancement: Replaces the usage of `ToLower()` to `ToLowerInvariant()`.
 - Enhancement: Replaces the usage of string equality to `string.Equals(value1, value2, StringComparer.OrdinalIgnoreCase)`.
-- Enhancement: Added the `Async` methods in the compiler. #482 #477
-- Enhancement: Add the dynamic [ExecuteQuery](/operation/executequery) method in the [DbRepository](/class/dbrepository). #517
+- Enhancement: Added the `Async` methods in the compiler. [#482](https://github.com/mikependon/RepoDb/issues/482) [#477](https://github.com/mikependon/RepoDb/issues/477)
+- Enhancement: Add the dynamic [ExecuteQuery](/operation/executequery) method in the [DbRepository](/class/dbrepository). [#517](https://github.com/mikependon/RepoDb/issues/517)
 - Enhancement: Renamed the `whereOrPrimaryKey` argument to `what` to extend the support to both (data entity object, dynamic/object expression, primary key and identity key), to further support the `F#` community. **BREAKING**
 - Refactoring: Make all the `cacheItemExpiration` arguments nullable. **BREAKING**
 - Refactoring: Make the [BaseRepository](/class/dbrepository) and [DbRepository](/class/dbrepository) objects `CacheItemExpiration` property nullable.
