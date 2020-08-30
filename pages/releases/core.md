@@ -10,6 +10,11 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+#### Next Version
+
+- Updated the [QueryGroup.Parse()](/class/querygroup) method to be an argument-typed-based method.
+  
+
 #### RepoDB (v1.12.0-beta1)
 
 - Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
