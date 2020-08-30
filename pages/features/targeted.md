@@ -9,7 +9,7 @@ tags: [repodb, class, targeted, orm, hybrid-orm, sqlserver, sqlite, mysql, postg
 
 # Targeted Operations
 
-This feature allows you to make a targeted invocation when executing the operations againts the database. This feature is very useful if you do really care on the performance and efficiency of your execution against the database. The execution will help your application runs in a very efficient manner, as using the targeted operations completely eliminate the high-usage of the network traffic.
+This feature allows you to make a targeted invocation when executing the operations against the database. This feature is very useful if you do really care on the performance and efficiency of your execution against the database. The execution will help your application runs in a very efficient manner, as using the targeted operations completely eliminate the high-usage of the network traffic.
 
 #### Use Case
 
