@@ -259,7 +259,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added the `ConverterNotFoundException` class.
 - At the [CancellableTraceLog.Cancel()](/class/cancellabletracelog) method, the `throwException` argument has been defaulted the `True`.
 - Enhancement: Ensure that [PropertyHandler](/interface/ipropertyhandler)(s) must ignore the [TypeMapper](/mapper/typemapper) automatic conversion and also `Enum` handlers. [#412](https://github.com/mikependon/RepoDb/issues/412)
-- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targetting the bulk operations (i.e.: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
+- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targeting the bulk operations (i.e.: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
 - Bug: UnaryExpression: Add support for `&&` and `||` operators in the expressions [398](https://github.com/mikependon/RepoDb/issues/#398)
 - Bug: Enum Bug [#400](https://github.com/mikependon/RepoDb/issues/400)
 - Bug: Enum Bug on Null value on [Insert](/operation/insert). [#401](https://github.com/mikependon/RepoDb/issues/401)
@@ -276,7 +276,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: Enum Bug on Null value on [Insert](/operation/insert). [#401](https://github.com/mikependon/RepoDb/issues/401)
 - Added the `ConverterNotFoundException` class.
 - Enhancement: Ensure that [PropertyHandler](/interface/ipropertyhandler)(s) must ignore the [TypeMapper](/mapper/typemapper) automatic conversion and also `Enum` handlers. [#412](https://github.com/mikependon/RepoDb/issues/412)
-- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targetting the bulk operations (i.e.: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
+- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targeting the bulk operations (i.e.: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
 
 
 #### RepoDB (v1.10.11-beta2):

@@ -51,7 +51,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 > The result is always the value of primary key. If the primary key is identity, and a new record has been inserted, then the newly generated identity value will be returned.
 
-#### Targetting a Table
+#### Targeting a Table
 
 You can also target a specific table by passing the literal table like below.
 

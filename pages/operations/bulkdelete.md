@@ -124,7 +124,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-#### Targetting a Table
+#### Targeting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 

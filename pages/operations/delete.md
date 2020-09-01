@@ -30,7 +30,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-#### Targetting a Table
+#### Targeting a Table
 
 You can also target a specific table by passing the literal table name like below.
 

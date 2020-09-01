@@ -41,7 +41,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 > It always returns an `IEnumerable<T>` object even if your result is one.
 
-#### Targetting a Table
+#### Targeting a Table
 
 You can also target a specific table by passing the literal table like below.
 
