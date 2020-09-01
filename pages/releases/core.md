@@ -12,8 +12,10 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### Next Version
 
-- Updated the [QueryGroup.Parse()](/class/querygroup) method to be an argument-typed-based method.
-  
+- Enhancement: Updated the [QueryGroup.Parse()](/class/querygroup) method to be an argument-typed-based method.
+- Enhancement: Refactored and optimized the `Parse` method of the [QueryField](/class/queryfield) and [QueryGroup](/class/querygroup) objects.
+- Bug: Non-query statements are not taking into account SQL Server table hints [#533](https://github.com/mikependon/RepoDb/issues/533).
+- Request: F# - Consider the Anonymous Types in the Query and QueryAll operation [#536](https://github.com/mikependon/RepoDb/issues/536).
 
 #### RepoDB (v1.12.0-beta1)
 
