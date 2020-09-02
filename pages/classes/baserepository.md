@@ -22,8 +22,8 @@ Let us say you have a table named `[dbo].[Person]` and a class named `Person`. T
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
-    public PersonRepository(ISettings settings)
-        : base(settings.ConnectionString)
+    public PersonRepository(string connectionString)
+        : base(connectionString)
     { }
 
     public object Create(Person person)
@@ -100,8 +100,8 @@ Then implement it in your class.
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
 {
-    public PersonRepository(ISettings settings)
-        : base(settings.ConnectionString)
+    public PersonRepository(string connectionString)
+        : base(connectionString)
     { }
 
     ...
@@ -144,8 +144,8 @@ To enable an instanced-level connection persistency, simply pass the [Connection
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
-    public PersonRepository(ISettings settings)
-        : base(settings.ConnectionString, ConnectionPersistency.Instance)
+    public PersonRepository(string connectionString)
+        : base(connectionString, ConnectionPersistency.Instance)
     { }
 
     ...
@@ -161,8 +161,8 @@ To enable your customized timeout, simply pass it on the constructor.
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
-    public PersonRepository(ISettings settings)
-        : base(settings.ConnectionString, 600)
+    public PersonRepository(string connectionString)
+        : base(connectionString, 600)
     { }
 
     ...
@@ -185,8 +185,8 @@ Then, pass it on the constructor.
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
-    public PersonRepository(ISettings settings)
-        : base(settings.ConnectionString, new MyCustomCache)
+    public PersonRepository(string connectionString)
+        : base(connectionString, new MyCustomCache)
     { }
 
     ...
@@ -209,8 +209,8 @@ Then, pass it on the constructor.
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
-    public PersonRepository(ISettings settings)
-        : base(settings.ConnectionString, new MyCustomTrace)
+    public PersonRepository(string connectionString)
+        : base(connectionString, new MyCustomTrace)
     { }
 
     ...
@@ -233,8 +233,8 @@ Then, pass it on the constructor.
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
-    public PersonRepository(ISettings settings)
-        : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder)
+    public PersonRepository(string connectionString)
+        : base(connectionString, new OptimizedSqlServerStatementBuilder)
     { }
 
     ...
