@@ -36,7 +36,7 @@ You can pass a parameter via the following objects.
 
 - `Dynamic`
 - `ExpandoObject`
-- `Dictionary<string, object>`
+- `IDictionary<string, object>`
 - `Query Objects`
 
 ##### Anonymous Types
@@ -59,7 +59,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-##### Dictionary
+##### IDictionary
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
