@@ -10,7 +10,7 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-#### Next Version
+#### RepoDB (v1.12.0-beta2)
 
 - Enhancement: Updated the [QueryGroup.Parse()](/class/querygroup) method to be an argument-typed-based method.
 - Enhancement: Refactored and optimized the `Parse` method of the [QueryField](/class/queryfield) and [QueryGroup](/class/querygroup) objects.
