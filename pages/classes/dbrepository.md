@@ -35,8 +35,8 @@ Then you can create your shared repository like below.
 ```csharp
 public class NorthwindRepository : DbRepository<SqlConnection>,
 {
-    public NorthwindRepository(ISettings settings)
-        : base(settings.ConnectionString)
+    public NorthwindRepository(string connectionString)
+        : base(connectionString)
     { }
 
     // Create
@@ -83,7 +83,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>,
 Simply create (or inject) a new instance of the class to use the repository.
 
 ```csharp
-using (var repository = new NorthwindRepository(settings)) // The settings must be DI(ed) (or,the repository itself must be DI(ed))
+using (var repository = new NorthwindRepository(connectionString)) // The settings must be DI(ed) (or,the repository itself must be DI(ed))
 {
     var customers = repository.GetCustomers();
     customers
@@ -122,8 +122,8 @@ Then implement it in your class.
 ```csharp
 public class NorthwindRepository : DbRepository<Customer, SqlConnection>, INorthwindRepository
 {
-    public NorthwindRepository(ISettings settings)
-        : base(settings.ConnectionString)
+    public NorthwindRepository(string connectionString)
+        : base(connectionString)
     { }
 
     ...
@@ -166,8 +166,8 @@ To enable an instanced-level connection persistency, simply pass the [Connection
 ```csharp
 public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 {
-    public NorthwindRepository(ISettings settings)
-        : base(settings.ConnectionString, ConnectionPersistency.Instance)
+    public NorthwindRepository(string connectionString)
+        : base(connectionString, ConnectionPersistency.Instance)
     { }
 
     ...
@@ -183,8 +183,8 @@ To enable your customized timeout, simply pass it on the constructor.
 ```csharp
 public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 {
-    public NorthwindRepository(ISettings settings)
-        : base(settings.ConnectionString, 600)
+    public NorthwindRepository(string connectionString)
+        : base(connectionString, 600)
     { }
 
     ...
@@ -207,8 +207,8 @@ Then, pass it on the constructor.
 ```csharp
 public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 {
-    public NorthwindRepository(ISettings settings)
-        : base(settings.ConnectionString, new MyCustomCache)
+    public NorthwindRepository(string connectionString)
+        : base(connectionString, new MyCustomCache)
     { }
 
     ...
@@ -231,8 +231,8 @@ Then, pass it on the constructor.
 ```csharp
 public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 {
-    public NorthwindRepository(ISettings settings)
-        : base(settings.ConnectionString, new MyCustomTrace)
+    public NorthwindRepository(string connectionString)
+        : base(connectionString, new MyCustomTrace)
     { }
 
     ...
@@ -255,8 +255,8 @@ Then, pass it on the constructor.
 ```csharp
 public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 {
-    public NorthwindRepository(ISettings settings)
-        : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder)
+    public NorthwindRepository(string connectionString)
+        : base(connectionString, new OptimizedSqlServerStatementBuilder)
     { }
 
     ...
