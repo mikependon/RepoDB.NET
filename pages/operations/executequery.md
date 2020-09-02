@@ -39,7 +39,7 @@ You can pass a parameter via the following objects.
 - `Dictionary<string, object>`
 - `Query Objects`
 
-##### Dynamic
+##### Anonymous Types
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
