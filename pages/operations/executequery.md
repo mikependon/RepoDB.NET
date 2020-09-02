@@ -59,7 +59,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-##### Dictionary
+##### IDictionary
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
