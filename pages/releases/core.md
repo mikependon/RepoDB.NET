@@ -10,12 +10,23 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+
+#### Next Version
+
+- Enhancement: Refactor the Table-Based Calls to return `IEnumerable<ExpandoObject>` instead of `IEnumerable<dynamics>`. [#540](https://github.com/mikependon/RepoDb/issues/540)
+- Enhancement: Support for returning `IDictionary<string, object>` instead of ExpandoObject. [#537](https://github.com/mikependon/RepoDb/issues/537)
+- Enhancement: Re-assess if the `IsAssignableFrom` can be used over the customized `IsInterfacedTo`. [#469](https://github.com/mikependon/RepoDb/issues/469)
+- Enhancement: Handle the Exception Handling of the Serialization/Deserialization process of the [ClassHandler](/feature/classhanders) that is connected to a different Data Entity [#539](https://github.com/mikependon/RepoDb/issues/539)
+- Feature: Support to Enumerable Scalar Values [#538](https://github.com/mikependon/RepoDb/issues/538) - **NEW**
+
+
 #### RepoDB (v1.12.0-beta2)
 
 - Enhancement: Updated the [QueryGroup.Parse()](/class/querygroup) method to be an argument-typed-based method.
 - Enhancement: Refactored and optimized the `Parse` method of the [QueryField](/class/queryfield) and [QueryGroup](/class/querygroup) objects.
 - Bug: Non-query statements are not taking into account SQL Server table hints [#533](https://github.com/mikependon/RepoDb/issues/533).
 - Request: F# - Consider the Anonymous Types in the Query and QueryAll operation [#536](https://github.com/mikependon/RepoDb/issues/536).
+
 
 #### RepoDB (v1.12.0-beta1)
 
