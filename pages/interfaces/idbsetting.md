@@ -34,18 +34,18 @@ You have to manually create a class that implements this interface.
 ```csharp
 public class MyCustomSqlServerDbSetting : IDbSetting
 {
-        public bool AreTableHintsSupported { get; set; } = true;
-        public string ClosingQuote { get; set; } = "]";
-        public Type AverageableType { get; set; } = typeof(double);
-        public string DefaultSchema { get; set; } = "dbo";
-        public bool IsDirectionSupported { get; set; } = true;
-        public bool IsExecuteReaderDisposable { get; set; } = true;
-        public bool IsMultiStatementExecutable { get; set; } = true;
-        public bool IsPreparable { get; set; } = true;
-        public bool IsUseUpsert { get; set; } = false;
-        public string OpeningQuote { get; set; } = "[";
-        public string ParameterPrefix { get; set; } = "@";
-        public string SchemaSeparator { get; set; } = ".";
+    public bool AreTableHintsSupported { get; set; } = true;
+    public string ClosingQuote { get; set; } = "]";
+    public Type AverageableType { get; set; } = typeof(double);
+    public string DefaultSchema { get; set; } = "dbo";
+    public bool IsDirectionSupported { get; set; } = true;
+    public bool IsExecuteReaderDisposable { get; set; } = true;
+    public bool IsMultiStatementExecutable { get; set; } = true;
+    public bool IsPreparable { get; set; } = true;
+    public bool IsUseUpsert { get; set; } = false;
+    public string OpeningQuote { get; set; } = "[";
+    public string ParameterPrefix { get; set; } = "@";
+    public string SchemaSeparator { get; set; } = ".";
 }
 ```
 

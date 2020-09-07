@@ -64,7 +64,11 @@ You can pass a parameter via the following objects.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", new { Id = 10045 }).FirstOrDefault();
+    var param = new
+    {
+        Id = 10045
+    };
+	var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
 }
 ```
 

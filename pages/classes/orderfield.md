@@ -55,7 +55,7 @@ var field = OrderField.Parse<Person>(e => e.Id, Order.Descending);
 
 #### Parse Object
 
-You can also extract by parsing an object.
+You can also extract by parsing an anonymous object.
 
 ```csharp
 var fields = OrderField.Parse(new

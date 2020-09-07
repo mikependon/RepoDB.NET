@@ -24,20 +24,20 @@ You have to manually create a class that implements this interface.
 ```csharp
 public class OptimizedSqlServerDbHelper : IDbHelper
 {
-        public IEnumerable<DbField> GetFields(IDbConnection connection,
-            string tableName,
-            IDbTransaction transaction = null)
-        {
-                // Implementations for the GetFields() here
-        }
+    public IEnumerable<DbField> GetFields(IDbConnection connection,
+        string tableName,
+        IDbTransaction transaction = null)
+    {
+        // Implementations for the GetFields() here
+    }
 
-        public object GetScopeIdentity(IDbConnection connection,
-            IDbTransaction transaction = null)
-        {
-                // Implementations for the GetScopeIdentity() here
-        }
+    public object GetScopeIdentity(IDbConnection connection,
+        IDbTransaction transaction = null)
+    {
+        // Implementations for the GetScopeIdentity() here
+    }
 
-        ...
+    ...
 }
 ```
 

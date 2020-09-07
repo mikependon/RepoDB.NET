@@ -28,17 +28,17 @@ Let us say, you create a repository object named `Person` that inherits the [Bas
 // Repository
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
-        public PersonRepository(string connectionString)
-                : base(connectionString, ConnectionPersistency.Instance)
-        { }
+    public PersonRepository(string connectionString)
+        : base(connectionString, ConnectionPersistency.Instance)
+    { }
 
-        ...
+    ...
 }
 
 // Instantiation
 using (var repository = new PersonRepository(connectionString))
 {
-        ...
+    ...
 }
 ```
 
@@ -48,16 +48,16 @@ Or for [DbRepository](/class/dbrepository) object.
 // Repository
 public class PersonRepository : DbRepository<SqlConnection>
 {
-        public PersonRepository(string connectionString)
-                : base(connectionString, ConnectionPersistency.Instance)
-        { }
+    public PersonRepository(string connectionString)
+        : base(connectionString, ConnectionPersistency.Instance)
+    { }
 
-        ...
+    ...
 }
 
 // Instantiation
 using (var repository = new PersonRepository(connectionString))
 {
-        ...
+    ...
 }
 ```

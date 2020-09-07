@@ -67,7 +67,7 @@ var fields = Field.Parse<Person>(e => new { e.Id, e.Name, e.DateOfBirth });
 
 #### Parse Object
 
-You can also extract by parsing an object (or dynamic).
+You can also extract by parsing a class or an anonymous object.
 
 ```csharp
 var person = new Person();

@@ -51,62 +51,62 @@ You have to manually create a class that implements this interface.
 ```csharp
 public class OptimizedSqlServerStatementBuilder : IStatementBuilder
 {
-        private IDbSetting m_dbSetting = new SqlServerDbSetting();
+    private IDbSetting m_dbSetting = new SqlServerDbSetting();
 
-        public string CreateAverage(QueryBuilder queryBuilder,
-            string tableName,
-            Field field,
-            QueryGroup where = null,
-            string hints = null)
-        {
-                // Initialize the builder
-                var builder = queryBuilder ?? new QueryBuilder();
+    public string CreateAverage(QueryBuilder queryBuilder,
+        string tableName,
+        Field field,
+        QueryGroup where = null,
+        string hints = null)
+    {
+        // Initialize the builder
+        var builder = queryBuilder ?? new QueryBuilder();
 
-                // Build the query
-                builder.Clear()
-                        .Select()
-                        .Average(field, DbSetting, ConvertFieldResolver)
-                        .WriteText($"AS {"AverageValue".AsQuoted(DbSetting)}")
-                        .From()
-                        .TableNameFrom(tableName, DbSetting)
-                        .HintsFrom(hints)
-                        .WhereFrom(where, DbSetting)
-                        .End();
+        // Build the query
+        builder.Clear()
+            .Select()
+            .Average(field, DbSetting, ConvertFieldResolver)
+            .WriteText($"AS {"AverageValue".AsQuoted(DbSetting)}")
+            .From()
+            .TableNameFrom(tableName, DbSetting)
+            .HintsFrom(hints)
+            .WhereFrom(where, DbSetting)
+            .End();
 
-                // Return the query
-                return builder.GetString();
-        }
+        // Return the query
+        return builder.GetString();
+    }
 
-        ...
+    ...
 
-        public string CreateQuery(QueryBuilder queryBuilder,
-            string tableName,
-            IEnumerable<Field> fields,
-            QueryGroup where = null,
-            IEnumerable<OrderField> orderBy = null,
-            int? top = null,
-            string hints = null)
-        {
-                // Initialize the builder
-                var builder = queryBuilder ?? new QueryBuilder();
+    public string CreateQuery(QueryBuilder queryBuilder,
+        string tableName,
+        IEnumerable<Field> fields,
+        QueryGroup where = null,
+        IEnumerable<OrderField> orderBy = null,
+        int? top = null,
+        string hints = null)
+    {
+        // Initialize the builder
+        var builder = queryBuilder ?? new QueryBuilder();
 
-                // Build the query
-                builder.Clear()
-                        .Select()
-                        .TopFrom(top)
-                        .FieldsFrom(fields, DbSetting)
-                        .From()
-                        .TableNameFrom(tableName, DbSetting)
-                        .HintsFrom(hints)
-                        .WhereFrom(where, DbSetting)
-                        .OrderByFrom(orderBy, DbSetting)
-                        .End();
+        // Build the query
+        builder.Clear()
+            .Select()
+            .TopFrom(top)
+            .FieldsFrom(fields, DbSetting)
+            .From()
+            .TableNameFrom(tableName, DbSetting)
+            .HintsFrom(hints)
+            .WhereFrom(where, DbSetting)
+            .OrderByFrom(orderBy, DbSetting)
+            .End();
 
-                // Return the query
-                return builder.GetString();
-        }
+        // Return the query
+        return builder.GetString();
+    }
 
-        ...
+    ...
 }
 ```
 
@@ -118,7 +118,7 @@ You can instantiate a new instance and pass it when you are calling any [fluent 
 var statementBuilder = new OptimizedSqlServerStatementBuilder();
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-        var people = connection.QueryAll<Person>(statementBuilder: statementBuilder);
+    var people = connection.QueryAll<Person>(statementBuilder: statementBuilder);
 }
 ```
 
@@ -128,15 +128,15 @@ Or, you can pass it on the constructor of [BaseRepository](/class/baserepository
 // Repository class implementation
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
-        public PersonRepository(string connectionString)
-                : base(connectionString, new OptimizedSqlServerStatementBuilder())
-        { }
+    public PersonRepository(string connectionString)
+        : base(connectionString, new OptimizedSqlServerStatementBuilder())
+    { }
 }
 
 // Repository class usability
 using (var repository = new PersonRepository(connectionString))
 {
-        var people = connection.QueryAll();
+    var people = connection.QueryAll();
 }
 ```
 

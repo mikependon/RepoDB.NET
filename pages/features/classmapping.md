@@ -26,7 +26,7 @@ public class Customer
 Or, use the `Table` attribute of `System.ComponentModel.DataAnnotations.Schema` namespace.
 
 ```csharp
-[Table(""[sales].[Customer]")]
+[Table("[sales].[Customer]")]
 public class Customer
 {
     ...
@@ -52,7 +52,7 @@ public class Customer
 
     [Map("FName")]
     public string FirstName { get; set;}
-    
+
     [Map("LName")]
     public string LastName { get; set;}
 
@@ -69,7 +69,7 @@ public class Customer
 
     [Column("FName")]
     public string FirstName { get; set;}
-    
+
     [Column("LName")]
     public string LastName { get; set;}
 

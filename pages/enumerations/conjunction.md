@@ -23,12 +23,12 @@ Simply pass it in the constructor when instantiating a [QueryGroup](/class/query
 ```csharp
 var query = new QueryGroup
 (
-        new []
-        {
-                new QueryField("Id", Operation.GreaterThanOrEqual, 10000),
-                new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddMonths(-3))
-        },
-        Conjunction.And
+    new []
+    {
+        new QueryField("Id", Operation.GreaterThanOrEqual, 10000),
+        new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddMonths(-3))
+    },
+    Conjunction.And
 );
 ```
 
@@ -43,12 +43,12 @@ Although by default, the value is `And`, you can override it by passing the `Or`
 ```csharp
 var query = new QueryGroup
 (
-        new []
-        {
-                new QueryField("Id", 10045),
-                new QueryField("Id", 10057)
-        },
-        Conjunction.Or
+    new []
+    {
+        new QueryField("Id", 10045),
+        new QueryField("Id", 10057)
+    },
+    Conjunction.Or
 );
 ```
 

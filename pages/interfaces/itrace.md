@@ -92,17 +92,17 @@ You have to manually create a class that implements this interface.
 ```csharp
 public class MyCustomTrace : ITrace
 {
-        public void AfterQuery(TraceLog log)
-        {
-                // Some implementations here
-        }
+    public void AfterQuery(TraceLog log)
+    {
+        // Some implementations here
+    }
 
-        public void BeforeQuery(CancellableTraceLog log)
-        {
-                // Some implementations here
-        }
+    public void BeforeQuery(CancellableTraceLog log)
+    {
+        // Some implementations here
+    }
 
-        ...
+    ...
 }
 ```
 
@@ -111,17 +111,17 @@ With this, you can log the statement like below.
 ```csharp
 public class MyCustomTrace : ITrace
 {
-        public void AfterQuery(TraceLog log)
-        {
-                Console.WriteLine($"After Query: {log.Statement}");
-        }
+    public void AfterQuery(TraceLog log)
+    {
+        Console.WriteLine($"After Query: {log.Statement}");
+    }
 
-        public void BeforeQuery(CancellableTraceLog log)
-        {
-                Console.WriteLine($"Before Query: {log.Statement}");
-        }
+    public void BeforeQuery(CancellableTraceLog log)
+    {
+        Console.WriteLine($"Before Query: {log.Statement}");
+    }
 
-        ...
+    ...
 }
 ```
 
@@ -130,17 +130,17 @@ Or you can even audit and cancel the operation like below.
 ```csharp
 public class MyCustomTrace : ITrace
 {
-        public void BeforeQuery(CancellableTraceLog log)
+    public void BeforeQuery(CancellableTraceLog log)
+    {
+        var invalidActions = new [] { "INSERT", "UDPATE", "DELETE", "DROP", "ALTER", "EXECUTE" };
+        if (invalidActions.Any(action => log.Statement.ToUpper().Indexof(action) >= 0))
         {
-                var invalidActions = new [] { "INSERT", "UDPATE", "DELETE", "DROP", "ALTER", "EXECUTE" };
-                if (invalidActions.Any(action => log.Statement.ToUpper().Indexof(action) >= 0))
-                {
-                        Console.WriteLine($"Before Query: A suspicious statement has been passed (SQL = {log.Statement}).");
-                        log.Cancel(true);
-                }
+            Console.WriteLine($"Before Query: A suspicious statement has been passed (SQL = {log.Statement}).");
+            log.Cancel(true);
         }
+    }
 
-        ...
+    ...
 }
 ```
 
@@ -187,14 +187,14 @@ Or by passing it on the constructor of the [BaseRepository](/class/baserepositor
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
-        public PersonRepository(ISettings settings)
-                : base(settings.ConnectionString, TraceFactory.CreateTracer())
-        { }
+    public PersonRepository(ISettings settings)
+        : base(settings.ConnectionString, TraceFactory.CreateTracer())
+    { }
 }
 
 using (var repository = new PersonRepository(new AppSettings()))
 {
-        var person = repository.Query(p => p.Id == 10045).FirstOrDefault();
+    var person = repository.Query(p => p.Id == 10045).FirstOrDefault();
 }
 ```
 
@@ -203,14 +203,14 @@ Or even to the constructor of [DbRepository](/class/dbrepository) object.
 ```csharp
 public class DatabaseRepository : DbRepository<SqlConnection>
 {
-        public DatabaseRepository(ISettings settings)
-                : base(settings.ConnectionString, TraceFactory.CreateTracer())
-        { }
+    public DatabaseRepository(ISettings settings)
+        : base(settings.ConnectionString, TraceFactory.CreateTracer())
+    { }
 }
 
 using (var repository = new DatabaseRepository(new AppSettings()))
 {
-        var person = repository.Query<Person>(p => p.Id == 10045).FirstOrDefault();
+    var person = repository.Query<Person>(p => p.Id == 10045).FirstOrDefault();
 }
 ```
 

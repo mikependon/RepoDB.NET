@@ -30,10 +30,10 @@ You have to manually create a class that implements this interface.
 ```csharp
 public class ColumnNameResolver : IResolver<string, IDbSetting, string>
 {
-        public string Resolve(string input, IDbSetting setting)
-        {
-                return input?.AsField(setting);
-        }
+    public string Resolve(string input, IDbSetting setting)
+    {
+        return input?.AsField(setting);
+    }
 }
 ```
 
@@ -55,10 +55,10 @@ Or, you can pass it on your custom [Statement Builder](/extensibility/statementb
 ```csharp
 public class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 {
-        public OptimizedSqlServerStatementBuilder(IDbSetting dbSetting,
-                IResolver<Field, IDbSetting, string> convertFieldResolver)
-                : base(dbSetring, convertFieldResolver, null)
-        { }
+    public OptimizedSqlServerStatementBuilder(IDbSetting dbSetting,
+        IResolver<Field, IDbSetting, string> convertFieldResolver)
+        : base(dbSetring, convertFieldResolver, null)
+    { }
 }
 ```
 

@@ -13,7 +13,7 @@ This is a feature that would allow you to compose a conditional expressions (to 
 
 ###### There are 3 ways of composing an expression trees.
 
-- `Dynamic` - it is the most simple and direct way of filterting the results. You can use the `dynamic` object to filter data.
+- `Anonymous` - it is the most simple and direct way of filterting the results. You can use the anonymous object to filter data.
 - `Linq-Expression` - it is the most common way of filtering the data.
 - `Query Objects` - it is the most advance, efficient, performant and powerful way of composing the tree expression.
 
@@ -21,9 +21,9 @@ This is a feature that would allow you to compose a conditional expressions (to 
 
 The support to query objects are massive and well tested with high-quality. However, the Linq-Expression parser of the library is not as extensive as Entity Framework. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expressions.
 
-#### Dynamic
+#### Anonymous
 
-Below is a sample way of querying via `dynamics`. 
+Below is a sample way of querying via anonymous. 
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -41,7 +41,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-> Please be aware that the compiler does not understand dynamic, any change on the column name would not trigger a pre-compilation exception. Also, the dynamic only supports the `expression-equality` and cannot be used with other operations (i.e.: `NotEqual`, `GreaterThan`, etc).
+> Please be aware that the compiler does not understand anonymous, any change on the column name would not trigger a pre-compilation exception. Also, the anonymous types only supported the `expression-equality` and cannot be used with other operations (i.e.: `NotEqual`, `GreaterThan`, etc).
 
 #### Linq-Expression
 

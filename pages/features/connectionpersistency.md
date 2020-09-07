@@ -35,7 +35,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 // Instantiation
 using (var repository = new PersonRepository(connectionString, ConnectionPersistency.Instance))
 {
-        ...
+    ...
 }
 ```
 

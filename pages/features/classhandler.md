@@ -33,7 +33,8 @@ Create a class that implements the [IClassHandler](/interface/iclasshandler) int
 ```csharp
 public class PersonClassHandler : IClassHandler<Person>
 {
-    public Person Get(Person entity, DbDataReader reader)
+    public Person Get(Person entity,
+        DbDataReader reader)
     {
         return entity;
     }

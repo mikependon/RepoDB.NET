@@ -89,7 +89,7 @@ var cache = CacheFactory.GetMemoryCache();
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var products = connection.QueryAll<Product>(cacheKey: "products", cache: cache);
-    cache.Remove("products"); /* Remove later-on */
+    cache.Remove("products");
 }
 ```
 
@@ -111,7 +111,7 @@ When using the [BaseRepository](/class/baserepository) and [DbRepository](/class
 using (var repository = new DbRepository<Product, SqlConnection>(connectionString))
 {
     var products = repository.QueryAll(cacheKey: "products");
-    repository.Cache.Remove("products"); /* Remove */
+    repository.Cache.Remove("products");
 }
 ```
 
@@ -123,7 +123,7 @@ Create a class that implements the [ICache](/interface/icache) interface.
 public class JsonCache : ICache
 {
     public JsonCache(string path,
-        string extension)
+    string extension)
     {
         Path = path;
         Extension = extension;
@@ -134,7 +134,7 @@ public class JsonCache : ICache
     public string Extension { get; }
     public string Path { get; }
 
-    
+
     /*** Methods ***/
 
     public void Add<T>(string key,
@@ -276,7 +276,7 @@ public static class CacheFactory
     {
         syncLock = new object();
     }
-    
+
     public static ICache GetJsonCache()
     {
         if (jsonCache == null)

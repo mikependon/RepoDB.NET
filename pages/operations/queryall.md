@@ -71,6 +71,24 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
+#### Type Result
+
+You can also directly target a `string` column as a result set.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+    var fields = Field.Parse<Person>(e => new
+    {
+        e.Name
+    });
+	var names = connection.QueryAll<string>(ClassMappedNameCache.Get<Person>(),
+        fields: fields).FirstOrDefault();
+}
+```
+
+**Note:** The other non-class type (i.e.: `long`, `int`, `System.DateTime`, etc) cannot be used as the `QueryAll<TEntity>` is filtered as `class`. Please see the [ExecuteQuery](/operation/executequery) operation for other type supports.
+
 #### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.

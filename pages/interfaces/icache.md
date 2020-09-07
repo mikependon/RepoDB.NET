@@ -74,9 +74,9 @@ You can pass it on the constructor of the [BaseRepository](/class/baserepository
 ```csharp
 public class StateRepository : BaseRepository<State, SqlConnection>
 {
-        public StateRepository(ISettings settings)
-                : base(settings.ConnectionString, new JsonCache(@"C:\cache", "jsoncache"))
-        { }
+    public StateRepository(ISettings settings)
+        : base(settings.ConnectionString, new JsonCache(@"C:\cache", "jsoncache"))
+    { }
 }
 ```
 
@@ -85,7 +85,7 @@ And call the [query](/operation/query) operation like below.
 ```csharp
 using (var repository = new StateRepository(new AppSettings()))
 {
-        var states = repository.QueryAll(cacheKey: "CacheKey:States");
+    var states = repository.QueryAll(cacheKey: "CacheKey:States");
 }
 ```
 
@@ -94,9 +94,9 @@ Or even to the constructor of [DbRepository](/class/dbrepository) object.
 ```csharp
 public class DatabaseRepository : DbRepository<SqlConnection>
 {
-        public DatabaseRepository(ISettings settings)
-                : base(settings.ConnectionString, new JsonCache(@"C:\cache", "jsoncache"))
-        { }
+    public DatabaseRepository(ISettings settings)
+        : base(settings.ConnectionString, new JsonCache(@"C:\cache", "jsoncache"))
+    { }
 }
 ```
 
@@ -105,7 +105,7 @@ And call the [query](/operation/query) operation like below.
 ```csharp
 using (var repository = new DatabaseRepository(new AppSettings()))
 {
-        var states = repository.QueryAll<State>(cacheKey: "CacheKey:States");
+    var states = repository.QueryAll<State>(cacheKey: "CacheKey:States");
 }
 ```
 

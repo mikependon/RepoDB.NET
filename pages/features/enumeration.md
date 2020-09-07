@@ -170,6 +170,10 @@ Or even in the raw-SQL.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var females = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE [Gender] = @Gender;", new { Gender = Gender.Female });
+    var param = new
+    {
+        Gender = Gender.Female
+    };
+    var females = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE [Gender] = @Gender;", param);
 }
 ```

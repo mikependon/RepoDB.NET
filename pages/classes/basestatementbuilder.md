@@ -122,14 +122,14 @@ Or by passing it on the constructor of the [BaseRepository](/class/baserepositor
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
-        public PersonRepository(ISettings settings)
-                : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
-        { }
+    public PersonRepository(ISettings settings)
+        : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
+    { }
 }
 
 using (var repository = new PersonRepository(new AppSettings()))
 {
-        var person = repository.Query(p => p.Id == 10045).FirstOrDefault();
+    var person = repository.Query(p => p.Id == 10045).FirstOrDefault();
 }
 ```
 
@@ -138,14 +138,14 @@ Or even to the constructor of [DbRepository](/class/dbrepository) object.
 ```csharp
 public class DatabaseRepository : DbRepository<SqlConnection>
 {
-        public DatabaseRepository(ISettings settings)
-                : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
-        { }
+    public DatabaseRepository(ISettings settings)
+        : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
+    { }
 }
 
 using (var repository = new DatabaseRepository(new AppSettings()))
 {
-        var person = repository.Query<Person>(p => p.Id == 10045).FirstOrDefault();
+    var person = repository.Query<Person>(p => p.Id == 10045).FirstOrDefault();
 }
 ```
 
