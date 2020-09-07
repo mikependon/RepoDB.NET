@@ -49,7 +49,7 @@ You can also target a specific table by passing the literal table like below.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var person = connection.Query<Person>("[dbo].[Person]",
-        10045).FirstOrDefualt();
+		10045).FirstOrDefualt();
 }
 ```
 
@@ -72,15 +72,15 @@ You can also target a specific columns to be queried by passing the list of fiel
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var fields = Field.Parse<Person>(e => new
-    {
-        e.Id,
-        e.Name,
-        e.DateOfBirth,
-        e.DateInsertedUtc
-    });
-    var person = connection.Query<Person>(e => e.Id == 10045,
-        fields: fields).FirstOrDefault();
+	var fields = Field.Parse<Person>(e => new
+	{
+		e.Id,
+		e.Name,
+		e.DateOfBirth,
+		e.DateInsertedUtc
+	});
+	var person = connection.Query<Person>(e => e.Id == 10045,
+		fields: fields).FirstOrDefault();
 }
 ```
 
@@ -89,9 +89,9 @@ Or via dynamics.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var person = connection.Query("[dbo].[Person]",
-        new { Id = 10045 },
-        fields: Field.From("Id", "Name", "DateOfBirth", "DateInsertedUtc")).FirstOrDefault();
+	var person = connection.Query("[dbo].[Person]",
+		new { Id = 10045 },
+		fields: Field.From("Id", "Name", "DateOfBirth", "DateInsertedUtc")).FirstOrDefault();
 }
 ```
 
@@ -102,13 +102,13 @@ You can also directly target a `string` column as a result set.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var fields = Field.Parse<Person>(e => new
-    {
-        e.Name
-    });
-    var names = connection.Query<string>(ClassMappedNameCache.Get<Person>(),
-        new QueryField("Name", "%Anders%"),
-        fields: fields).FirstOrDefault();
+	var fields = Field.Parse<Person>(e => new
+	{
+		e.Name
+	});
+	var names = connection.Query<string>(ClassMappedNameCache.Get<Person>(),
+		new QueryField("Name", "%Anders%"),
+		fields: fields).FirstOrDefault();
 }
 ```
 
@@ -145,8 +145,8 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var orderBy = OrderField.Parse(new
 	{
-		LastName = Order.Descending,
-		FirstName = Order.Ascending
+	LastName = Order.Descending,
+	FirstName = Order.Ascending
 	});
 	var people = connection.Query<Person>(e => e.IsActive == true,
 		orderBy: orderBy);

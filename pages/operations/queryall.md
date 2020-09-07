@@ -50,13 +50,13 @@ You can also target a specific columns to be queried by passing the list of fiel
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var fields = Field.Parse<Person>(e => new
-    {
-        e.Id,
-        e.Name,
-        e.DateOfBirth,
-        e.DateInsertedUtc
-    });
+	var fields = Field.Parse<Person>(e => new
+	{
+		e.Id,
+		e.Name,
+		e.DateOfBirth,
+		e.DateInsertedUtc
+	});
 	var people = connection.QueryAll<Person>(fields: fields);
 }
 ```
@@ -67,7 +67,7 @@ Or via dynamics.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var people = connection.Query("[dbo].[Person]",
-        fields: Field.From("Id", "Name", "DateOfBirth", "DateInsertedUtc"));
+		fields: Field.From("Id", "Name", "DateOfBirth", "DateInsertedUtc"));
 }
 ```
 
@@ -78,12 +78,12 @@ You can also directly target a `string` column as a result set.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var fields = Field.Parse<Person>(e => new
-    {
-        e.Name
-    });
+	var fields = Field.Parse<Person>(e => new
+	{
+		e.Name
+	});
 	var names = connection.QueryAll<string>(ClassMappedNameCache.Get<Person>(),
-        fields: fields).FirstOrDefault();
+		fields: fields).FirstOrDefault();
 }
 ```
 
