@@ -21,7 +21,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-You can also execute a SQL statement that returns a dynamic object with properties equals to the selected fields of the SQL statement.
+Returning the enumerable of `dynamic` objects. The type of the dynamic object is an `ExpandoObject`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -30,11 +30,31 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
+Returning the enumerable of `ExpandoObject` objects.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var people = connection.ExecuteQuery<ExpandoObject>("SELECT * FROM [dbo].[Person];");
+}
+```
+
+Returning the enumerable of `IDictionary<string, object>` objects.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var people = connection.ExecuteQuery<IDictionary<string, object>>("SELECT * FROM [dbo].[Person];");
+}
+```
+
+**Note:** You can as well pass an `Anonymous Type` in the generic type `TResult` of the [ExecuteQuery](/operation/executequery) operation. This scenario is very important to the `F#` programming language.
+
 #### Passing of Parameters
 
 You can pass a parameter via the following objects.
 
-- `Dynamic`
+- `Anonymous Types`
 - `ExpandoObject`
 - `IDictionary<string, object>`
 - `Query Objects`
