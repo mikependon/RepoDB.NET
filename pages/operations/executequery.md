@@ -64,10 +64,10 @@ You can pass a parameter via the following objects.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-    var param = new
-    {
-        Id = 10045
-    };
+	var param = new
+	{
+		Id = 10045
+	};
 	var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
 }
 ```
@@ -143,7 +143,8 @@ Or, simply use the native SQL calls like below.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var person = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetPerson](@Id);", new { Id = 10045 }).FirstOrDefault();
+	var person = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetPerson](@Id);",
+		new { Id = 10045 }).FirstOrDefault();
 }
 ```
 

@@ -17,7 +17,7 @@ Below is a sample code to fetch a row from the `[dbo].[Person]` table.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var person = connection.Query<Person>(10045).FirstOrDefault();
+    var person = connection.Query<Person>(10045).FirstOrDefault();
 }
 ```
 
@@ -79,7 +79,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
         e.DateOfBirth,
         e.DateInsertedUtc
     });
-	var person = connection.Query<Person>(e => e.Id == 10045,
+    var person = connection.Query<Person>(e => e.Id == 10045,
         fields: fields).FirstOrDefault();
 }
 ```
@@ -89,7 +89,7 @@ Or via dynamics.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var person = connection.Query("[dbo].[Person]",
+    var person = connection.Query("[dbo].[Person]",
         new { Id = 10045 },
         fields: Field.From("Id", "Name", "DateOfBirth", "DateInsertedUtc")).FirstOrDefault();
 }
@@ -106,7 +106,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
     {
         e.Name
     });
-	var names = connection.Query<string>(ClassMappedNameCache.Get<Person>(),
+    var names = connection.Query<string>(ClassMappedNameCache.Get<Person>(),
         new QueryField("Name", "%Anders%"),
         fields: fields).FirstOrDefault();
 }
