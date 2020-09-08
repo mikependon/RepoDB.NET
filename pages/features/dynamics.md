@@ -22,7 +22,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-Or via anonymous types.
+Or filtering a result via anonymous types.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -49,7 +49,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 #### Iterating the Result
 
-When fetching a data from the database, it is automatically converted into an enumerable of `IEnumerable<ExpandoObject>` objects.
+When fetching a data from the database, it is automatically converted into an enumerable of `ExpandoObject` objects.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
