@@ -78,12 +78,8 @@ You can also directly target a `string` column as a result set.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var fields = Field.Parse<Person>(e => new
-	{
-		e.Name
-	});
 	var names = connection.QueryAll<string>(ClassMappedNameCache.Get<Person>(),
-		fields: fields).FirstOrDefault();
+		fields: Field.From(nameof(Person.Name))).FirstOrDefault();
 }
 ```
 

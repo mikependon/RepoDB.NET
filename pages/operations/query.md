@@ -102,13 +102,9 @@ You can also directly target a `string` column as a result set.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var fields = Field.Parse<Person>(e => new
-	{
-		e.Name
-	});
 	var names = connection.Query<string>(ClassMappedNameCache.Get<Person>(),
-		new QueryField("Name", "%Anders%"),
-		fields: fields).FirstOrDefault();
+		new QueryField("Name", Operation.Like, "%Anders%"),
+		fields: Field.From(nameof(Person.Name))).FirstOrDefault();
 }
 ```
 

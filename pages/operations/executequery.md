@@ -50,6 +50,46 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 **Note:** You can as well pass an `Anonymous Type` in the generic type `TResult` of the [ExecuteQuery](/operation/executequery) operation. This scenario is very important to the `F#` programming language.
 
+#### Typed Result
+
+You can also inferred the result back to any .NET CLR Type.
+
+Below is for `long` type.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var ids = connection.ExecuteQuery<long>("SELECT Id FROM [dbo].[Person];");
+}
+```
+
+Or for other types like `string` and `DateTime`.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var names = connection.ExecuteQuery<long>("SELECT Name FROM [dbo].[Person];");
+    var dateOfBirth = connection.ExecuteQuery<DateTime>("SELECT DateOfBirth FROM [dbo].[Person] WHERE Name = 'John Doe';").FirstOrDefault();
+}
+```
+
+And also for the `Enum` types.
+
+```csharp
+// Enumeration
+public enum Gender
+{
+    Male = 1,
+    Female = 2
+}
+
+// Inferring
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+    var gender = connection.ExecuteQuery<Gender>("SELECT Gender FROM [dbo].[Person] WHERE Name = 'John Doe';").FirstOrDefault();
+}
+```
+
 #### Passing of Parameters
 
 You can pass a parameter via the following objects.
