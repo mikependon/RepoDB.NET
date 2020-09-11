@@ -318,6 +318,28 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
+#### Table-Valued Parameters
+
+To execute a Table-Valued Parameter (TVP), create a `DataTable` and set its name equals to the name of the User-Defined Type (UDT).
+
+Please click here to follow the Microsoft [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) on how to create a TVP and UDT and call it from C#/ADO.NET.
+
+```csharp
+var table = new DataTable();
+table.TableName = "[dbo].[PersonType]"; // Name of the UDT
+// Create the 'table' columns/rows
+```
+
+Then pass it as a value to your argument.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var tables = connection.ExecuteQuery<Person>("EXEC [sp_InsertPerson] @PersonTable = @Table;",
+        new { PersonTable = table })?.AsList();
+}
+```
+
 #### Executing a Stored Procedure
 
 To execute a stored procedure, you can use any of the `Execute` methods mentioned above, but you have to passed the `CommandType` as `CommandType.StoredProcedure`.
