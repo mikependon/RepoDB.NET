@@ -14,6 +14,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 - Bug: SqLite: Replace the `INSERT OR REPLACE` with `INSERT/UPDATE` statement. [#558](https://github.com/mikependon/RepoDb/issues/558)
 - Enhancement: PostgreSQL - Add the `RESTART IDENTITY` in the [Truncate](/operation/truncate) operation. [#563](https://github.com/mikependon/RepoDb/issues/563)
+- Enhancement: Consider supporting the execution of the TVP in SQL Server. [#566](https://github.com/mikependon/RepoDb/issues/566)
 - Integration Tests: Added more Integration Tests for the `DbType` Map Attribute (includes SQL Server, PostgreSQL and MySQL).
 
 

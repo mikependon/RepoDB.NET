@@ -92,6 +92,28 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 **Note:** The inferrence of the `Enum` will work for `string` (i.e: `VARCHAR`, `TEXT`, etc) and `non-string` (i.e: `SmallInt`, `Int`, `BigInt`, etc) column types.
 
+#### Table-Valued Parameters
+
+To execute a Table-Valued Parameter (TVP), create a `DataTable` and set its name equals to the name of the User-Defined Type (UDT).
+
+Please click here to follow the Microsoft [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) on how to create a TVP and UDT and call it from C#/ADO.NET.
+
+```csharp
+var table = new DataTable();
+table.TableName = "Name of the UDT";
+// Create the 'table' columns/rows
+```
+
+Then pass it as a value to your argument.
+
+```csharp
+using (var connection = new SqlConnection(connectionString).EnsureOpen())
+{
+	var tables = connection.ExecuteQuery<IdentityTable>("EXEC [sp_StoredProcedureName] @Table = @Table;",
+        new { Table = table })?.AsList();
+}
+```
+
 #### Passing of Parameters
 
 You can pass a parameter via the following objects.
