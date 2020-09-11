@@ -17,6 +17,7 @@ permalink: /about
 - [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations)
 - [RepoDb.SqLite](https://www.nuget.org/packages/RepoDb.SqLite)
 - [RepoDb.MySql](https://www.nuget.org/packages/RepoDb.MySql)
+- [RepoDb.MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector)
 - [RepoDb.PostgreSql](https://www.nuget.org/packages/RepoDb.PostgreSql)
 
 #### Repositories
@@ -26,6 +27,7 @@ permalink: /about
 - [SQL Server (Bulk)](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Extensions/RepoDb.SqlServer.BulkOperations)
 - [SQLite](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqLite)
 - [MySQL](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql)
+- [MySQL (MySqlConnector)](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector)
 - [PostgreSQL](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql)
 
 #### Official Channels
