@@ -90,6 +90,8 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
+**Note:** The inferrence of the `Enum` will work for `string` (i.e: `VARCHAR`, `TEXT`) and `non-string` (i.e: `SmallInt`,`Int`, `BigInt`) column types.
+
 #### Passing of Parameters
 
 You can pass a parameter via the following objects.
