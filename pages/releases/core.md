@@ -12,8 +12,6 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDB (v1.12.0-beta4)
 
-- Bug: SqLite: Replace the `INSERT OR REPLACE` with `INSERT/UPDATE` statement. [#558](https://github.com/mikependon/RepoDb/issues/558)
-- Enhancement: PostgreSQL - Add the `RESTART IDENTITY` in the [Truncate](/operation/truncate) operation. [#563](https://github.com/mikependon/RepoDb/issues/563)
 - Enhancement: Consider supporting the execution of the TVP in SQL Server. [#566](https://github.com/mikependon/RepoDb/issues/566)
 - Integration Tests: Added more Integration Tests for the `DbType` Map Attribute (includes SQL Server, PostgreSQL and MySQL).
 
@@ -33,6 +31,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Refactored and optimized the `Parse` method of the [QueryField](/class/queryfield) and [QueryGroup](/class/querygroup) objects.
 - Bug: Non-query statements are not taking into account SQL Server table hints [#533](https://github.com/mikependon/RepoDb/issues/533).
 - Request: F# - Consider the Anonymous Types in the Query and QueryAll operation [#536](https://github.com/mikependon/RepoDb/issues/536).
+- Question: Specific Columns in `Query<TEntity>` [#545](https://github.com/mikependon/RepoDb/issues/545)
 
 
 #### RepoDB (v1.12.0-beta1)

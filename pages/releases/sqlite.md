@@ -12,6 +12,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the act
 
 #### RepoDb.SqLite (v1.1.0-beta2)
 
+- Bug: SqLite: Replace the `INSERT OR REPLACE` with `INSERT/UPDATE` statement. [#558](https://github.com/mikependon/RepoDb/issues/558)
 - Bug: Inserting only specific columns does not work on SQLite [#568](https://github.com/mikependon/RepoDb/issues/568)
 - Bug: Nullables not working on SQLite (F#) [#569](https://github.com/mikependon/RepoDb/issues/569)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta4](/release/core#repodb-v1120-beta4)).

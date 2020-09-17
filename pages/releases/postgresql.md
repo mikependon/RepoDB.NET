@@ -12,6 +12,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 
 #### RepoDb.PostgreSql (v1.1.0-beta2)
 
+- Enhancement: PostgreSQL - Add the `RESTART IDENTITY` in the [Truncate](/operation/truncate) operation. [#563](https://github.com/mikependon/RepoDb/issues/563)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta4](/release/core#repodb-v1120-beta4)).
 
 
