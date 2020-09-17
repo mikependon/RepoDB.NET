@@ -110,7 +110,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-> The [Insert](/operation/insert) method returns the `Primary` (or `Identity`) field value while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the `Identity` property if present.
+> The [Insert](/operation/insert) method returns the `Primary` (or `Identity`) field value while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the `PrimaryKey` and/or `Identity` property if present..
 
 #### Querying a Record
 
@@ -178,7 +178,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-> The [Merge](/operation/merge) method returns the `Primary` (or `Identity`) field value while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the `Identity` property if present.
+> The [Merge](/operation/merge) method returns the `Primary` (or `Identity`) field value while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the `PrimaryKey` and/or `Identity` property if present..
 
 #### Deleting a Record
 

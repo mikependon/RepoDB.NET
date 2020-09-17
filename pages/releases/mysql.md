@@ -10,6 +10,10 @@ permalink: /release/mysql
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySql) to download it.
 
+#### RepoDb.MySql (v1.1.0-beta2)
+
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta4](/release/core#repodb-v1120-beta4)).
+
 
 #### RepoDb.MySql (v1.1.0-beta1)
 
@@ -22,6 +26,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actu
 - Feature: Introduced the support to the [Class Handler](/feature/classhandler).
 - Test: More coverage of Integration Tests and Unit Tests.
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta1](/release/core#repodb-v1120-beta1)).
+
 
 #### RepoDb.MySql (v1.0.15)
 
