@@ -110,7 +110,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-> The [Insert](/operation/insert) method returns the `Primary` (or `Identity`) field value while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the `PrimaryKey` and/or `Identity` property if present..
+> The [Insert](/operation/insert) method returns the value of the `Primary` (or `Identity`) field while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the `PrimaryKey` and/or `Identity` property of the model if present.
 
 #### Querying a Record
 
@@ -119,7 +119,7 @@ To query a record, use the [Query](/operation/query) method.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var person = connection.Query<Person>(e => e.Id == 1);
+	var person = connection.Query<Person>(e => e.Id == 10045);
 	/* Do the stuffs for person here */
 }
 ```
@@ -152,7 +152,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-By default, the `Primary` (or `Identity`) field is used as a qualifier. You can also use specify the customized qualifiers.
+By default, the `Primary` (or `Identity`) field is used as a qualifier. You can also specify the customized qualifiers.
 
 ```csharp
 var person = new Person
@@ -178,7 +178,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-> The [Merge](/operation/merge) method returns the `Primary` (or `Identity`) field value while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the `PrimaryKey` and/or `Identity` property if present..
+> The [Merge](/operation/merge) method returns the value of the `Primary` (or `Identity`) field while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the `PrimaryKey` and/or `Identity` property of the model if present.
 
 #### Deleting a Record
 
@@ -187,11 +187,11 @@ To delete a record, use the [Delete](/operation/delete) method.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var deletedRows = connection.Delete<Person>(1);
+	var deletedRows = connection.Delete<Person>(10045);
 }
 ```
 
-By default, it uses the primary key as a qualifier. You can also use the other field.
+By default, it uses the `Primary` (or `Identity`) field as the qualifiers. You can also use the other fields.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -209,7 +209,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-You can also pass the list of primary keys to be deleted.
+You can also pass the list of primary keys or models to be deleted.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -219,7 +219,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-> Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the execution.
+> Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the deletion.
 
 #### Updating a Record
 
@@ -239,7 +239,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 }
 ```
 
-You can also update via dynamic by targetting certain columns.
+You can also dynamically update by targetting the certain columns.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
@@ -270,7 +270,7 @@ people
 	.ForEach(p => p.Name = $"{p.Name} (Updated)");
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var updatedRows = connection.UpdateAll<Person>(people, qualifiers: (p => new { p.Name }));
+	var updatedRows = connection.UpdateAll<Person>(people, qualifiers: (p => new { p.Name, p.DateOfBirth }));
 }
 ```
 
@@ -336,7 +336,7 @@ Then pass it as a value to your argument.
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
 	var tables = connection.ExecuteQuery<Person>("EXEC [sp_InsertPerson] @PersonTable = @Table;",
-        new { PersonTable = table })?.AsList();
+        new { Table = table })?.AsList();
 }
 ```
 
