@@ -17,9 +17,11 @@ Today, we are announcing the availability of [RepoDb v1.12.0](https://www.nuget.
 
 ### TL;DR;
 
-The version [v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0) together with its extensions (at [v1.1.0](https://repodb.net/release/core)) releases are one of the biggest suite release of RepoDB. It includes the major updates to its core features and capabilities. It also includes some Major Enhancements, Bug Fixes and important requests from the .NET community. It has the initial complete support to F# programming language; bundled by the new Enhanced Compiler, Class Handler and Advanced Dynamic Operation Invocations.
+The version [v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0) together with its extensions (at [v1.1.0](https://repodb.net/release/core)) releases are one of the biggest suite release of RepoDB. It has the major updates to its Core Features and Capabilities (Enhancements, Bug Fixes and Requests from the .NET Community). It also includes the initial complete support to F# programming language; bundled by the new Enhanced Compiler, Class Handler and Advanced Dynamic Operation Invocations.
 
 ### Highlights
+
+Below are the list of the updates/changes covered by this release.
 
 - [TL;DR;](#tldr)
 - [Highlights](#highlights)
@@ -37,7 +39,7 @@ The version [v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0) together wit
   - [The 'Where/WhereOrPrimaryKey' vs 'What'](#the-wherewhereorprimarykey-vs-what)
 - [Closing Note](#closing-note)
 
-It is also important to take note of the [Breaking Changes](#breaking-changes).
+It is important to not skip the [Breaking Changes](#breaking-changes) section.
 
 ### Complete Support to FSharp
 
