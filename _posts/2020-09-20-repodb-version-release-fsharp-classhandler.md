@@ -461,7 +461,7 @@ The current release is now fully acknowledging the support to the Table-Valued P
 
 To do this, simply create a UDT from the database, and then create a stored procedure that accepts those UDT type. You can follow this [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) from Microsoft.
 
-Let us say, you created a stored procedure named `sp_process_people` that accepts the UDT of a name `PersonType`. The stored procedure is merging the received information into the actual table `Person`, then returns all the newly inserted records.
+Let us say, you created a stored procedure named `sp_InsertPerson` that accepts the UDT of a name `PersonType`. The stored procedure is merging the received information into the actual table `Person`, then returns all the newly inserted records.
 
 To call such thing, simply create a `DataTable` and set the `TableName` property equals to the name of the UDT.
 
@@ -483,7 +483,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 
 ### Breaking Changes
 
-In this section, we will enumerate some of the know breaking changes.
+In this section, we will enumerate some of the known breaking changes from the previous releases.
 
 #### Merge 'qualifiers' and 'fields' argument
 
