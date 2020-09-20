@@ -388,6 +388,14 @@ A very simple yet quitely important features awaited by some of the users of the
 
 Historically, if you wish to query a single column from the table, you are required to return it as dynamics or an explicit class model.
 
+via dynamics.
+
+```csharp
+var people = connection.ExecuteQuery("SELECT Name FROM Person;"); // Returns an IEnumerable<ExpandoObject>
+```
+
+Or, with a class model with single property.
+
 ```csharp
 public class Person
 {
