@@ -234,7 +234,7 @@ public class Person
 
 ### Anonymous Type / ExpandoObject / IDictionary<string, object>
 
-It is not common for the ORM to support the Anonymous Type Resultset, however in RepoDB we had supported this. This is also a case for use to completely support the F#.
+It is not common for the ORM to support the Anonymous Type Resultset, however in RepoDB we had supported this. This is also a case for this library to completely support the F#.
 
 ```fsharp
 connection.QueryAll<{| Id : int64; Name : string  |}> "Person"
