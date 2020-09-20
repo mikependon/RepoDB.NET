@@ -210,7 +210,27 @@ public class Person
 
 The name of the constructor arguments must be identical to the name of the properties. Only the matches arguments and properties will be processed during the hydration process. To be safe, ensure that the names of the target arguments are equal to the DbDataReader fields, no matter what.
 
-**Note:** It also important to take note that you can even combine the read-only fields and the public properties within the model.
+It also important to take note that you can even combine the read-only fields and the public properties within the model. See below.
+
+```csharp
+public class Person
+{
+    public Person(int id,
+        string name)
+    {
+        Id = id;
+        Name = name;
+    }
+
+    public int Id { get; }
+
+    public string Name { get; }
+
+    public string Addres { get; set; } // Writable
+
+    public bool IsActive { get; set; } // Writable
+}
+```
 
 ### Anonymous Type / ExpandoObject / IDictionary<string, object>
 
@@ -251,7 +271,7 @@ Historically, the ExpandoObject and the IDictionary&lt;string, object&gt; is alr
 var people = connection.QueryAll("Person");
 ```
 
-On this release, the calls below will return the ExpandoObject.
+On this release, the calls below will also return the ExpandoObject.
 
 ```csharp
 var people = connection.QueryAll<dynamic>("Person");
@@ -267,7 +287,7 @@ var people = connection.QueryAll<IDictionary<string, object>>("Person");
 
 ### Table-Based Fluent Calls
 
-In the previous version, there is no way for you to reuse the model unless you are working with dynamics and Anonymous Types. In this release, you can reuse an exact single model to whatever operations you would like.
+In the previous version, there is no way for you to reuse the model unless you are working with the dynamics and Anonymous Types. In this release, you can reuse an exact single model to whatever operations you would like.
 
 Let us say created a model person.
 
@@ -285,7 +305,7 @@ And by doing the code below, it directly query the `Person` table.
 var people = connection.QueryAll<Person>();
 ```
 
-Moving forward, you can use the same model for as long it defines the characteristics of the records. Below is the code that queries the `Supplier` and the `Customer` table using the person model.
+Moving forward, you can use the same model for as long it defines the characteristics of the records. Below is the code that queries the `Supplier` and the `Customer` table using the same `Person` model.
 
 ```csharp
 var customers = connection.QueryAll<Person>("Customer");
@@ -295,18 +315,19 @@ var suppliers = connection.QueryAll<Person>("Supplier");
 The functionality are also extended to all other operations (i.e.: [Insert](/operation/insert), [Merge](/operation/merge), [Update](/operation/update) and etc).
 
 ```csharp
-var customer = new Person
+var person = new Person
 {
     Name = "John Doe"
 };
-var id = connection.Insert<Person>("Customer", customer);
+var customerId = connection.Insert<Person>("Customer", person);
+var supplierId = connection.Insert<Person>("Supplier", person);
 ```
 
 The importance of this feature is to allow you to save the repetitive models you are creating when designing an application. The ratio of the cases may not be high, but it is quite important in some cases.
 
 ### The 'fields' argument
 
-This new feature is requested by the community to make the RepoDB completely a dynamic ORM. Historically, you can only update specific columns if you are using the dynamics and/or Anonymous Types based calls. See below.
+This new feature is requested by the community to make the library a completely dynamic ORM. Historically, you can only update specific columns if you are using the dynamics and/or Anonymous Types based calls. See below.
 
 ```csharp
 var id = connection.Insert("Customer", new
@@ -318,7 +339,7 @@ var id = connection.Insert("Customer", new
 
 The call above inserts a record into the `Customer` table targeting only the `Name` and the `Address` columns. Other columns that are not a part of the Anonymous Type you passed will not be part of the execution.
 
-However, in this release, you can do such thing even with the models. Simply specify the fields you wish to cover in the `fields` argument.
+However, in this release, you can do such thing even with the models. Simply specify the list of the fields you wish to be covered by the operation at the `fields` argument.
 
 ```csharp
 var customer = new Customer
@@ -335,11 +356,11 @@ var fields = Field.Parse<Customer>(e => new
 });
 using (var connection = new SqlConnection(connectionString))
 {
-    var id = connection.Insert<Customer>(customer,fields: fields);
+    var id = connection.Insert<Customer>(customer, fields: fields);
 }
 ```
 
-In which, among all the properties the `Customer` model has, only the `Name` and the `Address` column is being processed.
+In which, among all the properties the `Customer` model has, only the `Name` and the `Address` columns are being processed.
 
 You can as well do it in literal string like below.
 ```csharp
