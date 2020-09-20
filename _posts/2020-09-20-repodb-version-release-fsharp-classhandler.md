@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing RepoDB version 1.12.0"
 author: "Michael Camara Pendon"
-date: 2020-09-20 00:00:00 +0200
+date: 2020-09-28 00:00:00 +0200
 categories: blogs repodb
 ---
 
