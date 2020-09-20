@@ -43,7 +43,7 @@ It is important to not skip the [Breaking Changes](#breaking-changes) section.
 
 ### Complete Support to FSharp
 
-The community requests and the initial complete support to F# programming language is part of the package.
+This release package comes with the initial complete support to F# programming language together with the various requests from the F# community.
 
 First, install the package.
 
@@ -115,13 +115,13 @@ let affectedRows = connection.Delete<Person>(10045)
 
 ```
 
-All the functionalities written for C# programming language is also inheritted by F#. It is also important to take note that the `CLIMutable` attribute can be eliminated to all your models starting from this release.
+All the functionalities written for C# programming language is also inheritted by F# programming language by default. It is also important to take note that the `CLIMutable` attribute can be eliminated to all your models starting from this release.
 
 **Note:** The option types in F# is not supported if it is being placed at the [ClassHandler](/feature/classhandlers) and [PropertyHandler](/feature/propertyhandlers) objects.
 
 ### Enhanced Compiler
 
-The core compiler of RepoDB has been rewritten from being a monolithic codebase to a much more smaller codebases. With these updates, the code are much more easy, neat and cleaner. Also, all the classes needed for the AOT compilations has been separated to several partial classes.
+The core compiler of RepoDB has been rewritten from being a monolithic codebase to a multiple smaller codebases. All the compiler classes needed for the AOT compilations has been separated to several partial classes. With these updates, the code are much more easy, neat and cleaner.
 
 The reasons and the motivations behind this are the following.
 
