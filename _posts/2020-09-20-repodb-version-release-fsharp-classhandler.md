@@ -323,7 +323,7 @@ var customerId = connection.Insert<Person>("Customer", person);
 var supplierId = connection.Insert<Person>("Supplier", person);
 ```
 
-The importance of this feature is to allow you to save the repetitive models you are creating when designing an application. The ratio of the cases may not be high, but it is quite important in some cases.
+The importance of this feature is to allow you to eliminate the repetitive models you are creating when designing an application. The ratio of the cases may not be high, but it is quite important in some cases.
 
 ### The 'fields' argument
 
@@ -339,7 +339,7 @@ var id = connection.Insert("Customer", new
 
 The call above inserts a record into the `Customer` table targeting only the `Name` and the `Address` columns. Other columns that are not a part of the Anonymous Type you passed will not be part of the execution.
 
-However, in this release, you can do such thing even with the models. Simply specify the list of the fields you wish to be covered by the operation at the `fields` argument.
+However, in this release, you can do such thing even with the actual class models. Simply specify the list of the fields you wish to be covered by the operation at the `fields` argument.
 
 ```csharp
 var customer = new Customer
@@ -360,9 +360,10 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-In which, among all the properties the `Customer` model has, only the `Name` and the `Address` columns are being processed.
+In which, among all the properties of the `Customer` class model has, only the `Name` and the `Address` columns are being processed.
 
 You can as well do it in literal string like below.
+
 ```csharp
 var customer = new Customer
 {
@@ -385,7 +386,7 @@ The `fields` argument is now exposed to all the important push and pull operatio
 
 A very simple yet quitely important features awaited by some of the users of the library. On this release, the Type Result set is now supported.
 
-Historically, if you wish to query a single column from the table, you are required to return it as dynamics or an explicit class.
+Historically, if you wish to query a single column from the table, you are required to return it as dynamics or an explicit class model.
 
 ```csharp
 public class Person
