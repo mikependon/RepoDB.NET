@@ -515,7 +515,7 @@ var qualifiers = Field.Parse<Person>(e => new
 var mergedRows = connection.Merge<Person>(people, qualifiers: qualifiers);
 ```
 
-And even you are using both.
+And even if you are using both.
 
 ```csharp
 var qualifiers = Field.Parse<Person>(e => new
@@ -576,7 +576,7 @@ The update must be done to the other methods that accepts the mentioned staled a
 
 ### Closing Note
 
-The release updates also comes with various requests from the community, bug fixes, enhancements and major refactoring. It is impotant to see the detailed updates from the [Releases](/release/core) page and/or by visiting the actual release page for this version at the Github [releases](https://github.com/mikependon/RepoDB/releases/tag/untagged-eb36fd782c723e532054) page.
+The release updates also comes with various requests from the community, bug fixes, enhancements and major refactoring. It is important to see the detailed updates from the [Releases](/release/core) page and/or by visiting the actual release page for this version at the Github [releases](https://github.com/mikependon/RepoDB/releases/tag/untagged-eb36fd782c723e532054) page.
 
 We also would like to extend our warmth thanks to all the contributors, the collaborators and the issue reporters.
 
