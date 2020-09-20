@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing RepoDB version 1.12.0"
 author: "Michael Camara Pendon"
-date: 2020-09-28 00:00:00 +0200
+date: 2020-09-20 00:00:00 +0200
 categories: blogs repodb
 ---
 
@@ -17,7 +17,7 @@ Today, we are announcing the availability of [RepoDb v1.12.0](https://www.nuget.
 
 ### TL;DR;
 
-The version 1.12.0 / v1.1.0 (extensions) releases are one of the biggest suite release of RepoDB. It contains the important updates to its features and capabilities. It also includes some Major Enhancements, Bug Fixes and important requests from the .NET community. It has the initial complete support to F# programming language and is bundled with the new Enhanced Compiler, Class Handler and Advanced Dynamic Operation Invocations.
+The version [v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0) together with its extensions (at [v1.1.0](https://repodb.net/release/core)) releases are one of the biggest suite release of RepoDB. It includes the major updates to its core features and capabilities. It also includes some Major Enhancements, Bug Fixes and important requests from the .NET community. It has the initial complete support to F# programming language; bundled by the new Enhanced Compiler, Class Handler and Advanced Dynamic Operation Invocations.
 
 ### Highlights
 
@@ -33,7 +33,7 @@ The version 1.12.0 / v1.1.0 (extensions) releases are one of the biggest suite r
 - [Typed Result Execution](#typed-result-execution)
 - [Support to Table-Valued Parameters (TVP)](#support-to-table-valued-parameters-tvp)
 - [Breaking Changes](#breaking-changes)
-  - [Merge 'qualifiers' and 'fields' argument](#merge-qualifiers-and-fields-argument)
+  - [The Merge Argument ('qualifiers' vs 'fields')](#the-merge-argument-qualifiers-vs-fields)
   - [The 'Where/WhereOrPrimaryKey' vs 'What'](#the-wherewhereorprimarykey-vs-what)
 - [Closing Note](#closing-note)
 
@@ -119,27 +119,28 @@ All the functionalities written for C# programming language is also inheritted b
 
 ### Enhanced Compiler
 
-The core compiler of RepoDB has been rewritten from being a monilithic code base to a much more smallers (easy, neat and cleaner) code base. All the classes needed for AOT compilation has been separated as a partial classes.
+The core compiler of RepoDB has been rewritten from being a monolithic codebase to a much more smaller codebases. With these updates, the code are much more easy, neat and cleaner. Also, all the classes needed for the AOT compilations has been separated to several partial classes.
 
 The reasons and the motivations behind this are the following.
 
-- The old compiler code is harder to maintain and RepoDB is becoming more complex. The new compiler is easy, simple, neat and clean. It adheres to the clean-code principles.
+- The old compiler code is harder to maintain; RepoDB itself is becoming more complex. The new compiler is easy, simple, neat and clean. It adheres to the clean-code principles.
 - If the Conversion is Automatic, the old compiler does multiple conversion of the expression, thus slowing down the process.
 - There are multiple repeatitive code in the old compiler which has been completely eliminated.
 - To simplify the error handling. It was also introduced on most critical part of the new compiler, thus give a better error messages to the user of the library.
 - Difficulty of the implementation to the extended functionality (i.e.: [ClassHandler](/feature/classhandlers), [PropertyHandler](/feature/propertyhandlers)). It is very easy to do such things with the new compiler.
 
-In addition to this, with the new compiler, the Anonymous Type Param Argument is now being cached and being ahead-of-time (AOT) compiled. Meaning, the calls to the `Execute` methods (i.e.: [ExecuteQuery](/operation/executequery), [ExecuteNonQuery](/operation/executenonquery), [ExecuteScalar](/operation/executescalar), [ExecuteReader](/operation/executereader) and [ExecuteQueryMultiple](/operation/executequerymultiple)) will be much more optimal and efficient than before if using the Anonymous Type. See below.
+In addition to this, with the new compiler, the Anonymous Type Param Argument is now being cached and being ahead-of-time (AOT) compiled. Meaning, the calls to the underlying Execute methods (i.e.: [ExecuteQuery](/operation/executequery), [ExecuteNonQuery](/operation/executenonquery), [ExecuteScalar](/operation/executescalar), [ExecuteReader](/operation/executereader) and [ExecuteQueryMultiple](/operation/executequerymultiple)) will be much more optimal and efficient than before, if using the Anonymous Type. See below.
 
 ```csharp
-connection.ExecuteQuery<Person>("SELECT * FROM [Person] WHERE Id = @Id;", new { Id = 10045});
+connection.ExecuteQuery<Person>("SELECT * FROM [Person] WHERE Id = @Id;",
+    new { Id = 10045});
 ```
 
 Not to mention, with the new enhanced compiler, the library even become more faster and efficient than it was before.
 
 ### Class Handler
 
-The feature [ClassHandler](feature/classhandlers) has been introduced as part of the package. It allows you to handle the event during the serialization/deserialization process of the Model and the DbDataReader object (inbound/outbound).
+The feature [ClassHandler](feature/classhandlers) has been introduced as part of the package. It allows you to handle the event during the serialization/deserialization process of the class model and the DbDataReader object (inbound/outbound).
 
 First, implement a class handler by simply implementing the [IClassHandler](/interface/iclasshandler) interface.
 
@@ -177,7 +178,7 @@ FluentMapper
     .ClassHandler<PersonClassHandler>();
 ```
 
-Or, the [ClassHandlerMapper](mapper/classhandlermapper).
+Or, the [ClassHandlerMapper](/mapper/classhandlermapper).
 
 ```csharp
 ClassHandlerMapper
@@ -190,7 +191,7 @@ On the other hand, when you call any of the push operations (i.e.: [Query](/oper
 
 ### Immutable Classes
 
-In the previous versions, an unhandled exception messages are being thrown if the immutable classes are used as the models. However, in order to strengthen the support to the F# programming language, the support to immutable classes has been introduced.
+In the previous versions, an unhandled exception messages are being thrown if the immutable classes are used as the models. However, in order to strengthen the support to F# programming language, the support to immutable classes has been introduced.
 
 ```csharp
 public class Person
@@ -208,9 +209,9 @@ public class Person
 }
 ```
 
-The name of the constructor arguments must be identical to the name of the properties. Only the matches arguments and properties will be processed during the hydration process. To be safe, ensure that the names of the target arguments are equal to the DbDataReader fields, no matter what.
+The name of the constructor arguments must be identical to the name of the properties. Only the matches arguments and properties will be processed during the hydration process. Therefore, to be safe, ensure that the names of the target arguments are equal to the DbDataReader fields, no matter what.
 
-It also important to take note that you can even combine the read-only fields and the public properties within the model. See below.
+It also important to take note that you can even combine the constructor arguments together with the public properties within the model. See below.
 
 ```csharp
 public class Person
@@ -234,13 +235,13 @@ public class Person
 
 ### Anonymous Type / ExpandoObject / IDictionary<string, object>
 
-It is not common for the ORM to support the Anonymous Type Resultset, however in RepoDB we had supported this. This is also a case for this library to completely support the F#.
+It is not common for the ORM to support the Anonymous Type Resultset, however in RepoDB we had supported this. This is also a case for this library to completely support the F# programming language.
 
 ```fsharp
 connection.QueryAll<{| Id : int64; Name : string  |}> "Person"
 ```
 
-Code above is for F#. Below is the C# conversion.
+The code snippet above is for F# programming language, and below is the equivalent C# programming language.
 
 ```csharp
 // Create a type def
@@ -265,7 +266,7 @@ private IEnumerable<T> Call<T>(T typeDef,
 }
 ```
 
-Historically, the ExpandoObject and the IDictionary&lt;string, object&gt; is already supported, only if you are using the table-based calls like below.
+Historically, both the ExpandoObject and the IDictionary&lt;string, object&gt; objects are already supported as the query resultset when fetching the data from the database, but only if you are using the table-based calls like below.
 
 ```csharp
 var people = connection.QueryAll("Person");
@@ -279,10 +280,23 @@ var people = connection.QueryAll<dynamic>("Person");
 var people = connection.QueryAll<ExpandoObject>("Person");
 ```
 
-Or, even inferred as IDictionary&lt;string, object&gt;.
+Or, you can even inferred as IDictionary&lt;string, object&gt;.
 
 ```csharp
 var people = connection.QueryAll<IDictionary<string, object>>("Person");
+```
+
+And below is the equivalent for F# programming language.
+
+```fsharp
+let people = connection.QueryAll<IDictionary<string, obj>> "Person";
+```
+
+It is also important that this feature is not limited to the fluent calls. You can also use it in the actual [ExecuteQuery](/operation/executequery) operation.
+
+```csharp
+var sql = "SELECT * FROM Person;";
+var people = connection.ExecuteQuery<IDictionary<string, object>>(sql);
 ```
 
 ### Table-Based Fluent Calls
@@ -388,10 +402,11 @@ A very simple yet quitely important features awaited by some of the users of the
 
 Historically, if you wish to query a single column from the table, you are required to return it as dynamics or an explicit class model.
 
-via dynamics.
+Via a dynamic object of type `ExpandoObject`.
 
 ```csharp
-var people = connection.ExecuteQuery("SELECT Name FROM Person;"); // Returns an IEnumerable<ExpandoObject>
+// Returns an IEnumerable<ExpandoObject>
+var people = connection.ExecuteQuery("SELECT Name FROM Person;");
 ```
 
 Or, with a class model with single property.
@@ -409,7 +424,7 @@ And do the query like below.
 // ExecuteQuery
 var people = connection.ExecuteQuery<Person>("SELECT Name FROM Person;");
 
-// Or even with Fluent
+// Fluent QueryAll
 var people = connection.QueryAll<Person>();
 ```
 
@@ -438,11 +453,11 @@ public enum Gender
 And do the query like below.
 
 ```csharp
-var gender = connection.ExecuteQuery<Gender>("SELECT Gender FROM Person WHERE Name = @Name;",
-     new { Name = "John Doe" });
+var sql = "SELECT Gender FROM Person WHERE Name = @Name;";
+var gender = connection.ExecuteQuery<Gender>(sql, new { Name = "John Doe" });
 ```
 
-Also, a part of the package with this, if you have a table with single column (which most likely not happening at all), you directly query the records like below.
+Also, as a part of the this package release, if you have a table with single column (which most likely not happening at all), you can directly query the records like below.
 
 ```csharp
 var subjectNames = connection.QueryAll<string>("Subject");
@@ -476,18 +491,18 @@ Then, simply call the stored procedure like below.
 ```csharp
 using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
-	var tables = connection.ExecuteQuery<Person>("EXEC [sp_InsertPerson] @PersonTable = @Table;",
-        new { Table = table })?.AsList();
+    var sql = "EXEC [sp_InsertPerson] @PersonTable = @Table;";
+    var people = connection.ExecuteQuery<Person>(sql, new { Table = table });
 }
 ```
 
 ### Breaking Changes
 
-In this section, we will enumerate some of the known breaking changes from the previous releases.
+In this section, we will enumerate some of the known breaking changes from the previous releases of this library. It is important for you to spend time reading this.
 
-#### Merge 'qualifiers' and 'fields' argument
+#### The Merge Argument ('qualifiers' vs 'fields')
 
-If you have called the [Merge](/operation/merge) operation with the list of [Field](/class/field) objects as the second argument and had not specified the argument name during the calls, then that would trigger a compilation error moving foward (see below).
+If you had called the [Merge](/operation/merge) operation with the list of [Field](/class/field) objects as the second argument and had not specified the argument name during the calls, then that would trigger a compilation error moving foward (see below).
 
 ```csharp
 var people = GetMergeablePeople();
@@ -495,10 +510,10 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 {
     var qualifiers = Field.Parse<Person>(e => new
     {
-         e.Name,
-         e.DateOfBirth
+        e.Name,
+        e.DateOfBirth
     });
-	var mergedRows = connection.Merge<People>(people, qualifiers);
+    var mergedRows = connection.Merge<People>(people, qualifiers);
 }
 ```
 
@@ -515,7 +530,20 @@ var qualifiers = Field.Parse<Person>(e => new
 var mergedRows = connection.Merge<Person>(people, qualifiers: qualifiers);
 ```
 
-And even if you are using both.
+And if calling for the fields.
+
+```csharp
+var fields = Field.Parse<Person>(e => new
+{
+    e.Id,
+    e.Name,
+    e.DateOfBirth,
+    e.IsActive
+});
+var mergedRows = connection.Merge<Person>(people, fields: fields);
+```
+
+And if you are using both.
 
 ```csharp
 var qualifiers = Field.Parse<Person>(e => new

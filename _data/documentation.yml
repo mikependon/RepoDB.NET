@@ -437,6 +437,9 @@ docs:
   - title: "ClassMapper"
     url: "/mapper/classmapper"
     
+  - title: "ClassHandlerMapper"
+    url: "/mapper/classhandlermapper"
+  
   - title: "DbHelperMapper"
     url: "/mapper/dbhelpermapper"
     
