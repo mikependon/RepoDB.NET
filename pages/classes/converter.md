@@ -37,7 +37,7 @@ Converter.ConversionType = ConversionType.Automatic;
 You can use the `DbNullToNull` method to auto-convert the `DbDataReader` result into a `null` object if it the value is `DBNull.Value`.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     using (var reader = connection.ExecuteReader())
     {

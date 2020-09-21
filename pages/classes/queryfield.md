@@ -44,7 +44,7 @@ This can be very useful if you are running a query in a dynamic way and if you w
 Imagine working with the API that has a dynamic field structuring (*OData*, *AutoQuery*, etc).
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var where = new []
     {
@@ -60,7 +60,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or in the update operations (for targeted columns).
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var where = new []
     {
@@ -79,7 +79,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or even in the delete operations.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var where = new []
     {
@@ -108,7 +108,7 @@ We sometimes have a scenario to reuse the instance of this class just to avoid c
 To reuse the instance, simply call the `Reset()` method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var where = new []
     {

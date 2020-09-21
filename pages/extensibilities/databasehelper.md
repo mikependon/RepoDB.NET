@@ -226,7 +226,7 @@ var helper = DbHelperMapper.Get<SqlConnection>();
 Or, you can use the `GetDbHelper()` extended method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var helper = connection.GetDbHelper();
     // Use the 'helper' here

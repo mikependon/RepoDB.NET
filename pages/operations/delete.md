@@ -15,7 +15,7 @@ This method is used to delete the rows from the table.
 Below is a sample code to delete a row from the `[dbo].[Person]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.Delete<Person>(person);
 }
@@ -24,7 +24,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can also delete directly by primary key.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.Delete<Person>(10045);
 }
@@ -35,7 +35,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can also target a specific table by passing the literal table name like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.Delete("[dbo].[Person]", person);
 }
@@ -44,7 +44,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, via primary key.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.Delete("[dbo].[Person]", 10045);
 }
@@ -55,7 +55,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.Delete<Person>(person,
 		hints: "WITH (TABLOCK)");
@@ -65,7 +65,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.Delete<Person>(person,
 		hints: SqlServerTableHints.TabLock);

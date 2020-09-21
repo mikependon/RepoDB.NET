@@ -16,7 +16,7 @@ First, create a connection object. Then, create transaction object and pass it o
 
 ```csharp
 /* Let us say a variable 'customer', 'order', 'orderDetail' is pre-given */
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     // Create a transaction
     using (var transaction = connection.BeginTransaction())

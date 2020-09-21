@@ -2,11 +2,11 @@
 layout: post
 title: "Announcing RepoDB version 1.12.0"
 author: "Michael Camara Pendon"
-date: 2020-09-28 00:00:00 +0200
+date: 2020-09-21 00:00:00 +0200
 categories: blogs repodb
 ---
 
-Today, we are announcing the availability of [RepoDb v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0). The released packages also comes with its bundles, the extension libraries in v1.1.0. See below.
+Today, we are announcing the availability of [RepoDb v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0). The released packages also comes with its bundles, the extension libraries at v1.1.0. See below.
 
 - [RepoDb.SqlServer v1.1.0](https://www.nuget.org/packages/RepoDb.SqlServer/1.1.0)
 - [RepoDb.SqlServer.BulkOperations v1.1.0](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations/1.1.0)
@@ -17,7 +17,7 @@ Today, we are announcing the availability of [RepoDb v1.12.0](https://www.nuget.
 
 ### TL;DR;
 
-The version [v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0) together with its extensions (at [v1.1.0](https://repodb.net/release/core)) releases are one of the biggest suite release of RepoDB. It has the major updates to its Core Features and Capabilities (Enhancements, Bug Fixes and Requests from the .NET Community). It also includes the initial complete support to F# programming language; bundled by the new Enhanced Compiler, Class Handler and Advanced Dynamic Operation Invocations.
+The version [v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0) together with its extensions (at [v1.1.0](https://repodb.net/release/core)) releases are one of the biggest suite release of RepoDB. It has the major updates to its Core Features and Capabilities (Enhancements, Bug Fixes and Requests from the .NET Community). It also includes the initial support to F# programming language; bundled by the new Enhanced Compiler, Class Handler and Advanced Dynamic Operation Invocations.
 
 ### Highlights
 
@@ -25,10 +25,11 @@ Below are the list of the updates/changes covered by this release.
 
 - [TL;DR;](#tldr)
 - [Highlights](#highlights)
-- [Complete Support to FSharp](#complete-support-to-fsharp)
+- [Initial Support to FSharp](#initial-support-to-fsharp)
 - [Enhanced Compiler](#enhanced-compiler)
 - [Class Handler](#class-handler)
 - [Immutable Classes](#immutable-classes)
+- [ExecuteQuery 2nd Layer Cache](#executequery-2nd-layer-cache)
 - [Anonymous Type / ExpandoObject / IDictionary<string, object>](#anonymous-type--expandoobject--idictionarystring-object)
 - [Table-Based Fluent Calls](#table-based-fluent-calls)
 - [The 'fields' argument](#the-fields-argument)
@@ -41,11 +42,11 @@ Below are the list of the updates/changes covered by this release.
 
 It is important to not skip the [Breaking Changes](#breaking-changes) section.
 
-### Complete Support to FSharp
+### Initial Support to FSharp
 
-This release package comes with the initial complete support to F# programming language together with the various requests from the F# community.
+This release package comes with the initial support to F# programming language together with the various requests from the F# community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being an active collaborators here.
 
-First, install the package.
+To start with, first, install the package. In this sample, we will use the SQL Server.
 
 ```csharp
 > Install-Package RepoDb.SqlServer
@@ -91,7 +92,7 @@ Lastly, call the operations.
 
 ```csharp
 // Query
-let connection = (new SqlConnection(url)).EnsureOpen()
+let connection = (new SqlConnection(url))
 let queryResult = connection.QueryAll("Person").AsList()
 
 // Insert
@@ -112,16 +113,15 @@ let affectedRows = connection.Update<Person>(person)
 
 // Delete
 let affectedRows = connection.Delete<Person>(10045)
-
 ```
 
-All the functionalities written for C# programming language is also inheritted by F# programming language by default. It is also important to take note that the `CLIMutable` attribute can be eliminated to all your models starting from this release.
+By default, all the functionalities and features written for C# programming language is also inheritted by F# programming language. It is also important to take note that the `CLIMutable` attribute can be eliminated to all your models starting from this release.
 
-**Note:** The option types in F# is not supported if it is being placed at the [ClassHandler](/feature/classhandlers) and [PropertyHandler](/feature/propertyhandlers) objects.
+**Disclaimer:** The option types in F# is not supported if it is being placed at the [ClassHandler](/feature/classhandlers) and [PropertyHandler](/feature/propertyhandlers) objects.
 
 ### Enhanced Compiler
 
-The core compiler of RepoDB has been rewritten from being a monolithic codebase to a multiple smaller codebases. All the compiler classes needed for the AOT compilations has been separated to several partial classes. With these updates, the code are much more easy, neat and cleaner.
+The core compiler of RepoDB has been rewritten from being a monolithic codebase to a multiple smaller codebases. All the compiler classes needed for the AOT compilations has been splitted into several partial classes. With these updates, the code are much more easy, neat and cleaner.
 
 The reasons and the motivations behind this are the following.
 
@@ -131,7 +131,7 @@ The reasons and the motivations behind this are the following.
 - To simplify the error handling. It was also introduced on most critical part of the new compiler, thus give a better error messages to the user of the library.
 - Difficulty of the implementation to the extended functionality (i.e.: [ClassHandler](/feature/classhandlers), [PropertyHandler](/feature/propertyhandlers)). It is very easy to do such things with the new compiler.
 
-In addition to this, with the new compiler, the Anonymous Type Param Argument is now being cached and being ahead-of-time (AOT) compiled. Meaning, the calls to the underlying Execute methods (i.e.: [ExecuteQuery](/operation/executequery), [ExecuteNonQuery](/operation/executenonquery), [ExecuteScalar](/operation/executescalar), [ExecuteReader](/operation/executereader) and [ExecuteQueryMultiple](/operation/executequerymultiple)) will be much more optimal and efficient than before, if using the Anonymous Type. See below.
+In addition to this, with the new compiler, the Anonymous Type Param Argument is now being cached and compiled ahead-of-time (AOT), thus making this library more performant and much memory-efficient when calling the underlying Execute methods (i.e.: [ExecuteQuery](/operation/executequery), [ExecuteNonQuery](/operation/executenonquery), [ExecuteScalar](/operation/executescalar), [ExecuteReader](/operation/executereader) and [ExecuteQueryMultiple](/operation/executequerymultiple)). See below.
 
 ```csharp
 connection.ExecuteQuery<Person>("SELECT * FROM [Person] WHERE Id = @Id;",
@@ -235,6 +235,64 @@ public class Person
 }
 ```
 
+### ExecuteQuery 2nd Layer Cache
+
+Historically, the 2nd Layer cache capability is not introduced in the [ExecuteQuery](/operation/executequery) operation for the purpose of avoiding the collisions. However, since this release has supported the table-based calls for the Entity Model, it has also validated this feature, therefore, starting from this release, the 2nd Layer cache will be supported in this method.
+
+Let us say you have a cache factory named `MemoryCacheFactory` that creates a single instance of [ICache](/interface/icache) object. Then, the code below is now valid.
+
+```csharp
+var memoryCache = MemoryCacheFactory.Create();
+using (var connection = new SqlConnection(connectionString))
+{
+    var products = connection.ExecuteQuery<Product>("SELECT * FROM Product;",
+        cacheKey: "AllProducts", cache: memoryCache);
+}
+```
+
+The first call will query the database, the 2nd call will query the data from the supplied cache object. By default, the cache item expires within 180 minutes, but such settings can be changed by simply passing the value in the `cacheItemExpiration` argument during the calls.
+
+```csharp
+var products = connection.ExecuteQuery<Product>("SELECT * FROM Product;",
+    cacheKey: "AllProducts",
+    cache: memoryCache,
+    cacheItemExpiration: 300 /* 5 hours */);
+```
+
+If you are working with repository (i.e.: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)), you do not need to pass the instance of the [ICache](/interface/icache) object. It is handled by the repository internally through [MemoryCache](/class/memorycache) object.
+
+```csharp
+using (var repository = new DbRepository(connectionString))
+{
+    var products = repository.ExecuteQuery<Product>("SELECT * FROM Product;",
+        cacheKey: "AllProducts");
+}
+```
+
+Fluent Calls Collisions: For as long you are pointing to the same [ICache](/interface/icache) object, you can collide the information with the fluent calls.
+
+The call below is valid colliding with the cache item specified on the execute method above.
+
+```csharp
+var memoryCache = MemoryCacheFactory.Create();
+using (var connection = new SqlConnection(connectionString))
+{
+    var products = connection.QueryAll<Product>(cacheKey: "AllProducts",
+        cache: memoryCache);
+}
+```
+
+Of course, if the type of the cached items are not equal to the target result type, then an exception will be thrown. See below.
+
+```csharp
+var memoryCache = MemoryCacheFactory.Create();
+using (var connection = new SqlConnection(connectionString))
+{
+    var suppliers = connection.QueryAll<Supplier>(cacheKey: "AllProducts",
+        cache: memoryCache);
+}
+```
+
 ### Anonymous Type / ExpandoObject / IDictionary<string, object>
 
 It is not common for the ORM to support the Anonymous Type Resultset, however in RepoDB we had supported this. This is also a case for this library to completely support the F# programming language.
@@ -261,7 +319,7 @@ private void Main(string[] args)
 private IEnumerable<T> Call<T>(T typeDef,
     string table)
 {
-    using (var connection = new SqlConnection(connectionString).EnsureOpen())
+    using (var connection = new SqlConnection(connectionString))
     {
         return connection.QueryAll<T>(table);)
     }
@@ -491,7 +549,7 @@ table.TableName = "[dbo].[PersonType]"; // Name of the UDT
 Then, simply call the stored procedure like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var sql = "EXEC [sp_InsertPerson] @PersonTable = @Table;";
     var people = connection.ExecuteQuery<Person>(sql, new { Table = table });
@@ -508,7 +566,7 @@ If you had called the [Merge](/operation/merge) operation with the list of [Fiel
 
 ```csharp
 var people = GetMergeablePeople();
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var qualifiers = Field.Parse<Person>(e => new
     {
@@ -578,7 +636,7 @@ Historically, the identity key is not being identified.
 So, all the previous calls like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = connection.Query<Person>(whereOrPrimaryKey: 10045);
 }
@@ -587,7 +645,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Must be refactored to like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = connection.Query<Person>(what: 10045);
 }
@@ -596,7 +654,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, simply eliminate the named argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = connection.Query<Person>(10045);
 }

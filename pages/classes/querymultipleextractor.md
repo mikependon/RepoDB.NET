@@ -27,7 +27,7 @@ These are the methods available on this class.
 You need to handle the result of [ExecuteQueryMultiple](/operation/executequerymultiple) into a variable and manage the extraction.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var commandText = "SELECT Id, Name FROM [dbo].[Customer] WHERE Id = @CustomerId; SELECT * FROM [dbo].[Order] WHERE CustomerId = @CustomerId;";
 
@@ -47,7 +47,7 @@ Or, using the scalar method.
 
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var commandText = "SELECT COUNT(*) FROM [dbo].[Customer]; SELECT GETUTCDATE();";
 
@@ -67,7 +67,7 @@ Or by combination.
 
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var commandText = "SELECT Id, Name FROM [dbo].[Customer] WHERE Id = @CustomerId; SELECT COUNT(*) FROM [dbo].[Order] WHERE CustomerId = @CustomerId;";
 

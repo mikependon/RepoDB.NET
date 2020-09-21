@@ -176,7 +176,7 @@ public static class TraceFactory
 Then you can pass it in any extended [fluent methods](/docs#fluent-methods) of the `DbConnection` object like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
         var person = connection.Query<Person>(p => p.Id == 10045, trace: TraceFactory.CreateTracer()).FirstOrDefault();
 }

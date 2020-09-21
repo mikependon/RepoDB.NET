@@ -15,7 +15,7 @@ This method is used to query the rows from the database by batch.
 Below is a sample code that query the 1st 20 batch of active rows from the `[dbo].[Person]` table based on the date creation.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0; // Starts at 0 for the first batch
@@ -32,7 +32,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 And below is a sample code that queries the 3rd batch.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 2;// This is the 3rd batch
@@ -49,7 +49,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can also target a specific table by passing the literal table name like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0;
@@ -65,7 +65,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, via dynamics.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0;
@@ -83,7 +83,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can also query specific columns by passing the list of fields.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0;
@@ -105,7 +105,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, via dynamics.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0;
@@ -124,7 +124,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can also use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the `WHERE` expressions.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var where = new []
 	{
@@ -147,7 +147,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can also pass a hint.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0;
@@ -163,7 +163,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, you can use the [SqlServerTableHints](/classes[SqlServerTableHints](/class/sqlservertablehints)) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var orderBy = OrderField.Parse(new { DateInsertedUtc = Order.Descending });
     var page = 0;

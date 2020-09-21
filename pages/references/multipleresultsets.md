@@ -15,7 +15,7 @@ This page contains the recommended way of querying the records with multiple res
 For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     using (var extractor = connection.ExecuteQueryMultiple(@"SELECT [Id], [Name] FROM [dbo].[Customer] WITH (NOLOCK) WHERE [Id] = @CustomerId;
         SELECT [Id], [CustomerId], [ProductId], [Price], [Quantity], [OrderDateUtc] FROM [dbo].[Order] WITH (NOLOCK) WHERE [CustomerId] = @CustomerId",
@@ -31,7 +31,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 For fluent-method, call the [QueryMultiple](/operation/querymultiple) method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customerId = 10045;
     var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, o => o.CustomerId == customerId,
@@ -47,7 +47,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     using (var extractor = connection.ExecuteQueryMultiple(@"SELECT [Id], [Name] FROM [dbo].[Customer] WITH (NOLOCK) WHERE [Id] IN (@Keys);
         SELECT [Id], [CustomerId], [ProductId], [Price], [Quantity], [OrderDateUtc] FROM [dbo].[Order] WITH (NOLOCK) WHERE [CustomerId] IN (@Keys);",
@@ -68,7 +68,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 For fluent-method, call the [QueryMultiple](/operation/querymultiple) method.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var keys = new [] { 10045, ..., 11211 };
     var tuple = connection.QueryMultiple<Customer, Order>(c => keys.Contains(c.Id), o => keys.Contains(o.CustomerId),

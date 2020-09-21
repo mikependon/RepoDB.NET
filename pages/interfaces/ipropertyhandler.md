@@ -97,7 +97,7 @@ public class AddressPropertyHandler : IPropertyHandler<string, Address>
 ```
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var person = connection.Query<Person>(10045);
 	Console.WriteLine($"Name: {person.Name}, Address: {person.Address.Street}, {person.Address.Region}, {person.Address.Country} ({person.Address.ZipCode})")

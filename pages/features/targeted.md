@@ -20,7 +20,7 @@ Imagine if your `Customer` model has plenty of columns and you are only Querying
 Use the [Query](/operation/query) operation and pass the target fields to query.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var fields = Field.Parse<Customer>(e => new
     {
@@ -36,7 +36,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var fields = Field.From("Id", "FirstName", "LastName");
     var customer = connection.Query("[dbo].[Customer]",
@@ -50,7 +50,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Use the [QueryAll](/operation/queryall) operation and pass the target fields to query.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var fields = Field.Parse<Customer>(e => new
     {
@@ -65,7 +65,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var fields = Field.From("Id", "FirstName", "LastName");
     var customers = connection.QueryAll("[dbo].[Customer]",
@@ -78,7 +78,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Use the [Insert](/operation/insert) operation and pass the target fields to insert.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new Customer
     {
@@ -98,7 +98,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new
     {
@@ -113,7 +113,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics with fields.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new Customer
     {
@@ -131,7 +131,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Use the [InsertAll](/operation/insertall) operation and pass the target fields to insert.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entities = GenerateCustomers();
     var fields = Field.Parse<Customer>(e => new
@@ -147,7 +147,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entities = GenerateCustomers();
     var insertedRows = connection.InsertAll("[dbo].[Customer]",
@@ -158,7 +158,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics with fields.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entities = GenerateCustomers();
     var fields = Field.From("FirstName", "LastName");
@@ -173,7 +173,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Use the [Merge](/operation/merge) operation and pass the target fields to merge.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new Customer
     {
@@ -197,7 +197,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new Customer
     {
@@ -214,7 +214,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics with fields.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new Customer
     {
@@ -235,7 +235,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Use the [MergeAll](/operation/mergeall) operation and pass the target fields to merge.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entities = GetCustomersWithUpdatedAddress();
     var fields = Field.Parse<Customer>(e => new
@@ -251,7 +251,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entities = GetCustomersWithUpdatedAddress();
     var mergedRows = connection.MergeAll("[dbo].[Customer]",
@@ -262,7 +262,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics with fields.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entities = GetCustomersWithUpdatedAddress();
     var fields = Field.From("Id", "Address");
@@ -277,7 +277,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Use the [Update](/operation/update) operation and pass the target fields to update.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new Customer
     {
@@ -301,7 +301,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new Customer
     {
@@ -318,7 +318,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics with fields.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new Customer
     {
@@ -339,7 +339,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Use the [UpdateAll](/operation/updateall) operation and pass the target fields to update.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entities = GetCustomersWithUpdatedAddress();
     var fields = Field.Parse<Customer>(e => new
@@ -355,7 +355,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entities = GetCustomersWithUpdatedAddress();
     var updatedRows = connection.UpdateAll("[dbo].[Customer]",
@@ -366,7 +366,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or via dynamics with fields.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entities = GetCustomersWithUpdatedAddress();
     var fields = Field.From("Id", "Address");

@@ -168,7 +168,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
     {
         var connection = Activator.CreateInstance<TDbConnection>();
         connection.ConnectionString = m_settings.ConnectionString;
-        return connection.EnsureOpen();
+        return connection;
     }
 
     /*** Non-Async ***/

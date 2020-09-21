@@ -16,7 +16,7 @@ This feature allows you to create a simplified and targeted operation by simply 
 Use the [Query](/operation/query) operation and pass the target table as a literal string and a filter expression as an anonymous object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = connection.Query("[dbo].[Customer]", 10045).FirstOrDefault();
 }
@@ -25,7 +25,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or filtering a result via anonymous types.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var param = new
     {
@@ -39,7 +39,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or with specific columns.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = connection.Query("[dbo].[Customer]",
         10045,
@@ -52,7 +52,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 When fetching a data from the database, it is automatically converted into an enumerable of `ExpandoObject` objects.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = connection.Query("[dbo].[Customer]", new { Country = "Denmark" },
         Field.From("Id","FirstName", "LastName"));
@@ -69,7 +69,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Use the [Insert](/operation/insert) operation and pass the target table as a literal string and an anonymous entity object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new
     {
@@ -86,7 +86,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Use the [Delete](/operation/delete) operation and pass the target table as a literal string and a filter expression as an anonymous object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var deletedRows = connection.Delete("[dbo].[Customer]", new { IsActive = false });
 }
@@ -97,7 +97,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Use the [Merge](/operation/merge) operation and pass the target table as a literal string and a anonymous entity object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new
     {
@@ -116,7 +116,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Use the [Update](/operation/update) operation and pass the target table as a literal string and a anonymous entity object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var entity = new
     {

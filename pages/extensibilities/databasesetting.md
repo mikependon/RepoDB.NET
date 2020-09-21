@@ -76,7 +76,7 @@ A sample is the SQL statement generation. Behind the scene, the library has auto
 Let say you had called the [Query](/operation/query) operation for SQL Server. 
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var people = connection.Query<Person>(p => p.Id == 10045);
     // Use the 'people' here
@@ -103,7 +103,7 @@ var helper = DbHelperMapper.Get<SqlConnection>();
 Or, you can use the `GetDbHelper()` extended method of the connection object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var helper = connection.GetDbHelper();
     // Use the 'helper' here

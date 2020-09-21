@@ -70,7 +70,7 @@ private IEnumerable<Person> GetPeople(int count = 10)
 Then you can do [BulkInsert](/operation/bulkinsert) with the mappings below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var mappings = new []
     {

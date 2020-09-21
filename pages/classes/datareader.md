@@ -18,7 +18,7 @@ It only contains one method named `ToEnumerable`. This method is pre-compiled AO
 #### Extracting an Entities
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
     {
@@ -31,7 +31,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 #### Extracting a Dynamics
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
     {

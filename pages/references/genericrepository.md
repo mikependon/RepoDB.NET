@@ -128,7 +128,7 @@ public TDbConnection CreateConnection()
 {
     var connection = Activator.CreateInstance<TDbConnection>();
     connection.ConnectionString = m_settings.ConnectionString;
-    return connection.EnsureOpen();
+    return connection;
 }
 ```
 

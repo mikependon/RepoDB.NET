@@ -16,7 +16,7 @@ The way transaction works in the library is very identical with the way how it w
 Creates a transaction object and pass it when you call any of the operation.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     using (var transaction = connection.BeginTransaction())
     {

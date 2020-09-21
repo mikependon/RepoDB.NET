@@ -18,7 +18,7 @@ To use the hints, simply pass the target hints you want to use.
 Below is a sample for querying the dirty records.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var person = connection.QueryAll<Person>(hints: SqlServerTableHints.NoLock);
 }
@@ -27,7 +27,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or only reading the commited records.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var person = connection.QueryAll<Person>(hints: SqlServerTableHints.ReadPast);
 }
@@ -36,7 +36,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Also, below is a sample to lock the table during insertion.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var id = connection.Insert<Person>(person, hints: SqlServerTableHints.TabLock);
 }
@@ -45,7 +45,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or during the [Update](/operation/update) operation.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var id = connection.Update<Person>(person, hints: SqlServerTableHints.TabLock);
 }

@@ -26,7 +26,7 @@ The support to query objects are massive and well tested with high-quality. Howe
 Below is a sample way of querying via anonymous. 
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = connection.Query<Customer>(new { Id = 10045 }).FirstOrDefault();
 }
@@ -35,7 +35,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or with multiple column.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = connection.Query<Customer>(new { FirstName = "John", LastName = "Doe" }).FirstOrDefault();
 }
@@ -48,7 +48,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Below is a sample way of querying via `Linq Expression`. 
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = connection.Query<Customer>(e => e.Id == 10045).FirstOrDefault();
 }
@@ -57,7 +57,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or with multiple column.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = connection.Query<Customer>(e => e.FirstName == "John" && e.LastName == "Doe" }).FirstOrDefault();
 }
@@ -66,7 +66,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or with other operations.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var states = new [] { "Chicago", "Washington", "Kansas" };
     var customers = connection.Query<Customer>(e => states.Contains(e.State) && e.IsActive == false && e.DateOfBirth >= DateTime.Parse("1970-01-01") });
@@ -78,7 +78,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Below is a sample way of querying via [QueryField](/class/queryfield). 
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = connection.Query<Customer>(new QueryField(nameof(Customer.Id), 10045)).FirstOrDefault();
 }
@@ -87,7 +87,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or with multiple column.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var where = new []
     {
@@ -101,7 +101,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or with other operations.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var states = new [] { "Chicago", "Washington", "Kansas" };
     var where = new []

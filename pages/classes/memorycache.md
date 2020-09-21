@@ -53,7 +53,7 @@ Then pass it when calling the [Query](/operation/query) and [QueryAll](/operatio
 var memoryCache = CacheFactory.CreateCacher();
 
 // Pass it during the calls
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var products = connection.QueryAll<Product>(cacheKey: "CacheKey:Products", cache: memoryCache);
 }

@@ -161,7 +161,7 @@ You can do override the other virtual methods (as many as you like).
 You can pass it in any extended [fluent methods](/docs#fluent-methods) of the `DbConnection` object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var person = connection.Query<Person>(p => p.Id == 10045, statementBuilder: new OptimizedSqlServerStatementBuilder()).FirstOrDefault();
 }
@@ -211,7 +211,7 @@ var builder = StatementBuilderMapper.Get<SqlConnection>();
 Or, you can use the `GetStatementBuilder()` extended method of the connection object.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var builder = connection.GetStatementBuilder();
     // Use the 'builder' here

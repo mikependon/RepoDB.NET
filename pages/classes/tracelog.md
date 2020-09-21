@@ -25,7 +25,7 @@ All methods of the [ITrace](/interface/itrace) interface is using this class. Yo
 Let us say you have a custom trace class named `MyCustomTrace`. Then you pass this object when you call the [Insert](/operation/insert) operation.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     connection.Insert<Person>(person, trace: new MyCustomTrace());
 }

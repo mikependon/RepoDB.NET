@@ -27,7 +27,7 @@ var customer = new Customer
     Name = "John Doe",
     Address = "New York"
 };
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     connection.Insert<Customer>(customer);
 }
@@ -43,7 +43,7 @@ What if you would like to insert multiple records? Most developers do it this wa
 
 ```csharp
 var customers = GetCustomers(1000);
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     customers.ForEach(
         c => connection.Insert<Customer>(c));
@@ -60,7 +60,7 @@ Let us say you have implemented the code snippets below.
 
 ```csharp
 var customers = GetCustomers(1000);
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     connection.InsertAll<Customer>(customers,
         batchSize: 100);

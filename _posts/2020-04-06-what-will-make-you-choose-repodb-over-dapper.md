@@ -98,7 +98,7 @@ public class Order
 Query:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = connection.Query<Customer>("SELECT * FROM [dbo].[Customer];");
 }
@@ -109,7 +109,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Raw-SQL:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = connection.ExecuteQuery<Customer>("SELECT * FROM [dbo].[Customer];");
 }
@@ -118,7 +118,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Fluent:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = connection.QueryAll<Customer>();
 }
@@ -131,7 +131,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Query:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = connection.Query<Customer>("SELECT * FROM [dbo].[Customer] WHERE (Id = @Id);", new { Id = 10045 }).FirstOrDefault();
 }
@@ -142,7 +142,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Raw-SQL:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = connection.ExecuteQuery<Customer>("SELECT * FROM [dbo].[Customer] WHERE (Id = @Id);", new { Id = 10045 }).FirstOrDefault();
 }
@@ -151,7 +151,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Fluent:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = connection.Query<Customer>(e => e.Id == 10045).FirstOrDefault();
 }
@@ -166,7 +166,7 @@ Execute:
 By default, it returns the number of affected rows.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = new Customer
     {
@@ -182,7 +182,7 @@ Query:
 Returning the identity value.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = new Customer
     {
@@ -198,7 +198,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Raw-SQL:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = new Customer
     {
@@ -212,7 +212,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Fluent:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = new Customer
     {
@@ -230,7 +230,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Execute:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var affectedRows = connection.Execute("UPDATE [dbo].[Customer] SET Name = @Name, Address = @Address WHERE Id = @Id;",
     new
@@ -247,7 +247,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Raw-SQL:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var affectedRows = connection.ExecuteScalar<int>("UPDATE [dbo].[Customer] SET Name = @Name, Address = @Address WHERE Id = @Id;",
     new
@@ -262,7 +262,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Fluent:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customer = new Customer
     {
@@ -281,7 +281,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Execute:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var affectedRows = connection.Execute("DELETE FROM [dbo].[Customer] WHERE Id = @Id;", new { Id = 10045 });
 }
@@ -292,7 +292,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Raw-SQL:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var affectedRows = connection.ExecuteScalar<int>("DELETE FROM [dbo].[Customer] WHERE Id = @Id;", new { Id = 10045 });
 }
@@ -301,7 +301,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Fluent:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var affectedRows = connection.Delete<Customer>(10045);
 }
@@ -343,7 +343,7 @@ public class Order
 Query:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var sql = "SELECT C.Id, C.Name, C.Address, O.ProductId, O.Quantity, O.OrderDateUtc FROM [dbo].[Customer] C INNER JOIN [dbo].[Order] O ON O.CustomerId = C.Id WHERE C.Id = @Id;";
     var customers = connection.Query<Customer, Order, Customer>(sql,
@@ -360,7 +360,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 QueryMultiple:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var sql = "SELECT * FROM [dbo].[Customer] WHERE Id = @CustomerId; SELECT * FROM [dbo].[Order] WHERE CustomerId = @CustomerId;";
     using (var result = connection.QueryMultiple(sql, new { CustomerId = 10045 }))
@@ -378,7 +378,7 @@ The `JOIN` feature is not being supported yet. However, there is an alternative 
 Raw-SQL:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var sql = "SELECT * FROM [dbo].[Customer] WHERE Id = @CustomerId; SELECT * FROM [dbo].[Order] WHERE CustomerId = @CustomerId;";
     var extractor = connection.ExecuteQueryMultiple(sql, new { CustomerId = 10045 });
@@ -391,7 +391,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Fluent:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customerId = 10045;
     var tuple = connection.QueryMultiple<Customer, Order>(customer => customer.Id == customerId, order => order.CustomerId == customerId);
@@ -407,7 +407,7 @@ Query:
 
 ```csharp
 var customers = new List<Customer>();
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var sql = "SELECT C.Id, C.Name, C.Address, O.ProductId, O.Quantity, O.OrderDateUtc FROM [dbo].[Customer] C INNER JOIN [dbo].[Order] O ON O.CustomerId = C.Id;";
     var customers = connection.Query<Customer, Order, Customer>(sql,
@@ -424,7 +424,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 QueryMultiple:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var sql = "SELECT * FROM [dbo].[Customer]; SELECT * FROM [dbo].[Order];";
     using (var result = connection.QueryMultiple(sql, new { CustomerId = 10045 }))
@@ -442,7 +442,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Raw-SQL:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var extractor = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Customer]; SELECT * FROM [dbo].[Order];");
     var customers = extractor.Extract<Customer>().AsList();
@@ -455,7 +455,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Fluent:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customerId = 10045;
     var tuple = connection.QueryMultiple<Customer, Order>(customer => customer.Id == customerId, order => order.CustomerId == customerId);
@@ -473,7 +473,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Query:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = GenerateCustomers(1000);
     var identities = connection.Query<long>("INSERT INTO [dbo].[Customer] (Name, Address) VALUES (@Name, @Address); SELECT CONVERT(BIGINT, SCOPE_IDENTITY());", customers);
@@ -492,7 +492,7 @@ Please correct me here so I can update this page right away.
 Batch operation:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = GenerateCustomers(1000);
     var affectedRows = connection.InsertAll<Customer>(customers);
@@ -506,7 +506,7 @@ The above operation can be batched by passing a value on the `batchSize` argumen
 Bulk operation:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = GenerateCustomers(1000);
     var affectedRows = connection.BulkInsert<Customer>(customers);
@@ -524,7 +524,7 @@ The above operation can be batched by passing a value on the `batchSize` argumen
 Query:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var sql = @"MERGE [dbo].[Customer] AS T
         USING
@@ -559,7 +559,7 @@ Here, I have the same question as the previous section.
 Fluent:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = GenerateCustomers(1000);
     var affectedRows = connection.MergeAll<Customer>(customers);
@@ -577,7 +577,7 @@ The above operation can be batched by passing a value on the `batchSize` argumen
 Query:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = GenerateCustomers(1000);
     var affectedRows = connection.Execute("UPDATE [dbo].[Customer] SET Name = @Name, Address = @Address WHERE Id = @Id;", customers);
@@ -589,7 +589,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Fluent:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = GenerateCustomers(1000);
     var affectedRows = connection.UpdateAll<Customer>(customers);
@@ -607,7 +607,7 @@ The above operation can be batched by passing a value on the `batchSize` argumen
 ADO.NET:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = GenerateCustomers(1000);
     var table = ConvertToTable(customers);
@@ -626,7 +626,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Fluent:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = GenerateCustomers(1000);
     var affectedRows = connection.BulkInsert<Customer>(customers);
@@ -638,7 +638,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 - Fluent (Targeted):
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = GenerateCustomers(1000);
     var affectedRows = connection.BulkInsert("[dbo].[Customer]", customers);
@@ -652,7 +652,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Query:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var sql = @"WITH CTE AS
         (
@@ -667,7 +667,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
             CTE
         WHERE
             RowNumber BETWEEN @From AND (@From + @Rows);";
-    using (var connection = new SqlConnection(connectionString).EnsureOpen())
+    using (var connection = new SqlConnection(connectionString))
     {
         var customers = connection.Query<Customer>(sql, new { From = 0, Rows = 100, Address = "New York" });
     }
@@ -681,7 +681,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Fluent:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var customers = connection.BatchQuery<Customer>(e => e.Address == "New York",
         page: 0,
@@ -815,7 +815,7 @@ Query<T>(queryFields); // or Query<T>(new QueryGroup(queryFields));
 Query:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var addresses = new [] { "New York", "Washington" };
     var customers = connection.Query<Customer>("SELECT * FROM [dbo].[Customer] WHERE Address IN (@Addresses);", new { Addresses = addresses });
@@ -827,7 +827,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 ExecuteQuery:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var addresses = new [] { "New York", "Washington" };
     var customers = connection.ExecuteQuery<Customer>("SELECT * FROM [dbo].[Customer] WHERE Address IN (@Addresses);", new { Addresses = addresses });
@@ -839,7 +839,7 @@ For further explanation, you can visit our [documentation](https://repodb.readth
 Query:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var addresses = new [] { "New York", "Washington" };
     var customers = connection.Query<Customer>(e => addresses.Contains(e => e.Address));

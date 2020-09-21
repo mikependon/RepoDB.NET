@@ -15,7 +15,7 @@ This method is used to truncates a table from the database.
 Below is a sample code that truncates the `[dbo].[Person]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	connection.Truncate<Person>();
 }
@@ -26,7 +26,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can also target a specific table by passing the literal table and field name like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	connection.Truncate("[dbo].[Person]");
 }

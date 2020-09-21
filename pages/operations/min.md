@@ -15,7 +15,7 @@ This method is used to computes the min value of the target field.
 Below is a sample code that gets the minimum value of column `Value` from the `[dbo].[Sales]` table for a specific customer since yesterday.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var customerExpenses = connection.Min<Sales>(e => e.Value,
 		e => e.CustomerId == 10045 && e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1));
@@ -27,7 +27,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can also target a specific table by passing the literal table and field name like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var customerExpenses = connection.Min("[dbo].[Sales]", Field.From("Value"), new { State = "Michigan" });
 }
@@ -36,7 +36,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the `WHERE` expressions.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var where = new []
 	{
@@ -52,7 +52,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var customerExpenses = connection.Min<Sales>(e => e.Value,
 		e => e.CustomerId == 10045 && e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
@@ -63,7 +63,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var customerExpenses = connection.Min<Sales>(e => e.CustomerId == 10045 && e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
 		hints: SqlServerTableHints.NoLock);

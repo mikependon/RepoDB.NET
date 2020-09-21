@@ -15,7 +15,7 @@ This method is used to query the data as multiple resultsets from the table base
 Below is a sample code to fetch a single parent row from the `[dbo].[Customer]` table and all the related orders made from the `[dbo].[Order]` table.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var result = connection.QueryMultiple<Customer, Order>(p => p.Id == 10045,
 		o => o.PersonId == 10045);
@@ -33,7 +33,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var result = connection.QueryMultiple<Customer, Order>(p => p.Id == 10045,
 		o => o.PersonId == 10045,
@@ -49,7 +49,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var result = connection.QueryMultiple<Customer, Order>(p => p.Id == 10045,
 		o => o.PersonId == 10045,
@@ -67,7 +67,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 To order the results, you have to pass an array of `OrderField` objects in the `orderBy` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var orderBy = OrderField.Parse(new
 	{
@@ -88,7 +88,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 To filter the results, you have to pass a value at the `top` argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var result = connection.QueryMultiple<Customer, Order>(p => p.Id == 10045,
 		o => o.PersonId == 10045,

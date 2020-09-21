@@ -25,7 +25,7 @@ Simply pass a value to the `cacheKey` argument when calling the operation. When 
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var products = connection.QueryAll<Product>(cacheKey: "products", cache: cache);
 }
@@ -54,7 +54,7 @@ Following this naming convention makes it easy to examine keys at run-time and e
 ```csharp
 // An example of the second cache key convention:
 var cache = CacheFactory.GetMemoryCache();
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var productId = 5;
     Query<Product>(product => product.Id == productId,
@@ -71,7 +71,7 @@ Simply pass a value to the `cacheItemExpiration` argument when calling the opera
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var expirationInMinutes = 60 * 24; // 1 day
     var products = connection.QueryAll<Product>(cacheKey: "products",
@@ -86,7 +86,7 @@ To remove the cache item, use the `Remove()` method of the [ICache](/interface/i
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var products = connection.QueryAll<Product>(cacheKey: "products", cache: cache);
     cache.Remove("products");
@@ -97,7 +97,7 @@ Alternatively, the `Expiration` property can be used to force the expiration.
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var products = connection.QueryAll<Product>(cacheKey: "products", cache: cache);
     var item = cache.Get<Product>("products");
@@ -297,7 +297,7 @@ public static class CacheFactory
 And use it in the `IDbConnection` object like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var products = connection.QueryAll<Product>cacheKey: "AllProducts", cache: CacheFactory.GetJsonCache());
 }

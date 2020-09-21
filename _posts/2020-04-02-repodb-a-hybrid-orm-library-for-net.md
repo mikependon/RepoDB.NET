@@ -32,7 +32,7 @@ Basically, all [operations](/docs#operations) were implemented as extended metho
 For [Query](/operation/query).
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var customer= connection.Query<Customer>(10045).FirstOrDefault();
 }
@@ -41,7 +41,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 For [Insert](/operation/insert).
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var customer = new Customer
 	{
@@ -55,7 +55,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 For [Update](/operation/insert).
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var customer = new Customer
 	{
@@ -70,7 +70,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 And for [Delete](/operation/delete).
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var deletedRows = connection.Delete<Customer>(10045);
 }
@@ -79,7 +79,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can also execute a raw SQLs via `Execute` methods (i.e.: [ExecuteQuery](/operation/executequery), [ExecuteNonQuery](/operation/executenonquery), [ExecuteScalar](/operation/executescalar) and [ExecuteReader](/operation/executereader)).
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var customers = connection.ExecuteQuery<Customer>("SELECT * FROM [dbo].[Customer];");
 }
@@ -88,7 +88,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or even executing a stored procedure.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var customers = connection.ExecuteQuery<Customer>("sp_GetCustomersByState", new { State = "New York" }, commandType: CommandType.StoredProcedure);
 }

@@ -15,7 +15,7 @@ This method is used to execute a raw-SQL directly towards the database. It retur
 Below is a code that queries all the rows from the `[dbo].[Person]` table from the database.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person];");
 }
@@ -24,7 +24,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Returning the enumerable of `dynamic` objects. The type of the dynamic object is an `ExpandoObject`.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var dynamicPeople = connection.ExecuteQuery("SELECT * FROM [dbo].[Person];");
 }
@@ -33,7 +33,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Returning the enumerable of `ExpandoObject` objects.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = connection.ExecuteQuery<ExpandoObject>("SELECT * FROM [dbo].[Person];");
 }
@@ -42,7 +42,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Returning the enumerable of `IDictionary<string, object>` objects.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var people = connection.ExecuteQuery<IDictionary<string, object>>("SELECT * FROM [dbo].[Person];");
 }
@@ -57,7 +57,7 @@ You can also inferred the result back to any .NET CLR Type.
 Below is for `long` type.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var ids = connection.ExecuteQuery<long>("SELECT Id FROM [dbo].[Person];");
 }
@@ -66,7 +66,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or for other types like `string` and `DateTime`.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var names = connection.ExecuteQuery<long>("SELECT Name FROM [dbo].[Person];");
     var dateOfBirth = connection.ExecuteQuery<DateTime>("SELECT DateOfBirth FROM [dbo].[Person] WHERE Name = 'John Doe';").FirstOrDefault();
@@ -84,7 +84,7 @@ public enum Gender
 }
 
 // Inferring
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var gender = connection.ExecuteQuery<Gender>("SELECT Gender FROM [dbo].[Person] WHERE Name = 'John Doe';").FirstOrDefault();
 }
@@ -107,7 +107,7 @@ table.TableName = "Name of the UDT";
 Then pass it as a value to your argument.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var tables = connection.ExecuteQuery<IdentityTable>("EXEC [sp_StoredProcedureName] @Table = @Table;",
         new { Table = table })?.AsList();
@@ -126,7 +126,7 @@ You can pass a parameter via the following objects.
 ##### Anonymous Types
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var param = new
 	{
@@ -139,7 +139,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 ##### ExpandoObject
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var param = new ExpandoObject() as IDictionary<string, object>;
 	param.Add("Id", 10045);
@@ -150,7 +150,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 ##### IDictionary
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var param = new Dictionary<string, object>
 	{
@@ -163,7 +163,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 ##### Query Objects
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var param = new []
 	{
@@ -178,7 +178,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 You can pass an array of values if you are using the `IN` keyword.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var param = new
 	{
@@ -195,7 +195,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 There are 2 ways of executing a stored procedure. First, simply pass the name of the stored procedure and set the command type to `CommandType.StoredProcedure`.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var person = connection.ExecuteQuery<Person>("[dbo].[sp_GetPerson]",
 		new { Id = 10045 }, commandType: CommandType.StoredProcedure).FirstOrDefault();
@@ -205,7 +205,7 @@ using (var connection = new SqlConnection(connectionString).EnsureOpen())
 Or, simply use the native SQL calls like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
 	var person = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetPerson](@Id);",
 		new { Id = 10045 }).FirstOrDefault();

@@ -53,7 +53,7 @@ The result of this would be.
 And you can then execute it like below.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var people = connection.ExecuteQuery<Person>(statement);
 }

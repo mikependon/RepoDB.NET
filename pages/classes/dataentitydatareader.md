@@ -52,7 +52,7 @@ while (reader.Read())
 Or use it in the Bulk Operations.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString).EnsureOpen())
+using (var connection = new SqlConnection(connectionString))
 {
     var people = GetPeople();
     using (var reader = new DataEntityDataReader<Person>(people))
