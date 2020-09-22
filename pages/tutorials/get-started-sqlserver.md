@@ -40,11 +40,11 @@ Or visit our [installation](/tutorial/installation) page for more information.
 ```csharp
 CREATE TABLE [dbo].[Person]
 (
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](128) NOT NULL,
-	[Age] [int] NOT NULL,
-	[CreatedDateUtc] [datetime2](5) NOT NULL,
-	CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
+    [Id] [bigint] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](128) NOT NULL,
+    [Age] [int] NOT NULL,
+    [CreatedDateUtc] [datetime2](5) NOT NULL,
+    CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
 )
 ON [PRIMARY];
 GO
@@ -55,10 +55,10 @@ GO
 ```csharp
 public class Person
 {
-	public long Id { get; set; }
-	public string Name { get; set; }
-	public int Age { get; set; }
-	public DateTime CreatedDateUtc { get; set; }
+    public long Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public DateTime CreatedDateUtc { get; set; }
 }
 ```
 
@@ -71,13 +71,13 @@ To create a record, use the [Insert](/operation/insert) method.
 ```csharp
 var person = new Person
 {
-	Name = "John Doe",
-	Age = 54,
-	CreatedDateUtc = DateTime.UtcNow
+    Name = "John Doe",
+    Age = 54,
+    CreatedDateUtc = DateTime.UtcNow
 };
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var id = connection.Insert(person);
+    var id = connection.Insert(person);
 }
 ```
 
@@ -88,15 +88,15 @@ Let us say you had created a method `GetPeople()` that returns a list of `Person
 ```csharp
 private IEnumerable<Person> GetPeople(int count = 10)
 {
-	for (var i = 0; i < count; i++)
-	{
-		yield return new Person
-		{
-			Name = $"Person{i}",
-			Age = 54,
-			CreatedDateUtc = DateTime.UtcNow
-		};
-	}
+    for (var i = 0; i < count; i++)
+    {
+        yield return new Person
+        {
+            Name = $"Person{i}",
+            Age = 54,
+            CreatedDateUtc = DateTime.UtcNow
+        };
+    }
 }
 ```
 
@@ -106,7 +106,7 @@ Then simply create a list of `Person` and passed it when you call the [InsertAll
 var people = GetPeople(100).AsList();
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var rowsInserted = connection.InsertAll(people);
+    var rowsInserted = connection.InsertAll(people);
 }
 ```
 
@@ -119,8 +119,8 @@ To query a record, use the [Query](/operation/query) method.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var person = connection.Query<Person>(e => e.Id == 10045);
-	/* Do the stuffs for person here */
+    var person = connection.Query<Person>(e => e.Id == 10045);
+    /* Do the stuffs for person here */
 }
 ```
 
@@ -129,8 +129,8 @@ To query all the rows, use the [QueryAll](/operation/queryall) method.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var people = connection.QueryAll<Person>();
-	/* Do the stuffs for the people here */
+    var people = connection.QueryAll<Person>();
+    /* Do the stuffs for the people here */
 }
 ```
 
@@ -141,14 +141,14 @@ To merge a record, use the [Merge](/operation/merge) method.
 ```csharp
 var person = new Person
 {
-	Id = 1,
-	Name = "John Doe",
-	Age = 57,
-	CreatedDateUtc = DateTime.UtcNow
+    Id = 1,
+    Name = "John Doe",
+    Age = 57,
+    CreatedDateUtc = DateTime.UtcNow
 };
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var id = connection.Merge(person);
+    var id = connection.Merge(person);
 }
 ```
 
@@ -157,13 +157,13 @@ By default, the `Primary` (or `Identity`) field is used as a qualifier. You can 
 ```csharp
 var person = new Person
 {
-	Name = "John Doe",
-	Age = 57,
-	CreatedDateUtc = DateTime.UtcNow
+    Name = "John Doe",
+    Age = 57,
+    CreatedDateUtc = DateTime.UtcNow
 };
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var id = connection.Merge(person, qualifiers: (p => new { p.Name }));
+    var id = connection.Merge(person, qualifiers: (p => new { p.Name }));
 }
 ```
 
@@ -174,7 +174,7 @@ var people = GetPeople(100).AsList();
 people.ForEach(p => p.Name = $"{p.Name} (Merged)");
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var affectedRecords = connection.MergeAll<Person>(people);
+    var affectedRecords = connection.MergeAll<Person>(people);
 }
 ```
 
@@ -187,7 +187,7 @@ To delete a record, use the [Delete](/operation/delete) method.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var deletedRows = connection.Delete<Person>(10045);
+    var deletedRows = connection.Delete<Person>(10045);
 }
 ```
 
@@ -196,7 +196,7 @@ By default, it uses the `Primary` (or `Identity`) field as the qualifiers. You c
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var deletedRows = connection.Delete<Person>(p => p.Name == "John Doe");
+    var deletedRows = connection.Delete<Person>(p => p.Name == "John Doe");
 }
 ```
 
@@ -205,7 +205,7 @@ To delete all the rows, use the [DeleteAll](/operation/deleteall) method.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var deletedRows = connection.DeleteAll<Person>();
+    var deletedRows = connection.DeleteAll<Person>();
 }
 ```
 
@@ -214,8 +214,8 @@ You can also pass the list of primary keys or models to be deleted.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var primaryKeys = new [] { 10045, 11001, ..., 12011 };
-	var deletedRows = connection.DeleteAll<Person>(primaryKeys);
+    var primaryKeys = new [] { 10045, 11001, ..., 12011 };
+    var deletedRows = connection.DeleteAll<Person>(primaryKeys);
 }
 ```
 
@@ -228,14 +228,14 @@ To update a record, use the [Update](/operation/update) method.
 ```csharp
 var person = new Person
 {
-	Id = 1,
-	Name = "James Doe",
-	Age = 55,
-	DateInsertedUtc = DateTime.UtcNow
+    Id = 1,
+    Name = "James Doe",
+    Age = 55,
+    DateInsertedUtc = DateTime.UtcNow
 };
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var updatedRows = connection.Update<Person>(person);
+    var updatedRows = connection.Update<Person>(person);
 }
 ```
 
@@ -244,7 +244,7 @@ You can also dynamically update by targetting the certain columns.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var updatedRows = connection.Update("Person", new { Id = 1, Name = "James Doe" });
+    var updatedRows = connection.Update("Person", new { Id = 1, Name = "James Doe" });
 }
 ```
 
@@ -253,11 +253,11 @@ To update all the rows, use the [UpdateAll](/operation/updateall) method.
 ```csharp
 var people = GetPeople(100);
 people
-	.AsList()
-	.ForEach(p => p.Name = $"{p.Name} (Updated)");
+    .AsList()
+    .ForEach(p => p.Name = $"{p.Name} (Updated)");
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var updatedRows = connection.UpdateAll<Person>(people);
+    var updatedRows = connection.UpdateAll<Person>(people);
 }
 ```
 
@@ -266,11 +266,11 @@ By default, the `Primary` (or `Identity`) field is used as a qualifier. You can 
 ```csharp
 var people = GetPeople(100);
 people
-	.AsList()
-	.ForEach(p => p.Name = $"{p.Name} (Updated)");
+    .AsList()
+    .ForEach(p => p.Name = $"{p.Name} (Updated)");
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var updatedRows = connection.UpdateAll<Person>(people, qualifiers: (p => new { p.Name, p.DateOfBirth }));
+    var updatedRows = connection.UpdateAll<Person>(people, qualifiers: (p => new { p.Name, p.DateOfBirth }));
 }
 ```
 
@@ -283,7 +283,7 @@ To execute a query use the [ExecuteNonQuery](/operation/executenonquery) method.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var affectedRecords = connection.ExecuteNonQuery("DELETE FROM [dbo].[Person] WHERE Id = @Id;", new { Id = 1 });
+    var affectedRecords = connection.ExecuteNonQuery("DELETE FROM [dbo].[Person] WHERE Id = @Id;", new { Id = 1 });
 }
 ```
 
@@ -292,8 +292,8 @@ To execute a query while expecting a result of class object, use the [ExecuteQue
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var people = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] ORDER BY Id ASC;");
-	/* Do the stuffs for the people here */
+    var people = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] ORDER BY Id ASC;");
+    /* Do the stuffs for the people here */
 }
 ```
 
@@ -302,7 +302,7 @@ To execute a query while expecting a single result, use the [ExecuteScalar](/ope
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var maxId = connection.ExecuteQuery<Person>("SELECT MAX(Id) FROM [dbo].[Person];");
+    var maxId = connection.ExecuteQuery<Person>("SELECT MAX(Id) FROM [dbo].[Person];");
 }
 ```
 
@@ -311,10 +311,10 @@ To execute a query while expecting a result of `DbDataReader`, use the [ExecuteR
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
-	{
-		/* Do the stuffs for the data reader here */
-	}
+    using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
+    {
+        /* Do the stuffs for the data reader here */
+    }
 }
 ```
 
@@ -335,7 +335,7 @@ Then pass it as a value to your argument.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var tables = connection.ExecuteQuery<Person>("EXEC [sp_InsertPerson] @PersonTable = @Table;",
+    var tables = connection.ExecuteQuery<Person>("EXEC [sp_InsertPerson] @PersonTable = @Table;",
         new { Table = table })?.AsList();
 }
 ```
@@ -347,7 +347,7 @@ To execute a stored procedure, you can use any of the `Execute` methods mentione
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var people = connection.ExecuteQuery<Person>("[dbo].[sp_GetPeople]", commandType: CommandType.StoredProcedure);
+    var people = connection.ExecuteQuery<Person>("[dbo].[sp_GetPeople]", commandType: CommandType.StoredProcedure);
 }
 ```
 
@@ -358,7 +358,7 @@ Or, you can direct call using the `EXEC` command. No need to pass the value of t
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-	var people = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetPeople];");
+    var people = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetPeople];");
 }
 ```
 
@@ -375,7 +375,7 @@ using (var connection = new SqlConnection(ConnectionString))
     {
         Id = 10045
     };
-	var name = connection.ExecuteQuery<string>("SELECT Name FROM [dbo].[Person] WHERE Id = @Id;", param);
+    var name = connection.ExecuteQuery<string>("SELECT Name FROM [dbo].[Person] WHERE Id = @Id;", param);
 }
 ```
 
@@ -398,6 +398,6 @@ using (var connection = new SqlConnection(ConnectionString))
     {
         Id = 10045
     };
-	var name = connection.ExecuteQuery<Gender>("SELECT Gender FROM [dbo].[Person] WHERE Id = @Id;", param);
+    var name = connection.ExecuteQuery<Gender>("SELECT Gender FROM [dbo].[Person] WHERE Id = @Id;", param);
 }
 ```
