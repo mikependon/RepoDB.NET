@@ -38,6 +38,7 @@ Below are the list of the updates/changes covered by this release.
 - [Breaking Changes](#breaking-changes)
   - [The Merge Argument ('qualifiers' vs 'fields')](#the-merge-argument-qualifiers-vs-fields)
   - [The 'Where/WhereOrPrimaryKey' vs 'What'](#the-wherewhereorprimarykey-vs-what)
+  - [The DataReader.ToEnumerable Method](#the-datareadertoenumerable-method)
 - [Closing Note](#closing-note)
 
 It is important to not skip the [Breaking Changes](#breaking-changes) section.
@@ -661,6 +662,32 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 The update must be done to the other methods that accepts the mentioned staled arguments (i.e.: [Delete](/operation/delete), [Update](/operation/update) and the others).
+
+#### The DataReader.ToEnumerable Method
+
+The method that is used to extract the DbDataReader object into a target .NET CLR Type has been completely modified. In the previous version, the method named `ToEnumerable` with a signature like below is present, together with its corresponding `async` method.
+
+```csharp
+public IEnumerable<TResult> ToEnumerable<TResult>(DbDataReader reader,
+    IDbConnection connection = null,
+    IDbTransaction transaction = null);
+```
+
+However, in the new version, the method signature has been completely modified with the one below.
+
+```csharp
+ToEnumerable<TResult>(DbDataReader reader,
+    IEnumerable<DbField> dbFields = null,
+    IDbSetting dbSetting = null)         
+```
+
+Also, the `async` method has been removed as it is not necessary anymore.
+
+The rationale behind this are the following.
+
+- Eliminate the DB calls from the compiler.
+- Support the Enhanced Compiler scenarios.
+- Simplify the calls of the possible users.
 
 ### Closing Note
 

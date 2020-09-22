@@ -22,7 +22,7 @@ using (var connection = new SqlConnection(connectionString))
 {
     using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
     {
-        var people = DataReader.ToEnumerable<Person>(reader, connection, null);
+        var people = DataReader.ToEnumerable<Person>(reader);
         // Do the stuffs for 'people' here
     }
 }
@@ -35,10 +35,30 @@ using (var connection = new SqlConnection(connectionString))
 {
     using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
     {
-        var people = DataReader.ToEnumerable(reader, connection, null);
+        var people = DataReader.ToEnumerable(reader);
         // Do the stuffs for 'people' here
     }
 }
 ```
 
-> This class is the reason why the RepoDB is the fastest .NET ORM in the world when it comes to data extraction. 
+#### DbFields
+
+It is also quitely import to pass the list of the [DbField](/class/dbfield) object in order for the compiler to skip the unnecessary DB-NULL checks.
+
+To do this, simply pass the list of the DB fields in the `dbFields` argument.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var dbFields = DbFieldCache.Get(connection, ClassMappedNameCache.Get<Person>(), null);
+    using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
+    {
+        var people = DataReader.ToEnumerable<Person>(reader,
+            dbFields,
+            connection.GetDbSetting());
+        // Do the stuffs for 'people' here
+    }
+}
+```
+
+> Please note to always pass the [IDbSetting](/interface/idbsetting) object when using the `dbFields` argument.

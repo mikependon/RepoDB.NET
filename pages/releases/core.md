@@ -10,6 +10,12 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+#### RepoDB (Next Version)
+
+- Bug: Async methods use synchronous calls [#589](https://github.com/mikependon/RepoDB/issues/589)
+- Request: Add the 'isMoveToNextResult' argument to the [QueryMultipleExtractor](/class/querymultipleextractor) (Extract and Scalar) methods [#591](https://github.com/mikependon/RepoDB/issues/591)
+
+
 #### RepoDB (v1.12.0-beta4)
 
 - Enhancement: Consider supporting the execution of the TVP in SQL Server. [#566](https://github.com/mikependon/RepoDb/issues/566)
