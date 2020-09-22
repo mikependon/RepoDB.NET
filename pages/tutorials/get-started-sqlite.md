@@ -308,3 +308,41 @@ using (var connection = new SQLiteConnection(ConnectionString))
 	}
 }
 ```
+
+#### Typed Result Execution
+
+You can infer the scalar resultset in any .NET CLR type via [ExecuteQuery](/operation/executequery) operation.
+
+```csharp
+using (var connection = new SQLiteConnection(ConnectionString))
+{
+    var param = new
+    {
+        Id = 10045
+    };
+	var name = connection.ExecuteQuery<string>("SELECT Name FROM [Person] WHERE Id = @Id;", param);
+}
+```
+
+And even with the Enumerations.
+
+```csharp
+public enum Gender
+{
+    Male,
+    Female
+}
+```
+
+Then call it like below.
+
+```csharp
+using (var connection = new SQLiteConnection(ConnectionString))
+{
+    var param = new
+    {
+        Id = 10045
+    };
+	var name = connection.ExecuteQuery<Gender>("SELECT Gender FROM [Person] WHERE Id = @Id;", param);
+}
+```
