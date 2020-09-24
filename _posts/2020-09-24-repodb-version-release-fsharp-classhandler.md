@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing RepoDB version 1.12.0"
 author: "Michael Camara Pendon"
-date: 2020-09-21 00:00:00 +0200
+date: 2020-09-24 06:00:00 +0200
 categories: blogs repodb
 ---
 
@@ -23,8 +23,6 @@ The version [v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0) together wit
 
 Below are the list of the updates/changes covered by this release.
 
-- [TL;DR;](#tldr)
-- [Highlights](#highlights)
 - [Initial Support to FSharp](#initial-support-to-fsharp)
 - [Enhanced Compiler](#enhanced-compiler)
 - [Class Handler](#class-handler)
@@ -691,7 +689,7 @@ The rationale behind this are the following.
 
 ### Closing Note
 
-The release updates also comes with various requests from the community, bug fixes, enhancements and major refactoring. It is important to see the detailed updates from the [Releases](/release/core) page and/or by visiting the actual release page for this version at the Github [releases](https://github.com/mikependon/RepoDB/releases/tag/untagged-eb36fd782c723e532054) page.
+The release updates also comes with various requests from the community, bug fixes, enhancements and major refactoring. It is important to see the detailed updates from the [Releases](/release/core) page and/or by visiting the actual release page for this version at the Github [releases](https://github.com/mikependon/RepoDB/releases/tag/v1.12.0) page.
 
 We also would like to extend our warmth thanks to all the contributors, the collaborators and the issue reporters.
 
