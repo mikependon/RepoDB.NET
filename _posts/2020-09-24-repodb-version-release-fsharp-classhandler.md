@@ -33,6 +33,10 @@ Below are the list of the updates/changes covered by this release.
 - [Complete Exposure of the 'fields' Argument](#complete-exposure-of-the-fields-argument)
 - [Typed Result Execution](#typed-result-execution)
 - [Support to Table-Valued Parameters (TVP)](#support-to-table-valued-parameters-tvp)
+- [PostgreSQL Truncate Reset Identity](#postgresql-truncate-reset-identity)
+- [SQLite AUTOINCREMENT vs INTEGER PRIMARY KEY](#sqlite-autoincrement-vs-integer-primary-key)
+- [SQLite INSERT OR REPLACE vs UPSERT](#sqlite-insert-or-replace-vs-upsert)
+  - [Upsert Solution](#upsert-solution)
 - [Breaking Changes](#breaking-changes)
   - [The Merge Argument ('qualifiers' vs 'fields')](#the-merge-argument-qualifiers-vs-fields)
   - [The 'Where/WhereOrPrimaryKey' vs 'What'](#the-wherewhereorprimarykey-vs-what)
@@ -552,6 +556,154 @@ using (var connection = new SqlConnection(connectionString))
 {
     var sql = "EXEC [sp_InsertPerson] @PersonTable = @Table;";
     var people = connection.ExecuteQuery<Person>(sql, new { Table = table });
+}
+```
+
+### PostgreSQL Truncate Reset Identity
+
+Historically, RepoDB's truncate operation for [RepoDb.PostgreSql](https://www.nuget.org/packages/RepoDb.PostgreSql/) is not auto-resetting the identity seed to the beginning. However, in order for the [Truncate](/operation/truncate) operation to be identical to the other DB providers, in this package release, we forced to reset the identity seed back to the beginning.
+
+When you call the operation like below.
+
+```csharp
+using (var connection = new NpgsqlConnection(connectionString))
+{
+    connection.Truncate<Person>();
+}
+```
+
+The following SQL Statement will be generated.
+
+```
+> TRUNCATE TABLE \"Person\" RESTART IDENTITY ;
+```
+
+**Note:** This feature update could be considered breaking changes in some cases, specifically when processing the data.
+
+### SQLite AUTOINCREMENT vs INTEGER PRIMARY KEY
+
+In the previous version, the identity field (and/or Auto-Incremented column) is only being identified if the column is `AUTOINCREMENT`, see below.
+
+```csharp
+CREATE TABLE IF NOT EXISTS [Person]
+(
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT,
+    Age INTEGER,
+    CreatedDateUtc DATETIME
+);
+```
+
+However, referring to the actual [Auto-Increment](https://sqlite.org/autoinc.html) documentation of the SQLite, the column `INTEGER PRIMARY KEY` is also automatically converted to be auto-incremented. Therefore, in this package release, the [RepoDb.SqLite](https://www.nuget.org/packages/RepoDb.SqLite/) is also parsing the `INTEGER PRIMARY KEY` as identity field (and/or Auto-Incremented column).
+
+### SQLite INSERT OR REPLACE vs UPSERT
+
+We internally found a major bug on the [Merge](/operation/merge) operation of the [RepoDb.SqLite](https://www.nuget.org/packages/RepoDb.SqLite/) extension library. In the past, it uses the `INSERT OR REPLACE` keyword to merge the changes towards the database. The major problem to this, the `INSERT OR REPLACE` does not work to certain columns.
+
+**Note:** Merge is referring to a functionality of inserting a record in the database if not present, otherwise or update it.
+
+Let us say you have this class.
+
+```csharp
+public class Person
+{
+    public long Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public DateTime CreatedDateUtc { get; set; }
+}
+```
+
+And you have the table below.
+
+```csharp
+CREATE TABLE IF NOT EXISTS [Person]
+(
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT,
+    Age INTEGER,
+    CreatedDateUtc DATETIME
+);
+```
+
+And you would like to only merge on the `Name` column with the qualifier `Id`, like below.
+
+```csharp
+using (var connection = new SQLiteConnection(connectionString))
+{
+    var person = new
+    {
+        Id = 10045,
+        Name = "James Doe"
+    };
+    connection.Merge("Person", person);
+}
+```
+
+Then, the operation above will not work as expected if the record is already present in the database. 
+
+The generated SQL of the above code snippet is below.
+
+```
+> INSERT OR REPLACE INTO [Person] ( Id, Name ) VALUES ( @Id, @Name ); SELECT CAST([Id], INTEGER) AS [Result];
+```
+
+What happened behind the scene is, even the other columns `Age` and `CreatedDateUtc` columns are not part of the statement, but they are being set by the `INSERT OR REPLACE` keyword to `NULL` by default.
+
+#### Upsert Solution
+
+The solution we introduce to this is to switch the [RepoDb.SqLite](https://www.nuget.org/packages/RepoDb.SqLite/) extension library to use the upsert technique. The upsert keyword stands for `Update/Insert`.
+
+We implemented it in the client-side. Therefore, the logic of identifying the presence of the data will be happening on the application (via the [Exists](/operation/exsists) operation).
+
+Let us say, you do the call like below.
+
+```csharp
+using (var connection = new SQLiteConnection(connectionString))
+{
+    var person = new
+    {
+        Id = 10045,
+        Name = "James Doe"
+    };
+    connection.Merge("Person", person);
+}
+```
+
+Then, the library will do the following logic.
+
+```csharp
+if (connection.Exists(person))
+{
+    return connection.Update(person);
+}
+else
+{
+    return connection.Insert(person);
+}
+```
+
+It is important to take note that this change is only for [RepoDb.SqLite](https://www.nuget.org/packages/RepoDb.SqLite/) extension library, not affecting the other DB providers.
+
+With this update, the [MergeAll](/operation/mergeall) operation for [RepoDb.SqLite](https://www.nuget.org/packages/RepoDb.SqLite/) has been switched to `atomic` operation, not being processed by `batch` operation anymore.
+
+The trigger to this happens on the [SqLiteDbSetting](https://github.com/mikependon/RepoDB/blob/master/RepoDb.SqLite/RepoDb.SqLite/DbSettings/SqLiteDbSetting.cs) object `IsUserUpsert` property.
+
+```csharp
+public SqLiteDbSetting(bool isExecuteReaderDisposable)
+    : base()
+{
+    AreTableHintsSupported = false;
+    AverageableType = typeof(double);
+    ClosingQuote = "]";
+    DefaultSchema = null;
+    IsDirectionSupported = false;
+    IsExecuteReaderDisposable = isExecuteReaderDisposable;
+    IsMultiStatementExecutable = true;
+    IsPreparable = true;
+    IsUseUpsert = true;
+    OpeningQuote = "[";
+    ParameterPrefix = "@";
 }
 ```
 
