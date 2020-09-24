@@ -10,10 +10,58 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-#### RepoDB (Next Version)
+#### RepoDB (v1.12.0)
 
+- Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
+- Request: F# - Consider the Anonymous Types in the Query and QueryAll operation [#536](https://github.com/mikependon/RepoDb/issues/536).
+- Bug: [QueryAsync](/operation/query) with empty [QueryField](/class/queryfield) list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
+- Bug: [IPropertyHandler](/interface/ipropertyhandler) not being called [#514](https://github.com/mikependon/RepoDb/issues/514)
+- Bug: Property mapping fails with Turkish locale [#502](https://github.com/mikependon/RepoDb/issues/502)
+- Bug: Non-query statements are not taking into account SQL Server table hints [#533](https://github.com/mikependon/RepoDb/issues/533).
 - Bug: Async methods use synchronous calls [#589](https://github.com/mikependon/RepoDB/issues/589)
+- Feature: Introduce the ClassHandler Support [#524](https://github.com/mikependon/RepoDb/issues/524)
+- Feature: Support to Enumerable Scalar Values [#538](https://github.com/mikependon/RepoDb/issues/538) - **NEW**
+- Request: Completely expose the `fields` argument in the [BatchQuery](/operation/batchquery), [Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations (and all its Batch operations). [#523](https://github.com/mikependon/RepoDb/issues/523)
+- Request: Add caching for [ExecuteQuery](/operation/executequery) and [ExecuteQuery&lt;TEntity&gt;](/operation/executequery) [#522](https://github.com/mikependon/RepoDb/issues/522)
+- Request: Adds an overloaded method for [QueryAll&lt;TEntity&gt;](/operation/queryall) operation that takes the `tableName` parameter. [#521](https://github.com/mikependon/RepoDb/issues/521) - **BREAKING**
+- Request: Add caching for [ExecuteQuery](/operation/executequery) and [ExecuteQuery&lt;TEntity&gt;](/operation/executequery) [#522](https://github.com/mikependon/RepoDb/issues/522)
 - Request: Add the 'isMoveToNextResult' argument to the [QueryMultipleExtractor](/class/querymultipleextractor) (Extract and Scalar) methods [#591](https://github.com/mikependon/RepoDB/issues/591)
+- Request: Support the Immutable Entities [#465](https://github.com/mikependon/RepoDb/issues/465)
+- Question: Question on how to properly configure type mapping for FSharp Option types [#483](https://github.com/mikependon/RepoDb/issues/483)
+- Question: Specific Columns in `Query<TEntity>` [#545](https://github.com/mikependon/RepoDb/issues/545)
+- Enhancement: Use the `Identity` field if the `Primary` field is not available during the [Query](/operation/query), [Delete](/operation/delete) and [Update](/operation/update) operations.
+- Refactoring: Enhance the coding in the Core Compiler [#479](https://github.com/mikependon/RepoDb/issues/479). **BREAKING**
+- Enhancement: Complete support to the Fluent named-based operation [#499](https://github.com/mikependon/RepoDb/issues/499).
+- Enhancement: Replaces the usage of `IsNullOrEmpty` to `IsNullOrWhiteSpace`.
+- Enhancement: Replaces the usage of `ToLower()` to `ToLowerInvariant()`.
+- Enhancement: Replaces the usage of string equality to `string.Equals(value1, value2, StringComparer.OrdinalIgnoreCase)`.
+- Enhancement: Added the `Async` methods in the compiler. [#482](https://github.com/mikependon/RepoDb/issues/482) [#477](https://github.com/mikependon/RepoDb/issues/477)
+- Enhancement: Add the dynamic [ExecuteQuery](/operation/executequery) method in the [DbRepository](/class/dbrepository). [#517](https://github.com/mikependon/RepoDb/issues/517)
+- Enhancement: Renamed the `whereOrPrimaryKey` argument to `what` to extend the support to both (data entity object, dynamic/object expression, primary key and identity key), to further support the `F#` community. **BREAKING**
+- Enhancement: Updated the [QueryGroup.Parse()](/class/querygroup) method to be an argument-typed-based method.
+- Enhancement: Refactored and optimized the `Parse` method of the [QueryField](/class/queryfield) and [QueryGroup](/class/querygroup) objects.
+- Enhancement: Refactor the Table-Based Calls to return `IEnumerable<ExpandoObject>` instead of `IEnumerable<dynamics>`. [#540](https://github.com/mikependon/RepoDb/issues/540)
+- Enhancement: Consider supporting the execution of the TVP in SQL Server. [#566](https://github.com/mikependon/RepoDb/issues/566)
+- Enhancement: Support for returning `IDictionary<string, object>` instead of ExpandoObject. [#537](https://github.com/mikependon/RepoDb/issues/537)
+- Enhancement: Re-assess if the `IsAssignableFrom` can be used over the customized `IsInterfacedTo`. [#469](https://github.com/mikependon/RepoDb/issues/469)
+- Enhancement: Handle the Exception Handling of the Serialization/Deserialization process of the [ClassHandler](/feature/classhanders) that is connected to a different Data Entity [#539](https://github.com/mikependon/RepoDb/issues/539)
+- Refactoring: Make all the `cacheItemExpiration` arguments nullable. **BREAKING**
+- Refactoring: Make the [BaseRepository](/class/dbrepository) and [DbRepository](/class/dbrepository) objects `CacheItemExpiration` property nullable.
+- Refactoring: Make the [CacheItem](/class/cacheitem) object `CacheItemExpiration` property nullable.
+- Test: Added the Integration Tests for the `NonKeyedTable`.
+- Integration Tests: Added more Integration Tests for the `DbType` Map Attribute (includes SQL Server, PostgreSQL and MySQL).
+- Added the `KeyFieldNotFoundException`, `MissingQualifierFieldsException` and the `IdentityFieldNotFoundException`.
+- Added the `<TEntity>(TableName)` methods to the [BatchQuery](/operation/batchquery) operation.
+- Added the `<TEntity>(TableName)` methods to the [Query](/operation/query) and [QueryAll](/operation/queryall) operations.
+- Added the `<TEntity>(TableName)` methods to the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall operations).
+- Added the `<TEntity>(TableName)` methods to the [Insert](/operation/insert) and [InsertAll](/operation/insertall) operations.
+- Added the `<TEntity>(TableName)` methods to the [Merge](/operation/merge) and [MergeAll](/operation/mergeall) operations.
+- Added the `<TEntity>(TableName)` methods to the [Update](/operation/update) and [UpdateAll](/operation/updateall) operations.
+- Added the `<TEntity, TResult>` methods to the [Average](/operation/average) and [AverageAll](/operation/averageall operations).
+- Added the `<TEntity, TResult>` methods to the [Max](/operation/max) and [MaxAll](/operation/maxall operations).
+- Added the `<TEntity, TResult>` methods to the [Min](/operation/min) and [MinAll](/operation/minall operations).
+- Added the `<TEntity, TResult>` methods to the [Sum](/operation/sum) and [SumAll](/operation/sumall operations).
+- Added the execution context provider internal classes for the [Insert](/operation/insert), [Merge](/operation/merge), [Update](/operation/update), internal class for the [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall) and [UpdateAll](/operation/updateall)operations.
 
 
 #### RepoDB (v1.12.0-beta4)
