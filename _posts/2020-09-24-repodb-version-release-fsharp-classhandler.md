@@ -30,7 +30,7 @@ Below are the list of the updates/changes covered by this release.
 - [ExecuteQuery 2nd Layer Cache](#executequery-2nd-layer-cache)
 - [Anonymous Type / ExpandoObject / IDictionary<string, object>](#anonymous-type--expandoobject--idictionarystring-object)
 - [Table-Based Fluent Calls](#table-based-fluent-calls)
-- [The 'fields' argument](#the-fields-argument)
+- [Complete Exposure of the 'fields' Argument](#complete-exposure-of-the-fields-argument)
 - [Typed Result Execution](#typed-result-execution)
 - [Support to Table-Valued Parameters (TVP)](#support-to-table-valued-parameters-tvp)
 - [Breaking Changes](#breaking-changes)
@@ -398,7 +398,7 @@ var supplierId = connection.Insert<Person>("Supplier", person);
 
 The importance of this feature is to allow you to eliminate the repetitive models you are creating when designing an application. The ratio of the cases may not be high, but it is quite important in some cases.
 
-### The 'fields' argument
+### Complete Exposure of the 'fields' Argument
 
 This new feature is requested by the community to make the library a completely dynamic ORM. Historically, you can only update specific columns if you are using the dynamics and/or Anonymous Types based calls. See below.
 
