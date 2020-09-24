@@ -648,7 +648,7 @@ The generated SQL of the above code snippet is below.
 > INSERT OR REPLACE INTO [Person] ( Id, Name ) VALUES ( @Id, @Name ); SELECT CAST([Id], INTEGER) AS [Result];
 ```
 
-What happened behind the scene is, even the other columns `Age` and `CreatedDateUtc` columns are not part of the statement, but they are being set by the `INSERT OR REPLACE` keyword to `NULL` by default.
+What happened behind the scene? Even the other columns (i.e.: `Age` and `CreatedDateUtc` columns) are not part of the statement, the `INSERT OR REPLACE` keyword are setting them to `NULL` by default.
 
 #### Upsert Solution
 
@@ -687,7 +687,7 @@ It is important to take note that this change is only for [RepoDb.SqLite](https:
 
 With this update, the [MergeAll](/operation/mergeall) operation for [RepoDb.SqLite](https://www.nuget.org/packages/RepoDb.SqLite/) has been switched to `atomic` operation, not being processed by `batch` operation anymore.
 
-The trigger to this happens on the [SqLiteDbSetting](https://github.com/mikependon/RepoDB/blob/master/RepoDb.SqLite/RepoDb.SqLite/DbSettings/SqLiteDbSetting.cs) object `IsUserUpsert` property.
+The trigger to this happens on the [SqLiteDbSetting](https://github.com/mikependon/RepoDB/blob/master/RepoDb.SqLite/RepoDb.SqLite/DbSettings/SqLiteDbSetting.cs) object `IsUseUpsert` property.
 
 ```csharp
 public SqLiteDbSetting(bool isExecuteReaderDisposable)
