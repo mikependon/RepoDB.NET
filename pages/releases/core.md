@@ -10,6 +10,18 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+
+#### RepoDB (v1.12.2)
+
+- Bug: A `NullReferenceException` Is Thrown for NULL Query Expression [#600](https://github.com/mikependon/RepoDB/issues/600)
+
+
+#### RepoDB (v1.12.1)
+
+- Enhancement: New Compiler Possible Collision Problem - Refactor the DbDataReader GetHashCode() Generator [#597](https://github.com/mikependon/RepoDb/issues/597)
+- Bug: Unable to share POCOs between different database providers (Sqlite and Postgres) [#595](https://github.com/mikependon/RepoDb/issues/595]
+
+
 #### RepoDB (v1.12.0)
 
 - Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
