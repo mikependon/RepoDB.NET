@@ -11,6 +11,12 @@ permalink: /release/core
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
 
+#### RepoDB (v1.12.3)
+
+- Bug: Behavior change from previous versions prior v1.12.0 [#602](https://github.com/mikependon/RepoDB/issues/602)
+- Bug: Async fetch operations are not using the `DbDataReader.ReadAsync` method (in v1.12.0 to v1.12.2) [#601](https://github.com/mikependon/RepoDB/issues/601)
+
+
 #### RepoDB (v1.12.2)
 
 - Bug: A `NullReferenceException` Is Thrown for NULL Query Expression [#600](https://github.com/mikependon/RepoDB/issues/600)
