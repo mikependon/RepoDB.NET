@@ -14,19 +14,46 @@ Starting at version [v1.12.4](https://www.nuget.org/packages/RepoDb/1.12.4) and 
 
 When you upgrade, you can leverage the possibility of cancellable async operations. All the existing calls you made to any operations will not be affected (both compilation/signatures and the behaviors).
 
-See the sample calls below.
+See the sample calls below for [ExecuteNonQuery](/operation/executenonquery).
 
 ```csharp
 var tokenSource = new CancellationTokenSource();
 using (var connection = new SqlConnection(connectionString))
 {
-    var result = connection.ExecuteQuery<DateTime>("SELECT GETUTCDATE();",
+    var result = await connection.ExecuteQueryAsync<DateTime>("SELECT GETUTCDATE();",
         cancellationToken: tokenSource.Token);
     // You can cancel the token anytime
 }
 ```
 
-The calls will be identical to all other operations within the library.
+And for the [Query](/operation/query) operation.
+
+```csharp
+var tokenSource = new CancellationTokenSource();
+using (var connection = new SqlConnection(connectionString))
+{
+    var people = await connection.QueryAllAsync<Person>(cancellationToken: tokenSource.Token);
+    // You can cancel the token anytime
+}
+```
+
+And for the [Insert](/operation/insert) operation.
+
+```csharp
+var tokenSource = new CancellationTokenSource();
+using (var connection = new SqlConnection(connectionString))
+{
+    var id = await connection.InsertAsync<Person, long>(new
+    {
+        Name = "John Doe",
+        Address = "New York"
+    },
+    cancellationToken: tokenSource.Token);
+    // You can cancel the token anytime
+}
+```
+
+Such calls will be identical to all other `async` methods/operations within the library.
 
 ### Breaking Changes
 
