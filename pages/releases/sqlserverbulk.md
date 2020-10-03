@@ -14,6 +14,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 
 - CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.4](/release/core#repodb-v1124)).
+- Referenced the version [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.1.1](/release/core#repodb-sqlver-v111)).
 
 
 #### RepoDb.SqlServer.BulkOperations (v1.1.0)
