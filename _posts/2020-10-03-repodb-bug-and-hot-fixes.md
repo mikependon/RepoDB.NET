@@ -76,7 +76,7 @@ public class Person
 
 As stated with the attribute [NpgsqlTypeMap](/attribute/npgsqltypemap), such model is catered for PostgreSQL, however, a user also would like to use such model for SQLite, and there the exception is being thrown.
 
-This has been a part of the latest release as well.
+As an opportunity to further enhance the library, we have included the fixes to this. The fixes are not limited to the mentioned DB providers.
 
 ### Closing Note
 
