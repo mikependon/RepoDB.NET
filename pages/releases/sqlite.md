@@ -10,6 +10,12 @@ permalink: /release/sqlite
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqLite) to download it.
 
+#### RepoDB.SqLite (v1.1.1)
+
+- CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.4](/release/core#repodb-v1124)).
+
+
 #### RepoDb.SqLite (v1.1.0)
 
 - Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
