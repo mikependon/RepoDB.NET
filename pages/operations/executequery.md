@@ -44,7 +44,7 @@ Returning the enumerable of `IDictionary<string, object>` objects.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = connection.ExecuteQuery<IDictionary<string, object>>("SELECT * FROM [dbo].[Person];");
+    var people = connection.ExecuteQuery<IDictionary<string, object>>("SELECT * FROM [dbo].[Person];");
 }
 ```
 
