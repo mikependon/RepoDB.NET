@@ -17,7 +17,7 @@ Below is a code that queries all the rows from the `[dbo].[Person]` table from t
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person];");
+    var people = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person];");
 }
 ```
 
@@ -26,7 +26,7 @@ Returning the enumerable of `dynamic` objects. The type of the dynamic object is
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var dynamicPeople = connection.ExecuteQuery("SELECT * FROM [dbo].[Person];");
+    var dynamicPeople = connection.ExecuteQuery("SELECT * FROM [dbo].[Person];");
 }
 ```
 
@@ -35,7 +35,7 @@ Returning the enumerable of `ExpandoObject` objects.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = connection.ExecuteQuery<ExpandoObject>("SELECT * FROM [dbo].[Person];");
+    var people = connection.ExecuteQuery<ExpandoObject>("SELECT * FROM [dbo].[Person];");
 }
 ```
 
@@ -59,16 +59,16 @@ Below is for `long` type.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var ids = connection.ExecuteQuery<long>("SELECT Id FROM [dbo].[Person];");
+    var ids = connection.ExecuteQuery<long>("SELECT Id FROM [dbo].[Person];");
 }
 ```
 
-Or for other types like `string` and `DateTime`.
+Or for the other types like `string` and `DateTime`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var names = connection.ExecuteQuery<long>("SELECT Name FROM [dbo].[Person];");
+    var names = connection.ExecuteQuery<string>("SELECT Name FROM [dbo].[Person];");
     var dateOfBirth = connection.ExecuteQuery<DateTime>("SELECT DateOfBirth FROM [dbo].[Person] WHERE Name = 'John Doe';").FirstOrDefault();
 }
 ```
@@ -109,7 +109,7 @@ Then pass it as a value to your argument.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var tables = connection.ExecuteQuery<IdentityTable>("EXEC [sp_StoredProcedureName] @Table = @Table;",
+    var tables = connection.ExecuteQuery<IdentityTable>("EXEC [sp_StoredProcedureName] @Table = @Table;",
         new { Table = table })?.AsList();
 }
 ```
@@ -128,11 +128,11 @@ You can pass a parameter via the following objects.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new
-	{
-		Id = 10045
-	};
-	var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
+    var param = new
+    {
+        Id = 10045
+    };
+    var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
 }
 ```
 
@@ -141,9 +141,9 @@ using (var connection = new SqlConnection(connectionString))
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new ExpandoObject() as IDictionary<string, object>;
-	param.Add("Id", 10045);
-	var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
+    var param = new ExpandoObject() as IDictionary<string, object>;
+    param.Add("Id", 10045);
+    var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
 }
 ```
 
@@ -152,11 +152,11 @@ using (var connection = new SqlConnection(connectionString))
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new Dictionary<string, object>
-	{
-		{ "Id", 10045 }
-	};
-	var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
+    var param = new Dictionary<string, object>
+    {
+        { "Id", 10045 }
+    };
+    var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
 }
 ```
 
@@ -165,11 +165,11 @@ using (var connection = new SqlConnection(connectionString))
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new []
-	{
-		new QueryField("Id", 10045)
-	};
-	var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
+    var param = new []
+    {
+        new QueryField("Id", 10045)
+    };
+    var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
 }
 ```
 
@@ -180,11 +180,11 @@ You can pass an array of values if you are using the `IN` keyword.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new
-	{
-		Keys = new [] { 10045, 10102, 11004 }
-	};
-	var people = connection.ExecuteQuery<Person>("SELECT * FROM dbo].[Person] WHERE Id IN (@Keys);", param);
+    var param = new
+    {
+        Keys = new [] { 10045, 10102, 11004 }
+    };
+    var people = connection.ExecuteQuery<Person>("SELECT * FROM dbo].[Person] WHERE Id IN (@Keys);", param);
 }
 ```
 
@@ -197,8 +197,8 @@ There are 2 ways of executing a stored procedure. First, simply pass the name of
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var person = connection.ExecuteQuery<Person>("[dbo].[sp_GetPerson]",
-		new { Id = 10045 }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+    var person = connection.ExecuteQuery<Person>("[dbo].[sp_GetPerson]",
+        new { Id = 10045 }, commandType: CommandType.StoredProcedure).FirstOrDefault();
 }
 ```
 
@@ -207,8 +207,8 @@ Or, simply use the native SQL calls like below.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var person = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetPerson](@Id);",
-		new { Id = 10045 }).FirstOrDefault();
+    var person = connection.ExecuteQuery<Person>("EXEC [dbo].[sp_GetPerson](@Id);",
+        new { Id = 10045 }).FirstOrDefault();
 }
 ```
 
