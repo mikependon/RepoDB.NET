@@ -10,6 +10,11 @@ permalink: /release/mysql
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySql) to download it.
 
+#### RepoDB.MySql (v1.1.2)
+
+- Fixed the failing calls to the `ReaderToDbFieldAsync` method of the `MySqlDbHelper` object.
+
+
 #### RepoDB.MySql (v1.1.1)
 
 - CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
