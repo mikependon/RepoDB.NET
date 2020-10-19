@@ -40,13 +40,11 @@ using (var repository = new NorthwindRepository(connectionString))
     using (var transaction = repository.CreateConnection().EnsureOpen().BeginTransaction())
     {
         // Call the method
-        var customerId = repository.SaveCustomer<int>(customer, transaction: transaction);
-        var orderId = repository.SaveOrder<int>(order, transaction: transaction);
+        var customerId = repository.Insert<Customer, int>(customer, transaction: transaction);
+        var orderId = repository.Insert<Order, int>(order, transaction: transaction);
 
         // Commit
         transaction.Commit();
     }
 }
 ```
-
-Please visit the [repository](/feature/repositories) feature page for the full implementation reference.
