@@ -1,6 +1,6 @@
 # RepoDb.NET
 
-This is the official raw files for [RepoDB](https://github.com/mikependon/RepoDb) website. The official website can be visited at [RepoDb.NET](http://repodb.net).
+This repository contains the official raw files used for [RepoDB](https://github.com/mikependon/RepoDb) website. The official website can be visited at [RepoDb.NET](http://repodb.net).
 
 ## Clone and Run Locally
 

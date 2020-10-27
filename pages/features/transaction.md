@@ -18,7 +18,7 @@ Creates a transaction object and pass it when you call any of the operation.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    using (var transaction = connection.BeginTransaction())
+    using (var transaction = connection.EnsureOpen().BeginTransaction())
     {
         // Call the method
         var customerId = connection.Insert<Customer, int>(customer, transaction: transaction);
@@ -37,16 +37,14 @@ Same as previous section, simply create a transaction object and pass it when yo
 ```csharp
 using (var repository = new NorthwindRepository(connectionString))
 {
-    using (var transaction = repository.CreateConnection().BeginTransaction())
+    using (var transaction = repository.CreateConnection().EnsureOpen().BeginTransaction())
     {
         // Call the method
-        var customerId = repository.SaveCustomer<int>(customer, transaction: transaction);
-        var orderId = repository.SaveOrder<int>(order, transaction: transaction);
+        var customerId = repository.Insert<Customer, int>(customer, transaction: transaction);
+        var orderId = repository.Insert<Order, int>(order, transaction: transaction);
 
         // Commit
         transaction.Commit();
     }
 }
 ```
-
-Please visit the [repository](/feature/repositories) feature page for the full implementation reference.
