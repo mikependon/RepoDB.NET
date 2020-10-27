@@ -55,7 +55,7 @@ public class Person
 
 #### Property String (As Int)
 
-You can force the value to be saved as `String` type if you are using the [TypeMap](/attribute/typemap).
+You can force the value to be saved as `Integer` type if you are using the [TypeMap](/attribute/typemap).
 
 ```csharp
 public class Person
