@@ -14,7 +14,7 @@ You can use the library to work with [SQL Server](https://www.nuget.org/packages
 
 It is here to improve the things and your experiences when working with Data Access Technology in .NET space.
 
-We are glad and thankful on your interest in learning RepoDb. We hope that you improve your development experiences while using this library.
+We are glad and thankful on your interest in learning RepoDB. We hope that you improve your development experiences while using this library.
 
 Enjoy learning!
 
