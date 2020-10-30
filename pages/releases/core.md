@@ -12,6 +12,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDB (Next Version)
 
+- Bug: Exception is being thrown for the Type level [PropertyHandler](/features/propertyhandlers) for Dynamic Insertion [#628](https://github.com/mikependon/RepoDB/issues/628)
+
+
+#### RepoDB (v1.12.5-beta1)
+
+- Enhancement: Add the dynamic [ExecuteQueryMultiple](/operation/executequerymultiple) method in the DbRepository [#630](https://github.com/mikependon/RepoDB/issues/630)
+- Possible bug - Enum with Flag attribute is not correctly handled [#624](https://github.com/mikependon/RepoDB/issues/624)
 - [Core] Support `ExpandoObject` in [Insert](/operation/insert) via `TableName`. [#234](https://github.com/mikependon/RepoDB/issues/234)
 - [Core] Support `ExpandoObject` in [Merge](/operation/merge) via `TableName`. [#238](https://github.com/mikependon/RepoDB/issues/238)
 - [Core] Support `ExpandoObject` in [Update](/operation/update) via `TableName`. [#236](https://github.com/mikependon/RepoDB/issues/236)
