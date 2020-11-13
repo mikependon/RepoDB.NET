@@ -13,7 +13,6 @@ http://repodb.net/feature/connectionpersistency
 http://repodb.net/feature/dynamics
 http://repodb.net/feature/enumeration
 http://repodb.net/feature/expressiontrees
-http://repodb.net/feature/fieldclassmapping
 http://repodb.net/feature/hints
 http://repodb.net/feature/implicitmapping
 http://repodb.net/feature/multiplequery

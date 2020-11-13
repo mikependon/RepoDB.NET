@@ -10,6 +10,13 @@ permalink: /release/sqlserverbulk
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
+#### RepoDB.SqlServer.BulkOperations (v1.1.2-beta1)
+
+- Bug: Incorrect syntax near the keyword `WITH` [BulkMergeAsync](/operation/bulkinsert) [#640](https://github.com/mikependon/RepoDB/issues/640)
+- Request: Do not crash if on empty enumerable on bulk operation [#635]((https://github.com/mikependon/RepoDB/issues/635)
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5-beta2](/release/core#repodb-v1125-beta2)).
+
+
 #### RepoDB.SqlServer.BulkOperations (v1.1.1)
 
 - CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
