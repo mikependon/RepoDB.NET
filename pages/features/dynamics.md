@@ -81,6 +81,23 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+Or via Dictionary or ExpandoObject.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var entity = new Dictionary<string, object>
+    {
+        { "FirstName", "John" },
+        { "LastName", "Doe" },
+        { "CreatedDateUtc", DateTime.UtcNow }
+    };
+    var id = connection.Insert<int>("[dbo].[Customer]", entity);
+}
+```
+
+> Please note that the library will add the newly created value of the identity column into the Dictionary or ExpandoObject object (if not present).
+
 #### Deleting a Data
 
 Use the [Delete](/operation/delete) operation and pass the target table as a literal string and a filter expression as an anonymous object.

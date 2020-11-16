@@ -69,7 +69,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via Anonymous Type.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -85,6 +85,25 @@ using (var connection = new SqlConnection(connectionString))
 	};
 	var updatedRows = connection.Update("[dbo].[Person]",
 		entity: person);
+}
+```
+
+Or via Dictionary or ExpandoObject.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var person = new Dictionary<string, object>
+    {
+        { "Id", 10045 },
+        { "Name", "John Doe" },
+        { "Address", "New York" },
+        { "DateOfBirth", DateTime.Parse("2020-01-01") },
+        { "IsActive", true },
+        { "CreatedDateUtc", DateTime.UtcNow }
+    };
+    var id = connection.Update("[dbo].[Customer]",
+        entity: person);
 }
 ```
 

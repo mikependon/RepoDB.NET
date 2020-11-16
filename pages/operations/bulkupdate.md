@@ -88,6 +88,22 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+##### Dictionary/ExpandoObject
+
+Below is a sample code to bulk-insert by data table.
+
+```csharp
+using (var sourceConnection = new SqlConnection(sourceConnectionString))
+{
+    var result = sourceConnection.QueryAll("Person");
+    using (var destinationConnection = new SqlConnection(destinationConnectionString))
+    {
+        var updatedRows = destinationConnection.BulkUpdate("Person", result,
+            qualifiers: Field.From("LastName", "DateOfBirth"));
+    }
+}
+```
+
 ##### DataReader
 
 Below is a sample code to bulk-update by data reader.

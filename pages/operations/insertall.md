@@ -73,7 +73,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics (Anonymous Type, Dictionary, ExpandoObject).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

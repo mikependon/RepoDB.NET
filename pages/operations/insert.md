@@ -50,7 +50,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via Anonymous Type.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -67,6 +67,26 @@ using (var connection = new SqlConnection(connectionString))
 		entity: person);
 }
 ```
+
+Or via Dictionary or ExpandoObject.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var person = new Dictionary<string, object>
+    {
+        { "Name", "John Doe" },
+        { "Address", "New York" },
+        { "DateOfBirth", DateTime.Parse("2020-01-01") },
+        { "IsActive", true },
+        { "CreatedDateUtc", DateTime.UtcNow }
+    };
+    var id = connection.Insert<int>("[dbo].[Customer]",
+        entity: person);
+}
+```
+
+> Please note that the library will add the newly created value of the identity column into the Dictionary or ExpandoObject object (if not present).
 
 #### Specific Columns
 
