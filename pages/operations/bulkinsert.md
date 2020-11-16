@@ -103,7 +103,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ##### Dictionary/ExpandoObject
 
-Below is a sample code to bulk-insert by data table.
+Below is a sample code to bulk-insert by Dictionary or ExpandoObject.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
