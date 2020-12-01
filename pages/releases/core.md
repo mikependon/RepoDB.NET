@@ -14,6 +14,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 - Request: Introduce optional caching to [ExecuteScalar](/operation/executescalar) methods. [#648](https://github.com/mikependon/RepoDB/issues/648)
 - Enhancement: Add the non-parameterized Truncate operation. [#652](https://github.com/mikependon/RepoDB/issues/652)
+- Bug: System.Data.SqlClient.SqlException: 'Column name 'ID' does not exist in the target table or view.' [#651](https://github.com/mikependon/RepoDB/issues/651)
 
 ####  RepoDB (v1.12.5-beta3)
 
