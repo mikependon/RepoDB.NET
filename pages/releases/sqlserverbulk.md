@@ -10,6 +10,17 @@ permalink: /release/sqlserverbulk
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
+#### RepoDB.SqlServer.BulkOperations (v1.1.2-beta3)
+
+- Bug: System.Data.SqlClient.SqlException: 'Column name 'ID' does not exist in the target table or view.' [#651](https://github.com/mikependon/RepoDB/issues/651)
+- Refactor the internal method implementations to only utilize the base methods for both the MDS and SDS method calls.
+
+
+#### RepoDB.SqlServer.BulkOperations (v1.1.2-beta2)
+
+- Reverted the changes to the [#635]((https://github.com/mikependon/RepoDB/issues/635).
+
+
 #### RepoDB.SqlServer.BulkOperations (v1.1.2-beta1)
 
 - Bug: Incorrect syntax near the keyword `WITH` [BulkMergeAsync](/operation/bulkinsert) [#640](https://github.com/mikependon/RepoDB/issues/640)
