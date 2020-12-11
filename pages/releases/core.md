@@ -10,6 +10,12 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+#### RepoDB (Next Version)
+
+- Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
+- Bug: FluentMapper is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
+- Bug: BulkInsert with mappings [#668](https://github.com/mikependon/RepoDB/issues/668)
+
 #### RepoDB (v1.12.5-beta4)
 
 - Request: Introduce optional caching to [ExecuteScalar](/operation/executescalar) methods. [#648](https://github.com/mikependon/RepoDB/issues/648)
