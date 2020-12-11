@@ -38,7 +38,7 @@ public class Person
 	public string Name { get; set; }
 	public DateTime DateOfBirth { get; set; }
 	public int Age { get; set; }
-	[NpgsqlTypeMap(MySqlDbType.Array)] // Mapping this to a 'Array'
+	[NpgsqlTypeMap(NpgsqlDbType.Array)] // Mapping this to a 'Array'
 	public int[] ReferenceNumbers { get; set; }
 	public DateTime DateInsertedUtc { get; set; }
 }
