@@ -12,7 +12,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDB (Next Version)
 
-- Removed the `Initialize()` method from the [DataEntityDataReader](/class/dataentitydatareader) class.
+- Breaking: Removed the `Initialize()` method from the [DataEntityDataReader](/class/dataentitydatareader) class.
 - Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
 - Bug: FluentMapper is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
 - Bug: BulkInsert with mappings [#668](https://github.com/mikependon/RepoDB/issues/668)
