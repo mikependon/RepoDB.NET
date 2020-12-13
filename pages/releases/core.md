@@ -10,12 +10,12 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-#### RepoDB (Next Version)
+#### RepoDB (v1.12.5-beta5) (Next Version)
 
-- Breaking: Removed the `Initialize()` method from the [DataEntityDataReader](/class/dataentitydatareader) class.
+- Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673) - this is a breaking changes
 - Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
-- Bug: FluentMapper is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
-- Bug: BulkInsert with mappings [#668](https://github.com/mikependon/RepoDB/issues/668)
+- Bug: [FluentMapper](/mapper/fluentmapper) is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
+- Question: [IPropertyHandler](/interface/ipropertyhandler) for `Dictionary<string, string>` [#647](https://github.com/mikependon/RepoDB/issues/647)
 
 #### RepoDB (v1.12.5-beta4)
 
@@ -34,7 +34,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 #### RepoDB (v1.12.5-beta1)
 
-- Enhancement: Add the dynamic [ExecuteQueryMultiple](/operation/executequerymultiple) method in the DbRepository [#630](https://github.com/mikependon/RepoDB/issues/630)
+- Enhancement: Add the dynamic [ExecuteQueryMultiple](/operation/executequerymultiple) method in the [DbRepository](/class/dbrepository) [#630](https://github.com/mikependon/RepoDB/issues/630)
 - Possible bug - Enum with Flag attribute is not correctly handled [#624](https://github.com/mikependon/RepoDB/issues/624)
 - [Core] Support `ExpandoObject` in [Insert](/operation/insert) via `TableName`. [#234](https://github.com/mikependon/RepoDB/issues/234)
 - [Core] Support `ExpandoObject` in [Merge](/operation/merge) via `TableName`. [#238](https://github.com/mikependon/RepoDB/issues/238)

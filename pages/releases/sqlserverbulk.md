@@ -10,6 +10,11 @@ permalink: /release/sqlserverbulk
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
+#### RepoDB.SqlServer.BulkOperations (v1.1.2-beta4) (Next Version)
+
+- Bug: [BulkInsert](/operation/bulkinsert) with mappings [#668](https://github.com/mikependon/RepoDB/issues/668)
+
+
 #### RepoDB.SqlServer.BulkOperations (v1.1.2-beta3)
 
 - Bug: System.Data.SqlClient.SqlException: 'Column name 'ID' does not exist in the target table or view.' [#651](https://github.com/mikependon/RepoDB/issues/651)
@@ -18,7 +23,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 
 #### RepoDB.SqlServer.BulkOperations (v1.1.2-beta2)
 
-- Reverted the changes to the [#635]((https://github.com/mikependon/RepoDB/issues/635).
+- Reverted the changes to the [#635](https://github.com/mikependon/RepoDB/issues/635).
 
 
 #### RepoDB.SqlServer.BulkOperations (v1.1.2-beta1)
