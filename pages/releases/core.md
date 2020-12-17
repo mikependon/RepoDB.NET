@@ -10,7 +10,12 @@ permalink: /release/core
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-#### RepoDB (v1.12.5-beta5) (Next Version)
+#### RepoDB (v1.12.5-beta6) (Next Version)
+
+- Fixed the related issues found at model-based operation [ExecuteQuery](/operation/executequery) (almost related to [#666](https://github.com/mikependon/RepoDB/issues/666))
+
+
+#### RepoDB (v1.12.5-beta5)
 
 - Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673) - this is a breaking changes
 - Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
@@ -18,6 +23,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Question: [IPropertyHandler](/interface/ipropertyhandler) for `Dictionary<string, string>` [#647](https://github.com/mikependon/RepoDB/issues/647)
 - Upgraded the `Microsoft.Data.SqlClient` to `v2.1.0`.
 - Upgraded the `System.ComponentModel.Annotations` to `v5.0.0`.
+
 
 #### RepoDB (v1.12.5-beta4)
 
