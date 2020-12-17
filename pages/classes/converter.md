@@ -15,7 +15,8 @@ This class is used as the converter for the library. It also handles the value o
 
 Below are the properties available from this class.
 
-- `ConversionType` - is used as a conversion type when converting the instance of `DbDataReader` object into its destination .NET CLR types. The default value is [ConversionType.Default](/enumeration/conversiontype).
+- `ConversionType` - is used as a conversion type when converting an instance of `DbDataReader` object into its destination .NET CLR types. The default value is [ConversionType.Default](/enumeration/conversiontype).
+- `EnumDefaultDatabaseType` - is used as a default equivalent database type of an enumeration if it is being used as a parameter to the execution of any non-entity-based operations (i.e.: [ExecuteScalar](/operation/executescalar), [ExecuteNonQuery](/operation/executenonquery) and [ExecuteReader](/operation/executereader)).
 
 #### Methods
 
@@ -31,6 +32,48 @@ Converter.ConversionType = ConversionType.Automatic;
 ```
 
 > Please see the [ConversionType](/enumeration/conversiontype) enumeration to learn more about this conversion.
+
+#### When to use Enum Default Database Type?
+
+You should only use the enumeration default database type setting if you wish to override the default conversion of the library pertaining to enumeration. By default, the library is auto-converting the enumeration to `DbType.String`, but this behavior is only applicable to the non-model-based operations.
+
+Let us say you have these enums.
+
+```csharp
+public enum CustomerType
+{
+    Direct,
+    Indirect
+}
+
+public enum CustomerStatus
+{
+    Active,
+    InActive
+}
+```
+
+Then code below is forcing all the enumeration properties to be converted to `DbType.Int32` instead of `DbType.String`.
+
+```csharp
+Converter.EnumDefaultDatabaseType = DbType.Int32;
+
+using (var connection = new SqlConnection(connectionString))
+{
+    var sql = "INSERT INTO [dbo].[Customer] (Name, CustomerType, CustomerStatus) " +
+        "VALUES (@Name, @CustomerType, @CustomerStatus); " +
+        "SELECT SCOPE_IDENTITY();";
+    var param = new
+    {
+        Name = "John Doe",
+        CutomerType = CustomerType.Direct,
+        CustomerStatus = CustomerStatus.Active
+    };
+    var id = connection.ExecuteScalar<long>(sql, param);
+}
+```
+
+> Please be reminded that this setting does not apply to the model-based operations. The library is intelligent enough and will somehow utilize the schema definition from the database when mapping the enumeration for the model-based operations. In addition, this settings does not supercede the configured mappings on the specific property and/or type.
 
 #### DbNull Conversion
 

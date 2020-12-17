@@ -16,6 +16,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
 - Bug: [FluentMapper](/mapper/fluentmapper) is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
 - Question: [IPropertyHandler](/interface/ipropertyhandler) for `Dictionary<string, string>` [#647](https://github.com/mikependon/RepoDB/issues/647)
+- Upgraded the `Microsoft.Data.SqlClient` to `v2.1.0`.
+- Upgraded the `System.ComponentModel.Annotations` to `v5.0.0`.
 
 #### RepoDB (v1.12.5-beta4)
 
