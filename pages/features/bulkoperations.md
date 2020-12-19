@@ -11,7 +11,7 @@ tags: [repodb, class, bulk, bulk-operations, orm, hybrid-orm, sqlserver, sqlite,
 
 A bulk operation is a process of bringing all the data from the application into the database server at once, and at the same time, ignoring some database specific activities (i.e.: Logging, Audits, Data-Type Checks, Constraints, etc) behind the scene. Thus gives you maximum performance during the operation.
 
-Basically, we normally do the [Delete](/operation/delete), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations when interacting with the database. Through this, the data is being processed in an atomic way. If we do call the [batch operations](/feature/batchoperations), the multiple single operations are just being batched and executed together. But it does not completely eliminates the round-trips between your application and the database.
+Basically, we normally do the [Delete](/operation/delete), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations when interacting with the database. Through this, the data is being processed in an atomic way. If we do call the [batch operations](/feature/batchoperations), the multiple single operations are just being batched and executed together, but it does not completely eliminates the round-trips between your application and the database.
 
 Image below shows the data flow of the [BulkInsert](/operation/bulkinsert) operation.
 
