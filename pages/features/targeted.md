@@ -13,7 +13,7 @@ This feature allows you to make a targeted invocation when executing the operati
 
 #### Use Case
 
-Imagine if your `Customer` model has plenty of columns and you are only Querying, Inserting, Merging or Updating the specific columns.
+Imagine if your `Customer` model has plenty of columns and you are only querying, inserting, merging or updating into the specific columns.
 
 #### Querying a Data
 

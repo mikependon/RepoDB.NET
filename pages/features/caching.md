@@ -9,19 +9,19 @@ tags: [repodb, class, cache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgres
 
 # Caching
 
-In general terms, a `Cache` is a component that stores an object (or its states) in any form of temporary storage that is accessible for future used. The object that is being stored can be a result of computational, operational, inputs/outputs or analytical operations and calculations.
+In general terms, a cache is a component that stores an object (or its states) in any form of temporary storage that is accessible for future used. The object that is being stored can be a result of computational, operational, inputs/outputs or analytical operations and calculations.
 
 Usually, it is implemented as a 2nd-layer data storage to provide fast accessibility to the requestor of the data. It is by design to prevent the frequent calls towards the underlying data-store, thus helps improve the underlying performance of the application.
 
 <img src="../../assets/images/site/cache.png" />
 
-In this library, by default, the `Cache` is implemented as a storage in the computer memory. It is simply a dictionary object that holds the `Key` that represents as the pointer to the actual `Data` in the cache storage. It is persisting the data in the cache storage for `180` minutes. But, the user can manually set the time of the persistency.
+In this library, the cache is implemented as a storage in the computer memory by default. It is a simple dictionary object that holds a key that represents as pointer to the actual data in the cache storage. It is persisting the data in the cache storage for 180 minutes, but the user can manually set the time of the persistency during the calls.
 
-The database tables that are not frequently changing but is mostly in used in the application are the candidate for caching.
+> The database tables that are not frequently changing but is mostly in used in the application are the candidate for caching.
 
 #### How to use the Cache?
 
-Simply pass a value to the `cacheKey` argument when calling the operation. When directly using the `IDbConnection` object, an instance of [ICache](/interface/icache) must be passed to `cache` argument.
+Simply pass a value to the `cacheKey` argument when calling the operation. The direct usage of the connection object requires an instance of [ICache](/interface/icache) to be explicitly passed into the `cache` argument.
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
@@ -57,9 +57,8 @@ var cache = CacheFactory.GetMemoryCache();
 using (var connection = new SqlConnection(connectionString))
 {
     var productId = 5;
-    Query<Product>(product => product.Id == productId,
-        cacheKey: $"Product-Id-{productId}",
-        cache: cache);
+    var product = connection.Query<Product>(product => product.Id == productId,
+        cacheKey: $"Product-Id-{productId}", cache: cache);
 }
 ```
 
@@ -67,7 +66,7 @@ As mentioned, by default the cache is placed in the computer memory via [MemoryC
 
 #### Setting the Cache Expiration
 
-Simply pass a value to the `cacheItemExpiration` argument when calling the operation. This value will be ignored if the `cacheKey` is not provided.
+Simply pass a value to the `cacheItemExpiration` argument when calling the operation, however, this value will be ignored if the `cacheKey` is not provided.
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
@@ -75,8 +74,7 @@ using (var connection = new SqlConnection(connectionString))
 {
     var expirationInMinutes = 60 * 24; // 1 day
     var products = connection.QueryAll<Product>(cacheKey: "products",
-        cacheItemExpiration: expirationInMinutes,
-        cache: cache);
+        cacheItemExpiration: expirationInMinutes, cache: cache);
 }
 ```
 
@@ -160,7 +158,7 @@ public class JsonCache : ICache
 }
 ```
 
-> You have to implement all the interface methods and manually handle each of them. Please see our [reference implementation](/reference/jsoncache) for more information.
+> You have to implement all the interface methods and manually handle each of them.
 
 #### Injecting the Cache in the Repository
 
@@ -262,7 +260,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 
 #### Create a Cache Factory
 
-If you do not prefer injecting a cache object, creating a cache `Factory` class is good to ensure a single instance of cache object is being managed.
+If you do not prefer injecting a cache object, creating a simple cache factory class is good to ensure a single instance of cache object is being managed.
 
 The code below ensures that only a single instance of cache object is being used all throughout the application.
 
@@ -294,7 +292,7 @@ public static class CacheFactory
 }
 ```
 
-And use it in the `IDbConnection` object like below.
+And use it in the connection object like below.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

@@ -9,7 +9,7 @@ tags: [repodb, class, hints, orm, hybrid-orm, sqlserver, sqlite, mysql, postgres
 
 # Hints
 
-This is a feature that would allow you to optimize the command executions towards the database. It is a keyword that is usually being added into the SQL statements (DML) to further optimize the execution of your commands. Please the Microsoft document [here](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-ver15).
+This is a feature that would allow you to optimize the command execution towards the database. It is a keyword that is usually being added into the SQL statements (DML) to further optimize the execution of your commands. Please the Microsoft document [here](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-ver15).
 
 #### Raw-SQL
 
@@ -41,9 +41,9 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Fluent-Methods
 
-Most [fluent-methods](/docs#fluent-methods) within the library accepts the `hints` argument. It allows you to pass the hints as a literal string, those giving you the full control of your optimizations.
+Most [operations](/docs#operations) within the library accepts the `hints` argument. It allows you to pass the hints as a literal string, those giving you the full control when optimizing the calls to the operation.
 
-Below are the equivalent fluent-methods of the raw-SQLs execution defined in the previous section.
+Below are the equivalent operations of the raw-SQLs execution defined in the previous section.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

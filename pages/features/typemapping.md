@@ -99,3 +99,5 @@ public class Person
 	public DateTime DateInsertedUtc { get; set; }
 }
 ```
+
+> Both the MySQL and PostgreSQL type mapping is not yet supported in the [FluentMapper](/mapper/fluentmapper) object, therefore, you have to always explicitly decorate the mentioned attributes for every usage.

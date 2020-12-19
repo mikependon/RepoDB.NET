@@ -9,7 +9,7 @@ tags: [repodb, class, enumeration, orm, hybrid-orm, sqlserver, sqlite, mysql, po
 
 # Enumeration
 
-This is a feature that enables you to work with enumerations within the class objects. The library supports various kind of transformation for enumerations.
+This is a feature that enables you to work on enumeration objects within the class object (property). The library supports various kind of transformation for enumerations.
 
 #### Property String
 
@@ -116,6 +116,16 @@ public class Person
 
 > The enumeration values will be saved in the database as `Integer`.
 
+#### Default Conversion
+
+By default, the library is using the `DbType.String` as a conversion to all enumerations if being used to the non-model based operations (i.e.: [ExecuteScalar](/operation/executescalar), [ExecuteNonQuery](/operation/executenonquery) and [ExecuteReader](/operation/executereader)). However, you can always override the value by simply setting the `Converter` class property `EnumDefaultDatabaseType` to any `DbType` value.
+
+```csharp
+Converter.EnumDefaultDatabaseType = DbType.Int32;
+```
+
+> The library is intelligent enough to understand your table schema, if you call any model-based operations (i.e.: [Query](/operation/query), [Update](/operation/update), [Merge](/operation/merge), etc), the default conversion is not used as it has already projected the correct database type to be passed/parsed based the underlying table schema.
+
 #### PropertyHandler
 
 You can as well create a property handler to manually handle the enumerations transformation by implementing the [IPropertyHandler](/interface/ipropertyhandler).
@@ -175,5 +185,16 @@ using (var connection = new SqlConnection(connectionString))
         Gender = Gender.Female
     };
     var females = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE [Gender] = @Gender;", param);
+}
+```
+
+#### Type Inference
+
+As type inference is supported by the library, you can as well infer the enumeration directly when fetching a row from the database via [ExecuteQuery](/operation/executequery).
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var genders = connection.ExecuteQuery<Gender>("SELECT [Gender] FROM [dbo].[Person];");
 }
 ```

@@ -9,7 +9,9 @@ tags: [repodb, class, dynamics, orm, hybrid-orm, sqlserver, sqlite, mysql, postg
 
 # Dynamics / Anonymous Types
 
-This feature allows you to create a simplified and targeted operation by simply maximizing the usage of dynamics and anonymous types. It is also very useful if you wish to do CRUD for targeted columns or a CRUD operation without even a class model.
+This feature allows you to create a simplified and targeted operation by simply maximizing the usage of the anonymous types. It is very useful if you wish to do the CRUD operations on the targeted columns and/or make the CRUD operations without even having a class model.
+
+This feature called dynamics as it is enabling the dynamic capabilities if we are to use it on the context of ORM. Therefore, do not get confused comparing the terminology against the dynamics within .NET ecosystem.
 
 #### Querying a Data
 
@@ -81,7 +83,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via Dictionary or ExpandoObject.
+Or via `Dictionary` or `ExpandoObject`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -96,7 +98,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> Please note that the library will add the newly created value of the identity column into the Dictionary or ExpandoObject object (if not present).
+> Please note that the library will add the newly created value of the identity column into the `Dictionary` or `ExpandoObject` object (if not present).
 
 #### Deleting a Data
 
@@ -111,7 +113,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Merging a Data
 
-Use the [Merge](/operation/merge) operation and pass the target table as a literal string and a anonymous entity object.
+Use the [Merge](/operation/merge) operation and pass the target table as a literal string and an anonymous entity object.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -145,4 +147,4 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> You can target specific columns during the [Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge) or [Update](/operation/update) operations.
+> Please be noted, in general, you can always target the specific columns during the [Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge) or [Update](/operation/update) operations.

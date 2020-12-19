@@ -9,11 +9,11 @@ tags: [repodb, class, implicitmapping, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 # Implicit Mapping
 
-This is a feature that would allow you to implicitly map the .NET CLR objects or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes in the classes.
+This is a feature that would allow you to implicitly map the .NET CLR type or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes within the classes.
 
 #### Fluent Mapping
 
-Use the [FluentMapper](/mapper/fluentmapper) class to manage the fluent mappings for `Table`, `Column`, `Primary`, `Identity`, `Database Types` and `Property Handlers`.
+Use the [FluentMapper](/mapper/fluentmapper) class to fluently manage the mappings of the table/properties, primary/identity columns, database types and class/property handlers.
 
 
 ###### Entity Mapping
@@ -30,6 +30,7 @@ FluentMapper
     .Column(e => e.LastName, "[LName]") // Map the Property/Column
     .Column(e => e.DateOfBirth, "[DOB]") // Map the Property/Column
     .DbType(e => e.DateOfBirth, DbType.DateTime2) // Defines the DatabaseType of the Property
+    .ClassHandler<CustomerClassHandler>() // Defines the ClassHandler of the Class
     .PropertyHandler<CustomerAddressPropertyHandler>(e => e.Address); // Defines the PropertyHandler of the Property
 ```
 
@@ -44,9 +45,9 @@ FluentMapper
     .PropertyHandler<DateTimeKindToUtcPropertyHandler>(); // Define the PropertyHandler of the .NET CLR type
 ```
 
-The priority of the mapping is first identified via  `Attribute-Level` followed by `Property-Level` and then by `Type-Level`.
+The priority of the mapping is first identified via  attribute-level followed by property-level and then by type-level.
 
-> The [FluentMapper](/mapper/fluentmapper) is using the following classes ([ClassMapper](/mapper/classmapper), [IdentityMapper](/mapper/identitymapper), [PrimaryMapper](/mapper/primarymapper), [PropertyHandlerMapper](/mapper/propertyhandlermapper), [PropertyMapper](/mapper/propertymapper) and [TypeMapper](/mapper/typemapper)) underneath to establish the proper mappings.
+> The [FluentMapper](/mapper/fluentmapper) is using the following classes ([ClassMapper](/mapper/classmapper), [ClassHandlerMapper](/mapper/classhandlermapper), [IdentityMapper](/mapper/identitymapper), [PrimaryMapper](/mapper/primarymapper), [PropertyHandlerMapper](/mapper/propertyhandlermapper), [PropertyMapper](/mapper/propertymapper) and [TypeMapper](/mapper/typemapper)) underneath to establish the proper mappings.
 
 #### Class Name Mapping
 
@@ -97,7 +98,7 @@ To add a mapping, use the `Add()` method.
 IdentityMapper.Add<Customer>(e => e.Id);
 ```
 
-To retrieve the mapping, use the `Get()` method. The method returns an instance [ClassProperty](/class/classproperty) object.
+To retrieve the mapping, use the `Get()` method. The method returns an instance of [ClassProperty](/class/classproperty) object.
 
 ```csharp
 var property = IdentityMapper.Get<Customer>();
@@ -124,7 +125,7 @@ To add a mapping, use the `Add()` method.
 ```csharp
 PrimaryMapper.Add<Customer>(e => e.Id);
 ```
-To retrieve the mapping, use the `Get()` method. The method returns an instance [ClassProperty](/class/classproperty) object.
+To retrieve the mapping, use the `Get()` method. The method returns an instance of [ClassProperty](/class/classproperty) object.
 
 ```csharp
 var property = PrimaryMapper.Get<Customer>();
@@ -140,6 +141,51 @@ To remove the mapping, use the `Remove()` method.
 
 ```csharp
 PrimaryMapper.Remove<Customer>();
+```
+
+#### ClassHandler Mapping
+
+Use the [ClassHandlerMapper](/mapper/classhandlermapper) class to manage the mappings of the .NET CLR type class handler.
+
+Let us say you have class handler below.
+
+```csharp
+public class CustomerClassHandler : IClassHandler<Customer>
+{
+    public Customer Get(Customer entity, DbDataReader reader)
+    {
+        return entity;
+    }
+
+    public Customer Set(Customer entity)
+    {
+        return entity;
+    }
+}
+```
+
+To add a mapping, use the `Add()` method.
+
+```csharp
+ClassHandlerMapper.Add<Customer, CustomerClassHandler>();
+```
+
+To retrieve the mapping, use the `Get()` method.
+
+```csharp
+var classHandler = ClassHandlerMapper.Get<Customer, CustomerClassHandler>();
+```
+
+We highly recommend to use the [ClassHandlerCache](/cacher/classhandlercache) class when retrieving the cached class handlers to maximize the reusability and performance.
+
+```csharp
+var classHandler = ClassHandlerCache.Get<Customer, CustomerClassHandler>();
+```
+
+To remove the mapping, use the `Remove()` method.
+
+```csharp
+ClassHandlerMapper.Remove<Customer>();
 ```
 
 #### PropertyHandler Mapping
@@ -171,7 +217,7 @@ To add a mapping, use the `Add()` method.
 PropertyHandlerMapper.Add<Customer, CustomerAddressPropertyHandler>(e => e.Address);
 ```
 
-To retrieve the mapping, use the `Get()` method. The method returns an instance [ClassProperty](/class/classproperty) object.
+To retrieve the mapping, use the `Get()` method.
 
 ```csharp
 var propertyHandler = PropertyHandlerMapper.Get<Customer, CustomerAddressPropertyHandler>(e => e.Address);
@@ -371,4 +417,4 @@ TypeMapper.Remove<DateTime>();
 
 Please visit the [Type Mapping](/feature/typemapping) feature for further information.
 
-> In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument. Please be noted that the `force` argument is not overriding that attribute-based mapping (i.e.: by using the `System.ComponentModel.DataAnnotations.Schema` (`Table`, `Column`), [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap) and [PropertyHandler](/attribute/propertyhandler)).
+> In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and if you did not enfored the call using the `force` argument. Please be noted that the `force` argument is not overriding that attribute-based mapping (i.e.: by using the `System.ComponentModel.DataAnnotations.Schema` (`Table`, `Column`), [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap), [ClassHandler](/attribute/classhandler) and [PropertyHandler](/attribute/propertyhandler)).

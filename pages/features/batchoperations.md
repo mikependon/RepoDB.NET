@@ -11,7 +11,7 @@ tags: [repodb, class, batch, batch-operations, orm, hybrid-orm, sqlserver, sqlit
 
 A batch operation is a process of executing multiple single-operations against the database in one-go. The execution is ACID; an implicit transaction is provided if not present.
 
-This operation comes with flexibility as it allows you to control the number of rows to be batched during the execution, and because of this, you can manage the performance based on your own scenarios (i.e.: Network Latency, Number of Columns, etc).
+This operation comes with flexibility as it allows you to control the number of rows to be batched during the execution. Because of this, you can manage and further optimize the performance based on your own scenarios (i.e.: Network Latency, Number of Columns, etc).
 
 In RepoDB, the following operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) and [MergeAll](/operation/mergeall)) are the batch operations. They are all ACID in nature.
 
@@ -67,7 +67,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> The default value of the batchSize is `10`. The value can be seen at [Constant.DefaultBatchOperationSize](/class/constant).
+> The default value of the `batchSize` is 10. The value can be seen at [Constant.DefaultBatchOperationSize](/class/constant).
 
 The library will then create the packed-statements that is executable in one-go. In the case above, the library will create the following SQL statements that is batched by 100.
 
@@ -87,31 +87,31 @@ The packed-statements above are cached and is being executed 10 times with 100 r
 
 When you call any of the push batch operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) or [MergeAll](/operation/mergeall)), the following activities are happening behind the scene.
 
-###### Understanding your Schema
+###### Understanding and Caching your Schema
 
-It first touches your database to extract the schema definitions. This includes the retrieval of the `PrimaryKey`, `Identity` and `Nullable-Columns` information. The information will be cached in the memory and will be used for the compilation.
+It first touches your database to extract the schema definitions. This includes the retrieval of the primary, identity and the nullable columns. The retrieved information is then cached into the memory and is used for AOT compilation.
 
 ###### Caching the Class Properties
 
-The properties of your class (or model) is being extracted and is being cached in the memory. This enables the library to reuse it in any future calls (that is using the same object).
+The properties of your class (or model) is being extracted and is being cached into the memory. This enables the library to reuse it in any future calls (that is using the same object).
 
-###### Caching the SQL Statements
+###### Generating and Caching the SQL Statements
 
-The SQL statements are being generated and is cached automatically by the library. The generated SQL statement is a multiple packed-statements that varies on the number of batches you passed in the batchSize argument.
+The library generates the packed-SQL Statements that varies on the number of batches you passed in the `batchSize` argument. These SQL Statements are being cached into the memory for future reusabilities.
 
 ###### Caching the Execution Context
 
-The execution context is being cached. It enables the library to reuse the existing execution context that has already been executed against the database. By having this, the library does not need to extract same operation every time there is an identical calls, those leads to become more high-performant and efficient.
+The execution context is being cached. It enables the library to reuse the existing execution context that has already been executed against the database. By having this, the library does not need to extract the same operation every time there is an identical call, those leads to become more performant and efficient.
 
 > The execution context contains the SQL Statements, Parameters, Preparations and even the Compiled ILs or Expressions. 
 
 ###### Adding an Implicit Transaction
 
-A new `Transaction` object is being assigned to the execution if the caller does not passed any explicit transaction.
+A new transaction object is being assigned to the execution if the caller does not passed any explicit transaction.
 
 ###### Preparation
 
-Before executing the `DbCommand` object, the `Prepare()` method is being called to pre-define the execution against the database. In the case of SQL Server, it creates an Execution-Plan in advance.
+Before executing the command object, the Prepare() method is being called to pre-define the execution against the database. In the case of SQL Server, it creates an execution-plan in advance.
 
 ###### Batch Execution
 

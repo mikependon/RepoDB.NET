@@ -9,11 +9,9 @@ tags: [repodb, class, repository, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 # Repositories
 
-A `repository` is a software design pattern and practice in which it is being implemented as an additional layer between your application and your database. It is being represented as a class object within the application. Through repository, you are managing how the data is being manipulated from/to the database.
+A repository is a software design pattern and practice in which it is being implemented as an additional layer between your application and your database. It is being represented as a class object within the application. Through repository, you are managing how the data is being manipulated from/to the database.
 
-In the repository, we usually add the basic database operations (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and etc). But, we also place the advance operations (i.e.: `GetTotalOrdersByMonth` or `RecalculateCustomerOrdersByDateRange`).
-
-The code within your application is using the repository object instead of directly accessing the database. Those allow the developers to follow the correct chain-of calls and reusability when it comes to data-accessibility.
+In the repository, we usually add the basic database operations (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and etc), but, here we also place the relevant advance operations usable within the application. Then, all the code in your application that fetches or pushes a data into the database is using this object instead of directly accessing the database. Thus allowing the developers to follow the correct chain-of calls and reusability when it comes to the data accessibility.
 
 #### Type of Repositories
 
@@ -21,22 +19,6 @@ In this library, there are 2 kinds of repositories available for implementation.
 
 - [BaseRepository](/class/baserepository) - is used as a base repository for all entity-based repositories.
 - [DbRepository](/class/dbrepository) - is used as a generic base repository for any types of entity.
-
-#### Installation
-
-To install, simply type the code snippets below in your Package Manager Console.
-
-```csharp
-> Install-Package RepoDb.SqlServer
-```
-
-Then call the bootstrapper once.
-
-```csharp
-RepoDb.SqlServerBootstrap.Initialize();
-```
-
-Or visit our [installation](/tutorial/installation) page for more information.
 
 #### Creating an Entity-Based Repository
 
@@ -95,7 +77,7 @@ public PersonRepository : BaseRepository<Person, SqlConnection>, IPersonReposito
 }
 ```
 
-Then you can inject like below.
+Then, inject the object like below.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -106,8 +88,6 @@ public void ConfigureServices(IServiceCollection services)
     services.AddTransient<IPersonRepository, PersonRepository>();
 }
 ```
-
-Please visit our [BaseRepository (Reference)](/reference/baserepository) page for more information.
 
 #### Creating a Database Level Repository
 
@@ -209,7 +189,7 @@ public NorthwindRepository : DbRepository<SqlConnection>, INorthwindRepository
 }
 ```
 
-Then you can inject like below.
+Then, inject the object like below.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -220,8 +200,6 @@ public void ConfigureServices(IServiceCollection services)
     services.AddTransient<INorthwindRepository, NorthwindRepository>();
 }
 ```
-
-Please visit our [DbRepository (Reference)](/reference/dbrepository) page for more information.
 
 #### Creating a Custom Generic Repository
 
@@ -317,7 +295,7 @@ public PersonRepository : GenericRepository<Person, SqlConnection>, IPersonRepos
 }
 ```
 
-Then you can inject like below.
+Then, inject the object like below.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

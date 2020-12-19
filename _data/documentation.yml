@@ -55,11 +55,11 @@ docs:
   - title: "Caching"
     url: "/feature/caching"
 
-  - title: "Class Mapping"
-    url: "/feature/classmapping"
-
   - title: "Class Handlers"
     url: "/feature/classhandlers"
+
+  - title: "Class Mapping"
+    url: "/feature/classmapping"
 
   - title: "Connection Persistency"
     url: "/feature/connectionpersistency"

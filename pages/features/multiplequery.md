@@ -9,19 +9,19 @@ tags: [repodb, class, multiplequery, orm, hybrid-orm, sqlserver, sqlite, mysql, 
 
 # Multiple Query
 
-This is a feature that would allow you to fetch multiple resultsets in a single call. Both the [ExecuteQueryMultiple](/operation/executequerymultiple) and [QueryMultiple](/operation/querymultiple) were provided to address this need. The [ExecuteQueryMultiple](/operation/executequerymultiple) is a method that would allow you to pass your own SQL statements to extract the results, whereas the [QueryMultiple](/operation/querymultiple) is a fluent-method that would allow you to pass a `Linq`-based query expression and that automatically compose the SQL statements for you.
+This is a feature that would allow you to fetch multiple resultsets in a single call. Both the [ExecuteQueryMultiple](/operation/executequerymultiple) and [QueryMultiple](/operation/querymultiple) operations were provided to address this need. The [ExecuteQueryMultiple](/operation/executequerymultiple) is a method that would allow you to pass your own SQL statements to extract the results, whereas the [QueryMultiple](/operation/querymultiple) is a fluent-method that would allow you to pass a Linq-based query expression and that automatically compose the SQL statements for you.
 
-The underlying implementation of this feature is abstracting both the `Read()` and `NextResult()` methods of the the `DbDataReader` object.
+The underlying implementation of this feature is abstracting both the `Read()` and `NextResult()` methods of the the data reader object.
 
 #### Type of Return Types
 
 The method [ExecuteQueryMultiple](/operation/executequerymultiple) is returning the type of [QueryMultipleExtractor](/class/querymultipleextractor). It allows you to control and manage the way on how to extract the resultsets. The execution is differed as it is relying on the explicit calls you are making towards the `Extract()` and `Scalar()` methods.
 
-However, the method [QueryMultiple](/operation/querymultiple) is returning the type of `Tuple`. It has a maximum of `7` generic types as also defined on the `Tuple`. The pointer to the item properties of the `Tuple` object is dependent on the order of generic types when call this method.
+However, the method [QueryMultiple](/operation/querymultiple) is returning the type of `Tuple`. It has a maximum of 7 generic types as also defined on the tuple object. The pointer to the item properties of the tuple object is dependent to the order of the generic types during the call this method.
 
 #### Hints
 
-The hints were provided as part of the execution. For [ExecuteQueryMultiple](/operation/executequerymultiple) method, you can write your own hints as you are the one composing the SQL statement. For the [QueryMultiple](/class/sqlservertablehints) method, each order of execution has equivalent `hints` argument that you can use.
+The hints were provided as part of the execution. For [ExecuteQueryMultiple](/operation/executequerymultiple) method, you can write your own hints as you are the one composing the SQL statement. For the [QueryMultiple](/class/sqlservertablehints) method, each order of execution has an equivalent `hints` argument that you can use.
 
 ```csharp
 var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
@@ -85,7 +85,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-For fluent-method, call the [QueryMultiple](/operation/querymultiple) method.
+For fluent-method, you can call the [QueryMultiple](/operation/querymultiple) method as below.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -135,7 +135,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-For fluent-method, call the [QueryMultiple](/operation/querymultiple) method.
+For fluent-method, you can call the [QueryMultiple](/operation/querymultiple) method as below.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

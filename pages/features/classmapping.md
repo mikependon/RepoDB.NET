@@ -9,7 +9,7 @@ tags: [repodb, class, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 
 # Class Mapping
 
-This is a feature that would allow you to map the .NET CLR type (or class properties) into its equivalent database objects and types. It includes the `Class Name`, `Property Name`, `Primary`, `Identity` `Property Handler` and `Database Type` mappings.
+This is a feature that would allow you to map the .NET CLR type (or class properties) into its equivalent database objects and types. It includes the mapping capabilities for the class/property name, primary/identity columns, class/property handlers and the database types.
 
 #### Class Name Mapping
 
@@ -142,7 +142,28 @@ FluentMapper
     .Identity(e => e.Id);
 ```
 
-#### Property Handler  Mapping
+#### Class Handler Mapping
+
+To map the class handler, simply use the [ClassHandler](/attribute/classhandler) attribute.
+
+```csharp
+[ClassHandler(CustomerClassHandler)]
+public class Customer
+{
+    public int Id { get; set; }
+    ...
+}
+```
+
+Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [ClassHandlerMapper](/mapper/classhandlermapper) underneath.
+
+```csharp
+FluentMapper
+    .Entity<Customer>()
+    .ClassHandler<CustomerClassHandler>();
+```
+
+#### Property Handler Mapping
 
 To map the class property equivalent property handler, simply use the [PropertyHandler](/attribute/propertyhandler) attribute.
 

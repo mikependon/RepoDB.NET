@@ -11,9 +11,9 @@ tags: [repodb, class, tracing, orm, hybrid-orm, sqlserver, sqlite, mysql, postgr
 
 This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also allows you to cancel the existing execution before even the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class.
 
-A corresponding method in the trace class will be hit by the debugger when you call the `IDbConnection` extended method (or any of the `Repository` method), only if the trace object is passed or injected.
+A corresponding method in the trace class will be hit by the debugger when you call any of the connection/repository extended methods, only if the trace object is passed or injected.
 
-To be more precise, if you call the [Insert](/operation/insert) operation, the `BeforeInsert` and `AfterInsert` method of the trace class will be invoked. There you can add the breakpoint to enable the debugging.
+To be more precise, if you call the [Insert](/operation/insert) operation, the `BeforeInsert()` and `AfterInsert()` method of the trace class will be invoked before and after the operation. There you can add the breakpoint to enable the debugging.
 
 #### Create a Customize Trace Class
 
@@ -36,7 +36,7 @@ public class NorthwindTrace : ITrace
 }
 ```
 
-> You have to implement all the interface methods and manually handle each of them. You can leave it empty if you like.
+> You have to implement all the interface methods and manually handle each of them. You can leave it empty if you would like.
 
 #### Using a Trace in a Connection
 
@@ -149,7 +149,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 
 #### Create a Trace Factory
 
-If you do not prefer the dependency injection way, creating a trace `Factory` class is a good way to abstract and ensure single instance of trace object is being created.
+If you do not prefer the dependency injection way, creating a simple trace factory class is a good way to abstract and ensure single instance of trace object is being created.
 
 The code below ensures that only a single instance of trace object is being used all throughout the application.
 
