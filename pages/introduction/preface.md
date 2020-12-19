@@ -12,7 +12,7 @@ permalink: /preface
 
 You can use the library to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) Relational Database Management Systems (RDBMS).
 
-It is here to improve the things and your experiences when working with Data Access Technology in .NET space.
+It is here to improve the things and your experiences when working with Data Access Technology in .NET ecosystem.
 
 We are glad and thankful on your interest in learning RepoDB. We hope that you improve your development experiences while using this library.
 

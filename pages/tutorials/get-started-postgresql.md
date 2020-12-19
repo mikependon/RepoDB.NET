@@ -19,7 +19,7 @@ The library can be installed via Nuget. In your Package Manager Console, type th
 > Install-Package RepoDb.PostgreSql
 ```
 
-Once installed, call the bootstrapper to initialize all the dependencies for *PostgreSql*.
+Once installed, call the bootstrapper to initialize all the dependencies for PostgreSql.
 
 ```csharp
 RepoDb.PostgreSqlBootstrap.Initialize();
@@ -28,6 +28,8 @@ RepoDb.PostgreSqlBootstrap.Initialize();
 Or visit our [installation](/tutorial/installation) page for more information.
 
 #### Create a Table
+
+Let us say you have this table on your database.
 
 ```csharp
 CREATE TABLE IF NOT EXISTS "Person"
@@ -41,6 +43,8 @@ CREATE TABLE IF NOT EXISTS "Person"
 
 #### Create a Model
 
+And you have this model on your application.
+
 ```csharp
 public class Person
 {
@@ -51,11 +55,9 @@ public class Person
 }
 ```
 
-> The class `model` and the database `table` specified above will be used by the samples further on this tutorial.
-
 #### Creating a Record
 
-To create a record, use the [Insert](/operation/insert) method.
+To create a row, use the [Insert](/operation/insert) method.
 
 ```csharp
 var person = new Person
@@ -99,11 +101,11 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-> The [Insert](/operation/insert) method returns the `Primary` (or `Identity`) field value while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the `PrimaryKey` and/or `Identity` property if present..
+> The [Insert](/operation/insert) method returns the value of primary or identity field while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
 
 #### Querying a Record
 
-To query a record, use the [Query](/operation/query) method.
+To query a row, use the [Query](/operation/query) method.
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -125,7 +127,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 
 #### Merging a Record
 
-To merge a record, use the [Merge](/operation/merge) method.
+To merge a row, use the [Merge](/operation/merge) method.
 
 ```csharp
 var person = new Person
@@ -141,7 +143,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-By default, the `Primary` (or `Identity`) field is used as a qualifier. You can also use specify the customized qualifiers.
+By default, the primary or identity field is used as a qualifier. You can also use specify the customized qualifiers.
 
 ```csharp
 var person = new Person
@@ -169,11 +171,11 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-> The [Merge](/operation/merge) method returns the `Primary` (or `Identity`) field value while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the `PrimaryKey` and/or `Identity` property if present..
+> The [Merge](/operation/merge) method returns the primary or identity field value while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary and/or identity property if present..
 
 #### Deleting a Record
 
-To delete a record, use the [Delete](/operation/delete) method.
+To delete a row, use the [Delete](/operation/delete) method.
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -182,7 +184,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-By default, it uses the primary key as a qualifier. You can also use the other field.
+By default, it uses the primary or identity field as the qualifier, but you can also use the other fields like below.
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -214,7 +216,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 #### Updating a Record
 
-To update a record, use the [Update](/operation/update) method.
+To update a row, use the [Update](/operation/update) method.
 
 ```csharp
 var person = new Person
@@ -235,7 +237,7 @@ You can also update via dynamic by targetting certain columns.
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-    var updatedRows = connection.Update("Person", new { \"Id\" = 1, Name = "James Doe" });
+    var updatedRows = connection.Update("Person", new { Id = 1, Name = "James Doe" });
 }
 ```
 
@@ -252,7 +254,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-By default, the `Primary` (or `Identity`) field is used as a qualifier. You can also specify your custom qualifiers.
+By default, the primary or identity field is used as a qualifier, but you can also specify your custom qualifiers.
 
 ```csharp
 var people = GetPeople(100);
@@ -261,7 +263,8 @@ people
     .ForEach(p => p.Name = $"{p.Name} (Updated)");
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-    var updatedRows = connection.UpdateAll<Person>(people, qualifiers: (p => new { p.Name }));
+    var updatedRows = connection.UpdateAll<Person>(people,
+        qualifiers: (p => new { p.Name }));
 }
 ```
 
@@ -274,7 +277,8 @@ To execute a query use the [ExecuteNonQuery](/operation/executenonquery) method.
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-    var affectedRecords = connection.ExecuteNonQuery("DELETE FROM \"Person\" WHERE \"Id\" = @Id;", new { \"Id\" = 1 });
+    var sql = "DELETE FROM \"Person\" WHERE \"Id\" = @Id;";
+    var affectedRecords = connection.ExecuteNonQuery(sql, new { Id = 1 });
 }
 ```
 
@@ -283,7 +287,8 @@ To execute a query while expecting a result of class object, use the [ExecuteQue
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-    var people = connection.ExecuteQuery<Person>("SELECT * FROM \"Person\" ORDER BY \"Id\" ASC;");
+    var sql = "SELECT * FROM \"Person\" ORDER BY \"Id\" ASC;";
+    var people = connection.ExecuteQuery<Person>(sql);
     /* Do the stuffs for the people here */
 }
 ```
@@ -293,16 +298,18 @@ To execute a query while expecting a single result, use the [ExecuteScalar](/ope
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-    var maxId = connection.ExecuteQuery<Person>("SELECT MAX(\"Id\") FROM \"Person\";");
+    var sql = "SELECT MAX(\"Id\") FROM \"Person\";";
+    var maxId = connection.ExecuteQuery<Person>(sql);
 }
 ```
 
-To execute a query while expecting a result of `DbDataReader`, use the [ExecuteReader](/operation/executereader) method.
+To execute a query while expecting a result of data reader object, use the [ExecuteReader](/operation/executereader) method.
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-    using (var reader = connection.ExecuteReader("SELECT * FROM \"Person\" ORDER BY \"Id\" ASC;"))
+    var sql = "SELECT * FROM \"Person\" ORDER BY \"Id\" ASC;";
+    using (var reader = connection.ExecuteReader(sql))
     {
         /* Do the stuffs for the data reader here */
     }
@@ -316,11 +323,8 @@ You can infer the scalar resultset in any .NET CLR type via [ExecuteQuery](/oper
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-    var param = new
-    {
-        Id = 10045
-    };
-    var name = connection.ExecuteQuery<string>("SELECT \"Name\" FROM \"Person\" WHERE \"Id\" = @Id;", param);
+    var sql = "SELECT \"Name\" FROM \"Person\" WHERE \"Id\" = @Id;";
+    var name = connection.ExecuteQuery<string>(sql, new { Id = 10045 });
 }
 ```
 
@@ -339,10 +343,9 @@ Then call it like below.
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-    var param = new
-    {
-        Id = 10045
-    };
-    var name = connection.ExecuteQuery<Gender>("SELECT \"Gender\" FROM \"Person\" WHERE \"Id\" = @Id;", param);
+    var sql = "SELECT \"Gender\" FROM \"Person\" WHERE \"Id\" = @Id;";
+    var name = connection.ExecuteQuery<Gender>(sql, new { Id = 10045 });
 }
 ```
+
+> The resultset of this operation is an `IEnumerable<T>` object.

@@ -57,7 +57,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To insert multiple rows, use the [InsertAll](http://repodb.net/operation/insertall) method.
+To insert multiple records, use the [InsertAll](http://repodb.net/operation/insertall) method.
 
 ```csharp
 var people = GetPeople(100);
@@ -79,7 +79,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To query all the rows, use the [QueryAll](http://repodb.net/operation/queryall) method.
+To query all the records, use the [QueryAll](http://repodb.net/operation/queryall) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -190,7 +190,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-By default, the `Primary` (or `Identity`) field is used as a qualifier. The other fields can also be used as the qualifiers.
+By default, the primary or identity field is used as a qualifier. The other fields can also be used as the qualifiers.
 
 ```csharp
 var people = GetPeople(100);

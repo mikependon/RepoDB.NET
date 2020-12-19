@@ -9,15 +9,17 @@ tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 # Installation
 
-The package can be installed using the Package Manager Console window.
+The packages can be installed using the Package Manager Console window.
 
 #### Raw SQLs
 
 If you wish to work only with raw-SQLs.
 
 ```csharp
-> Install-Package RepoDB
+> Install-Package RepoDb
 ```
+
+> It supports all kinds of RDBMS data providers.
 
 #### SQL Server
 

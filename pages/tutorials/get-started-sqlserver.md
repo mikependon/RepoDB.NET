@@ -27,7 +27,7 @@ RepoDb.SqlServerBootstrap.Initialize();
 
 If you are to work with Bulk Operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then you must install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
 
-In your Package Manager Console, simply type the code snippets below.
+In your Package Manager Console, simply type the command below to install the target package.
 
 ```csharp
 > Install-Package RepoDb.SqlServer.BulkOperations
@@ -36,6 +36,8 @@ In your Package Manager Console, simply type the code snippets below.
 Or visit our [installation](/tutorial/installation) page for more information.
 
 #### Create a Table
+
+Let us say you have this table on your database.
 
 ```csharp
 CREATE TABLE [dbo].[Person]
@@ -52,6 +54,8 @@ GO
 
 #### Create a Model
 
+And you have this model on your application.
+
 ```csharp
 public class Person
 {
@@ -62,11 +66,9 @@ public class Person
 }
 ```
 
-> The class `model` and the database `table` specified above will be used by the samples further on this tutorial.
-
 #### Creating a Record
 
-To create a record, use the [Insert](/operation/insert) method.
+To create a row, use the [Insert](/operation/insert) method.
 
 ```csharp
 var person = new Person
@@ -100,7 +102,7 @@ private IEnumerable<Person> GetPeople(int count = 10)
 }
 ```
 
-Then simply create a list of `Person` and passed it when you call the [InsertAll](/operation/insertall) method.
+Then simply create a list of Person and passed it when you call the [InsertAll](/operation/insertall) method.
 
 ```csharp
 var people = GetPeople(100).AsList();
@@ -110,11 +112,11 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-> The [Insert](/operation/insert) method returns the value of the `Primary` (or `Identity`) field while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the `PrimaryKey` and/or `Identity` property of the model if present.
+> The [Insert](/operation/insert) method returns the value of primary or identity field while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
 
 #### Querying a Record
 
-To query a record, use the [Query](/operation/query) method.
+To query a row, use the [Query](/operation/query) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -136,7 +138,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 #### Merging a Record
 
-To merge a record, use the [Merge](/operation/merge) method.
+To merge a row, use the [Merge](/operation/merge) method.
 
 ```csharp
 var person = new Person
@@ -152,7 +154,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, the `Primary` (or `Identity`) field is used as a qualifier. You can also specify the customized qualifiers.
+By default, the primary or identity field is used as a qualifier. You can also use specify the customized qualifiers.
 
 ```csharp
 var person = new Person
@@ -178,11 +180,11 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-> The [Merge](/operation/merge) method returns the value of the `Primary` (or `Identity`) field while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the `PrimaryKey` and/or `Identity` property of the model if present.
+> The [Merge](/operation/merge) method returns the value of the primary or identity field while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
 
 #### Deleting a Record
 
-To delete a record, use the [Delete](/operation/delete) method.
+To delete a row, use the [Delete](/operation/delete) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -191,7 +193,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, it uses the `Primary` (or `Identity`) field as the qualifiers. You can also use the other fields.
+By default, it uses the primary or identity field as the qualifier, but you can also use the other fields like below.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -223,7 +225,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 #### Updating a Record
 
-To update a record, use the [Update](/operation/update) method.
+To update a row, use the [Update](/operation/update) method.
 
 ```csharp
 var person = new Person
@@ -261,7 +263,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, the `Primary` (or `Identity`) field is used as a qualifier. You can also specify your custom qualifiers.
+By default, the primary or identity field is used as a qualifier, but you can also specify your custom qualifiers.
 
 ```csharp
 var people = GetPeople(100);
@@ -270,7 +272,8 @@ people
     .ForEach(p => p.Name = $"{p.Name} (Updated)");
 using (var connection = new SqlConnection(ConnectionString))
 {
-    var updatedRows = connection.UpdateAll<Person>(people, qualifiers: (p => new { p.Name, p.DateOfBirth }));
+    var updatedRows = connection.UpdateAll<Person>(people,
+        qualifiers: (p => new { p.Name, p.DateOfBirth }));
 }
 ```
 
@@ -283,7 +286,8 @@ To execute a query use the [ExecuteNonQuery](/operation/executenonquery) method.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-    var affectedRecords = connection.ExecuteNonQuery("DELETE FROM [dbo].[Person] WHERE Id = @Id;", new { Id = 1 });
+    var sql = "DELETE FROM [dbo].[Person] WHERE Id = @Id;";
+    var affectedRecords = connection.ExecuteNonQuery(sql, new { Id = 1 });
 }
 ```
 
@@ -292,7 +296,8 @@ To execute a query while expecting a result of class object, use the [ExecuteQue
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-    var people = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] ORDER BY Id ASC;");
+    var sql = "SELECT * FROM [dbo].[Person] ORDER BY Id ASC;";
+    var people = connection.ExecuteQuery<Person>(sql);
     /* Do the stuffs for the people here */
 }
 ```
@@ -302,16 +307,18 @@ To execute a query while expecting a single result, use the [ExecuteScalar](/ope
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-    var maxId = connection.ExecuteQuery<Person>("SELECT MAX(Id) FROM [dbo].[Person];");
+    var sql = "SELECT MAX(Id) FROM [dbo].[Person];";
+    var maxId = connection.ExecuteQuery<Person>(sql);
 }
 ```
 
-To execute a query while expecting a result of `DbDataReader`, use the [ExecuteReader](/operation/executereader) method.
+To execute a query while expecting a result of data reader object, use the [ExecuteReader](/operation/executereader) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-    using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
+    var sql = "SELECT * FROM [dbo].[Person];";
+    using (var reader = connection.ExecuteReader(sql))
     {
         /* Do the stuffs for the data reader here */
     }
@@ -335,25 +342,26 @@ Then pass it as a value to your argument.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-    var tables = connection.ExecuteQuery<Person>("EXEC [sp_InsertPerson] @PersonTable = @Table;",
-        new { Table = table })?.AsList();
+    var sql = "EXEC [sp_InsertPerson] @PersonTable = @Table;";
+    var tables = connection.ExecuteQuery<Person>(sql, new { Table = table })?.AsList();
 }
 ```
 
 #### Executing a Stored Procedure
 
-To execute a stored procedure, you can use any of the `Execute` methods mentioned above, but you have to passed the `CommandType` as `CommandType.StoredProcedure`.
+To execute a stored procedure, you can use any of the execute methods mentioned above, but you have to passed the `CommandType.StoredProcedure` enumeration value on the `commandType` argument.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-    var people = connection.ExecuteQuery<Person>("[dbo].[sp_GetPeople]", commandType: CommandType.StoredProcedure);
+    var people = connection.ExecuteQuery<Person>("[dbo].[sp_GetPeople]",
+        commandType: CommandType.StoredProcedure);
 }
 ```
 
 > Beware of not putting a semi-colon at the end of the calls.
 
-Or, you can direct call using the `EXEC` command. No need to pass the value of the `commandType` argument.
+Or, you can direct call using the `EXEC` command. With this, you do not need to pass the value of the `commandType` argument.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -362,7 +370,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-> You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
+> You can also use the types defined at the [Passing of Parameters](/operation/executequery#passing-of-parameters) section when passing a parameter.
 
 #### Typed Result Execution
 
@@ -371,11 +379,8 @@ You can infer the scalar resultset in any .NET CLR type via [ExecuteQuery](/oper
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-    var param = new
-    {
-        Id = 10045
-    };
-    var name = connection.ExecuteQuery<string>("SELECT Name FROM [dbo].[Person] WHERE Id = @Id;", param);
+    var sql = "SELECT Name FROM [dbo].[Person] WHERE Id = @Id;";
+    var name = connection.ExecuteQuery<string>(sql, new { Id = 10045 });
 }
 ```
 
@@ -394,10 +399,9 @@ Then call it like below.
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-    var param = new
-    {
-        Id = 10045
-    };
-    var name = connection.ExecuteQuery<Gender>("SELECT Gender FROM [dbo].[Person] WHERE Id = @Id;", param);
+    var sql = "SELECT Gender FROM [dbo].[Person] WHERE Id = @Id;";
+    var name = connection.ExecuteQuery<Gender>(sql, new { Id = 10045 });
 }
 ```
+
+> The resultset of this operation is an `IEnumerable<T>` object.
