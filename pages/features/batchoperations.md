@@ -111,7 +111,7 @@ A new transaction object is being assigned to the execution if the caller does n
 
 ###### Preparation
 
-Before executing the command object, the Prepare() method is being called to pre-define the execution against the database. In the case of SQL Server, it creates an execution-plan in advance.
+Before executing the command object, the `Prepare()` method is being called to pre-define the execution against the database. In the case of SQL Server, it creates an execution-plan in advance.
 
 ###### Batch Execution
 
