@@ -8,11 +8,11 @@ tags: [repodb, tutorial, max, orm, hybrid-orm, sqlserver, sqlite, mysql, postgre
 
 # Max
 
-This method is used to computes the max value of the target field.
+This method is used to compute the max value of the target field.
 
 #### Code Snippets
 
-Below is a sample code that gets the maximum value of column `Value` from the `[dbo].[Sales]` table for a specific customer since yesterday.
+Below is the sample code that gets the maximum value of column `Value` from the `[dbo].[Sales]` table for a specific customer since yesterday.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -33,7 +33,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the `WHERE` expressions.
+Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the WHERE expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

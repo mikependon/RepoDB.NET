@@ -9,7 +9,7 @@ tags: [repodb, class, querygroup, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 # QueryGroup
 
-This class is used to group the list of fields used in the query expressions. It usually refers to a group of fields at the `WHERE` statement of the SQL statement.
+This class is used to group the list of fields used in the query expressions. It usually refers to a group of fields at the WHERE statement of the SQL statement.
 
 It contains the list of child Query Group(s) and [QueryField](/class/queryfield)(s), [Conjunction](/enumeration/conjunction) and the unary expression of `NOT`.
 

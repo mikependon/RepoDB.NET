@@ -30,23 +30,7 @@ The `isReturnIdentity` is used to define the behaviour of the execution whether 
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. This only works if the `isReturnIdentity` is `true`. By default, a temporary table (i.e.: `#TableName`) is used.
 
-#### Installation
-
-To install, simply type the code snippets below in your Package Manager Console.
-
-```csharp
-> Install-Package RepoDb.SqlServer.BulkOperations
-```
-
-Then call the bootstrapper once.
-
-```csharp
-RepoDb.SqlServerBootstrap.Initialize();
-```
-
-Or visit our [installation](/tutorial/installation) page for more information.
-
-#### Learnings
+#### How to call?
 
 Let us say you have a methods that create a list of `Person` from the client application.
 
@@ -86,11 +70,11 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> By default, the batch size is `10`, equals to `Constant.DefaultBatchOperationSize` value.
+> By default, the batch size is 10, equals to `Constant.DefaultBatchOperationSize` value.
 
-##### DataTable
+###### DataTable
 
-Below is a sample code to bulk-insert by data table.
+Below is the sample code to bulk-insert by data table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -101,9 +85,9 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### Dictionary/ExpandoObject
+###### Dictionary/ExpandoObject
 
-Below is a sample code to bulk-insert by Dictionary or ExpandoObject.
+Below is the sample code to bulk-insert by Dictionary or ExpandoObject.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -116,9 +100,9 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-##### DataReader
+###### DataReader
 
-Below is a sample code to bulk-insert by data reader.
+Below is the sample code to bulk-insert by data reader.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))

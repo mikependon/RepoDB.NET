@@ -8,11 +8,11 @@ tags: [repodb, tutorial, minall, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # MinAll
 
-This method is used to computes the min value of the target field.
+This method is used to compute the min value of the target field.
 
 #### Code Snippets
 
-Below is a sample code that returns the minimum value of the column `Value` from a `[dbo].[Sales]` table.
+Below is the sample code that returns the minimum value of the column `Value` from a `[dbo].[Sales]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

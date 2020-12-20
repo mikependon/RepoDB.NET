@@ -12,7 +12,7 @@ This method is used to inserts a new row or updates an existing row in the table
 
 #### Code Snippets
 
-Below is a sample code to merge a row into the `[dbo].[Person]` table.
+Below is the sample code to merge a row into the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

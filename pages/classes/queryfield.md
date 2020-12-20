@@ -9,7 +9,7 @@ tags: [repodb, class, queryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, pos
 
 # QueryField
 
-This is used as the field on the query expression. Usually refers to a specific field at the `WHERE` statement of the SQL statement.
+This is used as the field on the query expression. Usually refers to a specific field at the WHERE statement of the SQL statement.
 
 It contains the actual [Field](/class/field), [Operation](/enumeration/operation) and [Parameter](/class/parameter) objects as the properties for equations.
 

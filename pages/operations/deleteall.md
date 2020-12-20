@@ -12,7 +12,7 @@ This method is used to delete an array-of (and/or all) rows from the table.
 
 #### Code Snippets
 
-Below is a sample code that delete all the rows from the `[dbo].[Person]` table.
+Below is the sample code that delete all the rows from the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

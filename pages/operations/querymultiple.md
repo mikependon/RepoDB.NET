@@ -12,7 +12,7 @@ This method is used to query the data as multiple resultsets from the table base
 
 #### Code Snippets
 
-Below is a sample code to fetch a single parent row from the `[dbo].[Customer]` table and all the related orders made from the `[dbo].[Order]` table.
+Below is the sample code to fetch a single parent row from the `[dbo].[Customer]` table and all the related orders made from the `[dbo].[Order]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

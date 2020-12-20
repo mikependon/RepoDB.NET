@@ -26,7 +26,7 @@ If you are working to merge range of rows from 1000 or beyond, then use this met
 
 The arguments `qualifiers`, `isReturnIdentity`, and `usePhysicalPseudoTempTable` is provided on this operation.
 
-The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the `WHERE` expression of SQL statements. If not given, the primary key (or identity) field will be used.
+The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of SQL statements. If not given, the primary key (or identity) field will be used.
 
 The `isReturnIdentity` is used to define the behaviour of the execution whether the newly generated identity will be set-back to the data entities. By default, it is disabled.
 
@@ -34,27 +34,11 @@ The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-tab
 
 #### Caveats
 
-RepoDB is automatically setting the value of the `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an `IDENTITY` primary key column. The same logic will apply if there is no primary key but has an `IDENTITY` column defined in the table.
+RepoDB is automatically setting the value of the `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an IDENTITY primary key column. The same logic will apply if there is no primary key but has an IDENTITY column defined in the table.
 
 In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
-#### Installation
-
-To install, simply type the code snippets below in your Package Manager Console.
-
-```csharp
-> Install-Package RepoDb.SqlServer.BulkOperations
-```
-
-Then call the bootstrapper once.
-
-```csharp
-RepoDb.SqlServerBootstrap.Initialize();
-```
-
-Or visit our [installation](/tutorial/installation) page for more information.
-
-#### Learnings
+#### How to call?
 
 Let us say you have a list of `Person` model at variable `people` that contains both existing and non-existing rows from the database.
 
@@ -76,11 +60,11 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> By default, the batch size is `10`, equals to `Constant.DefaultBatchOperationSize` value.
+> By default, the batch size is 10, equals to `Constant.DefaultBatchOperationSize` value.
 
-##### DataTable
+###### DataTable
 
-Below is a sample code to bulk-merge by data table.
+Below is the sample code to bulk-merge by data table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -90,9 +74,9 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### Dictionary/ExpandoObject
+###### Dictionary/ExpandoObject
 
-Below is a sample code to bulk-merge by Dictionary or ExpandoObject.
+Below is the sample code to bulk-merge by Dictionary or ExpandoObject.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -106,9 +90,9 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-##### DataReader
+###### DataReader
 
-Below is a sample code to bulk-merge by data reader.
+Below is the sample code to bulk-merge by data reader.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -123,7 +107,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-Or you can also convert the list of `Person` to a `DataEntityDataReader` object and bulk-insert it.
+Or you can also convert the list of `Person` to a `DataEntityDataReader` object and bulk-merge it.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -138,7 +122,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Field Qualifiers
 
-By default, this method is using the primary key (or identify field) as the qualifier. You can override it by passing the list of `Field` objects in the `qualifiers` argument.
+By default, this method is using the primary key (or identify field) as the qualifier. You can override it by passing the list of [Field](/class/field) objects in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

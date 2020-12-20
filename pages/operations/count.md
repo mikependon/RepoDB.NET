@@ -12,7 +12,7 @@ This method is used to count the number of rows from the table.
 
 #### Code Snippets
 
-Below is a sample code that counts the rows from the `[dbo].[Person]` table since yesterday.
+Below is the sample code that counts the rows from the `[dbo].[Person]` table since yesterday.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -32,7 +32,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the `WHERE` expressions.
+Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the WHERE expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

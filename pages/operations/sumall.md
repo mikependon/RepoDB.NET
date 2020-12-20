@@ -8,11 +8,11 @@ tags: [repodb, tutorial, sumall, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # SumAll
 
-This method is used to computes the sum value of the target field.
+This method is used to compute the sum value of the target field.
 
 #### Code Snippets
 
-Below is a sample code that returns the summation value of the column `Value` from a `[dbo].[Sales]` table.
+Below is the sample code that returns the summation value of the column `Value` from a `[dbo].[Sales]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

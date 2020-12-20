@@ -12,7 +12,7 @@ This method is used to check whether the rows are existing in the table.
 
 #### Code Snippets
 
-Below is a sample code to check whether a row is existing from the `[dbo].[Person]` table.
+Below is the sample code to check whether a row is existing from the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

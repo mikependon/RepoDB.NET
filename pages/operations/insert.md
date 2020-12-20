@@ -12,7 +12,7 @@ This method is used to inserts a data entity object (as a new row) in the table.
 
 #### Code Snippets
 
-Below is a sample code to insert a row into the `[dbo].[Person]` table.
+Below is the sample code to insert a row into the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

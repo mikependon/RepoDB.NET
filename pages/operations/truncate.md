@@ -12,7 +12,7 @@ This method is used to truncates a table from the database.
 
 #### Code Snippets
 
-Below is a sample code that truncates the `[dbo].[Person]` table.
+Below is the sample code that truncates the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

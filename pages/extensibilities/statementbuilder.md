@@ -57,7 +57,7 @@ All methods of the [BaseStatementBuilder](/class/basestatementbuilder) class wer
 - [BatchQuery](/operation/batchquery) - each RDBMS data provider has a different syntax for paging/batching.
 - [Merging](/operation/merge) - not all RDBMS data providers are supporting the default merge statement.
 
-Below is a sample code to implement the [Merge](/operation/merge) operation.
+Below is the sample code to implement the [Merge](/operation/merge) operation.
 
 ```csharp
 public override string CreateMerge(QueryBuilder queryBuilder,

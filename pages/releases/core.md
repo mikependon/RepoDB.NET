@@ -256,7 +256,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 #### RepoDB (v1.11.3)
 
 - Community Request: Enhancement: Enable Field class to Parse the Expression for Multiple Properties [#453](https://github.com/mikependon/RepoDb/issues/453)
-- Enhancement: Set the return type `Field.Parse<T>()` to `IEnumerable<Field>` (instead of `Field`).
+- Enhancement: Set the return type `Field.Parse<T>()` to `IEnumerable<Field>` (instead of [Field](/class/field)).
 - Added more Unit Tests on [Field](/class/field) class parsing method.
 - Removed the `BeforeBulkInsert` and `AfterBulkInsert` from the [ITrace](/interface/itrace) interface.
 - Made the [CancellableTraceLog](/class/cancellabletracelog) class non-sealed, and also, exposed the constructor.
@@ -327,7 +327,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Question: ColumnName Resolver [#387](https://github.com/mikependon/RepoDb/issues/387)
 - Added the [FluentMapper](/mapper/fluentmapper), [EntityMapFluentDefinition](/class/entitymapfluentdefinition) and [TypeMapFluentDefinition](/class/typemapfluentdefinition).
 - Added the expression-based invocation in the `Add()`, `Get()` and `Remove()` methods of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
-- Refactor the `Parse()` method of the `OrderField` and `Field` classes.
+- Refactor the `Parse()` method of the `OrderField` and [Field](/class/field) classes.
 - Refactor the `GetProperty()` method of the `ExpressionExtension` class to solve the problem in the mappers.
 - Added the [PropertyHandlerCache](/cacher/propertyhandlercache) class.
 - Added the methods `Add`, `Remove` and `Get` at the `PropertyHandlerMapper` class to cater the property level mapping.
@@ -365,7 +365,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Removed the return value of the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper).
 - Added the expression-based invocation in the `Add()`, `Get()` and `Remove()` methods of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
 - Removed the `throwException` arguments in the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
-- Refactor the `Parse()` method of the `OrderField` and `Field` classes.
+- Refactor the `Parse()` method of the `OrderField` and [Field](/class/field) classes.
 - Refactor the `GetProperty()` method of the `ExpressionExtension` class to solve the problem in the mappers.
 - Added more Integration Tests on the implicit mappings feature.
 
@@ -859,7 +859,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - [Enhancement] [NTH]: Support InlineInsert(string tableName, object param ...) [#114](https://github.com/mikependon/RepoDb/issues/114) -- Moved to [Insert](/operation/insert)
 - [Enhancement] Implement the `prefix` as a passable argument when during conversion. [#148](https://github.com/mikependon/RepoDb/issues/148)
 - [Enhancement] Add additional argument in the DataReaderConverter.ToEnumerable<T> method to support the calls to DbHelper.Get<T> method. [#142](https://github.com/mikependon/RepoDb/issues/142)
-- [Enhancement] Add a caching mechanism for type `Field` objects. [#157](https://github.com/mikependon/RepoDb/issues/157)
+- [Enhancement] Add a caching mechanism for type [Field](/class/field) objects. [#157](https://github.com/mikependon/RepoDb/issues/157)
 - [Enhancement] [Merge](/operation/merge) all inline operations into main operations (InlineMerge should be [Merge](/operation/merge)). [#156](https://github.com/mikependon/RepoDb/issues/156)
 - [Adhoc] Created a new cache class named `DbIdentityCache`.
 - [Adhoc] Renamed the `FieldDefinition` into `DbField`.
@@ -1006,7 +1006,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Removed the `orderBy` and `top` argument in the [Query](/operation/query) method with `primaryKey` argument.
 - Removed the `DbConnection.BatchQuery` method with `primaryKey` argument.
 - Removed the `DbConnection.Count` method with `primaryKey` argument.
-- Removed the `DbConnection.Delete` method without the `WHERE` parameter.
+- Removed the `DbConnection.Delete` method without the WHERE parameter.
 - Removed the support on `dynamic` object query tree expressions.
 
 #### Discontinued
@@ -1045,7 +1045,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Removed the `orderBy` and `top` argument in the [Query](/operation/query) method with `primaryKey` argument.
 - Removed the `DbConnection.BatchQuery` method with `primaryKey` argument.
 - Removed the `DbConnection.Count` method with `primaryKey` argument.
-- Removed the `DbConnection.Delete` method without the `WHERE` parameter.
+- Removed the `DbConnection.Delete` method without the WHERE parameter.
 
 
 #### RepoDB (v1.8.0-beta1)
@@ -1172,7 +1172,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 #### RepoDB (v1.2.0-beta3)
 
 - Stabilizing: Added additional validator for query expressions.
-- Stabilizing: Enabling the NULL values for `Field` when composing a query expression.
+- Stabilizing: Enabling the NULL values for [Field](/class/field) when composing a query expression.
 
 
 #### RepoDB (v1.2.0-beta2)
@@ -1487,7 +1487,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - `Trace` (ITrace) object
 - Added Constant class
 - Added support for Operation.Like and Operation.NotLike
-- Allow Querying, Deleting, Updating by `PrimaryKey` (when the value is passed in the method of `WHERE` argument)
+- Allow Querying, Deleting, Updating by `PrimaryKey` (when the value is passed in the method of WHERE argument)
 - Support of Operation.Between and Operation.NotBetween
 - Support `Operation.In` and Operation.NotIn
 - Optimized Statement Builder (SqlDbStatementBuilder)
@@ -1512,7 +1512,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - `Trace` (ITrace) object
 - Added Constant class
 - Added support for Operation.Like and Operation.NotLike
-- Allow Querying, Deleting, Updating by `PrimaryKey` (when the value is passed in the method of `WHERE` argument)
+- Allow Querying, Deleting, Updating by `PrimaryKey` (when the value is passed in the method of WHERE argument)
 - Support of Operation.Between and Operation.NotBetween
 - Support `Operation.In` and Operation.NotIn
 - Optimized Statement Builder (SqlDbStatementBuilder)

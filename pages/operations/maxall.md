@@ -8,11 +8,11 @@ tags: [repodb, tutorial, maxall, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # MaxAll
 
-This method is used to computes the max value of the target field.
+This method is used to compute the max value of the target field.
 
 #### Code Snippets
 
-Below is a sample code that returns the maximum value of the column `Value` from a `[dbo].[Sales]` table.
+Below is the sample code that returns the maximum value of the column `Value` from a `[dbo].[Sales]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

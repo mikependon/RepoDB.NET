@@ -51,7 +51,7 @@ private IEnumerable<Person> GetPeople()
 }
 ```
 
-Below is a sample code to update a list of `Person` into the `[dbo].[Person]` table.
+Below is the sample code to update a list of `Person` into the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

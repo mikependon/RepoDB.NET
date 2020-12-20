@@ -12,7 +12,7 @@ This method is used to updates an existing row in the table.
 
 #### Code Snippets
 
-Below is a sample code to update a row into the `[dbo].[Person]` table.
+Below is the sample code to update a row into the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

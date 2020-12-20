@@ -165,7 +165,7 @@ The result of this would be.
 
 This method is a generic method to be used in order to support the non-existing data-provider specific methods. This can be used anytime for the sake of SQL statement generation.
 
-Below is a sample code snippets that generates a CTE based `SELECT` query.
+Below is the sample code snippets that generates a CTE based `SELECT` query.
 
 ```csharp
 var dbSetting = DbSettingMapper.Get(typeof(SqlConnection));

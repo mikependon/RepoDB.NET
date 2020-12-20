@@ -51,7 +51,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Injecting the Trace in the Repository
 
-Simply inject it in the contructor. Below is a sample code for [BaseRepository](/class/baserepository) class.
+Simply inject it in the contructor. Below is the sample code for [BaseRepository](/class/baserepository) class.
 
 ```csharp
 // Repository

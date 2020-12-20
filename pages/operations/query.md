@@ -12,7 +12,7 @@ This method is used to query the data from the table.
 
 #### Code Snippets
 
-Below is a sample code to fetch a row from the `[dbo].[Person]` table.
+Below is the sample code to fetch a row from the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

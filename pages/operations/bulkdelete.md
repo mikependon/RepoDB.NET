@@ -8,7 +8,7 @@ tags: [repodb, tutorial, bulkdelete, orm, hybrid-orm, sqlserver]
 
 # BulkDelete
 
-This method is used to bulk-delete the targeted rows in the database. For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
+This method is used to delete the target rows from the database by bulk. This operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 
 #### Call Flow Diagram
 
@@ -26,40 +26,24 @@ If you are working to delete range of rows from 1000 or beyond, then use this me
 
 The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
 
-The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the `WHERE` expression of SQL statements. If not given, the primary key (or identity) field will be used.
+The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of SQL statements. If not given, the primary key (or identity) field will be used.
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 
 #### Caveats
 
-RepoDB is automatically setting the value of the `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an `IDENTITY` primary key column. The same logic will apply if there is no primary key but has an `IDENTITY` column defined in the table.
+RepoDB is automatically setting the value of the `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an IDENTITY primary key column. The same logic will apply if there is no primary key but has an IDENTITY column defined in the table.
 
 In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
-#### Installation
-
-To install, simply type the code snippets below in your Package Manager Console.
-
-```csharp
-> Install-Package RepoDb.SqlServer.BulkOperations
-```
-
-Then call the bootstrapper once.
-
-```csharp
-RepoDb.SqlServerBootstrap.Initialize();
-```
-
-Or visit our [installation](/tutorial/installation) page for more information.
-
-#### Learnings
+#### How to call?
 
 Let us say you are retrieving all inactive people from the database.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = connection.Query<Person>(e => e.IsActive == false);
+    var people = connection.Query<Person>(e => e.IsActive == false);
 }
 ```
 
@@ -68,7 +52,7 @@ Then, below is the code that bulk-deletes all those inactive rows from the `[dbo
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.BulkDelete<Person>(people);
+    var deletedRows = connection.BulkDelete<Person>(people);
 }
 ```
 
@@ -77,39 +61,39 @@ And below if you would like to specify the batch size.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.BulkDelete<Person>(people, batchSize: 100);
+    var deletedRows = connection.BulkDelete<Person>(people, batchSize: 100);
 }
 ```
 
-> By default, the batch size is `10`, equals to `Constant.DefaultBatchOperationSize` value.
+> By default, the batch size is 10, equals to `Constant.DefaultBatchOperationSize` value.
 
-##### PrimaryKeys
+###### PrimaryKeys
 
-Below is a sample code to bulk-delete by primary keys.
+Below is the sample code to bulk-delete by primary keys.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var primaryKeys = people.Select(e => e.Id);
-	var deletedRows = connection.BulkDelete<Person>(primaryKeys);
+    var primaryKeys = people.Select(e => e.Id);
+    var deletedRows = connection.BulkDelete<Person>(primaryKeys);
 }
 ```
 
-##### DataTable
+###### DataTable
 
-Below is a sample code to bulk-delete by data table.
+Below is the sample code to bulk-delete by data table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var table = ConvertToDataTable(people);
-	var deletedRows = connection.BulkDelete<Person>(table);
+    var table = ConvertToDataTable(people);
+    var deletedRows = connection.BulkDelete<Person>(table);
 }
 ```
 
-##### Dictionary/ExpandoObject
+###### Dictionary/ExpandoObject
 
-Below is a sample code to bulk-delete by Dictionary or ExpandoObject.
+Below is the sample code to bulk-delete by Dictionary or ExpandoObject.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -123,20 +107,20 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-##### DataReader
+###### DataReader
 
-Below is a sample code to bulk-delete by data reader.
+Below is the sample code to bulk-delete by data reader.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
 {
-	using (var reader = sourceConnection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
-	{
-		using (var destinationConnection = new SqlConnection(destinationConnectionString))
-		{
-				var rows = destinationConnection.BulkDelete<Person>(reader);
-		}
-	}
+    using (var reader = sourceConnection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
+    {
+        using (var destinationConnection = new SqlConnection(destinationConnectionString))
+        {
+            var rows = destinationConnection.BulkDelete<Person>(reader);
+        }
+    }
 }
 ```
 
@@ -147,19 +131,19 @@ You can also target a specific table by passing the literal table and field name
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.BulkDelete("[dbo].[Person]", people);
+    var deletedRows = connection.BulkDelete("[dbo].[Person]", people);
 }
 ```
 
 #### Field Qualifiers
 
-By default, this operation is using the primary field (or identity field) as the qualifier. You can override the qualifiers by simply passing the list of `Field` object in the `qualifiers` argument.
+By default, this operation is using the primary field (or identity field) as the qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.BulkDelete<Person>(people,
-		qualifiers: e => new { e.LastName, e.DateOfBirth });
+    var deletedRows = connection.BulkDelete<Person>(people,
+        qualifiers: e => new { e.LastName, e.DateOfBirth });
 }
 ```
 
@@ -174,9 +158,9 @@ To pass a hint, simply write the table-hints and pass it in the `hints` argument
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.BulkDelete("[dbo].[Person]",
-		people,
-		hints: "WITH (TABLOCK)");
+    var deletedRows = connection.BulkDelete("[dbo].[Person]",
+        people,
+        hints: "WITH (TABLOCK)");
 }
 ```
 
@@ -185,9 +169,9 @@ Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.BulkDelete("[dbo].[Person]",
-		people,
-		hints: SqlServerTableHints.TabLock);
+    var deletedRows = connection.BulkDelete("[dbo].[Person]",
+        people,
+        hints: SqlServerTableHints.TabLock);
 }
 ```
 
@@ -198,9 +182,9 @@ To ensure using a physical pseudo-temporary table, simply pass `true` in the `us
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.BulkDelete("[dbo].[Person]",
-		people,
-		usePhysicalPseudoTempTable: true);
+    var deletedRows = connection.BulkDelete("[dbo].[Person]",
+        people,
+        usePhysicalPseudoTempTable: true);
 }
 ```
 
