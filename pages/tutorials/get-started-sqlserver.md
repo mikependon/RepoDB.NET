@@ -154,7 +154,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary or identity column is used as a qualifier. You can also use specify the customized qualifiers.
+By default, the primary or identity column is used as a qualifier. You can also customized the qualifiers with other columns.
 
 ```csharp
 var person = new Person
@@ -193,7 +193,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, it uses the primary or identity column as the qualifier, but you can also use the other fields like below.
+By default, it uses the primary or identity column as a qualifier, but you can also use the other columns like below.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -281,7 +281,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 #### Executing a SQL Text
 
-To execute a query use the [ExecuteNonQuery](/operation/executenonquery) method.
+To execute a query, use the [ExecuteNonQuery](/operation/executenonquery) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -329,7 +329,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 To execute a Table-Valued Parameter (TVP), create a `DataTable` and set its name equals to the name of the User-Defined Type (UDT).
 
-Please click here to follow the Microsoft [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) on how to create a TVP and UDT and call it from C#/ADO.NET.
+Please follow the Microsoft [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) on how to create a TVP and UDT and call it from C#/ADO.NET.
 
 ```csharp
 var table = new DataTable();
