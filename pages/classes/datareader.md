@@ -13,7 +13,7 @@ This class is used to convert the `DbDataReader` object into an `IEnumerable<T>`
 
 It only contains one method named `ToEnumerable`. This method is pre-compiled AOT using `Linq.Expressions`.
 
-> This class is very high-performant and is very-efficient. It understands the schema of your database. It also reuses all the cache possibilities within the library during the extraction.
+> This class is high-performant and efficient. It understands and caches the schema of your database into the memory. It also reuses all the other caches within the library during the extraction to construct and generate the most-optimal AOT compilation.
 
 #### Extracting an Entities
 
@@ -43,7 +43,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### DbFields
 
-It is also quitely import to pass the list of the [DbField](/class/dbfield) object in order for the compiler to skip the unnecessary DB-NULL checks.
+It is also quitely important to pass the list of the [DbField](/class/dbfield) object in order for the compiler to skip the unnecessary DB-NULL checks.
 
 To do this, simply pass the list of the DB fields in the `dbFields` argument.
 

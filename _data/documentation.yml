@@ -252,11 +252,11 @@ docs:
   - title: "DataReader (Compiled)"
     url: "/class/datareader"
 
-  - title: "DbRepository"
-    url: "/class/dbrepository"
-
   - title: "DbField"
     url: "/class/dbfield"
+
+  - title: "DbRepository"
+    url: "/class/dbrepository"
 
   - title: "EntityMapFluentDefinition"
     url: "/class/entitymapfluentdefinition"

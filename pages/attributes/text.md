@@ -11,7 +11,7 @@ tags: [repodb, class, text, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresq
 
 This attribute is used to decorate a special string value on any class, property, enumeration or interface.
 
-#### How to Use?
+#### How to use?
 
 You can add this attribute in any class, property, enumeration or interface for whatever purpose.
 
@@ -21,7 +21,7 @@ You can add this attribute in any class, property, enumeration or interface for 
 [Text("Corresponds to the [dbo].[Person] table at the database.")]
 public class Person
 {
-	...
+    ...
 }
 ```
 
@@ -30,8 +30,8 @@ public class Person
 ```csharp
 public class Person
 {
-	[Text("Corresponds to the [dbo].[Person].[Id] column.")]
-	public int Id { get; set; }
+    [Text("Corresponds to the [dbo].[Person].[Id] column.")]
+    public int Id { get; set; }
 }
 ```
 
@@ -40,14 +40,14 @@ public class Person
 ```csharp
 public enum Operation
 {
-	[Text("=")]
-	Equal,
-	[Text("<>")]
-	NotEqual,
-	[Text(">=")]
-	GreaterThanOrEqual,
-	[Text(">=")]
-	LessThanOrEqual
+    [Text("=")]
+    Equal,
+    [Text("<>")]
+    NotEqual,
+    [Text(">=")]
+    GreaterThanOrEqual,
+    [Text(">=")]
+    LessThanOrEqual
 }
 ```
 
@@ -57,6 +57,6 @@ public enum Operation
 [Text("This is the base processor interface.")]
 public interface IProcessor
 {
-	void Process();
+    void Process();
 }
 ```

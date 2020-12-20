@@ -9,11 +9,11 @@ tags: [repodb, class, classhandlers, orm, hybrid-orm, sqlserver, sqlite, mysql, 
 
 # Class Handlers
 
-This is a feature that would allow you to handle the event during the serialization/deserialization process of the entity model and the data reader object (inbound/outbound). With this feature, it enables you as developer to handle any kind of serialization event within the model, validation and/or even trigger a workflow during/after the process of transformation.
+This is a feature that would allow you to handle the event during the serialization/deserialization process of the entity model and the `DbDataReader` object (inbound/outbound). With this feature, it enables you as developer to handle any kind of serialization event within the model, validation and/or even trigger a workflow during/after the process of transformation.
 
 Imagine the case of validating the model before pushing to the database, or transforming the necessary properties before sending back to the caller.
 
-The execution of the event contains the actual data reader object in used and the affected class model.
+The execution of the event contains the actual `DbDataReader` object in used and the affected class model.
 
 ###### It uses the following objects
 

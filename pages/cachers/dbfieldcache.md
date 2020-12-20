@@ -22,7 +22,7 @@ Below are the methods available from this class.
 
 You should use this class if you would like to get the references of the database fields by tablename, or you would like to extract the equivalent database fields of the class model.
 
-#### How to Use?
+#### How to use?
 
 You can simply call the `Get()` method of this class passing the literal table name.
 

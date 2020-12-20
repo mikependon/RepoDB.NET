@@ -26,7 +26,7 @@ You should use this class if you would like to get the mapped name of the class 
 
 > You should rely on this class rather using the `nameof(Class)` of C# when working against the class name.
 
-#### How to Use?
+#### How to use?
 
 You can simply call the `Get()` method of this class by passing the class type.
 

@@ -9,7 +9,7 @@ tags: [repodb, class, converter, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # Converter
 
-This class is used as the converter for the library. It also handles the value of the `ConversionType` which affects the conversion behavior of the library when reading or pushing the data in the database. 
+This class is used as the main converter class for the library. It also handle the mutable properties that could affect the conversion behavior of the library when reading or pushing the data towards the database. 
 
 #### Properties
 
@@ -33,7 +33,7 @@ Converter.ConversionType = ConversionType.Automatic;
 
 > Please see the [ConversionType](/enumeration/conversiontype) enumeration to learn more about this conversion.
 
-#### When to use Enum Default Database Type?
+#### When to use the Enum Default Database Type?
 
 You should only use the enumeration default database type setting if you wish to override the default conversion of the library pertaining to enumeration. By default, the library is auto-converting the enumeration to `DbType.String`, but this behavior is only applicable to the non-model-based operations.
 
@@ -53,11 +53,13 @@ public enum CustomerStatus
 }
 ```
 
-Then code below is forcing all the enumeration properties to be converted to `DbType.Int32` instead of `DbType.String`.
+Then, the code below is forcing all the enumeration properties to be converted to `DbType.Int32` instead of `DbType.String`.
 
 ```csharp
+// Set the Default Conversion for Enums
 Converter.EnumDefaultDatabaseType = DbType.Int32;
 
+// Non-Model Based Method Call
 using (var connection = new SqlConnection(connectionString))
 {
     var sql = "INSERT INTO [dbo].[Customer] (Name, CustomerType, CustomerStatus) " +
@@ -73,11 +75,11 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> Please be reminded that this setting does not apply to the model-based operations. The library is intelligent enough and will somehow utilize the schema definition from the database when mapping the enumeration for the model-based operations. In addition, this settings does not supercede the configured mappings on the specific property and/or type.
+> Please be reminded that this setting does not apply to the model-based operations. The library will automatically utilize the schema definition from the database when mapping the enumeration if the model-based operations are being used. In addition, this setting does not supercede the configured mappings on the specific property and/or type.
 
 #### DbNull Conversion
 
-You can use the `DbNullToNull` method to auto-convert the `DbDataReader` result into a `null` object if it the value is `DBNull.Value`.
+You can use the `DbNullToNull` method to convert the `DbDataReader` result into a `null` object if it the value is `DBNull.Value`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

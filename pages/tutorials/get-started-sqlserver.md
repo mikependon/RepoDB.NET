@@ -25,7 +25,7 @@ Once installed, call the bootstrapper to initialize all the dependencies for [SQ
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-If you are to work with Bulk Operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then you must install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
+If you are to work with the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then you must install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
 
 In your Package Manager Console, simply type the command below to install the target package.
 
@@ -102,7 +102,7 @@ private IEnumerable<Person> GetPeople(int count = 10)
 }
 ```
 
-Then simply create a list of Person and passed it when you call the [InsertAll](/operation/insertall) method.
+Then simply create a list of `Person` object and pass it when you call the [InsertAll](/operation/insertall) method.
 
 ```csharp
 var people = GetPeople(100).AsList();
@@ -312,7 +312,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of data reader object, use the [ExecuteReader](/operation/executereader) method.
+To execute a query while expecting a result of `DbDataReader` object, use the [ExecuteReader](/operation/executereader) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -404,4 +404,4 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-> The resultset of this operation is an `IEnumerable<T>` object.
+> Please be noted that the resultset of this operation is an `IEnumerable<T>` object.

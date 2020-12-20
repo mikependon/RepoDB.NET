@@ -41,7 +41,7 @@ var fields = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, Date
 
 This can be very useful if you are running a query in a dynamic way and if you would like to manage the tree structure of your expression.
 
-Imagine working with the API that has a dynamic field structuring (*OData*, *AutoQuery*, etc).
+Imagine working with the API that has a dynamic field structuring (i.e.: OData, AutoQuery, etc).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

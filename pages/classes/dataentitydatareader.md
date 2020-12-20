@@ -9,7 +9,7 @@ tags: [repodb, class, dataentitydatareader, orm, hybrid-orm, sqlserver, sqlite, 
 
 # DataEntityDataReader
 
-This class is used to convert an array of `IEnumerable<T>` to a `DbDataReader` object.
+This class is used to convert the `IEnumerable<T>` object into a `DbDataReader` object.
 
 #### Learnings
 
@@ -30,7 +30,7 @@ private void IEnumerable<Person> GetPeople(int count = 10000)
 }
 ```
 
-Then you can extract it to be a `DbDataReader` via this object.
+Then you can extract it to be a `DbDataReader` object via this class.
 
 ```csharp
 var people = GetPeople();
@@ -40,7 +40,7 @@ using (var reader = new DataEntityDataReader<Person>(people))
 }
 ```
 
-Then, you can use it like the normal data reader.
+Then, you can use it like a normal data reader.
 
 ```csharp
 while (reader.Read())
@@ -49,7 +49,7 @@ while (reader.Read())
 }
 ```
 
-Or use it in the Bulk Operations.
+Or use it in the bulk operations.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -62,4 +62,4 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> This class is useful if you are tying to use the Bulk Operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)) with `DbDataReader` object sourced by `IEnumerable<T>`.
+> This class is useful if you are tying to use the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)) with `DbDataReader` object sourced by `IEnumerable<T>`.

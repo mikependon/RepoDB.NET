@@ -20,11 +20,11 @@ Let us say you have a the table named `[dbo].[Person]` where the field `Id` is a
 ```csharp
 CREATE TABLE [dbo].[Person]
 (
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](128) NOT NULL,
-	[Age] [int] NOT NULL,
-	[CreatedDateUtc] [datetime2](5) NOT NULL,
-	CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
+    [Id] [bigint] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](128) NOT NULL,
+    [Age] [int] NOT NULL,
+    [CreatedDateUtc] [datetime2](5) NOT NULL,
+    CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
 )
 ON [PRIMARY];
 GO
@@ -35,11 +35,11 @@ And a model class named `Person` like below.
 ```csharp
 public class Person
 {
-	[Primary] // Primary decoration
-	public long Id { get; set; }
-	public string Name { get; set; }
-	public int Age { get; set; }
-	public DateTime CreatedDateUtc { get; set; }
+    [Primary] // Primary decoration
+    public long Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public DateTime CreatedDateUtc { get; set; }
 }
 ```
 

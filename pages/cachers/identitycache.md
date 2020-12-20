@@ -22,7 +22,7 @@ Below are the methods available from this class.
 
 You should only use this class if you would like to get the references of the class identity property in general purpose.
 
-#### How to Use?
+#### How to use?
 
 You can simply call the `Get()` method of this class by passing the class type.
 

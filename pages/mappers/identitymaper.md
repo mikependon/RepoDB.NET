@@ -24,7 +24,7 @@ Below are the methods available from this class.
 
 You should use this class if you do not like to use the [Identity](/attribute/identity) attribute. Usually, the purpose of the usability is to make sure that the model is attribute-free and is not bound to a specific ORM.
 
-#### How to Use?
+#### How to use?
 
 To add a mapping, simply call the `Add` method.
 

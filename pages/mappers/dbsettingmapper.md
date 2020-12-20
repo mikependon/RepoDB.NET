@@ -24,7 +24,7 @@ Below are the methods available from this class.
 
 You should use this class if you would like to override the default mapping of the library when it comes to database setting.
 
-#### How to Use?
+#### How to use?
 
 To add a mapping, simply call the `Add` method.
 

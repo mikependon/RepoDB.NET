@@ -135,7 +135,7 @@ The statement above will generate a SQL below.
 > WHERE ([IsActive] = @IsActive OR [Gender] = @Gender);
 ```
 
-To negate, simply pass the value of `True` in the `isNot` constructor argument.
+To negate, simply pass the value of `true` in the `isNot` constructor argument.
 
 ```csharp
 var queryGroup = new QueryGroup(queryFields, true);
@@ -147,7 +147,7 @@ Then the statement will be generated as below.
 > WHERE NOT ([IsActive] = @IsActive OR [Gender] = @Gender);
 ```
 
-> By default, the value is `False`. Please be reminded that negating does not gives you the most performant condition when writing SQL. It still recommended to create a targeted query expression rather than negating it.
+> By default, the value is `false`. Please be reminded that negating does not gives you the most performant condition when writing SQL. It still recommended to create a targeted query expression rather than negating it.
 
 #### Getting all the Children
 

@@ -205,7 +205,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 
 ##### Executing a Query
 
-To execute a query use the [ExecuteNonQuery](http://repodb.net/operation/executenonquery) method.
+To execute a query, use the [ExecuteNonQuery](http://repodb.net/operation/executenonquery) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))

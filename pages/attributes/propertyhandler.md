@@ -9,24 +9,24 @@ tags: [repodb, class, propertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 # PropertyHandler
 
-This attribute is used to signal a property handling operation on the class property. By having this attribute, the library compiler (transformer) will automatically trigger the property handler `Get` and `Set` method for custom handling.
+This attribute is used to signal a property handling operation on the class property. By having this attribute, the library compiler will automatically trigger the property handler `Get()` and `Set()` method during the serialization/deserialization and hydration process.
 
-#### How to Use?
+#### How to use?
 
-Let us say you have created a customized [IPropertyHandler](/interface/ipropertyhandler) like below.
+Let us say you had created a customized [IPropertyHandler](/interface/ipropertyhandler) like below.
 
 ```csharp
 private class PersonAddressHandler : IPropertyHandler<string, Address>
 {
-	public Address Get(string input, ClassProperty property)
-	{
-		return JsonConvert.Deserialize<Address>(input);
-	}
+    public Address Get(string input, ClassProperty property)
+    {
+        return JsonConvert.Deserialize<Address>(input);
+    }
 
-	public string Set(Address input, ClassProperty property)
-	{
-		return JsonConvert.Serialize(input);
-	}
+    public string Set(Address input, ClassProperty property)
+    {
+        return JsonConvert.Serialize(input);
+    }
 }
 ```
 
@@ -35,12 +35,12 @@ Then you can use this attribute to mark the class property to use the `PersonAdd
 ```csharp
 public class Person
 {
-	public long Id { get; set; }
-	public string Name { get; set; }
-	public int Age { get; set; }
-	[PropertyHandler(typeof(PersonAddressHandler))]
-	public Address Address { get; set; }
-	public DateTime CreatedDateUtc { get; set; }
+    public long Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    [PropertyHandler(typeof(PersonAddressHandler))]
+    public Address Address { get; set; }
+    public DateTime CreatedDateUtc { get; set; }
 }
 ```
 
@@ -49,8 +49,8 @@ After that, when you read the records, you can automatically read the `Address` 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var person = connection.Query<Person>(10045);
-	Console.WriteLine($"Name: {person.Name}, Address: {person.Address.Street}, {person.Address.Region}, {person.Address.Country} ({person.Address.ZipCode})")
+    var person = connection.Query<Person>(10045);
+    Console.WriteLine($"Name: {person.Name}, Address: {person.Address.Street}, {person.Address.Region}, {person.Address.Country} ({person.Address.ZipCode})")
 }
 ```
 

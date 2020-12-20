@@ -11,7 +11,7 @@ tags: [repodb, class, sqlservertablehints, orm, hybrid-orm, sqlserver, sqlite, m
 
 This class contains the list of table hints that is useful for SQL Server. It is usually used as passing parameter to the `hints` argument of most operations.
 
-##### How to use?
+#### How to use?
 
 To use the hints, simply pass the target hints you want to use.
 

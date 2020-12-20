@@ -65,7 +65,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 
 > Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base.
 
-#### How to Use?
+#### How to use?
 
 Simply create (or inject) a new instance of the class to use the repository.
 

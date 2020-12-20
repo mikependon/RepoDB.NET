@@ -110,7 +110,7 @@ public class OptimizedSqlServerStatementBuilder : IStatementBuilder
 }
 ```
 
-#### How to Use?
+#### How to use?
 
 You can instantiate a new instance and pass it when you are calling any [fluent methods](/docs/fluent-methods).
 

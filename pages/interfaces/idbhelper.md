@@ -45,7 +45,7 @@ Please see the more detailed implementations at [Database Helper](/extensibility
 
 > You have to implement all the methods needed by this interface. With this, you have the full control of you helper object.
 
-#### How to Use?
+#### How to use?
 
 Once you have the database helper implemented in a customized class, you can use the [DbHelperMapper](/mapper/dbhelpermapper) class to map it in your target RDDMS data provider.
 

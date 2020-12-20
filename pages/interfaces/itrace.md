@@ -146,7 +146,7 @@ public class MyCustomTrace : ITrace
 
 > All the [fluent methods](/docs#fluent-methods) will be having the `BEFORE` and `AFTER` methods within this interface.
 
-#### How to Use?
+#### How to use?
 
 First, as a recommendation, create a factory class that returns the trace.
 

@@ -102,7 +102,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 
 ###### DataReader
 
-Below is the sample code to bulk-insert via data reader.
+Below is the sample code to bulk-insert via `DbDataReader`.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))

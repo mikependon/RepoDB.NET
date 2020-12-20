@@ -24,7 +24,7 @@ Below are the methods available from this class.
 
 You should use this class if you would like to get the references of the class properties (as fields) specially when composing a SQL statement or would like to lists it.
 
-#### How to Use?
+#### How to use?
 
 You can simply call the `Get()` method of this class by passing the class type.
 

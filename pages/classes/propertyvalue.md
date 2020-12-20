@@ -9,16 +9,16 @@ tags: [repodb, class, propertyvalue, orm, hybrid-orm, sqlserver, sqlite, mysql, 
 
 # PropertyValue
 
-This class is used to handle the `Name` and `Value` of the class property. It also handles an instance of [ClassProperty](/class/classproperty).
+This class is used to handle the name and the value of the class property. It also handles an instance of [ClassProperty](/class/classproperty).
 
 > Internally, the library is using this class as a parameter before executing any operation.
 
 #### Use Case
 
 - If you are to manually handle the properties and values of the data entity.
-- It is used for fast extraction of the data entities property and values via [ClassExpression](/class/classexpression).
+- It is used to fast-extract the data entities property and values via [ClassExpression](/class/classexpression).
 
-#### How to Use?
+#### How to use?
 
 ```csharp
 var person = repository.Query(10045);

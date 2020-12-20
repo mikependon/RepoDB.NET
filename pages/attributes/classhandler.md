@@ -11,7 +11,7 @@ tags: [repodb, class, classhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 
 This attribute is used to make a class valid for class handling evaluation during the serialization and deserialization process. By having this attribute, the library compiler (transformer) will automatically trigger the class handler `Get` and `Set` method for custom handling.
 
-#### How to Use?
+#### How to use?
 
 Let us say you have created a customized [IClassHandler](/interface/iclasshandler) like below.
 

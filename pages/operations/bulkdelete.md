@@ -109,7 +109,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 
 ###### DataReader
 
-Below is the sample code to bulk-delete via data reader.
+Below is the sample code to bulk-delete via `DbDataReader`.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))

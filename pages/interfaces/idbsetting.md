@@ -25,7 +25,6 @@ Below are the properties available from this interface.
 - `IsUseUpsert` - gets a value that indicates whether the [Insert](/operation/insert)/[Update](/operation/update) operation will be used for [Merge](/operation/merge) operation.
 - `OpeningQuote` - gets the character used for opening quote.
 - `ParameterPrefix` - gets the character used for the database command parameter prefixing.
-- `SchemaSeparator` - gets the character (or string) used for dot notation.
 
 #### How to Implement?
 
@@ -45,7 +44,6 @@ public class MyCustomSqlServerDbSetting : IDbSetting
     public bool IsUseUpsert { get; set; } = false;
     public string OpeningQuote { get; set; } = "[";
     public string ParameterPrefix { get; set; } = "@";
-    public string SchemaSeparator { get; set; } = ".";
 }
 ```
 
@@ -59,7 +57,7 @@ The reason to this is that the library is using the equality based on the genera
 
 > We recommend to instead use the [BaseDbSetting](/class/basedbsetting) class when implementing a customized database setting.
 
-#### How to Use?
+#### How to use?
 
 Once the class has been implemented, you have to call the [DbSettingMapper](/mapper/dbsettingmapper) class for mappings (per RDBMS data provider).
 

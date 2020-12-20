@@ -13,12 +13,12 @@ A trace-logging class that is used to cancel the existing operation. It is used 
 
 ##### Properties
 
-- IsCancelled - is used to determine whether the operation has been cancelled.
-- IsThrowException - is used to determine whether an exception will be thrown back to the actual operation.
+- `IsCancelled` - is used to determine whether the operation has been cancelled.
+- `IsThrowException` - is used to determine whether an exception will be thrown back to the actual operation.
 
 ##### Methods
 
-- Cancel - is used to cancel the actual operation. It accepts the `throwException` argument to define whether an exception will be thrown back to the operation during cancellation.
+- `Cancel` - is used to cancel the actual operation. It accepts the `throwException` argument to define whether an exception will be thrown back to the operation during cancellation.
 
 ##### Learnings
 

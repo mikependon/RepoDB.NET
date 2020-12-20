@@ -92,7 +92,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 
 ###### DataReader
 
-Below is the sample code to bulk-merge via data reader.
+Below is the sample code to bulk-merge via `DbDataReader`.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))

@@ -13,8 +13,8 @@ This is a feature that enables you to control the persistency of the database co
 
 #### Types of Persitency
 
-- PerCall (Default) - in every method call, a new connection object is being used.
-- Instance - a single instance of connection object is used all throughout the lifespan of the repository.
+- `PerCall` - in every method call, a new connection object is being used. This is the default setting.
+- `Instance` - a single instance of connection object is used all throughout the lifespan of the repository.
 
 #### Repository
 

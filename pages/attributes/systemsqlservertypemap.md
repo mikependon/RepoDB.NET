@@ -15,18 +15,18 @@ It only supports the SQL Server and if you are using the `System.Data.SqlClient`
 
 > This attribute is setting the value of the `SqlParameter.SqlDbType` property before the actual execution.
 
-#### How to Use?
+#### How to use?
 
 Below is a a sample code on how to map an existing property into a `System.Data.SqlDbType` database type.
 
 ```csharp
 public class Person
 {
-	public int Id { get; set; }
-	[SystemSqlServerTypeMap(SqlDbType.NVarChar)] // Mapping this to 'NVarChar'
-	public string Name { get; set; }
-	public DateTime DateOfBirth { get; set; }
-	public int Age { get; set; }
-	public DateTime DateInsertedUtc { get; set; }
+    public int Id { get; set; }
+    [SystemSqlServerTypeMap(SqlDbType.NVarChar)] // Mapping this to 'NVarChar'
+    public string Name { get; set; }
+    public DateTime DateOfBirth { get; set; }
+    public int Age { get; set; }
+    public DateTime DateInsertedUtc { get; set; }
 }
 ```

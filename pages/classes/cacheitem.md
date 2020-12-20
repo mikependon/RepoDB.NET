@@ -17,9 +17,9 @@ Please see the [IExpirable](/interface/iexpirable) methods.
 
 #### Properties
 
-- Key - the key to the cache.
-- Value - the value of the class (a generic type).
-- CacheItemExpiration - the expiration of the cache in minutes.
+- `Key` - the key to the cache.
+- `Value` - the value of the class (a generic type).
+- `CacheItemExpiration` - the expiration of the cache in minutes.
 
 In addition, please see the [IExpirable](/interface/iexpirable) properties.
 

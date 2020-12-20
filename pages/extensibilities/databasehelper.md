@@ -204,7 +204,7 @@ public object GetScopeIdentity(IDbConnection connection,
 }
 ```
 
-#### How to Use?
+#### How to use?
 
 Once you have the database helper implemented in a customized class, you can use the [DbHelperMapper](/mapper/dbhelpermapper) class to map it in your target RDDMS data provider.
 

@@ -13,10 +13,10 @@ This is a feature that would allow you to compose a conditional expressions (to 
 
 ###### Different ways of composing an Expression Trees
 
-- Anonymous - it is the most simple and direct way of filterting the results. You can use the anonymous object to filter data.
-- Linq-Expression - it is the most common way of filtering the data.
-- ExpandoObject/IDictionary&lt;string, object&gt; - it is the most dynamic way of filtering the data.
-- Query Objects - it is the most advance, efficient, performant and powerful way of composing the tree expression. However, this is a bit tedious and verbose.
+- `Anonymous Types` - it is the most simple and direct way of filterting the results. You can use the anonymous object to filter data.
+- `Linq-Expression` - it is the most common way of filtering the data.
+- `ExpandoObject/IDictionary<string, object>` - it is the most dynamic way of filtering the data.
+- `QueryField/QueryGroup` - it is the most advance, efficient, performant and powerful way of composing the tree expression. However, this is a bit tedious and verbose.
 
 > The support to the query objects are massive and well tested with high-quality. However, the Linq-Expression parser of the library is not as extensive as Entity Framework. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expression.
 

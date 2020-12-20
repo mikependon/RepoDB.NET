@@ -8,7 +8,7 @@ tags: [repodb, class, icache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgre
 
 # ICache
 
-This interface is used to mark a class to be a cache object. It gives you the full control on the implementations of your own cacher object (i.e.: File Caching, SqLite Caching, XML Caching, Memory Caching, etc).
+This interface is used to mark a class to be a cache object. It gives you the full control on the implementations of your own cache object (i.e.: File Caching, SqLite Caching, XML Caching, Memory Caching, etc).
 
 #### Methods
 
@@ -63,11 +63,9 @@ public class JsonCache : ICache
 }
 ```
 
-Or, please see the [JsonCache](/reference/output/jsoncache) for the actual implementation.
-
 > You have to implement all the methods needed by this interface. With this, you have the full control of you cacher object.
 
-#### How to Use?
+#### How to use?
 
 You can pass it on the constructor of the [BaseRepository](/class/baserepository) object.
 

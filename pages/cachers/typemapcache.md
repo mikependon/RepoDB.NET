@@ -22,7 +22,7 @@ Below are the methods available from this class.
 
 You should use this class if you would like to get the references of the database type that is already mapped into .NET CLR type or class property.
 
-#### How to Use?
+#### How to use?
 
 You can simply call the `Get()` method of this class by passing the class type.
 

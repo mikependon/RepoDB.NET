@@ -17,11 +17,57 @@ This class gives your application the maximum performance as it eliminates the r
 
 You should use this class if you wish to cache all the fetched objects from the database into memory.
 
-#### How to Use?
+#### How to use?
 
 Simply pass the instance in the constructor of the repositories (i.e.: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)) or when calling the fetched operations (i.e.: [Query](/operation/query) and [QueryAll](/operation/queryall)).
 
-As a recommendation, create a factory class that returns the cacher.
+#### Customize
+
+Create a custom interface that implements the [ICache](/interface/icache) interface.
+
+```csharp
+public interface IJsonCache : ICache
+{
+    // More custom methods
+}
+```
+
+Then implement it in the cache class.
+
+```csharp
+public class JsonCache : IJsonCache
+{
+    ...
+}
+```
+
+Lastly, register in the services collection.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddSingleton<IJsonCache, JsonCache>();
+}
+```
+
+Below is the code on how to inject it in the repositories.
+
+```csharp
+public class NorthwindRepository : DbRepository<SqlConnection>
+{
+    public NorthwindRepository(IOptions<AppSettings> settings,
+        IJsonCache cache) // Injected
+        : base(settings.ConnectionString, cache)
+    { }
+
+    ...
+}
+```
+
+Alternatviely, you can create a factory class that returns an instance of [ICache](/interface/icache) object.
 
 ```csharp
 public static CacheFactory

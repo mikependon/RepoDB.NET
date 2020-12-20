@@ -10,7 +10,7 @@ tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, p
 
 # DbRepository
 
-This is the base class of repository classes. It accepts the type of `DbConnection` as the generic type.
+This is the base class of all repository classes. It accepts the type of `DbConnection` as the generic type.
 
 #### Use-Cases
 
@@ -78,7 +78,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>,
 
 > Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base.
 
-#### How to Use?
+#### How to use?
 
 Simply create (or inject) a new instance of the class to use the repository.
 
@@ -161,7 +161,7 @@ using (var connection = CreateConnection(true))
 
 This property enables your repository to manage the persistency of your connection within the lifespan of the repository. Please have a look at the [Connection Persistency](/enumeration/connectionpersistency) enumeration to see more details.
 
-To enable an instanced-level connection persistency, simply pass the [Connection Persistency](/enumeration/connectionpersistency#instance) value in the constructor.
+To enable an instance-level connection persistency, simply pass the [Connection Persistency](/enumeration/connectionpersistency#instance) value in the constructor.
 
 ```csharp
 public class NorthwindRepository : DbRepository<Customer, SqlConnection>
@@ -176,7 +176,7 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 
 #### Command Timeout
 
-This property is used as the execution timeout of every operation. By default it is null; defaultly using the ADO.NET execution timeout.
+This property is used as the execution timeout of every operation. By default it is null, defaultly using the ADO.NET execution timeout.
 
 To enable your customized timeout, simply pass it on the constructor.
 

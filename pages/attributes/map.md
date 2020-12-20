@@ -18,11 +18,11 @@ Let us say you have a the table named `[department].[Person]` like below.
 ```csharp
 CREATE TABLE [department].[Person]
 (
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](256) NOT NULL,
-	[Age] [int] NOT NULL,
-	[DateInsertedUtc] [datetime2](5) NOT NULL,
-	CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
+    [Id] [bigint] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](256) NOT NULL,
+    [Age] [int] NOT NULL,
+    [DateInsertedUtc] [datetime2](5) NOT NULL,
+    CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
 )
 ON [PRIMARY];
 GO
@@ -34,10 +34,10 @@ And a model class named `Person` like below in which some of the column is not m
 [Map("[department].[Person]")] // Use the mapping as the default schema is [dbo]
 public class Person
 {
-	public long Id { get; set; }
-	public string Name { get; set; }
-	public int Age { get; set; }
-	public DateTime CreatedDateUtc { get; set; }
+public long Id { get; set; }
+public string Name { get; set; }
+public int Age { get; set; }
+public DateTime CreatedDateUtc { get; set; }
 }
 ```
 
@@ -50,12 +50,12 @@ Let us say you have a the table named `[department].[Person]` like below.
 ```csharp
 CREATE TABLE [dbo].[Person]
 (
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[LName] [nvarchar](128) NOT NULL,
-	[LName] [nvarchar](128) NOT NULL,
-	[Age] [int] NOT NULL,
-	[DateInsertedUtc] [datetime2](5) NOT NULL,
-	CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
+    [Id] [bigint] IDENTITY(1,1) NOT NULL,
+    [LName] [nvarchar](128) NOT NULL,
+    [LName] [nvarchar](128) NOT NULL,
+    [Age] [int] NOT NULL,
+    [DateInsertedUtc] [datetime2](5) NOT NULL,
+    CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
 )
 ON [PRIMARY];
 GO
@@ -66,14 +66,14 @@ And a model class named `Person` like below in which some of the columns are not
 ```csharp
 public class Person
 {
-	public long Id { get; set; }
-	[Map("FName")]
-	public string FirstName { get; set; }
-	[Map("LName")]
-	public string LastName { get; set; }
-	public int Age { get; set; }
-	[Map("DateInsertedUtc")]
-	public DateTime CreatedDateUtc { get; set; }
+    public long Id { get; set; }
+    [Map("FName")]
+    public string FirstName { get; set; }
+    [Map("LName")]
+    public string LastName { get; set; }
+    public int Age { get; set; }
+    [Map("DateInsertedUtc")]
+    public DateTime CreatedDateUtc { get; set; }
 }
 ```
 
@@ -94,11 +94,11 @@ var properties = PropertyCache.Get<Person>();
 
 // Iterate the properties
 properties
-	.AsList()
-	.ForEach(property =>
-	{
-		var mappedName = PropertyMappedNameCache.Get(property.PropertyInfo);
-	});
+    .AsList()
+    .ForEach(property =>
+    {
+        var mappedName = PropertyMappedNameCache.Get(property.PropertyInfo);
+    });
 ```
 
 

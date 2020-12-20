@@ -11,7 +11,7 @@ tags: [repodb, class, multiplequery, orm, hybrid-orm, sqlserver, sqlite, mysql, 
 
 This is a feature that would allow you to fetch multiple resultsets in a single call. Both the [ExecuteQueryMultiple](/operation/executequerymultiple) and [QueryMultiple](/operation/querymultiple) operations were provided to address this need. The [ExecuteQueryMultiple](/operation/executequerymultiple) is a method that would allow you to pass your own SQL statements to extract the results, whereas the [QueryMultiple](/operation/querymultiple) is a fluent-method that would allow you to pass a Linq-based query expression and that automatically compose the SQL statements for you.
 
-The underlying implementation of this feature is abstracting both the `Read()` and `NextResult()` methods of the the data reader object.
+The underlying implementation of this feature is abstracting both the `Read()` and `NextResult()` methods of the the `DbDataReader` object.
 
 #### Type of Return Types
 

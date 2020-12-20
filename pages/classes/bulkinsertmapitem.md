@@ -84,4 +84,4 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> You can also do the same for (i.e.: [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)). Please also be reminded that the `mappings` argument are not mandatory. Leaving this blank would make the Bulk Operations auto-map the columns based on the equality of the source and destination column-names (case-insensitive).
+> You can also do the same for (i.e.: [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)). Please also be reminded that the `mappings` argument are not mandatory. Leaving this blank would make the bulk operations auto-map the columns based on the equality of the source and destination column-names (case-insensitive).

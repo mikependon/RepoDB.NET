@@ -99,7 +99,7 @@ private IEnumerable<Person> GetPeople(int count = 10)
 }
 ```
 
-Then simply create a list of `Person` and passed it when you call the [InsertAll](/operation/insertall) method.
+Then simply create a list of `Person` and pass it when you call the [InsertAll](/operation/insertall) method.
 
 ```csharp
 var people = GetPeople(100);
@@ -151,7 +151,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary or identity column is used as a qualifier. You can also use specify the customized qualifiers.
+By default, the primary or identity column is used as a qualifier. You can also customize the qualifiers with other columns.
 
 ```csharp
 var person = new Person
@@ -280,7 +280,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 
 #### Executing a Query
 
-To execute a query use the [ExecuteNonQuery](/operation/executenonquery) method.
+To execute a query, use the [ExecuteNonQuery](/operation/executenonquery) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -311,7 +311,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of data reader object, use the [ExecuteReader](/operation/executereader) method.
+To execute a query while expecting a result of `DbDataReader` object, use the [ExecuteReader](/operation/executereader) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -356,4 +356,4 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-> The resultset of this operation is an `IEnumerable<T>` object.
+> Please be noted that the resultset of this operation is an `IEnumerable<T>` object.

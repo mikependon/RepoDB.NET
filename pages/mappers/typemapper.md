@@ -24,7 +24,7 @@ Below are the methods available from this class.
 
 You should use this class if you do not like to use the [TypeMap](/attribute/typemap) attribute. Usually, the purpose of the usability is to make sure that the model is attribute-free and is not bound to a specific ORM.
 
-#### How to Use?
+#### How to use?
 
 Let us say you would like to map the `System.DateTime` .NET CLR type into a `DbType.DateTime2` database type.
 

@@ -156,7 +156,7 @@ You can do override the other virtual methods (as many as you like).
 
 > It is very important to only override the virtual methods if a customization or different implementation is needed.
 
-#### How to Use?
+#### How to use?
 
 You can pass it in any extended [fluent methods](/docs#fluent-methods) of the `DbConnection` object.
 
