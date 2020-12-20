@@ -13,7 +13,7 @@ This class stands as the base class of all [IDbSetting](/interface/idbsetting)-b
 
 #### Use-Cases
 
-To simplify your implementation, always use this class over [IDbSetting](/interface/idbsetting) when overriding the default database settings.
+To simplify your implementation, always use this class over the [IDbSetting](/interface/idbsetting) interface when overriding the default database settings.
 
 #### How to Implement?
 

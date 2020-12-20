@@ -13,13 +13,13 @@ This class stands as the base class of all [IStatementBuilder](/interface/istate
 
 #### Use-Cases
 
-To simplify your implementation, always use this class over [IStatementBuilder](/interface/istatementbuilder) when working with customized SQL generator.
+To simplify your implementation, always use this class over the [IStatementBuilder](/interface/istatementbuilder) interface when working with customized SQL generator.
 
 #### Virtual Methods
 
-This class has virtual methods pre-implemented with the defined logics. It is the author's choices to add this virtual methods on this base class.
+This class has virtual methods pre-implemented with the defined logic. It is the author's choices to add this virtual methods on this base class.
 
-The reason to have these virtual methods are the commonality of most RDBMS data providers (i.e.: the SQL Server and [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) almost have the same way of SQL generation).
+The reason to have these virtual methods are the commonality of the SQL Statements used on most RDBMS data providers (i.e.: the SQL Server and the other RDBMS almost have the same way of SQL generation).
 
 ###### Below are the list of virtual methods.
 
@@ -46,7 +46,7 @@ The reason to have these virtual methods are the commonality of most RDBMS data 
 
 This class has some abstract methods that is required to be implemented in the derived classes. It is the author's choices to add this abstract methods on this base class.
 
-The reason to have these abstract methods are the implementation-difference between different RDBMS data providers (i.e.: the SQL Server is using `MERGE` keyword for merging whereas the [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) is using `INSERT OR REPLACE`).
+The reason to have these abstract methods are the implementation-difference of the SQL Statements between the different RDBMS data providers (i.e.: the SQL Server is using `MERGE` keyword for merging rows whereas the other RDBMS are not).
 
 ###### Below are the list of abstract methods.
 

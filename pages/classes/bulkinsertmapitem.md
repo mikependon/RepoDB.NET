@@ -9,7 +9,7 @@ tags: [repodb, class, bulkinsertmapitem, orm, hybrid-orm, sqlserver, sqlite, mys
 
 # BulkInsertMapItem
 
-This class is used to map a source and destination column when doing Bulk Operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
+This class is used to define a mapping of the source and destination columns when doing the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 
 #### Create a new Instance
 
@@ -39,11 +39,11 @@ And you have a table structure like below.
 ```csharp
 CREATE TABLE [dbo].[Person]
 (
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](128) NOT NULL,
-	[Age] [int] NOT NULL,
-	[CreatedDateUtc] [datetime2](5) NOT NULL,
-	CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
+    [Id] [bigint] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](128) NOT NULL,
+    [Age] [int] NOT NULL,
+    [CreatedDateUtc] [datetime2](5) NOT NULL,
+    CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
 )
 ON [PRIMARY];
 GO
@@ -54,16 +54,16 @@ Then you created a method that does return an array of your model.
 ```csharp
 private IEnumerable<Person> GetPeople(int count = 10)
 {
-	for (var i = 0; i < count; i++)
-	{
-		yield return new Person
-		{
-			FirstName = $"FirstName{i}",
-			LastName = $"LastName{i}",
-			Age = i,
-			CreatedDateUtc = DateTime.UtcNow
-		};
-	}
+    for (var i = 0; i < count; i++)
+    {
+        yield return new Person
+        {
+            FirstName = $"FirstName{i}",
+            LastName = $"LastName{i}",
+            Age = i,
+            CreatedDateUtc = DateTime.UtcNow
+        };
+    }
 }
 ```
 

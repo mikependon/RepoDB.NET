@@ -9,7 +9,7 @@ tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql,
 
 # BaseRepository
 
-This is the base class of all entity-based repository classes. It accepts 2 generic types, the model type and the `DbConnection` type. It also use the [DbRepository](/class/dbrepository) as the underlying controlling repository.
+This is the base class of all entity-based repository classes. It accepts 2 generic types, the model type and the connection type. It also use the [DbRepository](/class/dbrepository) as the underlying controlling repository.
 
 #### Use-Cases
 
@@ -70,7 +70,8 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 Simply create (or inject) a new instance of the class to use the repository.
 
 ```csharp
-using (var repository = new PersonRepository(settings)) // The settings must be DI(ed) (or,the repository itself must be DI(ed))
+// The settings must be DI(ed) (or,the repository itself must be DI(ed))
+using (var repository = new PersonRepository(settings))
 {
     var person = repository.Get(10045);
 }

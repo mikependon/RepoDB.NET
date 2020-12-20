@@ -219,11 +219,11 @@ docs:
   - title: "BaseDbSetting"
     url: "/class/basedbsetting"
 
-  - title: "BaseStatementBuilder"
-    url: "/class/basestatementbuilder"
-
   - title: "BaseRepository"
     url: "/class/baserepository"
+
+  - title: "BaseStatementBuilder"
+    url: "/class/basestatementbuilder"
 
   - title: "BulkInsertMapItem"
     url: "/class/bulkinsertmapitem"

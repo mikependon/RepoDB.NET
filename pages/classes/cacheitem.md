@@ -17,9 +17,9 @@ Please see the [IExpirable](/interface/iexpirable) methods.
 
 #### Properties
 
-- `Key` - the key to the cache.
-- `Value` - the value of the class (a generic type).
-- `CacheItemExpiration` - the expiration of the cache in minutes.
+- Key - the key to the cache.
+- Value - the value of the class (a generic type).
+- CacheItemExpiration - the expiration of the cache in minutes.
 
 In addition, please see the [IExpirable](/interface/iexpirable) properties.
 
@@ -58,7 +58,7 @@ using (var repository = new PersonRepository())
 
 ##### Retrieving from the Cache
 
-To retrieve an item from the cache, directly access the [ICache](/interface/icache) object and call the `Get` method passing the key.
+To retrieve an item from the cache, directly access the [ICache](/interface/icache) object and call the `Get()` method passing the key.
 
 Let us say, the repository `PersonRepository` is existing.
 

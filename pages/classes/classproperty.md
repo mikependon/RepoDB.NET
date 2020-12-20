@@ -132,9 +132,9 @@ foreach (var property in properties)
 
 If the [Primary](/attribute/primary) is not present, it tries to identify using the following logics by order.
 
-- If the `PropertyInfo.Name` is equals to `Id`.
-- If the `PropertyInfo.Name` is equals to `ClassName` + `Id`.
-- If the `PropertyInfo.Name` is equals to `ClassMappedName` + `Id`.
+- If the name is equals to `Id`.
+- If the name is equals to `ClassName` + `Id`.
+- If the name is equals to `ClassMappedName` + `Id`.
 
 > The logic of extracting the primary property is being compared with case-insensitivity.
 

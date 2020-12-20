@@ -9,7 +9,7 @@ tags: [repodb, class, classexpression, orm, hybrid-orm, sqlserver, sqlite, mysql
 
 # ClassExpression
 
-This is a helper class used for extracting class objects via `Linq.Expressions`. The operations residing on this class are all pre-compiled operations.
+This is a helper class used for extracting class objects via `Linq.Expressions` namespace. The operations residing on this class are all pre-compiled operations.
 
 ##### GetEntitiesPropertyValues
 
@@ -34,7 +34,7 @@ var properties = ClassExpression.GetProperties<Person>();
 // Do the stuffs for the 'properties' here
 ```
 
-> We recommend you should use the [PropertyCache](/cacher/propertycache) object when extracting the class properties.
+> We recommend that you should use the [PropertyCache](/cacher/propertycache) object when extracting the class properties.
 
 
 ##### GetPropertiesAndValues
