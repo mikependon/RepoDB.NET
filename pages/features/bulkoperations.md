@@ -11,7 +11,7 @@ tags: [repodb, class, bulk, bulk-operations, orm, hybrid-orm, sqlserver, sqlite,
 
 A bulk operation is a process of bringing all the data from the application into the database server at once, and at the same time, ignoring some database specific activities (i.e.: Logging, Audits, Data-Type Checks, Constraints, etc) behind the scene. Thus gives you maximum performance during the operation.
 
-Basically, we normally do the [Delete](/operation/delete), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations when interacting with the database. Through this, the data is being processed in an atomic way. If we do call the [batch operations](/feature/batchoperations), the multiple single operations are just being batched and are being executed at the same time, and there are still round-trips in-between your application and the database.
+Basically, we normally do the [Delete](/operation/delete), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations when interacting with the database. Through this, the data is being processed in an atomic way. If we do call the [batch operations](/feature/batchoperations), the multiple single operations are just being batched and executed together, but it does not completely eliminates the round-trips between your application and the database.
 
 Image below shows the data flow of the [BulkInsert](/operation/bulkinsert) operation.
 
@@ -39,7 +39,7 @@ Basically, a pseudo-temporary table will be created in the database under the tr
 
 You can maximize the execution by targetting your underlying table indexes via qualifiers, simply pass a list of [Field](/class/field) objects. The library will then create a CLUSTERED INDEX on the pseudo-temporary table through the passed qualifiers and do the actual joins to the original table using that index.
 
-> If you have not passed any qualifiers, the primary column will be used by default. If the primary column is not present, it will use the identify column instead.
+> If you have not passed any qualifiers, the primary column will be used by default. If the primary column is not present, it will use the identity column instead.
 
 #### Supported Objects
 
@@ -90,7 +90,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 
 The arguments `qualifiers`, `isReturnIdentity` and `usePhysicalPseudoTempTable` were provided to the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations.
 
-The argument `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of SQL statements. If not given, the primary key (or identity) field will be used.
+The argument `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of SQL statements. If not given, the primary or identity column will be used.
 
 The argument `isReturnIdentity` is used to define the behaviour of the execution whether the newly generated identity will be set-back to the data entities. By default, it is disabled.
 
@@ -100,7 +100,7 @@ The argument `usePhysicalPseudoTempTable` is used to define whether a physical p
 
 The library is automatically setting the value of options argument to `SqlBulkCopyOptions.KeepIdentity` when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) if you have not passed any qualifiers and if your table has an identity primary key column. The same logic will apply if there is no primary key but has an identity column defined in the table.
 
-In addition, when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, the library is creating a pseudo-temporary table behind the scene. It requires your user to have the correct (`CREATE`) privilege to create a table in the database, otherwise a `SqlException` will be thrown.
+In addition, when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, the library is creating a pseudo-temporary table behind the scene. It requires your user to have the proper CREATE TABLE privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
 #### Calling the Operations
 
