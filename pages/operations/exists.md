@@ -17,16 +17,17 @@ Below is the sample code to check whether a row is existing from the `[dbo].[Per
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var existing = connection.Exists<Person>(10045);
+    var existing = connection.Exists<Person>(10045);
 }
 ```
 
-Or, you can use the `Linq` to enhance the expression.
+Or, you can use the Linq to enhance the expression.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var existing = connection.Exists<Person>(e => e.Name == "Doe" && e.DateOfBirth =  DateTime.Parse("2000-01-01"));
+    var existing = connection.Exists<Person>(e =>
+        e.Name == "Doe" && e.DateOfBirth =  DateTime.Parse("2000-01-01"));
 }
 ```
 
@@ -37,7 +38,7 @@ You can also target a specific table by passing the literal table and field name
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var existing = connection.Exists("[dbo].[Person]", 10045);
+    var existing = connection.Exists("[dbo].[Person]", 10045);
 }
 ```
 
@@ -46,12 +47,12 @@ Or, you can use the [QueryGroup](/class/querygroup) or [QueryField](/class/query
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var where = new []
-	{
-		new QueryField("Name", "Doe"),
-		new QueryField("DateOfBirth", DateTime.Parse("2000-01-01"))
-	};
-	var existing = connection.Exists("[dbo].[Person]", where);
+    var where = new []
+    {
+        new QueryField("Name", "Doe"),
+        new QueryField("DateOfBirth", DateTime.Parse("2000-01-01"))
+    };
+    var existing = connection.Exists("[dbo].[Person]", where);
 }
 ```
 
@@ -62,8 +63,8 @@ To pass a hint, simply write the table-hints and pass it in the `hints` argument
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var existing = connection.Exists<Person>(10045,
-		hints: "WITH (NOLOCK)");
+    var existing = connection.Exists<Person>(10045,
+    hints: "WITH (NOLOCK)");
 }
 ```
 
@@ -72,7 +73,7 @@ Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var existing = connection.Exists<Person>(10045,
-		hints: SqlServerTableHints.NoLock);
+    var existing = connection.Exists<Person>(10045,
+    hints: SqlServerTableHints.NoLock);
 }
 ```

@@ -21,7 +21,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Returning the enumerable of `dynamic` objects. The type of the dynamic object is an `ExpandoObject`.
+Returning the enumerable of dynamic objects. The type of the dynamic object is an `ExpandoObject`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -48,13 +48,11 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-**Note:** You can as well pass an `Anonymous Type` in the generic type `TResult` of the [ExecuteQuery](/operation/executequery) operation. This scenario is very important to the `F#` programming language.
+**Note:** You can as well pass an anonymous type in the generic type `TResult` of the [ExecuteQuery](/operation/executequery) operation. This scenario is very important to the F# programming language.
 
 #### Typed Result
 
-You can also inferred the result back to any .NET CLR Type.
-
-Below is for `long` type.
+You can also infer the result back to any .NET CLR Type. Below is for `long` type.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -90,7 +88,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-**Note:** The inferrence of the `Enum` will work for `string` (i.e: `VARCHAR`, `TEXT`, etc) and `non-string` (i.e: `SmallInt`, `Int`, `BigInt`, etc) column types.
+**Note:** The inferrence of the enumeration will work for string types (i.e: `NVARCHAR`, `TEXT`, etc) and non-string types (i.e: `SMALLINT`, `INT`, `BIGINT`, etc) column types.
 
 #### Table-Valued Parameters
 
@@ -118,12 +116,14 @@ using (var connection = new SqlConnection(connectionString))
 
 You can pass a parameter via the following objects.
 
-- `Anonymous Types`
-- `ExpandoObject`
-- `IDictionary<string, object>`
-- `Query Objects`
+- Anonymous Types
+- ExpandoObject
+- IDictionary&lt;string, object&gt;
+- QueryField/QueryGroup
 
-##### Anonymous Types
+Please see the sample code snippets below.
+
+###### Anonymous Types
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -136,7 +136,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### ExpandoObject
+###### ExpandoObject
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -147,7 +147,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### IDictionary
+###### IDictionary<string, object>
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -160,7 +160,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-##### Query Objects
+###### QueryField/QueryGroup
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -169,6 +169,19 @@ using (var connection = new SqlConnection(connectionString))
     {
         new QueryField("Id", 10045)
     };
+    var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
+}
+```
+
+Or via [QueryGroup](/class/querygroup).
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var param = new QueryGroup(new []
+    {
+        new QueryField("Id", 10045)
+    });
     var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
 }
 ```
@@ -212,4 +225,4 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> Notice in the second calls, there is semi-colon at the end of the command text and the command type was not set.
+> Notice in the second call, there is semi-colon at the end of the command text and the command type was not set.

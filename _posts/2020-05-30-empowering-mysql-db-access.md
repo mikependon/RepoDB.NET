@@ -190,7 +190,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary or identity field is used as a qualifier. The other fields can also be used as the qualifiers.
+By default, the primary or identity column is used as a qualifier. The other fields can also be used as the qualifiers.
 
 ```csharp
 var people = GetPeople(100);

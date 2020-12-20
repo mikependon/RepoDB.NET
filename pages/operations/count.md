@@ -12,12 +12,12 @@ This method is used to count the number of rows from the table.
 
 #### Code Snippets
 
-Below is the sample code that counts the rows from the `[dbo].[Person]` table since yesterday.
+Below is the sample code that count the rows from the `[dbo].[Person]` table since yesterday.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var counted = connection.Count<Person>(e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1));
+    var counted = connection.Count<Person>(e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1));
 }
 ```
 
@@ -28,7 +28,7 @@ You can also target a specific table by passing the literal table and field name
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var counted = connection.Count("[dbo].[Person]", new { State = "Michigan" });
+    var counted = connection.Count("[dbo].[Person]", new { State = "Michigan" });
 }
 ```
 
@@ -37,11 +37,11 @@ Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) i
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var where = new []
-	{
-		new QueryField("DateInsertedUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1))
-	}
-	var counted = connection.Count("[dbo].[Person]", where: where);
+    var where = new []
+    {
+        new QueryField("DateInsertedUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1))
+    }
+    var counted = connection.Count("[dbo].[Person]", where: where);
 }
 ```
 
@@ -52,8 +52,8 @@ To pass a hint, simply write the table-hints and pass it in the `hints` argument
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var counted = connection.Count<Person>(e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
-		hints: "WITH (NOLOCK)");
+    var counted = connection.Count<Person>(e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
+        hints: "WITH (NOLOCK)");
 }
 ```
 
@@ -62,7 +62,7 @@ Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var counted = connection.Count<Person>(e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
-		hints: SqlServerTableHints.NoLock);
+    var counted = connection.Count<Person>(e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
+        hints: SqlServerTableHints.NoLock);
 }
 ```

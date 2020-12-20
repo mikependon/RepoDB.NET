@@ -112,7 +112,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-> The [Insert](/operation/insert) method returns the value of primary or identity field while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
+> The [Insert](/operation/insert) method returns the value of primary or identity column while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
 
 #### Querying a Record
 
@@ -154,7 +154,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary or identity field is used as a qualifier. You can also use specify the customized qualifiers.
+By default, the primary or identity column is used as a qualifier. You can also use specify the customized qualifiers.
 
 ```csharp
 var person = new Person
@@ -180,7 +180,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-> The [Merge](/operation/merge) method returns the value of the primary or identity field while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
+> The [Merge](/operation/merge) method returns the value of the primary or identity column while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
 
 #### Deleting a Record
 
@@ -193,7 +193,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, it uses the primary or identity field as the qualifier, but you can also use the other fields like below.
+By default, it uses the primary or identity column as the qualifier, but you can also use the other fields like below.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -263,7 +263,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary or identity field is used as a qualifier, but you can also specify your custom qualifiers.
+By default, the primary or identity column is used as a qualifier, but you can also specify your custom qualifiers.
 
 ```csharp
 var people = GetPeople(100);

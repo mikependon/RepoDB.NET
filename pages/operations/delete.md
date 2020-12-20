@@ -12,12 +12,12 @@ This method is used to delete the rows from the table.
 
 #### Code Snippets
 
-Below is the sample code to delete a row from the `[dbo].[Person]` table.
+Below is the sample code to delete a row from the `[dbo].[Person]` table via data model.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.Delete<Person>(person);
+    var deletedRows = connection.Delete<Person>(person);
 }
 ```
 
@@ -26,7 +26,7 @@ You can also delete directly by primary key.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.Delete<Person>(10045);
+    var deletedRows = connection.Delete<Person>(10045);
 }
 ```
 
@@ -37,7 +37,7 @@ You can also target a specific table by passing the literal table name like belo
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.Delete("[dbo].[Person]", person);
+    var deletedRows = connection.Delete("[dbo].[Person]", person);
 }
 ```
 
@@ -46,7 +46,7 @@ Or, via primary key.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.Delete("[dbo].[Person]", 10045);
+    var deletedRows = connection.Delete("[dbo].[Person]", 10045);
 }
 ```
 
@@ -57,8 +57,8 @@ To pass a hint, simply write the table-hints and pass it in the `hints` argument
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.Delete<Person>(person,
-		hints: "WITH (TABLOCK)");
+    var deletedRows = connection.Delete<Person>(person,
+        hints: "WITH (TABLOCK)");
 }
 ```
 
@@ -67,7 +67,7 @@ Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var deletedRows = connection.Delete<Person>(person,
-		hints: SqlServerTableHints.TabLock);
+    var deletedRows = connection.Delete<Person>(person,
+        hints: SqlServerTableHints.TabLock);
 }
 ```

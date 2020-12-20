@@ -8,7 +8,7 @@ tags: [repodb, tutorial, bulkupdate, orm, hybrid-orm, sqlserver]
 
 # BulkUpdate
 
-This method is used to bulk-update all the rows from the client into the database. For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
+This method is used to update all the rows from the client application into the database by bulk. This operation only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
 
 #### Call Flow Diagram
 
@@ -26,7 +26,7 @@ If you are working to update range of rows from 1000 or beyond, then use this me
 
 The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
 
-The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of SQL statements. If not given, the primary key (or identity) field will be used.
+The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statements. If not given, the primary or identity column will be used.
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 
@@ -62,7 +62,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ###### DataTable
 
-Below is the sample code to bulk-update by data table.
+Below is the sample code to bulk-update via data table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -74,7 +74,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ###### Dictionary/ExpandoObject
 
-Below is the sample code to bulk-update by Dictionary or ExpandoObject.
+Below is the sample code to bulk-update via `Dictionary<string, object>` or `ExpandoObject`.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -90,7 +90,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 
 ###### DataReader
 
-Below is the sample code to bulk-update by data reader.
+Below is the sample code to bulk-update via data reader.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -105,7 +105,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-Or you can also convert the list of `Person` to a `DataEntityDataReader` object and bulk-update it.
+Or you can also convert the list of `Person` into a `DataEntityDataReader` object and bulk-update it.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -120,7 +120,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Field Qualifiers
 
-By default, this method is using the primary key (or identify field) as the qualifier. You can override it by passing the list of [Field](/class/field) objects in the `qualifiers` argument.
+By default, this method is using the primary or identity column as the qualifier. You can override it by passing the list of [Field](/class/field) objects in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -141,10 +141,10 @@ You can add a mapping via `BulkInsertMapItem` class.
 var mappings = new List<BulkInsertMapItem>();
 
 // Add the mappings
-mappings.Add(new BulkInsertMapItem("Id", "Id"));
-mappings.Add(new BulkInsertMapItem("Name", "Name"));
-mappings.Add(new BulkInsertMapItem("IsActive", "Active"));
-mappings.Add(new BulkInsertMapItem("DateInsertedUtc", "CreatedDateUtc"));
+mappings.Add(new BulkInsertMapItem("SourceId", "DestinationId"));
+mappings.Add(new BulkInsertMapItem("SourceName", "DestinationName"));
+mappings.Add(new BulkInsertMapItem("SourceIsActive", "DestinationIsActive"));
+mappings.Add(new BulkInsertMapItem("SourceDateInsertedUtc", "DestinationDateInsertedUtc"));
 
 // Execute
 using (var connection = new SqlConnection(connectionString))

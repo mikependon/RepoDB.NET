@@ -17,7 +17,7 @@ Below is a code that deletes all the rows from the `[dbo].[Person]` table from t
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var affectedRows = connection.ExecuteNonQuery("DELETE FROM [dbo].[Person];");
+    var affectedRows = connection.ExecuteNonQuery("DELETE FROM [dbo].[Person];");
 }
 ```
 
@@ -25,66 +25,81 @@ using (var connection = new SqlConnection(connectionString))
 
 You can pass a parameter via the following objects.
 
-- `Dynamic`
-- `ExpandoObject`
-- `Dictionary<string, object>`
-- `Query Objects`
+- Dynamic
+- ExpandoObject
+- Dictionary&lt;string, object&gt;
+- QueryField/QueryGroup
 
-##### Dynamic
+###### Dynamic
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new
-	{
-		IsEnabled = true,
-		LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date 
-	};
-	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var affectedRows = connection.ExecuteNonQuery(commandText, param);
+    var param = new
+    {
+        IsEnabled = true,
+        LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date 
+    };
+    var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
+    var affectedRows = connection.ExecuteNonQuery(commandText, param);
 }
 ```
 
-##### ExpandoObject
+###### ExpandoObject
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new ExpandoObject() as IDictionary<string, object>;
-	param.Add("IsEnabled", true);
-	param.Add("LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date );
-	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var affectedRows = connection.ExecuteNonQuery(commandText, param);
+    var param = new ExpandoObject() as IDictionary<string, object>;
+    param.Add("IsEnabled", true);
+    param.Add("LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date );
+    var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
+    var affectedRows = connection.ExecuteNonQuery(commandText, param);
 }
 ```
 
-##### Dictionary
+###### Dictionary<string, object>
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new Dictionary<string, object>
-	{
-		{ "IsEnabled", true },
-		{ "LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date }
-	};
-	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var affectedRows = connection.ExecuteNonQuery(commandText, param);
+    var param = new Dictionary<string, object>
+    {
+        { "IsEnabled", true },
+        { "LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date }
+    };
+    var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
+    var affectedRows = connection.ExecuteNonQuery(commandText, param);
 }
 ```
 
-##### Query Objects
+###### QueryField/QueryGroup
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new []
-	{
-		new QueryField("IsEnabled", true),
-		new QueryField("LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date)
-	};
-	var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
-	var affectedRows = connection.ExecuteNonQuery(commandText, param);
+    var param = new []
+    {
+        new QueryField("IsEnabled", true),
+        new QueryField("LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date)
+    };
+    var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
+    var affectedRows = connection.ExecuteNonQuery(commandText, param);
+}
+```
+
+Or via [QueryGroup](/class/querygroup).
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var param = new QueryGroup(new []
+    {
+        new QueryField("IsEnabled", true),
+        new QueryField("LastAccessDateUtc", DateTime.UtcNow.AddMonths(-6).Date)
+    });
+    var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
+    var affectedRows = connection.ExecuteNonQuery(commandText, param);
 }
 ```
 
@@ -95,12 +110,12 @@ You can pass an array of values if you are using the `IN` keyword.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new
-	{
-		Keys = new [] { 10045, 10102, 11004 }
-	};
-	var commandText = "DELETE FROM dbo].[Person] WHERE Id IN (@Keys);";
-	var affectedRows = connection.ExecuteNonQuery(commandText, param);
+    var param = new
+    {
+        Keys = new [] { 10045, 10102, 11004 }
+    };
+    var commandText = "DELETE FROM dbo].[Person] WHERE Id IN (@Keys);";
+    var affectedRows = connection.ExecuteNonQuery(commandText, param);
 }
 ```
 
@@ -113,8 +128,9 @@ There are 2 ways of executing a stored procedure. First, simply pass the name of
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var affectedRows = connection.ExecuteNonQuery("[dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
-		new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date }, commandType: CommandType.StoredProcedure);
+    var param = new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date };
+    var affectedRows = connection.ExecuteNonQuery("[dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
+        param, commandType: CommandType.StoredProcedure);
 }
 ```
 
@@ -123,9 +139,9 @@ Or, simply use the native SQL calls like below.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var affectedRows = connection.ExecuteNonQuery("EXEC [dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
-		new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date });
+    var affectedRows = connection.ExecuteNonQuery("EXEC [dbo].[sp_DisablePeopleState](@LastAccessDateUtc);",
+        new { LastAccessDateUtc = DateTime.UtcNow.AddMonths(-6).Date });
 }
 ```
 
-> Notice in the second calls, there is semi-colon at the end of the command text and the command type was not set.
+> Notice in the second call, there is semi-colon at the end of the command text and the command type was not set.

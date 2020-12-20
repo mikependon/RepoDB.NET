@@ -12,12 +12,12 @@ This method is used to count the number of rows from the table.
 
 #### Code Snippets
 
-Below is the sample code that counts all the rows from the `[dbo].[Person]` table.
+Below is the sample code that count all the rows from the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var counted = connection.CountAll<Person>();
+    var counted = connection.CountAll<Person>();
 }
 ```
 
@@ -28,7 +28,7 @@ You can also target a specific table by passing the literal table and field name
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var counted = connection.CountAll("[dbo].[Person]");
+    var counted = connection.CountAll("[dbo].[Person]");
 }
 ```
 
@@ -39,7 +39,7 @@ To pass a hint, simply write the table-hints and pass it in the `hints` argument
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var counted = connection.CountAll<Person>(hints: "WITH (NOLOCK)");
+    var counted = connection.CountAll<Person>(hints: "WITH (NOLOCK)");
 }
 ```
 
@@ -48,6 +48,6 @@ Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var counted = connection.CountAll<Person>(hints: SqlServerTableHints.NoLock);
+    var counted = connection.CountAll<Person>(hints: SqlServerTableHints.NoLock);
 }
 ```

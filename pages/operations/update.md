@@ -30,7 +30,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-By default, it uses the primary (or identity) field as the qualifier. You can override by simply passing the primary key in the `whereOrPrimaryKey` argument.
+By default, it uses the primary or identity column as the qualifier. You can override it by simply passing the primary key in the `what` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -43,7 +43,7 @@ using (var connection = new SqlConnection(connectionString))
 		IsActive = true,
 		DateInsertedUtc = DateTime.UtcNow
 	};
-	/* var updatedRows = connection.Update<Person>(person, whereOrPrimaryKey: 10045); // Same as below */
+	/* var updatedRows = connection.Update<Person>(person, what: 10045); // Same as below */
 	var updatedRows = connection.Update<Person>(person, 10045);
 }
 ```
@@ -88,7 +88,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via Dictionary or ExpandoObject.
+Or via `Dictionary<string, object>` or `ExpandoObject`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

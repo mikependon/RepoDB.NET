@@ -92,7 +92,7 @@ See the SQL Statements below.
 
 The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided at [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations.
 
-The argument `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the *WHERE* expression of SQL Statements. If not given, the primary key (or identity) field will be used.
+The argument `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the *WHERE* expression of SQL Statements. If not given, the primary or identity column will be used.
 
 The argument `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: #TableName) is used.
 

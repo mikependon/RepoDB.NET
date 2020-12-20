@@ -8,7 +8,7 @@ tags: [repodb, tutorial, bulkinsert, orm, hybrid-orm, sqlserver]
 
 # BulkInsert
 
-This method is used to bulk-insert all the rows from the client into the database. For now, this operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
+This method is used to insert all the rows from the client application into the database by bulk. This operation only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
 
 #### Call Flow Diagram
 
@@ -24,39 +24,39 @@ If you are working to insert range of rows from 1000 or beyond, then use this me
 
 #### Special Arguments
 
-The arguments `isReturnIdentity`, and `usePhysicalPseudoTempTable` is provded on this operation.
+The arguments `isReturnIdentity`, and `usePhysicalPseudoTempTable` is provided on this operation.
 
 The `isReturnIdentity` is used to define the behaviour of the execution whether the newly generated identity will be set-back to the data entities. By default, it is disabled.
 
-The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. This only works if the `isReturnIdentity` is `true`. By default, a temporary table (i.e.: `#TableName`) is used.
+The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. This will only work if the `isReturnIdentity` is `true`. By default, a temporary table (i.e.: `#TableName`) is used.
 
 #### How to call?
 
-Let us say you have a methods that create a list of `Person` from the client application.
+Let us say you have a method that create a list of `Person` from the client application.
 
 ```csharp
 private IEnumerable<Person> GetPeople(int count = 1000)
 {
-	for (var i = 0; i < count; i++)
-	{
-		yield return new Person
-		{
-			Name = $"Person-{i}",
-			SSN = Guid.NewGuid().ToString(),
-			IsActive = true,
-			DateInsertedUtc = DateTime.UtcNow
-		};
-	}
+    for (var i = 0; i < count; i++)
+    {
+        yield return new Person
+        {
+            Name = $"Person-{i}",
+            SSN = Guid.NewGuid().ToString(),
+            IsActive = true,
+            DateInsertedUtc = DateTime.UtcNow
+        };
+    }
 }
 ```
 
-Then, below is the code that bulk-inserts 10K of rows towards `[dbo].[Person]` table.
+Then, below is the code that bulk-inserts 10K of rows towards the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = GetPeople(10000);
-	var insertedRows = connection.BulkInsert(people);
+    var people = GetPeople(10000);
+    var insertedRows = connection.BulkInsert(people);
 }
 ```
 
@@ -65,8 +65,8 @@ And below if you would like to specify the batch size.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = GetPeople(10000);
-	var insertedRows = connection.BulkInsert(people, batchSize: 100);
+    var people = GetPeople(10000);
+    var insertedRows = connection.BulkInsert(people, batchSize: 100);
 }
 ```
 
@@ -74,20 +74,20 @@ using (var connection = new SqlConnection(connectionString))
 
 ###### DataTable
 
-Below is the sample code to bulk-insert by data table.
+Below is the sample code to bulk-insert via data table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = GetPeople(10000);
-	var table = ConvertToDataTable(people);
-	var insertedRows = connection.BulkInsert<Person>(table);
+    var people = GetPeople(10000);
+    var table = ConvertToDataTable(people);
+    var insertedRows = connection.BulkInsert<Person>(table);
 }
 ```
 
 ###### Dictionary/ExpandoObject
 
-Below is the sample code to bulk-insert by Dictionary or ExpandoObject.
+Below is the sample code to bulk-insert via `Dictionary<string, object>` or `ExpandoObject`.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -102,31 +102,31 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 
 ###### DataReader
 
-Below is the sample code to bulk-insert by data reader.
+Below is the sample code to bulk-insert via data reader.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
 {
-	using (var reader = sourceConnection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
-	{
-		using (var destinationConnection = new SqlConnection(destinationConnectionString))
-		{
-			var rows = destinationConnection.BulkInsert<Person>(reader);
-		}
-	}
+    using (var reader = sourceConnection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
+    {
+        using (var destinationConnection = new SqlConnection(destinationConnectionString))
+        {
+            var rows = destinationConnection.BulkInsert<Person>(reader);
+        }
+    }
 }
 ```
 
-Or you can also convert the list of `Person` to a `DataEntityDataReader` object and bulk-insert it.
+Or you can also convert the list of `Person` into a `DataEntityDataReader` object and bulk-insert it.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = GetPeople(10000);
-	using (var reader = new DataEntityDataReader<Person>(people))
-	{
-		var insertedRows = connection.BulkInsert<Person>(reader);
-	}
+    var people = GetPeople(10000);
+    using (var reader = new DataEntityDataReader<Person>(people))
+    {
+        var insertedRows = connection.BulkInsert<Person>(reader);
+    }
 }
 ```
 
@@ -138,17 +138,17 @@ You can add a mapping via `BulkInsertMapItem` class.
 var mappings = new List<BulkInsertMapItem>();
 
 // Add the mappings
-mappings.Add(new BulkInsertMapItem("Id", "Id"));
-mappings.Add(new BulkInsertMapItem("Name", "Name"));
-mappings.Add(new BulkInsertMapItem("IsActive", "Active"));
-mappings.Add(new BulkInsertMapItem("DateInsertedUtc", "CreatedDateUtc"));
+mappings.Add(new BulkInsertMapItem("SourceId", "DestinationId"));
+mappings.Add(new BulkInsertMapItem("SourceName", "DestinationName"));
+mappings.Add(new BulkInsertMapItem("SourceIsActive", "DestinationIsActive"));
+mappings.Add(new BulkInsertMapItem("SourceDateInsertedUtc", "DestinationDateInsertedUtc"));
 
 // Execute
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = GetPeople(10000);
-	var insertedRows = connection.BulkInsert(people,
-		mappings: mappings);
+    var people = GetPeople(10000);
+    var insertedRows = connection.BulkInsert(people,
+        mappings: mappings);
 }
 ```
 
@@ -159,9 +159,9 @@ You can define your bulk-copy options by passing a value of `SqlBulkCopyOptions`
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = GetPeople(10000);
-	var insertedRows = connection.BulkInsert(people,
-		options: SqlBulkCopyOptions.KeepIdentity);
+    var people = GetPeople(10000);
+    var insertedRows = connection.BulkInsert(people,
+        options: SqlBulkCopyOptions.KeepIdentity);
 }
 ```
 
@@ -172,8 +172,8 @@ You can also target a specific table by passing the literal table and field name
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = GetPeople(10000);
-	var insertedRows = connection.BulkInsert("[dbo].[Person]", people);
+    var people = GetPeople(10000);
+    var insertedRows = connection.BulkInsert("[dbo].[Person]", people);
 }
 ```
 
@@ -184,9 +184,9 @@ To pass a hint, simply write the table-hints and pass it in the `hints` argument
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = GetPeople(10000);
-	var insertedRows = connection.BulkInsert(people,
-		hints: "WITH (TABLOCK)");
+    var people = GetPeople(10000);
+    var insertedRows = connection.BulkInsert(people,
+        hints: "WITH (TABLOCK)");
 }
 ```
 
@@ -195,8 +195,8 @@ Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var people = GetPeople(10000);
-	var insertedRows = connection.BulkInsert(people,
-		hints: SqlServerTableHints.TabLock);
+    var people = GetPeople(10000);
+    var insertedRows = connection.BulkInsert(people,
+        hints: SqlServerTableHints.TabLock);
 }
 ```

@@ -74,7 +74,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### ExpandoObject and Dictionary<string, object>
 
-Below is a sample way of querying via ExpandoObject and/or IDictionary&lt;string, object&gt;. 
+Below is a sample way of querying via `ExpandoObject` and/or IDictionary&lt;string, object&gt;. 
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

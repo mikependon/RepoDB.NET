@@ -8,7 +8,7 @@ tags: [repodb, tutorial, min, orm, hybrid-orm, sqlserver, sqlite, mysql, postgre
 
 # Min
 
-This method is used to compute the min value of the target field.
+This method is used to compute the minimum value of the target field.
 
 #### Code Snippets
 
@@ -17,8 +17,8 @@ Below is the sample code that gets the minimum value of column `Value` from the 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var customerExpenses = connection.Min<Sales>(e => e.Value,
-		e => e.CustomerId == 10045 && e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1));
+    var customerExpenses = connection.Min<Sales>(e => e.Value,
+        e => e.CustomerId == 10045 && e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1));
 }
 ```
 
@@ -29,7 +29,8 @@ You can also target a specific table by passing the literal table and field name
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var customerExpenses = connection.Min("[dbo].[Sales]", Field.From("Value"), new { State = "Michigan" });
+    var customerExpenses = connection.Min("[dbo].[Sales]",
+        Field.From("Value"), new { State = "Michigan" });
 }
 ```
 
@@ -38,12 +39,12 @@ Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) i
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var where = new []
-	{
-		new QueryField("CustomerId", 10045),
-		new QueryField("DateInsertedUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1))
-	}
-	var customerExpenses = connection.Min("[dbo].[Sales]", Field.From("Value"), where: where);
+    var where = new []
+    {
+        new QueryField("CustomerId", 10045),
+        new QueryField("DateInsertedUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1))
+    }
+    var customerExpenses = connection.Min("[dbo].[Sales]", Field.From("Value"), where: where);
 }
 ```
 
@@ -54,9 +55,9 @@ To pass a hint, simply write the table-hints and pass it in the `hints` argument
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var customerExpenses = connection.Min<Sales>(e => e.Value,
-		e => e.CustomerId == 10045 && e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
-		hints: "WITH (NOLOCK)");
+    var customerExpenses = connection.Min<Sales>(e => e.Value,
+        e => e.CustomerId == 10045 && e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
+        hints: "WITH (NOLOCK)");
 }
 ```
 
@@ -65,7 +66,8 @@ Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var customerExpenses = connection.Min<Sales>(e => e.CustomerId == 10045 && e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
-		hints: SqlServerTableHints.NoLock);
+    var customerExpenses = connection.Min<Sales>(
+        e => e.CustomerId == 10045 && e.DateInsertedUtc >= DateTime.UtcNow.Date.AddDays(-1),
+        hints: SqlServerTableHints.NoLock);
 }
 ```

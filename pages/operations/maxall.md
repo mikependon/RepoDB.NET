@@ -8,7 +8,7 @@ tags: [repodb, tutorial, maxall, orm, hybrid-orm, sqlserver, sqlite, mysql, post
 
 # MaxAll
 
-This method is used to compute the max value of the target field.
+This method is used to compute the maximum value of the target field.
 
 #### Code Snippets
 
@@ -17,7 +17,7 @@ Below is the sample code that returns the maximum value of the column `Value` fr
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var expenses = connection.MaxAll<Sales>(e => e.Value);
+    var expenses = connection.MaxAll<Sales>(e => e.Value);
 }
 ```
 
@@ -28,7 +28,7 @@ You can also target a specific table by passing the literal table and field name
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var expenses = connection.MaxAll("[dbo].[Sales]", Field.From("Value"));
+    var expenses = connection.MaxAll("[dbo].[Sales]", Field.From("Value"));
 }
 ```
 
@@ -39,8 +39,8 @@ To pass a hint, simply write the table-hints and pass it in the `hints` argument
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var expenses = connection.MaxAll<Sales>(e => e.Value,
-		hints: "WITH (NOLOCK)");
+    var expenses = connection.MaxAll<Sales>(e => e.Value,
+        hints: "WITH (NOLOCK)");
 }
 ```
 
@@ -49,7 +49,7 @@ Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var expenses = connection.MaxAll<Sales>(e => e.Value,
-		hints: SqlServerTableHints.NoLock);
+    var expenses = connection.MaxAll<Sales>(e => e.Value,
+        hints: SqlServerTableHints.NoLock);
 }
 ```

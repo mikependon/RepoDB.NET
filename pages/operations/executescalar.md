@@ -8,7 +8,7 @@ tags: [repodb, tutorial, executescalar, orm, hybrid-orm, sqlserver, sqlite, mysq
 
 # ExecuteScalar
 
-This method is used to execute a raw-SQL directly towards the database. It returns a value of the first-row's first-column of the resultset. This method supports all types of RDMBS data providers.
+This method is used to execute a raw-SQL directly towards the database. It returns the value of the first-row's first-column from any kind of resultsets. This method supports all types of RDMBS data providers.
 
 #### Code Snippets
 
@@ -17,7 +17,7 @@ Below is a code that gets the server date time from the database.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var serverDateTime = connection.ExecuteScalar<DateTime>("SELECT GETUTCDATE();");
+    var serverDateTime = connection.ExecuteScalar<DateTime>("SELECT GETUTCDATE();");
 }
 ```
 
@@ -25,17 +25,17 @@ using (var connection = new SqlConnection(connectionString))
 
 You can pass a parameter via the following objects.
 
-- `Dynamic`
-- `ExpandoObject`
-- `Dictionary<string, object>`
-- `Query Objects`
+- Dynamic
+- ExpandoObject
+- Dictionary&lt;string, object&gt;
+- QueryField/QueryGroup
 
 ##### Dynamic
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM [dbo].[Person] WHERE DateInsertedUtc <= @DateInsertedUtc;", new { DateInsertedUtc = DateTime.UtcNow });
+    var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM [dbo].[Person] WHERE DateInsertedUtc <= @DateInsertedUtc;", new { DateInsertedUtc = DateTime.UtcNow });
 }
 ```
 
@@ -44,35 +44,48 @@ using (var connection = new SqlConnection(connectionString))
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new ExpandoObject() as IDictionary<string, object>;
-	param.Add("DateInsertedUtc", DateTime.UtcNow);
-	var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM [dbo].[Person] WHERE DateInsertedUtc <= @DateInsertedUtc;", param);
+    var param = new ExpandoObject() as IDictionary<string, object>;
+    param.Add("DateInsertedUtc", DateTime.UtcNow);
+    var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM [dbo].[Person] WHERE DateInsertedUtc <= @DateInsertedUtc;", param);
 }
 ```
 
-##### Dictionary
+##### Dictionary<string, object>
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new Dictionary<string, object>
-	{
-		{ "DateInsertedUtc", DateTime.UtcNow }
-	};
-	var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM [dbo].[Person] WHERE DateInsertedUtc <= @DateInsertedUtc;", param);
+    var param = new Dictionary<string, object>
+    {
+        { "DateInsertedUtc", DateTime.UtcNow }
+    };
+    var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM [dbo].[Person] WHERE DateInsertedUtc <= @DateInsertedUtc;", param);
 }
 ```
 
-##### Query Objects
+##### QueryField/QueryGroup
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new []
-	{
-		new QueryField("DateInsertedUtc", DateTime.UtcNow)
-	};
-	var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM [dbo].[Person] WHERE DateInsertedUtc <= @DateInsertedUtc;", param);
+    var param = new []
+    {
+        new QueryField("DateInsertedUtc", DateTime.UtcNow)
+    };
+    var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM [dbo].[Person] WHERE DateInsertedUtc <= @DateInsertedUtc;", param);
+}
+```
+
+Or via [QueryGroup](/class/querygroup).
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var param = new QueryGroup(new []
+    {
+        new QueryField("DateInsertedUtc", DateTime.UtcNow)
+    )};
+    var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM [dbo].[Person] WHERE DateInsertedUtc <= @DateInsertedUtc;", param);
 }
 ```
 
@@ -83,11 +96,11 @@ You can pass an array of values if you are using the `IN` keyword.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var param = new
-	{
-		Keys = new [] { 10045, 10102, 11004 }
-	};
-	var count = connection.ExecuteScalar<double>("SELECT SUM(NetWorth) FROM [dbo].[Person] WHERE Id IN (@Keys);", param);
+    var param = new
+    {
+        Keys = new [] { 10045, 10102, 11004 }
+    };
+    var count = connection.ExecuteScalar<double>("SELECT SUM(NetWorth) FROM [dbo].[Person] WHERE Id IN (@Keys);", param);
 }
 ```
 
@@ -100,7 +113,7 @@ There are 2 ways of executing a stored procedure. First, simply pass the name of
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var count = connection.ExecuteScalar<DateTime>("[dbo].[sp_GetServerDateTime]", commandType: CommandType.StoredProcedure);
+    var count = connection.ExecuteScalar<DateTime>("[dbo].[sp_GetServerDateTime]", commandType: CommandType.StoredProcedure);
 }
 ```
 
@@ -109,8 +122,8 @@ Or, simply use the native SQL calls like below.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-	var count = connection.ExecuteScalar<DateTime>("EXEC [dbo].[sp_GetServerDateTime];");
+    var count = connection.ExecuteScalar<DateTime>("EXEC [dbo].[sp_GetServerDateTime];");
 }
 ```
 
-> Notice in the second calls, there is semi-colon at the end of the command text and the command type was not set.
+> Notice in the second call, there is semi-colon at the end of the command text and the command type was not set.

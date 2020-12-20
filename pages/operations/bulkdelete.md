@@ -8,7 +8,7 @@ tags: [repodb, tutorial, bulkdelete, orm, hybrid-orm, sqlserver]
 
 # BulkDelete
 
-This method is used to delete the target rows from the database by bulk. This operation only supports [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
+This method is used to delete the target rows from the database by bulk. This operation only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
 
 #### Call Flow Diagram
 
@@ -26,7 +26,7 @@ If you are working to delete range of rows from 1000 or beyond, then use this me
 
 The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
 
-The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of SQL statements. If not given, the primary key (or identity) field will be used.
+The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statements. If not given, the primary or identity column will be used.
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 
@@ -81,7 +81,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ###### DataTable
 
-Below is the sample code to bulk-delete by data table.
+Below is the sample code to bulk-delete via data table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -93,7 +93,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ###### Dictionary/ExpandoObject
 
-Below is the sample code to bulk-delete by Dictionary or ExpandoObject.
+Below is the sample code to bulk-delete via `Dictionary<string, object>` or `ExpandoObject`.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -109,7 +109,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 
 ###### DataReader
 
-Below is the sample code to bulk-delete by data reader.
+Below is the sample code to bulk-delete via data reader.
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -137,7 +137,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Field Qualifiers
 
-By default, this operation is using the primary field (or identity field) as the qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
+By default, this operation is using the primary or identity as a qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -188,4 +188,4 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> By using the actual pseudo physical table, it will further help you maximize the performance (over using the `#Table` temp table). However, you need to be aware that the table is shared to any call. So parallelism may fail on this scenario.
+> By using the actual pseudo physical temporary table, it will further help you maximize the performance over using the normal temporary table. However, you need to be aware that the table is shared to any call, so parallelism may fail on this scenario.
