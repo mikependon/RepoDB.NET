@@ -62,29 +62,23 @@ nav.header {
     margin-top: 20px;
     padding: 0px;
 }
-
 .sidebar ul.doc-container {
     list-style-type: none !important;
     padding-top: 10px;
 }
-
 .sidebar ul li {
     list-style-type: none !important;
 }
-
 .sidebar .doc-container
 {
     margin: 0px;
 }
-
 .sidebar .doc-item {
     margin: 0px;
 }
-
 .sidebar .topic-item {
     margin: 3px 10px;
 }
-
 .sidebar .selected {
     color: #EE6E73;
 }
@@ -92,13 +86,16 @@ nav.header {
  /*
   * Footer
   */
-
-.page-footer .footer-contents h5 {
-    text-shadow: 0px -1px rgba(126, 32, 32, 0.774);
+.page-footer {
+    background-color: #EAEAEA;
+    border-top: 1px solid #DADADA;
+    color: inherit;;
 }
-
 .page-footer .footer-contents a:hover {
     text-decoration: underline;
+}
+.page-footer .footer-copyright {
+    color: inherit;
 }
 
 /*
@@ -133,7 +130,7 @@ nav.header {
 /* Icons */
 
 .icons-section {
-    background: #FAFAFA;
+    background: #EFEFEF;
     border-bottom: 1px solid #D7D7D7;
 }
 .icons-section .icon-block {
@@ -171,8 +168,7 @@ nav.header {
     /*font-size: 14px;*/
 }
 .code-section .highlighter-rouge .highlight {
-    /*background: #FAFAFA;*/
-    background-color: #1F1F1F;
+    background: #EFEFEF;
     border: 0px;
     border-radius: 4px;
 }
@@ -316,32 +312,25 @@ nav.header {
     font-family: 'Courier New', Courier, monospace;
 }
 pre.highlight {
-    /*background-color: #294345;*/
-    background-color: #1F1F1F;
+    background-color: #EFEFEF;
     /*border: 1px solid #EFEFEF;*/
     border-radius: 4px;
     /*box-shadow: #F4F4F4 1px 1px 3px inset;*/
     font-family: 'Courier New', Courier, monospace;
-    font-size: 90%;
+    /*font-size: 90%;*/
     padding: 15px;
 }
-pre.highlight code .p, pre.highlight code .m {
-    color: #DCDCDC;
-}
-pre.highlight code .nc, pre.highlight code .n  {
+pre.highlight code .n, pre.highlight code .nc, pre.highlight code .nf {
     color: #2DAAA6;
 }
-pre.highlight code .nf {
-    color: #B8D7A3;
-}
 pre.highlight code .kt, pre.highlight code .k {
-    color: #569CD6;
+    color: #1A1AFF;
 }
 pre.highlight code .cm, pre.highlight code .c1 {
     color: #57A64A;
 }
 pre.highlight code .s {
-    color: #B5CEA8;
+    color: #BE4B16;
 }
 blockquote {
     /*background: #FAFAFA;
