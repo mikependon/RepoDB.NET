@@ -37,7 +37,7 @@ Image below shows the data flow of the [BulkMerge](/operation/bulkmerge) operati
 
 Basically, a pseudo-temporary table will be created in the database under the transaction context. It then uses the [BulkInsert](/operation/bulkinsert) operation to target that pseudo-temporary table and process the data afterwards. Through this technique, we brought all the data together from the client application into the database server (at one-go) and process them together at the same time.
 
-You can maximize the execution by targetting your underlying table indexes via qualifiers, simply pass a list of [Field](/class/field) objects. The library will then create a CLUSTERED INDEX on the pseudo-temporary table through the passed qualifiers and do the actual joins to the original table using that index.
+You can maximize the execution by targeting your underlying table indexes via qualifiers, simply pass a list of [Field](/class/field) objects. The library will then create a CLUSTERED INDEX on the pseudo-temporary table through the passed qualifiers and do the actual joins to the original table using that index.
 
 > If you have not passed any qualifiers, the primary column will be used by default. If the primary column is not present, it will use the identity column instead.
 

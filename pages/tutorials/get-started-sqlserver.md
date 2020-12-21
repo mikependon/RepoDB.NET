@@ -241,7 +241,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-You can also dynamically update by targetting the certain columns.
+You can also dynamically update by targeting the certain columns.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))

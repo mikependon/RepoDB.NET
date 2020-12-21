@@ -232,7 +232,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-You can also update via dynamic by targetting certain columns.
+You can also update via dynamic by targeting certain columns.
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))

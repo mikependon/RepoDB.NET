@@ -25,7 +25,7 @@ You have use the [IDbHelper](/interface/idbhelper) interface as the contract for
 
 First, you have to manually create a class that implements the [IDbHelper](/interface/idbhelper) interface.
 
-Let us say, you are targetting to create a database helper for SQL Server.
+Let us say, you are targeting to create a database helper for SQL Server.
 
 ```csharp
 internal sealed class OptimizedSqlServerDbHelper : IDbHelper
