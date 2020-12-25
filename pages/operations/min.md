@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: operations
 title: "Min"
 permalink: /operation/min
 tags: [repodb, tutorial, min, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Operations
 ---
 
 # Min
 
+---
+
 This method is used to compute the minimum value of the target field.
 
-#### Code Snippets
+### Code Snippets
 
 Below is the sample code that gets the minimum value of column `Value` from the `[dbo].[Sales]` table for a specific customer since yesterday.
 
@@ -22,7 +25,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Targeting a Table
+### Targeting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 
@@ -48,7 +51,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Table Hints
+### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 

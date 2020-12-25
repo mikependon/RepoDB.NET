@@ -1,20 +1,23 @@
 ---
-layout: navpage
+layout: default
 sidebar: extensibilities
 title: "Statement Builder"
 permalink: /extensibility/statementbuilder
 tags: [repodb, class, statementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Extensibilities
 ---
 
 # Statement Builder
 
-A statement builder is an object that is being used by the library to generate the SQL statements for all operations. To be more practical, when you call the [QueryAll](/operation/queryall) operation, a SQL statement below is being constructed via statement builder and is being executed by the engine against the database.
+---
 
-You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class when implementing a customized statement builder. With this, some methods of the [IStatementBuilder](/interface/istatementbuilder) interface were already implemented and you as well automatically inheritted such implementations.
+A statement builder is an object that is being used by the library to generate the SQL statements for all operations. To be more practical, when you call the [QueryAll](/operation/queryall) operation, a SQL statement is being constructed via statement builder and is being executed by the engine against the database.
+
+You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class when implementing a customized statement builder. With this, some methods of the [IStatementBuilder](/interface/istatementbuilder) interface were already implemented and you automatically inheritted them. Therefore, you do not need to implement it yourselves.
 
 > We recommend to use the [BaseStatementBuilder](/class/basestatementbuilder) over [IStatementBuilder](/interface/istatementbuilder) when creating a customized statement builder.
 
-#### Pre-requisites
+### Pre-requisites
 
 - The naming to this object must be `Desired Name` + `StatementBuiler` (i.e.: `SqlServerStatementBuiler`).
 - The implementation must be `internal sealed`.
@@ -23,7 +26,7 @@ You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class wh
 
 > Please see the [folder structuring](/extensibility/folderstructuring) page.
 
-#### Get Started
+### Get Started
 
 To create a statement builder class, simply inherits the [BaseStatementBuilder](/class/basestatementbuilder) class.
 
@@ -44,15 +47,15 @@ You have to call the `base()` method on the constructor by passing the following
 - [Convert Field Resolver](/extensibility/convertfieldresolver) - a resolver that is being used by the library as an equivalent calls to `CONVERT` keyword.
 - [Average Type Resolver](/extensibility/averagetyperesolver) - a resolver that is being used to define which type of .NET CLR type the library is going to be used when calling the [Average](/operation/average) and [AverageAll](/operation/averageall) operations.
 
-#### Implementing the Abstract Methods
+### Implementing the Abstract Methods
 
 All methods of the [BaseStatementBuilder](/class/basestatementbuilder) class were implemented as virtuals, except for the following.
 
-- CreateBatchQuery - a method that generates a SQL statement for [BatchQuery](/operation/batchquery) operation.
-- CreateMerge - a method that generates a SQL statement for [Merge](/operation/merge) operation.
-- CreateMergeAll - a method that generates a SQL statement for [MergeAll](/operation/mergeall) operation.
+- `CreateBatchQuery` - a method that generates a SQL statement for [BatchQuery](/operation/batchquery) operation.
+- `CreateMerge` - a method that generates a SQL statement for [Merge](/operation/merge) operation.
+- `CreateMergeAll` - a method that generates a SQL statement for [MergeAll](/operation/mergeall) operation.
 
-###### Why?
+#### Why?
 
 - [BatchQuery](/operation/batchquery) - each RDBMS data provider has a different syntax for paging/batching.
 - [Merging](/operation/merge) - not all RDBMS data providers are supporting the default merge statement.
@@ -128,27 +131,26 @@ public override string CreateMerge(QueryBuilder queryBuilder,
 
 > The code snippets above is just a sample, it was not tested and is not working. In addition to this note, you have to manually implement all the abstract methods.
 
-#### Overriding the Virtual Methods
+### Overriding the Virtual Methods
 
 It is not necessary to override a virtual method of the [BaseStatementBuilder](/class/basestatementbuilder). However, if you do override, then below is a sample referrence-code that overrides the default implementation of [CreateTruncate](/operation/truncate) operation.
 
 ```csharp
 public override string CreateTruncate(QueryBuilder queryBuilder,
-	string tableName)
+string tableName)
 {
-	// Initialize the builder
-	var builder = queryBuilder ?? new QueryBuilder();
+    // Initialize the builder
+    var builder = queryBuilder ?? new QueryBuilder();
 
-	// Build the query
-	builder.Clear()
-		.Clear()
-		.Truncate()
-		.From()
-		.TableNameFrom(tableName, DbSetting)
-		.End();
+    // Build the query
+    builder.Clear()
+        .Truncate()
+        .From()
+        .TableNameFrom(tableName, DbSetting)
+        .End();
 
-	// Return the query
-	return builder.GetString();
+    // Return the query
+    return builder.GetString();
 }
 ```
 
@@ -156,7 +158,7 @@ You can do override the other virtual methods (as many as you like).
 
 > It is very important to only override the virtual methods if a customization or different implementation is needed.
 
-#### How to use?
+### How to use?
 
 You can pass it in any extended [fluent methods](/docs#fluent-methods) of the `DbConnection` object.
 
@@ -173,7 +175,7 @@ Or by passing it on the constructor of the [BaseRepository](/class/baserepositor
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
     public PersonRepository(ISettings settings)
-        : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
+        : base(settings.Value.ConnectionString, new OptimizedSqlServerStatementBuilder())
     { }
 }
 
@@ -189,7 +191,7 @@ Or even to the constructor of [DbRepository](/class/dbrepository) object.
 public class DatabaseRepository : DbRepository<SqlConnection>
 {
     public DatabaseRepository(ISettings settings)
-        : base(settings.ConnectionString, new OptimizedSqlServerStatementBuilder())
+        : base(settings.Value.ConnectionString, new OptimizedSqlServerStatementBuilder())
     { }
 }
 
@@ -199,7 +201,7 @@ using (var repository = new DatabaseRepository(new AppSettings()))
 }
 ```
 
-#### How to Retrieve?
+### How to Retrieve?
 
 You can use the [StatementBuilderMapper](/mapper/statementbuildermapper) to get the statement builder by connection type.
 

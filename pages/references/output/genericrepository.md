@@ -1,11 +1,17 @@
 ---
 layout: page
-title: "GenericRepository Reference Output"
+title: "Generic Repository"
 permalink: /reference/output/genericrepository
 tags: [repodb, class, genericrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Output
+grand_parent: References
 ---
 
-#### NorthwindRepository (DerivedRepository)
+# Generic Repository
+
+---
+
+This page has the consolidated code of the [GenericRepository](/reference/genericrepository) reference implementation.
 
 ```csharp
 public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepository
@@ -97,7 +103,7 @@ public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepo
 }
 ```
 
-#### Derived Repository Interface
+### Derived Repository Interface
 
 ```csharp
 public interface INorthwindRepository
@@ -141,19 +147,21 @@ public interface INorthwindRepository
 }
 ```
 
-#### RepositoryBase (GenericRepository)
+### RepositoryBase (GenericRepository)
 
 ```csharp
 public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
     where TDbConnection : DbConnection
 {
-    private IOptions<AppSettings> m_settings;
+    private IOptions<AppSettings> _settings;
 
-    public RepositoryBase(IOptions<AppSetting> settings)
+    public RepositoryBase(IOptions<AppSetting> settings,
+        ICache cache,
+        ITrace trace)
     {
-        m_settings = settings;
-        Cache = CacheFactory.CreateCacher();
-        Trace = TraceFactory.CreateTracer();
+        _settings = settings;
+        Cache = cache;
+        Trace = trace;
     }
 
     /*** Properties ***/
@@ -167,7 +175,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
     public TDbConnection CreateConnection()
     {
         var connection = Activator.CreateInstance<TDbConnection>();
-        connection.ConnectionString = m_settings.ConnectionString;
+        connection.ConnectionString = _settings.Value.ConnectionString;
         return connection;
     }
 
@@ -180,9 +188,9 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
         using (var connection = CreateConnection())
         {
             return connection.QueryAll<TEntity>(cacheKey: cacheKey,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 cache: Cache,
-                cacheItemExpiration: m_settings.CacheItemExpiration,
+                cacheItemExpiration: _settings.CacheItemExpiration,
                 trace: Trace);
         }
     }
@@ -194,7 +202,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
         using (var connection = CreateConnection())
         {
             return connection.Query<TEntity>(id,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -206,7 +214,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
         using (var connection = CreateConnection())
         {
             return connection.Delete<TEntity>(id,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -219,7 +227,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
         using (var connection = CreateConnection())
         {
             return connection.Merge<TEntity>(entity,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -232,7 +240,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
         using (var connection = CreateConnection())
         {
             return connection.Save<TEntity>(entity,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -259,9 +267,9 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
         using (var connection = CreateConnection())
         {
             return await connection.QueryAllAsync<TEntity>(cacheKey: cacheKey,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 cache: Cache,
-                cacheItemExpiration: m_settings.CacheItemExpiration,
+                cacheItemExpiration: _settings.CacheItemExpiration,
                 trace: Trace);
         }
     }
@@ -273,7 +281,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
         using (var connection = CreateConnection())
         {
             return await connection.QueryAsync<TEntity>(id,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -285,7 +293,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
         using (var connection = CreateConnection())
         {
             return await connection.DeleteAsync<TEntity>(id,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -297,7 +305,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
         using (var connection = CreateConnection())
         {
             return await connection.MergeAsync<TEntity>(entity,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -309,7 +317,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
         using (var connection = CreateConnection())
         {
             return await connection.SaveAsync<TEntity>(entity,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -321,14 +329,14 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
         using (var connection = CreateConnection())
         {
             return await connection.UpdateAsync<TEntity>(entity,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
 }
 ```
 
-#### Interface (RepositoryBase)
+### Interface (RepositoryBase)
 
 ```csharp
 public interface IRepositoryBase<TDbConnection>
@@ -368,7 +376,7 @@ public interface IRepositoryBase<TDbConnection>
 }
 ```
 
-#### Settings
+### Settings
 
 ```csharp
 public class AppSetting
@@ -379,7 +387,7 @@ public class AppSetting
 }
 ```
 
-#### Dependency Injection
+### Dependency Injection
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -391,52 +399,84 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### CacheFactory
+### Cache
 
 ```csharp
+// Custom Class
+public static class MyCustomCache : MemoryCache
+{
+    ...
+}
+
+// Factory
 public static class CacheFactory
 {
-    private static object m_syncLock = new object();
-    private static ICache m_cache = null;
+    private static object _syncLock = new object();
+    private static ICache _cache = null;
     
     public static ICache CreateCacher()
     {
-        if (m_cache == null)
+        if (_cache == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_cache == null)
+                if (_cache == null)
                 {
-                    m_cache = new MyCustomCache();
+                    _cache = new MyCustomCache();
                 }
             }
         }
-        return m_cache;
+        return _cache;
     }
+}
+
+// Dependency Injection
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddSingleton<ICache, MyCustomCache>();
 }
 ```
 
-#### TraceFactory
+### Trace
 
 ```csharp
+// Custom Class
+public static class MyCustomTrace : ITrace
+{
+    /* Implement all the methods here */
+}
+
+// Factory
 public static class TraceFactory
 {
-    private static object m_syncLock = new object();
-    private static ITrace m_trace = null;
+    private static object _syncLock = new object();
+    private static ITrace _trace = null;
     
     public static ITrace CreateTracer()
     {
-        if (m_trace == null)
+        if (_trace == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_trace == null)
+                if (_trace == null)
                 {
-                    m_trace = new MyCustomTrace();
+                    _trace = new MyCustomTrace();
                 }
             }
         }
-        return m_trace;
+        return _trace;
     }
+}
+
+// Dependency Injection
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddSingleton<ITrace, MyCustomTrace>();
 }
 ```

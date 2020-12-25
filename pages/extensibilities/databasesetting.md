@@ -1,12 +1,15 @@
 ---
-layout: navpage
+layout: default
 sidebar: extensibilities
 title: "Database Setting"
 permalink: /extensibility/databasesetting
 tags: [repodb, class, databasesetting, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Extensibilities
 ---
 
 # Database Setting
+
+---
 
 A database setting is an object that contains the information that are specific to a single RDBMS data providers. It holds the information of the following.
 
@@ -20,7 +23,7 @@ A database setting is an object that contains the information that are specific 
 - A support to multiple-statement executions.
 - A preparation of the command executions.
 
-#### Pre-requisites
+### Pre-requisites
 
 - The naming must be `Desired Name` + `DbSetting` (i.e.: `SqlServerDbSetting`).
 - The implementation must be `internal sealed`.
@@ -29,7 +32,7 @@ A database setting is an object that contains the information that are specific 
 
 > Please see the [folder structuring](/extensibility/folderstructuring) page.
 
-#### Get Started
+### Get Started
 
 You have to implement the class that inherits the [BaseDbSetting](/class/basedbsetting) class.
 
@@ -61,7 +64,7 @@ internal MyCustomSqlServerDbSetting()
 }
 ```
 
-#### How to use?
+### How to use?
 
 Simply use the [DbSettingMapper](/mapper/dbsettingmapper) class to map it to the specific RDBMS data provider.
 
@@ -91,7 +94,7 @@ Then the following SQL statement will be generated.
 
 > As you noticed on the generated SQL statement, the following settings (i.e.: OpeningQuote, ClosingQuote, SchemaSeparator and ParameterPrefix) were used.
 
-#### How to Retrieve?
+### How to Retrieve?
 
 You can use the [DbHelperMapper](/mapper/dbhelpermapper) to get the database helper by connection type.
 

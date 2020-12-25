@@ -1,33 +1,36 @@
 ---
-layout: navpage
+layout: default
 sidebar: interfaces
-title: "ICache"
+title: "IExpirable"
 permalink: /interface/iexpirable
 tags: [repodb, class, icache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Interfaces
 ---
 
-# ICache
+# IExpirable
+
+---
 
 This interface is used to make a class expirable in a contextual point of view. Is is used by [CacheItem](/class/cacheitem) class.
 
-#### Methods
+### Methods
 
 Below are the methods available from this interface.
 
 - `IsExpired` - identifies whether this class is expired.
 
-#### Properties
+### Properties
 
 Below are the properties available from this interface.
 
 - `CreatedDate` - the creation date.
 - `Expiration` - the expiration date.
 
-#### Use-Cases
+### Use-Cases
 
 You can use this interface if you wish to manage the expiration lifespan of your class. The implementation must be handled manually (depends on the purpose of the usage).
 
-#### How to Implement?
+### How to Implement?
 
 You have to manually create a class that implements this interface.
 

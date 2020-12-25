@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: interfaces
 title: "ICache"
 permalink: /interface/icache
 tags: [repodb, class, icache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Interfaces
 ---
 
 # ICache
 
+---
+
 This interface is used to mark a class to be a cache object. It gives you the full control on the implementations of your own cache object (i.e.: File Caching, SqLite Caching, XML Caching, Memory Caching, etc).
 
-#### Methods
+### Methods
 
 Below are the methods available from this interface.
 
@@ -20,11 +23,11 @@ Below are the methods available from this interface.
 - `Get` - allows you to get an instance of the cache by cache-key.
 - `Remove` - allows you to remove an existing cache item from the cache storage.
 
-#### Use-Cases
+### Use-Cases
 
 You can use this feature to maximize the performance by using the 2nd layer cache for the static and look-up records (or those records that are not frequently changing or not changing at all).
 
-#### How to Implement?
+### How to Implement?
 
 You have to manually create a class that implements this interface.
 
@@ -65,7 +68,7 @@ public class JsonCache : ICache
 
 > You have to implement all the methods needed by this interface. With this, you have the full control of you cacher object.
 
-#### How to use?
+### How to use?
 
 You can pass it on the constructor of the [BaseRepository](/class/baserepository) object.
 
@@ -73,7 +76,7 @@ You can pass it on the constructor of the [BaseRepository](/class/baserepository
 public class StateRepository : BaseRepository<State, SqlConnection>
 {
     public StateRepository(ISettings settings)
-        : base(settings.ConnectionString, new JsonCache(@"C:\cache", "jsoncache"))
+        : base(settings.Value.ConnectionString, new JsonCache(@"C:\cache", "jsoncache"))
     { }
 }
 ```
@@ -93,7 +96,7 @@ Or even to the constructor of [DbRepository](/class/dbrepository) object.
 public class DatabaseRepository : DbRepository<SqlConnection>
 {
     public DatabaseRepository(ISettings settings)
-        : base(settings.ConnectionString, new JsonCache(@"C:\cache", "jsoncache"))
+        : base(settings.Value.ConnectionString, new JsonCache(@"C:\cache", "jsoncache"))
     { }
 }
 ```
@@ -107,4 +110,4 @@ using (var repository = new DatabaseRepository(new AppSettings()))
 }
 ```
 
-> Please consider to only create a single cache object within the application and have it passed as a Singleton object in any fetch-calls or reporitories.
+> Please consider to only create a single cache object within the application and have it passed as a singleton object in any fetch-calls or reporitories.

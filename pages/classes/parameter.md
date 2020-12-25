@@ -1,26 +1,29 @@
 ---
-layout: navpage
+layout: default
 sidebar: classes
 title: "Parameter"
 description: "A class that defines a parameter of the data command object."
 permalink: /class/parameter
 tags: [repodb, class, parameter, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Classes
 ---
 
 # Parameter
+
+---
 
 This class is used to handle the necesasry information when constructing a data parameter. It is used by both [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects to manage all the parameters creation.
 
 > Internally, the library is using this class as an entries for creating the `DbParameter` objects.
 
-#### How to use?
+### How to use?
 
 ```csharp
 var parameter = new Parameter("@Id", 10045, false);
 // Do the stuffs for the 'parameter' here
 ```
 
-#### QueryField
+### QueryField
 
 The [QueryField](/class/queryfield) class is instantiating this class internally during the constructor.
 
@@ -31,7 +34,7 @@ var name = parameter.Name; // @Id
 var value = parameter.Value; // 10045
 ```
 
-#### QueryGroup
+### QueryGroup
 
 Since the [QueryGroup](/class/querygroup) is a grouping class of the list of [QueryField](/class/queryfield) objects, then you can also extract the parameters here.
 

@@ -1,90 +1,130 @@
 ---
-layout: navpage
+layout: default
 sidebar: references
-title: "DbRepository Reference"
+title: DbRepository
+nav_order: 3
 permalink: /reference/dbrepository
 tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: References
 ---
 
 # DbRepository
 
-This page contains the reference implementation when implementing a repository that inherits the [DbRepository](/class/dbrepository) class.
+---
 
-The consolidated output of this page can be found [here](/reference/output/dbrepository).
+This page contains the reference implementation when implementing a repository that inherits the [DbRepository](/class/dbrepository) class. The consolidated output of this page can be found [here](/reference/output/dbrepository).
 
 > The [DbRepository](/class/dbrepository) class is used for implementing a shared repository. Imagine you are working with `[dbo].[Customer]`, `[dbo].[Product]` and `[dbo].[Order]` tables.
 
-###### Recommended Objects (Optional)
+#### Recommended Objects (Optional)
 
-- [Cache](/interface/icache)
-- [Trace](/interface/itrace)
+- [ICache](/interface/icache)
+- [ITrace](/interface/itrace)
 
-###### Recommended Properties (Optional)
+#### Recommended Properties (Optional)
 
 - [ConnectionPersistency](/enumeration/connectionpersistency)
 - [CommandTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand.commandtimeout?view=sqlclient-dotnet-core-1.1)
 
-#### Cache Creation
+### Cache
 
-This must be passed in the constructor of the repository.
+Create a custom cache class.
+
+```csharp
+public static class MyCustomCache : MemoryCache
+{
+    ...
+}
+```
+
+Create a factory class.
 
 ```csharp
 public static class CacheFactory
 {
-    private static object m_syncLock = new object();
-    private static ICache m_cache = null;
+    private static object _syncLock = new object();
+    private static ICache _cache = null;
     
     public static ICache CreateCacher()
     {
-        if (m_cache == null)
+        if (_cache == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_cache == null)
+                if (_cache == null)
                 {
-                    m_cache = new MyCustomCache();
+                    _cache = new MyCustomCache();
                 }
             }
         }
-        return m_cache;
+        return _cache;
     }
 }
 ```
 
-Or, please refer to [ICache](/interface/icache) interface.
+Or, if you wish to dependency inject.
 
-#### Trace Creation
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
 
-This must be passed in the constructor of the repository.
+    // Registration
+    services.AddSingleton<ICache, MyCustomCache>();
+}
+```
+
+### Trace
+
+Create a custom trace class.
+
+```csharp
+public static class MyCustomTrace : ITrace
+{
+    /* Implement all the methods here */
+}
+```
+
+Create a factory class.
 
 ```csharp
 public static class TraceFactory
 {
-    private static object m_syncLock = new object();
-    private static ITrace m_trace = null;
+    private static object _syncLock = new object();
+    private static ITrace _trace = null;
     
     public static ITrace CreateTracer()
     {
-        if (m_trace == null)
+        if (_trace == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_trace == null)
+                if (_trace == null)
                 {
-                    m_trace = new MyCustomTrace();
+                    _trace = new MyCustomTrace();
                 }
             }
         }
-        return m_trace;
+        return _trace;
     }
 }
 ```
 
-Or, please refer to [ITrace](/interface/itrace) interface.
+Or, if you wish to dependency inject.
 
-#### IOptions Class (Settings Object)
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
 
-This must be injected in the constructor of the repository. Please refer to Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    // Registration
+    services.AddSingleton<ITrace, MyCustomTrace>();
+}
+```
+
+### Settings
+
+The settings object must be injected within the constructor of the repository. Please refer to Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 ```csharp
 public class AppSetting
@@ -95,26 +135,53 @@ public class AppSetting
 }
 ```
 
-#### Repository Creation
+### Repository
+
+Simply inherit the [DbRepository](/class/dbrepository) class and pass a generic type for the connection object.
+
+Below is the sample repository implementation.
+
+For the factory classes.
 
 ```csharp
 public class NorthwindRepository : DbRepository<SqlConnection>
 {
     public NorthwindRepository(IOptions<AppSetting> settings)
-        : base(settings.ConnectionString,
+        : base(settings.Value.ConnectionString,
             commandTimeout: settings.CommandTimeout,
             connectionPersistency: ConnectionPersistency.PerCall,
             cache: CacheFactory.CreateCacher(),
             cacheItemExpiration: settings.CacheItemExpiration,
             trace: TraceFactory.CreateTracer(),
-            statementBuilder: null /* Not necessary */ )
+            statementBuilder: null)
     {}
 
     ...
 }
 ```
 
-#### Methods Creation
+For the dependency-injected classes.
+
+```csharp
+public class NorthwindRepository : DbRepository<SqlConnection>
+{
+    public NorthwindRepository(IOptions<AppSetting> settings,
+        ICache cache,
+        ITrace trace)
+        : base(settings.Value.ConnectionString,
+            commandTimeout: settings.CommandTimeout,
+            connectionPersistency: ConnectionPersistency.PerCall,
+            cache: cache,
+            cacheItemExpiration: settings.CacheItemExpiration,
+            trace: trace,
+            statementBuilder: null)
+    {}
+
+    ...
+}
+```
+
+### Methods
 
 Below is the recommended way when exposing a method that returns all the records.
 
@@ -134,7 +201,7 @@ public IEnumerable<Product> GetProducts(string cacheKey = null,
 }
 ```
 
-Below is the recommended way when exposing a method that returns the records related to a parent entity.
+Below is the recommended way when exposing a method that return the records related to a parent entity.
 
 ```csharp
 public IEnumerable<Order> GetCustomerOrders(int customerId,
@@ -174,7 +241,7 @@ public Order GetOrder(int id,
 }
 ```
 
-Below is the recommended way to delete a record.
+Below is the recommended way when exposing a method that deletes a record.
 
 ```csharp
 public int DeleteOrder(int id,
@@ -306,9 +373,9 @@ public int UpdateProduct(Product product,
 }
 ```
 
-#### Async Methods
+### Async Methods
 
-Ensure that all records you had created has corresponding asynchronous methods with the same standard as synchronous methods.
+Ensure that all the synchronous methods you had created has the corresponding asynchronous methods suffixed by `Async` keyword. Within these methods, ensure that you are calling the corresponding asynchronous operations of the library.
 
 ```csharp
 // Get (Many)
@@ -459,7 +526,7 @@ public async Task<int> UpdateProductyAsync(Product product,
 }
 ```
 
-#### Enabling for Dependency Injection
+### Dependency Injection
 
 Create an interface that contains all the necessary methods. The name must be identitical on the purpose of the repository.
 
@@ -617,9 +684,9 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>, INorth
 }
 ```
 
-#### Repository Injection
+### Service Configuration and Registration
 
-Register it as singleton if you.
+Register it as singleton if you...
 
 - Are using the [ConnectionPersistency.Instance](/enumeration/connectionpersistency#instance) enumeration.
 - Enabled the [ICache](/interface/icache) object.
@@ -647,9 +714,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### Key Take-aways
+### Key Take-aways
 
-- The transaction argument is needed in every methods in order for you to enable the Unit of Work (UOW).
+- The transaction argument is needed in every method in order for you to enable the Unit of Work (UOW).
 - The cache key argument is needed in the case you need to cache the result.
 - The interface is needed for dependency injection.
 - The singleton registration is needed for caching and connection persistency.

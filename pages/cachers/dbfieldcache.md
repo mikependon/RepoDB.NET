@@ -1,28 +1,31 @@
 ---
-layout: navpage
+layout: default
 sidebar: cachers
 title: "DbFieldCache"
 description: "A class that is being used to retrieve the cached database fields of the class or data entity."
 permalink: /cacher/dbfieldcache
 tags: [repodb, class, dbfieldcache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Cachers
 ---
 
 # DbFieldCache
 
+---
+
 A cacher class for the database table fields. It provides a 2nd-layer caching for the library when it comes to database fields extraction. As a result, the library is fast-enough when reusing the already extracted database fields on any execution.
 
-#### Methods
+### Methods
 
 Below are the methods available from this class.
 
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the list of [DbField](/class/dbfield) objects.
 
-#### Use-Cases
+### Use-Cases
 
 You should use this class if you would like to get the references of the database fields by tablename, or you would like to extract the equivalent database fields of the class model.
 
-#### How to use?
+### How to use?
 
 You can simply call the `Get()` method of this class passing the literal table name.
 

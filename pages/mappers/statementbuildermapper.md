@@ -1,17 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: mappers
 title: "StatementBuilderMapper"
 description: "A mapper class for all the statement builder classes. The mapping can be made based on the type of the target RDBMS data provider."
 permalink: /mapper/statementbuildermapper
 tags: [repodb, class, statementbuildermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Mappers
 ---
 
 # StatementBuilderMapper
 
+---
+
 A mapper class for the [IStatementBuilder](/interface/istatementbuilder)-based class. The mapping can be made based on the type of the target RDBMS data provider. Please visit the [Database Setting](/extensibility/databasesetting) for more information.
 
-#### Methods
+### Methods
 
 Below are the methods available from this class.
 
@@ -20,13 +23,13 @@ Below are the methods available from this class.
 - `Get` - gets the mapped [IStatementBuilder](/interface/istatementbuilder) based on the type of the `DbConnection`.
 - `Remove` - removed the mapping between the [IStatementBuilder](/interface/istatementbuilder) and the type of the `DbConnection`.
 
-#### Use-Cases
+### Use-Cases
 
 You should use this class if you would like to override the default mapping of the library when it comes to database statement building.
 
-#### How to use?
+### How to use?
 
-To add a mapping, simply call the `Add` method.
+To add a mapping, simply call the `Add()` method.
 
 ```csharp
 StatementBuilderMapper.Add<SqlConnection>(new OptimizedSqlServerStatementBuilder(), true);
@@ -34,13 +37,13 @@ StatementBuilderMapper.Add<SqlConnection>(new OptimizedSqlServerStatementBuilder
 
 > An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
 
-To get the mapping, use the `Get` method.
+To get the mapping, use the `Get()` method.
 
 ```csharp
 var statementBuilder = StatementBuilderMapper.Get<SqlConnection>();
 ```
 
-To remove the mapping, use the `Remove` method.
+To remove the mapping, use the `Remove()` method.
 
 ```csharp
 StatementBuilderMapper.Remove<SqlConnection>();

@@ -6,6 +6,10 @@ date: 2020-04-10 20:47:00 +0100
 categories: blogs repodb
 ---
 
+# RepoDB remains as the most-fastest and most-efficient ORM in .NET Core Ecosystem (v3.1)
+
+---
+
 Yesterday (April 9, 2020), I had issued a PR to FransBouma's [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher) with the latest version of [RepoDB](https://github.com/mikependon/RepoDb), plus with the following updates:
 
 - Upgrading the `System.Data.SqlClient` to version `4.8.0`.
@@ -22,19 +26,19 @@ Right after the PR's approval, I received a Tweet about the bencher's execution.
 
 > Please exclude the `HandCoded Materializer` result when the outcome of the bencher.
 
-#### Result for NET Core (Set Fetches)
+### Result for NET Core (Set Fetches)
 
 <img src="/assets/images/blogs/rdab/2020-04-10/NetCore.PNG" height="420" />
 
 The actual result can be found [here](https://github.com/FransBouma/RawDataAccessBencher/blob/master/Results/20200410_netcore31.txt).
 
-#### Result for NET Framework (Set Fetches)
+### Result for NET Framework (Set Fetches)
 
 <img src="/assets/images/blogs/rdab/2020-04-10/NetFX.PNG" height="420" />
 
 The actual result can be found [here](https://github.com/FransBouma/RawDataAccessBencher/blob/master/Results/20200410_netfx.txt).
 
-#### Result for NET Core (Individual Fetches)
+### Result for NET Core (Individual Fetches)
 
 RepoDB has downed to 4th place (previous 1st place) in INDIVIDUAL fetches. See the result below.
 

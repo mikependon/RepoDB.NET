@@ -1,22 +1,25 @@
 ---
-layout: navpage
+layout: default
 sidebar: enumerations
 title: "Conjunction"
 description: "A enumeration that defines the conjunctions to be used when composing a query expression."
 permalink: /enumeration/conjunction
 tags: [repodb, class, conjunction, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Enumerations
 ---
 
 # Conjunction
 
+---
+
 This is an enum used to define a conjunction when grouping an expression via [QueryGroup](/class/querygroup) object.
 
-#### Enum Values
+### Enum Values
 
 - `And` - is used to define an `AND` expression during the grouping. This is the default setting.
 - `Or` - is used to define an `OR` expression during the grouping.
 
-#### How to use?
+### How to use?
 
 Simply pass it in the constructor when instantiating a [QueryGroup](/class/querygroup) object.
 

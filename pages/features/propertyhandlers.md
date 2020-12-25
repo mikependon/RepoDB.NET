@@ -1,26 +1,29 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
 title: "Property Handlers"
 description: "This is a feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound)."
 permalink: /feature/propertyhandlers
 tags: [repodb, class, propertyhandlers, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Property Handlers
+
+---
 
 This is a feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound). It allows you to customize the conversion of the class properties or specific .NET CLR types.
 
 The execution of the transformation contains the actual values and the affected class property context provided by the [ClassProperty](/class/classproperty) object.
 
-###### It uses the following objects
+#### It uses the following objects
 
 - [IPropertyHandler](/interface/ipropertyhandler) - an interface to mark your class as property handler.
 - [PropertyHandler](/attribute/propertyhandler) - an attribute used to map a property handler into a specific property.
 - [PropertyHandlerMapper](/mapper/propertyhandlermapper) - a mapper used to map into a property handler into a specific property.
 - [FluentMapper](/mapper/fluentmapper) - a fluent mapper class used to map into a property handler into a specific property.
 
-#### Relevant Use-Cases
+### Relevant Use-Cases
 
 - A string to class conversion. Imagine you have a column `Address` of type `NVARCHAR` and you would like it to be an `Address` type/class within your application.
 - A date kind handler. Imagine you would like to convert the `Kind` property of the `DateTime` object everytime you pull/push the record towards the database.
@@ -34,7 +37,7 @@ The scenarios can be unlimitted depends on your own situation (like below).
 - Manually override the default handler for the enumerations.
 - And many more.
 
-#### Implementing a Property Handler
+### Implementing a Property Handler
 
 Create a class that implements the [IPropertyHandler](/interface/ipropertyhandler) interface.
 
@@ -65,7 +68,7 @@ The property handler above is meant for a scenario of converting a string column
 
 > The code above uses the package [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) for JSON conversion.
 
-#### Attaching to a Property
+### Attaching to a Property
 
 To attach a property handler into a class property, simply use the [PropertyHandller](/attribute/propertyhandler) attribute.
 
@@ -91,7 +94,7 @@ When calling the pull operations (i.e.: [Query](/operation/query), [QueryAll](/o
 
 On the other hand, when you call the push operations (i.e.: [Insert](/operation/insert), [Update](/operation/update) and [Merge](/operation/merge)), then the `Set()` method will be invoked. 
 
-#### Creating a Type-Level Property Handler
+### Creating a Type-Level Property Handler
 
 The process is the same as with [Implementing a Property Handler](#implementing-a-property-handler) section. Create a class that implements the [IPropertyHandler](/interface/ipropertyhandler) interface.
 

@@ -1,24 +1,28 @@
 ---
-layout: smallpage
+layout: default
 title: Blogs
+nav_order: 13
 permalink: /blogs
 ---
 
-<div class="blogs-container">
-    <h1 class="blog-title">Blogs</h1>
-    <ul class="blogs">
-    {% for post in site.posts %}
-        <li class="blog-entry">
-            <h3 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-            <span class="author">
-                <author>{{ post.author }}</author>
-                •
-                <time datetime="{{ post.date | date_to_xmlschema }}">
-                    {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-                    {{ post.date | date: date_format }}
-                </time>
-            </span>
-        </li>
-    {% endfor %}
-    </ul>
-</div>
+# Blogs
+{: .fs-9 }
+
+What we share to the open community!
+{: .fs-6 .fw-300 }
+
+---
+
+{% for post in site.posts %}
+<p>
+    <h3 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <span class="author">
+        <author>{{ post.author }}</author>
+        •
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+            {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+            {{ post.date | date: date_format }}
+        </time>
+    </span>
+</p>
+{% endfor %}

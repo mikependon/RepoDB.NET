@@ -1,21 +1,24 @@
 ---
-layout: navpage
+layout: default
 sidebar: attributes
 title: "Text"
 description: "Learn on how to use the RepoDB Text attribute."
 permalink: /attribute/text
 tags: [repodb, class, text, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Attributes
 ---
 
 # Text
 
+---
+
 This attribute is used to decorate a special string value on any class, property, enumeration or interface.
 
-#### How to use?
+### How to use?
 
 You can add this attribute in any class, property, enumeration or interface for whatever purpose.
 
-##### Class
+#### Class
 
 ```csharp
 [Text("Corresponds to the [dbo].[Person] table at the database.")]
@@ -25,7 +28,7 @@ public class Person
 }
 ```
 
-##### Property
+#### Property
 
 ```csharp
 public class Person
@@ -35,7 +38,7 @@ public class Person
 }
 ```
 
-##### Enumeration
+#### Enumeration
 
 ```csharp
 public enum Operation
@@ -51,7 +54,7 @@ public enum Operation
 }
 ```
 
-##### Interface
+#### Interface
 
 ```csharp
 [Text("This is the base processor interface.")]

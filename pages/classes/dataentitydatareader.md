@@ -1,17 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: classes
 title: "DataEntityDataReader"
 description: "A customized data reader class that is used to handle the list of data entity objects."
 permalink: /class/dataentitydatareader
 tags: [repodb, class, dataentitydatareader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Classes
 ---
 
 # DataEntityDataReader
 
+---
+
 This class is used to convert the `IEnumerable<T>` object into a `DbDataReader` object.
 
-#### Learnings
+### Learnings
 
 Let us say you have a method named `GetPeople()` that creates an enumerable of `Person` model.
 

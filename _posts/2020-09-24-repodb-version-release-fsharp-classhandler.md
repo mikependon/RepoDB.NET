@@ -6,6 +6,10 @@ date: 2020-09-24 06:00:00 +0200
 categories: blogs repodb
 ---
 
+# Announcing RepoDB version 1.12.0
+
+---
+
 Today, we are announcing the availability of [RepoDb v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0). The released packages also comes with its bundles, the extension libraries at v1.1.0. See below.
 
 - [RepoDb.SqlServer v1.1.0](https://www.nuget.org/packages/RepoDb.SqlServer/1.1.0)
@@ -190,9 +194,9 @@ ClassHandlerMapper
     .Add<Person, PersonClassHandler>(true);
 ```
 
-After the mappings, when you call any of the push operations (i.e.: [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update)), the `Set` method of the property handler will be invoked, thus allowing you to intercept the information prior the actual execution to the database.
+After the mappings, when you call any of the push operations (i.e.: [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update)), the `Set()`  method of the property handler will be invoked, thus allowing you to intercept the information prior the actual execution to the database.
 
-On the other hand, when you call any of the push operations (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall), [BatchQuery](/operation/batchquery) and even the raw-SQL based [ExecuteQuery](/operation/executequery)), the `Get` method of the property handler will be invoked for you to verify the extracted information prior returning to the caller.
+On the other hand, when you call any of the push operations (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall), [BatchQuery](/operation/batchquery) and even the raw-SQL based [ExecuteQuery](/operation/executequery)), the `Get()` method of the property handler will be invoked for you to verify the extracted information prior returning to the caller.
 
 ### Immutable Classes
 
@@ -650,7 +654,7 @@ The generated SQL of the above code snippet is below.
 
 What happened behind the scene? Even the other columns (i.e.: `Age` and `CreatedDateUtc` columns) are not part of the statement, the `INSERT OR REPLACE` keyword are setting them to `NULL` by default.
 
-#### Upsert Solution
+### Upsert Solution
 
 The solution we introduce to this is to switch the [RepoDb.SqLite](https://www.nuget.org/packages/RepoDb.SqLite/) extension library to use the upsert technique. The upsert keyword stands for `Update/Insert`.
 
@@ -711,7 +715,7 @@ public SqLiteDbSetting(bool isExecuteReaderDisposable)
 
 In this section, we will enumerate some of the known breaking changes from the previous releases of this library. It is important for you to spend time reading this.
 
-#### The Merge Argument ('qualifiers' vs 'fields')
+### The Merge Argument ('qualifiers' vs 'fields')
 
 If you had called the [Merge](/operation/merge) operation with the list of [Field](/class/field) objects as the second argument and had not specified the argument name during the calls, then that would trigger a compilation error moving foward (see below).
 
@@ -772,7 +776,7 @@ var fields = Field.Parse<Person>(e => new
 var mergedRows = connection.Merge<People>(people, qualifiers: qualifiers, fields: fields);
 ```
 
-#### The 'Where/WhereOrPrimaryKey' vs 'What'
+### The 'Where/WhereOrPrimaryKey' vs 'What'
 
 In the previous version, if you had forced using the named argument to `whereOrPrimaryKey` and/or `where` argument when calling any of the push/pull operations, that may be encountering the compiler error.
 
@@ -813,7 +817,7 @@ using (var connection = new SqlConnection(connectionString))
 
 The update must be done to the other methods that accepts the mentioned staled arguments (i.e.: [Delete](/operation/delete), [Update](/operation/update) and the others).
 
-#### The DataReader.ToEnumerable Method
+### The DataReader.ToEnumerable Method
 
 The method that is used to extract the DbDataReader object into a target .NET CLR Type has been completely modified. In the previous version, the method named `ToEnumerable` with a signature like below is present, together with its corresponding `async` method.
 

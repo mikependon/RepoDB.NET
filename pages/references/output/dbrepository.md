@@ -1,24 +1,46 @@
 ---
 layout: page
-title: "DbRepository Reference Output"
+title: DbRepository
 permalink: /reference/output/dbrepository
 tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Output
+grand_parent: References
 ---
 
-#### NorthwindRepository (DbRepository)
+# DbRepository
+
+---
+
+This page has the consolidated code of the [DbRepository](/reference/dbrepository) reference implementation.
 
 ```csharp
 public class NorthwindRepository : DbRepository<Customer, SqlConnection>, INorthwindRepository
 {
+    // Factory Classes
     public NorthwindRepository(IOptions<AppSetting> settings)
-        : base(settings.ConnectionString,
+        : base(settings.Value.ConnectionString,
             commandTimeout: settings.CommandTimeout,
             connectionPersistency: ConnectionPersistency.PerCall,
             cache: CacheFactory.CreateCacher(),
             cacheItemExpiration: settings.CacheItemExpiration,
             trace: TraceFactory.CreateTracer(),
-            statementBuilder: null /* Not necessary */ )
+            statementBuilder: null)
     { }
+
+    // Dependency Injected Classes
+    /*
+    public NorthwindRepository(IOptions<AppSetting> settings,
+        ICache cache,
+        ITrace trace)
+        : base(settings.Value.ConnectionString,
+            commandTimeout: settings.CommandTimeout,
+            connectionPersistency: ConnectionPersistency.PerCall,
+            cache: cache,
+            cacheItemExpiration: settings.CacheItemExpiration,
+            trace: trace,
+            statementBuilder: null)
+    { }
+    */
 
     /*** Sync ***/
 
@@ -285,7 +307,7 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>, INorth
 }
 ```
 
-#### Interface
+### Interface
 
 ```csharp
 public interface INorthwindRepository
@@ -432,7 +454,7 @@ public interface INorthwindRepository
 }
 ```
 
-#### Settings
+### Settings
 
 ```csharp
 public class AppSetting
@@ -443,7 +465,7 @@ public class AppSetting
 }
 ```
 
-#### Dependency Injections
+### Dependency Injections
 
 For singleton.
 
@@ -469,52 +491,84 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### CacheFactory
+### Cache
 
 ```csharp
+// Custom Class
+public static class MyCustomCache : MemoryCache
+{
+    ...
+}
+
+// Factory
 public static class CacheFactory
 {
-    private static object m_syncLock = new object();
-    private static ICache m_cache = null;
+    private static object _syncLock = new object();
+    private static ICache _cache = null;
     
     public static ICache CreateCacher()
     {
-        if (m_cache == null)
+        if (_cache == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_cache == null)
+                if (_cache == null)
                 {
-                    m_cache = new MyCustomCache();
+                    _cache = new MyCustomCache();
                 }
             }
         }
-        return m_cache;
+        return _cache;
     }
+}
+
+// Dependency Injection
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddSingleton<ICache, MyCustomCache>();
 }
 ```
 
-#### TraceFactory
+### Trace
 
 ```csharp
+// Custom Class
+public static class MyCustomTrace : ITrace
+{
+    /* Implement all the methods here */
+}
+
+// Factory
 public static class TraceFactory
 {
-    private static object m_syncLock = new object();
-    private static ITrace m_trace = null;
+    private static object _syncLock = new object();
+    private static ITrace _trace = null;
     
     public static ITrace CreateTracer()
     {
-        if (m_trace == null)
+        if (_trace == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_trace == null)
+                if (_trace == null)
                 {
-                    m_trace = new MyCustomTrace();
+                    _trace = new MyCustomTrace();
                 }
             }
         }
-        return m_trace;
+        return _trace;
     }
+}
+
+// Dependency Injection
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddSingleton<ITrace, MyCustomTrace>();
 }
 ```

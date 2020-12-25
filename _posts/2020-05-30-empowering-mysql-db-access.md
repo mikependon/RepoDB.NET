@@ -6,7 +6,11 @@ date: 2020-05-30 5:55:00 +0200
 categories: blogs repodb
 ---
 
-#### Introduction
+# Empowering MySQL DB Access with MySqlConnector + RepoDB
+
+---
+
+### Introduction
 
 [MySqlConnector](https://mysqlconnector.net/) is an ADO.NET data provider for MySQL Server, MariaDB, Percona Server, Amazon Aurora, Azure Database for MySQL, Google Cloud SQL for MySQL and more. It provides implementations of DbConnection, DbCommand, DbDataReader, DbTransaction — the classes needed to query and update databases from managed code. MySqlConnector claims to be the real asynchronous data provider for MySQL in .NET space. It is known to much more faster and optimal than [MySql.Data](https://www.nuget.org/packages/MySql.Data/) data provider the Oracle has written.
 
@@ -14,7 +18,7 @@ categories: blogs repodb
 
 We are knocking on the windows of .NET/MySQL community about this newly built and released capability for MySQL DB accessibility space. With the combination of these 2 libraries, the DB accessibility for MySQL is now very powerful as both packages are offering different advantages for its users.
 
-#### About the Library
+### About the Library
 
 The library is deployed as Nuget Package named [RepoDb.MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector) in which both being authored by the authors of RepoDB and MySqlConnector. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector) as extension of RepoDb.
 
@@ -22,7 +26,7 @@ The library is currently on its first version release as of writing this. The te
 
 By using this library, you had inherited all the capabilities of both powerful packages in one installation.
 
-#### Get Started
+### Get Started
 
 To get started, install the package via Package Manager Console.
 
@@ -40,7 +44,7 @@ Once the bootstrapping is done, then the library can then be used right away.
 
 Or, please visit our official MySQL [Get Started](http://repodb.net/tutorial/get-started-mysql) page for more information.
 
-##### Inserting a Record
+#### Inserting a Record
 
 To insert a record, use the [Insert](http://repodb.net/operation/insert) method.
 
@@ -67,7 +71,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-##### Querying a Record
+#### Querying a Record
 
 To query a record, use the [Query](http://repodb.net/operation/query) method.
 
@@ -89,7 +93,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-##### Merging a Record
+#### Merging a Record
 
 To merge a record, use the [Merge](http://repodb.net/operation/merge) method.
 
@@ -120,7 +124,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-##### Deleting a Record
+#### Deleting a Record
 
 To delete a record, use the [Delete](http://repodb.net/operation/delete) method.
 
@@ -159,7 +163,7 @@ using (var connection = new MySqlConnection(connectionString))
 }
 ```
 
-##### Updating a Record
+#### Updating a Record
 
 To update a record, use the [Update](http://repodb.net/operation/update) method.
 
@@ -203,7 +207,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-##### Executing a Query
+#### Executing a Query
 
 To execute a query, use the [ExecuteNonQuery](http://repodb.net/operation/executenonquery) method.
 
@@ -245,7 +249,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-#### Community Address
+### Community Address
 
 We are here to gather some feedback from the community pertaining to the experiences when using the library.
 

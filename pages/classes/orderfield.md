@@ -1,17 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: classes
 title: "OrderField"
 description: "A class that is used to define an ordering of the results when querying a data from the database."
 permalink: /class/orderfield
 tags: [repodb, class, orderfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Classes
 ---
 
 # OrderField
 
+---
+
 This is the class that is used to define an ordering of the results from any fetch operations (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) or [BatchQuery](/operation/batchquery)).
 
-#### Creating an Instance
+### Creating an Instance
 
 ```csharp
 var orderBy = new OrderField("Id", Order.Ascending);
@@ -23,7 +26,7 @@ Or by descending.
 var orderfield = new OrderField("Id", Order.Descending);
 ```
 
-#### Ascending Method
+### Ascending Method
 
 You can also create by using the `Ascending` method.
 
@@ -31,7 +34,7 @@ You can also create by using the `Ascending` method.
 var field = OrderField.Ascending<Customer>(c => c.Id);
 ```
 
-#### Descending Method
+### Descending Method
 
 Also by using the `Descending` method.
 
@@ -39,7 +42,7 @@ Also by using the `Descending` method.
 var fields = OrderField.Descending<Customer>(c => c.Id);
 ```
 
-#### Parse Expression
+### Parse Expression
 
 You can also extract by parsing an expression.
 
@@ -53,7 +56,7 @@ Or by descending.
 var field = OrderField.Parse<Person>(e => e.Id, Order.Descending);
 ```
 
-#### Parse Object
+### Parse Object
 
 You can also extract by parsing an anonymous object.
 
@@ -74,7 +77,7 @@ var fields = OrderField.Parse(new
 });
 ```
 
-#### How to use?
+### How to use?
 
 Simply pass it on the operations like below.
 

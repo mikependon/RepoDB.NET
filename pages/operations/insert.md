@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: operations
 title: "Insert"
 permalink: /operation/insert
 tags: [repodb, tutorial, insert, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Operations
 ---
 
 # Insert
 
+---
+
 This method is used to insert a data entity object as a new row in the table.
 
-#### Code Snippets
+### Code Snippets
 
 Below is the sample code to insert a row into the `[dbo].[Person]` table.
 
@@ -30,7 +33,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > The result is always the value of primary key. If the primary key is an identity, then the newly generated identity value will be returned.
 
-#### Targeting a Table
+### Targeting a Table
 
 You can also target a specific table by passing the literal table like below.
 
@@ -88,7 +91,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > Please note that the library will add the newly created value of the identity column into the `Dictionary<string, object>` or `ExpandoObject` object (if not present).
 
-#### Specific Columns
+### Specific Columns
 
 You can also target a specific columns to be inserted by passing the list of fields to be included in the `fields` argument.
 
@@ -133,7 +136,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Table Hints
+### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 

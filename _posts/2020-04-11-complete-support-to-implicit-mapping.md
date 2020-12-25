@@ -6,15 +6,19 @@ date: 2020-04-12 5:24:00 +0100
 categories: blogs repodb
 ---
 
+# RepoDB complete support to Implicit Mapping
+
+---
+
 Happy Easter 2020! In the middle of my development of this site ([repodb.net](http://repodb.net)), 2 of the users of the library has asked me to introduce the [Implicit Mapping](/feature/implicitmapping) feature in [RepoDB](https://github.com/mikependon/RepoDb).
 
 The requests can be found [here](https://github.com/mikependon/RepoDb/issues/415).
 
-#### What is an Implicit Mapping?
+### What is an Implicit Mapping?
 
 It is feature that would allow you to map your desired attributes into your class (or class property) without even explicitly using the `Attribute`. This is to make sure that your models are attribute-free and is not bound to a specific ORM.
 
-#### Attributes
+### Attributes
 
 In RepoDB, the following attributes were already given.
 
@@ -24,7 +28,7 @@ In RepoDB, the following attributes were already given.
 - [PropertyHandler](/attribute/propertyhandler) - is used the map a class property handler.
 - [TypeMap](/attribute/typemap) - is used the map a class property and the database type.
 
-###### Examples:
+#### Examples:
 
 ```csharp
 [Map("[sales].[Customer]")]
@@ -46,7 +50,7 @@ public class Customer
 }
 ```
 
-#### Mappers
+### Mappers
 
 Then following mappers were added.
 
@@ -59,7 +63,7 @@ Then following mappers were added.
 
 > The [TypeMapper](/mapper/typemapper) and [PropertyHandlerMapper](/mapper/propertyhandlermapper) were already given since the early days of the library. 
 
-###### Examples:
+#### Examples:
 
 Let us say you have a class below. 
 
@@ -104,7 +108,7 @@ TypeMapper.Add<Customer>(c => c.DateOfBirth, DbType.DateTime2);
 TypeMapper.Add<DateTime>(DbType.DateTime2);
 ```
 
-#### Cachers
+### Cachers
 
 Then following cachers were added to cache the mappings. It is usually used for retrieval purposes.
 
@@ -115,7 +119,7 @@ Then following cachers were added to cache the mappings. It is usually used for 
 - [PropertyHandlerCache](/cacher/propertyhandlercache) - a cacher for [PropertyHandlerMapper](/mapper/propertyhandlermapper) mapper class and [PropertyHandler](/attribute/propertyhandler) attribute.
 - [TypeMapCache](/cacher/typemapcache) - a cacher for [TypeMapper](/mapper/typemapper) mapper class and [TypeMap](/attribute/typemap) attribute.
 
-###### Examples
+#### Examples
 
 To get the mappings, use the code snippets below.
 

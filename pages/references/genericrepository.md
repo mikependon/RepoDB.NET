@@ -1,89 +1,129 @@
 ---
-layout: navpage
+layout: default
 sidebar: references
-title: "Generic Repository Reference"
+title: "Generic Repository"
+nav_order: 4
 permalink: /reference/genericrepository
 tags: [repodb, class, genericrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: References
 ---
 
 # Generic Repository
 
-This page contains the reference implementation when implementing a generic repository.
+---
 
-The consolidated output of this page can be found [here](/reference/output/genericrepository).
+This page contains the reference implementation when implementing a generic repository that can be used by any entity model. The consolidated output of this page can be found [here](/reference/output/genericrepository).
 
-> This kind of repository is usually being created as a base repository that can be used by any models and databases. Imagine that you would like to have a reusable repository in any purpose.
+> This kind of repository is usually being created as a base repository that can be used by any entity model. Imagine that you would like to have a reusable repository in any purpose. This works like [DbRepository](/class/dbrepository).
 
-###### Recommended Objects (Optional)
+#### Recommended Objects (Optional)
 
-- [Cache](/interface/icache)
-- [Trace](/interface/itrace)
+- [ICache](/interface/icache)
+- [ITrace](/interface/itrace)
 
-###### Recommended Properties (Optional)
+#### Recommended Properties (Optional)
 
 - [CommandTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand.commandtimeout?view=sqlclient-dotnet-core-1.1)
 
-#### Cache Creation
+### Cache
 
-This must be passed in the constructor of the repository.
+Create a custom cache class.
+
+```csharp
+public static class MyCustomCache : MemoryCache
+{
+    ...
+}
+```
+
+Create a factory class.
 
 ```csharp
 public static class CacheFactory
 {
-    private static object m_syncLock = new object();
-    private static ICache m_cache = null;
+    private static object _syncLock = new object();
+    private static ICache _cache = null;
     
     public static ICache CreateCacher()
     {
-        if (m_cache == null)
+        if (_cache == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_cache == null)
+                if (_cache == null)
                 {
-                    m_cache = new MyCustomCache();
+                    _cache = new MyCustomCache();
                 }
             }
         }
-        return m_cache;
+        return _cache;
     }
 }
 ```
 
-Or, please refer to [ICache](/interface/icache) interface.
+Or, if you wish to dependency inject.
 
-#### Trace Creation
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
 
-This must be passed in the constructor of the repository.
+    // Registration
+    services.AddSingleton<ICache, MyCustomCache>();
+}
+```
+
+### Trace
+
+Create a custom trace class.
+
+```csharp
+public static class MyCustomTrace : ITrace
+{
+    /* Implement all the methods here */
+}
+```
+
+Create a factory class.
 
 ```csharp
 public static class TraceFactory
 {
-    private static object m_syncLock = new object();
-    private static ITrace m_trace = null;
+    private static object _syncLock = new object();
+    private static ITrace _trace = null;
     
     public static ITrace CreateTracer()
     {
-        if (m_trace == null)
+        if (_trace == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_trace == null)
+                if (_trace == null)
                 {
-                    m_trace = new MyCustomTrace();
+                    _trace = new MyCustomTrace();
                 }
             }
         }
-        return m_trace;
+        return _trace;
     }
 }
 ```
 
-Or, please refer to [ITrace](/interface/itrace) interface.
+Or, if you wish to dependency inject.
 
-#### IOptions Class (Settings Object)
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
 
-This must be injected in the constructor of the repository. Please refer to Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    // Registration
+    services.AddSingleton<ITrace, MyCustomTrace>();
+}
+```
+
+### Settings
+
+The settings object must be injected within the constructor of the repository. Please refer to Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 ```csharp
 public class AppSetting
@@ -94,19 +134,23 @@ public class AppSetting
 }
 ```
 
-#### Repository Creation
+### Repository
+
+Below is the sample repository implementation.
 
 ```csharp
 public class RepositoryBase<TDbConnection>
     where TDbConnection : DbConnection
 {
-    private IOptions<AppSettings> m_settings;
+    private IOptions<AppSettings> _settings;
 
-    public RepositoryBase(IOptions<AppSetting> settings)
+    public RepositoryBase(IOptions<AppSetting> settings,
+        ICache cache,
+        ITrace trace)
     {
-        m_settings = settings;
-        Cache = CacheFactory.CreateCacher();
-        Trace = TraceFactory.CreateTracer();
+        _settings = settings;
+        Cache = cache;
+        Trace = trace;
     }
 
     /*** Properties ***/
@@ -119,7 +163,7 @@ public class RepositoryBase<TDbConnection>
 }
 ```
 
-#### Helper Methods
+### Helper Methods
 
 Create a method that creates a connection object.
 
@@ -127,14 +171,14 @@ Create a method that creates a connection object.
 public TDbConnection CreateConnection()
 {
     var connection = Activator.CreateInstance<TDbConnection>();
-    connection.ConnectionString = m_settings.ConnectionString;
+    connection.ConnectionString = _settings.Value.ConnectionString;
     return connection;
 }
 ```
 
-#### Operational Methods
+### Operational Methods
 
-Below is the recommended way when exposing a method that returns the records.
+Below is the recommended way when exposing a method that return the records.
 
 ```csharp
 public IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null)
@@ -142,9 +186,9 @@ public IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null)
     using (var connection = CreateConnection())
     {
         return connection.QueryAll<TEntity>(cacheKey: cacheKey,
-            commandTimeout: m_settings.CommandTimeout,
+            commandTimeout: _settings.CommandTimeout,
             cache: Cache,
-            cacheItemExpiration: m_settings.CacheItemExpiration,
+            cacheItemExpiration: _settings.CacheItemExpiration,
             trace: Trace);
     }
 }
@@ -158,13 +202,13 @@ public TEntity Get<TEntity>(object id)
     using (var connection = CreateConnection())
     {
         return connection.Query<TEntity>(id,
-            commandTimeout: m_settings.CommandTimeout,
+            commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
 }
 ```
 
-Below is the recommended way to delete a record.
+Below is the recommended way when exposing a method that deletes a record.
 
 ```csharp
 public int Delete<TEntity>(object id)
@@ -172,7 +216,7 @@ public int Delete<TEntity>(object id)
     using (var connection = CreateConnection())
     {
         return connection.Delete<TEntity>(id,
-            commandTimeout: m_settings.CommandTimeout,
+            commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
 }
@@ -181,13 +225,12 @@ public int Delete<TEntity>(object id)
 Below is the recommended way when exposing a method that merges a record.
 
 ```csharp
-public object Merge<TEntity>(TEntity entity,
-    IDbTransaction transaction = null)
+public object Merge<TEntity>(TEntity entity)
 {
     using (var connection = CreateConnection())
     {
         return connection.Merge<TEntity>(entity,
-            commandTimeout: m_settings.CommandTimeout,
+            commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
 }
@@ -196,13 +239,12 @@ public object Merge<TEntity>(TEntity entity,
 Below is the recommended way when exposing a method that saves a record.
 
 ```csharp
-public object Save<TEntity>(TEntity entity,
-    IDbTransaction transaction = null)
+public object Save<TEntity>(TEntity entity)
 {
     using (var connection = CreateConnection())
     {
         return connection.Insert<TEntity>(entity,
-            commandTimeout: m_settings.CommandTimeout,
+            commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
 }
@@ -211,21 +253,19 @@ public object Save<TEntity>(TEntity entity,
 Below is the recommended way when exposing a method that updates a record.
 
 ```csharp
-public int Update<TEntity>(TEntity entity,
-    IDbTransaction transaction = null)
+public int Update<TEntity>(TEntity entity)
 {
     using (var connection = CreateConnection())
     {
         return Update<TEntity>(entity,
-            transaction: transaction,
             trace: Trace);
     }
 }
 ```
 
-#### Async Methods
+### Async Methods
 
-Ensure that all records you had created has corresponding asynchronous methods with the same standard as synchronous methods.
+Ensure that all the synchronous methods you had created has the corresponding asynchronous methods suffixed by `Async` keyword. Within these methods, ensure that you are calling the corresponding asynchronous operations of the library.
 
 ```csharp
 // Get (Many)
@@ -235,9 +275,9 @@ public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = n
     using (var connection = CreateConnection())
     {
         return await connection.QueryAllAsync<TEntity>(cacheKey: cacheKey,
-            commandTimeout: m_settings.CommandTimeout,
+            commandTimeout: _settings.CommandTimeout,
             cache: Cache,
-            cacheItemExpiration: m_settings.CacheItemExpiration,
+            cacheItemExpiration: _settings.CacheItemExpiration,
             trace: Trace);
     }
 }
@@ -249,7 +289,7 @@ public async Task<TEntity> GetAsync<TEntity>(object id)
     using (var connection = CreateConnection())
     {
         return await connection.QueryAsync<TEntity>(id,
-            commandTimeout: m_settings.CommandTimeout,
+            commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
 }
@@ -261,7 +301,7 @@ public async Task<int> DeleteAsync<TEntity>(object id)
     using (var connection = CreateConnection())
     {
         return await connection.DeleteAsync<TEntity>(id,
-            commandTimeout: m_settings.CommandTimeout,
+            commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
 }
@@ -273,7 +313,7 @@ public async Task<objec> MergeAsync<TEntity>(TEntity entity)
     using (var connection = CreateConnection())
     {
         return await connection.MergeAsync<TEntity>(entity,
-            commandTimeout: m_settings.CommandTimeout,
+            commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
 }
@@ -285,7 +325,7 @@ public async Task<object> SaveAsync<TEntity>(TEntity entity)
     using (var connection = CreateConnection())
     {
         return await connection.InsertAsync<TEntity>(entity,
-            commandTimeout: m_settings.CommandTimeout,
+            commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
 }
@@ -297,13 +337,13 @@ public async Task<int> UpdateAsync<TEntity>(TEntity entity)
     using (var connection = CreateConnection())
     {
         return await connection.UpdateAsync<TEntity>(entity,
-            commandTimeout: m_settings.CommandTimeout,
+            commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
 }
 ```
 
-#### Enabling for Dependency Injection
+### Dependency Injection
 
 Create an interface that contains all the necessary methods. The name must be identitical on the purpose of the repository.
 
@@ -355,9 +395,11 @@ public class RepositoryBase<DbConnection> : IRepositoryBase<DbConnection>
 }
 ```
 
-#### Using the RepositoryBase
+### Using the RepositoryBase
 
 Create a class that inherits the repository.
+
+For the factory classes.
 
 ```csharp
 public class NorthwindRepository : RepositoryBase<SqlConnection>
@@ -368,7 +410,22 @@ public class NorthwindRepository : RepositoryBase<SqlConnection>
 }
 ```
 
-#### Derived Repository Methods
+For the dependency-injected classes.
+
+```csharp
+public class NorthwindRepository : RepositoryBase<SqlConnection>
+{
+    public NorthwindRepository(IOptions<AppSetting> settings,
+        ICache cache,
+        ITrace trace)
+        : base(settings,
+            cache,
+            trace)
+    { }
+}
+```
+
+### Derived Repository Methods
 
 Create a method that calls the base method. Below is the recommended way for retrieving a single record.
 
@@ -410,40 +467,7 @@ public object SaveProduct(Product product)
 
 > Do the same calls for the other methods. Also, please take note to always implement the corresponding asynchronous methods.
 
-#### Unit of Work
-
-The unit of work must be done on the derived repository. You need to explicity create a connection and transaction objects and manage it manually.
-
-```csharp
-public void SaveCustomerOrder(int customerId,
-    int productId)
-{
-    using (var connection = CreateConnection())
-    {
-        using (var transaction = connection.BeginTransaction())
-        {
-            // Get the product
-            var product = connection.Query<Product>(productId, transaction: transaction).FirstOrDefault();
-
-            // Save the order
-            var order = new Order
-            {
-                CustomerId = customerId,
-                ProductId = productId,
-                CurrentPrice = product.Price,
-                OrderDateUtc = DateTime.UtcNow
-            };
-            order.CustomerId = customerId;
-            var orderId = connection.Save<Order>(order, transaction: transaction);
-
-            // Commit the transaction
-            transaction.Commit();
-        }
-    }
-}
-```
-
-#### Interface for Derived Repository
+### Interface for Derived Repository
 
 Implement the interface for the derived repository.
 
@@ -489,9 +513,11 @@ public interface INorthwindRepository
 }
 ```
 
-#### Derived Interface Implementation
+### Derived Interface Implementation
 
 Create a class that inherits the repository and implements the interface.
+
+For the factory classes.
 
 ```csharp
 public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepository
@@ -502,9 +528,26 @@ public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepo
 }
 ```
 
-#### Repository Injection
+For the dependency-injected classes.
 
-Register the derived repository in the service collection.
+```csharp
+public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepository
+{
+    public NorthwindRepository(IOptions<AppSetting> settings,
+        ICache cache,
+        ITrace trace)
+        : base(settings,
+            cache,
+            trace)
+    { }
+}
+```
+
+### Service Configuration and Registration
+
+Register it as singleton if you...
+
+- Enabled the [ICache](/interface/icache) object.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -516,9 +559,21 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### Key Take-aways
+Otherwise, register it as transient.
 
-- The dependency injection must happened only in derived repository.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddTransient<INorthwindRepository, NorthwindRepository>();
+}
+```
+
+### Key Take-aways
+
+- The dependency injection must be happened only in the derived repositories.
 - The async methods must be provided in all methods.
-- The unit-of-work activity must be on the derived repository (not base).
 - The repository must be short and precise on its purpose.

@@ -107,7 +107,7 @@ docs:
   title: "Operations"
   url: "/operation/average"
   isdoc: true
-  description: "Below are the list of operations available"
+  description: "Below are the list of operations available."
   topics:
 
   - title: "Average"
@@ -213,7 +213,7 @@ docs:
   title: "Classes"
   url: "/class/basedbsetting"
   isdoc: true
-  description: "Below are the list of classes available"
+  description: "Below are the list of classes available."
   topics:
 
   - title: "BaseDbSetting"
@@ -301,7 +301,7 @@ docs:
   title: "Attributes"
   url: "/attribute/identity"
   isdoc: true
-  description: "Below are the list of attributes available"
+  description: "Below are the list of attributes available."
   topics:
 
   - title: "Identity"
@@ -341,7 +341,7 @@ docs:
   title: "Enumerations"
   url: "/enumeration/conjunction"
   isdoc: true
-  description: "Below are the list of enumerations available"
+  description: "Below are the list of enumerations available."
   topics:
 
   - title: "Conjunction"
@@ -363,7 +363,7 @@ docs:
   title: "Interfaces"
   url: "/interface/icache"
   isdoc: true
-  description: "Below are the list of interfaces available"
+  description: "Below are the list of interfaces available."
   topics:
 
   - title: "ICache"
@@ -394,7 +394,7 @@ docs:
   title: "Cachers"
   url: "/cacher/classmappednamecache"
   isdoc: true
-  description: "Below are the list of cachers available"
+  description: "Below are the list of cachers available."
   topics:
 
   - title: "ClassMappedNameCache"
@@ -431,7 +431,7 @@ docs:
   title: "Mappers"
   url: "/mapper/classmapper"
   isdoc: true
-  description: "Below are the list of mappers available"
+  description: "Below are the list of mappers available."
   topics:
 
   - title: "ClassMapper"
@@ -471,7 +471,7 @@ docs:
   title: "Extensibilities"
   url: "/extensibility/averagetyperesolver"
   isdoc: true
-  description: "Below are the list of extensibility implementations available"
+  description: "Below are the list of extensibility implementations available."
   topics:
 
   - title: "Average Type Resolver"
@@ -492,45 +492,45 @@ docs:
   - title: "Statement Builder"
     url: "/extensibility/statementbuilder"
    
-#- key: references
-# title: "References"
-# url: "/reference/connectionrepository"
-# isdoc: false
-# description: null
-# topics:
-#
-#  - title: "Connection-Based Repository"
-# url: "/reference/connectionrepository"
-#
-#  - title: "BaseRepository"
-# url: "/reference/baserepository"
-#
-#  - title: "DbRepository"
-# url: "/reference/dbrepository"
-#
-#  - title: "GenericRepository"
-# url: "/reference/genericrepository"
-#
-#  - title: "Caching (JSON)"
-# url: "/reference/jsoncache"
-#
-#  - title: "Multiple Resultsets"
-# url: "/reference/multipleresultsets"
-#
-#  - title: "Property Handler"
-# url: "/reference/propertyhandlerpropertylevel"
-#
-#  - title: "Property Handler (Type Level)"
-# url: "/reference/propertyhandlertypelevel"
-#
-#  - title: "Query Expressions"
-# url: "/reference/queryexpressions"
-#
-#  - title: "Tracing"
-# url: "/reference/trace"
-#
-#  - title: "Unit of Work"
-# url: "/reference/unitofwork"
+- key: references
+  title: "References"
+  url: "/reference/connectionrepository"
+  isdoc: true
+  description: null
+  topics:
+
+  - title: "BaseRepository"
+    url: "/reference/baserepository"
+
+  - title: "Connection-Based Repository"
+    url: "/reference/connectionrepository"
+
+  - title: "DbRepository"
+    url: "/reference/dbrepository"
+
+  - title: "GenericRepository"
+    url: "/reference/genericrepository"
+
+  - title: "JSON Cache"
+    url: "/reference/jsoncache"
+
+  - title: "Multiple Resultsets"
+    url: "/reference/multipleresultsets"
+
+  - title: "Property Handler (Property Level)"
+    url: "/reference/propertyhandlerpropertylevel"
+
+  - title: "Property Handler (Type Level)"
+    url: "/reference/propertyhandlertypelevel"
+
+  - title: "Query Expressions"
+    url: "/reference/queryexpressions"
+
+  - title: "Trace"
+    url: "/reference/trace"
+
+  - title: "Unit of Work"
+    url: "/reference/unitofwork"
 
 - key: releases
   title: "Releases"

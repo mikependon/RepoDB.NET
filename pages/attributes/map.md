@@ -1,17 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: attributes
 title: "Map"
 description: "Learn on how to use the RepoDB Map attribute."
 permalink: /attribute/map
 tags: [repodb, class, map, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Attributes
 ---
 
 # Map
 
+---
+
 This is an attribute that is being used to map the class and its properties into its equivalent table and columns in the database.
 
-#### Class Mapping
+### Class Mapping
 
 Let us say you have a the table named `[department].[Person]` like below.
 
@@ -43,7 +46,7 @@ public DateTime CreatedDateUtc { get; set; }
 
 > You can also use the mapping if the table name and class name is not matching case-insensitively.
 
-#### Property Mapping
+### Property Mapping
 
 Let us say you have a the table named `[department].[Person]` like below.
 
@@ -77,7 +80,7 @@ public class Person
 }
 ```
 
-#### Get the Class Mapping
+### Get the Class Mapping
 
 You can use the [ClassMappedNameCache](/cacher/classmappednamecache) to extract the mappings for the class.
 
@@ -85,7 +88,7 @@ You can use the [ClassMappedNameCache](/cacher/classmappednamecache) to extract 
 var mappedName = ClassMappedNameCache.Get<Person>();
 ```
 
-#### Get the Property Mapping
+### Get the Property Mapping
 
 You can use the [PropertyMappedNameCache](/cacher/propertymappednamecache) to extract the mappings for the `PropertyInfo`.
 

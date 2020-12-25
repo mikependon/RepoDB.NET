@@ -1,28 +1,31 @@
 ---
-layout: navpage
+layout: default
 sidebar: operations
 title: "BulkDelete"
 permalink: /operation/bulkdelete
 tags: [repodb, tutorial, bulkdelete, orm, hybrid-orm, sqlserver]
+parent: Operations
 ---
 
 # BulkDelete
 
+---
+
 This method is used to delete the target rows from the database by bulk. This operation only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
 
-#### Call Flow Diagram
+### Call Flow Diagram
 
 The diagram below shows the flow when calling this operation.
 
 <img src="../../assets/images/site/bulk-delete.png" />
 
-#### Use Case
+### Use Case
 
 This method is very useful if you are deleting multiple rows in the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
 If you are working to delete range of rows from 1000 or beyond, then use this method over [DeleteAll](/operation/deleteall).
 
-#### Special Arguments
+### Special Arguments
 
 The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
 
@@ -30,13 +33,13 @@ The `qualifiers` is used to define the qualifier fields to be used in the operat
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 
-#### Caveats
+### Caveats
 
 RepoDB is automatically setting the value of the `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an IDENTITY primary key column. The same logic will apply if there is no primary key but has an IDENTITY column defined in the table.
 
 In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
-#### How to call?
+### How to call?
 
 Let us say you are retrieving all inactive people from the database.
 
@@ -67,7 +70,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > By default, the batch size is 10, equals to `Constant.DefaultBatchOperationSize` value.
 
-###### PrimaryKeys
+#### PrimaryKeys
 
 Below is the sample code to bulk-delete by primary keys.
 
@@ -79,7 +82,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-###### DataTable
+#### DataTable
 
 Below is the sample code to bulk-delete via data table.
 
@@ -91,7 +94,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-###### Dictionary/ExpandoObject
+#### Dictionary/ExpandoObject
 
 Below is the sample code to bulk-delete via `Dictionary<string, object>` or `ExpandoObject`.
 
@@ -107,7 +110,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-###### DataReader
+#### DataReader
 
 Below is the sample code to bulk-delete via `DbDataReader`.
 
@@ -124,7 +127,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-#### Targeting a Table
+### Targeting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 
@@ -135,7 +138,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Field Qualifiers
+### Field Qualifiers
 
 By default, this operation is using the primary or identity as a qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
 
@@ -151,7 +154,7 @@ Or by parsing the field expression.
 
 > When using the qualifiers, we recommend that you use the list of columns that has the correct index from the original table.
 
-#### Table Hints
+### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
@@ -175,7 +178,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Physical Temporary Table
+### Physical Temporary Table
 
 To ensure using a physical pseudo-temporary table, simply pass `true` in the `usePhysicalPseudoTempTable` argument.
 

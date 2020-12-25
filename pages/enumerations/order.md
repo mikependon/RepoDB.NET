@@ -1,22 +1,25 @@
 ---
-layout: navpage
+layout: default
 sidebar: enumerations
 title: "Order"
 description: "A enumeration that defines the list of ordering when querying a data from the database."
 permalink: /enumeration/order
 tags: [repodb, class, order, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Enumerations
 ---
 
 # Order
 
+---
+
 This enum is used to define an ordering of the query results. It is usually used in [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery) operations.
 
-#### Enum Values
+### Enum Values
 
 - `Ascending` - is used to define an ascending order. This is the default setting.
 - `Descending` - is used to define a descending order.
 
-#### How to use?
+### How to use?
 
 Simply use the value when creating an [OrderField](/class/orderfield) object.
 

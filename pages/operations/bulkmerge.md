@@ -1,28 +1,31 @@
 ---
-layout: navpage
+layout: default
 sidebar: operations
 title: "BulkMerge"
 permalink: /operation/bulkmerge
 tags: [repodb, tutorial, bulkmerge, orm, hybrid-orm, sqlserver]
+parent: Operations
 ---
 
 # BulkMerge
 
+---
+
 This method is used to merge all the rows from the client application into the database by bulk. This operation only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
 
-#### Call Flow Diagram
+### Call Flow Diagram
 
 The diagram below shows the flow when calling this operation.
 
 <img src="../../assets/images/site/bulk-merge.png" />
 
-#### Use Case
+### Use Case
 
 This method is very useful if you are merging multiple rows towards the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
 If you are working to merge range of rows from 1000 or beyond, then use this method over [MergeAll](/operation/mergeall).
 
-#### Special Arguments
+### Special Arguments
 
 The arguments `qualifiers`, `isReturnIdentity`, and `usePhysicalPseudoTempTable` is provided on this operation.
 
@@ -32,13 +35,13 @@ The `isReturnIdentity` is used to define the behaviour of the execution whether 
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 
-#### Caveats
+### Caveats
 
 RepoDB is automatically setting the value of the `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an IDENTITY primary key column. The same logic will apply if there is no primary key but has an IDENTITY column defined in the table.
 
 In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
-#### How to call?
+### How to call?
 
 Let us say you have a list of `Person` model at variable `people` that contains both the existing and non-existing rows from the database.
 
@@ -62,7 +65,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > By default, the batch size is 10, equals to `Constant.DefaultBatchOperationSize` value.
 
-###### DataTable
+#### DataTable
 
 Below is the sample code to bulk-merge via data table.
 
@@ -74,7 +77,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-###### Dictionary/ExpandoObject
+#### Dictionary/ExpandoObject
 
 Below is the sample code to bulk-merge via `Dictionary<string, object>` or `ExpandoObject`.
 
@@ -90,7 +93,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-###### DataReader
+#### DataReader
 
 Below is the sample code to bulk-merge via `DbDataReader`.
 
@@ -120,7 +123,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Field Qualifiers
+### Field Qualifiers
 
 By default, this method is using the primary or identity column as the qualifier. You can override it by passing the list of [Field](/class/field) objects in the `qualifiers` argument.
 
@@ -135,7 +138,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > When using the qualifiers, we recommend that you use the list of columns that has the correct index from the original table.
 
-#### Column Mappings
+### Column Mappings
 
 You can add a mapping via `BulkInsertMapItem` class.
 
@@ -157,7 +160,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Bulk Copy Options
+### Bulk Copy Options
 
 You can define your bulk-copy options by passing a value of `SqlBulkCopyOptions` in the `options` argument.
 
@@ -170,7 +173,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Targeting a Table
+### Targeting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 
@@ -182,7 +185,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Table Hints
+### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 

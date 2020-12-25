@@ -1,13 +1,16 @@
 ---
-layout: navpage
+layout: default
 sidebar: classes
 title: "QueryMultipleExtractor"
 description: "A class that is used to extract the information of the multiple resultsets returned by the ExecuteQueryMultiple operation."
 permalink: /class/querymultipleextractor
 tags: [repodb, class, querymultipleextractor, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Classes
 ---
 
 # QueryMultipleExtractor
+
+---
 
 This class is a result object of the [ExecuteQueryMultiple](/operation/executequerymultiple) operation. It offers you a much more controllability on how to extract the results from the `DbDataReader`.
 
@@ -15,7 +18,7 @@ Internally, it is abstracting the instance of `DbDataReader`, `IDbConnection` an
 
 It is also managing how the pointer of the `DbDataReader` object when you (as the developer) is calling its method. Underneath to this, it calls the `DbDataReader.NextResult()` method.
 
-#### Methods
+### Methods
 
 These are the methods available on this class.
 
@@ -24,7 +27,7 @@ These are the methods available on this class.
 
 > When using the `Scalar()` method, you can pass a generic type as a type of the result. Also, when calling any of the mentioned above, the pointer of the `DbDataReader` is advances to the next result.
 
-#### How to use?
+### How to use?
 
 You need to handle the result of [ExecuteQueryMultiple](/operation/executequerymultiple) into a variable and manage the extraction via `Extrac()` method.
 

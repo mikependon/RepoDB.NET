@@ -6,13 +6,17 @@ date: 2020-04-06 13:00:00 +0100
 categories: blogs repodb
 ---
 
-#### Introduction
+# C#: Bulk Operations for .NET Core (BulkDelete, BulkInsert, BulkMerge, BulkUpdate)
+
+---
+
+### Introduction
 
 We would like to share you the latest and greatest updates of RepoDB ORM. Recently, we just published the complete out-of-the-box support of Bulk Operations for SQL Server in .NET data access space.
 
 The actual repository can be found at [RepoDb.SqlServer.BulkOperations](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Extensions/RepoDb.SqlServer.BulkOperations).
 
-###### The updates cover the following awaited methods
+#### The updates cover the following awaited methods
 
 - `BulkDelete` (`BulkDeleteAsync`)
 - `BulkInsert` (`BulkInsertAsync`)
@@ -25,7 +29,7 @@ In addition, it will remove your worries by writing and maintaining the complex 
 
 *As an author and being an OSS contributor, I am trying to improve more the experience of most .NET Developers when it comes to data accessibility. The features, within the library is free and will always be. In return, I only like to hear your thoughts, feedbacks and experiences about this library. With this, we can help each other to further improve it.*
 
-#### The benefits of using the Bulk Operations
+### The benefits of using the Bulk Operations
 
 **Nothing else, but PERFORMANCE!**
 
@@ -33,7 +37,7 @@ Although, the same exact goal can be achieved by Batch Operations (i.e.: [Delete
 
 To explain further, when you only use the Batch operations, it is only batching the multiple atomic activities and still does the multiple round-trips from your application into the database server. However, when you use the Bulk operations, you are bringing all the data from the application into the database server at once and at the same time ignoring some database specific activities (i.e.: `Logging`, `Audits`, `Data-Type Checks`, `Constraints`, etc) behind the scene, thus gives you maximum performance during the operation.
 
-#### How does it works?
+### How does it works?
 
 It is leveraging the ADO.NET `SqlBulkCopy` class (both `System.Data.SqlClient/Microsoft.Data.SqlClient`).
 
@@ -51,7 +55,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL Sta
 
 See the SQL Statements below.
 
-###### For BulkDelete
+#### For BulkDelete
 
 ```csharp
 > DELETE T
@@ -59,7 +63,7 @@ See the SQL Statements below.
 > INNER JOIN [PseudoTempTable] TMP ON TMP.QualiferField1 = T.Field1 AND TMP.QualifierField2 = T.Field2;
 ```
 
-###### For BulkMerge
+#### For BulkMerge
 
 ```csharp
 > MERGE [dbo].[OriginalTable] T
@@ -71,7 +75,7 @@ See the SQL Statements below.
 >     SET (...);
 ```
 
-###### For BulkUpdate
+#### For BulkUpdate
 
 ```csharp
 > UPDATE T
@@ -82,7 +86,7 @@ See the SQL Statements below.
 > INNER JOIN [PseudoTempTable] TMP ON TMP.QualiferField1 = T.Field1 AND TMP.QualifierField2 = T.Field2;
 ```
 
-###### The following objects are supported
+#### The following objects are supported
 
 - `System.DataTable`
 - `System.Data.Common.DbDataReader`

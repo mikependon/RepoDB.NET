@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: interfaces
 title: "ITrace"
 permalink: /interface/itrace
 tags: [repodb, class, itrace, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Interfaces
 ---
 
 # ITrace
 
+---
+
 This interface is used to mark a class to be a trace object. This interface provides all the `BEFORE` and `AFTER` operation events.
 
-#### Methods
+### Methods
 
 Below are the `BEFORE` methods available from this interface.
 
@@ -74,7 +77,7 @@ Below are the `AFTER` methods available from this interface.
 - `AfterUpdate` - triggered after the [Update](/operation/update) method has been executed.
 - `AfterUpdateAll` - triggered after the [UpdateAll](/operation/updateall) method has been executed.
 
-#### Use-Cases
+### Use-Cases
 
 If you woud like to see and trace the following.
 
@@ -85,7 +88,7 @@ If you woud like to see and trace the following.
 
 Also, you can use this class to make an audit and cancel the operation before even the actual execution. Please visit the [TraceLog](/class/tracelog) and [CancellableTraceLog](/class/cancellabletracelog) classes to see more information about the trace logging.
 
-#### How to Implement?
+### How to Implement?
 
 You have to manually create a class that implements this interface.
 
@@ -146,29 +149,29 @@ public class MyCustomTrace : ITrace
 
 > All the [fluent methods](/docs#fluent-methods) will be having the `BEFORE` and `AFTER` methods within this interface.
 
-#### How to use?
+### How to use?
 
 First, as a recommendation, create a factory class that returns the trace.
 
 ```csharp
 public static class TraceFactory
 {
-    private static object m_syncLock = new object();
-    private static ITrace m_trace = null;
+    private static object _syncLock = new object();
+    private static ITrace _trace = null;
     
     public static ITrace CreateTracer()
     {
-        if (m_trace == null)
+        if (_trace == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_trace == null)
+                if (_trace == null)
                 {
-                    m_trace = new MyCustomTrace();
+                    _trace = new MyCustomTrace();
                 }
             }
         }
-        return m_trace;
+        return _trace;
     }
 }
 ```
@@ -188,7 +191,7 @@ Or by passing it on the constructor of the [BaseRepository](/class/baserepositor
 public class PersonRepository : BaseRepository<Person, SqlConnection>
 {
     public PersonRepository(ISettings settings)
-        : base(settings.ConnectionString, TraceFactory.CreateTracer())
+        : base(settings.Value.ConnectionString, TraceFactory.CreateTracer())
     { }
 }
 
@@ -204,7 +207,7 @@ Or even to the constructor of [DbRepository](/class/dbrepository) object.
 public class DatabaseRepository : DbRepository<SqlConnection>
 {
     public DatabaseRepository(ISettings settings)
-        : base(settings.ConnectionString, TraceFactory.CreateTracer())
+        : base(settings.Value.ConnectionString, TraceFactory.CreateTracer())
     { }
 }
 
@@ -214,4 +217,4 @@ using (var repository = new DatabaseRepository(new AppSettings()))
 }
 ```
 
-> Always consider to only create a single trace object within the application and have it passed as a Singleton object in any operations or reporitories. This is the reason why we had created the factory class above.
+> Always consider to only create a single trace object within the application and have it passed as a singleton object in any operations or reporitories. This is the reason why we had created the factory class above.

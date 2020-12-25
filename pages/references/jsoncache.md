@@ -1,22 +1,24 @@
 ---
-layout: navpage
+layout: default
 sidebar: references
 title: "JSON Cache"
+nav_order: 5
 permalink: /reference/jsoncache
 tags: [repodb, class, jsoncache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: References
 ---
 
 # JSON Cache
 
-This page contains the recommended way of implementing a cacher class for JSON objects in the file system.
+---
 
-The consolidated output of this page can be found [here](/reference/output/jsoncache).
+This page contains the reference implementation when implementing a file system cache object that is based for JSON. The consolidated output of this page can be found [here](/reference/output/jsoncache).
 
 > The class is using the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) package.
 
-#### Class Creation
+### Implementation
 
-Create an interface that implements the [ICache](/interface/icache) to support the dependency injections.
+First, create an interface that implements an [ICache](/interface/icache) interface. This is also to support the dependency injection.
 
 ```csharp
 public interface IJsonCache : ICache
@@ -31,7 +33,7 @@ public interface IJsonCache : ICache
 }
 ```
 
-Create a class and implement the custom interface.
+Then, create a class that implements your newly created interface.
 
 ```csharp
 public class JsonCache : IJsonCache
@@ -44,20 +46,20 @@ public class JsonCache : IJsonCache
 }
 ```
 
-> All methods must be implemented manually.
+> All methods of the [ICache](/interface/icache) interface must be implemented manually.
 
-#### Properties
+### Properties
 
-The properties that holds the extension of the file and the location of the cache.
+Implement the properties that will hold the extension of the file and the location of the caches.
 
 ```csharp
 public string Extension { get; }
 public string Path { get; }
 ```
 
-#### Helper Methods
+### Methods
 
-A method that compose the filename and creates directory.
+Implement the helper methods that would help you compose the filename and creates a directory.
 
 ```csharp
 public string GetFileName(string key)
@@ -75,13 +77,11 @@ public void EnsureDirectory()
 }
 ```
 
-#### Cache Methods
+Then, implement each method of the [ICache](/interface/icache) interface itself.
 
-Implement each method of the [ICache](/interface/icache) interface.
+#### Add
 
 ```csharp
-/*** Methods ***/
-
 public void Add<T>(string key,
     T value,
     int expiration = 180,
@@ -104,19 +104,31 @@ public void Add<T>(CacheItem<T> item,
 {
     Add<T>(item.Key, item.Value, item.CacheItemExpiration, throwException);
 }
+```
 
+#### Clear
+
+```csharp
 public void Clear()
 {
     Directory.Delete(Path, true);
     EnsureDirectory();
 }
+```
 
+#### Contains
+
+```csharp
 public bool Contains(string key)
 {
     var fileName = GetFileName(key);
     return File.Exists(fileName);
 }
+```
 
+#### Get
+
+```csharp
 public CacheItem<T> Get<T>(string key,
     bool throwException = true)
 {
@@ -132,7 +144,11 @@ public CacheItem<T> Get<T>(string key,
     }
     return null;
 }
+```
 
+#### Remove
+
+```csharp
 public void Remove(string key,
     bool throwException = true)
 {
@@ -146,7 +162,11 @@ public void Remove(string key,
         throw new FileNotFoundException($"File '{fileName}' is not found.");
     }
 }
+```
 
+#### GetEnumerator
+
+```csharp
 IEnumerator IEnumerable.GetEnumerator()
 {
     foreach (var fileName in Directory.GetFiles(Path))
@@ -156,36 +176,36 @@ IEnumerator IEnumerable.GetEnumerator()
 }
 ```
 
-> The class [CacheItem](/class/cacheitem) does not have default constructor, by then, you can serialize/deserialize this object into JSON. The only items you can serialize/deserialize is the value itself. If you wish to cache the properties (i.e.: `Key`, `Expiration`, `ExpirationInMinutes`), then you have to create a class in between before serializing/deserializing it.
+> The class [CacheItem](/class/cacheitem) does not have default constructor, therefore, you cannot serialize/deserialize this object into JSON. The only thing that you can serialize/deserialize is the value itself. If you wish to cache the properties (i.e.: `Key`, `Expiration`, `ExpirationInMinutes`), then you have to create a class in between before serializing/deserializing it.
 
-#### Usability
+### Usability
 
 Create a factory class.
 
 ```csharp
 public static class CacheFactory
 {
-    private static object m_syncLock = new object();
-    private static ICache m_cache = null;
+    private static object _syncLock = new object();
+    private static ICache _cache = null;
     
     public static ICache CreateCacher()
     {
-        if (m_cache == null)
+        if (_cache == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_cache == null)
+                if (_cache == null)
                 {
-                    m_cache = new JsonCache();
+                    _cache = new JsonCache();
                 }
             }
         }
-        return m_cache;
+        return _cache;
     }
 }
 ```
 
-Or inject it as Singleton.
+Or inject it as a singleton object.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

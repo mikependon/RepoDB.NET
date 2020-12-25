@@ -1,19 +1,22 @@
 ---
-layout: navpage
+layout: default
 sidebar: attributes
 title: "NpgsqlTypeMap"
 description: "Learn on how to use the RepoDB NpgsqlTypeMap attribute."
 permalink: /attribute/npgsqltypemap
 tags: [repodb, class, npgsqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Attributes
 ---
 
 # NpgsqlTypeMap
+
+---
 
 This attribute is used to map a property into its equivalent type from the database (via `NpgsqlTypes.NpgsqlDbType`).
 
 It only supports the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql).
 
-#### How to use?
+### How to use?
 
 Below is a a sample code on how to map an existing property into a `NpgsqlTypes.NpgsqlDbType` database type.
 
@@ -43,3 +46,5 @@ public class Person
     public DateTime DateInsertedUtc { get; set; }
 }
 ```
+
+> This attribute is currently not supported by the [FluentMapper](/mapper/fluentmapper).

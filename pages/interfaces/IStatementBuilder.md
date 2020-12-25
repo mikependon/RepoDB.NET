@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: interfaces
 title: "IStatementBuilder"
 permalink: /interface/istatementbuilder
 tags: [repodb, class, istatementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Interfaces
 ---
 
 # IStatementBuilder
 
+---
+
 This interface is used to mark a class to be a statement builder object. I provides necessary methods for your to be able to override the way how the SQL statements are being constructed.
 
-#### Methods
+### Methods
 
 Below are the methods available from this interface.
 
@@ -38,20 +41,20 @@ Below are the methods available from this interface.
 - `CreateUpdate` - used to create a SQL statement for the [Update](/operation/update) operation.
 - `CreateUpdateAll` - used to create a SQL statement for the [UpdateAll](/operation/updateall) operation.
 
-#### Use-Cases
+### Use-Cases
 
 This is very useful if you wish to override the existing statement builder of the library, or wish to support the other RDBMS database providers.
 
 Please visit the [Statement Builder](/extensibility/statementbuilder) to learn more about the statement builder.
 
-#### How to Implement?
+### How to Implement?
 
 You have to manually create a class that implements this interface.
 
 ```csharp
 public class OptimizedSqlServerStatementBuilder : IStatementBuilder
 {
-    private IDbSetting m_dbSetting = new SqlServerDbSetting();
+    private IDbSetting _dbSetting = new SqlServerDbSetting();
 
     public string CreateAverage(QueryBuilder queryBuilder,
         string tableName,
@@ -110,9 +113,9 @@ public class OptimizedSqlServerStatementBuilder : IStatementBuilder
 }
 ```
 
-#### How to use?
+### How to use?
 
-You can instantiate a new instance and pass it when you are calling any [fluent methods](/docs/fluent-methods).
+You can instantiate a new instance and pass it when you are calling any [fluent methods](/links/fluent-methods).
 
 ```csharp
 var statementBuilder = new OptimizedSqlServerStatementBuilder();

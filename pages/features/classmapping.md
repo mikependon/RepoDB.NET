@@ -1,17 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
 title: "Class Mapping"
 description: "This is a feature that would allow you to map the .NET CLR type (or class properties) into its equivalent database objects and types."
 permalink: /feature/classmapping
 tags: [repodb, class, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Class Mapping
 
+---
+
 This is a feature that would allow you to map the .NET CLR type (or class properties) into its equivalent database objects and types. It includes the mapping capabilities for the class/property name, primary/identity columns, class/property handlers and the database types.
 
-#### Class Name Mapping
+### Class Name Mapping
 
 To map the class name, simply use the [Map](/attribute/map) attribute.
 
@@ -41,7 +44,7 @@ FluentMapper
     .Table("[sales].[Customer]")
 ```
 
-#### Property Name Mapping
+### Property Name Mapping
 
 To map the property name, simply use the [Map](/attribute/map) attribute.
 
@@ -86,7 +89,7 @@ FluentMapper
     .Column(e => e.LastName, "[LName]");
 ```
 
-#### Primary Mapping
+### Primary Mapping
 
 To map the class primary property, simply use the [Primary](/attribute/primary) attribute.
 
@@ -120,7 +123,7 @@ FluentMapper
     .Primary(e => e.Id);
 ```
 
-#### Identity Mapping
+### Identity Mapping
 
 To map the class identity property, simply use the [Identity](/attribute/identity) attribute.
 
@@ -142,7 +145,7 @@ FluentMapper
     .Identity(e => e.Id);
 ```
 
-#### Class Handler Mapping
+### Class Handler Mapping
 
 To map the class handler, simply use the [ClassHandler](/attribute/classhandler) attribute.
 
@@ -163,7 +166,7 @@ FluentMapper
     .ClassHandler<CustomerClassHandler>();
 ```
 
-#### Property Handler Mapping
+### Property Handler Mapping
 
 To map the class property equivalent property handler, simply use the [PropertyHandler](/attribute/propertyhandler) attribute.
 
@@ -189,7 +192,7 @@ FluentMapper
     .PropertyHandler<PersonAddressPropertyHandler>(e => e.Address);
 ```
 
-#### Database Type Mapping
+### Database Type Mapping
 
 To map the class property equivalent database type, simply use the [TypeMap](/attribute/typemap) attribute.
 
@@ -215,7 +218,7 @@ FluentMapper
     .Column(e => e.DateOfBirth, DbType.DateTime2);
 ```
 
-###### Type Level
+#### Type Level
 
 You can also use the [FluentMapper](/mapper/fluentmapper) or the [TypeMapper](/mapper/typemapper) classes to map the .NET CLR type into its equivalent database type mapping.
 

@@ -1,13 +1,16 @@
 ---
-layout: navpage
+layout: default
 sidebar: classes
 title: "DataReader"
 description: "The most fastest data reader extractor in .NET. It is used to extract the content of the data reader object and map it into a class object."
 permalink: /class/datareader
 tags: [repodb, class, datareader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Classes
 ---
 
 # DataReader
+
+---
 
 This class is used to convert the `DbDataReader` object into an `IEnumerable<T>` or `IEnumerable<dynamic>` object. This is the heart of the library when it comes to data extraction from the database.
 
@@ -15,7 +18,7 @@ It only contains one method named `ToEnumerable`. This method is pre-compiled AO
 
 > This class is high-performant and efficient. It understands and caches the schema of your database into the memory. It also reuses all the other caches within the library during the extraction to construct and generate the most-optimal AOT compilation.
 
-#### Extracting an Entities
+### Extracting an Entities
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -28,7 +31,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Extracting a Dynamics
+### Extracting a Dynamics
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -41,7 +44,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### DbFields
+### DbFields
 
 It is also quitely important to pass the list of the [DbField](/class/dbfield) object in order for the compiler to skip the unnecessary DB-NULL checks.
 

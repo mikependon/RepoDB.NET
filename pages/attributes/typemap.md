@@ -1,19 +1,22 @@
 ---
-layout: navpage
+layout: default
 sidebar: attributes
 title: "TypeMap"
 description: "Learn on how to use the RepoDB TypeMap attribute."
 permalink: /attribute/typemap
 tags: [repodb, class, typemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Attributes
 ---
 
 # TypeMap
+
+---
 
 This attribute is used to map a property into its equivalent type from the database (via `System.Data.DbType`).
 
 > This attribute supercede the type-level mapping defined at the [TypeMapper](/mapper/typemapper) object.
 
-#### How to use?
+### How to use?
 
 Below is a a sample code on how to map an existing `DateTime` property to a `System.Data.DbType.DateTime2` database type.
 

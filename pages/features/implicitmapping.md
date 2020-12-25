@@ -1,22 +1,25 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
 title: "Implicit Mapping"
 description: "This is a feature that would allow you to implicitly map the .NET CLR objects or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes in the classes."
 permalink: /feature/implicitmapping
 tags: [repodb, class, implicitmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Implicit Mapping
 
+---
+
 This is a feature that would allow you to implicitly map the .NET CLR type or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes within the classes.
 
-#### Fluent Mapping
+### Fluent Mapping
 
 Use the [FluentMapper](/mapper/fluentmapper) class to fluently manage the mappings of the table/properties, primary/identity columns, database types and class/property handlers.
 
 
-###### Entity Mapping
+#### Entity Mapping
 
 To define the mappings for an entity, use the `Entity()` method.
 
@@ -34,7 +37,7 @@ FluentMapper
     .PropertyHandler<CustomerAddressPropertyHandler>(e => e.Address); // Defines the PropertyHandler of the Property
 ```
 
-###### Type-Level Mapping
+#### Type-Level Mapping
 
 To define the mappings for a specfic .NET CLR type, use the `Type()` method.
 
@@ -49,7 +52,7 @@ The priority of the mapping is first identified via  attribute-level followed by
 
 > The [FluentMapper](/mapper/fluentmapper) is using the following classes ([ClassMapper](/mapper/classmapper), [ClassHandlerMapper](/mapper/classhandlermapper), [IdentityMapper](/mapper/identitymapper), [PrimaryMapper](/mapper/primarymapper), [PropertyHandlerMapper](/mapper/propertyhandlermapper), [PropertyMapper](/mapper/propertymapper) and [TypeMapper](/mapper/typemapper)) underneath to establish the proper mappings.
 
-#### Class Name Mapping
+### Class Name Mapping
 
 Use the [ClassMapper](/mapper/classmapper) class to manage the mappings of the class into its equivalent object in the database (i.e.: Table, View).
 
@@ -88,7 +91,7 @@ To remove the mapping, use the `Remove()` method.
 ClassMapper.Remove<Customer>();
 ```
 
-#### Identity Mapping
+### Identity Mapping
 
 Use the [IdentityMapper](/mapper/identitymapper) class to manage the mappings of the class property as an identity.
 
@@ -116,7 +119,7 @@ To remove the mapping, use the `Remove()` method.
 IdentityMapper.Remove<Customer>();
 ```
 
-#### Primary Mapping
+### Primary Mapping
 
 Use the [PrimaryMapper](/mapper/primarymapper) class to manage the mappings of the class property as a primary.
 
@@ -143,7 +146,7 @@ To remove the mapping, use the `Remove()` method.
 PrimaryMapper.Remove<Customer>();
 ```
 
-#### ClassHandler Mapping
+### ClassHandler Mapping
 
 Use the [ClassHandlerMapper](/mapper/classhandlermapper) class to manage the mappings of the .NET CLR type class handler.
 
@@ -188,11 +191,11 @@ To remove the mapping, use the `Remove()` method.
 ClassHandlerMapper.Remove<Customer>();
 ```
 
-#### PropertyHandler Mapping
+### PropertyHandler Mapping
 
 Use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to manage the mappings between the property handles and the .NET CLR type or class property.
 
-###### Property Level
+#### Property Level
 
 Let us say you have property handler below.
 
@@ -235,7 +238,7 @@ To remove the mapping, use the `Remove()` method.
 PropertyHandlerMapper.Remove<Customer>(e => e.Address);
 ```
 
-###### Type Level
+#### Type Level
 
 Let us say you want to handle all the `System.DateTime` properties and you have created the property handler below.
 
@@ -278,7 +281,7 @@ To remove the mapping, use the type-level `Remove()` method.
 PropertyHandlerMapper.Remove<DateTime>();
 ```
 
-#### Property Name Mapping
+### Property Name Mapping
 
 Use the [PropertyMapper](/mapper/propertymapper) class to manage the mappings of the class property into its equivalent column in the database.
 
@@ -343,11 +346,11 @@ PropertyMapper.Remove<Customer>(e => e.LastName);
 PropertyMapper.Remove<Customer>(e => e.DateOfBirth);
 ```
 
-#### Database Type Mapping
+### Database Type Mapping
 
 Use the [TypeMapper](/mapper/typemapper) class to manage the mappings of the .NET CLR type or class property into its equivalent database type.
 
-###### Property Level
+#### Property Level
 
 Let us say you have the `Customer` class below.
 
@@ -387,7 +390,7 @@ To remove the mapping, ue the `Remove()` method.
 TypeMapper.Remove<Customer>(e => e.DateOfBirth);
 ```
 
-###### Type Level
+#### Type Level
 
 Let us say you would like to always map the `System.DateTime` .NET CLR type equivalent to `DbType.DateTime2` database type.
 

@@ -1,19 +1,22 @@
 ---
-layout: navpage
+layout: default
 sidebar: attributes
 title: "Primary"
 description: "Learn on how to use the RepoDB Primary attribute."
 permalink: /attribute/primary
 tags: [repodb, class, primary, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Attributes
 ---
 
 # Primary
+
+---
 
 This is an attribute that is being used to mark the property of the class as a primary property.
 
 > It is very important to take note that the library knows your schema, and with that, you do not need to decorate your class with this attribute as it is automatically been identified internally.
 
-#### How to implement?
+### How to implement?
 
 Let us say you have a the table named `[dbo].[Person]` where the field `Id` is an primary.
 
@@ -45,7 +48,7 @@ public class Person
 
 > By setting this attribute to any class property, you had overriden the auto-identification logic of the library. If you place this attribute in a property that is not really a primary from the database, then the library will use that property instead. By doing so, it may fail some of the operations.
 
-#### How to Retrieve?
+### How to Retrieve?
 
 To retrieve the primary property, you can use the [PrimaryCache](/cacher/primarycache) object.
 

@@ -6,13 +6,17 @@ date: 2020-04-02 12:00:00 +0100
 categories: blogs repodb
 ---
 
-## Introduction
+# RepoDB - a hybrid ORM library for .NET
+
+---
+
+### Introduction
 
 Introducing RepoDB, a new high performant and efficient hybrid ORM library for .NET.
 
 To begin with, you can start reading our [Get Started](/tutorial/get-started-sqlserver) page or learn more from our [documentation](/docs).
 
-## Why use RepoDB?
+### Why use RepoDB?
 
 - Easy installation, only takes few seconds.
 - No controlled layer like `DbContext`, those make the developers speed-up the usability.
@@ -23,11 +27,11 @@ To begin with, you can start reading our [Get Started](/tutorial/get-started-sql
 - Minimizes the round trips with `2nd-Layer` cache.
 - Transmission of data from different RDBMS DB Providers only take few lines of codes.
 
-## How does it works?
+### How does it works?
 
 Basically, all [operations](/docs#operations) were implemented as extended methods of the `IDbConnection` object. Once you hold the opened-state of your database connection object, you can then do all the activities you would like to do with your database through those extended methods.
 
-###### See sample code snippets below:
+#### See sample code snippets below:
 
 For [Query](/operation/query).
 
@@ -94,7 +98,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Core Features
+### Core Features
 
 Below are the list of features available.
 
@@ -115,16 +119,16 @@ Below are the list of features available.
 
 To learn more about these [operation](/docs#operations), please visit our [documentation](/docs) page.
 
-## Database Supports
+### Database Supports
 
 The library supports the 
 You can use the library to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) Relational Database Management Systems (RDBMS).
 
-## Quality
+### Quality
 
 It also covers a lot of real-world scenarios through its rich [Unit Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core/RepoDb.Tests/RepoDb.UnitTests) and [Integration Tests](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core/RepoDb.Tests/RepoDb.IntegrationTests). 
 
-## Feedback
+### Feedback
 
 Please let us know about your feedback if you have some.
 

@@ -1,24 +1,27 @@
 ---
-layout: navpage
+layout: default
 sidebar: classes
 title: "PropertyValue"
 description: "A class that holds the value of class or data entity property and its values."
 permalink: /class/propertyvalue
 tags: [repodb, class, propertyvalue, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Classes
 ---
 
 # PropertyValue
+
+---
 
 This class is used to handle the name and the value of the class property. It also handles an instance of [ClassProperty](/class/classproperty).
 
 > Internally, the library is using this class as a parameter before executing any operation.
 
-#### Use Case
+### Use Case
 
 - If you are to manually handle the properties and values of the data entity.
 - It is used to fast-extract the data entities property and values via [ClassExpression](/class/classexpression).
 
-#### How to use?
+### How to use?
 
 ```csharp
 var person = repository.Query(10045);

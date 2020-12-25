@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: extensibilities
 title: "Folder Structuring"
 permalink: /extensibility/folderstructuring
 tags: [repodb, class, folderstructuring, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Extensibilities
 ---
 
 # Folder Structuring
 
+---
+
 This page will guide you on the folder structuring when extending the library with different RDBMS data providers.
 
-#### Structures
+### Structures
 
 Let us say you are to support the `Snowflakes`, then below are the recommended structures.
 
@@ -26,7 +29,7 @@ Let us say you are to support the `Snowflakes`, then below are the recommended s
             - RepoDb.Snowflakes.UnitTests.csproj
 ```
 
-#### Namespaces
+### Namespaces
 
 The namespaces of the classes must be the following.
 

@@ -1,13 +1,16 @@
 ---
-layout: navpage
+layout: default
 sidebar: classes
 title: "ClassProperty"
 description: "A container class that holds an instance of property object. It also contains all the necesarry methods that is relevant to the current property object."
 permalink: /class/classproperty
 tags: [repodb, class, classproperty, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Classes
 ---
 
 # ClassProperty
+
+---
 
 This class is used as a container of the `System.Reflection.PropertyInfo` object. It is one of the core class that helps the library speed up the manipulation of the class properties.
 
@@ -25,7 +28,7 @@ var properties = ClassExpression.GetProperties<Person>();
 
 > The `PropertyCache` is also using the [ClassExpression](/class/classexpression) underneath, however, it caches the already extracted class properties for future reusabilities.
 
-##### AsField
+#### AsField
 
 This method is used to convert the current instance into [Field](/class/field) object.
 
@@ -34,7 +37,7 @@ var primary = PropertyCache.Get<Person>().FirstOrDefault(p => p.IsPrimary() == t
 var field = primary.AsField();
 ```
 
-##### GetDbType
+#### GetDbType
 
 This method is used to get the equivalent `System.DbType` value of the property based on the property type.
 
@@ -45,7 +48,7 @@ var dbType = primary.GetDbType();
 
 > This is useful when you are creating a `DbParameter` object before passing it to the actual `DbCommand` object for execution.
 
-##### GetPropertyHandler
+#### GetPropertyHandler
 
 This method is used to get the existing mapped property handler of the property.
 
@@ -61,7 +64,7 @@ foreach (var property in properties)
 }
 ```
 
-##### GetIdentityAttribute
+#### GetIdentityAttribute
 
 This method is used to get the existing [Identity](/attribute/identity) attribute if present.
 
@@ -75,7 +78,7 @@ if (isIdentity)
 }
 ```
 
-##### GetPrimaryAttribute
+#### GetPrimaryAttribute
 
 This method is used to get the existing [Primary](/attribute/primary) attribute if present.
 
@@ -91,7 +94,7 @@ foreach (var property in properties)
 }
 ```
 
-##### GetMappedName
+#### GetMappedName
 
 This method is used to get the existing mapping defined on the property. It extracts the value of the [Map](/attribute/map) attribute if present.
 
@@ -100,7 +103,7 @@ var primary = PropertyCache.Get<Person>().FirstOrDefault(p => p.IsPrimary() == t
 var mappedName = primary.GetMappedName();
 ```
 
-##### IsIdentity
+#### IsIdentity
 
 This method is used to identify whether the property is an identity. It uses the `GetIdentityAttribute` underneath to check whether the property is an identity.
 
@@ -115,7 +118,7 @@ foreach (var property in properties)
 }
 ```
 
-##### IsPrimary
+#### IsPrimary
 
 This method is used to identify whether the property is a primary property. It uses the `GetPrimaryAttribute` underneath to check whether the property is a primary property.
 

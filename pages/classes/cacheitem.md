@@ -1,21 +1,24 @@
 ---
-layout: navpage
+layout: default
 sidebar: classes
 title: "CacheItem"
 description: "A class that is used as an item for the cache object."
 permalink: /class/cacheitem
 tags: [repodb, class, cacheitem, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Classes
 ---
 
 # CacheItem
 
+---
+
 This class is used as an item for the [ICache](/interface/icache) object.
 
-#### Methods
+### Methods
 
 Please see the [IExpirable](/interface/iexpirable) methods.
 
-#### Properties
+### Properties
 
 - `Key` - the key to the cache.
 - `Value` - the value of the class (a generic type).
@@ -23,12 +26,12 @@ Please see the [IExpirable](/interface/iexpirable) methods.
 
 In addition, please see the [IExpirable](/interface/iexpirable) properties.
 
-#### Properties
+### Properties
 
 Below are the methods available from this interface.
 
 
-##### Creating New Instance
+#### Creating New Instance
 
 Below is the way on how to create a new instance of this class.
 
@@ -37,7 +40,7 @@ var expirationInMinutes = 180;
 var item = new CacheItem("Key", "Value", expirationInMinutes);
 ```
 
-##### Passing to the Cache
+#### Passing to the Cache
 
 Usually, the [ICache](/interface/icache) object is embedded within the repository. Let us say you have a repository named `PersonRepository`.
 
@@ -56,7 +59,7 @@ using (var repository = new PersonRepository())
 
 > Usually, the cache will automatically be set by passing a value to the `cacheKey` argument when calling the [Query](/operation/query) or [BatchQuery](/operation/batchquery) operations.
 
-##### Retrieving from the Cache
+#### Retrieving from the Cache
 
 To retrieve an item from the cache, directly access the [ICache](/interface/icache) object and call the `Get()` method passing the key.
 

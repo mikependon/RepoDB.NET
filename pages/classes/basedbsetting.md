@@ -1,21 +1,24 @@
 ---
-layout: navpage
+layout: default
 sidebar: classes
 title: "BaseDbSetting"
 description: "A base class for all the database setting classes."
 permalink: /class/basedbsetting
 tags: [repodb, class, basedbsetting, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Classes
 ---
 
 # BaseDbSetting
 
+---
+
 This class stands as the base class of all [IDbSetting](/interface/idbsetting)-based classes.
 
-#### Use-Cases
+### Use-Cases
 
 To simplify your implementation, always use this class over the [IDbSetting](/interface/idbsetting) interface when overriding the default database settings.
 
-#### How to Implement?
+### How to Implement?
 
 Simply create a class that inherits this class, then set the properties in the constructor.
 
@@ -43,7 +46,7 @@ public sealed class MyCustomSqlServerDbSetting : BaseDbSetting
 
 > Additional benefits when using this class, you do not need to implement the `GetHashCode()` method as it is already implemented within the base class.
 
-#### How to use?
+### How to use?
 
 Simply use the [DbSettingMapper](/mapper/dbsettingmapper) class to map it to the specific RDBMS data provider.
 

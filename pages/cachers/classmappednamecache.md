@@ -1,32 +1,35 @@
 ---
-layout: navpage
+layout: default
 sidebar: cachers
 title: "ClassMappedNameCache"
 description: "A class that is being used to retrieve the cached name of the class or data entity."
 permalink: /cacher/classmappednamecache
 tags: [repodb, class, classmappednamecache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Cachers
 ---
 
 # ClassMappedNameCache
+
+---
 
 A cacher class for the class name mapping. Underneath, it uses the [ClassMapper](/mapper/classmapper) class to extract the results and caching it for future use. It provides a 2nd-layer caching for the library when it comes to the class name mapping extraction. As a result, the library is fast-enough when reusing the already extracted class mapped name on any execution.
 
 > Internally, this class is widely used within the library.
 
-#### Methods
+### Methods
 
 Below are the methods available from this class.
 
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the mapped name of the class.
   
-#### Use-Cases
+### Use-Cases
 
 You should use this class if you would like to get the mapped name of the class in general purpose.
 
 > You should rely on this class rather using the `nameof(Class)` of C# when working against the class name.
 
-#### How to use?
+### How to use?
 
 You can simply call the `Get()` method of this class by passing the class type.
 

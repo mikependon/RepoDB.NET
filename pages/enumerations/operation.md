@@ -1,17 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: enumerations
 title: "Operation"
 description: "A enumeration that defines the different operations that can be used when composing a query expression."
 permalink: /enumeration/operation
 tags: [repodb, class, operation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Enumerations
 ---
 
 # Operation
 
+---
+
 This enum is used to set the value of the `Operation` property of [QueryField](/class/queryfield) object.
 
-#### Enum Values
+### Enum Values
 
 - `Equal (Default)` = an equal operation.
 - `NotEqual` - a not-equal operation.
@@ -26,7 +29,7 @@ This enum is used to set the value of the `Operation` property of [QueryField](/
 - `In` - an in operation. Defines the `IN` keyword in SQL statement.
 - `NotIn` - a not-in operation. Defines the `NOT IN` keyword in SQL statement.
 
-#### How to use?
+### How to use?
 
 Simply pass the value of when instantiating the [QueryField](/class/queryfield) object.
 
@@ -34,9 +37,9 @@ Simply pass the value of when instantiating the [QueryField](/class/queryfield) 
 var field = new QueryField("Id", Operation.Equal, 10045);
 ```
 
-#### Type of Operation
+### Type of Operation
 
-##### Equal
+#### Equal
 
 Part of the expression tree used to determine the equality of the field and data.
 
@@ -44,7 +47,7 @@ Part of the expression tree used to determine the equality of the field and data
 var result = connection.Query<Customer>(new QueryField("Id", Operation.Equal, 10045));
 ```
 
-##### NotEqual
+#### NotEqual
 
 Part of the expression tree used to determine the inequality of the field and data.
 
@@ -52,7 +55,7 @@ Part of the expression tree used to determine the inequality of the field and da
 var result = connection.Query<Customer>(new QueryField("Name", Operation.NotEqual, "Anna Fullerton" });
 ```
 
-##### LessThan
+#### LessThan
 
 Part of the expression tree used to determine whether the field value is less-than of the defined value.
 
@@ -60,7 +63,7 @@ Part of the expression tree used to determine whether the field value is less-th
 var result = connection.Query<Customer>(new QueryField("Id", Operation.LessThan, 100 });
 ```
 
-##### GreaterThan
+#### GreaterThan
 
 Part of the expression tree used to determine whether the field value is greater-than of the defined value.
 
@@ -68,7 +71,7 @@ Part of the expression tree used to determine whether the field value is greater
 var result = connection.Query<Customer>(new QueryField("Id", Operation.GreaterThan, 0 });
 ```
 
-##### LessThanOrEqual
+#### LessThanOrEqual
 
 Part of the expression tree used to determine whether the field value is less-than-or-equal of the defined value.
 
@@ -76,7 +79,7 @@ Part of the expression tree used to determine whether the field value is less-th
 var result = connection.Query<Customer>.Query(new QueryField("Id", Operation.LessThanOrEqual, 100 });
 ```
 
-##### GreaterThanOrEqual
+#### GreaterThanOrEqual
 
 Part of the expression tree used to determine whether the field value is greater-than-or-equal of the defined value.
 
@@ -84,7 +87,7 @@ Part of the expression tree used to determine whether the field value is greater
 var result = connection.Query<Customer>(new QueryField("Id", Operation.GreaterThanOrEqual, 0 });
 ```
 
-##### Like
+#### Like
 
 Part of the expression tree used to determine whether the field is identitical to a given value.
 
@@ -92,7 +95,7 @@ Part of the expression tree used to determine whether the field is identitical t
 var result = connection.Query<Customer>(new QueryField("Name", Operation.Like, "Anna%" });
 ```
 
-##### NotLike
+#### NotLike
 
 Part of the expression tree used to determine whether the field is not-identitical to a given value.
 
@@ -100,7 +103,7 @@ Part of the expression tree used to determine whether the field is not-identitic
 var result = connection.Query<Customer>(new QueryField("Name", Operation.NotLike, "Anna%" });
 ```
 
-##### Between
+#### Between
 
 Part of the expression tree used to determine whether the field value is in-between the given 2 values.
 
@@ -108,7 +111,7 @@ Part of the expression tree used to determine whether the field value is in-betw
 var result = connection.Query<Customer>(new QueryField("Id", Operation.Between, new [] { 10045, 10075 } });
 ```
 
-##### NotBetween
+#### NotBetween
 
 Part of the expression tree used to determine whether the field value is not-in-between of the given 2 values.
 
@@ -116,7 +119,7 @@ Part of the expression tree used to determine whether the field value is not-in-
 var result = connection.Query<Customer>(new QueryField("Id", Operation.NotBetween, new [] { 10045, 10075 } });
 ```
 
-##### In
+#### In
 
 Part of the expression tree used to determine whether the field value is in the given values.
 
@@ -124,7 +127,7 @@ Part of the expression tree used to determine whether the field value is in the 
 var result = connection.Query<Customer>(new QueryField("Id", Operation.In, new [] { 10045, 10046, 10047, 10048 } });
 ```
 
-##### NotIn
+#### NotIn
 
 Part of the expression tree used to determine whether the field value is not-in given values.
 

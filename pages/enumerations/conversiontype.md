@@ -1,22 +1,25 @@
 ---
-layout: navpage
+layout: default
 sidebar: enumerations
 title: "ConversionType"
 description: "A enumeration that defines the type of conversion to be used when extracting a data from/to the database."
 permalink: /enumeration/conversiontype
 tags: [repodb, class, conversiontype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Enumerations
 ---
 
 # ConversionType
 
+---
+
 This enum is used to set the value of the `ConversionType` property of [TypeMapper](/mapper/typemapper) object. It defines how the conversion type is when extracting the `DbDataReader` into its equivalent .NET CLR type.
 
-#### Enum Values
+### Enum Values
 
 - `Default` - the conversion is strict. There is no additional implied logic in used during the conversion of the `DbDataReader` object into its destination .NET CLR type.
 - `Automatic` - the conversion is not strict (or automatic). An additional logic from the `System.Linq.Expressions.Expression.Convert(Expression, Type)` and/or `System.Convert` objects will be used to properly map the instance of `DbDataReader` object into its destination .NET CLR type. The operation is compiled ahead-of-time (AOT) and will only succeed if the data types of both objects are convertible..
 
-#### Use-Cases
+### Use-Cases
 
 You can use the value of `Automatic` if you have a database column where the type is not convertible to a property of class (i.e.: `Int` to `String`, `String` to `Guid`, `DateTime` to `String`, etc).
 
@@ -53,7 +56,7 @@ CREATE TABLE [dbo].[Customer]
 }
 ```
 
-#### How to use?
+### How to use?
 
 Simply set the value of `ConversionType` property of [TypeMapper](/mapper/typemapper) object like below.
 

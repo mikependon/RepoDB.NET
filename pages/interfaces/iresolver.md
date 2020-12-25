@@ -1,18 +1,21 @@
 ---
-layout: navpage
+layout: default
 sidebar: interfaces
 title: "IResolver"
 permalink: /interface/iresolver
 tags: [repodb, class, iresolver, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Interfaces
 ---
 
 # IResolver
+
+---
 
 This interface is used to mark a class to be a resolver object. This interface accepts upto the maximum 7 input generic types and 1 output generic type.
 
 In each number of inputted generic types, a method named `Resolve` is given.
 
-#### Use-Cases
+### Use-Cases
 
 This interface is used internally by the library, specially in the [BaseStatementBuilder](/class/basestatementbuilder).
 
@@ -23,7 +26,7 @@ Or, you can use it on a situation like:
   
 > The use-case can be unlimitted based your situation.
 
-#### How to Implement?
+### How to Implement?
 
 You have to manually create a class that implements this interface.
 
@@ -37,7 +40,7 @@ public class ColumnNameResolver : IResolver<string, IDbSetting, string>
 }
 ```
 
-#### How to use?
+### How to use?
 
 Then you can always use it like this.
 

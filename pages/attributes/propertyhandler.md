@@ -1,17 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: attributes
 title: "PropertyHandler"
 description: "Learn on how to use the RepoDB PropertyHandler attribute."
 permalink: /attribute/propertyhandler
 tags: [repodb, class, propertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Attributes
 ---
 
 # PropertyHandler
 
+---
+
 This attribute is used to signal a property handling operation on the class property. By having this attribute, the library compiler will automatically trigger the property handler `Get()` and `Set()` method during the serialization/deserialization and hydration process.
 
-#### How to use?
+### How to use?
 
 Let us say you had created a customized [IPropertyHandler](/interface/ipropertyhandler) like below.
 

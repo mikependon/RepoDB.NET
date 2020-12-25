@@ -1,17 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
 title: "Transaction"
 description: "A process of making the executions more ACID in nature."
 permalink: /feature/transaction
 tags: [repodb, class, transaction, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Transaction
 
+---
+
 The way transaction works in the library is very identical with the way how it works with ADO.NET.
 
-#### Using a Transaction via Connection
+### Using a Transaction via Connection
 
 Creates a transaction object and pass it when you call any of the operation.
 
@@ -30,7 +33,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Using a Transaction via Repository
+### Using a Transaction via Repository
 
 Same as previous section, simply create a transaction object and pass it when you call any of the operation.
 

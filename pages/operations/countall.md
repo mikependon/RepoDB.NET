@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: operations
 title: "CountAll"
 permalink: /operation/countall
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Operations
 ---
 
 # CountAll
 
+---
+
 This method is used to count the number of rows from the table.
 
-#### Code Snippets
+### Code Snippets
 
 Below is the sample code that count all the rows from the `[dbo].[Person]` table.
 
@@ -21,7 +24,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Targeting a Table
+### Targeting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 
@@ -32,7 +35,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Table Hints
+### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 

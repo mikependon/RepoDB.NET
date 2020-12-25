@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: operations
 title: "Delete"
 permalink: /operation/delete
 tags: [repodb, tutorial, delete, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Operations
 ---
 
 # Delete
 
+---
+
 This method is used to delete the rows from the table.
 
-#### Code Snippets
+### Code Snippets
 
 Below is the sample code to delete a row from the `[dbo].[Person]` table via data model.
 
@@ -30,7 +33,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Targeting a Table
+### Targeting a Table
 
 You can also target a specific table by passing the literal table name like below.
 
@@ -50,7 +53,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Table Hints
+### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 

@@ -1,22 +1,28 @@
 ---
-layout: navpage
+layout: default
 sidebar: references
-title: "Trace Reference"
+title: "Trace"
+nav_order: 10
 permalink: /reference/trace
 tags: [repodb, class, trace, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: References
 ---
 
 # Trace
 
-This page contains the recommended way of implementing a trace object.
+---
 
-#### Class Creation
+This page contains the recommended way of implementing a trace object that is injectable to the repositories.
 
-Create an interface that implements the [ITrace](/interface/itrace) to support the dependency injections.
+### Implementation
+
+Create an interface that implements the [ITrace](/interface/itrace). This is also to support the dependency injection.
 
 ```csharp
 public interface INorthwindTrace : ITrace
-{ }
+{
+    ...
+}
 ```
 
 Then, create a class that implements the custom interface.
@@ -40,34 +46,49 @@ public class NorthwindTrace : INorthwindTrace
 
 > Implement all the [ITrace](/interface/itrace) methods manually.
 
-#### Usability
+### Factory
 
-Create a factory class.
+Create a trace factory class.
 
 ```csharp
 public static class TraceFactory
 {
-    private static object m_syncLock = new object();
-    private static ITrace m_trace = null;
+    private static object _syncLock = new object();
+    private static ITrace _trace = null;
     
     public static ITrace CreateTracer()
     {
-        if (m_trace == null)
+        if (_trace == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_trace == null)
+                if (_trace == null)
                 {
-                    m_trace = new NorthwindTrace();
+                    _trace = new NorthwindTrace();
                 }
             }
         }
-        return m_trace;
+        return _trace;
     }
 }
 ```
 
-Or inject it as Singleton.
+And pass it in the repository constructor.
+
+```csharp
+public class NorthwindRepository : DbRepository<SqlConnection>
+{
+    public NorthwindRepository(IOptions<AppSettings> settings)
+        : base(settings.Value.ConnectionString, TraceFactory.CreateTracer())
+    { }
+
+    ...
+}
+```
+
+### Dependency Injection
+
+Or inject it as a singleton object.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -79,4 +100,16 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-> Please refer to our [SerilogTrace](/reference/serilogtrace) (In-Progress) page for for more information.
+And inject it in the repository constructor.
+
+```csharp
+public class NorthwindRepository : DbRepository<SqlConnection>
+{
+    public NorthwindRepository(IOptions<AppSettings> settings,
+        INorthwindTrace trace)
+        : base(settings.Value.ConnectionString, trace)
+    { }
+
+    ...
+}
+```

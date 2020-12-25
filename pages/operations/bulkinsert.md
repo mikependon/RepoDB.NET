@@ -1,28 +1,31 @@
 ---
-layout: navpage
+layout: default
 sidebar: operations
 title: "BulkInsert"
 permalink: /operation/bulkinsert
 tags: [repodb, tutorial, bulkinsert, orm, hybrid-orm, sqlserver]
+parent: Operations
 ---
 
 # BulkInsert
 
+---
+
 This method is used to insert all the rows from the client application into the database by bulk. This operation only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
 
-#### Call Flow Diagram
+### Call Flow Diagram
 
 The diagram below shows the flow when calling this operation.
 
 <img src="../../assets/images/site/bulk-insert.png" />
 
-#### Use Case
+### Use Case
 
 This method is very useful if you are inserting multiple rows towards the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
 If you are working to insert range of rows from 1000 or beyond, then use this method over [InsertAll](/operation/insertall).
 
-#### Special Arguments
+### Special Arguments
 
 The arguments `isReturnIdentity`, and `usePhysicalPseudoTempTable` is provided on this operation.
 
@@ -30,7 +33,7 @@ The `isReturnIdentity` is used to define the behaviour of the execution whether 
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. This will only work if the `isReturnIdentity` is `true`. By default, a temporary table (i.e.: `#TableName`) is used.
 
-#### How to call?
+### How to call?
 
 Let us say you have a method that create a list of `Person` from the client application.
 
@@ -72,7 +75,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > By default, the batch size is 10, equals to `Constant.DefaultBatchOperationSize` value.
 
-###### DataTable
+#### DataTable
 
 Below is the sample code to bulk-insert via data table.
 
@@ -85,7 +88,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-###### Dictionary/ExpandoObject
+#### Dictionary/ExpandoObject
 
 Below is the sample code to bulk-insert via `Dictionary<string, object>` or `ExpandoObject`.
 
@@ -100,7 +103,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-###### DataReader
+#### DataReader
 
 Below is the sample code to bulk-insert via `DbDataReader`.
 
@@ -130,7 +133,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Column Mappings
+### Column Mappings
 
 You can add a mapping via `BulkInsertMapItem` class.
 
@@ -152,7 +155,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Bulk Copy Options
+### Bulk Copy Options
 
 You can define your bulk-copy options by passing a value of `SqlBulkCopyOptions` in the `options` argument.
 
@@ -165,7 +168,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Targeting a Table
+### Targeting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 
@@ -177,7 +180,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Table Hints
+### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 

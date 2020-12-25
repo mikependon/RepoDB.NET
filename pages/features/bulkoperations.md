@@ -1,13 +1,16 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
 title: "Bulk Operations"
 description: "It is the process of bringing all the data from the application into the database server at once, and at the same time, ignoring some database specific activities behind the scene. Thus gives you maximum performance during the operation."
 permalink: /feature/bulkoperations
 tags: [repodb, class, bulk, bulk-operations, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Bulk Operations
+
+---
 
 A bulk operation is a process of bringing all the data from the application into the database server at once, and at the same time, ignoring some database specific activities (i.e.: Logging, Audits, Data-Type Checks, Constraints, etc) behind the scene. Thus gives you maximum performance during the operation.
 
@@ -23,7 +26,7 @@ The bulk operations can improve the performance by more than 90% when processing
 
 > This feature only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS data provider.
 
-#### How does it works?
+### How does it works?
 
 It is leveraging the ADO.NET `SqlBulkCopy` class of the both `System.Data.SqlClient` and the `Microsoft.Data.SqlClient` namespaces.
 
@@ -41,21 +44,21 @@ You can maximize the execution by targeting your underlying table indexes via qu
 
 > If you have not passed any qualifiers, the primary column will be used by default. If the primary column is not present, it will use the identity column instead.
 
-#### Supported Objects
+### Supported Objects
 
 Below are the following objects supported by the bulk operations.
 
 - System.DataTable
 - System.Data.Common.DbDataReader
 - IEnumerable&lt;T&gt;
-- `ExpandoObject`
+- ExpandoObject
 - IDictionary&lt;string, object&gt;
 
-#### Operation SQL Statements
+### Operation SQL Statements
 
 Once all the data is in the database pseudo-temporary table, the correct SQL statement will be used to cascade the changes towards the original table.
 
-###### For BulkDelete
+#### For BulkDelete
 
 ```csharp
 > DELETE T
@@ -63,7 +66,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 > INNER JOIN [PseudoTempTable] TMP ON TMP.QualiferField1 = T.Field1 AND TMP.QualifierField2 = T.Field2;
 ```
 
-###### For BulkMerge
+#### For BulkMerge
 
 ```csharp
 > MERGE [dbo].[OriginalTable] T
@@ -75,7 +78,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 >    SET (...);
 ```
 
-###### For BulkUpdate
+#### For BulkUpdate
 
 ```csharp
 > UPDATE T
@@ -86,7 +89,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 > INNER JOIN [PseudoTempTable] TMP ON TMP.QualiferField1 = T.Field1 AND TMP.QualifierField2 = T.Field2;
 ```
 
-#### Special Arguments
+### Special Arguments
 
 The arguments `qualifiers`, `isReturnIdentity` and `usePhysicalPseudoTempTable` were provided to the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations.
 
@@ -96,17 +99,17 @@ The argument `isReturnIdentity` is used to define the behaviour of the execution
 
 The argument `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 
-#### Caveats
+### Caveats
 
 The library is automatically setting the value of options argument to `SqlBulkCopyOptions.KeepIdentity` when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) if you have not passed any qualifiers and if your table has an identity primary key column. The same logic will apply if there is no primary key but has an identity column defined in the table.
 
 In addition, when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, the library is creating a pseudo-temporary table behind the scene. It requires your user to have the proper CREATE TABLE privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
-#### Calling the Operations
+### Calling the Operations
 
 Below are the ways on how to call the operations.
 
-###### For BulkDelete
+#### For BulkDelete
 
 The code snippets below only showcasing the [BulkDelete](/operation/bulkdelete) via IEnumerable&lt;T&gt;.
 
@@ -149,7 +152,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-###### For BulkInsert
+#### For BulkInsert
 
 The code snippets below only showcasing the [BulkInsert](/operation/bulkinsert) via IEnumerable&lt;T&gt;.
 
@@ -171,7 +174,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-###### For BulkMerge
+#### For BulkMerge
 
 The code snippets below only showcasing the [BulkMerge](/operation/bulkmerge) via IEnumerable&lt;T&gt;.
 
@@ -204,7 +207,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-###### For BulkUpdate
+#### For BulkUpdate
 
 The code snippets below only showcasing the [BulkUpdate](/operation/bulkupdate) via IEnumerable&lt;T&gt;.
 
@@ -237,7 +240,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-###### When to use the Batch and Bulk Operations?
+#### When to use the Batch and Bulk Operations?
 
 There is no standard of when to use what. It all depends on your situation (i.e.: Network Latency, Data, No of Columns, etc).
 

@@ -1,17 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
 title: "Enumeration"
 description: "This is a feature that enables you to work with enumerations within the class objects."
 permalink: /feature/enumeration
 tags: [repodb, class, enumeration, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Enumeration
 
+---
+
 This is a feature that enables you to work on enumeration objects within the class object (property). The library supports various kind of transformation for enumerations.
 
-#### Property String
+### Property String
 
 Let us say you have a table named `[dbo].[Person]` with the following structure.
 
@@ -53,7 +56,7 @@ public class Person
 
 > The enumeration values will be saved in the database as `String`.
 
-#### Property String (As Int)
+### Property String (As Int)
 
 You can force the value to be saved as `Integer` type if you are using the [TypeMap](/attribute/typemap).
 
@@ -74,7 +77,7 @@ Or you can also use the type-level mapping via [TypeMapper](/mapper/typemapper) 
 TypeMapper.Map(typeof(Gender), DbType.Int32);
 ```
 
-#### Property Int
+### Property Int
 
 Let us say you have a table named `[dbo].[Person]` with the following structure.
 
@@ -116,7 +119,7 @@ public class Person
 
 > The enumeration values will be saved in the database as `Integer`.
 
-#### Default Conversion
+### Default Conversion
 
 By default, the library is using the `DbType.String` as a conversion to all enumerations if being used to the non-model based operations (i.e.: [ExecuteScalar](/operation/executescalar), [ExecuteNonQuery](/operation/executenonquery) and [ExecuteReader](/operation/executereader)). However, you can always override the value by simply setting the `Converter` class property `EnumDefaultDatabaseType` to any `DbType` value.
 
@@ -126,7 +129,7 @@ Converter.EnumDefaultDatabaseType = DbType.Int32;
 
 > The library is intelligent enough to understand your table schema, if you call any model-based operations (i.e.: [Query](/operation/query), [Update](/operation/update), [Merge](/operation/merge), etc), the default conversion is not used as it has already projected the correct database type to be passed/parsed based the underlying table schema.
 
-#### PropertyHandler
+### PropertyHandler
 
 You can as well create a property handler to manually handle the enumerations transformation by implementing the [IPropertyHandler](/interface/ipropertyhandler).
 
@@ -164,7 +167,7 @@ public class Person
 
 > The enumeration auto-mapping is being disregard if you have the property handler mapped into the enumeration property. By using the property handler, you have a lot of control as a developer about the transformation.
 
-#### Query Expression
+### Query Expression
 
 You can as well use the enumeration in your query expression.
 
@@ -188,7 +191,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Type Inference
+### Type Inference
 
 As type inference is supported by the library, you can as well infer the enumeration directly when fetching a row from the database via [ExecuteQuery](/operation/executequery).
 

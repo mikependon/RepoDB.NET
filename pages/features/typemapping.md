@@ -1,17 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
 title: "Type Mapping"
 description: "This is a feature that would allow you to map the .NET CLR type into its equivalent database type."
 permalink: /feature/typemapping
 tags: [repodb, class, typemapping, classmapping, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Type Mapping
 
+---
+
 This is a feature that would allow you to map the .NET CLR type into its equivalent database type.
 
-#### Mapping a .NET CLR type
+### Mapping a .NET CLR type
 
 To map a .NET CLR type, simply use the [TypeMapper](/mapper/typemapper) class.
 
@@ -27,7 +30,7 @@ FluentMapper
     .DbType(DbType.DateTime2);
 ```
 
-#### Mapping a Specific Property
+### Mapping a Specific Property
 
 To map a specific class property, simply use the [TypeMap](/attribute/typemap) attribute.
 
@@ -42,7 +45,7 @@ public class Person
 }
 ```
 
-###### SQL Server
+#### SQL Server
 
 In SQL Server, you can also map to a specific `System.Data.SqlDbType` using the [MicrosoftSqlServerTypeMap](/attribute/microsoftsqlservertypemap) (for `Microsoft.Data.SqlClient`).
 
@@ -70,7 +73,7 @@ public class Person
 }
 ```
 
-###### MySQL
+#### MySQL
 
 In MySQL, you can also map to a specific `MySql.Data.MySqlClient.MySqlDbType` using the [MySqlTypeMap](/attribute/mysqltypemap).
 
@@ -85,7 +88,7 @@ public class Person
 }
 ```
 
-###### PostgreSQL
+#### PostgreSQL
 
 In PostgreSQL, you can also map to a specific `NpgsqlTypes.NpgsqlDbType` using the [NpgsqlTypeMap](/attribute/npgsqltypemap).
 

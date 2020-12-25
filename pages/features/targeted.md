@@ -1,21 +1,24 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
-title: "Dynamics"
+title: "Targeted Operations"
 description: "This feature allows you to make a targeted invocation when executing the operations againts the database."
 permalink: /feature/targeted
 tags: [repodb, class, targeted, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Targeted Operations
 
+---
+
 This feature allows you to make a targeted invocation when executing the operations against the database. This feature is very useful if you do really care on the performance and efficiency of your execution against the database. The execution will help your application runs in a very efficient manner, as using the targeted operations completely eliminate the high-usage of the network traffic.
 
-#### Use Case
+### Use Case
 
 Imagine if your `Customer` model has plenty of columns and you are only querying, inserting, merging or updating into the specific columns.
 
-#### Querying a Data
+### Querying a Data
 
 Use the [Query](/operation/query) operation and pass the target fields to query.
 
@@ -45,7 +48,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Querying Multiple Data
+### Querying Multiple Data
 
 Use the [QueryAll](/operation/queryall) operation and pass the target fields to query.
 
@@ -73,7 +76,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Inserting a Data
+### Inserting a Data
 
 Use the [Insert](/operation/insert) operation and pass the target fields to insert.
 
@@ -126,7 +129,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Inserting Multiple Data
+### Inserting Multiple Data
 
 Use the [InsertAll](/operation/insertall) operation and pass the target fields to insert.
 
@@ -168,7 +171,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Merging a Data
+### Merging a Data
 
 Use the [Merge](/operation/merge) operation and pass the target fields to merge.
 
@@ -230,7 +233,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Merging Multiple Data
+### Merging Multiple Data
 
 Use the [MergeAll](/operation/mergeall) operation and pass the target fields to merge.
 
@@ -272,7 +275,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Updating a Data
+### Updating a Data
 
 Use the [Update](/operation/update) operation and pass the target fields to update.
 
@@ -334,7 +337,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Updating Multiple Data
+### Updating Multiple Data
 
 Use the [UpdateAll](/operation/updateall) operation and pass the target fields to update.
 

@@ -1,30 +1,33 @@
 ---
-layout: navpage
+layout: default
 sidebar: cachers
 title: "FieldCache"
 description: "A class that is being used to retrieve the cached fields or properties of the class or data entity."
 permalink: /cacher/fieldcache
 tags: [repodb, class, fieldcache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Cachers
 ---
 
 # FieldCache
+
+---
 
 A cacher class for the class properties (as fields). It provides a 2nd-layer caching for the library when it comes to the class properties extraction (as fields). As a result, the library is fast-enough when reusing the already extracted class properties (as fields) on any execution.
 
 > Internally, this class is widely used within the library.
 
-#### Methods
+### Methods
 
 Below are the methods available from this class.
 
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the list of [Field](/class/field) objects.
 
-#### Use-Cases
+### Use-Cases
 
 You should use this class if you would like to get the references of the class properties (as fields) specially when composing a SQL statement or would like to lists it.
 
-#### How to use?
+### How to use?
 
 You can simply call the `Get()` method of this class by passing the class type.
 

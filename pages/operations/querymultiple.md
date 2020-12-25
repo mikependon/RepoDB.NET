@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: operations
 title: "QueryMultiple"
 permalink: /operation/querymultiple
 tags: [repodb, tutorial, querymultiple, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Operations
 ---
 
 # QueryMultiple
 
+---
+
 This method is used to query the data as multiple resultsets from the table based on the given number of target types.
 
-#### Code Snippets
+### Code Snippets
 
 Below is the sample code to fetch a single parent row from the `[dbo].[Customer]` table and all the related orders made from the `[dbo].[Order]` table.
 
@@ -28,7 +31,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > It returns a type of `Tuple<T1, .., T7>` object. The maximum type that it can cater is 7. Each item in the tuple object is an `IEnumerable<T>` object of the target generic type.
 
-#### Table Hints
+### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
@@ -62,7 +65,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Ordering the Results
+### Ordering the Results
 
 To order the results, you have to pass an array of `OrderField` objects in the `orderBy` argument.
 
@@ -83,7 +86,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Filtering the Results
+### Filtering the Results
 
 To filter the results, you have to pass a value at the `top` argument.
 

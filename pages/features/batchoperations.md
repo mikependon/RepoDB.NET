@@ -1,13 +1,16 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
 title: "Batch Operations"
 description: "It is the process of making the multiple single-operations be executed against the database in one-go."
 permalink: /feature/batchoperations
 tags: [repodb, class, batch, batch-operations, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Batch Operations
+
+---
 
 A batch operation is a process of executing multiple single-operations against the database in one-go. The execution is ACID; an implicit transaction is provided if not present.
 
@@ -15,7 +18,7 @@ This operation comes with flexibility as it allows you to control the number of 
 
 In RepoDB, the following operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) and [MergeAll](/operation/mergeall)) are the batch operations. They are all ACID in nature.
 
-#### Normal executions
+## Normal executions
 
 Let us say you have a model named `Customer` that corresponds to the `[dbo].[Customer]` table.
 
@@ -52,7 +55,7 @@ using (var connection = new SqlConnection(connectionString))
 
 We execute it in an atomic way and just simply wrap the calls within the `Transaction` object to make it ACID.
 
-#### Batch executions
+## Batch executions
 
 With the batch executions, the way the SQL statement is being executed is as follows.
 
@@ -83,37 +86,37 @@ The packed-statements above are cached and is being executed 10 times with 100 r
 
 > In SQL Server, the ADO.NET maximum number of parameters are 2100. The batch operation will fail if you reach that number. You can set the batch number by passing the value in the `batchSize` argument.
 
-#### Behind the scene of the Batch Operations
+## Behind the scene of the Batch Operations
 
 When you call any of the push batch operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) or [MergeAll](/operation/mergeall)), the following activities are happening behind the scene.
 
-###### Understanding and Caching your Schema
+### Understanding and Caching your Schema
 
 It first touches your database to extract the schema definitions. This includes the retrieval of the primary, identity and the nullable columns. The retrieved information is then cached into the memory and is used for AOT compilation.
 
-###### Caching the Class Properties
+### Caching the Class Properties
 
 The properties of your class (or model) is being extracted and is being cached into the memory. This enables the library to reuse it in any future calls (that is using the same object).
 
-###### Generating and Caching the SQL Statements
+### Generating and Caching the SQL Statements
 
 The library generates the packed-SQL Statements that varies on the number of batches you passed in the `batchSize` argument. These SQL Statements are being cached into the memory for future reusabilities.
 
-###### Caching the Execution Context
+### Caching the Execution Context
 
 The execution context is being cached. It enables the library to reuse the existing execution context that has already been executed against the database. By having this, the library does not need to extract the same operation every time there is an identical call, those leads to become more performant and efficient.
 
 > The execution context contains the SQL Statements, Parameters, Preparations and even the Compiled ILs or Expressions. 
 
-###### Adding an Implicit Transaction
+### Adding an Implicit Transaction
 
 A new transaction object is being assigned to the execution if the caller does not passed any explicit transaction.
 
-###### Preparation
+### Preparation
 
 Before executing the command object, the `Prepare()` method is being called to pre-define the execution against the database. In the case of SQL Server, it creates an execution-plan in advance.
 
-###### Batch Execution
+### Batch Execution
 
 The generated packed statements are being executed against the database only once. Behind the scene, the library is batching the execution due to the fact that ADO.NET is limited only to 2100 parameters. Through these batches, the caller is able to define the best batch number based on the situations and scenarios (i.e.: Number of Columns, Network Latency, etc).
 

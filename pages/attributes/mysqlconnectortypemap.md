@@ -1,19 +1,22 @@
 ---
-layout: navpage
+layout: default
 sidebar: attributes
 title: "MySqlConnectorTypeMap"
 description: "Learn on how to use the RepoDB MySqlConnectorTypeMap attribute."
 permalink: /attribute/mysqlconnectortypemap
 tags: [repodb, class, mysqlconnectortypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Attributes
 ---
 
 # MySqlConnectorTypeMap
+
+---
 
 This attribute is used to map a property into its equivalent type from the database (via `MySql.Data.MySqlClient.MySqlDbType`).
 
 It only supports the [MySQL](https://www.nuget.org/packages/RepoDb.MySqlConnector).
 
-#### How to use?
+### How to use?
 
 Below is a a sample code on how to map an existing property into a `MySql.Data.MySqlClient.MySqlDbType` database type.
 
@@ -43,3 +46,5 @@ public class Person
     public DateTime DateInsertedUtc { get; set; }
 }
 ```
+
+> This attribute is currently not supported by the [FluentMapper](/mapper/fluentmapper).

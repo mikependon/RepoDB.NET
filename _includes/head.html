@@ -1,39 +1,40 @@
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-    {% if page.title %}
-    {% capture page_title %}{{ site.title }} - {{ page.title }}{% endcapture %}
-    {% else %}
-    {% capture page_title %}{{ site.title }} - {{ site.description }}{% endcapture %}
-    {% endif %}
+  {% unless site.plugins contains "jekyll-seo-tag" %}
+    <title>{{ page.title }} - {{ site.title }}</title>
 
     {% if page.description %}
-    {% capture page_description %}{{ page.description }}{% endcapture %}
-    {% else %}
-    {% capture page_description %}{{ site.extended_description }}{% endcapture %}
+      <meta name="Description" content="{{ page.description }}">
     {% endif %}
+  {% endunless %}
 
-    <title>{{ page_title }}</title>
-    <meta name="title" content="{{ page_title }}" />
-    <meta data-rh="true" property="og:title" content="{{ page_title }}"/>
-    <meta data-rh="true" property="twitter:title" content="{{ page_title }}"/>
-    <meta name="description" content="{{ page_description }}" />
-    <meta data-rh="true" property="og:description" content="{{ page_description }}"/>
-    <meta data-rh="true" property="twitter:description" content="{{ page_description }}"/>
-    {% if site.twitter_username %}
-    <meta data-rh="true" name="twitter:creator" content="@{{ site.twitter_username }}"/>
-    {% endif %}
-    <meta data-rh="true" name="robots" content="index,follow"/>
-    <meta data-rh="true" name="referrer" content="unsafe-url"/>
-    
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ "/assets/materialize.css" | relative_url }}" />
-    <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ "/assets/main.css" | relative_url }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}" />
-  
-    {% if jekyll.environment == 'production' and site.google_analytics %}
-    {% include google-analytics.html %}
-    {% endif %}
+  <link rel="shortcut icon" href="{{ 'favicon.ico' | relative_url }}" type="image/x-icon">
+
+  <link rel="stylesheet" href="{{ '/assets/css/just-the-docs-default.css' | relative_url }}">
+
+  {% if site.ga_tracking != nil %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga_tracking }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ site.ga_tracking }}'{% unless site.ga_tracking_anonymize_ip == nil %}, { 'anonymize_ip': true }{% endunless %});
+    </script>
+
+  {% endif %}
+
+  {% if site.search_enabled != false %}
+    <script type="text/javascript" src="{{ '/assets/js/vendor/lunr.min.js' | relative_url }}"></script>
+  {% endif %}
+  <script type="text/javascript" src="{{ '/assets/js/just-the-docs.js' | relative_url }}"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% seo %}
+
+  {% include head_custom.html %}
+
 </head>

@@ -1,19 +1,22 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
 title: "Dynamics"
 description: "This feature allows you to work with RepoDB by maximizing the usage of dynamics."
 permalink: /feature/dynamics
 tags: [repodb, class, dynamics, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Dynamics / Anonymous Types
+
+---
 
 This feature allows you to create a simplified and targeted operation by simply maximizing the usage of the anonymous types. It is very useful if you wish to do the CRUD operations on the targeted columns and/or make the CRUD operations without even having a class model.
 
 This feature called dynamics as it is enabling the dynamic capabilities if we are to use it on the context of ORM. Therefore, do not get confused comparing the terminology against the dynamics within .NET ecosystem.
 
-#### Querying a Data
+### Querying a Data
 
 Use the [Query](/operation/query) operation and pass the target table as a literal string and a filter expression as an anonymous object.
 
@@ -49,7 +52,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Iterating the Result
+### Iterating the Result
 
 When fetching a data from the database, it is automatically converted into an enumerable of `ExpandoObject` objects.
 
@@ -66,7 +69,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Inserting a Data
+### Inserting a Data
 
 Use the [Insert](/operation/insert) operation and pass the target table as a literal string and an anonymous entity object.
 
@@ -100,7 +103,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > Please note that the library will add the newly created value of the identity column into the `Dictionary` or `ExpandoObject` object (if not present).
 
-#### Deleting a Data
+### Deleting a Data
 
 Use the [Delete](/operation/delete) operation and pass the target table as a literal string and a filter expression as an anonymous object.
 
@@ -111,7 +114,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Merging a Data
+### Merging a Data
 
 Use the [Merge](/operation/merge) operation and pass the target table as a literal string and an anonymous entity object.
 
@@ -130,7 +133,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Updating a Data
+### Updating a Data
 
 Use the [Update](/operation/update) operation and pass the target table as a literal string and a anonymous entity object.
 

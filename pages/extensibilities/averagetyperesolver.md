@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: extensibilities
 title: "Average Type Resolver"
 permalink: /extensibility/averagetyperesolver
 tags: [repodb, class, averagetyperesolver, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Extensibilities
 ---
 
 # Average Type Resolver
 
+---
+
 This object is used within the [BaseStatementBuilder](/class/basestatementbuilder) class as a resolver of which system type to be used for conversion when calling the [Average](/operation/average) and [AverageAll](/operation/averageall) operations.
 
-#### How to Implement?
+### How to Implement?
 
 Simply create a class that implements the [IResolver](/interface/iresolver).
 
@@ -50,7 +53,7 @@ public Type Resolve(Type type)
 }
 ```
 
-#### How to use?
+### How to use?
 
 You have to simply pass it when inheritting the [BaseStatementBuilder](/class/basestatementbuilder) class.
 

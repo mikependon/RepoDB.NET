@@ -1,13 +1,16 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
 title: "Tracing"
 description: "This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via TraceLog class."
 permalink: /feature/tracing
 tags: [repodb, class, tracing, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Tracing
+
+---
 
 This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also allows you to cancel the existing execution before even the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class.
 
@@ -15,7 +18,7 @@ A corresponding method in the trace class will be hit by the debugger when you c
 
 To be more precise, if you call the [Insert](/operation/insert) operation, the `BeforeInsert()` and `AfterInsert()` method of the trace class will be invoked before and after the operation. There you can add the breakpoint to enable the debugging.
 
-#### Create a Customize Trace Class
+### Create a Customize Trace Class
 
 Create a class that implements the [ITrace](/interface/itrace) interface.
 
@@ -38,7 +41,7 @@ public class NorthwindTrace : ITrace
 
 > You have to implement all the interface methods and manually handle each of them. You can leave it empty if you would like.
 
-#### Using a Trace in a Connection
+### Using a Trace in a Connection
 
 Simply pass the trace object when calling the operation.
 
@@ -49,7 +52,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Injecting the Trace in the Repository
+### Injecting the Trace in the Repository
 
 Simply inject it in the contructor. Below is the sample code for [BaseRepository](/class/baserepository) class.
 
@@ -58,7 +61,7 @@ Simply inject it in the contructor. Below is the sample code for [BaseRepository
 public class CustomerRepository : BaseRepository<Customer, SqlConnection>
 {
     public CustomerRepository(IOptions<AppSettings> settings)
-        : base(settings.ConnectionString, new NorthwindTrace())
+        : base(settings.Value.ConnectionString, new NorthwindTrace())
     { }
 
     ...
@@ -78,7 +81,7 @@ And below is for [DbRepository](/class/dbrepository) class.
 public class NorthwindRepository : DbRepository<SqlConnection>
 {
     public NorthwindRepository(IOptions<AppSettings> settings)
-        : base(settings.ConnectionString, new NorthwindTrace())
+        : base(settings.Value.ConnectionString, new NorthwindTrace())
     { }
 
     ...
@@ -95,13 +98,13 @@ Or via direct class instantiation.
 
 ```csharp
 // Direct class instantiation of DbRepository
-using (var repository = new DbRepository<SqlConnection>(settings.ConnectionString, new NorthwindTrace()))
+using (var repository = new DbRepository<SqlConnection>(settings.Value.ConnectionString, new NorthwindTrace()))
 {
     ...
 }
 ```
 
-#### Dependency Injection Implementation
+### Dependency Injection Implementation
 
 Create a custom interface that implements the [ITrace](/interface/itrace) interface.
 
@@ -140,14 +143,14 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 {
     public NorthwindRepository(IOptions<AppSettings> settings,
         INorthwindTrace trace) // Injected
-        : base(settings.ConnectionString, trace)
+        : base(settings.Value.ConnectionString, trace)
     { }
 
     ...
 }
 ```
 
-#### Create a Trace Factory
+### Create a Trace Factory
 
 If you do not prefer the dependency injection way, creating a simple trace factory class is a good way to abstract and ensure single instance of trace object is being created.
 
@@ -196,7 +199,7 @@ Or via repositories.
 public class NorthwindRepository : DbRepository<SqlConnection>
 {
     public NorthwindRepository(IOptions<AppSettings> settings)
-        : base(settings.ConnectionString, TraceFactory.CreateTrace())
+        : base(settings.Value.ConnectionString, TraceFactory.CreateTrace())
     { }
 
     ...

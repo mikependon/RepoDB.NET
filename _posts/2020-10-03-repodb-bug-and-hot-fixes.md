@@ -6,6 +6,10 @@ date: 2020-10-03 06:00:00 +0200
 categories: blogs repodb
 ---
 
+# RepoDB version 1.12.3 - Bug and Hot Fixes for version 1.12.0
+
+---
+
 When we announced the GA of [RepoDB v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0), many users were not able to pre-test the solutions even by having the 4 betas for the last 2 months. This has unfortunately leads them to file the issues/bugs right after the releases.
 
 The version [RepoDB v1.12.3](https://www.nuget.org/packages/RepoDb/1.12.3) is a version that contains the fixes to those issues/bugs.

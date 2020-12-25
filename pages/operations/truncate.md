@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: operations
 title: "Truncate"
 permalink: /operation/truncate
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Operations
 ---
 
 # Truncate
 
+---
+
 This method is used to truncates a table from the database.
 
-#### Code Snippets
+### Code Snippets
 
 Below is the sample code that truncates the `[dbo].[Person]` table.
 
@@ -21,7 +24,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Targeting a Table
+### Targeting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 

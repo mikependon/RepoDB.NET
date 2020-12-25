@@ -3,15 +3,19 @@ layout: page
 title: "JSON Cache"
 permalink: /reference/output/jsoncache
 tags: [repodb, class, jsoncache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Output
+grand_parent: References
 ---
 
-#### JsonCache (File System)
+# JsonCache (File System)
 
-Below is a cacher class for JSON (file-system based). Please ensure to add the necessary missing namespaces if you are copying the codes.
+---
+
+This page has the consolidated code of the [JSON Cache](/reference/jsoncache) reference implementation.
 
 > The class is using the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) package.
 
-#### Interface
+### Interface
 
 ```csharp
 public interface IJsonCache : ICache
@@ -26,7 +30,7 @@ public interface IJsonCache : ICache
 }
 ```
 
-#### Class
+### Class
 
 ```csharp
 public class JsonCache : ICache
@@ -137,32 +141,32 @@ public class JsonCache : ICache
 }
 ```
 
-#### Cache Factory
+### Cache Factory
 
 ```csharp
 public static class CacheFactory
 {
-    private static object m_syncLock = new object();
-    private static ICache m_cache = null;
+    private static object _syncLock = new object();
+    private static ICache _cache = null;
     
     public static ICache CreateCacher()
     {
-        if (m_cache == null)
+        if (_cache == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_cache == null)
+                if (_cache == null)
                 {
-                    m_cache = new JsonCache();
+                    _cache = new JsonCache();
                 }
             }
         }
-        return m_cache;
+        return _cache;
     }
 }
 ```
 
-#### Dependency Injection
+### Dependency Injection
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

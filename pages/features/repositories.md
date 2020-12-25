@@ -1,26 +1,29 @@
 ---
-layout: navpage
+layout: default
 sidebar: features
 title: "Repositories"
 description: "A repository is a software design pattern and practice in which it is being implemented as an additional layer between your application and your database. It is being represented as a class object within the application. Through repository, you are managing how the data is being manipulated from/to the database."
 permalink: /feature/repositories
 tags: [repodb, class, repository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Features
 ---
 
 # Repositories
+
+---
 
 A repository is a software design pattern and practice in which it is being implemented as an additional layer between your application and your database. It is being represented as a class object within the application. Through repository, you are managing how the data is being manipulated from/to the database.
 
 In the repository, we usually add the basic database operations (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and etc), but, here we also place the relevant advance operations usable within the application. Then, all the code in your application that fetches or pushes a data into the database is using this object instead of directly accessing the database. Thus allowing the developers to follow the correct chain-of calls and reusability when it comes to the data accessibility.
 
-#### Type of Repositories
+### Type of Repositories
 
 In this library, there are 2 kinds of repositories available for implementation.
 
 - [BaseRepository](/class/baserepository) - is used as a base repository for all entity-based repositories.
 - [DbRepository](/class/dbrepository) - is used as a generic base repository for any types of entity.
 
-#### Creating an Entity-Based Repository
+### Creating an Entity-Based Repository
 
 First, create an interface.
 
@@ -42,7 +45,7 @@ Then implement the class that inherits the [BaseRepository](/class/baserepositor
 public PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
 {
     public PersonRepository(IOptions<AppSettings> settings)
-        : base(settings.ConnectionString)
+        : base(settings.Value.ConnectionString)
     { }
 
     public int Delete(Person person)
@@ -89,7 +92,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### Creating a Database Level Repository
+### Creating a Database Level Repository
 
 First, create an interface.
 
@@ -120,7 +123,7 @@ Then implement the class that inherits the [DbRepository](/class/dbrepository) a
 public NorthwindRepository : DbRepository<SqlConnection>, INorthwindRepository
 {
     public PersonRepository(IOptions<AppSettings> settings)
-        : base(settings.ConnectionString)
+        : base(settings.Value.ConnectionString)
     { }
 
     // Customer
@@ -201,7 +204,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### Creating a Custom Generic Repository
+### Creating a Custom Generic Repository
 
 First, create a generic interface.
 
@@ -232,17 +235,17 @@ Then create a class that implements both the interfaces.
 ```csharp
 public PersonRepository : GenericRepository<Person, SqlConnection>, IPersonRepository
 {
-    private IOptions<AppSettings> m_settings = null;
+    private IOptions<AppSettings> _settings = null;
 
     public PersonRepository(IOptions<AppSettings> settings)
-        : base(settings.ConnectionString)
+        : base(settings.Value.ConnectionString)
     {
-        m_settings = settings;
+        _settings = settings;
     }
 
     public SqlConnection CreateConnection()
     {
-        return new SqlConnection(m_settings.ConnectionString);
+        return new SqlConnection(_settings.Value.ConnectionString);
     }
 
     public int Delete(Person entity)

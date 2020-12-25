@@ -1,17 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: classes
 title: "DbField"
 description: "A class that contains the necessary properties that defines a database field."
 permalink: /class/dbfield
 tags: [repodb, class, dbfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Classes
 ---
 
 # DbField
 
+---
+
 An immutable class that holds the definition of the database columns. This class is hugely used internally in the library.
 
-###### List of Properties
+#### List of Properties
 
 - `Name` - the name of the column.
 - `IsPrimary` - returns `true` if the column is primary.
@@ -23,7 +26,7 @@ An immutable class that holds the definition of the database columns. This class
 - `Scale` - the scale of the column from the database.
 - `DatabaseType` - tye type of the column from the database.
 
-###### How to Extract?
+#### How to Extract?
 
 Below is the way on how to extract the database columns using [IDbHelper](/interface/idbhelper).
 

@@ -1,32 +1,35 @@
 ---
-layout: navpage
+layout: default
 sidebar: cachers
 title: "PropertyHandlerCache"
 description: "A class that is being used to retrieve the cached property handler of the class or data entity property."
 permalink: /cacher/propertyhandlercache
 tags: [repodb, class, propertyhandlercache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Cachers
 ---
 
 # PropertyHandlerCache
 
+---
+
 A cacher class for the [IPropertyHandler](/interface/ipropertyhandler) objects that has been mapped to .NET CLR type or class property. Underneath, it uses the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to extract the results and caching it for future use.
 
-#### Methods
+### Methods
 
 Below are the methods available from this class.
 
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the instance of the property handler.
 
-#### Use-Cases
+### Use-Cases
 
 You should use this class if you would like to get the references of the property handler that is already mapped into .NET CLR type or class property.
 
-#### How to use?
+### How to use?
 
 You can simply call the `Get()` method of this class by passing the class type.
 
-###### Type Level
+#### Type Level
 
 ```csharp
 var propertyHandler = PropertyHandlerCache.Get<IntTypeProperHandler>(typeof(int));
@@ -40,7 +43,7 @@ var propertyHandler = PropertyHandlerCache.Get<int, IntTypeProperHandler>();
 // Use the 'propertyHandler' here
 ```
 
-###### Property Level
+#### Property Level
 
 ```csharp
 var propertyHandler = PropertyHandlerCache.Get<Customer, CustomerAddressPropertyHandler>("Address");

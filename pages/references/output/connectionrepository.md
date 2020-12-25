@@ -1,24 +1,46 @@
 ---
 layout: page
-title: "ConnectionRepository Reference Output"
+title: "Connection-Based Repository"
 permalink: /reference/output/connectionrepository
 tags: [repodb, class, connectionrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Output
+grand_parent: References
 ---
 
-#### NorthwindRepository (Connection-Based Repository)
+# Connection-Based Repository
+
+---
+
+This page has the consolidated code of the [Connection-Based Repository](/reference/connectionrepository) reference implementation.
 
 ```csharp
 public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>, INorthwindRepository
 {
+    // Factory Classes
     public NorthwindRepository(IOptions<AppSetting> settings)
-        : base(settings.ConnectionString,
-            commandTimeout: 0,
+        : base(settings.Value.ConnectionString,
+            commandTimeout: settings.CommandTimeout,
             connectionPersistency: ConnectionPersistency.PerCall,
             cache: CacheFactory.CreateCacher(),
-            cacheItemExpiration: 180 /* 3 hours */,
+            cacheItemExpiration: settings.CacheItemExpiration,
             trace: TraceFactory.CreateTracer(),
-            statementBuilder: null /* Not necessary */ )
+            statementBuilder: null)
     { }
+
+    // Dependency Injected Classes
+    /*
+    public NorthwindRepository(IOptions<AppSetting> settings,
+        ICache cache,
+        ITrace trace)
+        : base(settings.Value.ConnectionString,
+            commandTimeout: settings.CommandTimeout,
+            connectionPersistency: ConnectionPersistency.PerCall,
+            cache: cache,
+            cacheItemExpiration: settings.CacheItemExpiration,
+            trace: trace,
+            statementBuilder: null)
+    { }
+    */
 
     /*** Sync ***/
 
@@ -29,9 +51,9 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
         using (var connection = CreateConnection())
         {
             return connection.QueryAll<Customer>(cacheKey: cacheKey,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 cache: Cache,
-                cacheItemExpiration: m_settings.CacheItemExpiration,
+                cacheItemExpiration: _settings.CacheItemExpiration,
                 trace: Trace);
         }
     }
@@ -43,7 +65,7 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
         using (var connection = CreateConnection())
         {
             return connection.Query<Customer>(id,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -55,46 +77,42 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
         using (var connection = CreateConnection())
         {
             return connection.Delete<Customer>(id,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
 
     // Merge
 
-    public object MergeCustomer(Customer entity,
-        IDbTransaction transaction = null)
+    public object MergeCustomer(Customer entity)
     {
         using (var connection = CreateConnection())
         {
             return connection.Merge<Customer>(entity,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
 
     // Save
 
-    public object SaveCustomer(Customer entity,
-        IDbTransaction transaction = null)
+    public object SaveCustomer(Customer entity)
     {
         using (var connection = CreateConnection())
         {
             return connection.Insert<Customer>(entity,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
 
     // Update
 
-    public int UpdateCustomer(Customer entity,
-        IDbTransaction transaction = null)
+    public int UpdateCustomer(Customer entity)
     {
         using (var connection = CreateConnection())
         {
-            return Update<Customer>(entity,
-                transaction: transaction,
+            return connection.Update<Customer>(entity,
                 trace: Trace);
         }
     }
@@ -108,9 +126,9 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
         using (var connection = CreateConnection())
         {
             return await connection.QueryAllAsync<Customer>(cacheKey: cacheKey,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 cache: Cache,
-                cacheItemExpiration: m_settings.CacheItemExpiration,
+                cacheItemExpiration: _settings.CacheItemExpiration,
                 trace: Trace);
         }
     }
@@ -122,7 +140,7 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
         using (var connection = CreateConnection())
         {
             return await connection.QueryAsync<Customer>(id,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -134,7 +152,7 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
         using (var connection = CreateConnection())
         {
             return await connection.DeleteAsync<Customer>(id,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -146,7 +164,7 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
         using (var connection = CreateConnection())
         {
             return await connection.MergeAsync<Customer>(entity,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -158,7 +176,7 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
         using (var connection = CreateConnection())
         {
             return await connection.SaveAsync<Customer>(entity,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
@@ -170,14 +188,14 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
         using (var connection = CreateConnection())
         {
             return await connection.UpdateAsync<Customer>(entity,
-                commandTimeout: m_settings.CommandTimeout,
+                commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
     }
 }
 ```
 
-#### Interface
+### Interface
 
 ```csharp
 public interface INorthwindRepository<TDbConnection>
@@ -217,16 +235,32 @@ public interface INorthwindRepository<TDbConnection>
 }
 ```
 
-#### Settings
+### Settings
 
 ```csharp
 public class AppSetting
 {
     public string ConnectionString { get; set; }
+    public int CommandTimeout { get; set; }
+    public int CacheItemExpiration { get; set; }
 }
 ```
 
-#### Dependency Injection
+### Dependency Injection
+
+For singleton.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddSingleton<INorthwindRepository, NorthwindRepository>();
+}
+```
+
+Or for transient.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -238,52 +272,84 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### CacheFactory
+### Cache
 
 ```csharp
+// Custom Class
+public static class MyCustomCache : MemoryCache
+{
+    ...
+}
+
+// Factory
 public static class CacheFactory
 {
-    private static object m_syncLock = new object();
-    private static ICache m_cache = null;
+    private static object _syncLock = new object();
+    private static ICache _cache = null;
     
     public static ICache CreateCacher()
     {
-        if (m_trace == null)
+        if (_cache == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_trace == null)
+                if (_cache == null)
                 {
-                    m_trace = new MyCustomTrace();
+                    _cache = new MyCustomCache();
                 }
             }
         }
-        return m_trace;
+        return _cache;
     }
+}
+
+// Dependency Injection
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddSingleton<ICache, MyCustomCache>();
 }
 ```
 
-#### TraceFactory
+### Trace
 
 ```csharp
+// Custom Class
+public static class MyCustomTrace : ITrace
+{
+    /* Implement all the methods here */
+}
+
+// Factory
 public static class TraceFactory
 {
-    private static object m_syncLock = new object();
-    private static ITrace m_trace = null;
+    private static object _syncLock = new object();
+    private static ITrace _trace = null;
     
     public static ITrace CreateTracer()
     {
-        if (m_trace == null)
+        if (_trace == null)
         {
-            lock (m_syncLock)
+            lock (_syncLock)
             {
-                if (m_trace == null)
+                if (_trace == null)
                 {
-                    m_trace = new MyCustomTrace();
+                    _trace = new MyCustomTrace();
                 }
             }
         }
-        return m_trace;
+        return _trace;
     }
+}
+
+// Dependency Injection
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    // Registration
+    services.AddSingleton<ITrace, MyCustomTrace>();
 }
 ```

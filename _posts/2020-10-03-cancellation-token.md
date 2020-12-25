@@ -6,6 +6,10 @@ date: 2020-10-03 14:00:00 +0200
 categories: blogs repodb
 ---
 
+# RepoDB's Complete Support to CancellationToken
+
+---
+
 Today, we are announcing the complete support of [RepoDB](/) to the [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken?view=netcore-3.1).
 
 Starting at version [v1.12.4](https://www.nuget.org/packages/RepoDb/1.12.4) and its corresponding extended libraries for different DB Providers at version [1.1.1](https://www.nuget.org/packages/RepoDb.SqlServer/1.1.1), all the `Async` methods within the library will be having an additional argument `cancellationToken` (defaulted to `CancellationToken.None` and/or `default`).
@@ -61,7 +65,7 @@ There is one breaking change that will be covered by this release. But the use-c
 
 If you have created your own customized [IDbHelper](/interface/idbhelper) object, then, you need to change your signature by simply adding the `cancellationToken` argument in both methods defined on this interface.
 
-##### GetFieldsAsync
+#### GetFieldsAsync
 
 ```csharp
 public async Task<IEnumerable<DbField>> GetFieldsAsync(IDbConnection connection,
@@ -70,7 +74,7 @@ public async Task<IEnumerable<DbField>> GetFieldsAsync(IDbConnection connection,
     CancellationToken cancellationToken = default)
 ```
 
-##### GetScopeIdentityAsync
+#### GetScopeIdentityAsync
 
 ```csharp
 public async Task<object> GetScopeIdentityAsync(IDbConnection connection,

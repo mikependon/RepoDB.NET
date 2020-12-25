@@ -1,30 +1,5 @@
 ---
-layout: smallpage
+layout: default
 ---
 
-<div>
-    <div class="section">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <header class="post-header">
-        <h1 class="post-title">{{ page.title | escape }}</h1>
-        <p class="post-meta">
-          {% if page.author %}
-            <span>{{ page.author }}</span>
-            •
-          {% endif %}
-          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-            {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-            {{ page.date | date: date_format }}
-          </time>
-        </p>
-      </header>
-      <div class="post-content" itemprop="articleBody">
-        {{ content }}
-      </div>
-      {% if site.disqus.shortname %}
-        {% include disqus_comments.html %}
-      {% endif %}
-    </article>
-    </div>
-</div>
-<script>$('.carousel.carousel-slider').carousel({fullWidth: true});</script>
+{{ content }}

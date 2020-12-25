@@ -1,16 +1,19 @@
 ---
-layout: navpage
+layout: default
 sidebar: operations
 title: "Update"
 permalink: /operation/update
 tags: [repodb, tutorial, update, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Operations
 ---
 
 # Update
 
+---
+
 This method is used to updates an existing row in the table.
 
-#### Code Snippets
+### Code Snippets
 
 Below is the sample code to update a row into the `[dbo].[Person]` table.
 
@@ -48,7 +51,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Targeting a Table
+### Targeting a Table
 
 You can also target a specific table by passing the literal table like below.
 
@@ -107,7 +110,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Specific Columns
+### Specific Columns
 
 You can also target a specific columns to be updated by passing the list of fields to be included in the `fields` argument.
 
@@ -154,7 +157,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Table Hints
+### Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 

@@ -1,22 +1,26 @@
 ---
-layout: navpage
+layout: default
 sidebar: releases
-title: Releases for MySQL (using MySqlConnector)
+title: MySQL (MySqlConnector)
 description: "This page contains the latest information of the releases of RepoDb.MySqlConnector library."
+nav_order: 7
 permalink: /release/mysqlconnector
+parent: Releases
 ---
 
 # Releases for RepoDb.MySqlConnector
 
+---
+
 Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector) to download it.
 
-#### RepoDB.MySqlConnector (v1.1.1)
+### RepoDB.MySqlConnector (v1.1.1)
 
 - CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.4](/release/core#repodb-v1124)).
 
 
-#### RepoDb.MySqlConnector (v1.1.0)
+### RepoDb.MySqlConnector (v1.1.0)
 
 - Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
 - Breaking: Introduced the `fields` argument to the fetch (i.e.: [Query](/operation/query), [ExecuteQuery](/operation/executequery) and [BatchQuery](/operation/batchquery)) and push (i.e.: [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update)) operations.
@@ -29,12 +33,12 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0](/release/core#repodb-v1120)).
 
 
-#### RepoDb.MySqlConnector (v1.1.0-beta2)
+### RepoDb.MySqlConnector (v1.1.0-beta2)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta4](/release/core#repodb-v1120-beta4)).
 
 
-#### RepoDb.MySqlConnector (v1.1.0-beta1)
+### RepoDb.MySqlConnector (v1.1.0-beta1)
 
 - Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
 - Breaking: Introduced the `fields` argument to the fetch (i.e.: [Query](/operation/query), [ExecuteQuery](/operation/executequery) and [BatchQuery](/operation/batchquery)) and push (i.e.: [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update)) operations.
@@ -47,31 +51,31 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta1](/release/core#repodb-v1120-beta1)).
 
 
-#### RepoDb.MySqlConnector (v1.0.4)
+### RepoDb.MySqlConnector (v1.0.4)
 
 - Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
 - Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
 - Enhancement: Refactor the usage of `Count()` and `ElementAt()`.
 
 
-#### RepoDb.MySqlConnector (v1.0.3)
+### RepoDb.MySqlConnector (v1.0.3)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.5](/release/core#repodb-v1115)).
 
 
-#### RepoDb.MySqlConnector (v1.0.2)
+### RepoDb.MySqlConnector (v1.0.2)
 
 - Update to MySqlConnector 1.0 [#455](https://github.com/mikependon/RepoDb/pull/455)
 - Referenced the version [MySqlConnector](https://github.com/mysql-net/MySqlConnector) ([v1.0.0](https://www.nuget.org/packages/MySqlConnector/1.0.0)).
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.4](/release/core#repodb-v1114)).
 
 
-#### RepoDb.MySqlConnector (v1.0.1)
+### RepoDb.MySqlConnector (v1.0.1)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.3](/release/core#repodb-v1113)).
 
 
-#### RepoDb.MySqlConnector (v1.0.0)
+### RepoDb.MySqlConnector (v1.0.0)
 
 - Initial release to MySqlConnector. References ([#446](https://github.com/mikependon/RepoDb/pull/446), [Commits](https://github.com/mikependon/RepoDb/commit/fa13702718ba8ace68a3c99505fdcaa5525bf73a)).
 - Added the extensive Unit Tests and Integration Tests for MySqlConnector. 

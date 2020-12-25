@@ -1,21 +1,24 @@
 ---
-layout: navpage
+layout: default
 sidebar: classes
 title: "BaseRepository"
 description: "A base class that is being used to implement an entity-based repositories."
 permalink: /class/baserepository
 tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Classes
 ---
 
 # BaseRepository
 
-This is the base class of all entity-based repository classes. It accepts 2 generic types, the model type and the connection type. It also use the [DbRepository](/class/dbrepository) as the underlying controlling repository.
+---
 
-#### Use-Cases
+This is the base class of all entity-based repository classes. It accepts 2 generic types, the model type and the connection type. It uses the [DbRepository](/class/dbrepository) as the underlying controlling repository.
 
-You should use this class if you wish to work with table-specific operations.
+### Use-Cases
 
-#### How to Implement?
+You should inherit this class if you wish to create a repository that meant for processing a single entity model/table only.
+
+### How to Implement?
 
 Let us say you have a table named `[dbo].[Person]` and a class named `Person`. Then, you can implement the repository with complete methods like below.
 
@@ -65,7 +68,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 
 > Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base.
 
-#### How to use?
+### How to use?
 
 Simply create (or inject) a new instance of the class to use the repository.
 
@@ -79,7 +82,7 @@ using (var repository = new PersonRepository(settings))
 
 > A respository is disposable, so please do not forget to wrap it with `using` keyword.
 
-#### Dependency Injection
+### Dependency Injection
 
 To make your repository dependency injectable, we recommend you to create your own interface with the necessary methods, then implement it in the class and inject it with your dependency injector.
 
@@ -123,7 +126,7 @@ public void ConfigureServices(IServiceCollection services)
 
 > Do not use the repository class directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
 
-#### The CreateConnection Method
+### The CreateConnection Method
 
 This method is used to create a new instance of connection object. If the value of [Connection Persistency](/enumeration/connectionpersistency) enumeration is `Instance`, then this method returns the existing active connection.
 
@@ -136,7 +139,7 @@ using (var connection = CreateConnection(true))
 }
 ```
 
-#### Connection Persistency
+### Connection Persistency
 
 This property enables your repository to manage the persistency of your connection within the lifespan of the repository. Please have a look at the [Connection Persistency](/enumeration/connectionpersistency) enumeration to see more details.
 
@@ -153,7 +156,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 }
 ```
 
-#### Command Timeout
+### Command Timeout
 
 This property is used as the execution timeout of every operation. By default it is null; defaultly using the ADO.NET execution timeout.
 
@@ -170,7 +173,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 }
 ```
 
-#### Adding a Cache
+### Adding a Cache
 
 This property allows the repository to enable the 2nd-layer cache for the purpose of performance. By default, the caching is enabled with the use of [MemoryCache](/class/memorycache). You can override the caching by passing the instance of [ICache](/interface/icache)-based class in the constructor.
 
@@ -194,7 +197,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 }
 ```
 
-#### Adding a Trace
+### Adding a Trace
 
 This property allows you as a developer to trace and audit the execution of any operation in the repository. To enable the trace, you have to pass the instance of [ITrace](/interface/itrace)-based class in the constructor.
 
@@ -218,7 +221,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>
 }
 ```
 
-#### SQL Builder
+### SQL Builder
 
 This property allows you to override the default SQL statement generator of the library. To override, you have to create your custom [Statement Builder](/extensibility/statementbuilder) and pass the instance of [IStatementBuilder](/interface/istatementbuilder)-based class in the constructor.
 

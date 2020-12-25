@@ -1,31 +1,34 @@
 ---
-layout: navpage
+layout: default
 sidebar: mappers
 title: "FluentMapper"
 description: "A class that is used to define a mapping for the target data entity in a fluent way."
 permalink: /mapper/fluentmapper
 tags: [repodb, class, fluentmapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: Mappers
 ---
 
 # FluentMapper
 
+---
+
 A mapper classed that is used to define the mappings for both data entity and .NET CLR type. This class has been introduced to help the developers manage the mappings implicitly (by avoiding decorating the classes with different attributes).
 
-#### Methods
+### Methods
 
 Below are the methods available from this class.
 
 - `Entity` - gets the mapping definition for the specific data entity.
 - `Type` - get the mapping definition for the specific .NET CLR type.
 
-###### By using this class, the developers can do the following.
+#### By using this class, the developers can do the following.
 
 - Maps the equivalent `database object` of the data entity.
 - Define the data entity `primary` and `identity` property.
 - Maps the equivalent `column` of the property.
 - Defines the database type and `class/property handler` of the property and .NET CLR type.
 
-#### Entity Mapping
+### Entity Mapping
 
 To define the mappings for specific data entity type, use the `Entity()` method. It uses the [EntityMapFluentDefinition](/class/entitymapfluentdefinition) class to manage the mappings.
 
@@ -66,7 +69,7 @@ FluentMapper
     .PropertyHandler<CustomerAddressPropertyHandler>(e => e.Address); // Defines the PropertyHandler of the Property
 ```
 
-#### Type-Level Mapping
+### Type-Level Mapping
 
 To define the mappings for a specific .NET CLR type, use the `Type()` method. It uses the [TypeMapFluentDefinition](/class/typemapfluentdefinition) class to manage the mappings.
 

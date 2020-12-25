@@ -1,16 +1,20 @@
 ---
-layout: navpage
+layout: default
 sidebar: references
-title: "Multiple Resultsets Reference"
+title: "Multiple Resultsets"
+nav_order: 6
 permalink: /reference/multipleresultsets
 tags: [repodb, class, multipleresultsets, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: References
 ---
 
 # Multiple Resultsets
 
+---
+
 This page contains the recommended way of querying the records with multiple resultsets.
 
-#### Single Parent / Multiple Children
+### Single Parent with Multiple Children
 
 For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
 
@@ -42,7 +46,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Multiple Parent / Multiple Children
+### Multiple Parent with Multiple Children
 
 For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
 
@@ -85,8 +89,8 @@ using (var connection = new SqlConnection(connectionString))
 
 > You can also visit our [Multiple Query](/feature/multiplequery) feature to get more information.
 
-#### Key Take-aways
+### Key Take-aways
 
-- The method [QueryMultiple](/operation/querymultiple) is pre-extracting all the resultsets, whereas [ExecuteQueryMultiple](/operation/executequerymultiple) is extracting as per call-basis (via `Extract` or `Scalar` method).
+- The method [QueryMultiple](/operation/querymultiple) is pre-extracting all the resultsets, whereas [ExecuteQueryMultiple](/operation/executequerymultiple) is extracting as per call-basis (via `Extract()` or `Scalar()` method).
 - Ensure to always wrap the calls to [ExecuteQueryMultiple](/operation/executequerymultiple) with `using` keyword.
 - You can have a lot of controls with [ExecuteQueryMultiple](/operation/executequerymultiple) over [QueryMultiple](/operation/querymultiple) method.
