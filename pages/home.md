@@ -22,8 +22,6 @@ The main goal is to improve the things and simplify your development experiences
 
 We are glad and thankful for your interest in learning RepoDB!
 
-<img src="../../assets/images/site/cache.svg" />
-
 ---
 
 ### Why use RepoDB?
