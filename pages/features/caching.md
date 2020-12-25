@@ -16,7 +16,7 @@ In general terms, a cache is a component that stores an object (or its states) i
 
 Usually, it is implemented as a 2nd-layer data storage to provide fast accessibility to the requestor of the data. It is by design to prevent the frequent calls towards the underlying data-store, thus helps improve the underlying performance of the application.
 
-<embed src="../../assets/images/site/cache.svg" />
+<img src="../../assets/images/site/cache.svg" />
 
 In this library, the cache is implemented as a storage in the computer memory by default. It is a simple dictionary object that holds a key that represents as pointer to the actual data in the cache storage. It is persisting the data in the cache storage for 180 minutes, but the user can manually set the time of the persistency during the calls.
 

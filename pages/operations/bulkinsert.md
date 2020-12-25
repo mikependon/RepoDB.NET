@@ -17,7 +17,7 @@ This method is used to insert all the rows from the client application into the 
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/bulk-insert.png" />
+<img src="../../assets/images/site/bulkinsert.svg" />
 
 ### Use Case
 

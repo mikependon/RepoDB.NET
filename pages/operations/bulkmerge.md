@@ -17,7 +17,7 @@ This method is used to merge all the rows from the client application into the d
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/bulk-merge.png" />
+<img src="../../assets/images/site/bulkmerge.svg" />
 
 ### Use Case
 

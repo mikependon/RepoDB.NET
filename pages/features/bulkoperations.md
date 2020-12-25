@@ -18,7 +18,7 @@ Basically, we normally do the [Delete](/operation/delete), [Insert](/operation/i
 
 Image below shows the data flow of the [BulkInsert](/operation/bulkinsert) operation.
 
-<img src="../../assets/images/site/bulk-insert.png" />
+<img src="../../assets/images/site/bulkinsert.svg" />
 
 With the bulk operations, all data is brought from the client application to the database via [BulkInsert](/operation/bulkinsert) process (underneath is the `SqlBulkCopy` class). It ignores the audit, logs, constraints and any other database special handling. Then, the data is being processed together within the database (server).
 
@@ -36,7 +36,7 @@ For the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) a
 
 Image below shows the data flow of the [BulkMerge](/operation/bulkmerge) operation.
 
-<img src="../../assets/images/site/bulk-merge.png" />
+<img src="../../assets/images/site/bulkmerge.svg" />
 
 Basically, a pseudo-temporary table will be created in the database under the transaction context. It then uses the [BulkInsert](/operation/bulkinsert) operation to target that pseudo-temporary table and process the data afterwards. Through this technique, we brought all the data together from the client application into the database server (at one-go) and process them together at the same time.
 

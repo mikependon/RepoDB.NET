@@ -17,7 +17,7 @@ This method is used to delete the target rows from the database by bulk. This op
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/bulk-delete.png" />
+<img src="../../assets/images/site/bulkdelete.svg" />
 
 ### Use Case
 
