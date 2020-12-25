@@ -21,14 +21,14 @@ Then run the site via Jekyll.
 > bundle exec jekyll serve
 ```
 
-Lastly, open a browser and visit the link [http://127.0.0.1:4000/](http://127.0.0.1:4000/).
+Lastly, open a browser and visit the link [http://localhost:4000/](http://localhost:4000/).
 
 ### Engagements
 
 Please get in touch with us via:
 
 - [GitHub](https://github.com/mikependon/RepoDb.NET/issues) - for any issues, requests and problems.
-- [StackOverflow](https://stackoverflow.com/search?q=RepoDB) - for any technical questions.
+- [StackOverflow](https://stackoverflow.com/search?tab=newest&q=RepoDB) - for any technical questions.
 - [Twitter](https://twitter.com/search?q=%23repodb) - for the latest news.
 - [Gitter Chat](https://gitter.im/RepoDb/community) - for direct and live Q&A.
 
