@@ -18,7 +18,7 @@ This is a feature that would allow you to optimize the command execution towards
 
 For raw-SQL, the process of adding hints is controlled by you as you are the one who is providing the SQL text.
 
-Below is the code that queries all the dirty transactions from the `[dbo].[Order]` table.
+Below is the code that query all the dirty data from the `[dbo].[Order]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -46,7 +46,7 @@ using (var connection = new SqlConnection(connectionString))
 
 Most [operations](/docs#operations) within the library accepts the `hints` argument. It allows you to pass the hints as a literal string, those giving you the full control when optimizing the calls to the operation.
 
-Below are the equivalent operations of the raw-SQLs execution defined in the previous section.
+Below are the equivalent operations of the raw-SQLs execution defined above.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
