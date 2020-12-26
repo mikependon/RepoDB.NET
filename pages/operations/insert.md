@@ -125,6 +125,22 @@ using (var connection = new SqlConnection(connectionString))
     var person = new
     {
         Name = "John Doe",
+        DateOfBirth = DateTime.Parse("2020-01-01"),
+        DateInsertedUtc = DateTime.UtcNow
+    };
+    var id = connection.Insert("[dbo].[Person]",
+        entity: person));
+}
+```
+
+And with the target fields.
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var person = new
+    {
+        Name = "John Doe",
         Address = "New York",
         DateOfBirth = DateTime.Parse("2020-01-01"),
         IsActive = true,
