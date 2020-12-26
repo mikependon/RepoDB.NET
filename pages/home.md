@@ -16,7 +16,13 @@ A hybrid ORM library for .NET.
 
 ---
 
-[RepoDB](https://github.com/mikependon/RepoDb) is an open-source .NET ORM library that bridges the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development. Its name is a shortcut to Repository + Database.
+[RepoDB](https://github.com/mikependon/RepoDb) is an open-source .NET ORM library that bridges the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
+
+Its name is a shortcut to Repository (a popular pattern when implementing Data Access Layers) + the word Database.
+
+Diagram below shows where we are positioning this library.
+
+<img src="../../assets/images/site/difference.svg" />
 
 The main goal is to improve the things and simplify your development experiences when working with data access technology in .NET ecosystem.
 
@@ -26,9 +32,9 @@ We are glad and thankful for your interest in learning RepoDB!
 
 ### Why use RepoDB?
 
-If you are to use a macro-ORM, you are most likely be abstracted by the framework itself. Though they are more richer in operations, but those operations are limiting you to touch and maximize the power of the underlying datasource being in-used.
+If you are to use a full-fledged macro-ORM, you are most likely be abstracted by the framework itself. Though they are more richer in operations, but those operations are limiting you to touch and maximize the power of the underlying datasource being in-used.
 
-On the other hand, if you are to use a full-fledged micro-ORM, there are tendencies that most of your implementation will be verbose and are all text-based (SQLs). Even though you have a lot control with this, but it is quite tedious and is not practical in most cases.
+On the other hand, if you are to use a bare-metal micro-ORM, there are tendencies that most of your implementation will be verbose and are all text-based (SQLs). Even though you have a lot control with this, but it is quite tedious and is not practical in most cases.
 
 RepoDB mediates both the micro-ORMs and macro-ORMs. When using this library, your development experience is as simple as Dapper when opening a connection and as simple as Entity Framework when calling the operations. It is the reason that makes this library the easiest-to-use ORM.
 
