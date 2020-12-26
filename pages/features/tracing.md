@@ -205,3 +205,5 @@ public class NorthwindRepository : DbRepository<SqlConnection>
     ...
 }
 ```
+
+> You can as well visit our [Trace](/reference/propertyhandlerpropertylevel) reference implementation page for more details.

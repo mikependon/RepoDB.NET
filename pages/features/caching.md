@@ -49,7 +49,7 @@ using (var repository = new DbRepository<Product, SqlConnection>(connectionStrin
 
 > It is highly recommended to use the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects if you tend to skip managing the cache object.
 
-### Selecting the Proper Cache Key
+### Selecting a Proper Cache Key
 
 Each cache key should preferably be unique to the query executed, so that different methods do not ended up unintentionally sharing the same data.
 
@@ -320,3 +320,5 @@ public class NorthwindRepository : DbRepository<SqlConnection>
     ...
 }
 ```
+
+> Please visit our [JSON Cache](/reference/jsoncache) reference implementation page to get more insights on how to implement a file-based caching object using JSON.

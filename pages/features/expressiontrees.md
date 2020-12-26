@@ -146,3 +146,5 @@ using (var connection = new SqlConnection(connectionString))
     var customers = connection.Query<Customer>(where);
 }
 ```
+
+> Please visit our [Query Expressions](/reference/queryexpressions) reference implementation page for more details.

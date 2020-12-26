@@ -12,9 +12,9 @@ parent: Features
 
 ---
 
-This is a feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound). It allows you to customize the conversion of the class properties or specific .NET CLR types.
+This is a feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound). It allows you to customize the conversion of the class properties and the .NET CLR types.
 
-The execution of the transformation contains the actual values and the affected class property context provided by the [ClassProperty](/class/classproperty) object.
+The execution of the transformation contains the actual values and the affected [ClassProperty](/class/classproperty) object to provide more context.
 
 #### It uses the following objects
 
@@ -94,6 +94,8 @@ When calling the pull operations (i.e.: [Query](/operation/query), [QueryAll](/o
 
 On the other hand, when you call the push operations (i.e.: [Insert](/operation/insert), [Update](/operation/update) and [Merge](/operation/merge)), then the `Set()` method will be invoked. 
 
+> Please visit our [Property Handler (Property Level)](/reference/propertyhandlerpropertylevel) reference implementation page for the detailed implementation.
+
 ### Creating a Type-Level Property Handler
 
 The process is the same as with [Implementing a Property Handler](#implementing-a-property-handler) section. Create a class that implements the [IPropertyHandler](/interface/ipropertyhandler) interface.
@@ -126,3 +128,5 @@ FluentMapper
     .Type<DateTime>()
     .PropertyHandler<PersonAddressPropertyHandler>();
 ```
+
+> Please visit our [Property Handler (Type Level)](/reference/propertyhandlertypelevel) reference implementation page for the detailed implementation.

@@ -29,7 +29,7 @@ If you are working to insert range of rows from 1000 or beyond, then use this me
 
 The arguments `isReturnIdentity`, and `usePhysicalPseudoTempTable` is provided on this operation.
 
-The `isReturnIdentity` is used to define the behaviour of the execution whether the newly generated identity will be set-back to the data entities. By default, it is disabled.
+The `isReturnIdentity` is used to define the behaviour of the execution whether the newly generated identities will be set-back to the data entities. By default, it is disabled.
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. This will only work if the `isReturnIdentity` is `true`. By default, a temporary table (i.e.: `#TableName`) is used.
 

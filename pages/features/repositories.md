@@ -14,6 +14,10 @@ parent: Features
 
 A repository is a software design pattern and practice in which it is being implemented as an additional layer between your application and your database. It is being represented as a class object within the application. Through repository, you are managing how the data is being manipulated from/to the database.
 
+Below is the high-level diagram of the repository.
+
+<img src="../../assets/images/site/repository.svg" />
+
 In the repository, we usually add the basic database operations (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and etc), but, here we also place the relevant advance operations usable within the application. Then, all the code in your application that fetches or pushes a data into the database is using this object instead of directly accessing the database. Thus allowing the developers to follow the correct chain-of calls and reusability when it comes to the data accessibility.
 
 ### Type of Repositories
@@ -47,36 +51,54 @@ public PersonRepository : BaseRepository<Person, SqlConnection>, IPersonReposito
     public PersonRepository(IOptions<AppSettings> settings)
         : base(settings.Value.ConnectionString)
     { }
+}
+```
 
-    public int Delete(Person person)
-    {
-        return base.Delete(person);
-    }
+Then, implement the needed interface methods.
 
-    public Person Get(int id)
-    {
-        return Query(id).FirstOrDefault();
-    }
+#### Delete
 
-    public IEnumerable<Person> GetAll()
-    {
-        return QueryAll();
-    }
+```csharp
+public int Delete(Person person)
+{
+    return base.Delete(person);
+}
+```
 
-    public int Save(Person person)
-    {
-        return Insert<int>(person);
-    }
+#### Get
 
-    public int SaveAll(IEnumerable<Person> people)
-    {
-        return InsertAll(people);
-    }
+```csharp
+public Person Get(int id)
+{
+    return Query(id).FirstOrDefault();
+}
 
-    public int Update(Person person)
-    {
-        return Update(person);
-    }
+public IEnumerable<Person> GetAll()
+{
+    return QueryAll();
+}
+```
+
+#### Save
+
+```csharp
+public int Save(Person person)
+{
+    return Insert<int>(person);
+}
+
+public int SaveAll(IEnumerable<Person> people)
+{
+    return InsertAll(people);
+}
+```
+
+#### Update
+
+```csharp
+public int Update(Person person)
+{
+    return Update(person);
 }
 ```
 
@@ -91,6 +113,8 @@ public void ConfigureServices(IServiceCollection services)
     services.AddTransient<IPersonRepository, PersonRepository>();
 }
 ```
+
+> Please visit our [BaseRepository](/reference/baserepository) reference implementation page for the detailed implementation.
 
 ### Creating a Database Level Repository
 
@@ -125,70 +149,101 @@ public NorthwindRepository : DbRepository<SqlConnection>, INorthwindRepository
     public PersonRepository(IOptions<AppSettings> settings)
         : base(settings.Value.ConnectionString)
     { }
+}
+```
 
-    // Customer
+Then, implement the needed interface methods.
 
-    public int DeleteCustomer(Customer customer)
-    {
-        return Delete<Customer>(customer);
-    }
+#### Delete
 
-    public Customer GetCustomer(int id)
-    {
-        return Query<Customer>(id).FirstOrDefault();
-    }
+```csharp
+// Customer
 
-    public IEnumerable<Customer> GetAllCustomers()
-    {
-        return QueryAll<Customer>();
-    }
+public int DeleteCustomer(Customer customer)
+{
+    return Delete<Customer>(customer);
+}
 
-    public int SaveCustomer(Customer customer)
-    {
-        return Insert<Customer, int>(customer);
-    }
+// Order
 
-    public int SaveAllCustomers(IEnumerable<Customer> people)
-    {
-        return InsertAll<int><Customer>(people);
-    }
+public int DeleteOrder(Order order)
+{
+    return Delete<Order>(order);
+}
+```
 
-    public int UpdateCustomer(Customer customer)
-    {
-        return Update<Customer>(customer);
-    }
+#### Get
 
-    // Order
+```csharp
+// Customer
 
-    public int DeleteOrder(Order order)
-    {
-        return Delete<Order>(order);
-    }
+public Customer GetCustomer(int id)
+{
+    return Query<Customer>(id).FirstOrDefault();
+}
 
-    public Order GetOrder(int id)
-    {
-        return Query<Order>(id).FirstOrDefault();
-    }
+public IEnumerable<Customer> GetAllCustomers()
+{
+    return QueryAll<Customer>();
+}
 
-    public IEnumerable<Order> GetAllOrders()
-    {
-        return QueryAll<Order>();
-    }
+// Order
 
-    public int SaveOrder(Order order)
-    {
-        return Insert<Order, int>(order);
-    }
+public Order GetOrder(int id)
+{
+    return Query<Order>(id).FirstOrDefault();
+}
 
-    public int SaveAllOrders(IEnumerable<Order> people)
-    {
-        return InsertAll<Order>(people);
-    }
+public IEnumerable<Order> GetAllOrders()
+{
+    return QueryAll<Order>();
+}
 
-    public int UpdateOrder(Order order)
-    {
-        return Update<Order>(order);
-    }
+```
+
+#### Save
+
+```csharp
+// Customer
+
+public int SaveCustomer(Customer customer)
+{
+    return Insert<Customer, int>(customer);
+}
+
+public int SaveAllCustomers(IEnumerable<Customer> people)
+{
+    return InsertAll<int><Customer>(people);
+}
+
+// Order
+
+public int SaveOrder(Order order)
+{
+    return Insert<Order, int>(order);
+}
+
+public int SaveAllOrders(IEnumerable<Order> people)
+{
+    return InsertAll<Order>(people);
+}
+```
+
+#### Update
+
+```csharp
+// Customer
+
+public int UpdateCustomer(Customer customer)
+{
+    return Update<Customer>(customer);
+}
+
+// Order
+
+public int UpdateOrder(Order order)
+{
+    return Update<Order>(order);
 }
 ```
 
@@ -203,6 +258,8 @@ public void ConfigureServices(IServiceCollection services)
     services.AddTransient<INorthwindRepository, NorthwindRepository>();
 }
 ```
+
+> Please visit our [DbRepository](/reference/dbrepository) reference implementation page for the detailed implementation.
 
 ### Creating a Custom Generic Repository
 
@@ -242,58 +299,80 @@ public PersonRepository : GenericRepository<Person, SqlConnection>, IPersonRepos
     {
         _settings = settings;
     }
+}
+```
 
-    public SqlConnection CreateConnection()
+Then, implement the needed interface methods.
+
+#### CreateConnection
+
+```csharp
+public SqlConnection CreateConnection()
+{
+    return new SqlConnection(_settings.Value.ConnectionString);
+}
+```
+
+#### Delete
+
+```csharp
+public int Delete(Person entity)
+{
+    using (var connection = CreateConnection())
     {
-        return new SqlConnection(_settings.Value.ConnectionString);
+        return connection.Delete<Person>(entity);
     }
+}
+```
 
-    public int Delete(Person entity)
+#### Get
+
+```cshar
+public Person Get(int id)
+{
+    using (var connection = CreateConnection())
     {
-        using (var connection = CreateConnection())
-        {
-            return connection.Delete<Person>(entity);
-        }
+        return connection.Query(id).FirstOrDefault();
     }
+}
 
-    public Person Get(int id)
+public IEnumerable<Person> GetAll()
+{
+    using (var connection = CreateConnection())
     {
-        using (var connection = CreateConnection())
-        {
-            return connection.Query(id).FirstOrDefault();
-        }
+        return connection.QueryAll(id);
     }
+}
+```
 
-    public IEnumerable<Person> GetAll()
+#### Save
+
+```csharp
+public int Save(Person entity)
+{
+    using (var connection = CreateConnection())
     {
-        using (var connection = CreateConnection())
-        {
-            return connection.QueryAll(id);
-        }
+        return Insert<Person, int>(entity);
     }
+}
 
-    public int Save(Person entity)
+public int SaveAll(IEnumerable<Person> entities)
+{
+    using (var connection = CreateConnection())
     {
-        using (var connection = CreateConnection())
-        {
-            return Insert<Person, int>(entity);
-        }
+        return InsertAll<Person>(entities);
     }
+}
+```
 
-    public int SaveAll(IEnumerable<Person> entities)
-    {
-        using (var connection = CreateConnection())
-        {
-            return InsertAll<Person>(entities);
-        }
-    }
+#### Update
 
-    public int Update(Person entity)
+```csharp
+public int Update(Person entity)
+{
+    using (var connection = CreateConnection())
     {
-        using (var connection = CreateConnection())
-        {
-            return Update<Person>(entity);
-        }
+        return Update<Person>(entity);
     }
 }
 ```
@@ -309,4 +388,6 @@ public void ConfigureServices(IServiceCollection services)
     services.AddTransient<IPersonRepository, PersonRepository>();
 }
 ```
+
+> Please visit our [Generic Repository](/reference/genericrepository) reference implementation page for the detailed implementation.
 

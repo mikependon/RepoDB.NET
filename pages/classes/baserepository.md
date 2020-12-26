@@ -105,7 +105,7 @@ public int RemoveById(int id)
 }
 ```
 
-> Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base. Please visit our [BaseRepository](/reference/baserepository) reference implementation for the detailed implementation.
+> Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base. Please visit our [BaseRepository](/reference/baserepository) reference implementation page for the detailed implementation.
 
 ### How to use?
 
@@ -208,7 +208,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 }
 ```
 
-> Please visit our [JSON Cache](/reference/jsoncache) reference implementation for the detailed implementation about file-based caching using JSON.
+> Please visit our [JSON Cache](/reference/jsoncache) reference implementation page for the detailed implementation about file-based caching using JSON.
 
 ### Adding a Trace
 
@@ -234,7 +234,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 }
 ```
 
-> Please visit our [Trace](/reference/trace) reference implementation for the detailed implementation.
+> Please visit our [Trace](/reference/trace) reference implementation page for the detailed implementation.
 
 ### SQL Builder
 

@@ -94,7 +94,9 @@ It is the fastest and the most-efficient ORM in .NET space nowadays!
 
 <img src="../assets/backgrounds/statistics.png" />
 
-Please visit the [benchmark](https://github.com/mikependon/RepoDB#benchmark) section of our Github page for more information.
+The benchmark statistics shown above is the result of the community-approved ORM bencher [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher).
+
+Please visit the [benchmark](https://github.com/mikependon/RepoDB#benchmark) section of our Github page to get more information.
 
 ---
 

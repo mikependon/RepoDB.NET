@@ -38,8 +38,10 @@ For fluent-method, call the [QueryMultiple](/operation/querymultiple) method.
 using (var connection = new SqlConnection(connectionString))
 {
     var customerId = 10045;
-    var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, o => o.CustomerId == customerId,
-        hints1: SqlServerTableHints.NoLock, hints2: SqlServerTableHints.NoLock);
+    var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId,
+        o => o.CustomerId == customerId,
+        hints1: SqlServerTableHints.NoLock,
+        hints2: SqlServerTableHints.NoLock);
     var customer = tuple.Item1.FirstOrDefault();
     customer.Orders = tuple.Item2.AsList();
     // Process the 'customer' here
@@ -75,8 +77,10 @@ For fluent-method, call the [QueryMultiple](/operation/querymultiple) method.
 using (var connection = new SqlConnection(connectionString))
 {
     var keys = new [] { 10045, ..., 11211 };
-    var tuple = connection.QueryMultiple<Customer, Order>(c => keys.Contains(c.Id), o => keys.Contains(o.CustomerId),
-        hints1: SqlServerTableHints.NoLock, hints2: SqlServerTableHints.NoLock);
+    var tuple = connection.QueryMultiple<Customer, Order>(c => keys.Contains(c.Id),
+        o => keys.Contains(o.CustomerId),
+        hints1: SqlServerTableHints.NoLock,
+        hints2: SqlServerTableHints.NoLock);
     var customers = tuple.Item1.AsList();
 
     // Iterate the customers and map all the orders

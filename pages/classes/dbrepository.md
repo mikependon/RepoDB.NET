@@ -103,7 +103,7 @@ public IEnumerable<Order> GetCustomerOrders(int customerId)
 /* More methods */
 ```
 
-> Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base. Please visit our [DbRepository](/reference/dbrepository) reference implementation for the detailed implementation.
+> Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base. Please visit our [DbRepository](/reference/dbrepository) reference implementation page for the detailed implementation.
 
 ### How to use?
 
@@ -212,6 +212,8 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 }
 ```
 
+> Please visit our [JSON Cache](/reference/jsoncache) reference implementation page for the detailed implementation about file-based caching using JSON.
+
 ### Adding a Trace
 
 This property allows you as a developer to trace and audit the execution of any operation in the repository. To enable the trace, you have to pass the instance of [ITrace](/interface/itrace)-based class in the constructor.
@@ -235,6 +237,8 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>
     ...
 }
 ```
+
+> Please visit our [Trace](/reference/trace) reference implementation page for the detailed implementation.
 
 ### SQL Builder
 

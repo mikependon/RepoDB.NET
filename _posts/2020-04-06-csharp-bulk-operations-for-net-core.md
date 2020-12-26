@@ -88,9 +88,9 @@ See the SQL Statements below.
 
 #### The following objects are supported
 
-- `System.DataTable`
-- `System.Data.Common.DbDataReader`
-- `System.Collections.Generic.IEnumerable<T>`
+- System.DataTable
+- System.Data.Common.DbDataReader
+- System.Collections.Generic.IEnumerable&lt;T&gt;
 
 ## Special Arguments
 
@@ -102,7 +102,7 @@ The argument `usePhysicalPseudoTempTable` is used to define whether a physical p
 
 ## Caveats
 
-RepoDB is automatically setting the value of options argument to `SqlBulkCopyOptions.KeepIdentity` when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) if you have not passed any `qualifiers` and if your table has an IDENTITY primary key column. The same logic will apply if there is no primary key but has an IDENTITY column defined in the table.
+RepoDB is automatically setting the value of `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) if you have not passed any `qualifiers` and if your table has an IDENTITY primary key column. The same logic will apply if there is no primary key but has an IDENTITY column defined in the table.
 
 In addition, when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to `CREATE` a table in the database, otherwise a `SqlException` will be thrown.
 
