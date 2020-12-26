@@ -24,7 +24,9 @@ In this library, the cache is implemented as a storage in the computer memory by
 
 ### How to use the Cache?
 
-Simply pass a value to the `cacheKey` argument when calling the operation. The direct usage of the connection object requires an instance of [ICache](/interface/icache) to be explicitly passed into the `cache` argument.
+Simply pass a literal string value to the `cacheKey` argument when calling the operation.
+
+The direct usage of the connection object requires an instance of [ICache](/interface/icache) to be explicitly passed into the `cache` argument.
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
@@ -34,7 +36,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Below is the code if the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) is used.
+Below is the code if the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) are being used.
 
 ```csharp
 using (var repository = new DbRepository<Product, SqlConnection>(connectionString))
