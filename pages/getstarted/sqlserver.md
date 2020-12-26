@@ -378,7 +378,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 ### Typed Result Execution
 
-You can infer the scalar resultset in any .NET CLR type via [ExecuteQuery](/operation/executequery) operation.
+You can infer the single-column resultsets in any .NET CLR type via [ExecuteQuery](/operation/executequery) operation.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
