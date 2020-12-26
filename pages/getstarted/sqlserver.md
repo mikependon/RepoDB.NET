@@ -312,7 +312,7 @@ To execute a query while expecting a single result, use the [ExecuteScalar](/ope
 using (var connection = new SqlConnection(ConnectionString))
 {
     var sql = "SELECT MAX(Id) FROM [dbo].[Person];";
-    var maxId = connection.ExecuteQuery<Person>(sql);
+    var maxId = connection.ExecuteScalar<long>(sql);
 }
 ```
 
