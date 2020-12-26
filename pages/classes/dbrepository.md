@@ -19,7 +19,7 @@ This is the base class of all repository classes. It accepts the type of `DbConn
 
 You should implement this class if you wish to create a repository that is meant for processing all the database tables (and multiple entity models) together. This is a common design which we called a shared-repository.
 
-### How to Implement?
+### Implementation
 
 Let us say you have the following tables.
 
@@ -33,77 +33,7 @@ And the following classes.
 - `Order`
 - `Product`
 
-Then you can create your shared repository like below.
-
-```csharp
-public class NorthwindRepository : DbRepository<SqlConnection>,
-{
-    public NorthwindRepository(string connectionString)
-        : base(connectionString)
-    { }
-
-    // Create
-    public object CreateCustomer(Customer customer)
-    {
-        return Insert<Customer>(customer);
-    }
-
-    public object CreateOrder(Order order)
-    {
-        return Insert<Order>(order);
-    }
-
-    public object CreateProduct(Product product)
-    {
-        return Insert<Product>(product);
-    }
-
-    // GetAll
-    public IEnumerable<Customer> GetCustomers()
-    {
-        return QueryAll<Customer>();
-    }
-    
-    public IEnumerable<Product> GetProducts()
-    {
-        return QueryAll<Product>();
-    }
-
-    // GetOrders
-    public IEnumerable<Order> GetCustomerOrders(int customerId)
-    {
-        return Query<Order>(o => o.CustomerId == customerId);
-    }
-
-    ...
-}
-```
-
-> Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base.
-
-### How to use?
-
-Simply create (or inject) a new instance of the class to use the repository.
-
-```csharp
-using (var repository = new NorthwindRepository(connectionString)) // The settings must be DI(ed) (or,the repository itself must be DI(ed))
-{
-    var customers = repository.GetCustomers();
-    customers
-        .AsList()
-        .ForEach(c =>
-        {
-            var orders = repository.GetCustomerOrders(c.Id);
-            ProcessOrders(orders);
-        });
-}
-```
-
-> A respository is disposable, so please do not forget to wrap it with `using` keyword.
-
-### Dependency Injection
-
-To make your repository dependency injectable, we recommend you to create your own interface with the necessary methods, then implement it in the class and inject it with your dependency injector.
+First, create a customized repository interface.
 
 ```csharp
 public interface INorthwithRepository
@@ -120,20 +50,84 @@ public interface INorthwithRepository
 }
 ```
 
-Then implement it in your class.
+Secondly, create a class that inherits from [DbRepository](/class/dbrepository) class. In this class, implement the newly created interface-repository above.
 
 ```csharp
-public class NorthwindRepository : DbRepository<Customer, SqlConnection>, INorthwindRepository
+public class NorthwindRepository : DbRepository<SqlConnection>, INorthwithRepository
 {
     public NorthwindRepository(string connectionString)
         : base(connectionString)
     { }
-
-    ...
 }
 ```
 
-Lastly, inject it.
+Then, implement the needed interface methods.
+
+#### Create
+
+```csharp
+public object CreateCustomer(Customer customer)
+{
+    return Insert<Customer>(customer);
+}
+
+public object CreateOrder(Order order)
+{
+    return Insert<Order>(order);
+}
+
+public object CreateProduct(Product product)
+{
+    return Insert<Product>(product);
+}
+```
+
+#### Get
+
+```csharp
+public IEnumerable<Customer> GetCustomers()
+{
+    return QueryAll<Customer>();
+}
+
+public IEnumerable<Product> GetProducts()
+{
+    return QueryAll<Product>();
+}
+
+public IEnumerable<Order> GetCustomerOrders(int customerId)
+{
+    return Query<Order>(o => o.CustomerId == customerId);
+}
+
+/* More methods */
+```
+
+> Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base. Please visit our [DbRepository](/reference/dbrepository) reference implementation for the detailed implementation.
+
+### How to use?
+
+Simply create a new instance of the class to use the repository.
+
+```csharp
+using (var repository = new NorthwindRepository(settings.Value.ConnectionString)) // The settings must be DI(ed) (or,the repository itself must be DI(ed))
+{
+    var customers = repository.GetCustomers();
+    customers
+        .AsList()
+        .ForEach(c =>
+        {
+            var orders = repository.GetCustomerOrders(c.Id);
+            ProcessOrders(orders);
+        });
+}
+```
+
+> A respository is disposable, so please do not forget to wrap it with `using` keyword.
+
+### Dependency Injection
+
+Simply register the `INorthwindRepository` interface and the `NorthwindRepository` class in the service registration.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

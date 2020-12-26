@@ -33,6 +33,8 @@ The `isReturnIdentity` is used to define the behaviour of the execution whether 
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. This will only work if the `isReturnIdentity` is `true`. By default, a temporary table (i.e.: `#TableName`) is used.
 
+> Please be noted that it is not recommended to enable the `usePhysicalPseudoTempTable` argument if you are to work with parallelism. Ensure to always utilize the session-based non-physical pseudo-temporary table on parallelism's scenario.
+
 ### How to call?
 
 Let us say you have a method that create a list of `Person` from the client application.

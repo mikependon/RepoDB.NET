@@ -230,17 +230,17 @@ public int Delete(int id,
 Below is the recommended way when exposing a method that pushes a record.
 
 ```csharp
-public object Merge(Customer customer,
+public int Merge(Customer customer,
     IDbTransaction transaction = null)
 {
-    return base.Merge(customer,
+    return base.Merge<int>(customer,
         transaction: transaction);
 }
 
-public object Save(Customer customer,
+public int Save(Customer customer,
     IDbTransaction transaction = null)
 {
-    return Insert(customer,
+    return Insert<int>(customer,
         transaction: transaction);
 }
 
@@ -289,17 +289,17 @@ public async Task<int> DeleteAsync(int id,
         transaction: transaction);
 }
 
-public async Task<object> MergeAsync(Customer customer,
+public async Task<int> MergeAsync(Customer customer,
     IDbTransaction transaction = null)
 {
-    return await base.MergeAsync(customer,
+    return await base.MergeAsync<int>(customer,
         transaction: transaction);
 }
 
-public async Task<object> SaveAsync(Customer customer,
+public async Task<int> SaveAsync(Customer customer,
     IDbTransaction transaction = null)
 {
-    return await InsertAsync(customer,
+    return await InsertAsync<int>(customer,
         transaction: transaction);
 }
 
@@ -334,10 +334,10 @@ public interface ICustomerRepository
     int Delete(int id,
         IDbTransaction transaction = null);
 
-    object Merge(Customer customer,
+    int Merge(Customer customer,
         IDbTransaction transaction = null);
 
-    object Save(Customer customer,
+    int Save(Customer customer,
         IDbTransaction transaction = null);
 
     int Update(Customer customer,
@@ -359,10 +359,10 @@ public interface ICustomerRepository
     Task<int> DeleteAsync(int id,
         IDbTransaction transaction = null);
 
-    Task<object> Merge(Customer customer,
+    Task<int> Merge(Customer customer,
         IDbTransaction transaction = null);
 
-    Task<object> SaveAsync(Customer customer,
+    Task<int> SaveAsync(Customer customer,
         IDbTransaction transaction = null);
 
     Task<int> UpdateAsync(Customer customer,

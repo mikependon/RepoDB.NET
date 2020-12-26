@@ -16,80 +16,18 @@ This is the base class of all entity-based repository classes. It accepts 2 gene
 
 ### Use-Cases
 
-You should inherit this class if you wish to create a repository that meant for processing a single entity model/table only.
+You should inherit this class if you wish to create a repository that is meant for processing a single entity model/table only.
 
-### How to Implement?
+### Implementation
 
-Let us say you have a table named `[dbo].[Person]` and a class named `Person`. Then, you can implement the repository with complete methods like below.
+Let us say you have a table named `[dbo].[Person]` and a class named `Person`.
 
-```csharp
-public class PersonRepository : BaseRepository<Person, SqlConnection>
-{
-    public PersonRepository(string connectionString)
-        : base(connectionString)
-    { }
-
-    public object Create(Person person)
-    {
-        return Insert(person);
-    }
-
-    public Person GetById(int id)
-    {
-        return Query(id).FirstOrDefault();
-    }
-
-    public IEnumerable<Person> GetAll()
-    {
-        return QueryAll();
-    }
-
-    public int Update(Person person)
-    {
-        return base.Update(person);
-    }
-    
-    public int Merge(Person person)
-    {
-        return base.Merge(person);
-    }
-    
-    public int Remove(Person person)
-    {
-        return Delete(person);
-    }
-    
-    public int RemoveById(int id)
-    {
-        return Delete(id);
-    }
-}
-```
-
-> Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base.
-
-### How to use?
-
-Simply create (or inject) a new instance of the class to use the repository.
+First, create a customized entity-based repository interface.
 
 ```csharp
-// The settings must be DI(ed) (or,the repository itself must be DI(ed))
-using (var repository = new PersonRepository(settings))
+public interface IPersonRepository<TEntity, TPrimaryKey>
 {
-    var person = repository.Get(10045);
-}
-```
-
-> A respository is disposable, so please do not forget to wrap it with `using` keyword.
-
-### Dependency Injection
-
-To make your repository dependency injectable, we recommend you to create your own interface with the necessary methods, then implement it in the class and inject it with your dependency injector.
-
-```csharp
-public interface IPersonRepository
-{
-    object Create(Person person);
+    int Create(Person person);
     Person GetById(int id);
     IEnumerable<Person> GetAll();
     int Update(Person person);
@@ -99,7 +37,7 @@ public interface IPersonRepository
 }
 ```
 
-Then implement it in your class.
+Secondly, create a class that inherits from [BaseRepository](/class/baserepository) class. In this class, implement the newly created interface-repository above.
 
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
@@ -107,12 +45,85 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
     public PersonRepository(string connectionString)
         : base(connectionString)
     { }
-
-    ...
 }
 ```
 
-Lastly, inject it.
+Then, implement the needed interface methods.
+
+#### Create
+
+```csharp
+public int Create(Person person)
+{
+    return Insert<int>(person);
+}
+```
+
+#### Get
+
+```csharp
+public Person GetById(int id)
+{
+    return Query(id).FirstOrDefault();
+}
+
+public IEnumerable<Person> GetAll()
+{
+    return QueryAll();
+}
+```
+
+#### Update
+
+```csharp
+public int Update(Person person)
+{
+    return base.Update(person);
+}
+```
+
+#### Merge
+
+```csharp
+public int Merge(Person person)
+{
+    return base.Merge(person);
+}
+```
+
+#### Remove
+
+```csharp
+public int Remove(Person person)
+{
+    return Delete(person);
+}
+
+public int RemoveById(int id)
+{
+    return Delete(id);
+}
+```
+
+> Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base. Please visit our [BaseRepository](/reference/baserepository) reference implementation for the detailed implementation.
+
+### How to use?
+
+Simply create a new instance of the class to use the repository.
+
+```csharp
+// The settings must be DI(ed) (or,the repository itself must be DI(ed))
+using (var repository = new PersonRepository(settings.Value.ConnectionString))
+{
+    var person = repository.Get(10045);
+}
+```
+
+> A respository is disposable, so please do not forget to wrap it with `using` keyword.
+
+### Dependency Injection
+
+Simply register the `IPersonRepository` interface and the `PersonRepository` class in the service registration.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -146,7 +157,7 @@ This property enables your repository to manage the persistency of your connecti
 To enable an instanced-level connection persistency, simply pass the [Connection Persistency](/enumeration/connectionpersistency#instance) value in the constructor.
 
 ```csharp
-public class PersonRepository : BaseRepository<Person, SqlConnection>
+public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
 {
     public PersonRepository(string connectionString)
         : base(connectionString, ConnectionPersistency.Instance)
@@ -163,7 +174,7 @@ This property is used as the execution timeout of every operation. By default it
 To enable your customized timeout, simply pass it on the constructor.
 
 ```csharp
-public class PersonRepository : BaseRepository<Person, SqlConnection>
+public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
 {
     public PersonRepository(string connectionString)
         : base(connectionString, 600)
@@ -187,15 +198,17 @@ public class MyCustomCache : ICache
 Then, pass it on the constructor.
 
 ```csharp
-public class PersonRepository : BaseRepository<Person, SqlConnection>
+public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
 {
     public PersonRepository(string connectionString)
-        : base(connectionString, new MyCustomCache)
+        : base(connectionString, new MyCustomCache())
     { }
 
     ...
 }
 ```
+
+> Please visit our [JSON Cache](/reference/jsoncache) reference implementation for the detailed implementation about file-based caching using JSON.
 
 ### Adding a Trace
 
@@ -211,15 +224,17 @@ public class MyCustomTrace : ITrace
 Then, pass it on the constructor.
 
 ```csharp
-public class PersonRepository : BaseRepository<Person, SqlConnection>
+public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
 {
     public PersonRepository(string connectionString)
-        : base(connectionString, new MyCustomTrace)
+        : base(connectionString, new MyCustomTrace())
     { }
 
     ...
 }
 ```
+
+> Please visit our [Trace](/reference/trace) reference implementation for the detailed implementation.
 
 ### SQL Builder
 
@@ -235,7 +250,7 @@ public class OptimizedSqlServerStatementBuilder : IStatementBuilder
 Then, pass it on the constructor.
 
 ```csharp
-public class PersonRepository : BaseRepository<Person, SqlConnection>
+public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
 {
     public PersonRepository(string connectionString)
         : base(connectionString, new OptimizedSqlServerStatementBuilder)

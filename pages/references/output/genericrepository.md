@@ -13,141 +13,47 @@ grand_parent: References
 
 This page has the consolidated code of the [GenericRepository](/reference/genericrepository) reference implementation.
 
+### Interface
+
 ```csharp
-public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepository
+public interface IRepositoryBase<TDbConnection>
+    where TDbConnection : DbConnection
 {
-    public NorthwindRepository(IOptions<AppSetting> settings)
-        : base(settings)
-    { }
+    /*** Helper ***/
+
+    TDbConnection GetConnection();
 
     /*** Non-Async ***/
 
-    // Get
-    
-    public Customer GetCustomer(object id)
-    {
-        return base.Get<Customer>(customer);
-    }
+    IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null);
 
-    public Order GetOrder(object id)
-    {
-        return base.Get<Order>(order);
-    }
+    TEntity Get<TEntity>(object id);
 
-    public Product GetProduct(object id)
-    {
-        return base.Get<Product>(product);
-    }
+    int Delete<TEntity>(object id);
 
-    // Delete
+    object Merge<TEntity>(TEntity entity);
 
-    ...
+    object Save<TEntity>(TEntity entity);
 
-    // Merge
-
-    ...
-
-    // Save
-
-    public object SaveCustomer(Customer customer)
-    {
-        return base.Save<Customer>(customer);
-    }
-
-    public object SaveOrder(Order order)
-    {
-        return base.Save<Order>(order);
-    }
-
-    public object SaveProduct(Product product)
-    {
-        return base.Save<Product>(product);
-    }
-
-    // Update
-
-    ...
-
-    // Unit of Work
-    
-    public void SaveCustomerOrder(int customerId,
-        int productId)
-    {
-        using (var connection = CreateConnection())
-        {
-            using (var transaction = connection.BeginTransaction())
-            {
-                // Get the product
-                var product = connection.Query<Product>(productId, transaction: transaction).FirstOrDefault();
-
-                // Save the order
-                var order = new Order
-                {
-                    CustomerId = customerId,
-                    ProductId = productId,
-                    CurrentPrice = product.Price,
-                    OrderDateUtc = DateTime.UtcNow
-                };
-                order.CustomerId = customerId;
-                var orderId = connection.Save<Order>(order, transaction: transaction);
-
-                // Commit the transaction
-                transaction.Commit();
-            }
-        }
-    }
+    int Update<TEntity>(TEntity entity);
 
     /*** Async ***/
+
+    Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = null);
+
+    Task<TEntity> GetAsync<TEntity>(object id);
+
+    Task<int> DeleteAsync<TEntity>(object id);
+
+    Task<objec> MergeAsync<TEntity>(TEntity entity);
     
-    ...
+    Task<object> SaveAsync<TEntity>(TEntity entity);
+
+    Task<int> UpdateAsync<TEntity>(TEntity entity);
 }
 ```
 
-### Derived Repository Interface
-
-```csharp
-public interface INorthwindRepository
-{
-    /*** Non-Async ***/
-    
-    // Get
-
-    Customer GetCustomer(object id);
-
-    Order GetOrder(object id);
-
-    Product GetProduct(object id);
-
-    // Delete
-
-    ...
-
-    // Merge
-
-    ...
-
-    // Save
-
-    object SaveCustomer(Customer customer);
-
-    object SaveOrder(Order order);
-
-    object SaveProduct(Product product);
-
-    void SaveCustomerOrder(int customerId,
-        int productId);
-        
-    // Update
-
-    ...
-
-    /*** Async **/
-
-    ...
-}
-```
-
-### RepositoryBase (GenericRepository)
+### Repository (Base)
 
 ```csharp
 public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
@@ -197,7 +103,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
 
     // Get
 
-    public TEntity Get<TEntity>(object id)
+    public TEntity Get<TEntity>(int id)
     {
         using (var connection = CreateConnection())
         {
@@ -209,7 +115,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
 
     // Delete
 
-    public int Delete<TEntity>(object id)
+    public int Delete<TEntity>(int id)
     {
         using (var connection = CreateConnection())
         {
@@ -221,12 +127,12 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
 
     // Merge
 
-    public object Merge<TEntity>(TEntity entity,
+    public int Merge<TEntity>(TEntity entity,
         IDbTransaction transaction = null)
     {
         using (var connection = CreateConnection())
         {
-            return connection.Merge<TEntity>(entity,
+            return connection.Merge<TEntity, int>(entity,
                 commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
@@ -234,12 +140,12 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
 
     // Save
 
-    public object Save<TEntity>(TEntity entity,
+    public int Save<TEntity>(TEntity entity,
         IDbTransaction transaction = null)
     {
         using (var connection = CreateConnection())
         {
-            return connection.Save<TEntity>(entity,
+            return connection.Save<TEntity, int>(entity,
                 commandTimeout: _settings.CommandTimeout,
                 trace: Trace);
         }
@@ -276,7 +182,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
 
     // Get
 
-    public async Task<TEntity> GetAsync<TEntity>(object id)
+    public async Task<TEntity> GetAsync<TEntity>(int id)
     {
         using (var connection = CreateConnection())
         {
@@ -288,7 +194,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
 
     // Delete
 
-    public async Task<int> DeleteAsync<TEntity>(object id)
+    public async Task<int> DeleteAsync<TEntity>(int id)
     {
         using (var connection = CreateConnection())
         {
@@ -336,43 +242,139 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
 }
 ```
 
-### Interface (RepositoryBase)
+### Derived Repository Interface
 
 ```csharp
-public interface IRepositoryBase<TDbConnection>
-    where TDbConnection : DbConnection
+public interface INorthwindRepository
 {
-    /*** Helper ***/
+    /*** Non-Async ***/
 
-    TDbConnection GetConnection();
+    // Get
+
+    Customer GetCustomer(int id);
+
+    Order GetOrder(int id);
+
+    Product GetProduct(int id);
+
+    // Delete
+
+    ...
+
+    // Merge
+
+    ...
+
+    // Save
+
+    int SaveCustomer(Customer customer);
+
+    int SaveOrder(Order order);
+
+    int SaveProduct(Product product);
+
+    void SaveCustomerOrder(int customerId,
+        int productId);
+        
+    // Update
+
+    ...
+
+    /*** Async **/
+
+    ...
+}
+```
+
+### Derived Repository
+
+```csharp
+public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepository
+{
+    public NorthwindRepository(IOptions<AppSetting> settings)
+        : base(settings)
+    { }
 
     /*** Non-Async ***/
 
-    IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null);
+    // Get
+    
+    public Customer GetCustomer(int id)
+    {
+        return base.Get<Customer>(customer);
+    }
 
-    TEntity Get<TEntity>(object id);
+    public Order GetOrder(int id)
+    {
+        return base.Get<Order>(order);
+    }
 
-    int Delete<TEntity>(object id);
+    public Product GetProduct(int id)
+    {
+        return base.Get<Product>(product);
+    }
 
-    object Merge<TEntity>(TEntity entity);
+    // Delete
 
-    object Save<TEntity>(TEntity entity);
+    ...
 
-    int Update<TEntity>(TEntity entity);
+    // Merge
+
+    ...
+
+    // Save
+
+    public int SaveCustomer(Customer customer)
+    {
+        return base.Save<Customer, int>(customer);
+    }
+
+    public int SaveOrder(Order order)
+    {
+        return base.Save<Order, int>(order);
+    }
+
+    public int SaveProduct(Product product)
+    {
+        return base.Save<Product, int>(product);
+    }
+
+    // Update
+
+    ...
+
+    // Unit of Work
+    
+    public void SaveCustomerOrder(int customerId,
+        int productId)
+    {
+        using (var connection = CreateConnection())
+        {
+            using (var transaction = connection.BeginTransaction())
+            {
+                // Get the product
+                var product = connection.Query<Product>(productId, transaction: transaction).FirstOrDefault();
+
+                // Save the order
+                var order = new Order
+                {
+                    CustomerId = customerId,
+                    ProductId = productId,
+                    CurrentPrice = product.Price,
+                    OrderDateUtc = DateTime.UtcNow
+                };
+                order.CustomerId = customerId;
+                var orderId = connection.Save<Order>(order, transaction: transaction);
+
+                // Commit the transaction
+                transaction.Commit();
+            }
+        }
+    }
 
     /*** Async ***/
-
-    Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = null);
-
-    Task<TEntity> GetAsync<TEntity>(object id);
-
-    Task<int> DeleteAsync<TEntity>(object id);
-
-    Task<objec> MergeAsync<TEntity>(TEntity entity);
     
-    Task<object> SaveAsync<TEntity>(TEntity entity);
-
-    Task<int> UpdateAsync<TEntity>(TEntity entity);
+    ...
 }
 ```
 

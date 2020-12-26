@@ -134,12 +134,55 @@ public class AppSetting
 }
 ```
 
-### Repository
 
-Below is the sample repository implementation.
+### Interface
+
+Create an interface that contains all the necessary methods.
 
 ```csharp
-public class RepositoryBase<TDbConnection>
+public interface IRepositoryBase<TDbConnection>
+    where TDbConnection : DbConnection
+{
+    /*** Helper ***/
+
+    TDbConnection GetConnection();
+
+    /*** Non-Async ***/
+
+    IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null);
+
+    TEntity Get<TEntity>(object id);
+
+    int Delete<TEntity>(object id);
+
+    int Merge<TEntity>(TEntity entity);
+
+    object Save<TEntity>(TEntity entity);
+
+    object Update<TEntity>(TEntity entity);
+
+    /*** Async ***/
+
+    Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = null);
+
+    Task<TEntity> GetAsync<TEntity>(int id);
+
+    Task<int> DeleteAsync<TEntity>(int id);
+
+    Task<objec> MergeAsync<TEntity>(TEntity entity);
+    
+    Task<int> SaveAsync<TEntity>(TEntity entity);
+
+    Task<int> UpdateAsync<TEntity>(TEntity entity);
+}
+```
+
+### Repository (Base)
+
+Below is the sample repository implementation. It implements the `IRepositoryBase` interface repository above.
+
+```csharp
+public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
     where TDbConnection : DbConnection
 {
     private IOptions<AppSettings> _settings;
@@ -163,9 +206,11 @@ public class RepositoryBase<TDbConnection>
 }
 ```
 
-### Helper Methods
+### Interface Methods
 
-Create a method that creates a connection object.
+Implement all the methods of the base interface.
+
+#### Create Connection
 
 ```csharp
 public TDbConnection CreateConnection()
@@ -176,9 +221,7 @@ public TDbConnection CreateConnection()
 }
 ```
 
-### Operational Methods
-
-Below is the recommended way when exposing a method that return the records.
+#### Get
 
 ```csharp
 public IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null)
@@ -192,11 +235,7 @@ public IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null)
             trace: Trace);
     }
 }
-```
 
-Below is the recommended way when exposing a method that returns a single record.
-
-```csharp
 public TEntity Get<TEntity>(object id)
 {
     using (var connection = CreateConnection())
@@ -208,7 +247,7 @@ public TEntity Get<TEntity>(object id)
 }
 ```
 
-Below is the recommended way when exposing a method that deletes a record.
+#### Delete
 
 ```csharp
 public int Delete<TEntity>(object id)
@@ -222,7 +261,7 @@ public int Delete<TEntity>(object id)
 }
 ```
 
-Below is the recommended way when exposing a method that merges a record.
+#### Merge
 
 ```csharp
 public object Merge<TEntity>(TEntity entity)
@@ -236,7 +275,7 @@ public object Merge<TEntity>(TEntity entity)
 }
 ```
 
-Below is the recommended way when exposing a method that saves a record.
+#### Save
 
 ```csharp
 public object Save<TEntity>(TEntity entity)
@@ -250,7 +289,7 @@ public object Save<TEntity>(TEntity entity)
 }
 ```
 
-Below is the recommended way when exposing a method that updates a record.
+#### Update
 
 ```csharp
 public int Update<TEntity>(TEntity entity)
@@ -267,9 +306,9 @@ public int Update<TEntity>(TEntity entity)
 
 Ensure that all the synchronous methods you had created has the corresponding asynchronous methods suffixed by `Async` keyword. Within these methods, ensure that you are calling the corresponding asynchronous operations of the library.
 
-```csharp
-// Get (Many)
+#### Get
 
+```csharp
 public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = null)
 {
     using (var connection = CreateConnection())
@@ -282,8 +321,6 @@ public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = n
     }
 }
 
-// Get
-
 public async Task<TEntity> GetAsync<TEntity>(object id)
 {
     using (var connection = CreateConnection())
@@ -293,9 +330,11 @@ public async Task<TEntity> GetAsync<TEntity>(object id)
             trace: Trace);
     }
 }
+```
 
-// Delete
+#### Delete
 
+```csharp
 public async Task<int> DeleteAsync<TEntity>(object id)
 {
     using (var connection = CreateConnection())
@@ -305,10 +344,12 @@ public async Task<int> DeleteAsync<TEntity>(object id)
             trace: Trace);
     }
 }
+```
 
-// Merge
+#### Merge
 
-public async Task<objec> MergeAsync<TEntity>(TEntity entity)
+```csharp
+public async Task<object> MergeAsync<TEntity>(TEntity entity)
 {
     using (var connection = CreateConnection())
     {
@@ -317,9 +358,11 @@ public async Task<objec> MergeAsync<TEntity>(TEntity entity)
             trace: Trace);
     }
 }
+```
 
-// Save
+#### Save
 
+```csharp
 public async Task<object> SaveAsync<TEntity>(TEntity entity)
 {
     using (var connection = CreateConnection())
@@ -329,9 +372,11 @@ public async Task<object> SaveAsync<TEntity>(TEntity entity)
             trace: Trace);
     }
 }
+```
 
-// Update
+#### Update
 
+```csharp
 public async Task<int> UpdateAsync<TEntity>(TEntity entity)
 {
     using (var connection = CreateConnection())
@@ -340,58 +385,6 @@ public async Task<int> UpdateAsync<TEntity>(TEntity entity)
             commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
-}
-```
-
-### Dependency Injection
-
-Create an interface that contains all the necessary methods. The name must be identitical on the purpose of the repository.
-
-```csharp
-public interface IRepositoryBase<TDbConnection>
-    where TDbConnection : DbConnection
-{
-    /*** Helper ***/
-
-    TDbConnection GetConnection();
-
-    /*** Non-Async ***/
-
-    IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null);
-
-    TEntity Get<TEntity>(object id);
-
-    int Delete<TEntity>(object id);
-
-    object Merge<TEntity>(TEntity entity);
-
-    object Save<TEntity>(TEntity entity);
-
-    int Update<TEntity>(TEntity entity);
-
-    /*** Async ***/
-
-    Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = null);
-
-    Task<TEntity> GetAsync<TEntity>(object id);
-
-    Task<int> DeleteAsync<TEntity>(object id);
-
-    Task<objec> MergeAsync<TEntity>(TEntity entity);
-    
-    Task<object> SaveAsync<TEntity>(TEntity entity);
-
-    Task<int> UpdateAsync<TEntity>(TEntity entity);
-}
-```
-
-Then implement it on the repository.
-
-```csharp
-public class RepositoryBase<DbConnection> : IRepositoryBase<DbConnection>
-    where TDbConnection : DbConnection
-{
-    ...
 }
 ```
 
@@ -430,17 +423,17 @@ public class NorthwindRepository : RepositoryBase<SqlConnection>
 Create a method that calls the base method. Below is the recommended way for retrieving a single record.
 
 ```csharp
-public Customer GetCustomer(object id)
+public Customer GetCustomer(int id)
 {
     return base.Get<Customer>(customer);
 }
 
-public Order GetOrder(object id)
+public Order GetOrder(int id)
 {
     return base.Get<Order>(order);
 }
 
-public Product GetProduct(object id)
+public Product GetProduct(int id)
 {
     return base.Get<Product>(product);
 }
@@ -449,19 +442,19 @@ public Product GetProduct(object id)
 Below is the recommended way for saving a record.
 
 ```csharp
-public object SaveCustomer(Customer customer)
+public int SaveCustomer(Customer customer)
 {
-    return base.Save<Customer>(customer);
+    return base.Save<Customer, int>(customer);
 }
 
-public object SaveOrder(Order order)
+public int SaveOrder(Order order)
 {
-    return base.Save<Order>(order);
+    return base.Save<Order, int>(order);
 }
 
-public object SaveProduct(Product product)
+public int SaveProduct(Product product)
 {
-    return base.Save<Product>(product);
+    return base.Save<Product, int>(product);
 }
 ```
 
@@ -478,11 +471,11 @@ public interface INorthwindRepository
 
     // Get
 
-    Customer GetCustomer(object id);
+    Customer GetCustomer(int id);
 
-    Order GetOrder(object id);
+    Order GetOrder(int id);
 
-    Product GetProduct(object id);
+    Product GetProduct(int id);
 
     // Delete
 
@@ -494,11 +487,11 @@ public interface INorthwindRepository
 
     // Save
 
-    object SaveCustomer(Customer customer);
+    int SaveCustomer(Customer customer);
 
-    object SaveOrder(Order order);
+    int SaveOrder(Order order);
 
-    object SaveProduct(Product product);
+    int SaveProduct(Product product);
 
     void SaveCustomerOrder(int customerId,
         int productId);

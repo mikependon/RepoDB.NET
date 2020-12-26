@@ -209,7 +209,7 @@ public IEnumerable<Customer> GetCustomers(string cacheKey = null)
 Below is the recommended way when exposing a method that returns a single record.
 
 ```csharp
-public Customer GetCustomer(object id)
+public Customer GetCustomer(int id)
 {
     using (var connection = CreateConnection())
     {
@@ -223,7 +223,7 @@ public Customer GetCustomer(object id)
 Below is the recommended way when exposing a method that deletes a record.
 
 ```csharp
-public int DeleteCustomer(object id)
+public int DeleteCustomer(int id)
 {
     using (var connection = CreateConnection())
     {
@@ -237,11 +237,11 @@ public int DeleteCustomer(object id)
 Below is the recommended way when exposing a method that merges a record.
 
 ```csharp
-public object MergeCustomer(Customer entity)
+public int MergeCustomer(Customer entity)
 {
     using (var connection = CreateConnection())
     {
-        return connection.Merge<Customer>(entity,
+        return connection.Merge<Customer, int>(entity,
             commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
@@ -251,11 +251,11 @@ public object MergeCustomer(Customer entity)
 Below is the recommended way when exposing a method that saves a record.
 
 ```csharp
-public object SaveCustomer(Customer entity)
+public int SaveCustomer(Customer entity)
 {
     using (var connection = CreateConnection())
     {
-        return connection.Insert<Customer>(entity,
+        return connection.Insert<Customer, int>(entity,
             commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
@@ -296,7 +296,7 @@ public async Task<IEnumerable<Customer>> GetCustomersAsync(string cacheKey = nul
 
 // Get
 
-public async Task<Customer> GetCustomerAsync(object id)
+public async Task<Customer> GetCustomerAsync(int id)
 {
     using (var connection = CreateConnection())
     {
@@ -308,7 +308,7 @@ public async Task<Customer> GetCustomerAsync(object id)
 
 // Delete
 
-public async Task<int> DeleteCustomerAsync(object id)
+public async Task<int> DeleteCustomerAsync(int id)
 {
     using (var connection = CreateConnection())
     {
@@ -320,11 +320,11 @@ public async Task<int> DeleteCustomerAsync(object id)
 
 // Merge
 
-public async Task<objec> MergeCustomerAsync(Customer entity)
+public async Task<int> MergeCustomerAsync(Customer entity)
 {
     using (var connection = CreateConnection())
     {
-        return await connection.MergeAsync<Customer>(entity,
+        return await connection.MergeAsync<Customer, int>(entity,
             commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
@@ -332,11 +332,11 @@ public async Task<objec> MergeCustomerAsync(Customer entity)
 
 // Save
 
-public async Task<object> SaveCustomerAsync(Customer entity)
+public async Task<int> SaveCustomerAsync(Customer entity)
 {
     using (var connection = CreateConnection())
     {
-        return await connection.SaveAsync<Customer>(entity,
+        return await connection.SaveAsync<Customer, int>(entity,
             commandTimeout: _settings.CommandTimeout,
             trace: Trace);
     }
@@ -371,13 +371,13 @@ public interface INorthwindRepository<TDbConnection>
 
     IEnumerable<Customer> GetCustomers(string cacheKey = null);
 
-    Customer GetCustomer(object id);
+    Customer GetCustomer(int id);
 
-    int DeleteCustomer(object id);
+    int DeleteCustomer(int id);
 
-    object MergeCustomer(Customer entity);
+    int MergeCustomer(Customer entity);
 
-    object SaveCustomer(Customer entity);
+    int SaveCustomer(Customer entity);
 
     int Update<Customer>(Customer entity);
 
@@ -385,13 +385,13 @@ public interface INorthwindRepository<TDbConnection>
 
     Task<IEnumerable<Customer>> GetCustomersAsync(string cacheKey = null);
 
-    Task<Customer> GetCustomerAsync(object id);
+    Task<Customer> GetCustomerAsync(int id);
 
-    Task<int> DeleteCustomerAsync(object id);
+    Task<int> DeleteCustomerAsync(int id);
 
     Task<objec> MergeCustomerAsync(Customer entity);
     
-    Task<object> SaveCustomerAsync(Customer entity);
+    Task<int> SaveCustomerAsync(Customer entity);
 
     Task<int> UpdateCustomerAsync(Customer entity);
 }

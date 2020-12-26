@@ -301,24 +301,24 @@ if (transaction == null)
 Below is the recommended way when exposing a method that merges a record.
 
 ```csharp
-public object MergeCustomer(Customer customer,
+public int MergeCustomer(Customer customer,
     IDbTransaction transaction = null)
 {
-    return Merge<Customer>(customer,
+    return Merge<Customer, int>(customer,
         transaction: transaction);
 }
 
-public object MergeOrder(Order order,
+public int MergeOrder(Order order,
     IDbTransaction transaction = null)
 {
-    return Merge<Order>(order,
+    return Merge<Order, int>(order,
         transaction: transaction);
 }
 
-public object MergeProduct(Product product,
+public int MergeProduct(Product product,
     IDbTransaction transaction = null)
 {
-    return Merge<Product>(product,
+    return Merge<Product, int>(product,
         transaction: transaction);
 }
 ```
@@ -326,24 +326,24 @@ public object MergeProduct(Product product,
 Below is the recommended way when exposing a method that saves a record.
 
 ```csharp
-public object SaveCustomer(Customer customer,
+public int SaveCustomer(Customer customer,
     IDbTransaction transaction = null)
 {
-    return Insert<Customer>(customer,
+    return Insert<Customer, int>(customer,
         transaction: transaction);
 }
 
-public object SaveOrder(Order order,
+public int SaveOrder(Order order,
     IDbTransaction transaction = null)
 {
-    return Insert<Order>(order,
+    return Insert<Order, int>(order,
         transaction: transaction);
 }
 
-public object SaveProduct(Product product,
+public int SaveProduct(Product product,
     IDbTransaction transaction = null)
 {
-    return Insert<Product>(product,
+    return Insert<Product, int>(product,
         transaction: transaction);
 }
 ```
@@ -458,67 +458,67 @@ public async Task<int> DeleteCustomeryAsync(int id,
 
 // Merge
 
-public async Task<object> MergeCustomeryAsync(Customer customer,
+public async Task<int> MergeCustomeryAsync(Customer customer,
     IDbTransaction transaction = null)
 {
-    return await MergeAsync<Customer>(customer,
+    return await MergeAsync<Customer,int>(customer,
         transaction: transaction);
 }
 
-public async Task<object> MergeOrderyAsync(Order order,
+public async Task<int> MergeOrderyAsync(Order order,
     IDbTransaction transaction = null)
 {
-    return await MergeAsync<Order>(order,
+    return await MergeAsync<Order, int>(order,
         transaction: transaction);
 }
 
-public async Task<object> MergeProductyAsync(Product product,
+public async Task<int> MergeProductyAsync(Product product,
     IDbTransaction transaction = null)
 {
-    return await MergeAsync<Product>(product,
+    return await MergeAsync<Product, int>(product,
         transaction: transaction);
 }
 
 // Save
 
-public async Task<object> SaveCustomeryAsync(Customer customer,
+public async Task<int> SaveCustomerAsync(Customer customer,
     IDbTransaction transaction = null)
 {
-    return await InsertAsync<Customer>(customer,
+    return await InsertAsync<Customer, int>(customer,
         transaction: transaction);
 }
 
-public async Task<object> SaveOrderyAsync(Order order,
+public async Task<int> SaveOrderAsync(Order order,
     IDbTransaction transaction = null)
 {
-    return await InsertAsync<Order>(order,
+    return await InsertAsync<Order, int>(order,
         transaction: transaction);
 }
 
-public async Task<object> SaveProductyAsync(Product product,
+public async Task<int> SaveProductAsync(Product product,
     IDbTransaction transaction = null)
 {
-    return await InsertAsync<Product>(product,
+    return await InsertAsync<Product, int>(product,
         transaction: transaction);
 }
 
 // Update
 
-public async Task<int> UpdateCustomeryAsync(Customer customer,
+public async Task<int> UpdateCustomerAsync(Customer customer,
     IDbTransaction transaction = null)
 {
     return await UpdateAsync<Customer>(customer,
         transaction: transaction);
 }
 
-public async Task<int> UpdateOrderyAsync(Order order,
+public async Task<int> UpdateOrderAsync(Order order,
     IDbTransaction transaction = null)
 {
     return await UpdateAsync<Order>(order,
         transaction: transaction);
 }
 
-public async Task<int> UpdateProductyAsync(Product product,
+public async Task<int> UpdateProductAsync(Product product,
     IDbTransaction transaction = null)
 {
     return await UpdateAsync<Product>(product,
@@ -572,24 +572,24 @@ public interface INorthwindRepository
 
     // Merge
 
-    object MergeCustomer(Customer customer,
+    int MergeCustomer(Customer customer,
         IDbTransaction transaction = null);
 
-    object MergeOrder(Order order,
+    int MergeOrder(Order order,
         IDbTransaction transaction = null);
 
-    object MergeProduct(Product product,
+    int MergeProduct(Product product,
         IDbTransaction transaction = null);
 
     // Save
 
-    object SaveCustomer(Customer customer,
+    int SaveCustomer(Customer customer,
         IDbTransaction transaction = null);
 
-    object SaveOrder(Order order,
+    int SaveOrder(Order order,
         IDbTransaction transaction = null);
 
-    object SaveProduct(Product product,
+    int SaveProduct(Product product,
         IDbTransaction transaction = null);
 
     // Update
@@ -642,35 +642,35 @@ public interface INorthwindRepository
 
     // Merge
 
-    Task<object> MergeCustomeryAsync(Customer customer,
+    Task<int> MergeCustomeryAsync(Customer customer,
         IDbTransaction transaction = null);
 
-    Task<object> MergeOrderyAsync(Order order,
+    Task<int> MergeOrderyAsync(Order order,
         IDbTransaction transaction = null);
 
-    Task<object> MergeProductyAsync(Product product,
+    Task<int> MergeProductyAsync(Product product,
         IDbTransaction transaction = null);
 
     // Save
 
-    Task<object> SaveCustomeryAsync(Customer customer,
+    Task<int> SaveCustomerAsync(Customer customer,
         IDbTransaction transaction = null);
 
-    Task<object> SaveOrderyAsync(Order order,
+    Task<int> SaveOrderAsync(Order order,
         IDbTransaction transaction = null);
 
-    Task<object> SaveProductyAsync(Product product,
+    Task<int> SaveProductAsync(Product product,
         IDbTransaction transaction = null);
 
     // Update
 
-    Task<int> UpdateCustomeryAsync(Customer customer,
+    Task<int> UpdateCustomerAsync(Customer customer,
         IDbTransaction transaction = null);
 
-    Task<int> UpdateOrderyAsync(Order order,
+    Task<int> UpdateOrderAsync(Order order,
         IDbTransaction transaction = null);
 
-    Task<int> UpdateProductyAsync(Product product,
+    Task<int> UpdateProductAsync(Product product,
         IDbTransaction transaction = null);
 }
 ```
