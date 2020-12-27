@@ -16,7 +16,7 @@ A hybrid ORM library for .NET.
 
 ---
 
-[RepoDB](https://github.com/mikependon/RepoDb) is an open-source .NET ORM library that bridges the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
+[RepoDB](https://github.com/mikependon/RepoDb) is an open-source .NET ORM library that bridge the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
 
 Its name is a shortcut to Repository (a popular pattern when implementing Data Access Layers) + the word Database.
 
@@ -24,7 +24,9 @@ Diagram below shows where we are positioning this library.
 
 <img src="../../assets/images/site/difference.svg" />
 
-The main goal is to improve the things and simplify your development experiences when working with data access technology in .NET ecosystem.
+The main goal is to improve the things and simplify your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying data store capability.
+
+Even the library is rich on features (i.e. [Bulk](/feature/bulkoperations), [Cache](/feature/caching), [Repositories](/feature/repositories), etc), it is still on the space of micro-ORM.
 
 We are glad and thankful for your interest in learning RepoDB!
 
