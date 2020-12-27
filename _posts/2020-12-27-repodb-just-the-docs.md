@@ -29,12 +29,12 @@ Though, we had optimized the content information of the site during the developm
 
 ### Repository
 
-The documentation site repository can be found [here](https://github.com/mikependon/RepoDB.NET). You can submit a [new issue](https://github.com/mikependon/RepoDB.NET/issues) if you found a problem on the content of the documentation, thus includes the sentences/paragraphs, grammars, code snippets and the images.
+The documentation site repository is hosted at Github ([RepoDB.NET](https://github.com/mikependon/RepoDB.NET)). You can submit a [new issue](https://github.com/mikependon/RepoDB.NET/issues) if you found a problem on the content of the documentation, thus includes the sentences/paragraphs, grammars, code snippets and the images.
 
 We hope that this new template will help you become producted with a better navigation to the proper modules.
 
 ---
 
-As always, thank to the .NET Community.
+As always, thank you to the community of .NET.
 
 Br /Michael
