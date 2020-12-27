@@ -30,7 +30,7 @@ Even the library is rich on features (i.e. [Batch](/feature/batchoperations)/[Bu
 
 ### Why use RepoDB?
 
-The main goal is to improve the things and simplify your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying data store capability.
+The main goal is to improve the things and simplify your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying data store capability while maintaining the good programming standards.
 
 If you are to use a full-fledged macro-ORM, you are most likely be abstracted by the framework itself. Though they are more richer in operations, but those operations are limiting you to touch and maximize the power of the underlying datasource being in-used.
 
