@@ -16,7 +16,7 @@ A hybrid ORM library for .NET.
 
 ---
 
-[RepoDB](https://github.com/mikependon/RepoDb) is an open-source .NET ORM library that bridge the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
+We are glad and thankful for your interest in learning [RepoDB](https://github.com/mikependon/RepoDb). It is an open-source .NET ORM library that bridge the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
 
 Its name is a shortcut to Repository (a popular pattern when implementing Data Access Layers) + the word Database.
 
@@ -24,15 +24,13 @@ Diagram below shows where we are positioning this library.
 
 <img src="../../assets/images/site/difference.svg" />
 
-The main goal is to improve the things and simplify your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying data store capability.
-
-Even the library is rich on features (i.e. [Bulk](/feature/bulkoperations), [Cache](/feature/caching), [Repositories](/feature/repositories), etc), it is still on the space of micro-ORM.
-
-We are glad and thankful for your interest in learning RepoDB!
+Even the library is rich on features (i.e. [Batch](/feature/batchoperations)/[Bulk](/feature/bulkoperations), [Cache](/feature/caching), [Repositories](/feature/repositories), etc), it is still on the space of micro-ORM.
 
 ---
 
 ### Why use RepoDB?
+
+The main goal is to improve the things and simplify your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying data store capability.
 
 If you are to use a full-fledged macro-ORM, you are most likely be abstracted by the framework itself. Though they are more richer in operations, but those operations are limiting you to touch and maximize the power of the underlying datasource being in-used.
 
