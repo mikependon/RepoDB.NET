@@ -43,10 +43,10 @@ public interface IPersonRepository
 }
 ```
 
-Then implement the class that inherits the [BaseRepository](/class/baserepository) and implements the custom interface.
+Then, implement the class that inherits the [BaseRepository](/class/baserepository) and implements the custom interface.
 
 ```csharp
-public PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
+public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
 {
     public PersonRepository(IOptions<AppSettings> settings)
         : base(settings.Value.ConnectionString)
@@ -141,10 +141,10 @@ public interface INorthwindRepository
 }
 ```
 
-Then implement the class that inherits the [DbRepository](/class/dbrepository) and implements the custom interface.
+Then, implement the class that inherits the [DbRepository](/class/dbrepository) and implements the custom interface.
 
 ```csharp
-public NorthwindRepository : DbRepository<SqlConnection>, INorthwindRepository
+public class NorthwindRepository : DbRepository<SqlConnection>, INorthwindRepository
 {
     public PersonRepository(IOptions<AppSettings> settings)
         : base(settings.Value.ConnectionString)
@@ -287,10 +287,10 @@ public interface IPersonRepository : IGenericRepository<Person, SqlConnection>
 }
 ```
 
-Then create a class that implements both the interfaces.
+Then, create a class that implements both the interfaces.
 
 ```csharp
-public PersonRepository : GenericRepository<Person, SqlConnection>, IPersonRepository
+public class PersonRepository : GenericRepository<Person, SqlConnection>, IPersonRepository
 {
     private IOptions<AppSettings> _settings = null;
 

@@ -47,16 +47,20 @@ using (var repository = new DbRepository<Product, SqlConnection>(connectionStrin
 }
 ```
 
+Notice, we have not passed an instance of [ICache](/interface/icache) object during the call. That is one of the advantages if you are working with the mentioned repositories.
+
 > It is highly recommended to use the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects if you tend to skip managing the cache object.
 
 ### Selecting a Proper Cache Key
 
 Each cache key should preferably be unique to the query executed, so that different methods do not ended up unintentionally sharing the same data.
 
-Constructing a unique key is left to the developer, but a good best practice is to adopt a convention for generating the cache keys, such as
-`ClassName-MethodName-QueryArgument1-QueryArgument2` or `EntityName-Argument1Name-Argument2Name--Argument1Value-Argument2Value` etc.
+Constructing a unique key is left to the developer, but a good best practice is to adopt a convention for generating the cache keys, such as:
 
-Following this naming convention makes it easy to examine keys at run-time and establish the source and guarantees uniqueness.
+- Class Name + Property Name + Query Argument1 + Query Argument2 (Product-Name-Chocolate-White)
+- Entity Name + Argument1 Name + Argument2 Name + Argument1Value + Argument2Value (Product-Name-Color--Chocolate-White)
+
+Following this naming convention makes it easy to examine keys at run-time and establish the source. It also guarantees uniqueness to avoid the collisions.
 
 ```csharp
 // An example of the second cache key convention:
@@ -230,7 +234,7 @@ public interface IJsonCache : ICache
 }
 ```
 
-Then implement it in the cache class.
+Then, implement it in the cache class.
 
 ```csharp
 public class JsonCache : IJsonCache

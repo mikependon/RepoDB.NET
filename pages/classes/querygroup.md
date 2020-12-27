@@ -144,7 +144,7 @@ To negate, simply pass the value of `true` in the `isNot` constructor argument.
 var queryGroup = new QueryGroup(queryFields, true);
 ```
 
-Then the statement will be generated as below.
+Then, the statement will be generated as below.
 
 ```csharp
 > WHERE NOT ([IsActive] = @IsActive OR [Gender] = @Gender);

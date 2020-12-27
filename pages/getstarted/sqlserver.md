@@ -87,7 +87,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To insert multiple rows, use the [InsertAll](/operation/insertall) operation instead.
+To insert multiple rows, use the [InsertAll](/operation/insertall) operation.
 
 Let us say you had created a method `GetPeople()` that returns a list of `Person`.
 
@@ -106,7 +106,7 @@ private IEnumerable<Person> GetPeople(int count = 10)
 }
 ```
 
-Then simply create a list of `Person` object and pass it when you call the [InsertAll](/operation/insertall) method.
+Then, simply create a list of `Person` object and pass it when you call the [InsertAll](/operation/insertall) method.
 
 ```csharp
 var people = GetPeople(100).AsList();
@@ -116,7 +116,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-> The [Insert](/operation/insert) method returns the value of primary or identity column while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
+> The [Insert](/operation/insert) method returns the value of primary or identity column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
 
 ### Querying a Record
 
@@ -158,7 +158,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary or identity column is used as a qualifier. You can also customized the qualifiers with other columns.
+By default, the primary or identity column is used as a qualifier, but you can customize the qualifiers with other columns.
 
 ```csharp
 var person = new Person
@@ -333,7 +333,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 To execute a Table-Valued Parameter (TVP), create a `DataTable` and set its name equals to the name of the User-Defined Type (UDT).
 
-Please follow the Microsoft [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) on how to create a TVP and UDT and call it from C#/ADO.NET.
+> Please follow the Microsoft [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) on how to create a TVP and UDT and call it from C#/ADO.NET.
 
 ```csharp
 var table = new DataTable();
@@ -341,7 +341,7 @@ table.TableName = "[dbo].[PersonType]"; // Name of the UDT
 // Create the 'table' columns/rows
 ```
 
-Then pass it as a value to your argument.
+Then, pass it as a value to your argument.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -353,7 +353,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 ### Executing a Stored Procedure
 
-To execute a stored procedure, you can use any of the execute methods mentioned above, but you have to passed the `CommandType.StoredProcedure` enumeration value on the `commandType` argument.
+To execute a stored procedure, you can use any of the execute methods mentioned above, but you have to pass the `CommandType.StoredProcedure` enumeration value on the `commandType` argument.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -378,7 +378,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 ### Typed Result Execution
 
-You can infer the single-column resultsets in any .NET CLR type via [ExecuteQuery](/operation/executequery) operation.
+You can infer the single-column resultsets to any .NET CLR type via [ExecuteQuery](/operation/executequery) operation.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -388,7 +388,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-And even with the Enumerations.
+And even with the enumerations.
 
 ```csharp
 public enum Gender
@@ -398,7 +398,7 @@ public enum Gender
 }
 ```
 
-Then call it like below.
+Then, call it like below.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))

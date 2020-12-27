@@ -31,7 +31,7 @@ public interface IUnitOfWork<TDbConnection>
 
 Ensure that this interface is accepting a generic type of the connection object.
 
-Then add the following properties that will hold the state of transaction.
+Then, add the following properties that will hold the state of transaction.
 
 - `Connection` - will hold the instance of the connection object.
 - `Transaction` - will hold the instance of the active transaction.
@@ -151,7 +151,7 @@ public interface IOrderRepository : IRepository<Order>
 }
 ```
 
-Then create a repository class that inherits either the [DbRepository](/class/dbrepository) or [BaseRepository](/class/baserepository). On this class, implement the newly created `IOrderRepository` interface, the one that implements the `IRepository<TEntity>` interface.
+Then, create a repository class that inherits either the [DbRepository](/class/dbrepository) or [BaseRepository](/class/baserepository). On this class, implement the newly created `IOrderRepository` interface, the one that implements the `IRepository<TEntity>` interface.
 
 ```csharp
 public class OrderRepository : BaseRepository<Order, SqlConnection>, IOrderRepository

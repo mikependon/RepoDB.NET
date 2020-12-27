@@ -675,7 +675,7 @@ public interface INorthwindRepository
 }
 ```
 
-Then implement it on the repository.
+Then, implement it on the repository.
 
 ```csharp
 public class NorthwindRepository : DbRepository<Customer, SqlConnection>, INorthwindRepository

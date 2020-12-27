@@ -42,7 +42,7 @@ public class ColumnNameResolver : IResolver<string, IDbSetting, string>
 
 ### How to use?
 
-Then you can always use it like this.
+Then, you can always use it like this.
 
 ```csharp
 var setting = DbSettingMapper.Get(typeof(SqlConnection));

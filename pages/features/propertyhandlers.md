@@ -115,7 +115,7 @@ public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<DateTime?, Date
 }
 ```
 
-Then use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) mapper class to map it.
+Then, use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) mapper class to map it.
 
 ```csharp
 PropertyHandlerMapper.Add(typeof(DateTime), new DateTimeKindToUtcPropertyHandler(), true);

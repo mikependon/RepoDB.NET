@@ -24,7 +24,7 @@ public class AverageableTypeResolver : IResolver<Type, Type>
 }
 ```
 
-Then implement the `Resolve()` method like below.
+Then, implement the `Resolve()` method like below.
 
 ```csharp
 public Type Resolve(Type type)

@@ -19,7 +19,7 @@ This is a feature that would allow you to compose a conditional expressions (to 
 - `Anonymous Types` - it is the most simple and direct way of filterting the results. You can use the anonymous object to filter data.
 - `Linq-Expression` - it is the most common way of filtering the data.
 - `ExpandoObject/IDictionary<string, object>` - it is the most dynamic way of filtering the data.
-- `QueryField/QueryGroup` - it is the most advance, efficient, performant and powerful way of composing a tree expression. However, this is a bit tedious and verbose.
+- `QueryField/QueryGroup` - it is the most advance, efficient, performant and powerful way of composing a tree expression. However, it is a bit tedious and verbose.
 
 > The support to the query objects are massive and well tested with high-quality. However, the Linq-Expression parser of the library is not as extensive as Entity Framework. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expression.
 
@@ -43,7 +43,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> Please be aware that the compiler does not understand the anonymous types, any change on the column name would not trigger a pre-compilation exception. Also, the anonymous types only supports the expression-equality and cannot be used for other equalities (i.e.: non-equality, greater or lesser equality, etc).
+> Please be aware that the compiler does not understand the anonymous types, any changes made on the column name would not trigger a pre-compilation exception. Also, the anonymous types only supports the expression-equality and cannot be used for other equalities (i.e.: non-equality, greater or lesser equality, etc).
 
 ### Linq-Expression
 
@@ -104,7 +104,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> Both the ExpandObject and IDictionary&lt;string, object&gt; expression only supports the expression-equality and cannot be used for other equalities (i.e.: non-equality, greater or lesser equality, etc).
+> Both the `ExpandoObject` and `IDictionary<string, object>` expression only supports the expression-equality and cannot be used for other equalities (i.e.: non-equality, greater or lesser equality, etc).
 
 ### QueryField/QueryGroup
 

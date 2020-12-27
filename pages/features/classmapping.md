@@ -12,7 +12,7 @@ parent: Features
 
 ---
 
-This is a feature that would allow you to map the .NET CLR type (or class properties) into its equivalent database objects and types. It includes the mapping capabilities for the class/property name, primary/identity columns, class/property handlers and the database types.
+This is a feature that would allow you to map any .NET CLR types or class properties into its equivalent database objects and types. It includes the mapping capabilities for the class/property name, primary/identity columns, class/property handlers and the database types.
 
 ### Class Name Mapping
 

@@ -82,7 +82,7 @@ private string GetSchema(string tableName,
 }
 ```
 
-Then a method to extract the tablename.
+Then, a method to extract the tablename.
 
 ```csharp
 private string GetTableName(string tableName,
@@ -97,7 +97,7 @@ private string GetTableName(string tableName,
 }
 ```
 
-Then a method that returns a SQL text.
+Then, a method that returns a SQL text.
 
 ```csharp
 private string GetCommandText()
@@ -144,7 +144,7 @@ private string GetCommandText()
 }
 ```
 
-Then a method that converts the instance of the `DbDataReader` into a [DbField](/class/dbfield) object.
+Then, a method that converts the instance of the `DbDataReader` into a [DbField](/class/dbfield) object.
 
 ```csharp
 private DbField ReaderToDbField(IDataReader reader)

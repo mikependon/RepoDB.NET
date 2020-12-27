@@ -31,12 +31,12 @@ ON [PRIMARY];
 GO
 ```
 
-Then you can create this enumeration.
+Then, you can create this enumeration.
 
 ```csharp
 public enum Gender
 {
-    NotDefined,
+    Unknown,
     Male,
     Female
 }
@@ -54,11 +54,11 @@ public class Person
 }
 ```
 
-> The enumeration values will be saved in the database as `String`.
+> The enumeration values will be saved in the database as `string`.
 
 ### Property String (As Int)
 
-You can force the value to be saved as `Integer` type if you are using the [TypeMap](/attribute/typemap).
+You can force the value to be saved as `int` type if you are using the [TypeMap](/attribute/typemap).
 
 ```csharp
 public class Person
@@ -94,12 +94,12 @@ ON [PRIMARY];
 GO
 ```
 
-Then you can create this enumeration.
+Then, you can create this enumeration.
 
 ```csharp
 public enum Gender
 {
-    NotDefined,
+    Unknown,
     Male,
     Female
 }
@@ -117,7 +117,7 @@ public class Person
 }
 ```
 
-> The enumeration values will be saved in the database as `Integer`.
+> The enumeration values will be saved in the database as `int`.
 
 ### Default Conversion
 

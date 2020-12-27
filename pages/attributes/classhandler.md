@@ -35,7 +35,7 @@ private class PersonClassHandler : IClassHandler<Person>
 }
 ```
 
-Then you can use this attribute to mark the class to use the `PersonClassHandler` class handler during the transformation.
+Then, you can use this attribute to mark the class to use the `PersonClassHandler` class handler during the transformation.
 
 ```csharp
 [ClassHandler(typeof(PersonClassHandler))]

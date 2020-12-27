@@ -33,7 +33,7 @@ private void IEnumerable<Person> GetPeople(int count = 10000)
 }
 ```
 
-Then you can extract it to be a `DbDataReader` object via this class.
+Then, you can extract it to be a `DbDataReader` object via this class.
 
 ```csharp
 var people = GetPeople();

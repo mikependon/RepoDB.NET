@@ -35,7 +35,7 @@ public interface IJsonCache : ICache
 }
 ```
 
-Then implement it in the cache class.
+Then, implement it in the cache class.
 
 ```csharp
 public class JsonCache : IJsonCache
@@ -95,7 +95,7 @@ public static CacheFactory
 }
 ```
 
-Then pass it when calling the [Query](/operation/query) and [QueryAll](/operation/queryall) operations.
+Then, pass it when calling the [Query](/operation/query) and [QueryAll](/operation/queryall) operations.
 
 ```csharp
 // Factory class as pointer to the cacher

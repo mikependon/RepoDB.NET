@@ -12,15 +12,17 @@ parent: Features
 
 ---
 
-This is a feature that would allow you to fetch multiple resultsets in a single call. Both the [ExecuteQueryMultiple](/operation/executequerymultiple) and [QueryMultiple](/operation/querymultiple) operations were provided to address this need. The [ExecuteQueryMultiple](/operation/executequerymultiple) is a method that would allow you to pass your own SQL statements to extract the results, whereas the [QueryMultiple](/operation/querymultiple) is a fluent-method that would allow you to pass a Linq-based query expression and that automatically compose the SQL statements for you.
+This is a feature that allows you to fetch multiple resultsets in a single call from the database. Both the [ExecuteQueryMultiple](/operation/executequerymultiple) and [QueryMultiple](/operation/querymultiple) operations were provided to address this need.
+
+The [ExecuteQueryMultiple](/operation/executequerymultiple) is a raw method that would allow you to pass your own SQL statement for execution, whereas the [QueryMultiple](/operation/querymultiple) is a fluent-method that would allow you to pass a Linq-based query expression and have the library automatically compose the SQL statement for you.
 
 The underlying implementation of this feature is abstracting both the `Read()` and `NextResult()` methods of the the `DbDataReader` object.
 
 ### Type of Return Types
 
-The method [ExecuteQueryMultiple](/operation/executequerymultiple) is returning the type of [QueryMultipleExtractor](/class/querymultipleextractor). It allows you to control and manage the way on how to extract the resultsets. The execution is differed as it is relying on the explicit calls you are making towards the `Extract()` and `Scalar()` methods.
+The the method [ExecuteQueryMultiple](/operation/executequerymultiple) is returning an instance of [QueryMultipleExtractor](/class/querymultipleextractor). It allows you to control and manage the way on how to extract the resultsets. The execution is differed as it is relying on the explicit calls you are making towards the `Extract()` and `Scalar()` methods.
 
-However, the method [QueryMultiple](/operation/querymultiple) is returning the type of `Tuple`. It has a maximum of 7 generic types as also defined on the tuple object. The pointer to the item properties of the tuple object is dependent to the order of the generic types during the call this method.
+However, method [QueryMultiple](/operation/querymultiple) is returning an instance of `Tuple` object. It has a maximum of 7 generic types, also defined as max types for the `Tuple` object. The pointer to the item properties of the `Tuple` object is dependent to the order of the generic types passed during the call.
 
 ### Hints
 

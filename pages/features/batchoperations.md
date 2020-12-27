@@ -14,7 +14,7 @@ parent: Features
 
 A batch operation is a process of executing multiple single-operations against the database in one-go. The execution is ACID; an implicit transaction is provided if not present.
 
-This operation comes with flexibility as it allows you to control the number of rows to be batched during the execution. Because of this, you can manage and further optimize the performance based on your own scenarios (i.e.: Network Latency, Number of Columns, etc).
+This operation comes with flexibility as it allows you to control the number of rows to be batched during the execution. Because of this, you can manage and further optimize the performance based on your own situation (i.e.: Network Latency, Number of Columns, Type of Data, etc).
 
 In RepoDB, the following operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) and [MergeAll](/operation/mergeall)) are the batch operations. They are all ACID in nature.
 
@@ -42,7 +42,7 @@ The following SQL script will be executed in the database.
 > INSERT INTO [Customer] (Name, Address) VALUES (@Name, @Address);
 ```
 
-What if you would like to insert multiple records? Most developers do it this way.
+And if you insert multiple rows via iteration like below.
 
 ```csharp
 var customers = GetCustomers(1000);
@@ -53,7 +53,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-We execute it in an atomic way and just simply wrap the calls within the `Transaction` object to make it ACID.
+The same SQL statement will be executed multiple times against the database, even you wrap the calls within the transaction object.
 
 ## Batch executions
 
@@ -70,8 +70,6 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> The default value of the `batchSize` is 10. The value can be seen at [Constant.DefaultBatchOperationSize](/class/constant).
-
 The library will then create the packed-statements that is executable in one-go. In the case above, the library will create the following SQL statements that is batched by 100.
 
 ```csharp
@@ -81,6 +79,8 @@ The library will then create the packed-statements that is executable in one-go.
 > INSERT INTO [Customer] (Name, Address) VALUES (@Name99, @Address98);
 > INSERT INTO [Customer] (Name, Address) VALUES (@Name99, @Address99);
 ```
+
+> The default value of the `batchSize` is 10. The value can be seen at [Constant.DefaultBatchOperationSize](/class/constant).
 
 The packed-statements above are cached and is being executed 10 times with 100 rows each. All the parameters will be passed into its proper indexes, depending on the number of batches. The execution is more optimal than it was in the previous section as it is executing the multiple SQL statements in one-go. Without having the batch operations, the executions will be 1000 times.
 
@@ -118,6 +118,6 @@ Before executing the command object, the `Prepare()` method is being called to p
 
 ### Batch Execution
 
-The generated packed statements are being executed against the database only once. Behind the scene, the library is batching the execution due to the fact that ADO.NET is limited only to 2100 parameters. Through these batches, the caller is able to define the best batch number based on the situations and scenarios (i.e.: Number of Columns, Network Latency, etc).
+The generated packed statements are being executed against the database only once. Behind the scene, the library is batching the execution due to the fact that ADO.NET is limited only to 2100 parameters. Through these batches, the caller is able to define the best batch number based on the situations and scenarios (i.e.: Number of Columns, Network Latency, Type of Data, etc).
 
-> We highly recommend to always use the batch operations over normal operation when working with multiple rows. Also, use the batch operations over bulk operations if the number of rows you are working is less than 1000.
+> We highly recommend to always use the batch operations over the normal operations when working with multiple rows. Also, use the batch operations over the bulk operations if the number of rows you are working is less than 1000.

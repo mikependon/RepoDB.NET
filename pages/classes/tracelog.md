@@ -25,7 +25,7 @@ A trace-logging class that is used when executing an operation. It provides vita
 
 All methods of the [ITrace](/interface/itrace) interface is using this class. You can debug to any method of the [ITrace](/interface/itrace)-based classes to trace the actual execution information.
 
-Let us say you have a custom trace class named `MyCustomTrace`. Then you pass this object when you call the [Insert](/operation/insert) operation.
+Let us say you have a custom trace class named `MyCustomTrace`. Then, you pass this object when you call the [Insert](/operation/insert) operation.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

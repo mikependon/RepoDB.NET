@@ -397,7 +397,7 @@ public interface INorthwindRepository<TDbConnection>
 }
 ```
 
-Then implement it on the repository.
+Then, implement it on the repository.
 
 ```csharp
 public class NorthwindRepository<DbConnection> : INorthwindRepository<DbConnection>

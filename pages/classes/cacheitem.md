@@ -26,11 +26,6 @@ Please see the [IExpirable](/interface/iexpirable) methods.
 
 In addition, please see the [IExpirable](/interface/iexpirable) properties.
 
-### Properties
-
-Below are the methods available from this interface.
-
-
 #### Creating New Instance
 
 Below is the way on how to create a new instance of this class.

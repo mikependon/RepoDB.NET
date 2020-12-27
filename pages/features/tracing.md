@@ -115,7 +115,7 @@ public interface INorthwindTrace : ITrace
 }
 ```
 
-Then implement it in the trace class.
+Then, implement it in the trace class.
 
 ```csharp
 public class NorthwindTrace : INorthwindTrace
@@ -206,4 +206,4 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 }
 ```
 
-> You can as well visit our [Trace](/reference/propertyhandlerpropertylevel) reference implementation page for more details.
+> You can as well visit our [Trace](/reference/trace) reference implementation page for more details.

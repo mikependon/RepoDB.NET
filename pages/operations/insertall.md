@@ -19,7 +19,7 @@ If you are inserting multiple rows in the database, avoid iterating it, instead,
 
 The performance of this not comparable to the atomic way of insertion. It is more performant and efficient!
 
-You can adjust the size of the batches to further optimize the operation depends on your situation (i.e.: No of Columns, Network Latency, etc).
+You can adjust the size of the batches to further optimize the operation depends on your own situation (i.e.: No. of Columns, Network Latency, etc).
 
 The execution is ACID as the transaction object will be created if not given.
 

@@ -85,4 +85,4 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> The hints is only supporting the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
+> The `hints` argument is only supporting the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer). When being called with other RDBMS data providers, an exception will be thrown.

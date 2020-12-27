@@ -42,7 +42,7 @@ using (var repository = new PersonRepository(connectionString, ConnectionPersist
 }
 ```
 
-You can do the same with [DbRepository](/class/dbrepository) object.
+You should do the same on the [DbRepository](/class/dbrepository) object.
 
 ```csharp
 // Repository
@@ -63,7 +63,7 @@ using (var repository = new NorthwindRepository(connectionString, ConnectionPers
 }
 ```
 
-Or, you can directly pass it and use along the way.
+Or, you can directly pass and use it right away.
 
 ```csharp
 using (var repository = new DbRepository<SqlConnection>(settings.Value.ConnectionString, ConnectionPersistency.Instance))
@@ -74,10 +74,10 @@ using (var repository = new DbRepository<SqlConnection>(settings.Value.Connectio
 
 ### Create Connection Method
 
-This method behaves differently based on the type of the persistency you had chosen. If it is used with `PerCall`, it always returns a new instance of connection object. If it is used with `Instance`, it always return the already created instance of connection object within the repository. However, such behavior will be superceded if the `force` argument is enforced with the value of `true`, a new instance of connection object is being created.
+This method behaves differently based on the type of the persistency you had chosen. If it is used with `PerCall`, it always returns a new instance of connection object. If it is used with `Instance`, it always return the already created instance of connection object within the repository. However, such behavior will be superceded if the `force` argument is enforced with the value of `true`, as the new instance of connection object is always being created.
 
 ### Dispose Process
 
-If you are using the `PerCall`, the instance of the connection object is always being disposed right after the method call. However, if you are using the `Instance`, the active instance of the connection object is only being disposed when the parent repository object is being disposed. Therefore, it is always important to call the `Dispose()` method of the repository if you are using the `Instance` persistency and finished using it, to ensure avoid an orphaned open connection towards the database.
+If you are using the `PerCall`, the instance of the connection object is always being disposed right after the method call. However, if you are using the `Instance`, the active instance of the connection object is only being disposed if the parent repository object has been disposed. Therefore, it is always important to call the `Dispose()` method of the repository if you are using the `Instance` persistency and finished using it, to ensure avoid an orphaned open connection towards the database.
 
 > Please be aware of when to call the repository `Dispose()` method, otherwise it may behave unexpectedly.

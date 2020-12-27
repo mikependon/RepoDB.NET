@@ -86,7 +86,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Then the following SQL statement will be generated.
+Then, the following SQL statement will be generated.
 
 ```csharp
 > SELECT [Id], [Name], ..., [CreatedDateUtc] FROM [dbo].[Person] WHERE ([Id] = @Id);

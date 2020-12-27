@@ -14,7 +14,7 @@ After the installation, clone the project by following the commands below.
 > git clone https://github.com/mikependon/RepoDb.NET.git
 ```
 
-Then run the site via Jekyll.
+Then, run the site via Jekyll.
 
 ```
 > cd c:\src\RepoDb.NET

@@ -24,7 +24,7 @@ public class SqlServerConvertFieldResolver : IResolver<Field, IDbSetting, string
 }
 ```
 
-Then implement the `Resolve()` method like below.
+Then, implement the `Resolve()` method like below.
 
 ```csharp
 public string Resolve(Field field,

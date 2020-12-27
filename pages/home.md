@@ -30,9 +30,9 @@ Even the library is rich on features (i.e. [Batch](/feature/batchoperations)/[Bu
 
 ### Why use RepoDB?
 
-The main goal is to improve the things and simplify your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying data store capability while maintaining the good programming coding standards.
+The main goal is to improve the things and simplify your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying database capability while maintaining the good programming coding standards and practices.
 
-If you are to use a full-fledged macro-ORM, you are most likely be abstracted by the framework itself. Though they are more richer in operations, but those operations are limiting you to touch and maximize the power of the underlying datasource being in-used.
+If you are to use a full-fledged macro-ORM, you are most likely be abstracted by the framework itself. Though they are more richer in operations, but those operations are limiting you to touch and maximize the power of the underlying database being in-used.
 
 On the other hand, if you are to use a bare-metal micro-ORM, there are tendencies that most of your implementation will be verbose and are all text-based (SQLs). Even though you have a lot control with this, but it is quite tedious and is not practical in most cases.
 
@@ -49,7 +49,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-There is a lot more from [here](/feature). You can also use the library to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS.
+You can use the library to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS data providers.
 
 <details>
 <summary>Important Attributes</summary>

@@ -52,7 +52,7 @@ ON [PRIMARY];
 GO
 ```
 
-Then you created a method that does return an array of your model.
+Then, you created a method that does return an array of your model.
 
 ```csharp
 private IEnumerable<Person> GetPeople(int count = 10)
@@ -70,7 +70,7 @@ private IEnumerable<Person> GetPeople(int count = 10)
 }
 ```
 
-Then you can do [BulkInsert](/operation/bulkinsert) with the mappings below.
+Then, you can do [BulkInsert](/operation/bulkinsert) with the mappings below.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

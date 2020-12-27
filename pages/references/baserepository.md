@@ -370,7 +370,7 @@ public interface ICustomerRepository
 }
 ```
 
-Then implement it on the repository.
+Then, implement it on the repository.
 
 ```csharp
 public class CustomerRepository : BaseRepository<Customer, SqlConnection>, ICustomerRepository

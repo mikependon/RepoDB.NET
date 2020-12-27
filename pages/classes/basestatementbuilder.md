@@ -68,7 +68,7 @@ public sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 }
 ```
 
-Then override the abstract methods.
+Then, override the abstract methods.
 
 ```csharp
 public sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder

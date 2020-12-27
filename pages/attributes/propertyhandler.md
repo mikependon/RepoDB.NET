@@ -33,7 +33,7 @@ private class PersonAddressHandler : IPropertyHandler<string, Address>
 }
 ```
 
-Then you can use this attribute to mark the class property to use the `PersonAddressHandler` property handler during the transformation.
+Then, you can use this attribute to mark the class property to use the `PersonAddressHandler` property handler during the transformation.
 
 ```csharp
 public class Person

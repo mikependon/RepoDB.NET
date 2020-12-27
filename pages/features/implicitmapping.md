@@ -12,7 +12,7 @@ parent: Features
 
 ---
 
-This is a feature that would allow you to implicitly map the .NET CLR type or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes within the classes.
+This is a feature that would allow you to implicitly map the .NET CLR types or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes within the classes.
 
 ### Fluent Mapping
 
@@ -48,7 +48,7 @@ FluentMapper
     .PropertyHandler<DateTimeKindToUtcPropertyHandler>(); // Define the PropertyHandler of the .NET CLR type
 ```
 
-The priority of the mapping is first identified via  attribute-level followed by property-level and then by type-level.
+The priority of the mapping is first identified via an attribute-level, then followed by a property-level and lastly by a type-level.
 
 > The [FluentMapper](/mapper/fluentmapper) is using the following classes ([ClassMapper](/mapper/classmapper), [ClassHandlerMapper](/mapper/classhandlermapper), [IdentityMapper](/mapper/identitymapper), [PrimaryMapper](/mapper/primarymapper), [PropertyHandlerMapper](/mapper/propertyhandlermapper), [PropertyMapper](/mapper/propertymapper) and [TypeMapper](/mapper/typemapper)) underneath to establish the proper mappings.
 
@@ -68,7 +68,7 @@ public class Customer
 }
 ```
 
-Then use the `Add()` method to map it.
+Then, use the `Add()` method to map it.
 
 ```csharp
 ClassMapper.Add<Customer>("[sales].[Customer]");
@@ -79,7 +79,7 @@ To retrieve the mapped name, use the `Get()` method.
 var mappedName = ClassMapper.Get<Customer>();
 ```
 
-We highly recommend to use the [ClassMappedNameCache](/cacher/classmappednamecache) class when retrieving the mapped name to maximize the reusability and performance.
+> We highly recommend to use the [ClassMappedNameCache](/cacher/classmappednamecache) class when retrieving the mapped name. This is to maximize the reusability and performance.
 
 ```csharp
 var mappedName = ClassMappedNameCache.Get<Customer>();
@@ -107,7 +107,7 @@ To retrieve the mapping, use the `Get()` method. The method returns an instance 
 var property = IdentityMapper.Get<Customer>();
 ```
 
-We highly recommend to use the [IdentityCache](/cacher/identitycache) class when retrieving the identity property to maximize the reusability and performance.
+> We highly recommend to use the [IdentityCache](/cacher/identitycache) class when retrieving the identity property. This is to maximize the reusability and performance.
 
 ```csharp
 var property = IdentityCache.Get<Customer>();
@@ -134,7 +134,7 @@ To retrieve the mapping, use the `Get()` method. The method returns an instance 
 var property = PrimaryMapper.Get<Customer>();
 ```
 
-We highly recommend to use the [PrimaryCache](/cacher/primarycache) class when retrieving the primary property to maximize the reusability and performance.
+> We highly recommend to use the [PrimaryCache](/cacher/primarycache) class when retrieving the primary property. This is to maximize the reusability and performance.
 
 ```csharp
 var mappedName = PrimaryCache.Get<Customer>();
@@ -179,7 +179,7 @@ To retrieve the mapping, use the `Get()` method.
 var classHandler = ClassHandlerMapper.Get<Customer, CustomerClassHandler>();
 ```
 
-We highly recommend to use the [ClassHandlerCache](/cacher/classhandlercache) class when retrieving the cached class handlers to maximize the reusability and performance.
+> We highly recommend to use the [ClassHandlerCache](/cacher/classhandlercache) class when retrieving the cached class handlers. This is to maximize the reusability and performance.
 
 ```csharp
 var classHandler = ClassHandlerCache.Get<Customer, CustomerClassHandler>();
@@ -193,7 +193,7 @@ ClassHandlerMapper.Remove<Customer>();
 
 ### PropertyHandler Mapping
 
-Use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to manage the mappings between the property handles and the .NET CLR type or class property.
+Use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to manage the mappings between the property handlers and the .NET CLR type or class property.
 
 #### Property Level
 
@@ -226,7 +226,7 @@ To retrieve the mapping, use the `Get()` method.
 var propertyHandler = PropertyHandlerMapper.Get<Customer, CustomerAddressPropertyHandler>(e => e.Address);
 ```
 
-We highly recommend to use the [PropertyHandlerCache](/cacher/propertyhandlercache) class when retrieving the cached property handlers to maximize the reusability and performance.
+> We highly recommend to use the [PropertyHandlerCache](/cacher/propertyhandlercache) class when retrieving the cached property handlers. This is to maximize the reusability and performance.
 
 ```csharp
 var propertyHandler = PropertyHandlerMapper.Get<Customer, CustomerAddressPropertyHandler>(e => e.Address);
@@ -314,7 +314,7 @@ ON [PRIMARY];
 GO
 ```
 
-Then use the `Add()` method to map it.
+Then, use the `Add()` method to map it.
 
 ```csharp
 PropertyMapper.Add<Customer>(e => e.FirstName, "[FName]");
@@ -330,7 +330,7 @@ var lastName = PropertyMapper.Get<Customer>(e => e.LastName);
 var dob = PropertyMapper.Get<Customer>(e => e.DateOfBirth);
 ```
 
-We highly recommend to use the [PropertyMappedNameCache](/cacher/propertymappednamecache) class when retrieving the cached mapped name to maximize the reusability and performance.
+> We highly recommend to use the [PropertyMappedNameCache](/cacher/propertymappednamecache) class when retrieving the cached mapped name. This is to maximize the reusability and performance.
 
 ```csharp
 var firstName = PropertyMappedNameCache.Get<Customer>(e => e.FirstName);
@@ -378,7 +378,7 @@ To retrieve the mapping, use the `Get()` method.
 var dbType = TypeMapper.Get<Customer>(e => e.DateOfBirth);
 ```
 
-We highly recommend to use the [TypeMapCache](/cacher/typemapcache) class when retrieving the cached database types to maximize the reusability and performance.
+> We highly recommend to use the [TypeMapCache](/cacher/typemapcache) class when retrieving the cached database types. This is to maximize the reusability and performance.
 
 ```csharp
 var dbType = TypeMapCache.Get<Customer>(e => e.DateOfBirth);
@@ -394,7 +394,7 @@ TypeMapper.Remove<Customer>(e => e.DateOfBirth);
 
 Let us say you would like to always map the `System.DateTime` .NET CLR type equivalent to `DbType.DateTime2` database type.
 
-Then use the type-level mapping via `Add()` method.
+Then, use the type-level mapping via `Add()` method.
 
 ```csharp
 TypeMapper.Add<DateTime>(DbType.DateTime2);

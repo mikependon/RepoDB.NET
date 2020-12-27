@@ -21,7 +21,7 @@ This enum is used to set the value of the `ConversionType` property of [TypeMapp
 
 ### Use-Cases
 
-You can use the value of `Automatic` if you have a database column where the type is not convertible to a property of class (i.e.: `Int` to `String`, `String` to `Guid`, `DateTime` to `String`, etc).
+You can use the value of `Automatic` if you have a database column where the type is not convertible to a property of class (i.e.: `Int` to `string`, `string` to `Guid`, `DateTime` to `string`, etc).
 
 Let us say, you have a given class named `Customer` as defined below.
 

@@ -292,7 +292,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## When to use the Batch and Bulk Operations?
 
-Here, we can only advice based on our experience. To be honest, there is no standard of when to use what. It all depends on your situation (i.e.: Network Latency, Data, No of Columns, etc).
+Here, we can only advice based on our experience. To be honest, there is no standard of when to use what. It all depends on your situation (i.e.: Network Latency, Data, No. of Columns, etc).
 
 The PROS of using Bulk is maximum performance. However, there are also CONS of usually using it. One of it is it keeps blocking the target table while being under the Bulk operations transaction. It can however trigger (or also solve) a deadlock if not handled properly by the developers.
 

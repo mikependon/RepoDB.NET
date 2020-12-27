@@ -105,7 +105,7 @@ table.TableName = "Name of the UDT";
 // Create the 'table' columns/rows
 ```
 
-Then pass it as a value to your argument.
+Then, pass it as a value to your argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

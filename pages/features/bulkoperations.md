@@ -40,9 +40,9 @@ Image below shows the data flow of the [BulkMerge](/operation/bulkmerge) operati
 
 Basically, a pseudo-temporary table will be created in the database under the transaction context. It then uses the [BulkInsert](/operation/bulkinsert) operation to target that pseudo-temporary table and process the data afterwards. Through this technique, we brought all the data together from the client application into the database server (at one-go) and process them together at the same time.
 
-You can maximize the execution by targeting your underlying table indexes via qualifiers, simply pass a list of [Field](/class/field) objects. The library will then create a CLUSTERED INDEX on the pseudo-temporary table through the passed qualifiers and do the actual joins to the original table using that index.
+You can maximize the execution by targeting your underlying table indexes via qualifiers, simply pass a list of [Field](/class/field) object. The library will then create a CLUSTERED INDEX on the pseudo-temporary table through the passed qualifiers and do the actual joins to the original table using that index.
 
-> If you have not passed any qualifiers, the primary column will be used by default. If the primary column is not present, it will use the identity column instead.
+> If you have not passed any qualifiers, the primary column will be used by default. If the primary column is not present, it will use the identity column.
 
 ### Supported Objects
 
@@ -93,17 +93,17 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 
 The arguments `qualifiers`, `isReturnIdentity` and `usePhysicalPseudoTempTable` were provided to the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations.
 
-The argument `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statements. If not given, the primary or identity column will be used.
+The argument `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statement. If not given, the primary or identity column will be used.
 
 The argument `isReturnIdentity` is used to define the behaviour of the execution whether the newly generated identities will be set-back to the data entities. By default, it is disabled.
 
 The argument `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 
-> Please be noted that it is not recommended to enable the `usePhysicalPseudoTempTable` argument if you are to work with parallelism. Ensure to always utilize the session-based non-physical pseudo-temporary table on parallelism's scenario.
+> Please be noted that it is not recommended to enable the `usePhysicalPseudoTempTable` argument if you are to work with parallelism. Ensure to always utilize the session-based non-physical pseudo-temporary table when working parallelism.
 
 ### Caveats
 
-The library is automatically setting the value of `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) if you have not passed any qualifiers and if your table has an identity primary key column. The same logic will apply if there is no primary key but has an identity column defined in the table.
+The library is automatically setting the value of the `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) if you have not passed any qualifiers and if your table has an identity key column.
 
 In addition, when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, the library is creating a pseudo-temporary table behind the scene. It requires your user to have the proper CREATE TABLE privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
@@ -113,7 +113,7 @@ Below are the ways on how to call the operations.
 
 #### For BulkDelete
 
-The code snippets below only showcasing the [BulkDelete](/operation/bulkdelete) via IEnumerable&lt;T&gt;.
+The code snippets below only showcasing the [BulkDelete](/operation/bulkdelete) via `IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -156,7 +156,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### For BulkInsert
 
-The code snippets below only showcasing the [BulkInsert](/operation/bulkinsert) via IEnumerable&lt;T&gt;.
+The code snippets below only showcasing the [BulkInsert](/operation/bulkinsert) via `IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -178,7 +178,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### For BulkMerge
 
-The code snippets below only showcasing the [BulkMerge](/operation/bulkmerge) via IEnumerable&lt;T&gt;.
+The code snippets below only showcasing the [BulkMerge](/operation/bulkmerge) via `IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -211,7 +211,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### For BulkUpdate
 
-The code snippets below only showcasing the [BulkUpdate](/operation/bulkupdate) via IEnumerable&lt;T&gt;.
+The code snippets below only showcasing the [BulkUpdate](/operation/bulkupdate) via `IEnumerable<T>`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -244,8 +244,8 @@ using (var connection = new SqlConnection(connectionString))
 
 #### When to use the Batch and Bulk Operations?
 
-There is no standard of when to use what. It all depends on your situation (i.e.: Network Latency, Data, No of Columns, etc).
+There is no standard of when to use what. It all depends on your situation (i.e.: Network LatencyData, No. of Columns, Type of Data, etc).
 
-The pros of using bulk operation is the maximum performance, however, it also keeps blocking the target table while being under the bulk operations transaction. It might trigger a deadlock if not handled properly by the developers.
+The pros of using a bulk operation is maximum performance, however, it keeps blocking the underlying table while being under the context of bulk operation transaction. Therefore, it might trigger a deadlock if not handled by the developers properly.
 
-> We highly recommend to use the batch operations if the number of rows you are working is less than or equal 1000, beyond than that, we highly recommend to always use the bulk operations.
+> We highly recommend to use the bulk operations if the data sets you are working is beyond 1000, otherwhise, just use the [batch](/feature/batchoperations) operations.
