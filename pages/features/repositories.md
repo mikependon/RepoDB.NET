@@ -327,7 +327,7 @@ public int Delete(Person entity)
 
 #### Get
 
-```cshar
+```csharp
 public Person Get(int id)
 {
     using (var connection = CreateConnection())
