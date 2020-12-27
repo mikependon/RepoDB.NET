@@ -20,7 +20,7 @@ We are glad and thankful for your interest in learning [RepoDB](https://github.c
 
 Its name is a shortcut to Repository (a popular pattern when implementing Data Access Layers) + the word Database.
 
-Diagram below shows where we are positioning this library.
+Diagram below shows the high-level difference of RepoDB from both the micro-ORM and macro-ORM.
 
 <img src="../../assets/images/site/difference.svg" />
 
@@ -36,7 +36,7 @@ If you are to use a full-fledged macro-ORM, you are most likely be abstracted by
 
 On the other hand, if you are to use a bare-metal micro-ORM, there are tendencies that most of your implementation will be verbose and are all text-based (SQLs). Even though you have a lot control with this, but it is quite tedious and is not practical in most cases.
 
-RepoDB mediates both the micro-ORMs and macro-ORMs. When using this library, your development experience is as simple as Dapper when opening a connection and as simple as Entity Framework when calling the operations. It is the reason that makes this library the easiest-to-use ORM.
+RepoDB mediates both the micro-ORMs and macro-ORMs. When using this library, your development experience is as simple as Dapper when opening a connection and is as simple as Entity Framework when calling the operations. It is the reason that makes this library the easiest-to-use ORM.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -49,7 +49,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-You can use the library to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS data providers.
+There is a lot more from [here](/feature). You can also use the library to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS.
 
 <details>
 <summary>Important Attributes</summary>
@@ -92,7 +92,7 @@ RepoDB shows an impressive performance and memory-efficiency if being compared w
 
 It is the fastest and the most-efficient ORM in .NET space nowadays!
 
-<img src="../assets/backgrounds/statistics.png" />
+<img src="../../assets/images/site/statistics.svg" />
 
 The benchmark statistics shown above is the result of the community-approved ORM bencher [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher).
 
