@@ -18,6 +18,10 @@ Imagine the case of validating the model before pushing to the database, or tran
 
 The execution of the event contains the actual `DbDataReader` object in used and the affected class model.
 
+Below is the high-level diagram of the class handler.
+
+<img src="../../assets/images/site/classhandler.svg" />
+
 #### It uses the following objects
 
 - [IClassHandler](/interface/iclasshandler) - an interface to mark your class as class handler.

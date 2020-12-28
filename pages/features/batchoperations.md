@@ -18,6 +18,10 @@ This operation comes with flexibility as it allows you to control the number of 
 
 In RepoDB, the following operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) and [MergeAll](/operation/mergeall)) are the batch operations. They are all ACID in nature.
 
+Below is the high-level diagram for the batch operations.
+
+<img src="../../assets/images/site/batchoperations.svg" />
+
 ## Normal executions
 
 Let us say you have a model named `Customer` that corresponds to the `[dbo].[Customer]` table.

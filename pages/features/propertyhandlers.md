@@ -16,6 +16,10 @@ This is a feature that would allow you to handle the tranformation of the class 
 
 The execution of the transformation contains the actual values and the affected [ClassProperty](/class/classproperty) object to provide more context.
 
+Below is the high-level diagram of the property handler.
+
+<img src="../../assets/images/site/propertyhandler.svg" />
+
 #### It uses the following objects
 
 - [IPropertyHandler](/interface/ipropertyhandler) - an interface to mark your class as property handler.
