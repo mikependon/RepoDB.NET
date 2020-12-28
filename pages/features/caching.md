@@ -14,7 +14,7 @@ parent: Features
 
 In general terms, a cache is a component that stores an object (or its states) in any form of temporary storage that is accessible for future used. The object that is being stored can be a result of computational, operational, inputs/outputs or analytical operations and calculations.
 
-Usually, it is implemented as a 2nd-layer data storage to provide fast accessibility to the requestor of the data. It is by design to prevent the frequent calls towards the underlying data-store, thus helps improve the underlying performance of the application.
+Usually, it is implemented as a 2nd-layer data storage to provide a fast accessibility to the requestor of the data. It is by design to prevent the frequent calls towards the underlying data-store, thus helps improve the performance of the application by large margin.
 
 Below is the high-level diagram that showcase how the caching implementation is with this library.
 
