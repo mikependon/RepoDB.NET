@@ -6,10 +6,6 @@ date: 2020-12-27 06:00:00 +0200
 categories: blogs repodb
 ---
 
-# RepoDB Documentation Site New Template
-
----
-
 We are happily announcing the newly developed documentation site for [RepoDB](https://github.com/mikependon/RepoDB) library. The site is now running with [Just the Docs](https://github.com/pmarsceill/just-the-docs) documentation theme for Jekyll.
 
 Thank you to [Patrick Marsceill](https://twitter.com/pmarsceill) for continuously supporting this awesome template.

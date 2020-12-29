@@ -6,10 +6,6 @@ date: 2020-09-24 06:00:00 +0200
 categories: blogs repodb
 ---
 
-# Announcing RepoDB version 1.12.0
-
----
-
 Today, we are announcing the availability of [RepoDb v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0). The released packages also comes with its bundles, the extension libraries at v1.1.0. See below.
 
 - [RepoDb.SqlServer v1.1.0](https://www.nuget.org/packages/RepoDb.SqlServer/1.1.0)
@@ -27,6 +23,8 @@ The version [v1.12.0](https://www.nuget.org/packages/RepoDb/1.12.0) together wit
 
 Below are the list of the updates/changes covered by this release.
 
+- [TL;DR;](#tldr)
+- [Highlights](#highlights)
 - [Initial Support to FSharp](#initial-support-to-fsharp)
 - [Enhanced Compiler](#enhanced-compiler)
 - [Class Handler](#class-handler)
@@ -40,11 +38,11 @@ Below are the list of the updates/changes covered by this release.
 - [PostgreSQL Truncate Reset Identity](#postgresql-truncate-reset-identity)
 - [SQLite AUTOINCREMENT vs INTEGER PRIMARY KEY](#sqlite-autoincrement-vs-integer-primary-key)
 - [SQLite INSERT OR REPLACE vs UPSERT](#sqlite-insert-or-replace-vs-upsert)
-  - [Upsert Solution](#upsert-solution)
+- [Upsert Solution](#upsert-solution)
 - [Breaking Changes](#breaking-changes)
-  - [The Merge Argument ('qualifiers' vs 'fields')](#the-merge-argument-qualifiers-vs-fields)
-  - [The 'Where/WhereOrPrimaryKey' vs 'What'](#the-wherewhereorprimarykey-vs-what)
-  - [The DataReader.ToEnumerable Method](#the-datareadertoenumerable-method)
+- [The Merge Argument ('qualifiers' vs 'fields')](#the-merge-argument-qualifiers-vs-fields)
+- [The 'Where/WhereOrPrimaryKey' vs 'What'](#the-wherewhereorprimarykey-vs-what)
+- [The DataReader.ToEnumerable Method](#the-datareadertoenumerable-method)
 - [Closing Note](#closing-note)
 
 It is important to not skip the [Breaking Changes](#breaking-changes) section.

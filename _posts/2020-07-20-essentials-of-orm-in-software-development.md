@@ -6,10 +6,6 @@ date: 2020-07-20 15:30:00 +0200
 categories: blogs repodb
 ---
 
-# The Essentials of ORM Framework in your Software Development
-
----
-
 Just today, July 20, 2020, I had published an article in Medium titled "The Essentials of ORM Framework in your Software Development".
 
 In this article, I had explained the core benefits and advantages of using an ORM. The intention is to persuade and help you (as a reader) decide to choose an ORM over writing your own fundamental implementation.

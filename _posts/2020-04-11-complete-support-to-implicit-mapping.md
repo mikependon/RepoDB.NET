@@ -6,10 +6,6 @@ date: 2020-04-12 5:24:00 +0100
 categories: blogs repodb
 ---
 
-# RepoDB complete support to Implicit Mapping
-
----
-
 Happy Easter 2020! In the middle of my development of this site ([repodb.net](http://repodb.net)), 2 of the users of the library has asked me to introduce the [Implicit Mapping](/feature/implicitmapping) feature in [RepoDB](https://github.com/mikependon/RepoDb).
 
 The requests can be found [here](https://github.com/mikependon/RepoDb/issues/415).

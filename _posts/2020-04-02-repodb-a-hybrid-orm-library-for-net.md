@@ -6,10 +6,6 @@ date: 2020-04-02 12:00:00 +0100
 categories: blogs repodb
 ---
 
-# RepoDB - a hybrid ORM library for .NET
-
----
-
 ### Introduction
 
 Introducing RepoDB, a new high performant and efficient hybrid ORM library for .NET.

@@ -6,10 +6,6 @@ date: 2020-03-16 00:00:00 +0100
 categories: blogs update
 ---
 
-# Adding more contents to RepoDB.NET
-
----
-
 As of writing this, I am busy working with [RepoDB.NET](http://repodb.net) site; providing contents to each page.
 
 The [docs](/docs) page has been introduced with the following sections.

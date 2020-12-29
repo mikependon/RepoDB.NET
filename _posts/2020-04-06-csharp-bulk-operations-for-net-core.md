@@ -6,10 +6,6 @@ date: 2020-04-06 13:00:00 +0100
 categories: blogs repodb
 ---
 
-# C#: Bulk Operations for .NET Core (BulkDelete, BulkInsert, BulkMerge, BulkUpdate)
-
----
-
 ### Introduction
 
 We would like to share you the latest and greatest updates of RepoDB ORM. Recently, we just published the complete out-of-the-box support of Bulk Operations for SQL Server in .NET data access space.

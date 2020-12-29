@@ -14,7 +14,7 @@ parent: Features
 
 This feature allows you to create a simplified and targeted operation by simply maximizing the usage of the anonymous types. It is very useful if you wish to do the CRUD operations on the targeted columns and/or make the CRUD operations without even having a class model.
 
-This feature called is DYNAMICS as it is enabling the dynamic capabilities if we are to use it on the context of ORM. Therefore, do not get confused comparing the terminology against the dynamics within .NET ecosystem.
+This feature is being called DYNAMICS as it is enabling the dynamic capabilities if we are to use it on the context of ORM. Therefore, do not get confused comparing the terminology against the dynamics within .NET ecosystem.
 
 ### Querying a Data
 

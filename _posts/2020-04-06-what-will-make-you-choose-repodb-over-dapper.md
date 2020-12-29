@@ -6,10 +6,6 @@ date: 2020-04-06 15:05:00 +0100
 categories: blogs repodb
 ---
 
-# What will make you choose RepoDB over Dapper
-
----
-
 ### Introduction
 
 In this page, we will share you the differences and what sets RepoDB apart from Dapper. We tried our best to make a 1-to-1 comparisson for most area. This page will hopefully help you decide as a developer to choose RepoDB as your micro-ORM (with compelling reason).

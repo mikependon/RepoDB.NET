@@ -6,10 +6,6 @@ date: 2020-04-10 20:47:00 +0100
 categories: blogs repodb
 ---
 
-# RepoDB remains as the most-fastest and most-efficient ORM in .NET Core Ecosystem (v3.1)
-
----
-
 Yesterday (April 9, 2020), I had issued a PR to FransBouma's [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher) with the latest version of [RepoDB](https://github.com/mikependon/RepoDb), plus with the following updates:
 
 - Upgrading the `System.Data.SqlClient` to version `4.8.0`.

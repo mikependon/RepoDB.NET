@@ -6,10 +6,6 @@ date: 2020-04-02 12:00:00 +0100
 categories: blogs repodb
 ---
 
-# Happy 2nd Year Anniversary
-
----
-
 It was 2 years ago when the [first version](https://www.nuget.org/packages/RepoDb/1.0.0) release of [RepoDB](https://github.com/mikependon/RepoDb) was placed at [Nuget.org](https://www.nuget.org/packages/RepoDb).
 
 ### Story

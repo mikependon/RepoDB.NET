@@ -6,10 +6,6 @@ date: 2020-05-30 5:55:00 +0200
 categories: blogs repodb
 ---
 
-# Empowering MySQL DB Access with MySqlConnector + RepoDB
-
----
-
 ### Introduction
 
 [MySqlConnector](https://mysqlconnector.net/) is an ADO.NET data provider for MySQL Server, MariaDB, Percona Server, Amazon Aurora, Azure Database for MySQL, Google Cloud SQL for MySQL and more. It provides implementations of DbConnection, DbCommand, DbDataReader, DbTransaction — the classes needed to query and update databases from managed code. MySqlConnector claims to be the real asynchronous data provider for MySQL in .NET space. It is known to much more faster and optimal than [MySql.Data](https://www.nuget.org/packages/MySql.Data/) data provider the Oracle has written.

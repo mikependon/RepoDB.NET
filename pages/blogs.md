@@ -20,7 +20,7 @@ What we share to the open community!
         <author>{{ post.author }}</author>
         •
         <time datetime="{{ post.date | date_to_xmlschema }}">
-            {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+            {% assign date_format = site.date_format | default: "%b %-d, %Y" %}
             {{ post.date | date: date_format }}
         </time>
     </span>

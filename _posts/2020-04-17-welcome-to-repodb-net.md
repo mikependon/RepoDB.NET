@@ -6,10 +6,6 @@ date: 2020-04-17 5:30:00 +0100
 categories: blogs repodb
 ---
 
-# Welcome to RepoDB.NET
-
----
-
 This is the official site of [RepoDB](https://github.com/mikependon/RepoDb) library. The intention of this site is to provide and guide you as a developer with all the information needed when using the RepoDB library.
 
 [RepoDB](https://github.com/mikependon/RepoDb) is an open-source .NET ORM that bridge the gaps between micro-ORMs and full-ORMs. It helps the developer to simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.

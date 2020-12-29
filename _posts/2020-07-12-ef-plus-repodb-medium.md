@@ -6,10 +6,6 @@ date: 2020-07-12 14:30:00 +0200
 categories: blogs repodb
 ---
 
-# Building a Better Hybrid Data Access Solution in .NET with Entity Framework + RepoDB
-
----
-
 Just today, July 12, 2020, I had published an article in Medium titled "Building a Better Hybrid Data Access Solution in .NET with Entity Framework + RepoDB".
 
 In this article, I had explained the benefits of why combining Entity Framework with RepoDB to create a "hybrid solution" in .NET is "best" when addressing various business use-cases. After reading this article, you will most likely understand of "when" and "why" use RepoDB as part of your hybrid solution.

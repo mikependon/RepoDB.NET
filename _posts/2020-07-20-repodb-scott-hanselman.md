@@ -6,10 +6,6 @@ date: 2020-07-20 09:30:00 +0200
 categories: blogs repodb
 ---
 
-# Exploring the .NET open source hybrid ORM library RepoDB
-
----
-
 Just today, July 20, 2020, the popular .NET celebrity Scott Hanselman has blogged RepoDB at [hanselman.com](https://www.hanselman.com/).
 
 In his article, he explained how I positioned RepoDB as a .NET ORM, even mentioning my own name. He also highlighted the comparisson of RepoDB and Dapper, plus, the different support to multiple RDBMS data providers.
