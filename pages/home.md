@@ -43,8 +43,8 @@ using (var connection = new SqlConnection(connectionString))
 {
     var id = connection.Insert<Customer, int>(new Customer
     {
-        Name = "John",
-        Doe = "Doe")
+        Name = "John Doe",
+        Address = "New York")
     });
 }
 ```
