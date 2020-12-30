@@ -14,9 +14,15 @@ parent: Releases
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySql) to download it.
 
+### RepoDB.MySql (v1.1.3)
+
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).
+
+
 ### RepoDB.MySql (v1.1.2)
 
 - Fixed the failing calls to the `ReaderToDbFieldAsync` method of the `MySqlDbHelper` object.
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).
 
 
 ### RepoDB.MySql (v1.1.1)

@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing RepoDB version 1.12.5"
 author: "Michael Camara Pendon"
-date: 2020-12-31 06:00:00 +0200
+date: 2020-12-30 06:00:00 +0200
 categories: blogs repodb
 ---
 
@@ -23,7 +23,7 @@ These releases comes with the complete support to the DYNAMIC operations. It als
 
 ### Push Operations
 
-This release is now supporting the capability of pusing an instance of `ExpandoObject` or `IDictionar<string, object>` object into the push operations mentioned below.
+This release is now supporting the capability of pusing an instance of `ExpandoObject` or `IDictionary<string, object>` object into the push operations mentioned below.
 
 - [Insert](/operation/insert)
 - [Merge](/operation/merge)

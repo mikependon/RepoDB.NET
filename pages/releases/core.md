@@ -14,7 +14,36 @@ parent: Releases
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-### RepoDB (v1.12.5-beta6) (Next Version)
+### RepoDB (v1.12.5)
+
+- Enhancement: Add the dynamic [ExecuteQueryMultiple](/operation/executequerymultiple) method in the [DbRepository](/class/dbrepository) [#630](https://github.com/mikependon/RepoDB/issues/630)
+- Possible bug - Enum with Flag attribute is not correctly handled [#624](https://github.com/mikependon/RepoDB/issues/624)
+- [Core] Support `ExpandoObject` in [Insert](/operation/insert) via `TableName`. [#234](https://github.com/mikependon/RepoDB/issues/234)
+- [Core] Support `ExpandoObject` in [Merge](/operation/merge) via `TableName`. [#238](https://github.com/mikependon/RepoDB/issues/238)
+- [Core] Support `ExpandoObject` in [Update](/operation/update) via `TableName`. [#236](https://github.com/mikependon/RepoDB/issues/236)
+- [Core] Support `ExpandoObject` in [InsertAll](/operation/insertall) via `TableName`. [#235](https://github.com/mikependon/RepoDB/issues/235)
+- [Core] Support `ExpandoObject` in [MergeAll](/operation/mergeall) via `TableName`. [#239](https://github.com/mikependon/RepoDB/issues/239)
+- [Core] Support `ExpandoObject` in [UpdateAll](/operation/updateall) via `TableName`. [#237](https://github.com/mikependon/RepoDB/issues/237)
+- Introduce the support of Dynamic and ExpandoObject in [BulkInsert](/operation/bulkinsert). [#243](https://github.com/mikependon/RepoDB/issues/243)
+- Enhancement: Support `ExpandoObject` in [BulkInsert](/operation/bulkinsert) [#610](https://github.com/mikependon/RepoDB/issues/610)
+- Enhancement: Support `ExpandoObject` in [BulkMerge](/operation/bulkmerge) [#611](https://github.com/mikependon/RepoDB/issues/611)
+- Enhancement: Support `ExpandoObject` in [BulkUpdate](/operation/bulkupdate) [#612](https://github.com/mikependon/RepoDB/issues/612)
+- Enhancement: Support `ExpandoObject` in [BulkDelete](/operation/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
+- Bug: Exception is being thrown for the Type level [PropertyHandler](/features/propertyhandlers) for Dynamic Insertion [#628](https://github.com/mikependon/RepoDB/issues/628).
+- Added a validation to ensure the type of the `TPropertyHandler` has implemented the [IPropertyHandler](/interface/ipropertyhandler) interface when calling the `Add()` method of the [PropertyHandlerCache](/cacher/propertyhandlercache) object.
+- Request: Do not crash if on empty enumerable on bulk operation [#635](https://github.com/mikependon/RepoDB/issues/635).
+- Request: Introduce optional caching to [ExecuteScalar](/operation/executescalar) methods. [#648](https://github.com/mikependon/RepoDB/issues/648)
+- Enhancement: Add the non-parameterized Truncate operation. [#652](https://github.com/mikependon/RepoDB/issues/652)
+- Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673) - this is a breaking changes
+- Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
+- Bug: [FluentMapper](/mapper/fluentmapper) is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
+- Question: [IPropertyHandler](/interface/ipropertyhandler) for `Dictionary<string, string>` [#647](https://github.com/mikependon/RepoDB/issues/647)
+- Upgraded the `Microsoft.Data.SqlClient` to `v2.1.0`.
+- Upgraded the `System.ComponentModel.Annotations` to `v5.0.0`.
+- Fixed the related issues found at model-based operation [ExecuteQuery](/operation/executequery) (almost related to [#666](https://github.com/mikependon/RepoDB/issues/666))
+
+
+### RepoDB (v1.12.5-beta6)
 
 - Fixed the related issues found at model-based operation [ExecuteQuery](/operation/executequery) (almost related to [#666](https://github.com/mikependon/RepoDB/issues/666))
 

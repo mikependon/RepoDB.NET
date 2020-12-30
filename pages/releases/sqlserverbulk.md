@@ -14,7 +14,18 @@ parent: Releases
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
-### RepoDB.SqlServer.BulkOperations (v1.1.2-beta4) (Next Version)
+### RepoDB.SqlServer.BulkOperations (v1.1.2)
+
+- Bug: Incorrect syntax near the keyword `WITH` [BulkMergeAsync](/operation/bulkinsert) [#640](https://github.com/mikependon/RepoDB/issues/640)
+- Request: Do not crash if on empty enumerable on bulk operation [#635]((https://github.com/mikependon/RepoDB/issues/635)
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5-beta2](/release/core#repodb-v1125-beta2)).
+- Reverted the changes to the [#635](https://github.com/mikependon/RepoDB/issues/635).
+- Bug: System.Data.SqlClient.SqlException: 'Column name 'ID' does not exist in the target table or view.' [#651](https://github.com/mikependon/RepoDB/issues/651)
+- Refactor the internal method implementations to only utilize the base methods for both the MDS and SDS method calls.
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).
+
+
+### RepoDB.SqlServer.BulkOperations (v1.1.2-beta4)
 
 - Bug: [BulkInsert](/operation/bulkinsert) with mappings [#668](https://github.com/mikependon/RepoDB/issues/668)
 
