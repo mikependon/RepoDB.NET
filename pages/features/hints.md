@@ -51,7 +51,7 @@ Below are the equivalent operations of the raw-SQLs execution defined above.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var orders = connection.Query<Order>(hints: "WITH (NOLOCK)");
+    var orders = connection.QueryAll<Order>(hints: "WITH (NOLOCK)");
 }
 ```
 
