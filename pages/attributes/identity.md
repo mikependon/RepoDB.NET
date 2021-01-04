@@ -5,7 +5,7 @@ title: "Identity"
 description: "Learn on how to use the RepoDB Identity attribute."
 permalink: /attribute/identity
 tags: [repodb, class, identity, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Attributes
+parent: ATTRIBUTES
 ---
 
 # Identity

@@ -4,7 +4,7 @@ sidebar: operations
 title: "Query"
 permalink: /operation/query
 tags: [repodb, tutorial, query, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # Query

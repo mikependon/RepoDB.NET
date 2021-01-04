@@ -3,8 +3,8 @@ layout: page
 title: "Connection-Based Repository"
 permalink: /reference/output/connectionrepository
 tags: [repodb, class, connectionrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Output
-grand_parent: References
+parent: OUTPUT
+grand_parent: REFERENCES
 ---
 
 # Connection-Based Repository

@@ -5,7 +5,7 @@ title: "Bulk Operations"
 description: "It is the process of bringing all the data from the application into the database server at once, and at the same time, ignoring some database specific activities behind the scene. Thus gives you maximum performance during the operation."
 permalink: /feature/bulkoperations
 tags: [repodb, class, bulk, bulk-operations, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Features
+parent: FEATURES
 ---
 
 # Bulk Operations

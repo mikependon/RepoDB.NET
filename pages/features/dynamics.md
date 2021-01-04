@@ -5,7 +5,7 @@ title: "Dynamics"
 description: "This feature allows you to work with RepoDB by maximizing the usage of dynamics."
 permalink: /feature/dynamics
 tags: [repodb, class, dynamics, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Features
+parent: FEATURES
 ---
 
 # Dynamics / Anonymous Types

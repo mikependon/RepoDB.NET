@@ -5,7 +5,7 @@ title: BaseRepository
 nav_order: 1
 permalink: /reference/baserepository
 tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: References
+parent: REFERENCES
 ---
 
 # BaseRepository

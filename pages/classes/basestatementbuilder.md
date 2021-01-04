@@ -5,7 +5,7 @@ title: "BaseStatementBuilder"
 description: "A base class for all the statement builder classes."
 permalink: /class/basestatementbuilder
 tags: [repodb, class, basestatementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Classes
+parent: CLASSES
 ---
 
 # BaseStatementBuilder

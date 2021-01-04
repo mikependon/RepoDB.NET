@@ -5,7 +5,7 @@ title: "TypeMapper"
 description: "A class that is used to map a .NET CLR type or class property into its equivalent database type. This class is used as an alternative to TypeMap attribute."
 permalink: /mapper/typemapper
 tags: [repodb, class, typemapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Mappers
+parent: MAPPERS
 ---
 
 # TypeMapper

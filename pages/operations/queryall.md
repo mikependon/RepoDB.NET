@@ -4,7 +4,7 @@ sidebar: operations
 title: "QueryAll"
 permalink: /operation/queryall
 tags: [repodb, tutorial, queryall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # QueryAll

@@ -6,7 +6,7 @@ description: "Learn on how to work with SQLite databases using RepoDB library."
 nav_order: 3
 permalink: /tutorial/get-started-sqlite
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, sqlite]
-parent: Get Started
+parent: GET STARTED
 ---
 
 # Get Started for SQLite

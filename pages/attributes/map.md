@@ -5,7 +5,7 @@ title: "Map"
 description: "Learn on how to use the RepoDB Map attribute."
 permalink: /attribute/map
 tags: [repodb, class, map, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Attributes
+parent: ATTRIBUTES
 ---
 
 # Map

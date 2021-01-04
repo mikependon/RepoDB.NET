@@ -5,7 +5,7 @@ title: SQL Server Bulk
 description: "This page contains the latest information of the releases of RepoDb.SqlServer.BulkOperations library."
 nav_order: 3
 permalink: /release/sqlserverbulk
-parent: Releases
+parent: RELEASES
 ---
 
 # Releases for RepoDb.SqlServer.BulkOperations

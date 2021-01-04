@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Extensibilities
+title: EXTENSIBILITIES
 nav_order: 10
 has_children: true
 permalink: /extensibility

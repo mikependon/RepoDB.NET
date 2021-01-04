@@ -4,7 +4,7 @@ sidebar: operations
 title: "Count"
 permalink: /operation/count
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # Count

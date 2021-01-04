@@ -6,7 +6,7 @@ description: "Learn on how to work with PostgreSQL databases using RepoDB librar
 nav_order: 2
 permalink: /tutorial/get-started-postgresql
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, postgresql]
-parent: Get Started
+parent: GET STARTED
 ---
 
 # Get Started for PostgreSQL

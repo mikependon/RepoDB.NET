@@ -3,8 +3,8 @@ layout: page
 title: "JSON Cache"
 permalink: /reference/output/jsoncache
 tags: [repodb, class, jsoncache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Output
-grand_parent: References
+parent: OUTPUT
+grand_parent: REFERENCES
 ---
 
 # JsonCache (File System)

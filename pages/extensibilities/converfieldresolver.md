@@ -4,7 +4,7 @@ sidebar: extensibilities
 title: "Convert Field Resolver"
 permalink: /extensibility/convertfieldresolver
 tags: [repodb, class, convertfieldresolver, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Extensibilities
+parent: EXTENSIBILITIES
 ---
 
 # Convert Field Resolver

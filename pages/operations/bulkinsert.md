@@ -4,7 +4,7 @@ sidebar: operations
 title: "BulkInsert"
 permalink: /operation/bulkinsert
 tags: [repodb, tutorial, bulkinsert, orm, hybrid-orm, sqlserver]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # BulkInsert

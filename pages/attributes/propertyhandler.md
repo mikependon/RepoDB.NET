@@ -5,7 +5,7 @@ title: "PropertyHandler"
 description: "Learn on how to use the RepoDB PropertyHandler attribute."
 permalink: /attribute/propertyhandler
 tags: [repodb, class, propertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Attributes
+parent: ATTRIBUTES
 ---
 
 # PropertyHandler

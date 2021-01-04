@@ -4,7 +4,7 @@ sidebar: operations
 title: "BulkDelete"
 permalink: /operation/bulkdelete
 tags: [repodb, tutorial, bulkdelete, orm, hybrid-orm, sqlserver]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # BulkDelete

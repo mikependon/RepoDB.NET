@@ -4,7 +4,7 @@ sidebar: operations
 title: "ExecuteNonQuery"
 permalink: /operation/executenonquery
 tags: [repodb, tutorial, executenonquery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # ExecuteNonQuery

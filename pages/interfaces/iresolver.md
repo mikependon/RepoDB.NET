@@ -4,7 +4,7 @@ sidebar: interfaces
 title: "IResolver"
 permalink: /interface/iresolver
 tags: [repodb, class, iresolver, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Interfaces
+parent: INTERFACES
 ---
 
 # IResolver

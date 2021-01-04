@@ -6,7 +6,7 @@ description: "Learn on how to work with MySQL databases using RepoDB library."
 nav_order: 4
 permalink: /tutorial/get-started-mysql
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, mysql]
-parent: Get Started
+parent: GET STARTED
 ---
 
 # Get Started for MySQL

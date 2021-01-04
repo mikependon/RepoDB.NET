@@ -4,7 +4,7 @@ sidebar: interfaces
 title: "ITrace"
 permalink: /interface/itrace
 tags: [repodb, class, itrace, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Interfaces
+parent: INTERFACES
 ---
 
 # ITrace

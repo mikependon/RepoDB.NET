@@ -5,7 +5,7 @@ title: "ConnectionPersistency"
 description: "A enumeration that defines the persistency of the database connection object when working with repository."
 permalink: /enumeration/connectionpersistency
 tags: [repodb, class, connectionpersistency, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Enumerations
+parent: ENUMERATIONS
 ---
 
 # ConnectionPersistency

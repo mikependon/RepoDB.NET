@@ -4,7 +4,7 @@ sidebar: interfaces
 title: "IClassHandler"
 permalink: /interface/iclasshandler
 tags: [repodb, class, iclasshandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Interfaces
+parent: INTERFACES
 ---
 
 # IClassHandler

@@ -6,7 +6,7 @@ description: "Learn on how to work with SQL Server databases using RepoDB librar
 nav_order: 1
 permalink: /tutorial/get-started-sqlserver
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Get Started
+parent: GET STARTED
 ---
 
 # Get Started for SQL Server

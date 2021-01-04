@@ -5,7 +5,7 @@ title: "MySqlTypeMap"
 description: "Learn on how to use the RepoDB MySqlTypeMap attribute."
 permalink: /attribute/mysqltypemap
 tags: [repodb, class, mysqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Attributes
+parent: ATTRIBUTES
 ---
 
 # MySqlTypeMap

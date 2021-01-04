@@ -5,7 +5,7 @@ title: "SystemSqlServerTypeMap"
 description: "Learn on how to use the RepoDB SystemSqlServerTypeMap attribute."
 permalink: /attribute/systemsqlservertypemap
 tags: [repodb, class, systemsqlservertypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Attributes
+parent: ATTRIBUTES
 ---
 
 # SystemSqlServerTypeMap

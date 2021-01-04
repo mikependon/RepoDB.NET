@@ -5,7 +5,7 @@ title: MySQL (MySqlConnector)
 description: "This page contains the latest information of the releases of RepoDb.MySqlConnector library."
 nav_order: 7
 permalink: /release/mysqlconnector
-parent: Releases
+parent: RELEASES
 ---
 
 # Releases for RepoDb.MySqlConnector

@@ -5,7 +5,7 @@ title: "MySqlConnectorTypeMap"
 description: "Learn on how to use the RepoDB MySqlConnectorTypeMap attribute."
 permalink: /attribute/mysqlconnectortypemap
 tags: [repodb, class, mysqlconnectortypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Attributes
+parent: ATTRIBUTES
 ---
 
 # MySqlConnectorTypeMap

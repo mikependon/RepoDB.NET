@@ -5,7 +5,7 @@ title: "Conjunction"
 description: "A enumeration that defines the conjunctions to be used when composing a query expression."
 permalink: /enumeration/conjunction
 tags: [repodb, class, conjunction, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Enumerations
+parent: ENUMERATIONS
 ---
 
 # Conjunction

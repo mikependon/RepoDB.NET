@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Docs
+title: DOCS
 description: "RepoDB is a hybrid-ORM library for .NET. It is the best alternative ORM to both Dapper and EntityFramework."
 nav_order: 1
 permalink: /docs

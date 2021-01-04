@@ -5,7 +5,7 @@ title: "JSON Cache"
 nav_order: 5
 permalink: /reference/jsoncache
 tags: [repodb, class, jsoncache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: References
+parent: REFERENCES
 ---
 
 # JSON Cache

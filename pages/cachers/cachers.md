@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Cachers
+title: CACHERS
 nav_order: 8
 has_children: true
 permalink: /cacher

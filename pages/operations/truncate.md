@@ -4,7 +4,7 @@ sidebar: operations
 title: "Truncate"
 permalink: /operation/truncate
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # Truncate

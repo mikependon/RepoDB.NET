@@ -4,7 +4,7 @@ sidebar: interfaces
 title: "IExpirable"
 permalink: /interface/iexpirable
 tags: [repodb, class, icache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Interfaces
+parent: INTERFACES
 ---
 
 # IExpirable

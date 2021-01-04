@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Enumerations
+title: ENUMERATIONS
 nav_order: 7
 has_children: true
 permalink: /enumeration

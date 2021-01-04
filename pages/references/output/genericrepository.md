@@ -3,8 +3,8 @@ layout: page
 title: "Generic Repository"
 permalink: /reference/output/genericrepository
 tags: [repodb, class, genericrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Output
-grand_parent: References
+parent: OUTPUT
+grand_parent: REFERENCES
 ---
 
 # Generic Repository

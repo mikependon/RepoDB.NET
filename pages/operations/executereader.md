@@ -4,7 +4,7 @@ sidebar: operations
 title: "ExecuteReader"
 permalink: /operation/executereader
 tags: [repodb, tutorial, executereader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # ExecuteReader

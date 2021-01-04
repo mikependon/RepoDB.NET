@@ -5,7 +5,7 @@ title: SQL Server
 description: "This page contains the latest information of the releases of RepoDb.SqlServer library."
 nav_order: 2
 permalink: /release/sqlserver
-parent: Releases
+parent: RELEASES
 ---
 
 # Releases for RepoDb.SqlServer
@@ -13,6 +13,11 @@ parent: Releases
 ---
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
+
+### RepoDB.SqlServer (v1.1.2)
+
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).
+
 
 ### RepoDB.SqlServer (v1.1.1)
 

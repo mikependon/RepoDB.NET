@@ -5,7 +5,7 @@ title: "QueryBuilder"
 description: "An advance fluent class that is used to construct a SQL statements all throughout the library."
 permalink: /class/querybuilder
 tags: [repodb, class, querybuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Classes
+parent: CLASSES
 ---
 
 # QueryBuilder

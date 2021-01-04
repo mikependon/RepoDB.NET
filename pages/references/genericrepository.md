@@ -5,7 +5,7 @@ title: "Generic Repository"
 nav_order: 4
 permalink: /reference/genericrepository
 tags: [repodb, class, genericrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: References
+parent: REFERENCES
 ---
 
 # Generic Repository

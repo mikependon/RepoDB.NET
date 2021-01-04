@@ -4,7 +4,7 @@ sidebar: operations
 title: "Delete"
 permalink: /operation/delete
 tags: [repodb, tutorial, delete, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # Delete

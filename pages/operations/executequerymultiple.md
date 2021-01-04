@@ -4,7 +4,7 @@ sidebar: operations
 title: "ExecuteQueryMultiple"
 permalink: /operation/executequerymultiple
 tags: [repodb, tutorial, executequerymultiple, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # ExecuteQueryMultiple

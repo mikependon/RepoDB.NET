@@ -5,7 +5,7 @@ title: "SqlServerTableHints"
 description: "A class that contains all the SQL Server table optimizers."
 permalink: /class/sqlservertablehints
 tags: [repodb, class, sqlservertablehints, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Classes
+parent: CLASSES
 ---
 
 # SqlServerTableHints

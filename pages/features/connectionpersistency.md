@@ -5,7 +5,7 @@ title: "Connection Persistency"
 description: "This is a feature that enables you to manage the instance of the database connection object within the repository objects."
 permalink: /feature/connectionpersistency
 tags: [repodb, class, connectionpersistency, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Features
+parent: FEATURES
 ---
 
 # Connection Persistency

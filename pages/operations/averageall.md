@@ -4,7 +4,7 @@ sidebar: operations
 title: "AverageAll"
 permalink: /operation/averageall
 tags: [repodb, tutorial, averageall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # AverageAll

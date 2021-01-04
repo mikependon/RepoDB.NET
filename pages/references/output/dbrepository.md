@@ -3,8 +3,8 @@ layout: page
 title: DbRepository
 permalink: /reference/output/dbrepository
 tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Output
-grand_parent: References
+parent: OUTPUT
+grand_parent: REFERENCES
 ---
 
 # DbRepository

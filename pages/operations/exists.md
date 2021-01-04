@@ -4,7 +4,7 @@ sidebar: operations
 title: "Exists"
 permalink: /operation/exists
 tags: [repodb, tutorial, exists, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # Exists

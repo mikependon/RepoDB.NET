@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Interfaces
+title: INTERFACES
 nav_order: 8
 has_children: true
 permalink: /interface

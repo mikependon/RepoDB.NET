@@ -5,7 +5,7 @@ title: DbRepository
 nav_order: 3
 permalink: /reference/dbrepository
 tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: References
+parent: REFERENCES
 ---
 
 # DbRepository

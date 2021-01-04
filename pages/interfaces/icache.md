@@ -4,7 +4,7 @@ sidebar: interfaces
 title: "ICache"
 permalink: /interface/icache
 tags: [repodb, class, icache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Interfaces
+parent: INTERFACES
 ---
 
 # ICache

@@ -5,7 +5,7 @@ title: "CancellableTraceLog"
 description: "A class that is being used to cancel the current trace operation."
 permalink: /class/cancellabletracelog
 tags: [repodb, class, cancellabletracelog, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Classes
+parent: CLASSES
 ---
 
 # CancellableTraceLog

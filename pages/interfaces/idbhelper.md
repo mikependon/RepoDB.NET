@@ -4,7 +4,7 @@ sidebar: interfaces
 title: "IDbHelper"
 permalink: /interface/idbhelper
 tags: [repodb, class, idbhelper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Interfaces
+parent: INTERFACES
 ---
 
 # IDbHelper

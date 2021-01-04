@@ -4,7 +4,7 @@ sidebar: interfaces
 title: "IPropertyHandler"
 permalink: /interface/ipropertyhandler
 tags: [repodb, class, ipropertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Interfaces
+parent: INTERFACES
 ---
 
 # IPropertyHandler

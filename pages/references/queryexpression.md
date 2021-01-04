@@ -5,7 +5,7 @@ title: "Query Expressions"
 nav_order: 9
 permalink: /reference/queryexpressions
 tags: [repodb, class, queryexpressions, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: References
+parent: REFERENCES
 ---
 
 # Query Expressions

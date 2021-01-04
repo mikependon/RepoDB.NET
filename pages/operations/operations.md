@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Operations
+title: OPERATIONS
 nav_order: 4
 has_children: true
 permalink: /operation

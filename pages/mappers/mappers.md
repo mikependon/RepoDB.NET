@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Mappers
+title: MAPPERS
 nav_order: 9
 has_children: true
 permalink: /mapper

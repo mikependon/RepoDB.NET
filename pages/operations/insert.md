@@ -4,7 +4,7 @@ sidebar: operations
 title: "Insert"
 permalink: /operation/insert
 tags: [repodb, tutorial, insert, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # Insert

@@ -4,7 +4,7 @@ sidebar: interfaces
 title: "IStatementBuilder"
 permalink: /interface/istatementbuilder
 tags: [repodb, class, istatementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Interfaces
+parent: INTERFACES
 ---
 
 # IStatementBuilder

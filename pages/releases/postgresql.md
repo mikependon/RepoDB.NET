@@ -5,7 +5,7 @@ title: PostgreSQL
 description: "This page contains the latest information of the releases of RepoDb.PostgreSql library."
 nav_order: 5
 permalink: /release/postgresql
-parent: Releases
+parent: RELEASES
 ---
 
 # Releases for RepoDb.PostgreSql

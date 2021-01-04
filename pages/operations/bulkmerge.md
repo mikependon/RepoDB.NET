@@ -4,7 +4,7 @@ sidebar: operations
 title: "BulkMerge"
 permalink: /operation/bulkmerge
 tags: [repodb, tutorial, bulkmerge, orm, hybrid-orm, sqlserver]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # BulkMerge

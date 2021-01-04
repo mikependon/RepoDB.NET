@@ -4,7 +4,7 @@ sidebar: operations
 title: "Sum"
 permalink: /operation/sum
 tags: [repodb, tutorial, sum, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # Sum

@@ -5,7 +5,7 @@ title: "OrderField"
 description: "A class that is used to define an ordering of the results when querying a data from the database."
 permalink: /class/orderfield
 tags: [repodb, class, orderfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Classes
+parent: CLASSES
 ---
 
 # OrderField

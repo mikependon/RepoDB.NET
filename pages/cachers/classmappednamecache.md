@@ -5,7 +5,7 @@ title: "ClassMappedNameCache"
 description: "A class that is being used to retrieve the cached name of the class or data entity."
 permalink: /cacher/classmappednamecache
 tags: [repodb, class, classmappednamecache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Cachers
+parent: CACHERS
 ---
 
 # ClassMappedNameCache

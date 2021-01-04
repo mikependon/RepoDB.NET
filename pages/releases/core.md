@@ -5,7 +5,7 @@ title: Core Package
 description: "This page contains the latest information of the releases of RepoDB library."
 nav_order: 1
 permalink: /release/core
-parent: Releases
+parent: RELEASES
 ---
 
 # Releases for RepoDB (Core)

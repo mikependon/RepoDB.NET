@@ -5,7 +5,7 @@ title: "Repositories"
 description: "A repository is a software design pattern and practice in which it is being implemented as an additional layer between your application and your database. It is being represented as a class object within the application. Through repository, you are managing how the data is being manipulated from/to the database."
 permalink: /feature/repositories
 tags: [repodb, class, repository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Features
+parent: FEATURES
 ---
 
 # Repositories

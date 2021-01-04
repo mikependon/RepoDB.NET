@@ -5,7 +5,7 @@ title: "NpgsqlTypeMap"
 description: "Learn on how to use the RepoDB NpgsqlTypeMap attribute."
 permalink: /attribute/npgsqltypemap
 tags: [repodb, class, npgsqltypemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Attributes
+parent: ATTRIBUTES
 ---
 
 # NpgsqlTypeMap

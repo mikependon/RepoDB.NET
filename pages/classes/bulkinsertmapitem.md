@@ -5,7 +5,7 @@ title: "BulkInsertMapItem"
 description: "A mapping class that is being used for bulk insert operation."
 permalink: /class/bulkinsertmapitem
 tags: [repodb, class, bulkinsertmapitem, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Classes
+parent: CLASSES
 ---
 
 # BulkInsertMapItem

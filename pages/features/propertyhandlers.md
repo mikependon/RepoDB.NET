@@ -5,7 +5,7 @@ title: "Property Handlers"
 description: "This is a feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound)."
 permalink: /feature/propertyhandlers
 tags: [repodb, class, propertyhandlers, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Features
+parent: FEATURES
 ---
 
 # Property Handlers

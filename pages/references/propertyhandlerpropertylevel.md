@@ -5,7 +5,7 @@ title: "Property Handler (Property Level)"
 nav_order: 7
 permalink: /reference/propertyhandlerpropertylevel
 tags: [repodb, class, propertyhandlerpropertylevel, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: References
+parent: REFERENCES
 ---
 
 # Property Handler (Property Level))

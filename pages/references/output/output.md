@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Output
+title: OUTPUT
 nav_order: 12
 has_children: true
 permalink: /reference/output
-parent: References
-grand_parent: References
+parent: REFERENCES
+grand_parent: REFERENCES
 ---
 
 # Actual References Output

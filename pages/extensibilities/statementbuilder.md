@@ -4,7 +4,7 @@ sidebar: extensibilities
 title: "Statement Builder"
 permalink: /extensibility/statementbuilder
 tags: [repodb, class, statementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Extensibilities
+parent: EXTENSIBILITIES
 ---
 
 # Statement Builder

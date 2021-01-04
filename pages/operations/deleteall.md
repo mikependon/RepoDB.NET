@@ -4,7 +4,7 @@ sidebar: operations
 title: "DeleteAll"
 permalink: /operation/deleteall
 tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # DeleteAll

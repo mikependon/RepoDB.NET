@@ -5,7 +5,7 @@ title: "Tracing"
 description: "This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via TraceLog class."
 permalink: /feature/tracing
 tags: [repodb, class, tracing, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Features
+parent: FEATURES
 ---
 
 # Tracing

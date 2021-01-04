@@ -5,7 +5,7 @@ title: SQLite
 description: "This page contains the latest information of the releases of RepoDb.SqLite library."
 nav_order: 4
 permalink: /release/sqlite
-parent: Releases
+parent: RELEASES
 ---
 
 # Releases for RepoDb.SqLite

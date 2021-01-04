@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Attributes
+title: ATTRIBUTES
 nav_order: 6
 has_children: true
 permalink: /attribute

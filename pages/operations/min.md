@@ -4,7 +4,7 @@ sidebar: operations
 title: "Min"
 permalink: /operation/min
 tags: [repodb, tutorial, min, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # Min

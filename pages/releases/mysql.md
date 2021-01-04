@@ -5,7 +5,7 @@ title: MySQL
 description: "This page contains the latest information of the releases of RepoDb.MySql library."
 nav_order: 6
 permalink: /release/mysql
-parent: Releases
+parent: RELEASES
 ---
 
 # Releases for RepoDb.MySql

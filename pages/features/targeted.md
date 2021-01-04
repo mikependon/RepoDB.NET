@@ -5,7 +5,7 @@ title: "Targeted Operations"
 description: "This feature allows you to make a targeted invocation when executing the operations againts the database."
 permalink: /feature/targeted
 tags: [repodb, class, targeted, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Features
+parent: FEATURES
 ---
 
 # Targeted Operations

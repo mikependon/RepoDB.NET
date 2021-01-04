@@ -5,7 +5,7 @@ title: "Class Handlers"
 description: "This is a feature that would allow you to handle the event during the serialization/deserialization process of the Model and the DbDataReader object (inbound/outbound)."
 permalink: /feature/classhandlers
 tags: [repodb, class, classhandlers, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Features
+parent: FEATURES
 ---
 
 # Class Handlers

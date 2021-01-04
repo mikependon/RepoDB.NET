@@ -5,7 +5,7 @@ title: "BaseDbSetting"
 description: "A base class for all the database setting classes."
 permalink: /class/basedbsetting
 tags: [repodb, class, basedbsetting, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Classes
+parent: CLASSES
 ---
 
 # BaseDbSetting

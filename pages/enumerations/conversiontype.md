@@ -5,7 +5,7 @@ title: "ConversionType"
 description: "A enumeration that defines the type of conversion to be used when extracting a data from/to the database."
 permalink: /enumeration/conversiontype
 tags: [repodb, class, conversiontype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Enumerations
+parent: ENUMERATIONS
 ---
 
 # ConversionType

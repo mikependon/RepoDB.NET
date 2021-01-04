@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Blogs
+title: BLOGS
 nav_order: 13
 permalink: /blogs
 ---

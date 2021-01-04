@@ -4,7 +4,7 @@ sidebar: operations
 title: "MergeAll"
 permalink: /operation/mergeall
 tags: [repodb, tutorial, mergeall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # MergeAll

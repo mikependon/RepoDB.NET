@@ -5,7 +5,7 @@ title: "Enumeration"
 description: "This is a feature that enables you to work with enumerations within the class objects."
 permalink: /feature/enumeration
 tags: [repodb, class, enumeration, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Features
+parent: FEATURES
 ---
 
 # Enumeration

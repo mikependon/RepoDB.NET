@@ -5,7 +5,7 @@ title: "ClassMapper"
 description: "A mapper class that is used to map the class into its equivalent object in the database (i.e.: Table, View). This class is used as an alternative to Map attribute."
 permalink: /mapper/classmapper
 tags: [repodb, class, classmapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Mappers
+parent: MAPPERS
 ---
 
 # ClassMapper

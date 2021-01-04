@@ -4,7 +4,7 @@ sidebar: operations
 title: "ExecuteQuery"
 permalink: /operation/executequery
 tags: [repodb, tutorial, executequery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # ExecuteQuery

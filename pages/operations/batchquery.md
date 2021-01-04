@@ -4,7 +4,7 @@ sidebar: operations
 title: "BatchQuery"
 permalink: /operation/batchquery
 tags: [repodb, tutorial, batchquery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # BatchQuery

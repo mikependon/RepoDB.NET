@@ -4,7 +4,7 @@ sidebar: operations
 title: "ExecuteScalar"
 permalink: /operation/executescalar
 tags: [repodb, tutorial, executescalar, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: Operations
+parent: OPERATIONS
 ---
 
 # ExecuteScalar
