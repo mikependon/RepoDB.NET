@@ -160,7 +160,7 @@ You can do override the other virtual methods (as many as you like).
 
 ### How to use?
 
-You can pass it in any extended [fluent methods](/docs#fluent-methods) of the `DbConnection` object.
+You can pass it in any extended [operations](/docs#operations) of the `DbConnection` object.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
