@@ -161,6 +161,14 @@ If you create a query field like below.
 var field = new QueryField("Name", "John Doe");
 ```
 
-By default, the name of the parameter to be passed for `Name` query field is `@Name`. If you have passed the entity object during the calls to [Update](/operation/update) operation and that instance also contains the `Name` property, then they are colliding.
+By default, the name of the parameter to be passed for `Name` query field is `@Name`. If you have passed the entity object during the calls to [Update](/operation/update) operation and that instance also contains the `Name` property, then they are colliding. See below.
 
-To fix this issue, you have to call the `IsForUpdate()` explicitly. After the calls, the `Name` property will be prepended by an underscore (`_`) character before the actual execution.
+```csharp
+> UPDATE [dbo].[Person] SET Name = @Name WHERE Name = @Name;
+```
+
+To fix this issue, you have to call the `IsForUpdate()` explicitly. After the calls, the `Name` property will be prepended by an underscore (`_`) character before the actual execution. The resulted SQL expression would then below, fixing the collision problem.
+
+```csharp
+> UPDATE [dbo].[Person] SET Name = @Name WHERE Name = @_Name;
+```
