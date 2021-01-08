@@ -137,7 +137,7 @@ It is not necessary to override a virtual method of the [BaseStatementBuilder](/
 
 ```csharp
 public override string CreateTruncate(QueryBuilder queryBuilder,
-string tableName)
+    string tableName)
 {
     // Initialize the builder
     var builder = queryBuilder ?? new QueryBuilder();

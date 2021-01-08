@@ -14,6 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
+### RepoDB.SqlServer.BulkOperations (Next Version)
+
+- Bug: Identity Values not set correctly with Bulk Insert from Sql Server due to Incorrect Sorting of data. [#691](https://github.com/mikependon/RepoDB/issues/691)
+- The `hints` argument is removed from the [BulkInsert](/operation/bulkinsert) via `DbDataReader`.
+- Added the `WriteToServer` method to cater the ordered resultset of the `__RepoDb_OrderColumn` custom column.
+
 ### RepoDB.SqlServer.BulkOperations (v1.1.2)
 
 - Bug: Incorrect syntax near the keyword `WITH` [BulkMergeAsync](/operation/bulkinsert) [#640](https://github.com/mikependon/RepoDB/issues/640)
