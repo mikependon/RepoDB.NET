@@ -22,6 +22,14 @@ Below is the high-level diagram for the batch operations.
 
 <img src="../../assets/images/site/batchoperations.svg" />
 
+### Identity Setting Alignment
+
+The library has enforced an additional logic to ensure the identity setting alignment is correct if the [InsertAll](/operation/insertall) and [MergeAll](/operation/mergeall) operations are being used.
+
+During the batch operation, a dedicated `DbParameter` object is added that adds an additional column named `__RepoDb_OrderColumn` to the sub-table with a value of the entity model index, thus ensuring that the index value is really equating the index of the entity data from the `IEnumerable<T>` object. The resultsets of the sub-table are being ordered using this column in ascending order prior to the actual cascade of data.
+
+When the newly generated identity value is being set back to the data model, the value of the `__RepoDb_OrderColumn` column is being used to look-up the proper index of the equating entity model from the `IEnumerable<T>` object, then, the compiled identity-setter function is used to assign back the identity value into the identity property.
+
 ## Normal executions
 
 Let us say you have a model named `Customer` that corresponds to the `[dbo].[Customer]` table.
