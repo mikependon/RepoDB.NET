@@ -14,7 +14,7 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
-### RepoDB.SqlServer.BulkOperations (Next Version)
+### RepoDB.SqlServer.BulkOperations (v1.1.3)
 
 - Bug: Identity Values not set correctly with Bulk Insert from Sql Server due to Incorrect Sorting of data. [#691](https://github.com/mikependon/RepoDB/issues/691)
 - The `hints` argument is removed from the [BulkInsert](/operation/bulkinsert) via `DbDataReader`.

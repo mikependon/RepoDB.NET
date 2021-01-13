@@ -14,9 +14,13 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-### RepoDB (Next Version)
+### RepoDB (v1.12.6)
 
-- Enhancement: Add the __RepoDb_OrderColumn at the Batch Operations ([InsertAll](/operation/insertall), [MergeAll](/operation/mergeall)) [#703](https://github.com/mikependon/RepoDB/issues/703)
+- Feature: Support the Output Parameters [#686](https://github.com/mikependon/RepoDB/issues/686) - **NEW**
+- Enhancement: Add the `__RepoDb_OrderColumn` at the Batch Operations ([InsertAll](/operation/insertall), [MergeAll](/operation/mergeall)) [#703](https://github.com/mikependon/RepoDB/issues/703)
+- Enhancement: Add a `Reset()` method into the [Parameter](/class/parameter) object. [#709](https://github.com/mikependon/RepoDB/issues/709)
+- Enhancement: Add the methods named `GetName()` and `GetValue()` in the [QueryField](/class/queryfield) object. [#707](https://github.com/mikependon/RepoDB/issues/707)
+- Enhancement: Add a method `DbParameter` into the [QueryField](/class/queryfield) object. [#711](https://github.com/mikependon/RepoDB/issues/711)
 
 ### RepoDB (v1.12.5)
 
