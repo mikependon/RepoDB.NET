@@ -104,6 +104,16 @@ var operation = field.GetOperationText();
 
 The value of the `operation` variable would be `>=`.
 
+### DbParameter Property
+
+This property is quitely important if you wish to get a reference to the associated `DbParameter` object on the current instance after the execution.
+
+It is useful if you are retrieving a value of the output parameter from the database after the execution.
+
+### GetValue Method
+
+This method returns the value of the [Parameter](/class/parameter) object currently in used by the instance. However, if the current instance has already been used as a parameter to the execution where the `ParameterDirection` is either of the `Output/Input`, then, the value of the output parameter via `DbParameter` object is returned. This will happen usually if the current instance of this object is of type [DirectionalQueryField](/class/directionalqueryfield).
+
 ### Reusability
 
 We sometimes have a scenario to reuse the instance of this class just to avoid creating the same expression.
