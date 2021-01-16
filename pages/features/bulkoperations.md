@@ -12,17 +12,17 @@ parent: FEATURES
 
 ---
 
-A bulk operation is a process of bringing all the data from the application into the database server at once, and at the same time, ignoring some database specific activities (i.e.: Logging, Audits, Data-Type Checks, Constraints, etc) behind the scene, thus gives you maximum performance during the operation.
+A bulk operation is a process of bringing all the data from the application into the database server at once. It ignores some database specific activities (i.e.: Logging, Audits, Data-Type Checks, Constraints, etc) behind the scene, thus gives you maximum performance during the operation.
 
-Basically, we normally do the [Delete](/operation/delete), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations when interacting with the database. Through this, the data is being processed in an atomic way. If we do call the [batch operations](/feature/batchoperations), the multiple single operations are just being batched and executed together, but it does not completely eliminate the round-trips between your application and the database.
+Basically, you mostly do the normal [Delete](/operation/delete), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations when interacting with the database. Through this, the data is being processed in an atomic way. If you do call the [batch operations](/feature/batchoperations), it only execute the multiple single-operations together and does not completely eliminate the round-trips between your application and the database.
 
-With the bulk operations, all data is brought from the client application to the database via [BulkInsert](/operation/bulkinsert) process (underneath is the `SqlBulkCopy` class). It ignores the audit, logs, constraints and any other database special handling. Then, the data is being processed together within the database (server).
+With the bulk operations, as mentioned above, all data is brought from the client application into the database at one go. Once the data is on the server, it is then being processed together within the database (server), maximizing the performance.
 
 Image below shows the data flow of the [BulkInsert](/operation/bulkinsert) operation.
 
 <img src="../../assets/images/site/bulkinsert.svg" />
 
-The bulk operations can improve the performance by more than 90% when processing a large datasets.
+The bulk operations can improve the performance by more than 90% when processing a large dataset.
 
 > This feature only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS data provider.
 
