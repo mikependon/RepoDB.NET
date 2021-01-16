@@ -12,7 +12,7 @@ parent: CLASSES
 
 ---
 
-This is used as the field on the query expression. Usually refers to a specific field at the WHERE statement of the SQL statement.
+This is used as a field on the query expression. Usually refers to a specific field at the WHERE statement of the SQL statement.
 
 It contains the actual [Field](/class/field), [Operation](/enumeration/operation) and [Parameter](/class/parameter) objects as the properties for equations.
 
@@ -30,14 +30,6 @@ Or, you can also use define the operation.
 
 ```csharp
 var field = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1));
-```
-
-### Converting to an Enumerable
-
-You can call the `AsEnumerable()` method to convert the instance of this class to an `IEnumerable<QueryField>` object.
-
-```csharp
-var fields = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1)).AsEnumerable();
 ```
 
 ### Use-Cases
@@ -91,6 +83,14 @@ using (var connection = new SqlConnection(connectionString))
     };
     var deletedRows = connection.Delete<Person>(where);
 }
+```
+
+### Converting to an Enumerable
+
+You can call the `AsEnumerable()` method to convert the instance of this class to an `IEnumerable<QueryField>` object.
+
+```csharp
+var fields = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1)).AsEnumerable();
 ```
 
 ### Retrieving the Operation Text
