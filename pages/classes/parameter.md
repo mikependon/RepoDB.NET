@@ -54,3 +54,15 @@ var parameters = queryGroup
 // Make the stuffs for the 'parameters' here
 ```
 
+### Reset
+
+This method is used to reset the current instance to its default state just right after the instantiation.
+
+```csharp
+var parameter = new Parameter("@Id", 10045, false);
+// Do the stuffs for the 'parameter' here
+parameter.Reset();
+```
+
+If you call the [QueryField.IsForUpdate()](/class/queryfield#isforupdate-method), the name of the parameter is prefixed by an underscore ('_'), and by calling this method, it will reinstate it back to its original name.
+
