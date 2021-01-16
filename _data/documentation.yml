@@ -258,6 +258,9 @@ docs:
   - title: "DbRepository"
     url: "/class/dbrepository"
 
+  - title: "DirectionalQueryField"
+    url: "/class/directionalqueryfield"
+
   - title: "EntityMapFluentDefinition"
     url: "/class/entitymapfluentdefinition"
 
