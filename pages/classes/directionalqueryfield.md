@@ -1,7 +1,7 @@
 ---
 layout: default
 sidebar: classes
-title: "QueryField"
+title: "DirectionalQueryField"
 description: "A class that is used to define a query expression for the SQL statement that is bi-directional."
 permalink: /class/directionalqueryfield
 tags: [repodb, class, directionalqueryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
