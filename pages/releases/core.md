@@ -14,6 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+### RepoDB (v1.12.7)
+- Enhancement: Add a `Reset()` method into the [Parameter](/class/parameter) object. [#709](https://github.com/mikependon/RepoDB/issues/709)
+- Enhancement: Add a method `DbParameter` into the [QueryField](/class/queryfield) object. [#711](https://github.com/mikependon/RepoDB/issues/711)
+- Bug: RepoDb.SqlServer Enum picking up 2 types when upgraded from 1.1.1 -> 1.1.2 [#736](https://github.com/mikependon/RepoDB/issues/736)
+- Bug: null reference during fetch [#748](https://github.com/mikependon/RepoDB/issues/748)
+
 ### RepoDB (v1.12.6)
 
 - Feature: Support the Output Parameters [#686](https://github.com/mikependon/RepoDB/issues/686) - **NEW**
