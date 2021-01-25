@@ -25,7 +25,7 @@ using (var connection = new SqlConnection(connectionString))
 {
     using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
     {
-        var people = DataReader.ToEnumerable<Person>(reader);
+        var people = DataReader.ToEnumerable<Person>((DbDataReader) reader);
         // Do the stuffs for 'people' here
     }
 }
@@ -38,7 +38,7 @@ using (var connection = new SqlConnection(connectionString))
 {
     using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
     {
-        var people = DataReader.ToEnumerable(reader);
+        var people = DataReader.ToEnumerable((DbDataReader) reader);
         // Do the stuffs for 'people' here
     }
 }
@@ -56,7 +56,7 @@ using (var connection = new SqlConnection(connectionString))
     var dbFields = DbFieldCache.Get(connection, ClassMappedNameCache.Get<Person>(), null);
     using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person];"))
     {
-        var people = DataReader.ToEnumerable<Person>(reader,
+        var people = DataReader.ToEnumerable<Person>((DbDataReader) reader,
             dbFields,
             connection.GetDbSetting());
         // Do the stuffs for 'people' here
