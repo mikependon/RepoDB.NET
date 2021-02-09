@@ -14,6 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqLite) to download it.
 
+### RepoDB.SqLite (v1.1.3)
+
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.7](/release/core#repodb-v1127)).
+- Referenced the version [Microsoft.Data.Sqlite](https://www.nuget.org/packages/Microsoft.Data.Sqlite) ([v5.0.2](https://www.nuget.org/packages/Microsoft.Data.SQLite/5.0.2)).
+
+
 ### RepoDB.SqLite (v1.1.2)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).

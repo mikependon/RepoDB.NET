@@ -14,6 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql) to download it.
 
+### RepoDB.PostgreSql (v1.1.3)
+
+- Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.7](/release/core#repodb-v1127)).
+- Referenced the version [Npgsql](https://www.nuget.org/packages/Npgsql) ([v5.0.2](https://www.nuget.org/packages/Npgsql/5.0.3)).
+
+
 ### RepoDB.PostgreSql (v1.1.2)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).
