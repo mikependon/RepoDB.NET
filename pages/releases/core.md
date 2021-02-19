@@ -14,6 +14,11 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+### RepoDB (v1.12.8-beta2)
+
+- Bug: [OrderField](/class/orderfield) ignores MapAttribute [#769](https://github.com/mikependon/RepoDB/issues/769)
+- Bug: Querying by string field fails in VB .Net [#767](https://github.com/mikependon/RepoDB/issues/767)
+
 ### RepoDB (v1.12.8-beta1)
 
 - Bug: [Insert](/operation/insert) exception since 1.1.3 with mysql... [#765](https://github.com/mikependon/RepoDB/issues/765)
