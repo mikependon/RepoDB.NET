@@ -16,8 +16,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 ### RepoDB (v1.12.8-beta2)
 
+- (Rebuilt Only) Bug: [OrderField](/class/orderfield) ignores MapAttribute [#769](https://github.com/mikependon/RepoDB/issues/769)
+
+
+### RepoDB (v1.12.8-beta2)
+
 - Bug: [OrderField](/class/orderfield) ignores MapAttribute [#769](https://github.com/mikependon/RepoDB/issues/769)
 - Bug: Querying by string field fails in VB .Net [#767](https://github.com/mikependon/RepoDB/issues/767)
+
 
 ### RepoDB (v1.12.8-beta1)
 
