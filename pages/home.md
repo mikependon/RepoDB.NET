@@ -16,7 +16,7 @@ A hybrid ORM library for .NET.
 
 ---
 
-We are glad and thankful for your interest in learning [RepoDB](https://github.com/mikependon/RepoDb). It is an open-source .NET ORM library that bridge the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
+We are glad and thankful for your interest in learning [RepoDB](https://github.com/mikependon/RepoDb). It is an open-source .NET ORM library that bridges the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
 
 Its name is a shortcut to Repository (a popular pattern when implementing Data Access Layers) + the word Database.
 

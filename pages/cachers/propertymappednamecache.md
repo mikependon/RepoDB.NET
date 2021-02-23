@@ -37,7 +37,7 @@ properties
     .AsList()
     .ForEach(p =>
     {
-        var mappedName = PropertyMappedNameCache.Get(p);
+        var mappedName = PropertyMappedNameCache.Get(p.PropertyInfo);
         // Use the 'mappedName' here
     })
 ```
