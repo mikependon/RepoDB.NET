@@ -14,9 +14,10 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector) to download it.
 
-### RepoDB.MySqlConnector (Next Version)
+### RepoDB.MySqlConnector (v1.1.4-beta1)
 
 - Bug: Exception on [Merge](/operation/merge) (PostgreSQL) [#776](https://github.com/mikependon/RepoDb/issues/776). RELATED
+- Wrong ordinal for Nullable filed information in MySqlConnectorDbHelper.ReaderToDbFieldAsync [#780](https://github.com/mikependon/RepoDb/issues/780)
 
 
 ### RepoDB.MySqlConnector (v1.1.3)
