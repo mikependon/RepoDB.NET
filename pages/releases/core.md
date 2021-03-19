@@ -14,6 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+### RepoDB (Next Version)
+
+- Bug: Dynamic insertion via `Dictionary<string, object>` is failing [#791](https://github.com/mikependon/RepoDB/issues/791).
+- Bug: `IsDictionaryStringObject()` does not work in F# [#789](https://github.com/mikependon/RepoDB/issues/789).
+
+
 ### RepoDB (v1.12.8-beta4)
 
 - Bug: Different lambdas in QueryAsync generate the same SQL expression (cache problem) [#782](https://github.com/mikependon/RepoDB/issues/782).
