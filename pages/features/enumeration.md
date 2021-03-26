@@ -134,7 +134,7 @@ Converter.EnumDefaultDatabaseType = DbType.Int32;
 You can as well create a property handler to manually handle the enumerations transformation by implementing the [IPropertyHandler](/interface/ipropertyhandler).
 
 ```csharp
-public class PersonGenderPropertyHandler : IPropertyHandler<Gender?, string>
+public class PersonGenderPropertyHandler : IPropertyHandler<string, Gender?>
 {
     public Gender? Get(string input, ClassProperty property)
     {
