@@ -18,6 +18,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 
 - Bug: Does Postgresql support querying on enums in non-raw form? [#787](https://github.com/mikependon/RepoDb/issues/787).
 - Bug: [CountAsync](/operation/count) (PostgreSql) fails when querying by Enum. [#798](https://github.com/mikependon/RepoDb/issues/798).
+- Bug: Anonymous record Insert fails if no id is provided [#796](https://github.com/mikependon/RepoDb/issues/796).
+- Bug: RepoDb.Exceptions.PrimaryFieldNotFoundException: The non-identity primary field must be present during insert operation. [#786](https://github.com/mikependon/RepoDb/issues/786).
 
 
 ### RepoDB.PostgreSql (v1.1.4-beta1)
