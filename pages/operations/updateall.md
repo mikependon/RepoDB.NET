@@ -70,7 +70,7 @@ By default, the primary or identity column is used as a qualifier. You can overr
 using (var connection = new SqlConnection(connectionString))
 {
     var people = GetPeople();
-    var updatedRows = connection.UpdateAll(people,
+    var updatedRows = connection.UpdateAll<Person>(people,
         qualifiers: (p => new { p.Name, p.DateOfBirth }));
 }
 ```
