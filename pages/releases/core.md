@@ -18,13 +18,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 - Bug: Dynamic insertion via `Dictionary<string, object>` is failing [#791](https://github.com/mikependon/RepoDB/issues/791).
 - Bug: `IsDictionaryStringObject()` does not work in F# [#789](https://github.com/mikependon/RepoDB/issues/789).
-- Bug: An identify field parameter issue is being thrown when invoking the MergeAll operation dynamically [#849](https://github.com/mikependon/RepoDB/issues/849).
-- Bug: A SQL syntax issue is being thrown if the BulkMerge is called with multiple qualifiers [#850](https://github.com/mikependon/RepoDB/issues/849).
+- Bug: An identify field parameter issue is being thrown when invoking the [MergeAll](/operation/mergeall) operation dynamically [#849](https://github.com/mikependon/RepoDB/issues/849).
+- Bug: A SQL syntax issue is being thrown if the [BulkMerge](/operation/bulkmerge) is called with multiple qualifiers [#850](https://github.com/mikependon/RepoDB/issues/849).
 
 
 ### RepoDB (v1.12.8-beta4)
 
-- Bug: Different lambdas in QueryAsync generate the same SQL expression (cache problem) [#782](https://github.com/mikependon/RepoDB/issues/782).
+- Bug: Different lambdas in [QueryAsync](/operation/query) generate the same SQL expression (cache problem) [#782](https://github.com/mikependon/RepoDB/issues/782).
 
 
 ### RepoDB (v1.12.8-beta3)
