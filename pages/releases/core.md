@@ -22,9 +22,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: A SQL syntax issue is being thrown if the [BulkMerge](/operation/bulkmerge) is called with multiple qualifiers [#850](https://github.com/mikependon/RepoDB/issues/850).
 - Bug: Output parameters of type varchar gives `Size` exception [#836](https://github.com/mikependon/RepoDB/issues/836).
 - Bug: Calls to any operation throws an object `NullReferenceException` if not properly initialized. [#861](https://github.com/mikependon/RepoDB/issues/861).
+- Enhancement: Added the [ParameterPropertyValueSetterAttribute](/attribute/parameterpropertyvaluesetter) attribute class.
 - Enhancement: Create a base class for the Type Map attributes ([NpgsqlTypeMapAttribute](/attribute/npgsqltypemap), [MySqlTypeMapAttribute](/attribute/npgsqltypemap), [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap)) [#873](https://github.com/mikependon/RepoDB/issues/873).
-- Added the `Size` property into the [DirectionalQueryField](/class/directionalqueryfield) object.
-- Exposed the `Type` property of the [DirectionalQueryField](/class/directionalqueryfield) object.
+- Enhancement: Added the `Size` property into the [DirectionalQueryField](/class/directionalqueryfield) object.
+- Enhancement: Exposed the `Type` property of the [DirectionalQueryField](/class/directionalqueryfield) object.
+- Enhancement: Added the 'NULL' comparer as part of the qualifiers on the [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations.
+- Enhancement: Made the [QueryGroup.GetString()](/class/querygroup) method virtual.
+- Enhancement: Added the [QueryField.GetString()](/class/queryfield) method (as virtual).
 
 
 ### RepoDB (v1.12.8-beta4)
