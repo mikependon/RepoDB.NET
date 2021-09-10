@@ -20,8 +20,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: `IsDictionaryStringObject()` does not work in F# [#789](https://github.com/mikependon/RepoDB/issues/789).
 - Bug: An identify field parameter issue is being thrown when invoking the [MergeAll](/operation/mergeall) operation dynamically [#849](https://github.com/mikependon/RepoDB/issues/849).
 - Bug: A SQL syntax issue is being thrown if the [BulkMerge](/operation/bulkmerge) is called with multiple qualifiers [#850](https://github.com/mikependon/RepoDB/issues/850).
-- Bug: Output parameters of type varchar gives Size exception [#836](https://github.com/mikependon/RepoDB/issues/836).
+- Bug: Output parameters of type varchar gives `Size` exception [#836](https://github.com/mikependon/RepoDB/issues/836).
 - Bug: Calls to any operation throws an object `NullReferenceException` if not properly initialized. [#861](https://github.com/mikependon/RepoDB/issues/861).
+- Enhancement: Create a base class for the Type Map attributes ([NpgsqlTypeMapAttribute](/attribute/npgsqltypemap), [MySqlTypeMapAttribute](/attribute/npgsqltypemap), [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap)) [#873](https://github.com/mikependon/RepoDB/issues/873).
 - Added the `Size` property into the [DirectionalQueryField](/class/directionalqueryfield) object.
 - Exposed the `Type` property of the [DirectionalQueryField](/class/directionalqueryfield) object.
 

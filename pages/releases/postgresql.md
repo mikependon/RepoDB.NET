@@ -20,6 +20,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Bug: [CountAsync](/operation/count) (PostgreSql) fails when querying by Enum. [#798](https://github.com/mikependon/RepoDb/issues/798).
 - Bug: Anonymous record Insert fails if no id is provided [#796](https://github.com/mikependon/RepoDb/issues/796).
 - Bug: RepoDb.Exceptions.PrimaryFieldNotFoundException: The non-identity primary field must be present during insert operation. [#786](https://github.com/mikependon/RepoDb/issues/786).
+- Bug: The ENUM type of Postgre (DB) is not being handled properly in RepoDb.PostgreSql. #395 [#854](https://github.com/mikependon/RepoDb/issues/854).
 
 
 ### RepoDB.PostgreSql (v1.1.4-beta1)
