@@ -32,6 +32,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Make the [DbRepository.CreateConnection()](/class/dbrepository) method virtual. [#856](https://github.com/mikependon/RepoDB/issues/856)
 - Enhancement: Made the `CreateConnection()` method of the [BaseRepository](/class/baserepository) class virtual.
 - Enhancement: Enhancement: Add an additional property on the [DbField](/class/dbfield) class that handles the DB Provider. [#890](https://github.com/mikependon/RepoDB/issues/890)
+- Added the [DbParameterDbTypeAttribute](/attribute/dbparameterdbtype) attribute.
+- Added the [DbParameterDirectionAttribute](/attribute/dbparameterdirection) attribute.
+- Added the [DbParameterIsNullableAttribute](/attribute/dbparameterisnullable) attribute.
+- Added the [DbParameterNameAttribute](/attribute/dbparametername) attribute.
+- Added the [DbParameterPrecisionAttribute](/attribute/dbparameterprecision) attribute.
+- Added the [DbParameterScaleAttribute](/attribute/dbparameterscale) attribute.
+- Added the [DbParameterSizeAttribute](/attribute/dbparametersize) attribute.
+- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 ### RepoDB (v1.12.8-beta4)
 

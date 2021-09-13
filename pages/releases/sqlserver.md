@@ -17,11 +17,17 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 ### RepoDB.SqlServer (Next Version)
 
 - Deprecated both the [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap) attributes.
+- Added the [SqlParameterCompareInfoAttribute](/attribute/sqlparametercompareinfo) attribute.
+- Added the [SqlParameterForceColumnEncryptionAttribute](/attribute/sqlparameterforcecolumnencryption) attribute.
+- Added the [SqlParameterLocaleIdAttribute](/attribute/sqlparameterlocaleid) attribute.
+- Added the [SqlParameterOffsetAttribute](/attribute/sqlparameteroffset) attribute.
 - Added the [SqlParameterSqlDbTypeAttribute](/attribute/sqlparametersqldbtype) attribute.
 - Added the [SqlParameterTypeNameAttribute](/attribute/sqlparametertypename) attribute.
 - Added the [SqlParameterUdtTypeNameAttribute](/attribute/sqlparameterudttypename) attribute.
-- Added the [SqlParameterOffsetAttribute](/attribute/sqlparameteroffset) attribute.
-- Added the [SqliteParameterDbTypeAttribute](/attribute/sqliteparameterdbtype) attribute.
+- Added the [SqlParameterXmlSchemaCollectionDatabaseAttribute](/attribute/sqlparameterxmlschemacollectiondatabase) attribute.
+- Added the [SqlParameterXmlSchemaCollectionNameAttribute](/attribute/sqlparameterxmlschemacollectionname) attribute.
+- Added the [SqlParameterXmlSchemaCollectionOwningSchemaAttribute](/attribute/sqlparameterxmlschemacollectionowningschema) attribute.
+- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
 ### RepoDB.SqlServer (v1.1.3)

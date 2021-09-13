@@ -16,9 +16,10 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 
 ### RepoDB.MySqlConnector (Next Version)
 
-- Enhancement: Added the [MySqlParameterDbTypeMapAttribute](/attribute/mysqlparameterdbtype) attribute.
+- Enhancement: Added the [MySqlConnectorParameterDbTypeAttribute](/attribute/mysqlconnectorparameterdbtype) attribute.
 - Enhancement: Deprecated the [MySqlTypeMapAttribute](/attribute/mysqltypemapattribute) attribute.
 - Enhancement: Moved the `MySqlConnectorDbSetting` to `RepoDb.DbSettings` namespace.
+- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
 ### RepoDB.MySqlConnector (v1.1.4-beta1)

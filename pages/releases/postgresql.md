@@ -21,9 +21,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Bug: Anonymous record Insert fails if no id is provided [#796](https://github.com/mikependon/RepoDb/issues/796).
 - Bug: RepoDb.Exceptions.PrimaryFieldNotFoundException: The non-identity primary field must be present during insert operation. [#786](https://github.com/mikependon/RepoDb/issues/786).
 - Bug: The ENUM type of Postgre (DB) is not being handled properly in RepoDb.PostgreSql. #395 [#854](https://github.com/mikependon/RepoDb/issues/854).
+- Enhancement: Added the [NpgsqlParameterCollectionAttribute](/attribute/npgsqlparametercollection) attribute.
+- Enhancement: Added the [NpgsqlParameterConvertedValueAttribute](/attribute/npgsqlparameterconvertedvalue) attribute.
+- Enhancement: Added the [NpgsqlParameterDataTypeNameAttribute](/attribute/npgsqlparameterdatatypename) attribute.
 - Enhancement: Added the [NpgsqlParameterDbTypeAttribute](/attribute/npgsqlparameterdbtype) attribute.
 - Enhancement: Deprecated the [NpgsqlTypeMapAttribute](/attribute/npgsqltypemapattribute) attribute.
 - Enhancement: Moved the `PostgreSqlDbSetting` to `RepoDb.DbSettings` namespace.
+- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
 ### RepoDB.PostgreSql (v1.1.4-beta1)
