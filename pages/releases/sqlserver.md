@@ -14,6 +14,16 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
 
+### RepoDB.SqlServer (Next Version)
+
+- Deprecated both the [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap) attributes.
+- Added the [SqlParameterSqlDbTypeAttribute](/attribute/sqlparametersqldbtype) attribute.
+- Added the [SqlParameterTypeNameAttribute](/attribute/sqlparametertypename) attribute.
+- Added the [SqlParameterUdtTypeNameAttribute](/attribute/sqlparameterudttypename) attribute.
+- Added the [SqlParameterOffsetAttribute](/attribute/sqlparameteroffset) attribute.
+- Added the [SqliteParameterDbTypeAttribute](/attribute/sqliteparameterdbtype) attribute.
+
+
 ### RepoDB.SqlServer (v1.1.3)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.7](/release/core#repodb-v1127)).

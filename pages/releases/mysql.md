@@ -17,6 +17,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actu
 ### RepoDB.MySql (Next Version)
 
 - Bug: Exception on [Merge](/operation/merge) (PostgreSQL) [#776](https://github.com/mikependon/RepoDb/issues/776). RELATED
+- Enhancement: Added the [MySqlParameterDbTypeMapAttribute](/attribute/mysqlparameterdbtype) attribute.
+- Enhancement: Deprecated the [MySqlTypeMapAttribute](/attribute/mysqltypemapattribute) attribute.
+- Enhancement: Moved the `MySqlDbSetting` to `RepoDb.DbSettings` namespace.
 
 
 ### RepoDB.MySql (v1.1.4)

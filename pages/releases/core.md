@@ -29,8 +29,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Added the 'NULL' comparer as part of the qualifiers on the [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations.
 - Enhancement: Made the [QueryGroup.GetString()](/class/querygroup) method virtual.
 - Enhancement: Added the [QueryField.GetString()](/class/queryfield) method (as virtual).
-- Enhancement: Make the [DbRepository.CreateConnection()](/class/dbrepository) method virtual. #856
+- Enhancement: Make the [DbRepository.CreateConnection()](/class/dbrepository) method virtual. [#856](https://github.com/mikependon/RepoDB/issues/856)
 - Enhancement: Made the `CreateConnection()` method of the [BaseRepository](/class/baserepository) class virtual.
+- Enhancement: Enhancement: Add an additional property on the [DbField](/class/dbfield) class that handles the DB Provider. [#890](https://github.com/mikependon/RepoDB/issues/890)
 
 ### RepoDB (v1.12.8-beta4)
 

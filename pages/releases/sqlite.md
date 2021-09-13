@@ -18,6 +18,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the act
 
 - Bug: SQLite [PrimaryKey](/attribute/primary) with `AUTOINCREMENT` not recognized [#802](https://github.com/mikependon/RepoDb/issues/802)
 - Bug: SQLite [Identity](/attribute/identity) field cannot identified [#790](https://github.com/mikependon/RepoDb/issues/790)
+- Enhancement: Add a Type Map attribute for Microsoft SqLite. [#884](https://github.com/mikependon/RepoDb/issues/884)
 
 
 ### RepoDB.SqLite (v1.1.3)
