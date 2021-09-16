@@ -39,6 +39,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Added the [PrecisionAttribute](/attribute/parameter/precision) attribute.
 - Added the [ScaleAttribute](/attribute/parameter/scale) attribute.
 - Added the [SizeAttribute](/attribute/parameter/size) attribute.
+- Added the [PropertyValueAttributeMapper](/mappper/propertyvalueattributemapper) class.
+- Added the [PropertyValueAttributeCache](/cachers/propertyvalueattributecache) class.
+- Added the [PropertyValueAttributeResolver](/resolvers/propertyvalueattributeresolver) class.
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 - Enhancement: Introduce the formatters for the [QueryField](/class/queryfield) class [899](https://github.com/mikependon/RepoDB/issues/899)
 
