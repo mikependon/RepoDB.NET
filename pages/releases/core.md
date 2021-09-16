@@ -32,14 +32,15 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Make the [DbRepository.CreateConnection()](/class/dbrepository) method virtual. [#856](https://github.com/mikependon/RepoDB/issues/856)
 - Enhancement: Made the `CreateConnection()` method of the [BaseRepository](/class/baserepository) class virtual.
 - Enhancement: Enhancement: Add an additional property on the [DbField](/class/dbfield) class that handles the DB Provider. [#890](https://github.com/mikependon/RepoDB/issues/890)
-- Added the [DbParameterDbTypeAttribute](/attribute/dbparameterdbtype) attribute.
-- Added the [DbParameterDirectionAttribute](/attribute/dbparameterdirection) attribute.
-- Added the [DbParameterIsNullableAttribute](/attribute/dbparameterisnullable) attribute.
-- Added the [DbParameterNameAttribute](/attribute/dbparametername) attribute.
-- Added the [DbParameterPrecisionAttribute](/attribute/dbparameterprecision) attribute.
-- Added the [DbParameterScaleAttribute](/attribute/dbparameterscale) attribute.
-- Added the [DbParameterSizeAttribute](/attribute/dbparametersize) attribute.
+- Added the [DbTypeAttribute](/attribute/parameter/dbtype) attribute.
+- Added the [DirectionAttribute](/attribute/parameter/direction) attribute.
+- Added the [IsNullableAttribute](/attribute/parameter/isnullable) attribute.
+- Added the [NameAttribute](/attribute/parameter/name) attribute.
+- Added the [PrecisionAttribute](/attribute/parameter/precision) attribute.
+- Added the [ScaleAttribute](/attribute/parameter/scale) attribute.
+- Added the [SizeAttribute](/attribute/parameter/size) attribute.
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Introduce the formatters for the [QueryField](/class/queryfield) class [899](https://github.com/mikependon/RepoDB/issues/899)
 
 ### RepoDB (v1.12.8-beta4)
 

@@ -18,8 +18,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the act
 
 - Bug: SQLite [PrimaryKey](/attribute/primary) with `AUTOINCREMENT` not recognized [#802](https://github.com/mikependon/RepoDb/issues/802)
 - Bug: SQLite [Identity](/attribute/identity) field cannot identified [#790](https://github.com/mikependon/RepoDb/issues/790)
-- Enhancement: Added the [SqliteParameterTypeAttribute](/attribute/sqliteparametertype) attribute.  [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Added the [SQLiteParameterTypeNameAttribute](/attribute/sqliteparametertypename) attribute.  [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [SqliteTypeAttribute](/attribute/parameter/sqlitetype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [TypeNameAttribute](/attribute/parameter/sqlite/typename) attribute.  [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
