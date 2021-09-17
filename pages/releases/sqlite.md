@@ -14,8 +14,11 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqLite) to download it.
 
-### RepoDB.SqLite (Next Version)
+### RepoDB.SqLite (v1.1.4-beta1)
 
+- Upgraded the `Microsoft.Data.Sqlite` package to `v5.0.10`.
+- Upgraded the `System.Data.SQLite.Core` package to `v1.0.115`.
+- Added the `net5.0` as part of the target frameworks.
 - Bug: SQLite [PrimaryKey](/attribute/primary) with `AUTOINCREMENT` not recognized [#802](https://github.com/mikependon/RepoDb/issues/802)
 - Bug: SQLite [Identity](/attribute/identity) field cannot identified [#790](https://github.com/mikependon/RepoDb/issues/790)
 - Enhancement: Added the [SqliteTypeAttribute](/attribute/parameter/sqlitetype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)

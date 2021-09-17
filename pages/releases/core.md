@@ -14,8 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-### RepoDB (Next Version)
+### RepoDB (v1.12.8-beta5)
 
+- NETSTANDARD2.0: Added the `Microsoft.Bcl.AsyncInterfaces v5.0.0` package.
+- NETSTANDARD2.0: Added the `Microsoft.Bcl.HashCode v1.1.1` package.
+- Added the `System.Linq.Async v5.0.0` package.
+- Added the `net5.0` as part of the target frameworks.
 - Bug: Dynamic insertion via `Dictionary<string, object>` is failing [#791](https://github.com/mikependon/RepoDB/issues/791).
 - Bug: `IsDictionaryStringObject()` does not work in F# [#789](https://github.com/mikependon/RepoDB/issues/789).
 - Bug: An identify field parameter issue is being thrown when invoking the [MergeAll](/operation/mergeall) operation dynamically [#849](https://github.com/mikependon/RepoDB/issues/849).
@@ -32,18 +36,19 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Make the [DbRepository.CreateConnection()](/class/dbrepository) method virtual. [#856](https://github.com/mikependon/RepoDB/issues/856)
 - Enhancement: Made the `CreateConnection()` method of the [BaseRepository](/class/baserepository) class virtual.
 - Enhancement: Enhancement: Add an additional property on the [DbField](/class/dbfield) class that handles the DB Provider. [#890](https://github.com/mikependon/RepoDB/issues/890)
-- Added the [DbTypeAttribute](/attribute/parameter/dbtype) attribute.
-- Added the [DirectionAttribute](/attribute/parameter/direction) attribute.
-- Added the [IsNullableAttribute](/attribute/parameter/isnullable) attribute.
-- Added the [NameAttribute](/attribute/parameter/name) attribute.
-- Added the [PrecisionAttribute](/attribute/parameter/precision) attribute.
-- Added the [ScaleAttribute](/attribute/parameter/scale) attribute.
-- Added the [SizeAttribute](/attribute/parameter/size) attribute.
-- Added the [PropertyValueAttributeMapper](/mappper/propertyvalueattributemapper) class.
-- Added the [PropertyValueAttributeCache](/cachers/propertyvalueattributecache) class.
-- Added the [PropertyValueAttributeResolver](/resolvers/propertyvalueattributeresolver) class.
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
-- Enhancement: Introduce the formatters for the [QueryField](/class/queryfield) class [899](https://github.com/mikependon/RepoDB/issues/899)
+- Enhancement: Added the [DbTypeAttribute](/attribute/parameter/dbtype) attribute.
+- Enhancement: Added the [DirectionAttribute](/attribute/parameter/direction) attribute.
+- Enhancement: Added the [IsNullableAttribute](/attribute/parameter/isnullable) attribute.
+- Enhancement: Added the [NameAttribute](/attribute/parameter/name) attribute.
+- Enhancement: Added the [PrecisionAttribute](/attribute/parameter/precision) attribute.
+- Enhancement: Added the [ScaleAttribute](/attribute/parameter/scale) attribute.
+- Enhancement: Added the [SizeAttribute](/attribute/parameter/size) attribute.
+- Enhancement: Added the [PropertyValueAttributeMapper](/mappper/propertyvalueattributemapper) class.
+- Enhancement: Added the [PropertyValueAttributeCache](/cachers/propertyvalueattributecache) class.
+- Enhancement: Added the [PropertyValueAttributeResolver](/resolvers/propertyvalueattributeresolver) class.
+- Enhancement: Added the `PropertyValueAttributes()` method on the [FluentMapper](/mapper/fluentmapper) class.
+- Enhancement: Introduce the formatters for the [QueryField](/class/queryfield) class [899](https://github.com/mikependon/RepoDB/issues/899))
 
 ### RepoDB (v1.12.8-beta4)
 
@@ -57,7 +62,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 ### RepoDB (v1.12.8-beta2)
 
-- Bug: [OrderField](/class/orderfield) ignores MapAttribute [#769](https://github.com/mikependon/RepoDB/issues/769)
+- Bug: [OrderField](/class/orderfield) ignores [MapAttribute](/attribute/map) [#769](https://github.com/mikependon/RepoDB/issues/769)
 - Bug: Querying by string field fails in VB .Net [#767](https://github.com/mikependon/RepoDB/issues/767)
 
 

@@ -16,6 +16,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 
 ### RepoDB.SqlServer.BulkOperations (Next Version)
 
+- Added the `net5.0` as part of the target frameworks.
 - Bug: [BulkMergeAsync](/operation/bulkmerge) with multiple qualifiers [#864](https://github.com/mikependon/RepoDB/issues/864)
 
 

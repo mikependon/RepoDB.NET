@@ -14,8 +14,10 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
 
-### RepoDB.SqlServer (Next Version)
+### RepoDB.SqlServer (v1.1.4-beta1)
 
+- Added the `net5.0` as part of the target frameworks.
+- Upgraded the `System.Data.SqlClient` package to `v4.8.3`.
 - Deprecated both the [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap) attributes.
 - Added the [CompareInfoAttribute](/attribute/sqlparametercompareinfo) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Added the [ForceColumnEncryptionAttribute](/attribute/sqlparameterforcecolumnencryption) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)

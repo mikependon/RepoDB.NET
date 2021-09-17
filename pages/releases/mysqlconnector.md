@@ -14,8 +14,10 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector) to download it.
 
-### RepoDB.MySqlConnector (Next Version)
+### RepoDB.MySqlConnector (v1.1.4-beta2)
 
+- Upgraded the `MySqlConnector` package to `v1.3.12`.
+- Added the `net5.0` as part of the target frameworks.
 - Enhancement: Added the [MySqlConnectorParameterDbTypeAttribute](/attribute/mysqlconnectorparameterdbtype) attribute.
 - Enhancement: Added the [MySqlDbTypeAttribute](/attribute/parameter/mysqlconnectordbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Deprecated the [MySqlConnectorTypeMapAttribute](/attribute/mysqlconnectortypemap) attribute.
