@@ -17,6 +17,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 ### RepoDB.PostgreSql (v1.1.4-beta2)
 
 - Added the `net5.0` as part of the target frameworks.
+- Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Upgraded the `Npgsql` package to `v5.0.10`.
 - Bug: Does Postgresql support querying on enums in non-raw form? [#787](https://github.com/mikependon/RepoDb/issues/787).
 - Bug: [CountAsync](/operation/count) (PostgreSql) fails when querying by Enum. [#798](https://github.com/mikependon/RepoDb/issues/798).

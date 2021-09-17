@@ -17,6 +17,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 ### RepoDB.MySqlConnector (v1.1.4-beta2)
 
 - Upgraded the `MySqlConnector` package to `v1.3.12`.
+- Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Added the `net5.0` as part of the target frameworks.
 - Enhancement: Added the [MySqlConnectorParameterDbTypeAttribute](/attribute/mysqlconnectorparameterdbtype) attribute.
 - Enhancement: Added the [MySqlDbTypeAttribute](/attribute/parameter/mysqlconnectordbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)

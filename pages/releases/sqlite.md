@@ -16,6 +16,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the act
 
 ### RepoDB.SqLite (v1.1.4-beta1)
 
+- Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Upgraded the `Microsoft.Data.Sqlite` package to `v5.0.10`.
 - Upgraded the `System.Data.SQLite.Core` package to `v1.0.115`.
 - Added the `net5.0` as part of the target frameworks.
