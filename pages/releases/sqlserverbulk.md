@@ -14,6 +14,14 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
+### RepoDB.SqlServer.BulkOperations (v1.1.5)
+
+- Bug: [BulkMergeAsync](/operation/bulkmerge) with multiple qualifiers [#864](https://github.com/mikependon/RepoDB/issues/864)
+- Added the `net5.0` as part of the target frameworks.
+- Upgraded the `RepoDb` package to `v1.12.8-beta5`.
+- Upgraded the `RepoDb.SqlServer` package to `v1.1.4-beta4`.
+
+
 ### RepoDB.SqlServer.BulkOperations (v1.1.5-beta2)
 
 - Added the `net5.0` as part of the target frameworks.

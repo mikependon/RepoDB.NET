@@ -14,6 +14,50 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+
+### RepoDB (v1.12.8)
+
+- NETSTANDARD2.0: Added the `Microsoft.Bcl.AsyncInterfaces v5.0.0` package.
+- NETSTANDARD2.0: Added the `Microsoft.Bcl.HashCode v1.1.1` package.
+- Added the `System.Linq.Async v5.0.0` package.
+- Added the `net5.0` as part of the target frameworks.
+- Bug: Dynamic insertion via `Dictionary<string, object>` is failing [#791](https://github.com/mikependon/RepoDB/issues/791).
+- Bug: `IsDictionaryStringObject()` does not work in F# [#789](https://github.com/mikependon/RepoDB/issues/789).
+- Bug: An identify field parameter issue is being thrown when invoking the [MergeAll](/operation/mergeall) operation dynamically [#849](https://github.com/mikependon/RepoDB/issues/849).
+- Bug: A SQL syntax issue is being thrown if the [BulkMerge](/operation/bulkmerge) is called with multiple qualifiers [#850](https://github.com/mikependon/RepoDB/issues/850).
+- Bug: Output parameters of type varchar gives `Size` exception [#836](https://github.com/mikependon/RepoDB/issues/836).
+- Bug: Calls to any operation throws an object `NullReferenceException` if not properly initialized. [#861](https://github.com/mikependon/RepoDB/issues/861).
+- Bug: Different lambdas in [QueryAsync](/operation/query) generate the same SQL expression (cache problem) [#782](https://github.com/mikependon/RepoDB/issues/782).
+- (Rebuilt Only) Bug: [OrderField](/class/orderfield) ignores MapAttribute [#769](https://github.com/mikependon/RepoDB/issues/769)
+- Bug: [OrderField](/class/orderfield) ignores [MapAttribute](/attribute/map) [#769](https://github.com/mikependon/RepoDB/issues/769)
+- Bug: Querying by string field fails in VB .Net [#767](https://github.com/mikependon/RepoDB/issues/767)
+- Bug: [Insert](/operation/insert) exception since 1.1.3 with mysql... [#765](https://github.com/mikependon/RepoDB/issues/765)
+- Enhancement: Added the `Size` property into the [DirectionalQueryField](/class/directionalqueryfield) object.
+- Enhancement: Exposed the `Type` property of the [DirectionalQueryField](/class/directionalqueryfield) object.
+- Enhancement: Added the `NULL` comparer as part of the qualifiers on the [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations.
+- Enhancement: Made the [QueryGroup.GetString()](/class/querygroup) method virtual.
+- Enhancement: Added the [QueryField.GetString()](/class/queryfield) method (as virtual).
+- Enhancement: Make the [DbRepository.CreateConnection()](/class/dbrepository) method virtual. [#856](https://github.com/mikependon/RepoDB/issues/856)
+- Enhancement: Made the `CreateConnection()` method of the [BaseRepository](/class/baserepository) class virtual.
+- Enhancement: Enhancement: Add an additional property on the [DbField](/class/dbfield) class that handles the DB Provider. [#890](https://github.com/mikependon/RepoDB/issues/890)
+- Enhancement: Added the [PropertyValueAttribute](/attribute/propertyvalue) attribute class.
+- Enhancement: Create a base class for the Type Map attributes ([NpgsqlTypeMapAttribute](/attribute/npgsqltypemap), [MySqlTypeMapAttribute](/attribute/npgsqltypemap), [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap)) [#873](https://github.com/mikependon/RepoDB/issues/873).
+- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add a mapper for [PropertyValueAttribute](/attribute/propertyvalue) [#887](https://github.com/mikependon/RepoDB/issues/887)
+- Enhancement: Added the [DbTypeAttribute](/attribute/parameter/dbtype) attribute.
+- Enhancement: Added the [DirectionAttribute](/attribute/parameter/direction) attribute.
+- Enhancement: Added the [IsNullableAttribute](/attribute/parameter/isnullable) attribute.
+- Enhancement: Added the [NameAttribute](/attribute/parameter/name) attribute.
+- Enhancement: Added the [PrecisionAttribute](/attribute/parameter/precision) attribute.
+- Enhancement: Added the [ScaleAttribute](/attribute/parameter/scale) attribute.
+- Enhancement: Added the [SizeAttribute](/attribute/parameter/size) attribute.
+- Enhancement: Added the [PropertyValueAttributeMapper](/mappper/propertyvalueattributemapper) class.
+- Enhancement: Added the [PropertyValueAttributeCache](/cachers/propertyvalueattributecache) class.
+- Enhancement: Added the [PropertyValueAttributeResolver](/resolvers/propertyvalueattributeresolver) class.
+- Enhancement: Added the `PropertyValueAttributes()` method on the [FluentMapper](/mapper/fluentmapper) class.
+- Enhancement: Introduce the formatters for the [QueryField](/class/queryfield) class [899](https://github.com/mikependon/RepoDB/issues/899))
+
+
 ### RepoDB (v1.12.8-beta5)
 
 - NETSTANDARD2.0: Added the `Microsoft.Bcl.AsyncInterfaces v5.0.0` package.

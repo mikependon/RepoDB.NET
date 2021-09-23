@@ -14,6 +14,17 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySql) to download it.
 
+### RepoDB.MySql (v1.1.5)
+
+- Added the `net5.0` as part of the target frameworks.
+- Upgraded the `RepoDb` package to `v1.12.8-beta5`.
+- Bug: Exception on [Merge](/operation/merge) (PostgreSQL) [#776](https://github.com/mikependon/RepoDb/issues/776). RELATED
+- Enhancement: Added the [MySqlDbTypeAttribute](/attribute/parameter/mysqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Deprecated the [MySqlTypeMapAttribute](/attribute/mysqltypemapattribute) attribute.
+- Enhancement: Moved the `MySqlDbSetting` to `RepoDb.DbSettings` namespace.
+- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+
+
 ### RepoDB.MySql (v1.1.5-beta1)
 
 - Added the `net5.0` as part of the target frameworks.

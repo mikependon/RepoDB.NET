@@ -14,6 +14,25 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql) to download it.
 
+### RepoDB.PostgreSql (v1.1.4)
+
+- Added the `net5.0` as part of the target frameworks.
+- Upgraded the `RepoDb` package to `v1.12.8-beta5`.
+- Upgraded the `Npgsql` package to `v5.0.10`.
+- Bug: Does Postgresql support querying on enums in non-raw form? [#787](https://github.com/mikependon/RepoDb/issues/787).
+- Bug: [CountAsync](/operation/count) (PostgreSql) fails when querying by Enum. [#798](https://github.com/mikependon/RepoDb/issues/798).
+- Bug: Anonymous record Insert fails if no id is provided [#796](https://github.com/mikependon/RepoDb/issues/796).
+- Bug: RepoDb.Exceptions.PrimaryFieldNotFoundException: The non-identity primary field must be present during insert operation. [#786](https://github.com/mikependon/RepoDb/issues/786).
+- Bug: The ENUM type of Postgre (DB) is not being handled properly in RepoDb.PostgreSql. #395 [#854](https://github.com/mikependon/RepoDb/issues/854).
+- Bug: Exception on [Merge](/operation/merge) (PostgreSQL) [#776](https://github.com/mikependon/RepoDb/issues/776).
+- Enhancement: Added the [ConvertedValueAttribute](/attribute/parameter/npgsql/convertedvalue) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [DataTypeNameAttribute](/attribute/parameter/npgsql/datatypename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [DbTypeAttribute](/attribute/parameter/npgsql/npgsqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Deprecated the [NpgsqlTypeMapAttribute](/attribute/npgsqltypemapattribute) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Moved the `PostgreSqlDbSetting` to `RepoDb.DbSettings` namespace.
+- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+
+
 ### RepoDB.PostgreSql (v1.1.4-beta2)
 
 - Added the `net5.0` as part of the target frameworks.

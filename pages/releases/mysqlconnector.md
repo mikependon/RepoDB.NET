@@ -14,6 +14,20 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector) to download it.
 
+### RepoDB.MySqlConnector (v1.1.4)
+
+- Upgraded the `MySqlConnector` package to `v1.3.12`.
+- Upgraded the `RepoDb` package to `v1.12.8-beta5`.
+- Added the `net5.0` as part of the target frameworks.
+- Enhancement: Added the [MySqlConnectorParameterDbTypeAttribute](/attribute/mysqlconnectorparameterdbtype) attribute.
+- Enhancement: Added the [MySqlDbTypeAttribute](/attribute/parameter/mysqlconnectordbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Deprecated the [MySqlConnectorTypeMapAttribute](/attribute/mysqlconnectortypemap) attribute.
+- Enhancement: Moved the `MySqlConnectorDbSetting` to `RepoDb.DbSettings` namespace.
+- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Bug: Exception on [Merge](/operation/merge) (PostgreSQL) [#776](https://github.com/mikependon/RepoDb/issues/776). RELATED
+- Wrong ordinal for Nullable filed information in MySqlConnectorDbHelper.ReaderToDbFieldAsync [#780](https://github.com/mikependon/RepoDb/issues/780)
+
+
 ### RepoDB.MySqlConnector (v1.1.4-beta2)
 
 - Upgraded the `MySqlConnector` package to `v1.3.12`.

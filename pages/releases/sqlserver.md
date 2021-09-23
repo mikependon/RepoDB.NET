@@ -14,9 +14,30 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
 
+
+### RepoDB.SqlServer (v1.1.4)
+
+- Added the `net5.0` as part of the target frameworks.
+- Upgraded the `RepoDb` package to `v1.12.8-beta5`.
+- Upgraded the `System.Data.SqlClient` package to `v4.8.3`.
+- Deprecated both the [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap) attributes.
+- Added the [CompareInfoAttribute](/attribute/sqlparametercompareinfo) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [ForceColumnEncryptionAttribute](/attribute/sqlparameterforcecolumnencryption) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [LocaleIdAttribute](/attribute/parameter/sqlserver/localeid) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [OffsetAttribute](/attribute/parameter/sqlserver/offset) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [SqlDbTypeAttribute](/attribute/parameter/sqlserver/sqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [TypeNameAttribute](/attribute/parameter/sqlserver/typename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [UdtTypeNameAttribute](/attribute/parameter/sqlserver/udttypename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [XmlSchemaCollectionDatabaseAttribute](/attribute/parameter/sqlserver/xmlschemacollectiondatabase) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [XmlSchemaCollectionNameAttribute](/attribute/parameter/sqlserver/xmlschemacollectionname) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [XmlSchemaCollectionOwningSchemaAttribute](/attribute/parameter/sqlserver/xmlschemacollectionowningschema) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+
+
 ### RepoDB.SqlServer (v1.1.4-beta1)
 
 - Added the `net5.0` as part of the target frameworks.
+- Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Upgraded the `System.Data.SqlClient` package to `v4.8.3`.
 - Deprecated both the [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap) attributes.
 - Added the [CompareInfoAttribute](/attribute/sqlparametercompareinfo) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
