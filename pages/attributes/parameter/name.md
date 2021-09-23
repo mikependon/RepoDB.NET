@@ -1,0 +1,42 @@
+---
+layout: default
+title: Name
+permalink: /attribute/parameter/name
+tags: [repodb, attribute, name, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: PARAMETER
+grand_parent: ATTRIBUTES
+---
+
+# Name
+
+---
+
+This attribute is used to set the value of the `DbParameter.Name` property via a class property.
+
+### Attribute
+
+Below is a a sample code on how to use this attribute.
+
+```csharp
+public class Person
+{
+    public int Id { get; set; }
+
+    [Name("ColumnName")]
+    public string Name { get; set; }
+}
+```
+
+This works exactly the same as [Map](/attribute/map) or the `Table` attribute of the `System.ComponentModel.DataAnnotations.Schema` namespace.
+
+### Fluent Mapping
+
+Below is a sample code on how to use this attribute via [FluentMapper](/mapper/fluentmapper).
+
+```csharp
+FluentMapper
+    .Entity<Person>()
+    .PropertyValueAttributes(e => e.Name, new [] { new NameAttribute("ColumnName") })
+```
+
+> The value from the database table/view is taking the precedence if present.

@@ -56,7 +56,7 @@ Notice, in the second parameter, you pass an instance of .NET CLR Type, this def
 If you are passing a value to the input/output parameters, you can simply pass the value in the overloaded constructor. By this time, you are not required to pass the type of the parameter as the library will identify the parameter type based from the passed value.
 
 ```csharp
-var output = new DirectionalQueryField("Output", "Whatever", ParamDirection.InputOutput); // Type is TEXT
+var output = new DirectionalQueryField("Output", "Whatever", 256, ParamDirection.InputOutput); // Type is TEXT
 var output = new DirectionalQueryField("Output", 100, ParamDirection.InputOutput); // Type is INT
 ```
 

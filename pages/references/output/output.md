@@ -5,7 +5,6 @@ nav_order: 12
 has_children: true
 permalink: /reference/output
 parent: REFERENCES
-grand_parent: REFERENCES
 ---
 
 # Actual References Output

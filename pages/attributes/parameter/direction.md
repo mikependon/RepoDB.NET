@@ -1,0 +1,42 @@
+---
+layout: default
+title: Direction
+permalink: /attribute/parameter/direction
+tags: [repodb, attribute, direction, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: PARAMETER
+grand_parent: ATTRIBUTES
+---
+
+# Direction
+
+---
+
+This attribute is used to set the value of the `DbParameter.Direction` property via a class property.
+
+### Attribute
+
+Below is a a sample code on how to use this attribute.
+
+```csharp
+public class Person
+{
+    public int Id { get; set; }
+
+    public string Name { get; set; }
+
+    [Direction(ParameterDirection.InputOutput)]
+    public double Assets { get; set; }
+}
+```
+
+### Fluent Mapping
+
+Below is a sample code on how to use this attribute via [FluentMapper](/mapper/fluentmapper).
+
+```csharp
+FluentMapper
+    .Entity<Person>()
+    .PropertyValueAttributes(e => e.Assets, new [] { new ParameterDirectionAttribute(ParameterDirection.InputOutput) })
+```
+
+> Currently, all the properties with output direction (i.e.: `Output`, `InputOutput`, `ReturnValue`) are not being updated with the values from the database. This capability will soon to be added on the library.

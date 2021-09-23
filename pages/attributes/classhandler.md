@@ -2,6 +2,7 @@
 layout: default
 sidebar: attributes
 title: "ClassHandler"
+nav_order: 1
 description: "Learn on how to use the RepoDB ClassHandler attribute."
 permalink: /attribute/classhandler
 tags: [repodb, class, classhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

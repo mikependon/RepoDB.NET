@@ -267,6 +267,24 @@ docs:
   - title: "Field"
     url: "/class/field"
 
+  - title: "FunctionalQueryField"
+    url: "/class/extensions/functionalqueryfield"
+
+  - title: "LeftQueryField"
+    url: "/class/extensions/leftqueryfield"
+
+  - title: "LeftTrimQueryField"
+    url: "/class/extensions/lefttrimqueryfield"
+
+  - title: "LenQueryField"
+    url: "/class/extensions/lenqueryfield"
+
+  - title: "LengthQueryField"
+    url: "/class/extensions/lengthqueryfield"
+
+  - title: "LowerQueryField"
+    url: "/class/extensions/lowerqueryfield"
+
   - title: "MemoryCache"
     url: "/class/memorycache"
 
@@ -291,14 +309,26 @@ docs:
   - title: "QueryMultipleExtractor"
     url: "/class/querymultipleextractor"
 
+  - title: "RightQueryField"
+    url: "/class/extensions/rightqueryfield"
+
+  - title: "RightTrimQueryField"
+    url: "/class/extensions/righttrimqueryfield"
+
   - title: "SqlServerTableHints"
     url: "/class/sqlservertablehints"
 
   - title: "TraceLog"
     url: "/class/tracelog"
 
+  - title: "TrimQueryField"
+    url: "/class/extensions/trimqueryfield"
+
   - title: "TypeMapFluentDefinition"
     url: "/class/typemapfluentdefinition"
+
+  - title: "UpperQueryField"
+    url: "/class/extensions/upperqueryfield"
 
 - key: attributes
   title: "Attributes"
@@ -307,11 +337,53 @@ docs:
   description: "Below are the list of attributes available."
   topics:
 
+  - title: "CompareInfo (SQL Server)"
+    url: "/attribute/sqlserver/compareinfo"
+
+  - title: "ConvertedValue (PostgreSQL)"
+    url: "/attribute/npgsql/convertedvalue"
+
+  - title: "DataTypeName (PostgreSQL)"
+    url: "/attribute/npgsql/datatypename"
+
+  - title: "DbType"
+    url: "/attribute/dbtype/dbtype"
+
+  - title: "Direction"
+    url: "/attribute/dbtype/direction"
+
+  - title: "ForceColumnEncryption (SQL Server)"
+    url: "/attribute/sqlserver/forcecolumnencryption"
+
   - title: "Identity"
     url: "/attribute/identity"
 
+  - title: "IsNullable"
+    url: "/attribute/dbtype/isnullable"
+
+  - title: "LocalId (SQL Server)"
+    url: "/attribute/sqlserver/localeid"
+
   - title: "Map"
     url: "/attribute/map"
+
+  - title: "MySqlDbType (MySQL)"
+    url: "/attribute/mysql/mysqldbtype"
+
+  - title: "MySqlDbType (MySqlConnector)"
+    url: "/attribute/mysqlconnector/mysqldbtype"
+
+  - title: "Name"
+    url: "/attribute/dbtype/name"
+
+  - title: "NpgsqlDbType (PostgreSQL)"
+    url: "/attribute/npgsql/npgsqldbtype"
+
+  - title: "Offset (SQL Server)"
+    url: "/attribute/sqlserver/offset"
+
+  - title: "Precision"
+    url: "/attribute/dbtype/precision"
 
   - title: "Primary"
     url: "/attribute/primary"
@@ -319,26 +391,41 @@ docs:
   - title: "PropertyHandler"
     url: "/attribute/propertyhandler"
 
-  - title: "Text"
-    url: "/attribute/text"
+  - title: "PropertyValueAttribute"
+    url: "/attribute/dbtype/propertyvalueattribute"
+
+  - title: "Scale"
+    url: "/attribute/dbtype/scale"
+
+  - title: "Size"
+    url: "/attribute/dbtype/size"
+
+  - title: "SqlDbType (SQL Server)"
+    url: "/attribute/sqlserver/sqldbtype"
+
+  - title: "SqliteType (SQLite)"
+    url: "/attribute/sqlite/sqltype"
 
   - title: "TypeMap"
     url: "/attribute/typemap"
+    
+  - title: "TypeName (SQLite)"
+    url: "/attribute/sqlite/typename"
 
-  - title: "MicrosoftSqlServerTypeMap"
-    url: "/attribute/microsoftsqlservertypemap"
+  - title: "TypeName (SQL Server)"
+    url: "/attribute/sqlserver/typename"
 
-  - title: "MySqlTypeMap"
-    url: "/attribute/mysqltypemap"
+  - title: "UdtTypeName (SQL Server)"
+    url: "/attribute/sqlserver/udttypename"
 
-  - title: "MySqlConnectorTypeMap"
-    url: "/attribute/mysqlconnectortypemap"
+  - title: "XmlSchemaCollectionDatabase (SQL Server)"
+    url: "/attribute/sqlserver/xmlschemacollectiondatabase"
 
-  - title: "NpgsqlTypeMap"
-    url: "/attribute/npgsqltypemap"
+  - title: "XmlSchemaCollectionName (SQL Server)"
+    url: "/attribute/sqlserver/xmlschemacollectionname"
 
-  - title: "SystemSqlServerTypeMap"
-    url: "/attribute/systemsqlservertypemap"
+  - title: "XmlSchemaCollectionOwningSchema (SQL Server)"
+    url: "/attribute/sqlserver/xmlschemacollectionowningschema"
 
 - key: enumerations
   title: "Enumerations"

@@ -14,6 +14,10 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+### RepoDB (Next Version)
+
+- Enhancement: Make the value argument of the functional [QueryField](/class/queryfield) objects to `System.Object`. [#926](https://github.com/mikependon/RepoDB/issues/926)
+
 
 ### RepoDB (v1.12.8)
 
@@ -44,13 +48,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Create a base class for the Type Map attributes ([NpgsqlTypeMapAttribute](/attribute/npgsqltypemap), [MySqlTypeMapAttribute](/attribute/npgsqltypemap), [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap)) [#873](https://github.com/mikependon/RepoDB/issues/873).
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 - Enhancement: Add a mapper for [PropertyValueAttribute](/attribute/propertyvalue) [#887](https://github.com/mikependon/RepoDB/issues/887)
-- Enhancement: Added the [DbTypeAttribute](/attribute/parameter/dbtype) attribute.
-- Enhancement: Added the [DirectionAttribute](/attribute/parameter/direction) attribute.
-- Enhancement: Added the [IsNullableAttribute](/attribute/parameter/isnullable) attribute.
-- Enhancement: Added the [NameAttribute](/attribute/parameter/name) attribute.
-- Enhancement: Added the [PrecisionAttribute](/attribute/parameter/precision) attribute.
-- Enhancement: Added the [ScaleAttribute](/attribute/parameter/scale) attribute.
-- Enhancement: Added the [SizeAttribute](/attribute/parameter/size) attribute.
+- Enhancement: Added the [DbTypeAttribute](/attribute/dbtype) attribute.
+- Enhancement: Added the [DirectionAttribute](/attribute/direction) attribute.
+- Enhancement: Added the [IsNullableAttribute](/attribute/isnullable) attribute.
+- Enhancement: Added the [NameAttribute](/attribute/name) attribute.
+- Enhancement: Added the [PrecisionAttribute](/attribute/precision) attribute.
+- Enhancement: Added the [ScaleAttribute](/attribute/scale) attribute.
+- Enhancement: Added the [SizeAttribute](/attribute/size) attribute.
 - Enhancement: Added the [PropertyValueAttributeMapper](/mappper/propertyvalueattributemapper) class.
 - Enhancement: Added the [PropertyValueAttributeCache](/cachers/propertyvalueattributecache) class.
 - Enhancement: Added the [PropertyValueAttributeResolver](/resolvers/propertyvalueattributeresolver) class.
@@ -81,13 +85,13 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Added the [PropertyValueAttribute](/attribute/propertyvalue) attribute class.
 - Enhancement: Create a base class for the Type Map attributes ([NpgsqlTypeMapAttribute](/attribute/npgsqltypemap), [MySqlTypeMapAttribute](/attribute/npgsqltypemap), [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap)) [#873](https://github.com/mikependon/RepoDB/issues/873).
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
-- Enhancement: Added the [DbTypeAttribute](/attribute/parameter/dbtype) attribute.
-- Enhancement: Added the [DirectionAttribute](/attribute/parameter/direction) attribute.
-- Enhancement: Added the [IsNullableAttribute](/attribute/parameter/isnullable) attribute.
-- Enhancement: Added the [NameAttribute](/attribute/parameter/name) attribute.
-- Enhancement: Added the [PrecisionAttribute](/attribute/parameter/precision) attribute.
-- Enhancement: Added the [ScaleAttribute](/attribute/parameter/scale) attribute.
-- Enhancement: Added the [SizeAttribute](/attribute/parameter/size) attribute.
+- Enhancement: Added the [DbTypeAttribute](/attribute/dbtype) attribute.
+- Enhancement: Added the [DirectionAttribute](/attribute/direction) attribute.
+- Enhancement: Added the [IsNullableAttribute](/attribute/isnullable) attribute.
+- Enhancement: Added the [NameAttribute](/attribute/name) attribute.
+- Enhancement: Added the [PrecisionAttribute](/attribute/precision) attribute.
+- Enhancement: Added the [ScaleAttribute](/attribute/scale) attribute.
+- Enhancement: Added the [SizeAttribute](/attribute/size) attribute.
 - Enhancement: Added the [PropertyValueAttributeMapper](/mappper/propertyvalueattributemapper) class.
 - Enhancement: Added the [PropertyValueAttributeCache](/cachers/propertyvalueattributecache) class.
 - Enhancement: Added the [PropertyValueAttributeResolver](/resolvers/propertyvalueattributeresolver) class.

@@ -2,6 +2,7 @@
 layout: default
 sidebar: attributes
 title: "Primary"
+nav_order: 4
 description: "Learn on how to use the RepoDB Primary attribute."
 permalink: /attribute/primary
 tags: [repodb, class, primary, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]

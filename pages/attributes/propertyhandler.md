@@ -2,6 +2,7 @@
 layout: default
 sidebar: attributes
 title: "PropertyHandler"
+nav_order: 5
 description: "Learn on how to use the RepoDB PropertyHandler attribute."
 permalink: /attribute/propertyhandler
 tags: [repodb, class, propertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
