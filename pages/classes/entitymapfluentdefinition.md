@@ -2,7 +2,7 @@
 layout: default
 sidebar: classes
 title: "EntityMapFluentDefinition"
-description: "A class that is used to define a data entity level mappings (i.e.: Table, Column, Primary, Identity, DB Type and Class/Property Handler)."
+description: "A class that is being used to define a data entity level mappings (i.e.: Table, Column, Primary, Identity, DB Type and Class/Property Handler)."
 permalink: /class/entitymapfluentdefinition
 tags: [repodb, class, entitymapfluentdefinition, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: CLASSES
@@ -12,7 +12,7 @@ parent: CLASSES
 
 ---
 
-A class that is used to define a data entity level mappings specifically for the table/columns, primary/identity columns, database types and class/property handlers. It is the result of the `Entity()` method of the [FluentMapper](/mapper/fluentmapper) mapper class.
+A class that is being used to define a data entity level mappings specifically for the table/columns, primary/identity columns, database types and class/property handlers. It is the result of the `Entity()` method of the [FluentMapper](/mapper/fluentmapper) mapper class.
 
 ### Mapping a Database Table/View
 

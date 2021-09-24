@@ -2,7 +2,7 @@
 layout: default
 sidebar: mappers
 title: "FluentMapper"
-description: "A class that is used to define a mapping for the target data entity in a fluent way."
+description: "A class that is being used to define a mapping for the target data entity in a fluent way."
 permalink: /mapper/fluentmapper
 tags: [repodb, class, fluentmapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: MAPPERS
@@ -12,7 +12,7 @@ parent: MAPPERS
 
 ---
 
-A mapper classed that is used to define the mappings for both data entity and .NET CLR type. This class has been introduced to help the developers manage the mappings implicitly (by avoiding decorating the classes with different attributes).
+A mapper classed that is being used to define the mappings for both data entity and .NET CLR type. This class has been introduced to help the developers manage the mappings implicitly (by avoiding decorating the classes with different attributes).
 
 ### Methods
 

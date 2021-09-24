@@ -2,7 +2,7 @@
 layout: default
 sidebar: classes
 title: "QueryGroup"
-description: "A class that is used to group a list of query expressions for the SQL statement. You can define the conjunction to be used during the multiple query expressions."
+description: "A class that is being used to group a list of query expressions for the SQL statement. You can define the conjunction to be used during the multiple query expressions."
 permalink: /class/querygroup
 tags: [repodb, class, querygroup, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: CLASSES

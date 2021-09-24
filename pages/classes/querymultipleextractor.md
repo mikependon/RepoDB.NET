@@ -2,7 +2,7 @@
 layout: default
 sidebar: classes
 title: "QueryMultipleExtractor"
-description: "A class that is used to extract the information of the multiple resultsets returned by the ExecuteQueryMultiple operation."
+description: "A class that is being used to extract the information of the multiple resultsets returned by the ExecuteQueryMultiple operation."
 permalink: /class/querymultipleextractor
 tags: [repodb, class, querymultipleextractor, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: CLASSES
@@ -23,7 +23,7 @@ It is also managing how the pointer of the `DbDataReader` object when you (as th
 These are the methods available on this class.
 
 - `Extract` - a generic based method that will extract the contents of the `DbDataReader` into a class object.
-- `Scalar` - a method that is used to get the first column of the result.
+- `Scalar` - a method that is being used to get the first column of the result.
 
 > When using the `Scalar()` method, you can pass a generic type as a type of the result. Also, when calling any of the mentioned above, the pointer of the `DbDataReader` is advances to the next result.
 

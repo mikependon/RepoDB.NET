@@ -2,7 +2,7 @@
 layout: default
 sidebar: classes
 title: "Converter"
-description: "A converter class that is used to convert an object into a specific type within the library."
+description: "A converter class that is being used to convert an object into a specific type within the library."
 permalink: /class/converter
 tags: [repodb, class, converter, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: CLASSES

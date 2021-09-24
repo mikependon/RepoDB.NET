@@ -2,7 +2,7 @@
 layout: default
 sidebar: classes
 title: "QueryField"
-description: "A class that is used to define a query expression for the SQL statement. You can define the name, operation and the value of the target expression."
+description: "A class that is being used to define a query expression for the SQL statement. You can define the name, operation and the value of the target expression."
 permalink: /class/queryfield
 tags: [repodb, class, queryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: CLASSES

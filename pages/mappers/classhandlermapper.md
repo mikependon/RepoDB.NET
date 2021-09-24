@@ -2,7 +2,7 @@
 layout: default
 sidebar: mappers
 title: "ClassHandlerMapper"
-description: "A class that is used to map a class handler into a class. This class is used as an alternative to ClassHandler attribute."
+description: "A class that is being used to map a class handler into a class. This class is used as an alternative to ClassHandler attribute."
 permalink: /mapper/classhandlermapper
 tags: [repodb, class, classhandlermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: MAPPERS
@@ -12,7 +12,7 @@ parent: MAPPERS
 
 ---
 
-A class that is used to map a class handler into a class. This class is used as an alternative to the [ClassHandler](/attribute/classhandler) attribute.
+A class that is being used to map a class handler into a class. This class is used as an alternative to the [ClassHandler](/attribute/classhandler) attribute.
 
 Please see the [IClassHandlerMapper](/interface/iclasshandler) for more details about the property handling implementation.
 

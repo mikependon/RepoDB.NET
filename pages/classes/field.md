@@ -12,7 +12,7 @@ parent: CLASSES
 
 ---
 
-This is the class that is used to define a field in many ways. This class is widely use within the library or even hugely use during the actual development.
+This is the class that is being used to define a field in many ways. This class is widely use within the library or even hugely use during the actual development.
 
 ### Use-Cases
 

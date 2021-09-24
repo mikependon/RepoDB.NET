@@ -2,7 +2,7 @@
 layout: default
 sidebar: mappers
 title: "PropertyMapper"
-description: "A mapper class that is used to map the class property into its equivalent column in the database. This class is used as an alternative to Map attribute."
+description: "A mapper class that is being used to map the class property into its equivalent column in the database. This class is used as an alternative to Map attribute."
 permalink: /mapper/propertymapper
 tags: [repodb, class, propertymapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: MAPPERS
@@ -12,7 +12,7 @@ parent: MAPPERS
 
 ---
 
-A mapper class that is used to map the class property into its equivalent column in the database. This class is used as an alternative to the [Map](/attribute/map) attribute.
+A mapper class that is being used to map the class property into its equivalent column in the database. This class is used as an alternative to the [Map](/attribute/map) attribute.
 
 ### Methods
 

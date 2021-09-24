@@ -2,7 +2,7 @@
 layout: default
 sidebar: mappers
 title: "IdentityMapper"
-description: "A mapper class that is used to map a class property to be an identity property. This class is used as an alternative to Identity attribute."
+description: "A mapper class that is being used to map a class property to be an identity property. This class is used as an alternative to Identity attribute."
 permalink: /mapper/identitymapper
 tags: [repodb, class, identitymapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: MAPPERS
@@ -12,7 +12,7 @@ parent: MAPPERS
 
 ---
 
-A mapper class that is used to map a class property to be an identity property. This class is used as an alternative to the [Identity](/attribute/identity) attribute.
+A mapper class that is being used to map a class property to be an identity property. This class is used as an alternative to the [Identity](/attribute/identity) attribute.
 
 ### Methods
 

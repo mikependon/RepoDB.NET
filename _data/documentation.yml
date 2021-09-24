@@ -268,22 +268,22 @@ docs:
     url: "/class/field"
 
   - title: "FunctionalQueryField"
-    url: "/class/extensions/functionalqueryfield"
+    url: "/class/functionalqueryfield"
 
   - title: "LeftQueryField"
-    url: "/class/extensions/leftqueryfield"
+    url: "/class/leftqueryfield"
 
   - title: "LeftTrimQueryField"
-    url: "/class/extensions/lefttrimqueryfield"
+    url: "/class/lefttrimqueryfield"
 
   - title: "LenQueryField"
-    url: "/class/extensions/lenqueryfield"
+    url: "/class/lenqueryfield"
 
   - title: "LengthQueryField"
-    url: "/class/extensions/lengthqueryfield"
+    url: "/class/lengthqueryfield"
 
   - title: "LowerQueryField"
-    url: "/class/extensions/lowerqueryfield"
+    url: "/class/lowerqueryfield"
 
   - title: "MemoryCache"
     url: "/class/memorycache"
@@ -310,10 +310,10 @@ docs:
     url: "/class/querymultipleextractor"
 
   - title: "RightQueryField"
-    url: "/class/extensions/rightqueryfield"
+    url: "/class/rightqueryfield"
 
   - title: "RightTrimQueryField"
-    url: "/class/extensions/righttrimqueryfield"
+    url: "/class/righttrimqueryfield"
 
   - title: "SqlServerTableHints"
     url: "/class/sqlservertablehints"
@@ -322,13 +322,13 @@ docs:
     url: "/class/tracelog"
 
   - title: "TrimQueryField"
-    url: "/class/extensions/trimqueryfield"
+    url: "/class/trimqueryfield"
 
   - title: "TypeMapFluentDefinition"
     url: "/class/typemapfluentdefinition"
 
   - title: "UpperQueryField"
-    url: "/class/extensions/upperqueryfield"
+    url: "/class/upperqueryfield"
 
 - key: attributes
   title: "Attributes"

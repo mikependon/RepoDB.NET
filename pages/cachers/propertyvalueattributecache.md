@@ -12,7 +12,7 @@ parent: CACHERS
 
 ---
 
-A cacher class that is used to retrieve the existing mapped [PropertyValueAttribute](/attribute/propertyvalueattribute) objects of a property. Underneath, it uses the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper) class to extract the mappings and caching it for future use.
+A cacher class that is being used to retrieve the existing mapped [PropertyValueAttribute](/attribute/propertyvalueattribute) objects of a property. Underneath, it uses the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper) class to extract the mappings and caching it for future use.
 
 ### Methods
 

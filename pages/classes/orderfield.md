@@ -2,7 +2,7 @@
 layout: default
 sidebar: classes
 title: "OrderField"
-description: "A class that is used to define an ordering of the results when querying a data from the database."
+description: "A class that is being used to define an ordering of the results when querying a data from the database."
 permalink: /class/orderfield
 tags: [repodb, class, orderfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: CLASSES
@@ -12,7 +12,7 @@ parent: CLASSES
 
 ---
 
-This is the class that is used to define an ordering of the results from any fetch operations (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) or [BatchQuery](/operation/batchquery)).
+This is the class that is being used to define an ordering of the results from any fetch operations (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) or [BatchQuery](/operation/batchquery)).
 
 ### Creating an Instance
 

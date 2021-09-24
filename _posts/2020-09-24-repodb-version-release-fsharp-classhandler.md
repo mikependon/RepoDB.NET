@@ -817,7 +817,7 @@ The update must be done to the other methods that accepts the mentioned staled a
 
 ### The DataReader.ToEnumerable Method
 
-The method that is used to extract the DbDataReader object into a target .NET CLR Type has been completely modified. In the previous version, the method named `ToEnumerable` with a signature like below is present, together with its corresponding `async` method.
+The method that is being used to extract the DbDataReader object into a target .NET CLR Type has been completely modified. In the previous version, the method named `ToEnumerable` with a signature like below is present, together with its corresponding `async` method.
 
 ```csharp
 public IEnumerable<TResult> ToEnumerable<TResult>(DbDataReader reader,

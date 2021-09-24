@@ -2,7 +2,7 @@
 layout: default
 sidebar: mappers
 title: "PropertyHandlerMapper"
-description: "A class that is used to map a property handler into a .NET CLR type or a class property. This class is used as an alternative to PropertyHandler attribute."
+description: "A class that is being used to map a property handler into a .NET CLR type or a class property. This class is used as an alternative to PropertyHandler attribute."
 permalink: /mapper/propertyhandlermapper
 tags: [repodb, class, propertyhandlermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: MAPPERS
@@ -12,7 +12,7 @@ parent: MAPPERS
 
 ---
 
-A class that is used to map a property handler into a .NET CLR type or a class property. This class is used as an alternative to the [PropertyHandler](/attribute/propertyhandler) attribute.
+A class that is being used to map a property handler into a .NET CLR type or a class property. This class is used as an alternative to the [PropertyHandler](/attribute/propertyhandler) attribute.
 
 Please see the [IPropertyHandler](/interface/ipropertyhandler) for more details about the property handling implementation.
 

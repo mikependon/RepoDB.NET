@@ -2,7 +2,7 @@
 layout: default
 sidebar: classes
 title: "MemoryCache"
-description: "An advance class that is used to cache an object into a memory within the library."
+description: "An advance class that is being used to cache an object into a memory within the library."
 permalink: /class/memorycache
 tags: [repodb, class, memorycache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: CLASSES

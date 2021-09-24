@@ -2,7 +2,7 @@
 layout: default
 sidebar: mappers
 title: "PropertyValueAttributeMapper"
-description: "A mapper class that is used to map the list PropertyValueAttribute objects into a class property. This class is used as an alternative to the PropertyValueAttribute attributes."
+description: "A mapper class that is being used to map the list PropertyValueAttribute objects into a class property. This class is used as an alternative to the PropertyValueAttribute attributes."
 permalink: /mapper/propertyvalueattributemapper
 tags: [repodb, class, propertyvalueattributemapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: MAPPERS
@@ -12,7 +12,7 @@ parent: MAPPERS
 
 ---
 
-A mapper class that is used to map the list [PropertyValueAttribute](/attribute/propertyvalueattribute) objects into a class property. This class is used as an alternative to the [PropertyValueAttribute](/attribute/propertyvalueattribute) attribute.
+A mapper class that is being used to map the list [PropertyValueAttribute](/attribute/propertyvalueattribute) objects into a class property. This class is used as an alternative to the [PropertyValueAttribute](/attribute/propertyvalueattribute) attribute.
 
 ### Methods
 
