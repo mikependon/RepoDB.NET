@@ -28,7 +28,7 @@ The bulk operations can improve the performance by more than 90% when processing
 
 ### How does it works?
 
-It is leveraging the ADO.NET `SqlBulkCopy` class of the both `System.Data.SqlClient` and the `Microsoft.Data.SqlClient` namespaces.
+It is leveraging the existing ADO.NET `SqlBulkCopy` class of the `Microsoft.Data.SqlClient` namespace.
 
 For [BulkInsert](/operation/bulkinsert) operation, it simply calls the `WriteToServer()` method to bring all the data into the database. Unless you would like to bring the newly generated identities back to the application after the execution, there is no additional logic is implied.
 
@@ -254,7 +254,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### When to use the Batch and Bulk Operations?
 
-There is no standard of when to use what. It all depends on your situation (i.e.: Network LatencyData, No. of Columns, Type of Data, etc).
+There is no standard of when to use what. It all depends on your situation (i.e.: Network Latency, No. of Columns, Type of Data, etc).
 
 The pros of using a bulk operation is maximum performance, however, it keeps blocking the underlying table while being under the context of bulk operation transaction. Therefore, it might trigger a deadlock if not handled by the developers properly.
 
