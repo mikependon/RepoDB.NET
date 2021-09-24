@@ -23,7 +23,7 @@ var where = new LeftTrimQueryField("Column", "Value");
 var result = connection.Query<Entity>(where);
 ```
 
-The result would contain all the records where the left trimmed `Column` is equals to `Value`.
+The result would contain all the records where the left-trimmed value of `Column` is equals to `Value`.
 
 ### GetString
 
