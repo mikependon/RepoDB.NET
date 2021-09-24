@@ -12,24 +12,24 @@ parent: CLASSES
 
 ---
 
-An extended query field class that is being used to define a query expression for the SQL statement using the LEFT function. In inherits from the [QueryField](/class/queryfield) object.
+An extended query field class that is being used to define a query expression for the SQL statement using the LEFT function. It inherits the [QueryField](/class/queryfield) object.
 
 ### Usability
 
 Below is a sample code on how to use this class.
 
 ```csharp
-var where = new LeftQueryField("Country", "Den");
+var where = new LeftQueryField("Column", "Value");
 var result = connection.Query<Entity>(where);
 ```
 
-The result would contain all the records where the `Country` column is starting with `Den`.
+The result would contain all the records where the `Column` is starting with `Value`.
 
 ### GetString
 
 The `GetString()` method returns a command text that utilizes the `LEFT` function.
 
 ```csharp
-var where = new LeftQueryField("Country", "Den");
-var text = where.GetString(connection.GetDbSetting()); // Returns (LEFT([Country]) = @Country)
+var where = new LeftQueryField("Column", "Value");
+var text = where.GetString(connection.GetDbSetting()); // Returns (LEFT([Column]) = @Column)
 ```

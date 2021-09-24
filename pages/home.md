@@ -1,7 +1,7 @@
 ---
 layout: default
 title: HOME
-description: "RepoDB is a hybrid-ORM library for .NET. It is the best alternative ORM to both Dapper and EntityFramework."
+description: "RepoDB is a hybrid-ORM library for .NET."
 nav_order: 0
 permalink: /
 ---
@@ -36,7 +36,7 @@ If you are to use a full-fledged macro-ORM, you are most likely be abstracted by
 
 On the other hand, if you are to use a bare-metal micro-ORM, there are tendencies that most of your implementation will be verbose and are all text-based (SQLs). Even though you have a lot control with this, but it is quite tedious and is not practical in most cases.
 
-RepoDB mediates both the micro-ORMs and macro-ORMs. When using this library, your development experience is as simple as Dapper when opening a connection and is as simple as Entity Framework when calling the operations. It is the reason that makes this library the easiest-to-use ORM.
+RepoDB mediates both the micro-ORMs and macro-ORMs. When using this library, all you have to do is to pass the connection string into your connection object and direcly call the advance operations. It is the reason that makes this library the easiest-to-use ORM.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
