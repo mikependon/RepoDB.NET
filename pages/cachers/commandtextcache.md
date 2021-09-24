@@ -18,7 +18,7 @@ A cacher class for the generated command texts. It provides certain important in
 
 This class only expose a single method named `Flush()`. It allows you as a developer to flush all the cached command texts.
 
-### Use-Cases
+### Usability
 
 You should only call the `Flush()` method if you wish to regenerate the already-generated SQL statements, otherwise, please refrain of using this class.
 

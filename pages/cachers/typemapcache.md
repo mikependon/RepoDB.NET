@@ -21,11 +21,7 @@ Below are the methods available from this class.
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the instance of the database type (via `DbType` object).
 
-### Use-Cases
-
-You should use this class if you would like to get the references of the database type that is already mapped into .NET CLR type or class property.
-
-### How to use?
+### Usability
 
 You can simply call the `Get()` method of this class by passing the class type.
 

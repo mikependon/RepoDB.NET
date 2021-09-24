@@ -107,7 +107,7 @@ public int RemoveById(int id)
 
 > Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base. Please visit our [BaseRepository](/reference/baserepository) reference implementation page for the detailed implementation.
 
-### How to use?
+### Usability
 
 Simply create a new instance of the class to use the repository.
 

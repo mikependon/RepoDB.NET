@@ -64,7 +64,7 @@ internal MyCustomSqlServerDbSetting()
 }
 ```
 
-### How to use?
+### Usability
 
 Simply use the [DbSettingMapper](/mapper/dbsettingmapper) class to map it to the specific RDBMS data provider.
 

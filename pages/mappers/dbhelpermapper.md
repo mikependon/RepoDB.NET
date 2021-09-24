@@ -19,15 +19,11 @@ A mapper class for the [IDbHelper](/interface/idbhelper)-based class. The mappin
 Below are the methods available from this class.
 
 - `Add` - adds a mapping between the [IDbHelper](/interface/idbhelper) and the type of the `DbConnection`.
-- `Clear` - clears all the mappings for the database helpers.
-- `Get` - gets the mapped [IDbHelper](/interface/idbhelper) based on the type of the `DbConnection`.
-- `Remove` - removed the mapping between the [IDbHelper](/interface/idbhelper) and the type of the `DbConnection`.
+- `Clear` - clears all the existing mappings of the database helpers.
+- `Get` - gets the existing mapped [IDbHelper](/interface/idbhelper) object based on the type of the `DbConnection`.
+- `Remove` - removes the existing mapped [IDbHelper](/interface/idbhelper) object based on the type of the `DbConnection`.
 
-### Use-Cases
-
-You should use this class if you would like to override the default mapping of the library when it comes to database helper.
-
-### How to use?
+### Usability
 
 To add a mapping, simply call the `Add()` method.
 

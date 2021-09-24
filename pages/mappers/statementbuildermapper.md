@@ -19,15 +19,11 @@ A mapper class for the [IStatementBuilder](/interface/istatementbuilder)-based c
 Below are the methods available from this class.
 
 - `Add` - adds a mapping between the [IStatementBuilder](/interface/istatementbuilder) and the type of the `DbConnection`.
-- `Clear` - clears all the mappings for the statement builders.
-- `Get` - gets the mapped [IStatementBuilder](/interface/istatementbuilder) based on the type of the `DbConnection`.
-- `Remove` - removed the mapping between the [IStatementBuilder](/interface/istatementbuilder) and the type of the `DbConnection`.
+- `Clear` - clears all the existing mappings of the statement builders.
+- `Get` - gets the existing mapped [IStatementBuilder](/interface/istatementbuilder) object based on the type of the `DbConnection`.
+- `Remove` - removed the existing mapped [IStatementBuilder](/interface/istatementbuilder) object based on the type of the `DbConnection`.
 
-### Use-Cases
-
-You should use this class if you would like to override the default mapping of the library when it comes to database statement building.
-
-### How to use?
+### Usability
 
 To add a mapping, simply call the `Add()` method.
 

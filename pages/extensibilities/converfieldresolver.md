@@ -43,7 +43,7 @@ public string Resolve(Field field,
 }
 ```
 
-### How to use?
+### Usability
 
 You have to simply pass it when inheritting the [BaseStatementBuilder](/class/basestatementbuilder) class.
 

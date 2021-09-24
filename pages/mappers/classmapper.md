@@ -12,22 +12,18 @@ parent: MAPPERS
 
 ---
 
-A mapper class that is used to map the class into its equivalent object in the database (i.e.: Table, View). This class is used as an alternative to [Map](/attribute/map) attribute.
+A mapper class that is used to map the class into its equivalent object in the database (i.e.: Table, View). This class is used as an alternative to the [Map](/attribute/map) attribute.
 
 ### Methods
 
 Below are the methods available from this class.
 
-- `Add` - adds a mapping between the entity model and database object.
-- `Clear` - clears all the entity model and database object mappings.
-- `Get` - gets the mapped name of the entity model.
-- `Remove` - removes the exising mapping between the entity model identity and database object.
+- `Add` - adds a mapping between the class and the name of the database object.
+- `Clear` - clears all the existing database object name mappings.
+- `Get` - gets the existing mapped database object name of the class.
+- `Remove` - removes the exising database object name of the class.
 
-### Use-Cases
-
-You should use this class if you do not like to use the [Map](/attribute/map) attribute. Usually, the purpose of the usability is to make sure that the model is attribute-free and is not bound to a specific ORM.
-
-### How to use?
+### Usability
 
 To add a mapping, simply call the `Add()` method.
 

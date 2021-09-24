@@ -47,4 +47,4 @@ Know more about us and the library!
 
 ### Author
 
-[Michael Camara Pendon](https://twitter.com/mike_pendon) ([{{ site.email_address }}](mailto::{{ site.email_address }}))
+[Michael Camara Pendon](https://twitter.com/mike_pendon) ([Email](mailto::michael.c.pendon@outlook.com))

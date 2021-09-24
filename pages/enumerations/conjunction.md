@@ -19,7 +19,7 @@ This is an enum used to define a conjunction when grouping an expression via [Qu
 - `And` - is used to define an `AND` expression during the grouping. This is the default setting.
 - `Or` - is used to define an `OR` expression during the grouping.
 
-### How to use?
+### Usability
 
 Simply pass it in the constructor when instantiating a [QueryGroup](/class/querygroup) object.
 

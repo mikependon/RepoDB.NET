@@ -17,7 +17,7 @@ This attribute is used to set the value of the `SQLiteParameter.TypeName` proper
 
 ### Attribute
 
-Below is a a sample code on how to use this attribute.
+Below a sample code on how to use this attribute.
 
 ```csharp
 public class Person

@@ -27,7 +27,7 @@ These are the methods available on this class.
 
 > When using the `Scalar()` method, you can pass a generic type as a type of the result. Also, when calling any of the mentioned above, the pointer of the `DbDataReader` is advances to the next result.
 
-### How to use?
+### Usability
 
 You need to handle the result of [ExecuteQueryMultiple](/operation/executequerymultiple) into a variable and manage the extraction via `Extrac()` method.
 

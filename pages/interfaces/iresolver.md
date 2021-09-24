@@ -40,7 +40,7 @@ public class ColumnNameResolver : IResolver<string, IDbSetting, string>
 }
 ```
 
-### How to use?
+### Usability
 
 Then, you can always use it like this.
 

@@ -53,7 +53,7 @@ public Type Resolve(Type type)
 }
 ```
 
-### How to use?
+### Usability
 
 You have to simply pass it when inheritting the [BaseStatementBuilder](/class/basestatementbuilder) class.
 

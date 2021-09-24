@@ -12,7 +12,7 @@ parent: CACHERS
 
 ---
 
-A cacher class for the class primary property. Underneath, it uses the [PrimaryMapper](/mapper/primarymapper) class to extract the results and caching it for future use. It provides a 2nd-layer caching for the library when it comes to the class primary property extraction. As a result, the library is fast-enough when reusing the already extracted class primary property on any execution.
+A cacher class for the class primary property. Underneath, it uses the [PrimaryMapper](/mapper/primarymapper) class to extract the results and caching it for future use.
 
 > Internally, this class is widely used within the library.
 
@@ -23,11 +23,7 @@ Below are the methods available from this class.
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the list of [Field](/class/field) objects.
 
-### Use-Cases
-
-You should use this class if you would like to get the references of the class primary property in general purpose.
-
-### How to use?
+### Usability
 
 You can simply call the `Get()` method of this class by passing the class type.
 

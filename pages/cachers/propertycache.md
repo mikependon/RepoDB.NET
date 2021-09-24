@@ -12,7 +12,7 @@ parent: CACHERS
 
 ---
 
-A hugely-used cacher class for the [ClassProperty](/class/classproperty). It provides a 2nd-layer caching for the library when it comes to the class properties extraction. As a result, the library is fast-enough when reusing the already extracted class properties on any execution.
+A hugely-used cacher class for the [ClassProperty](/class/classproperty). It provides a 2nd-layer caching for the library when it comes to the class properties extraction.
 
 > Internally, this class is widely used within the library.
 
@@ -23,11 +23,7 @@ Below are the methods available from this class.
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the list of [ClassProperty](/class/classproperty) objects.
 
-### Use-Cases
-
-You should use this class if you would like to get the references of the class properties in general purpose.
-
-### How to use?
+### Usability
 
 You can simply call the `Get()` method of this class by passing the class type.
 

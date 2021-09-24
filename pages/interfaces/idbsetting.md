@@ -60,7 +60,7 @@ The reason to this, the library is using the equality based on the generated has
 
 > We recommend to instead use the [BaseDbSetting](/class/basedbsetting) class when implementing a customized database setting.
 
-### How to use?
+### Usability
 
 Once the class has been implemented, you have to call the [DbSettingMapper](/mapper/dbsettingmapper) class for mappings (per RDBMS data provider).
 

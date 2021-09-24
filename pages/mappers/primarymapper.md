@@ -12,22 +12,18 @@ parent: MAPPERS
 
 ---
 
-A mapper class that is used to map a class property to be primary property. This class is used as an alternative to [Primary](/attribute/primary) attribute.
+A mapper class that is used to map a class property to be primary property. This class is used as an alternative to the [Primary](/attribute/primary) attribute.
 
 ### Methods
 
 Below are the methods available from this class.
 
-- `Add` - adds a primary property mapping into an entity type.
-- `Clear` - clears all the classes identity property mappings.
-- `Get` - gets the instance of [ClassProperty](/class/classproperty) that is mapped as primary key.
-- `Remove` - removes the exising mapped primary property of the data entity.
+- `Add` - adds a primary property mapping into a class.
+- `Clear` - clears all the exising primary property mappings.
+- `Get` - gets the existing mapped primary property of the class.
+- `Remove` - removes the exising mapped primary property of the class.
 
-### Use-Cases
-
-You should use this class if you do not like to use the [Primary](/attribute/primary) attribute. Usually, the purpose of the usability is to make sure that the model is attribute-free and is not bound to a specific ORM.
-
-### How to use?
+### Usability
 
 To add a mapping, simply call the `Add()` method.
 

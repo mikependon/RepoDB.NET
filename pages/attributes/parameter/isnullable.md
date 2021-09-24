@@ -15,7 +15,7 @@ This attribute is used to set the value of the `DbParameter.IsNullable` property
 
 ### Attribute
 
-Below is a a sample code on how to use this attribute.
+Below a sample code on how to use this attribute.
 
 ```csharp
 public class Person

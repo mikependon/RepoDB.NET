@@ -158,7 +158,7 @@ You can do override the other virtual methods (as many as you like).
 
 > It is very important to only override the virtual methods if a customization or different implementation is needed.
 
-### How to use?
+### Usability
 
 Once you have the statement builder implemented in a customized class, you can directly inject it on the library using the [StatementBuilderMapper](/mapper/statementbuildermapper) class.
 

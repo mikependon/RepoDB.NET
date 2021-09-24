@@ -347,10 +347,10 @@ docs:
     url: "/attribute/npgsql/datatypename"
 
   - title: "DbType"
-    url: "/attribute/dbtype/dbtype"
+    url: "/attribute/parameter/dbtype"
 
   - title: "Direction"
-    url: "/attribute/dbtype/direction"
+    url: "/attribute/parameter/direction"
 
   - title: "ForceColumnEncryption (SQL Server)"
     url: "/attribute/sqlserver/forcecolumnencryption"
@@ -359,7 +359,7 @@ docs:
     url: "/attribute/identity"
 
   - title: "IsNullable"
-    url: "/attribute/dbtype/isnullable"
+    url: "/attribute/parameter/isnullable"
 
   - title: "LocaleId (SQL Server)"
     url: "/attribute/sqlserver/localeid"
@@ -371,7 +371,7 @@ docs:
     url: "/attribute/mysql/mysqldbtype"
 
   - title: "Name"
-    url: "/attribute/dbtype/name"
+    url: "/attribute/parameter/name"
 
   - title: "NpgsqlDbType (PostgreSQL)"
     url: "/attribute/npgsql/npgsqldbtype"
@@ -380,7 +380,7 @@ docs:
     url: "/attribute/sqlserver/offset"
 
   - title: "Precision"
-    url: "/attribute/dbtype/precision"
+    url: "/attribute/parameter/precision"
 
   - title: "Primary"
     url: "/attribute/primary"
@@ -389,13 +389,13 @@ docs:
     url: "/attribute/propertyhandler"
 
   - title: "PropertyValueAttribute"
-    url: "/attribute/dbtype/propertyvalueattribute"
+    url: "/attribute/parameter/propertyvalueattribute"
 
   - title: "Scale"
-    url: "/attribute/dbtype/scale"
+    url: "/attribute/parameter/scale"
 
   - title: "Size"
-    url: "/attribute/dbtype/size"
+    url: "/attribute/parameter/size"
 
   - title: "SqlDbType (SQL Server)"
     url: "/attribute/sqlserver/sqldbtype"
@@ -505,11 +505,14 @@ docs:
   - title: "PropertyCache"
     url: "/cacher/propertycache"
 
+  - title: "PropertyHandlerCache"
+    url: "/cacher/propertyhandlercache"
+
   - title: "PropertyMappedNameCache"
     url: "/cacher/propertymappednamecache"
 
-  - title: "PropertyHandlerCache"
-    url: "/cacher/propertyhandlercache"
+  - title: "PropertyValueAttributeCache"
+    url: "/cacher/propertyvalueattributecache"
 
   - title: "TypeMapCache"
     url: "/cacher/typemapcache"
@@ -547,6 +550,9 @@ docs:
     
   - title: "PropertyHandlerMapper"
     url: "/mapper/propertyhandlermapper"
+    
+  - title: "PropertyValueAttributeMapper"
+    url: "/mapper/propertyvalueattributemapper"
     
   - title: "StatementBuilderMapper"
     url: "/mapper/statementbuildermapper"

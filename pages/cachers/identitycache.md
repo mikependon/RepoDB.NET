@@ -12,7 +12,7 @@ parent: CACHERS
 
 ---
 
-A cacher class for the class identity property. Underneath, it uses the [IdentityMapper](/mapper/identitymapper) class to extract the results and caching it for future use. It provides a 2nd-layer caching for the library when it comes to the class identity property extraction. As a result, the library is fast-enough when reusing the already extracted class identity property on any execution.
+A cacher class for the class identity property. Underneath, it uses the [IdentityMapper](/mapper/identitymapper) class to extract the results and caching it for future use.
 
 ### Methods
 
@@ -21,11 +21,7 @@ Below are the methods available from this class.
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the list of [Field](/class/field) objects.
 
-### Use-Cases
-
-You should only use this class if you would like to get the references of the class identity property in general purpose.
-
-### How to use?
+### Usability
 
 You can simply call the `Get()` method of this class by passing the class type.
 

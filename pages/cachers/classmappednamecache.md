@@ -12,7 +12,7 @@ parent: CACHERS
 
 ---
 
-A cacher class for the class name mapping. Underneath, it uses the [ClassMapper](/mapper/classmapper) class to extract the results and caching it for future use. It provides a 2nd-layer caching for the library when it comes to the class name mapping extraction. As a result, the library is fast-enough when reusing the already extracted class mapped name on any execution.
+A cacher class for the class name mapping. Underneath, it uses the [ClassMapper](/mapper/classmapper) class to extract the results and caching it for future use. It provides a 2nd-layer caching for the library when it comes to the class name mapping extraction.
 
 > Internally, this class is widely used within the library.
 
@@ -22,14 +22,8 @@ Below are the methods available from this class.
 
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the mapped name of the class.
-  
-### Use-Cases
 
-You should use this class if you would like to get the mapped name of the class in general purpose.
-
-> You should rely on this class rather using the `nameof(Class)` of C# when working against the class name.
-
-### How to use?
+### Usability
 
 You can simply call the `Get()` method of this class by passing the class type.
 

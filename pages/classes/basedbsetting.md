@@ -46,7 +46,7 @@ public sealed class MyCustomSqlServerDbSetting : BaseDbSetting
 
 > Additional benefits when using this class, you do not need to implement the `GetHashCode()` method as it is already implemented within the base class.
 
-### How to use?
+### Usability
 
 Simply use the [DbSettingMapper](/mapper/dbsettingmapper) class to map it to the specific RDBMS data provider.
 

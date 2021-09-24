@@ -12,22 +12,18 @@ parent: MAPPERS
 
 ---
 
-A mapper class that is used to map the class property into its equivalent column in the database. This class is used as an alternative to [Map](/attribute/map) attribute.
+A mapper class that is used to map the class property into its equivalent column in the database. This class is used as an alternative to the [Map](/attribute/map) attribute.
 
 ### Methods
 
 Below are the methods available from this class.
 
-- `Add` - adds a mapping between the class property and database column.
-- `Clear` - clears all the class properties and database columns mappings.
-- `Get` - gets the mapped name of the class property.
-- `Remove` - removes the exising mapping between the class property and database column.
+- `Add` - adds a database column name mapping into a property.
+- `Clear` - clears all the existing database columns mappings.
+- `Get` - gets the existing mapped database column name of the property.
+- `Remove` - removes the exising mapped database column name of the property.
 
-### Use-Cases
-
-You should use this class if you do not like to use the [Map](/attribute/map) attribute. Usually, the purpose of the usability is to make sure that the model is attribute-free and is not bound to a specific ORM.
-
-### How to use?
+### Usability
 
 To add a mapping, simply call the `Add()` method.
 

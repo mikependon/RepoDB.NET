@@ -12,7 +12,9 @@ parent: CACHERS
 
 ---
 
-A cacher class for the `System.Reflection.PropertyInfo`. Underneath, it uses the [PropertyMapper](/mapper/propertymapper) class to extract the results and caching it for future use. It provides a 2nd-layer caching for the library when it comes to the property name mapping extraction. As a result, the library is fast-enough when reusing the already extracted property mapped name on any execution.
+A cacher class for the `System.Reflection.PropertyInfo`. Underneath, it uses the [PropertyMapper](/mapper/propertymapper) class to extract the results and caching it for future use.
+
+> You should rely on this class rather using the `nameof(Class.Property)` of C# when working against the property name.
 
 ### Methods
 
@@ -21,13 +23,7 @@ Below are the methods available from this class.
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the mapped name of the property.
 
-### Use-Cases
-
-You should use this class if you would like to get the mapped name of the property in general purpose.
-
-> You should rely on this class rather using the `nameof(Class.Property)` of C# when working against the property name.
-
-### How to use?
+### Usability
 
 You can simply call the `Get()` method of this class by passing the instance of `System.Reflection.PropertyInfo`.
 

@@ -112,7 +112,7 @@ public sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 
 > You can also override the other non-abstract methods as they were all implemented as `virtual`. It is very important to take note that you should only override the base functionalities if you have a specialized implementation for the specific RDBMS data provider.
 
-### How to use?
+### Usability
 
 Simply use the [StatementBuilderMapper](/mapper/statementbuildermapper) class to map it to the specific RDBMS data provider.
 

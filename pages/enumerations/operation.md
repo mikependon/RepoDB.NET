@@ -29,7 +29,7 @@ This enum is used to set the value of the `Operation` property of [QueryField](/
 - `In` - an in operation. Defines the `IN` keyword in SQL statement.
 - `NotIn` - a not-in operation. Defines the `NOT IN` keyword in SQL statement.
 
-### How to use?
+### Usability
 
 Simply pass the value of when instantiating the [QueryField](/class/queryfield) object.
 

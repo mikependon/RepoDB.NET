@@ -19,15 +19,11 @@ A mapper class for the [IDbSetting](/interface/idbsetting)-based class. The mapp
 Below are the methods available from this class.
 
 - `Add` - adds a mapping between the [IDbSetting](/interface/idbsetting) and the type of the `DbConnection`.
-- `Clear` - clears all the mappings for the database settings.
-- `Get` - gets the mapped [IDbSetting](/interface/idbsetting) based on the type of the `DbConnection`.
-- `Remove` - removed the mapping between the [IDbSetting](/interface/idbsetting) and the type of the `DbConnection`.
+- `Clear` - clears all the existing mappings of the database settings.
+- `Get` - gets the existing mapped [IDbSetting](/interface/idbsetting) object based on the type of the `DbConnection`.
+- `Remove` - removes the existing mapped [IDbSetting](/interface/idbsetting) object based on the type of the `DbConnection`.
 
-### Use-Cases
-
-You should use this class if you would like to override the default mapping of the library when it comes to database setting.
-
-### How to use?
+### Usability
 
 To add a mapping, simply call the `Add()` method.
 

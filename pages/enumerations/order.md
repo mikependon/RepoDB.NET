@@ -19,7 +19,7 @@ This enum is used to define an ordering of the query results. It is usually used
 - `Ascending` - is used to define an ascending order. This is the default setting.
 - `Descending` - is used to define a descending order.
 
-### How to use?
+### Usability
 
 Simply use the value when creating an [OrderField](/class/orderfield) object.
 

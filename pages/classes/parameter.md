@@ -16,7 +16,7 @@ This class is used to handle the necesasry information when constructing a data 
 
 > Internally, the library is using this class as an entries for creating the `DbParameter` objects.
 
-### How to use?
+### Usability
 
 ```csharp
 var parameter = new Parameter("@Id", 10045, false);

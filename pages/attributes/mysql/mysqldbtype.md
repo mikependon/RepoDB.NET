@@ -13,11 +13,11 @@ grand_parent: ATTRIBUTES
 
 This attribute is used to set the value of the `MySqlParameter.MySqlDbType` property via a class property.
 
-> Both works on `MySql.Data` and `MySqlConnector` with their corresponding namespaces.
+> Works on both the `MySql.Data` and `MySqlConnector` packages.
 
 ### Attribute
 
-Below is a a sample code on how to use this attribute.
+Below a sample code on how to use this attribute.
 
 ```csharp
 public class Person

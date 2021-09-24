@@ -12,7 +12,7 @@ parent: MAPPERS
 
 ---
 
-A class that is used to map a property handler into a .NET CLR type or a class property. This class is used as an alternative to [PropertyHandler](/attribute/propertyhandler) attribute.
+A class that is used to map a property handler into a .NET CLR type or a class property. This class is used as an alternative to the [PropertyHandler](/attribute/propertyhandler) attribute.
 
 Please see the [IPropertyHandler](/interface/ipropertyhandler) for more details about the property handling implementation.
 
@@ -20,16 +20,12 @@ Please see the [IPropertyHandler](/interface/ipropertyhandler) for more details 
 
 Below are the methods available from this class.
 
-- `Add` - adds a property handler mapping on a specific .NET CLR type.
-- `Clear` - clears all the mappings for the property handlers.
-- `Get` - gets the mapped property handler specific to the .NET CLR type.
-- `Remove` - removes the mapping of the .NET CLR type into a property handler.
+- `Add` - adds a property handler mapping on a class or property.
+- `Clear` - clears all the existing mappings of the property handlers.
+- `Get` - gets the existing mapped property handler of the class or property.
+- `Remove` - removes the existing mapped property handler of the class or property.
 
-### Use-Cases
-
-You should use this class if you do not like to use the [PropertyHandler](/attribute/propertyhandler) attribute. Usually, the purpose of the usability is to make sure that the model is attribute-free and is not bound to a specific ORM.
-
-### How to use?
+### Usability
 
 Let us say you had implemented a `DateTime` handler like below.
 

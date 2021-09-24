@@ -2,7 +2,7 @@
 layout: default
 sidebar: mappers
 title: "ClassHandlerMapper"
-description: "A class that is used to map a class handler into a .NET CLR type. This class is used as an alternative to ClassHandler attribute."
+description: "A class that is used to map a class handler into a class. This class is used as an alternative to ClassHandler attribute."
 permalink: /mapper/classhandlermapper
 tags: [repodb, class, classhandlermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: MAPPERS
@@ -12,7 +12,7 @@ parent: MAPPERS
 
 ---
 
-A class that is used to map a class handler into a .NET CLR type. This class is used as an alternative to [ClassHandler](/attribute/classhandler) attribute.
+A class that is used to map a class handler into a class. This class is used as an alternative to the [ClassHandler](/attribute/classhandler) attribute.
 
 Please see the [IClassHandlerMapper](/interface/iclasshandler) for more details about the property handling implementation.
 
@@ -20,16 +20,12 @@ Please see the [IClassHandlerMapper](/interface/iclasshandler) for more details 
 
 Below are the methods available from this class.
 
-- `Add` - adds a class handler mapping on a specific .NET CLR type.
-- `Clear` - clears all the mappings for the class handlers.
-- `Get` - gets the mapped class handler specific to the .NET CLR type.
-- `Remove` - removes the mapping of the .NET CLR type into a class handler.
+- `Add` - adds a class handler mapping on a specific class.
+- `Clear` - clears all the existing property handler mappings.
+- `Get` - gets the existing mapped class handler object on the class.
+- `Remove` - removes the existing mapped class handler of the class.
 
-### Use-Cases
-
-You should use this class if you do not like to use the [ClassHandler](/attribute/classhandler) attribute. Usually, the purpose of the usability is to make sure that the model is attribute-free and is not bound to a specific ORM.
-
-### How to use?
+### Usability
 
 Let us say you had implemented a `Person` handler like below.
 

@@ -20,7 +20,7 @@ This class gives your application the maximum performance as it eliminates the r
 
 You should use this class if you wish to cache all the fetched objects from the database into memory.
 
-### How to use?
+### Usability
 
 Simply pass the instance in the constructor of the repositories (i.e.: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)) or when calling the fetched operations (i.e.: [Query](/operation/query) and [QueryAll](/operation/queryall)).
 

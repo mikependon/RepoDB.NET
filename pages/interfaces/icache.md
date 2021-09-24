@@ -68,7 +68,7 @@ public class JsonCache : ICache
 
 > You have to implement all the methods needed by this interface. With this, you have the full control of you cacher object.
 
-### How to use?
+### Usability
 
 You can pass it on the constructor of the [BaseRepository](/class/baserepository) object.
 

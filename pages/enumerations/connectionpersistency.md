@@ -21,7 +21,7 @@ This is the enumeration used to define the persistency of the `DbConnection` ins
 - `PerCall` - in every method call, a new `DbConnection` object is being used. This is the default setting.
 - `Instance` - a single instance of `DbConnection` object is used all throughout the lifespan of the repository.
 
-### How to use?
+### Usability
 
 Simply pass the connection persistency value in the constructor when instantiating a repository object.
 

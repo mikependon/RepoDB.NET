@@ -12,22 +12,18 @@ parent: MAPPERS
 
 ---
 
-A class that is used to map a .NET CLR type or class property into its equivalent database type (via `DbType` object). This class is used as an alternative to [TypeMap](/attribute/typemap) attribute.
+A class that is used to map a .NET CLR type or class property into its equivalent database type (via `DbType` object). This class is used as an alternative to the [TypeMap](/attribute/typemap) attribute.
 
 ### Methods
 
 Below are the methods available from this class.
 
-- `Add` - adds a mapping between the .NET CLR type and database type.
-- `Clear` - clears all the database type mappings.
-- `Get` - gets the mapped database type based on the .NET CLR type.
-- `Remove` - removes the mapping between the .NET CLR type and database type.
+- `Add` - adds a mapping between a .NET CLR type and a database type.
+- `Clear` - clears all the existing database type mappings.
+- `Get` - gets the existing mapped database type on the .NET CLR type.
+- `Remove` - removes the existing mapped database type on the .NET CLR type.
 
-### Use-Cases
-
-You should use this class if you do not like to use the [TypeMap](/attribute/typemap) attribute. Usually, the purpose of the usability is to make sure that the model is attribute-free and is not bound to a specific ORM.
-
-### How to use?
+### Usability
 
 Let us say you would like to map the `System.DateTime` .NET CLR type into a `DbType.DateTime2` database type.
 

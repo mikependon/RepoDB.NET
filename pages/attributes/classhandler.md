@@ -13,7 +13,7 @@ parent: ATTRIBUTES
 
 ---
 
-This attribute is used to make a class valid for class handling evaluation during the serialization and deserialization process. By having this attribute, the library compiler (transformer) will automatically trigger the class handler `Get()` and `Set()`  method for custom handling.
+This attribute is used to mark a class to be evaluated by the compilers during the serialization and deserialization process. By having this attribute, the library compiler (transformer) will automatically trigger the class handler `Get()` and `Set()`  method for custom handling.
 
 ### Implementations
 

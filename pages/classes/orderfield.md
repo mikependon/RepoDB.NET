@@ -77,7 +77,7 @@ var fields = OrderField.Parse(new
 });
 ```
 
-### How to use?
+### Usability
 
 Simply pass it on the operations like below.
 

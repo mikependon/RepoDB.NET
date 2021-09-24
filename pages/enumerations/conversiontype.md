@@ -56,7 +56,7 @@ CREATE TABLE [dbo].[Customer]
 }
 ```
 
-### How to use?
+### Usability
 
 Simply set the value of `ConversionType` property of [TypeMapper](/mapper/typemapper) object like below.
 
