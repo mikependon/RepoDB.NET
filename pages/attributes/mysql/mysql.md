@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MYSQL
+title: MySQL
 nav_order: 10
 has_children: true
 permalink: /attribute/mysql

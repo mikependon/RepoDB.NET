@@ -2,8 +2,8 @@
 layout: default
 title: CompareInfo
 permalink: /attribute/sqlserver/compareinfo
-tags: [repodb, compareinfo, dbtype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: SQLSRVR
+tags: [repodb, attribute, compareinfo, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: "SQL Server"
 grand_parent: ATTRIBUTES
 ---
 

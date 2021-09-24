@@ -361,17 +361,14 @@ docs:
   - title: "IsNullable"
     url: "/attribute/dbtype/isnullable"
 
-  - title: "LocalId (SQL Server)"
+  - title: "LocaleId (SQL Server)"
     url: "/attribute/sqlserver/localeid"
 
   - title: "Map"
     url: "/attribute/map"
 
-  - title: "MySqlDbType (MySQL)"
+  - title: "MySqlDbType"
     url: "/attribute/mysql/mysqldbtype"
-
-  - title: "MySqlDbType (MySqlConnector)"
-    url: "/attribute/mysqlconnector/mysqldbtype"
 
   - title: "Name"
     url: "/attribute/dbtype/name"
@@ -403,8 +400,8 @@ docs:
   - title: "SqlDbType (SQL Server)"
     url: "/attribute/sqlserver/sqldbtype"
 
-  - title: "SqliteType (SQLite)"
-    url: "/attribute/sqlite/sqltype"
+  - title: "SqliteType (Sqlite)"
+    url: "/attribute/sqlite/sqlitetype"
 
   - title: "TypeMap"
     url: "/attribute/typemap"

@@ -23,10 +23,7 @@ Let us say you have a the table named `[department].[Person]` like below.
 CREATE TABLE [department].[Person]
 (
     [Id] [bigint] IDENTITY(1,1) NOT NULL,
-    [Name] [nvarchar](256) NOT NULL,
-    [Age] [int] NOT NULL,
-    [DateInsertedUtc] [datetime2](5) NOT NULL,
-    CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
+    [Name] [nvarchar](256) NOT NULL
 )
 ON [PRIMARY];
 GO
@@ -38,14 +35,12 @@ And a model class named `Person` like below in which some of the column is not m
 [Map("[department].[Person]")] // Use the mapping as the default schema is [dbo]
 public class Person
 {
-public long Id { get; set; }
-public string Name { get; set; }
-public int Age { get; set; }
-public DateTime CreatedDateUtc { get; set; }
+    public long Id { get; set; }
+    public string Name { get; set; }
 }
 ```
 
-> You can also use the mapping if the table name and class name is not matching case-insensitively.
+> You can also use the mapping if the table name and the class name is not matching in terms of casing.
 
 ### Property Mapping
 
@@ -56,10 +51,7 @@ CREATE TABLE [dbo].[Person]
 (
     [Id] [bigint] IDENTITY(1,1) NOT NULL,
     [LName] [nvarchar](128) NOT NULL,
-    [LName] [nvarchar](128) NOT NULL,
-    [Age] [int] NOT NULL,
-    [DateInsertedUtc] [datetime2](5) NOT NULL,
-    CONSTRAINT [CRIX_Person_Id] PRIMARY KEY CLUSTERED ([Id] ASC) ON [PRIMARY]
+    [LName] [nvarchar](128) NOT NULL
 )
 ON [PRIMARY];
 GO
@@ -75,23 +67,21 @@ public class Person
     public string FirstName { get; set; }
     [Map("LName")]
     public string LastName { get; set; }
-    public int Age { get; set; }
-    [Map("DateInsertedUtc")]
-    public DateTime CreatedDateUtc { get; set; }
 }
 ```
 
-### Get the Class Mapping
+### Retrieval
 
-You can use the [ClassMappedNameCache](/cacher/classmappednamecache) to extract the mappings for the class.
+You can use the [ClassMappedNameCache](/cacher/classmappednamecache) to retrieve the mappings for the class.
 
 ```csharp
 var mappedName = ClassMappedNameCache.Get<Person>();
 ```
 
-### Get the Property Mapping
+You can use either of the following.
 
-You can use the [PropertyMappedNameCache](/cacher/propertymappednamecache) to extract the mappings for the `PropertyInfo`.
+- The `Get()` method of the [PropertyMappedNameCache](/cacher/propertymappednamecache)
+- The `GetMappedName()` method of the [ClassProperty](/class/classproperty)
 
 ```csharp
 var properties = PropertyCache.Get<Person>();
@@ -101,7 +91,7 @@ properties
     .AsList()
     .ForEach(property =>
     {
-        var mappedName = PropertyMappedNameCache.Get(property.PropertyInfo);
+        var mappedName = property.GetMappedName(); // or PropertyMappedNameCache.Get(property.PropertyInfo);
     });
 ```
 

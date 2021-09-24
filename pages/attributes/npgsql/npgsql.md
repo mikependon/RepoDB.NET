@@ -1,6 +1,6 @@
 ---
 layout: default
-title: NPGSQL
+title: PostgreSQL
 nav_order: 9
 has_children: true
 permalink: /attribute/npgsql

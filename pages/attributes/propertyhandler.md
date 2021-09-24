@@ -15,7 +15,7 @@ parent: ATTRIBUTES
 
 This attribute is used to signal a property handling operation on the class property. By having this attribute, the library compiler will automatically trigger the property handler `Get()` and `Set()` method during the serialization/deserialization and hydration process.
 
-### How to use?
+### Implementation
 
 Let us say you had created a customized [IPropertyHandler](/interface/ipropertyhandler) like below.
 
@@ -41,14 +41,12 @@ public class Person
 {
     public long Id { get; set; }
     public string Name { get; set; }
-    public int Age { get; set; }
     [PropertyHandler(typeof(PersonAddressHandler))]
     public Address Address { get; set; }
-    public DateTime CreatedDateUtc { get; set; }
 }
 ```
 
-After that, when you read the records, you can automatically read the `Address` values from the `Address` property.
+When you read the records from the database, the `Address` property is then filled by the value of the `Address` column that is being serialized as an actual class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

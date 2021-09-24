@@ -1,9 +1,9 @@
 ---
 layout: default
 title: TypeName
-permalink: /attribute/sqlserver/typename
+permalink: /attribute/sqlite/typename
 tags: [repodb, attribute, typename, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: "SQL Server"
+parent: SQLite
 grand_parent: ATTRIBUTES
 ---
 
@@ -11,7 +11,9 @@ grand_parent: ATTRIBUTES
 
 ---
 
-This attribute is used to set the value of the `SqlParameter.TypeName` property via a class property.
+This attribute is used to set the value of the `SQLiteParameter.TypeName` property via a class property.
+
+> Only works on `System.Data.SQLite` package.
 
 ### Attribute
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PARAMETER
+title: Parameter
 nav_order: 7
 has_children: true
 permalink: /attribute/parameter

@@ -2,8 +2,8 @@
 layout: default
 title: LocaleId
 permalink: /attribute/sqlserver/localeid
-tags: [repodb, localeid, dbtype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: SQLSRVR
+tags: [repodb, attribute, localeid, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: "SQL Server"
 grand_parent: ATTRIBUTES
 ---
 

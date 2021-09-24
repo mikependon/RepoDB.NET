@@ -2,8 +2,8 @@
 layout: default
 title: SqlDbType
 permalink: /attribute/sqlserver/sqldbtype
-tags: [repodb, sqldbtype, dbtype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: SQLSRVR
+tags: [repodb, attribute, sqldbtype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: "SQL Server"
 grand_parent: ATTRIBUTES
 ---
 

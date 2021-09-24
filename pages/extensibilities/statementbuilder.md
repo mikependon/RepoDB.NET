@@ -160,7 +160,13 @@ You can do override the other virtual methods (as many as you like).
 
 ### How to use?
 
-You can pass it in any extended [operations](/docs#operations) of the `DbConnection` object.
+Once you have the statement builder implemented in a customized class, you can directly inject it on the library using the [StatementBuilderMapper](/mapper/statementbuildermapper) class.
+
+```csharp
+StatementBuilderMapper.Add<SqlConnection>(new OptimizedSqlServerStatementBuilder());
+```
+
+Or by passing it to any extended [operations](/docs#operations) of the `DbConnection` object.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

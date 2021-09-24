@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SQLSRVR
+title: "SQL Server"
 nav_order: 8
 has_children: true
 permalink: /attribute/sqlserver

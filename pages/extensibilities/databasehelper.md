@@ -157,7 +157,8 @@ private DbField ReaderToDbField(IDataReader reader)
         reader.IsDBNull(5) ? 0 : GetConvertedSize(reader.GetString(4), reader.GetInt32(5)),
         reader.IsDBNull(6) ? (byte?)0 : reader.GetByte(6),
         reader.IsDBNull(7) ? (byte?)0 : reader.GetByte(7),
-        reader.IsDBNull(7) ? "text" : reader.GetString(4));
+        reader.IsDBNull(7) ? "text" : reader.GetString(4),
+        "SQLSVR");
 }
 
 private int? GetConvertedSize(string type, int size)

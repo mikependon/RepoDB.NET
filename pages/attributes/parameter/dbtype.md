@@ -3,7 +3,7 @@ layout: default
 title: DbType
 permalink: /attribute/parameter/dbtype
 tags: [repodb, attribute, dbtype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: PARAMETER
+parent: Parameter
 grand_parent: ATTRIBUTES
 ---
 

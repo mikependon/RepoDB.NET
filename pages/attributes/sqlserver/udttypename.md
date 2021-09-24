@@ -2,8 +2,8 @@
 layout: default
 title: UdtTypeName
 permalink: /attribute/sqlserver/udttypename
-tags: [repodb, udttypename, dbtype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: SQLSRVR
+tags: [repodb, attribute, udttypename, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: "SQL Server"
 grand_parent: ATTRIBUTES
 ---
 

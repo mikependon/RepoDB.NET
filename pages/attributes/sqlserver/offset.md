@@ -1,9 +1,9 @@
 ---
 layout: default
-title: LocaleId
+title: Offset
 permalink: /attribute/sqlserver/offset
-tags: [repodb, offset, dbtype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: SQLSRVR
+tags: [repodb, attribute, offset, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+parent: "SQL Server"
 grand_parent: ATTRIBUTES
 ---
 
