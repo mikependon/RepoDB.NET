@@ -24,7 +24,8 @@ An immutable class that holds the definition of the database columns. This class
 - `Size` - the size of the column from the database.
 - `Precision` - the precision of the column from the database.
 - `Scale` - the scale of the column from the database.
-- `DatabaseType` - tye type of the column from the database.
+- `DatabaseType` - the  type of the column from the database.
+- `Provider` - the database provider who created the instance.
 
 #### How to Extract?
 

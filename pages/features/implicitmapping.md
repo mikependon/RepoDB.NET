@@ -35,6 +35,12 @@ FluentMapper
     .DbType(e => e.DateOfBirth, DbType.DateTime2) // Defines the DatabaseType of the Property
     .ClassHandler<CustomerClassHandler>() // Defines the ClassHandler of the Class
     .PropertyHandler<CustomerAddressPropertyHandler>(e => e.Address); // Defines the PropertyHandler of the Property
+    .PropertyValueAttributes<CustomerAddressPropertyHandler>(e => e.Address, new PropertyValueAttribute[]
+    {
+        new NameAttribute("Address"),
+        new SizeAttribute(1024),
+        new DbTypeAttribute(DbType.NVarChar)
+    }); // Defines the PropertyHandler of the Property
 ```
 
 #### Type-Level Mapping
@@ -419,5 +425,40 @@ TypeMapper.Remove<DateTime>();
 ```
 
 Please visit the [Type Mapping](/feature/typemapping) feature for further information.
+
+### Property Value Attribute Mapping
+
+Use the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper) class to manage the mappings of the property value attributes.
+
+Let us say you have class handler below.
+
+To add a mapping, use the `Add()` method.
+
+```csharp
+PropertyValueAttributeMapper.Add<Customer>(e => e.FirstName, new PropertyValueAttribute[]
+{
+    new NameAttribute("FName"),
+    new SizeAttribute(128),
+    new DbTypeAttribute(DbType.AnsiString)
+});
+```
+
+To retrieve the mapping, use the `Get()` method.
+
+```csharp
+var attributes = PropertyValueAttributeMapper.Get<Customer>(e => e.FirstName);
+```
+
+> We highly recommend to use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) class when retrieving the cached property value attributes. This is to maximize the reusability and performance.
+
+```csharp
+var attributes = PropertyValueAttributeCache.Get<Customer>(e => e.FirstName);
+```
+
+To remove the mapping, use the `Remove()` method.
+
+```csharp
+PropertyValueAttributeMapper.Remove<Customer>(e => e.FirstName);
+```
 
 > In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and if you did not enfored the call using the `force` argument. Please be noted that the `force` argument is not overriding that attribute-based mapping (i.e.: by using the `System.ComponentModel.DataAnnotations.Schema` (`Table`, `Column`), [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap), [ClassHandler](/attribute/classhandler) and [PropertyHandler](/attribute/propertyhandler)).
