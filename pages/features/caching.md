@@ -41,7 +41,8 @@ using (var connection = new SqlConnection(connectionString))
 Below is the code if the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) are being used.
 
 ```csharp
-using (var repository = new DbRepository<Product, SqlConnection>(connectionString))
+var cache = CacheFactory.GetMemoryCache();
+using (var repository = new DbRepository<Product, SqlConnection>(connectionString, cache))
 {
     var products = repository.QueryAll(cacheKey: "products");
 }

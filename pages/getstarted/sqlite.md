@@ -25,13 +25,11 @@ The library can be installed via Nuget. In your Package Manager Console, type th
 > Install-Package RepoDb.SQLite.System
 ```
 
-Once installed, call the bootstrapper to initialize all the dependencies for SQLite.
+Once installed, call the bootstrapper to initialize all the dependencies for SQLiteConnection.
 
 ```csharp
 RepoDb.SQLiteBootstrap.Initialize();
 ```
-
-The library can be installed via Nuget. In your Package Manager Console, type the command below.
 
 #### Microsoft.Data.Sqlite
 
@@ -39,7 +37,7 @@ The library can be installed via Nuget. In your Package Manager Console, type th
 > Install-Package RepoDb.Sqlite.Microsoft
 ```
 
-Once installed, call the bootstrapper to initialize all the dependencies for SQLite.
+Once installed, call the bootstrapper to initialize all the dependencies for SqliteConnection.
 
 ```csharp
 RepoDb.SqliteBootstrap.Initialize();
