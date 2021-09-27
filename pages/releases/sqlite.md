@@ -14,6 +14,22 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqLite) to download it.
 
+### RepoDB.Sqlite.Microsoft (v1.0.0-beta1)
+
+- Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).
+
+
+### RepoDB.SQLite.System (v1.0.0-beta1)
+
+- Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).
+
+
+### RepoDB.SqLite (Deprecation)
+
+- Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).
+- Added the deprecation notice.
+
+
 ### RepoDB.SqLite (v1.1.4)
 
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.

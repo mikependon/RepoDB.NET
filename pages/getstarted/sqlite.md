@@ -19,14 +19,30 @@ RepoDB is a hybrid .NET ORM library for [SQLite](https://www.nuget.org/packages/
 
 The library can be installed via Nuget. In your Package Manager Console, type the command below.
 
+#### System.Data.SQLite.Core
+
 ```csharp
-> Install-Package RepoDb.SqLite
+> Install-Package RepoDb.SQLite.System
 ```
 
 Once installed, call the bootstrapper to initialize all the dependencies for SQLite.
 
 ```csharp
-RepoDb.SqLiteBootstrap.Initialize();
+RepoDb.SQLiteBootstrap.Initialize();
+```
+
+The library can be installed via Nuget. In your Package Manager Console, type the command below.
+
+#### Microsoft.Data.Sqlite
+
+```csharp
+> Install-Package RepoDb.Sqlite.Microsoft
+```
+
+Once installed, call the bootstrapper to initialize all the dependencies for SQLite.
+
+```csharp
+RepoDb.SqliteBootstrap.Initialize();
 ```
 
 Or visit our [installation](/tutorial/installation) page for more information.

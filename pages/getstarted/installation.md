@@ -42,18 +42,32 @@ Then, call the bootstrapper to initialize the needed references.
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-### SQLite
+### SQLite (System)
 
-If you wish to work with [SQLite](https://www.nuget.org/packages/RepoDb.SqLite).
+If you wish to work with [SQLite](https://www.nuget.org/packages/RepoDb.SQLite.System).
 
 ```csharp
-> Install-Package RepoDb.SqLite
+> Install-Package RepoDb.SQLite.System
 ```
 
 Then, call the bootstrapper to initialize the needed references.
 
 ```csharp
-RepoDb.SqLiteBootstrap.Initialize();
+RepoDb.SQLiteBootstrap.Initialize();
+```
+
+### SQLite (Microsoft)
+
+If you wish to work with [SQLite](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft).
+
+```csharp
+> Install-Package RepoDb.Sqlite.Microsoft
+```
+
+Then, call the bootstrapper to initialize the needed references.
+
+```csharp
+RepoDb.SqliteBootstrap.Initialize();
 ```
 
 ### MySQL
@@ -62,6 +76,20 @@ If you wish to work with [MySQL](https://www.nuget.org/packages/RepoDb.MySql).
 
 ```csharp
 > Install-Package RepoDb.MySql
+```
+
+Then, call the bootstrapper to initialize the needed references.
+
+```csharp
+RepoDb.MySqlBootstrap.Initialize();
+```
+
+### MySqlConnector
+
+If you wish to work with [MySQL](https://www.nuget.org/packages/RepoDb.MySqlConnector).
+
+```csharp
+> Install-Package RepoDb.MySqlConnectorBootstrap.Initialize();
 ```
 
 Then, call the bootstrapper to initialize the needed references.
