@@ -641,8 +641,11 @@ docs:
   - title: "SQL Server (Bulk)"
     url: "/release/sqlserverbulk"
 
-  - title: "SQLite"
-    url: "/release/sqlite"
+  - title: "SQLite (System)"
+    url: "/release/sqlite-system"
+
+  - title: "SQLite (Microsoft)"
+    url: "/release/sqlite-microsoft"
 
   - title: "MySQL"
     url: "/release/mysql"

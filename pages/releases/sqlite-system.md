@@ -1,23 +1,18 @@
 ---
 layout: default
 sidebar: releases
-title: SQLite
-description: "This page contains the latest information of the releases of RepoDb.SqLite library."
+title: SQLite (System)
+description: "This page contains the latest information of the releases of RepoDb.SQLite.System library."
 nav_order: 4
-permalink: /release/sqlite
+permalink: /release/sqlite-system
 parent: RELEASES
 ---
 
-# Releases for RepoDb.SqLite
+# Releases for RepoDb.SQLite.System
 
 ---
 
-Please click [here](https://www.nuget.org/packages/RepoDb.SqLite) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqLite) to download it.
-
-### RepoDB.Sqlite.Microsoft (v1.0.0-beta1)
-
-- Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).
-
+Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SQLite.System) to download it.
 
 ### RepoDB.SQLite.System (v1.0.0-beta1)
 

@@ -13,7 +13,7 @@ parent: GET STARTED
 
 ---
 
-RepoDB is a hybrid .NET ORM library for [SQLite](https://www.nuget.org/packages/RepoDb.SqLite) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqLite) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
+RepoDB is a hybrid .NET ORM library for [Microsoft.Data.Sqlite](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft)/[System.Data.SQLite.Core](https://www.nuget.org/packages/RepoDb.SQLite.System) Nuget Packages (for SQLite RDBMS). The project is hosted at Github ([Microsoft.Data.Sqlite](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Sqlite.Microsoft)/[System.Data.SQLite.Core](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SQLite.System)) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
 ### Installation
 
