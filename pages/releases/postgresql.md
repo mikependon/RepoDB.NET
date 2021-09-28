@@ -31,6 +31,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Enhancement: Deprecated the [NpgsqlTypeMapAttribute](/attribute/npgsqltypemapattribute) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Moved the `PostgreSqlDbSetting` to `RepoDb.DbSettings` namespace.
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add support of NpgsqlDbType in FluentMapper [#775](https://github.com/mikependon/RepoDB/issues/775)
 
 
 ### RepoDB.PostgreSql (v1.1.4-beta2)
