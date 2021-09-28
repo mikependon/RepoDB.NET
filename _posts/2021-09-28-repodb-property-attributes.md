@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PropetyValueAttribute - A Dynamic Settings for IDbDataParameter"
+title: "PropetyValueAttribute - a setting object for IDbDataParameter"
 author: "Michael Camara Pendon"
 date: 2021-09-28 13:00:00 +0200
 categories: blogs repodb
@@ -8,15 +8,15 @@ categories: blogs repodb
 
 ### TL;DR
 
-We are happy to announce the availability of the [PropertyValueAttribute](/attribute/propertyvalue) attribute, a powerful object that would allow you (as a user of the library) to control the property value setting on the `IDbDataParameter` object before the actual execution against the database.
+We are very excited to announce the availability of the [PropertyValueAttribute](/attribute/propertyvalue) object. It enables you (as a user of the library) to set the property of the `IDbDataParameter` object before the actual execution against the database.
 
 ### Implicit Mapping
 
-Currenly, RepoDB allows you to fluently map a property into its destination object from the database (i.e.: `TableName/ViewName` and `ColumnName`).
+RepoDB allows you to fluently map a property into its destination object from the database (i.e.: TableName, ViewName and ColumnName).
 
-> The main goal is to eliminate the decoration of the attributes on your entity model and property, and also, ensuring your model to be decoupled from the ORM.
+> The main goal is to eliminate the decoration of the attributes on your entity model (and property) so it is decoupled from the ORM framework.
 
-So you do not need to do this.
+Therefore, you do not need to do this anymore.
 
 ```csharp
 [Map("[dbo].[Person]")]
@@ -48,35 +48,23 @@ However, such support is limited only to the following objects.
 
 ### Explicit Attribute
 
-Before the [RepoDb v1.12.9](https://www.nuget.org/packages/RepoDb/1.12.9) release, there is no way we can override the value being passed to the `IDbDataParameter` object when the operation is being executed against the database.
+Before the release of [RepoDb v1.12.9](https://www.nuget.org/packages/RepoDb/1.12.9), there is no way we can override the value being passed to the properties of the `IDbDataParameter` object (i.e.: `Size`, `Precision` and `Scale`). In the recent release, we had introduced various attributes that are addressing this need.
 
-To be more specific, in the sample below, there is no way we can explicitly set the value of the `Size` property of the `IDbDataParameter` object that is connected to the `FirstName` property of the `Person` entity.
+As a sample, the [SizeAttribute](/attribute/parameter/size) object, which inheritted the [PropertyValueAttribute](/attribute/parameter/propertyvalueattribute) object, it is used to explicitly set the value of the `Size` property of the `IDbDataParameter` object before the actual execution against the database.
+
+See below the explicit declaration of this attribute.
 
 ```csharp
-[Map("[dbo].[Person]")]
 public class Person
 {
-    [Map("FName")]
+    [Size(256)]
     public string FirstName { get; set; }
 
     ...
 }
 ```
 
-As part of the [RepoDb v1.12.9](https://www.nuget.org/packages/RepoDb/1.12.9) release, we had introduced the [SizeAttribute](/attribute/parameter/size) object, which inheritted the [PropertyValueAttribute](/attribute/parameter/propertyvalueattribute) object. Thgough this, we can explicitly override the value being set on the `Size` property of the `IDbDataParameter` object.
-
-```csharp
-[Map("[dbo].[Person]")]
-public class Person
-{
-    [Map("FName"), Size(256)]
-    public string FirstName { get; set; }
-
-    ...
-}
-```
-
-The equivalent fluent mapping is below.
+And its equivalent implicit mapping.
 
 ```csharp
 FluentMapper
@@ -84,9 +72,7 @@ FluentMapper
     .PropertyValueAttributes(e => e.FirstName, new SizeAttribute(256));
 ```
 
-> The other attributes (i.e.: [DbType](/attribute/parameter/dbtype), [Direction](/attribute/parameter/direction), [IsNullable](/attribute/parameter/isnullable), [Name](/attribute/parameter/name), [Precision](/attribute/parameter/precision), [Scale](/attribute/parameter/scale), [Size](/attribute/parameter/size)) has also been introduced.
-
-We can also map multiple attributes together (in one go).
+We can as well map multiple attributes together (in one go).
 
 ```csharp
 FluentMapper
@@ -99,9 +85,25 @@ FluentMapper
     });
 ```
 
+The other attributes that were introduced are the following:
+
+- [DbType](/attribute/parameter/dbtype)
+- [Direction](/attribute/parameter/direction)
+- [IsNullable](/attribute/parameter/isnullable)
+- [Name](/attribute/parameter/name)
+- [Precision](/attribute/parameter/precision)
+- [Scale](/attribute/parameter/scale)
+- [Size](/attribute/parameter/size)
+
 ### PropertyValueAttribute
 
-_What is really more exciting is the dynamic support_ to the [PropertyValueAttribute](/attribute/parameter/propertyvalueattribute) object.  This object is capable of extending all the scenarios, for as long the intention is to set the property value of the `IDbDataParameter` object.
+What makes it more exciting is the _dynamic capability_ of the [PropertyValueAttribute](/attribute/parameter/propertyvalueattribute) object.  This object is designed to be more extensible to cater all the scenarios pertaining to the setting of the properties of the `IDbDataParameter` object.
+
+The constructor has 3 arguments and are required to be called from the derived classes.
+
+- ParameterType - the type of the parameter object.
+- PropertyName - the name of the target property from the parameter object.
+- Value - the actual value to be set.
 
 Below is a sample customized class you can create to set the `NpgsqlDbType` property of the `NpgsqlParameter`.
 
@@ -117,10 +119,9 @@ public class MyCustomizedNpgsqlDbTypeAttribute : PropertyValueAttribute
 And use it as your decorative attribute.
 
 ```csharp
-[Map("[dbo].[Person]")]
 public class Person
 {
-    [Map("FName"), MyCustomizedNpgsqlDbType(NpgsqlDbType.Text)]
+    [MyCustomizedNpgsqlDbType(NpgsqlDbType.Text)]
     public string FirstName { get; set; }
 
     ...
@@ -135,15 +136,15 @@ FluentMapper
     .PropertyValueAttributes(e => e.FirstName, new MyCustomizedNpgsqlDbTypeAttribute(256));
 ```
 
-The constructor only accepts 3 arguments. It requires to be called on the derived class.
+Once mapped, all the operations will apply the settings to the corresponding property of the `IDbDataParameter` object _(for the targeted entity model property)_. The settings are also being applied even to the dynamic queries (like below).
 
-- ParameterType - the type of the `IDbDataParameter` object.
-- PropertyName - the name of the target property from the `IDbDataParameter` object.
-- Value - the actual value to be set.
+```csharp
+var people = connection.ExecuteQuery<Person>("[Person]", new { FirstName = "Somebody" });
+```
 
 ### Other Data Providers
 
-Lastly, the support to the other data providers has also been introduced. Below are the pre-created objects.
+The support to the other data providers has also been introduced. Below are the pre-created attribute objects.
 
 **[SQL Server](/attribute/sqlserver)**
 
@@ -158,20 +159,21 @@ Lastly, the support to the other data providers has also been introduced. Below 
 - [XmlSchemaCollectionName](/attribute/sqlserver/xmlschemacollectionname)
 - [XmlSchemaCollectionOwningSchema](/attribute/sqlserver/xmlschemacollectionowningschema)
 
-**[PostgreSQL](/attribute/npgsql)**
-
-- [ConvertedValue](/attribute/npgsql/convertedvalue)
-- [DataTypeName](/attribute/npgsql/datatypename)
-- [NpgsqlDbType](/attribute/npgsql/npgsqldbtype)
-
 **[MySQL](/attribute/mysql)**
 
 - [MySqlDbType](/attribute/mysql/mysqldbtype)
 
 **[SQLite](/attribute/sqlite)**
 
-- [SqliteType](/attribute/sqlite/sqlitetype) - Microsoft
-- [TypeName](/attribute/sqlite/typename) - System
+- [SqliteType](/attribute/sqlite/sqlitetype)
+- [TypeName](/attribute/sqlite/typename)
 
+**[PostgreSQL](/attribute/npgsql)**
 
-Thank you for reading and also to all our contributors and collaborators. For any issues found, please report it directly to our [Github](https://github.com/mikependon/RepoDB/issues/new?assignees=mikependon&labels=bug&template=report-a-bug.md&title=Bug%3A+%3CYour+bug%2Fissue+title%3E) page.
+- [ConvertedValue](/attribute/npgsql/convertedvalue)
+- [DataTypeName](/attribute/npgsql/datatypename)
+- [NpgsqlDbType](/attribute/npgsql/npgsqldbtype)
+
+It is quitely simple, yet powerful. We find this capability very useful for those of you who are working on an advance cases in which the settings are impossible to be acquired via the existing operations.
+
+For any issues found in relation to this capability, please [report](https://github.com/mikependon/RepoDB/issues/new?assignees=mikependon&labels=bug&template=report-a-bug.md&title=Bug%3A+%3CYour+bug%2Fissue+title%3E) it directly to our [Github](https://github.com/mikependon/RepoDB) page.

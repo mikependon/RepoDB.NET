@@ -12,7 +12,7 @@ parent: MAPPERS
 
 ---
 
-A mapper class that is being used to map the list [PropertyValueAttribute](/attribute/propertyvalueattribute) objects into a class property. This class is used as an alternative to the [PropertyValueAttribute](/attribute/propertyvalueattribute) attribute.
+A mapper class that is being used to map the list [PropertyValueAttribute](/attribute/parameter/propertyvalueattribute) objects into a class property.
 
 ### Methods
 
