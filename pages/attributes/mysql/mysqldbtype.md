@@ -36,5 +36,25 @@ Below is a sample code on how to use this attribute via [FluentMapper](/mapper/f
 ```csharp
 FluentMapper
     .Entity<Person>()
-    .PropertyValueAttributes(e => e.Name, new [] { new MySqlDbTypeAttribute(MySqlDbType.Text) })
+    .PropertyValueAttributes(e => e.Name, new MySqlDbTypeAttribute(MySqlDbType.Text))
 ```
+
+### Retrieval
+
+You can retrieve the list of attributes via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
+
+```csharp
+var attribute = PropertyValueAttributeCache
+    .Get<Person>(e => e.Name, includeMappings: true)?
+    .FirstOrDefault(e => e.GetType() == typeof(MySqlDbTypeAttribute));
+```
+
+Or, via the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper).
+
+```csharp
+var attribute = PropertyValueAttributeMapper
+    .Get<Person>(e => e.Name)?
+    .FirstOrDefault(e => e.GetType() == typeof(MySqlDbTypeAttribute));
+```
+
+> We strongly suggest to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) to maximize the performance.

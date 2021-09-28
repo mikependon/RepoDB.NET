@@ -435,6 +435,12 @@ Let us say you have class handler below.
 To add a mapping, use the `Add()` method.
 
 ```csharp
+PropertyValueAttributeMapper.Add<Customer>(e => e.FirstName, new NameAttribute("FName"));
+```
+
+You can also map a multiple instances.
+
+```csharp
 PropertyValueAttributeMapper.Add<Customer>(e => e.FirstName, new PropertyValueAttribute[]
 {
     new NameAttribute("FName"),

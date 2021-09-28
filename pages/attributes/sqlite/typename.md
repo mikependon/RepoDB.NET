@@ -36,5 +36,25 @@ Below is a sample code on how to use this attribute via [FluentMapper](/mapper/f
 ```csharp
 FluentMapper
     .Entity<Person>()
-    .PropertyValueAttributes(e => e.Name, new [] { new TypeNameAttribute("TypeName") })
+    .PropertyValueAttributes(e => e.Name, new TypeNameAttribute("TypeName"));
 ```
+
+### Retrieval
+
+You can retrieve the list of attributes via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
+
+```csharp
+var attribute = PropertyValueAttributeCache
+    .Get<Person>(e => e.Name, includeMappings: true)?
+    .FirstOrDefault(e => e.GetType() == typeof(TypeNameAttribute));
+```
+
+Or, via the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper).
+
+```csharp
+var attribute = PropertyValueAttributeMapper
+    .Get<Person>(e => e.Name)?
+    .FirstOrDefault(e => e.GetType() == typeof(TypeNameAttribute));
+```
+
+> We strongly suggest to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) to maximize the performance.

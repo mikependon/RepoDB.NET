@@ -28,6 +28,12 @@ Below are the methods available from this class.
 To add a mapping, simply call the `Add()` method.
 
 ```csharp
+PropertyValueAttributeMapper.Add<Customer>(c => c.Name, new NameAttribute("CompleteName"));
+```
+
+You can also map multiple instances.
+
+```csharp
 PropertyValueAttributeMapper.Add<Customer>(c => c.Name, new PropertyValueAttribute[]
 {
     new NameAttribute("CompleteName"),

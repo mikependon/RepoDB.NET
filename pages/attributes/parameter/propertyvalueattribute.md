@@ -36,8 +36,36 @@ Below is a sample code on how to use this attribute via [FluentMapper](/mapper/f
 FluentMapper
     .Entity<Person>()
     .PropertyValueAttributes(e => e.Name,
-        new [] { new PropertyValueAttribute(typeof(DbParameter), nameof(DbParameter.ParameterName), "CompleteName" })
+        new PropertyValueAttribute(typeof(DbParameter), nameof(DbParameter.ParameterName), "CompleteName"));
 ```
+
+You can also map multiple instances.
+
+```csharp
+FluentMapper
+    .Entity<Person>()
+    .PropertyValueAttributes(e => e.Name, new []
+    {
+        new PropertyValueAttribute(typeof(DbParameter), nameof(DbParameter.ParameterName), "CompleteName")
+        new PropertyValueAttribute(typeof(DbParameter), nameof(DbParameter.DbType), DbType.NVarChar)
+    });
+```
+
+### Retrieval
+
+You can retrieve the list of attributes via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
+
+```csharp
+var attributes = PropertyValueAttributeCache.Get<Person>(e => e.Name, includeMappings: true);
+```
+
+Or, via the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper).
+
+```csharp
+var attributes = PropertyValueAttributeMapper.Get<Person>(e => e.Name);
+```
+
+> We strongly suggest to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) to maximize the performance.
 
 ### Implementation
 

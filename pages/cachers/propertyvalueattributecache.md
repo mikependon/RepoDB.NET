@@ -26,13 +26,15 @@ Below are the methods available from this class.
 You can simply call the `Get()` method of this class by passing the type of the class and the name of the property.
 
 ```csharp
-var attributes = PropertyValueAttributeCache.Get(typeof(Person), "Name");
+var attributes = PropertyValueAttributeCache.Get(typeof(Person), "Name", includeMappings: true);
 // Use the 'attributes' here
 ```
 
 Or, via a property expression.
 
 ```csharp
-var attributes = PropertyValueAttributeCache.Get<Person>(e => e.Name);
+var attributes = PropertyValueAttributeCache.Get<Person>(e => e.Name, includeMappings: true);
 // Use the 'attributes' here
 ```
+
+> The argument `includeMappings` is used if the existing explicit mappings will be included in the extractions. By default, the value is `false`.
