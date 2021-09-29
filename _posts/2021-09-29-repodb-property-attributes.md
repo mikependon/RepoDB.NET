@@ -6,8 +6,6 @@ date: 2021-09-29 06:00:00 +0200
 categories: blogs repodb
 ---
 
-### TL;DR
-
 We are very excited to announce the availability of the [PropertyValueAttribute](/attribute/propertyvalue) object. It enables you (as a user of the library) to set the property of the `IDbDataParameter` object before the actual execution against the database.
 
 ### Implicit Mapping
@@ -48,7 +46,9 @@ However, the supports are limited only to the following objects.
 
 ### Explicit Attribute
 
-Before the release of [RepoDb v1.12.9](https://www.nuget.org/packages/RepoDb/1.12.9), there is no way we can override the value being passed to the properties of the `IDbDataParameter` object (i.e.: `Size`, `Precision` and `Scale`). In the recent release, we had introduced various attributes that are addressing this need.
+Before the release of [RepoDb v1.12.9](https://www.nuget.org/packages/RepoDb/1.12.9), there is no way we can override the value being passed to the properties of the `IDbDataParameter` object (i.e.: `Size`, `Precision` and `Scale`) and even to the other parameter object properties (i.e.: SqlParameter, NpgsqlParameter, SqliteParameter, MySqlParameter, etc). In the recent release, we had introduced various attributes that are addressing this need.
+
+> Currently, the library is taking the settings value from the database and there is no explicit way to override that, except for [TypeMap](https://repodb.net/attribute/typemap) and [Name](/attribute/map#property-mapping) mappings.
 
 As a sample, the [SizeAttribute](/attribute/parameter/size) object, which inheritted the [PropertyValueAttribute](/attribute/parameter/propertyvalueattribute) object, it is used to explicitly set the value of the `Size` property of the `IDbDataParameter` object before the actual execution against the database.
 
