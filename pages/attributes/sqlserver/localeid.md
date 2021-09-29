@@ -39,7 +39,7 @@ FluentMapper
 
 ### Retrieval
 
-You can retrieve the list of attributes via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
+You can retrieve the attribute via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
 
 ```csharp
 var attribute = PropertyValueAttributeCache

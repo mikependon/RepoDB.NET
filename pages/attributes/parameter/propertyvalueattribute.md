@@ -53,7 +53,7 @@ FluentMapper
 
 ### Retrieval
 
-You can retrieve the list of attributes via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
+You can retrieve the list of mapped attributes via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
 
 ```csharp
 var attributes = PropertyValueAttributeCache.Get<Person>(e => e.Name, includeMappings: true);
@@ -72,9 +72,9 @@ var attributes = PropertyValueAttributeMapper.Get<Person>(e => e.Name);
 Below is a sample code on how to implement a class that inherits this class.
 
 ```csharp
-public class ParameterNameAttribute : PropertyValueAttribute
+public class CustomizedNameAttribute : PropertyValueAttribute
 {
-    public ParameterNameAttribute(string parameterName)
+    public CustomizedNameAttribute(string parameterName)
         : base(typeof(DbParameter), nameof(DbParameter.ParameterName), parameterName)
     { }
 }
@@ -87,7 +87,7 @@ public class Person
 {
     public int Id { get; set; }
 
-    [ParameterName("CompleteName")]
+    [CustomizedName("CompleteName")]
     public string Name { get; set; }
 }
 ```
@@ -98,8 +98,8 @@ Or via [FluentMapper](/mapper/fluentmapper).
 FluentMapper
     .Entity<Person>()
     .PropertyValueAttributes(e => e.Name,
-        new [] { new ParameterNameAttribute("CompleteName" })
+        new [] { new CustomizedNameAttribute("CompleteName" })
 ```
 
-> The implementation is dynamic, therefore, you can target any property of the `DbParameter` regardless of the data providers (i.e.: SQL Server, PostgreSQL, MySQL or SQLite).
+> The implementation is dynamic, therefore, you can target any property of the `IDbDataParameter` regardless of the data providers (i.e.: SQL Server, PostgreSQL, MySQL or SQLite).
 

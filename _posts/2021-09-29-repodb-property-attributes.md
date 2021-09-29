@@ -174,6 +174,6 @@ The support to the other data providers has also been introduced. Below are the 
 - [DataTypeName](/attribute/npgsql/datatypename)
 - [NpgsqlDbType](/attribute/npgsql/npgsqldbtype)
 
-It is quitely simple, yet powerful. We find this capability very useful for those of you who are working on an advance cases in which the settings are impossible to be acquired via the existing operations.
+It is quietly simple, yet powerful. We find this capability very useful for those of you who are working on an advance cases in which the settings are impossible to be acquired on an existing operation.
 
 For any issues found in relation to this capability, please [report](https://github.com/mikependon/RepoDB/issues/new?assignees=mikependon&labels=bug&template=report-a-bug.md&title=Bug%3A+%3CYour+bug%2Fissue+title%3E) it directly to our [Github](https://github.com/mikependon/RepoDB) page.
