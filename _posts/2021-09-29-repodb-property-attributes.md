@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "PropetyValueAttribute - a setting object for IDbDataParameter"
+title: "PropertyValueAttribute - A Setting for IDbDataParameter"
 author: "Michael Camara Pendon"
-date: 2021-09-28 13:00:00 +0200
+date: 2021-09-29 06:00:00 +0200
 categories: blogs repodb
 ---
 
@@ -16,7 +16,7 @@ RepoDB allows you to fluently map a property into its destination object from th
 
 > The main goal is to eliminate the decoration of the attributes on your entity model (and property) so it is decoupled from the ORM framework.
 
-Therefore, you do not need to do this anymore.
+Therefore, you are not limited on this anymore.
 
 ```csharp
 [Map("[dbo].[Person]")]
@@ -38,7 +38,7 @@ FluentMapper
     .Column(e => e.FirstName, "FName");
 ```
 
-However, such support is limited only to the following objects.
+However, the supports are limited only to the following objects.
 
 - TableName/ViewName
 - ColumnName

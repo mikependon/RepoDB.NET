@@ -11,7 +11,7 @@ grand_parent: ATTRIBUTES
 
 ---
 
-This attribute is used to set the value of the `MySqlParameter.SqliteType` property via a class property.
+This attribute is used to set the value of the `SqliteParameter.SqliteType` property via a class property.
 
 > Only works on `Microsoft.Data.Sqlite` package.
 
