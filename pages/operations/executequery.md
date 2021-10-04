@@ -200,7 +200,7 @@ using (var connection = new SqlConnection(connectionString))
     {
         Keys = new [] { 10045, 10102, 11004 }
     };
-    var people = connection.ExecuteQuery<Person>("SELECT * FROM dbo].[Person] WHERE Id IN (@Keys);", param);
+    var people = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id IN (@Keys);", param);
 }
 ```
 
