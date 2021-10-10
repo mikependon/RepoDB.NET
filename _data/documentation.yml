@@ -655,3 +655,6 @@ docs:
 
   - title: "PostgreSQL"
     url: "/release/postgresql"
+
+  - title: "PostgreSQL (Bulk)"
+    url: "/release/postgresqlbulk"

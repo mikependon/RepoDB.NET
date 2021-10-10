@@ -3,7 +3,7 @@ layout: default
 sidebar: releases
 title: SQLite (System)
 description: "This page contains the latest information of the releases of RepoDb.SQLite.System library."
-nav_order: 4
+nav_order: 9
 permalink: /release/sqlite-system
 parent: RELEASES
 ---

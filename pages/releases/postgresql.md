@@ -3,7 +3,7 @@ layout: default
 sidebar: releases
 title: PostgreSQL
 description: "This page contains the latest information of the releases of RepoDb.PostgreSql library."
-nav_order: 5
+nav_order: 4
 permalink: /release/postgresql
 parent: RELEASES
 ---
@@ -13,6 +13,11 @@ parent: RELEASES
 ---
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql) to download it.
+
+### RepoDB.PostgreSql (Next Version)
+
+- Enhancement: Introduced the `ClientTypeToNpgsqlDbTypeResolver` class.
+
 
 ### RepoDB.PostgreSql (v1.1.4)
 
