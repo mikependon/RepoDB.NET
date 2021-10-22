@@ -14,6 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+### RepoDB.PostgreSql (Next Version)
+
+- Initial support to PostgreSQL bulk operations.
+- Code refactoring specifically on the `QueryBuilders`.
+
+
 ### RepoDB (v1.12.9)
 
 - Enhancement: Make the value argument of the functional [QueryField](/class/queryfield) objects to `System.Object`. [#926](https://github.com/mikependon/RepoDB/issues/926)

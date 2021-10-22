@@ -14,6 +14,11 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql.BulkOperations) to download it.
 
+### RepoDB.PostgreSql.BulkOperations (0.0.3)
+
+- Introduced the [BinaryBulkMerge](/operation/binarybulkmerge) operation.
+
+
 ### RepoDB.PostgreSql.BulkOperations (0.0.2)
 
 - Introduced the [BinaryBulkInsert](/operation/binarybulkinsert) operation.

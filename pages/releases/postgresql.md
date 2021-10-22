@@ -16,7 +16,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 
 ### RepoDB.PostgreSql (Next Version)
 
+- Initial support to PostgreSQL bulk operations.
 - Enhancement: Introduced the `ClientTypeToNpgsqlDbTypeResolver` class.
+- Enhancement: Introduced the `PostgreSqlDbTypeNameToNpgsqlDbTypeResolver` class.
 
 
 ### RepoDB.PostgreSql (v1.1.4)
