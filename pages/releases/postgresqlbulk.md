@@ -16,6 +16,11 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperati
 
 ### RepoDB.PostgreSql.BulkOperations (0.0.3)
 
+- Introduced the [BinaryBulkUpdate](/operation/binarybulkupdate) operation.
+
+
+### RepoDB.PostgreSql.BulkOperations (0.0.3)
+
 - Introduced the [BinaryBulkMerge](/operation/binarybulkmerge) operation.
 
 
