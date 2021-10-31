@@ -14,7 +14,7 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SQLite.System) to download it.
 
-### RepoDB.SQLite.System (v1.0.0-beta1)
+### RepoDB.SQLite.System (v1.0.0)
 
 - Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).
 

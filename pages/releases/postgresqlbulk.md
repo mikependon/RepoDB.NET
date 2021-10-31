@@ -14,6 +14,11 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql.BulkOperations) to download it.
 
+### RepoDB.PostgreSql.BulkOperations (0.0.6)
+
+- Introduced the [BinaryBulkDeleteByKey](/operation/binarybulkdeletebykey) operation.
+
+
 ### RepoDB.PostgreSql.BulkOperations (0.0.5)
 
 - Introduced the [BinaryBulkDelete](/operation/binarybulkdelete) operation.

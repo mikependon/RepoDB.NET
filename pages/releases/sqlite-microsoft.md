@@ -14,6 +14,6 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.Sqlite.Microsoft) to download it.
 
-### RepoDB.Sqlite.Microsoft (v1.0.0-beta1)
+### RepoDB.Sqlite.Microsoft (v1.0.0)
 
 - Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).
