@@ -49,8 +49,11 @@ docs:
   - title: "Batch Operations"
     url: "/feature/batchoperations"
   
-  - title: "Bulk Operations"
-    url: "/feature/bulkoperations"
+  - title: "Bulk Operations (SQL Server)"
+    url: "/feature/bulkoperations/sqlserver"
+
+  - title: "Bulk Operations (PostgreSQL)"
+    url: "/feature/bulkoperations/postgresql"
 
   - title: "Caching"
     url: "/feature/caching"
@@ -118,6 +121,21 @@ docs:
   
   - title: "BatchQuery"
     url: "/operation/batchquery"
+  
+  - title: "BinaryBulkDelete"
+    url: "/operation/binarybulkdelete"
+  
+  - title: "BinaryBulkDeleteByKey"
+    url: "/operation/binarybulkdeletebykey"
+  
+  - title: "BinaryBulkInsert"
+    url: "/operation/binarybulkinsert"
+  
+  - title: "BinaryBulkMerge"
+    url: "/operation/binarybulkmerge"
+  
+  - title: "BinaryBulkUpdate"
+    url: "/operation/binarybulkupdate"
   
   - title: "BulkDelete"
     url: "/operation/bulkdelete"
