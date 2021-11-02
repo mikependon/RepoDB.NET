@@ -23,7 +23,7 @@ The diagram below shows the flow when calling this operation.
 
 This method is very useful if you are deleting multiple rows in the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
-If you are working to delete range of rows from 1000 or beyond, then use this method over [DeleteAll](/operation/deleteall).
+If you are working to delete a range of rows from 1000 or beyond, then use this method over the [DeleteAll](/operation/deleteall) operation.
 
 ### Special Arguments
 
@@ -43,7 +43,7 @@ In addition, when calling this method, the library is creating a pseudo temporar
 
 ### How to call?
 
-Let us say you are retrieving all inactive people from the database.
+Let us say you are retrieving all the inactive people from the database.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -52,7 +52,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Then, below is the code that bulk-deletes all those inactive rows from the `[dbo].[Sales]` table.
+Then, below is the code that bulk-deletes all those inactive rows from the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -71,18 +71,6 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 > By default, the batch size is 10, equals to `Constant.DefaultBatchOperationSize` value.
-
-#### PrimaryKeys
-
-Below is the sample code to bulk-delete by primary keys.
-
-```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-    var primaryKeys = people.Select(e => e.Id);
-    var deletedRows = connection.BulkDelete<Person>(primaryKeys);
-}
-```
 
 #### DataTable
 
@@ -106,8 +94,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
     var result = sourceConnection.QueryAll("Person");
     using (var destinationConnection = new SqlConnection(destinationConnectionString))
     {
-        var mergedRows = destinationConnection.BulkDelete("Person", result,
-            qualifiers: Field.From("SSN"));
+        var mergedRows = destinationConnection.BulkDelete("Person", result);
     }
 }
 ```
@@ -142,7 +129,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ### Field Qualifiers
 
-By default, this operation is using the primary or identity as a qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
+By default, this operation is using the primary column as the qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

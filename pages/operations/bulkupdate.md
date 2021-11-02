@@ -23,7 +23,7 @@ The diagram below shows the flow when calling this operation.
 
 This method is very useful if you are updating multiple rows towards the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
-If you are working to update range of rows from 1000 or beyond, then use this method over [UpdateAll](/operation/updateall).
+If you are working to update range of rows from 1000 or beyond, then use this method over the [UpdateAll](/operation/updateall operation).
 
 ### Special Arguments
 
