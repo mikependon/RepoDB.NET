@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to insert all the rows from the client application into the database by bulk. This operation only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
+This method is used to insert all the rows from the client application into the database by bulk. This operation is only supporting the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
 
 ### Call Flow Diagram
 
@@ -21,7 +21,7 @@ The diagram below shows the flow when calling this operation.
 
 ### Use Case
 
-This method is very useful if you are inserting multiple rows towards the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
+This method is very useful if you are inserting multiple rows towards the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
 If you are working to insert range of rows from 1000 or beyond, then use this method over the [InsertAll](/operation/insertall) operation.
 
@@ -45,7 +45,7 @@ During the bulk operation, a dedicated `DbParameter` object is created that targ
 
 When the newly generated identity value is being set back to the data model, the value of the `__RepoDb_OrderColumn` column is being used to look-up the proper index of the equating entity model from the `IEnumerable<T>` object, then, the compiled identity-setter function is used to assign back the identity value into the identity property.
 
-### How to call?
+### Usability
 
 Let us say you have a method that create a list of `Person` from the client application.
 

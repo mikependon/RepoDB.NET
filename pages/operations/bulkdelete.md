@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to delete the target rows from the database by bulk. This operation only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
+This method is used to delete the target rows from the database by bulk. This operation is only supporting the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
 
 ### Call Flow Diagram
 
@@ -21,7 +21,7 @@ The diagram below shows the flow when calling this operation.
 
 ### Use Case
 
-This method is very useful if you are deleting multiple rows in the database. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
+This method is very useful if you are deleting multiple rows from the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
 If you are working to delete a range of rows from 1000 or beyond, then use this method over the [DeleteAll](/operation/deleteall) operation.
 
@@ -41,7 +41,7 @@ RepoDB is automatically setting the value of the `options` argument to `SqlBulkC
 
 In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
-### How to call?
+### Usability
 
 Let us say you are retrieving all the inactive people from the database.
 
@@ -169,7 +169,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ### Physical Temporary Table
 
-To ensure using a physical pseudo-temporary table, simply pass `true` in the `usePhysicalPseudoTempTable` argument.
+To use a physical pseudo-temporary table, simply pass `true` in the `usePhysicalPseudoTempTable` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

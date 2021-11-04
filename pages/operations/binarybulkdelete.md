@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to delete the target rows from the database by bulk. This operation only supports the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This method is used to delete the target rows from the database by bulk. This operation is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
 ### Call Flow Diagram
 
@@ -21,7 +21,7 @@ The diagram below shows the flow when calling this operation.
 
 ### Use Case
 
-This method is very useful if you are deleting multiple rows in the database. It is high-performant in nature as it is using the real bulk operation natively from Npgsql library (via `NpgsqlBinaryImporter` class).
+This method is very useful if you would like to delete multiple rows from the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
 
 If you are working to delete a range of rows from 1000 or beyond, then use this method over the [DeleteAll](/operation/deleteall) operation.
 
@@ -31,31 +31,25 @@ The `qualifiers`, `keepIdentity` and `pseudoTableType` arguments were provided o
 
 The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statement. If not given, the primary column will be used.
 
-The `keepIdentity` is used to signify a value whether the identity property of the entity/model will be kept during the operation. 
+The `keepIdentity` is used to define a value whether the identity property of the entity/model will be kept during the operation. 
 
-The `pseudoTableType` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table is used.
+The `pseudoTableType` is used to define a value whether a physical pseudo-table will be created during the operation. By default, a temporary table is used.
 
 > Please be noted that it is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
-### How to call?
+### Usability
 
-Let us say you are retrieving all the inactive people from the database.
+Simply pass the list of the entities when calling this operation.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = connection.Query<Person>(e => e.IsActive == false);
-}
-```
-
-Then, below is the code that bulk-deletes all those inactive rows from the `[Person]` table.
-
-```csharp
-using (var connection = new NpgsqlConnection(connectionString))
-{
     var deletedRows = connection.BinaryBulkDelete<Person>(people);
 }
 ```
+
+> It returns the number of rows deleted from the underlying table.
 
 And below if you would like to specify the batch size.
 
@@ -68,15 +62,12 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 > If the `batchSize` argument is not set, then all the items from the collection will be sent and used.
 
-#### PrimaryKeys
-
-Below is the sample code to bulk-delete by primary keys.
+You can also target a specific table by passing the literal table name like below.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var primaryKeys = people.Select(e => e.Id);
-    var deletedRows = connection.BinaryBulkDeleteByKey(primaryKeys);
+    var deletedRows = connection.BinaryBulkDelete("[dbo].[Person]", people);
 }
 ```
 
@@ -88,7 +79,7 @@ Below is the sample code to bulk-delete via data table.
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var table = ConvertToDataTable(people);
-    var deletedRows = connection.BinaryBulkDelete<Person>(table);
+    var deletedRows = connection.BinaryBulkDelete("[dbo].[Person]", table);
 }
 ```
 
@@ -99,10 +90,11 @@ Below is the sample code to bulk-delete via `Dictionary<string, object>` or `Exp
 ```csharp
 using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
 {
-    var result = sourceConnection.QueryAll("Person");
+    var people = sourceConnection.Query("[dbo].[Person]", new { IsActive = false });
+
     using (var destinationConnection = new NpgsqlConnection(destinationConnectionString))
     {
-        var mergedRows = destinationConnection.BinaryBulkDelete("Person", result);
+        var deletedRows = destinationConnection.BinaryBulkDelete("[dbo].[Person]", people);
     }
 }
 ```
@@ -118,26 +110,27 @@ using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
     {
         using (var destinationConnection = new NpgsqlConnection(destinationConnectionString))
         {
-            var rows = destinationConnection.BinaryBulkDelete<Person>(reader);
+            var deletedRows = destinationConnection.BinaryBulkDelete("[dbo].[Person]", reader);
         }
     }
 }
 ```
 
-### Targeting a Table
-
-You can also target a specific table by passing the literal table and field name like below.
+Or via [DataEntityDataReader](/class/dataentitydatareader) class.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var deletedRows = connection.BinaryBulkDelete("[dbo].[Person]", people);
+    using (var reader = new DataEntityDataReader<Person>(people))
+    {
+        var deletedRows = connection.BinaryBulkDelete("[dbo].[Person]", reader);
+    }
 }
 ```
 
 ### Field Qualifiers
 
-By default, this operation is using the primary or identity as a qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
+By default, this operation is using the primary as the qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -147,13 +140,11 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
-Or by parsing the field expression.
-
-> When using the qualifiers, we recommend that you use the list of columns that has the correct index from the original table.
+> When using the qualifiers, we recommend that you use the list of columns that is indexed from the target table to maximize the performance.
 
 ### Physical Temporary Table
 
-To ensure using a physical pseudo-temporary table, simply pass the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#physical) value in the `pseudoTableType` argument.
+To use a physical pseudo-temporary table, simply pass the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#physical) value in the `pseudoTableType` argument.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
