@@ -13,25 +13,13 @@ grand_parent: FEATURES
 
 ---
 
-A bulk operation is a process of bringing all the data from the application into the database server at once. It ignores some database specific activities (i.e.: Logging, Audits, Data-Type Checks, Constraints, etc) behind the scene, thus gives you maximum performance during the operation.
+For SQL Server, the underlying implementation is  leveraging the existing ADO.NET `SqlBulkCopy` class of the `Microsoft.Data.SqlClient` namespace.
 
-Basically, you mostly do the normal [Delete](/operation/delete), [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations when interacting with the database. Through this, the data is being processed in an atomic way. If you do call the [batch operations](/feature/batchoperations), it only execute the multiple single-operations together and does not completely eliminate the round-trips between your application and the database.
-
-With the bulk operations, as mentioned above, all data is brought from the client application into the database at one go. Once the data is on the server, it is then being processed together within the database (server), maximizing the performance.
+For [BulkInsert](/operation/bulkinsert) operation, it simply calls the `WriteToServer()` method to bring all the data into the database. Unless you would like to bring the newly generated identities back to the application after the execution, there is no additional logic is implied.
 
 Image below shows the data flow of the [BulkInsert](/operation/bulkinsert) operation.
 
 <img src="../../assets/images/site/bulkinsert.svg" />
-
-The bulk operations can improve the performance by more than 90% when processing a large dataset.
-
-> This feature only supports the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS data provider.
-
-### How does it works?
-
-It is leveraging the existing ADO.NET `SqlBulkCopy` class of the `Microsoft.Data.SqlClient` namespace.
-
-For [BulkInsert](/operation/bulkinsert) operation, it simply calls the `WriteToServer()` method to bring all the data into the database. Unless you would like to bring the newly generated identities back to the application after the execution, there is no additional logic is implied.
 
 For the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, an implied logic and technique has been utilized.
 
@@ -41,7 +29,7 @@ Image below shows the data flow of the [BulkMerge](/operation/bulkmerge) operati
 
 Basically, a pseudo-temporary table will be created in the database under the transaction context. It then uses the [BulkInsert](/operation/bulkinsert) operation to target that pseudo-temporary table and process the data afterwards. Through this technique, we brought all the data together from the client application into the database server (at one-go) and process them together at the same time.
 
-You can maximize the execution by targeting your underlying table indexes via qualifiers, simply pass a list of [Field](/class/field) object. The library will then create a CLUSTERED INDEX on the pseudo-temporary table through the passed qualifiers and do the actual joins to the original table using that index.
+For the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, you can maximize the execution by targeting your underlying table indexes via qualifiers, simply pass a list of [Field](/class/field) object. The library will then create a CLUSTERED INDEX on the pseudo-temporary table through the passed qualifiers and do the actual joins to the original table using that index.
 
 > If you have not passed any qualifiers, the primary column will be used by default. If the primary column is not present, it will use the identity column.
 
