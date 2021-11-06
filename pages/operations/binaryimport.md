@@ -1,13 +1,13 @@
 ---
 layout: default
 sidebar: operations
-title: "BinaryBulkInsert"
-permalink: /operation/binarybulkinsert
-tags: [repodb, tutorial, binarybulkinsert, orm, hybrid-orm, sqlserver]
+title: "BinaryImport"
+permalink: /operation/binaryimport
+tags: [repodb, tutorial, binaryimport, orm, hybrid-orm, sqlserver]
 parent: OPERATIONS
 ---
 
-# BinaryBulkInsert
+# BinaryImport
 
 ---
 
@@ -17,23 +17,17 @@ This method is used to insert the target rows from the database by bulk. This op
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/binarybulkinsert.svg" />
+<img src="../../assets/images/site/binaryimport.svg" />
 
 ### Use Case
 
 This method is very useful if you would like to insert multiple rows into the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
 
-If you are working to insert range of rows from 1000 or beyond, then use this method over the [InsertAll](/operation/insertall) operation. Alternatively, you can also use the [BinaryImport](/operation/binaryimport) operation.
+If you are working to insert range of rows from 1000 or beyond, then use this method over the [InsertAll](/operation/insertall) operation. Alternatively, you can also use the [BinaryBulkInsert](/operation/binarybulkinsert) operation.
 
 ### Special Arguments
 
-The `identityBehavior` and `pseudoTableType` arguments were provided on this operation.
-
-The `identityBehavior` is used to define a value whether an identity property of the entity/model will be kept, or, the newly generated identity values from the database will be returned after the operation. 
-
-The `pseudoTableType` is used to define a value whether a physical pseudo-table will be created during the operation. By default, a temporary table is used.
-
-> Please be noted that it is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
+The `keepIdentity` argument is provided to define a value whether the identity property of the entity/model will be kept during the operation. 
 
 ### Usability
 
@@ -43,7 +37,7 @@ Simply pass the list of the entities when calling this operation.
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
-    var insertedRows = connection.BinaryBulkInsert<Person>(people);
+    var importedRows = connection.BinaryImport<Person>(people);
 }
 ```
 
@@ -55,7 +49,7 @@ And below if you would like to specify the batch size.
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
-    var insertedRows = connection.BinaryBulkInsert<Person>(people, batchSize: 100);
+    var importedRows = connection.BinaryImport<Person>(people, batchSize: 100);
 }
 ```
 
@@ -66,7 +60,7 @@ You can also target a specific table by passing the literal table name like belo
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var insertedRows = connection.BinaryBulkInsert("[dbo].[Person]", people);
+    var importedRows = connection.BinaryImport("[dbo].[Person]", people);
 }
 ```
 
@@ -79,7 +73,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
     var table = ConvertToDataTable(people);
-    var insertedRows = connection.BinaryBulkInsert("[dbo].[Person]", table);
+    var importedRows = connection.BinaryImport("[dbo].[Person]", table);
 }
 ```
 
@@ -92,7 +86,7 @@ var people = GetPeopleAsDictionary(1000);
 
 using (var destinationConnection = new NpgsqlConnection(destinationConnectionString))
 {
-    var insertedRows = destinationConnection.BinaryBulkInsert("[dbo].[Person]", people);
+    var importedRows = destinationConnection.BinaryImport("[dbo].[Person]", people);
 }
 ```
 
@@ -107,7 +101,7 @@ using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
     {
         using (var destinationConnection = new NpgsqlConnection(destinationConnectionString))
         {
-            var insertedRows = destinationConnection.BinaryBulkInsert("[dbo].[Person]", reader);
+            var importedRows = destinationConnection.BinaryImport("[dbo].[Person]", reader);
         }
     }
 }
@@ -120,22 +114,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 {
     using (var reader = new DataEntityDataReader<Person>(people))
     {
-        var insertedRows = connection.BinaryBulkInsert("[dbo].[Person]", reader);
+        var importedRows = connection.BinaryImport("[dbo].[Person]", reader);
     }
 }
 ```
-
-### Physical Temporary Table
-
-To use a physical pseudo-temporary table, simply pass the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#physical) value in the `pseudoTableType` argument.
-
-```csharp
-using (var connection = new NpgsqlConnection(connectionString))
-{
-    var insertedRows = connection.BinaryBulkInsert("[dbo].[Person]",
-        people,
-        pseudoTableType: BulkImportPseudoTableType.Physical);
-}
-```
-
-> By using the actual pseudo physical temporary table, it will further help you maximize the performance over using the normal temporary table. However, you need to be aware that the table is shared to any call, so parallelism may fail on this scenario.

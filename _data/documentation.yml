@@ -137,6 +137,9 @@ docs:
   - title: "BinaryBulkUpdate"
     url: "/operation/binarybulkupdate"
   
+  - title: "BinaryImport"
+    url: "/operation/binaryimport"
+  
   - title: "BulkDelete"
     url: "/operation/bulkdelete"
   
@@ -444,10 +447,19 @@ docs:
 
 - key: enumerations
   title: "Enumerations"
-  url: "/enumeration/conjunction"
+  url: "/enumeration/postgresql/bulkimportidentitybehavior"
   isdoc: true
   description: "Below are the list of enumerations available."
   topics:
+
+  - title: "BulkImportIdentityBehavior"
+    url: "/enumeration/postgresql/bulkimportidentitybehavior"
+
+  - title: "BulkImportMergeCommandType"
+    url: "/enumeration/postgresql/bulkimportmergecommandtype"
+
+  - title: "BulkImportPseudoTableType"
+    url: "/enumeration/postgresql/bulkimportpseudotabletype"
 
   - title: "Conjunction"
     url: "/enumeration/conjunction"
