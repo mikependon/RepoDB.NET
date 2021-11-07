@@ -2,7 +2,7 @@
 layout: default
 sidebar: enumerations
 title: "BulkImportMergeCommandType"
-description: "A enumeration that defines the persistency of the database connection object when working with repository."
+description: "A enumeration that is being used to define the command text to use when executing the BinaryBulkMerge operation."
 permalink: /enumeration/postgresql/bulkimportmergecommandtype
 tags: [repodb, class, bulkimportmergecommandtype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: "PostgreSQL"
@@ -13,7 +13,7 @@ grand_parent: ENUMERATIONS
 
 ---
 
-An enumeration that is being used to define which command text to use when executing the [BinaryBulkMerge](/operation/binarybulkmerge) operation. This enumeration is being used by the [BinaryBulkMerge](/operation/binarybulkmerge) operation of [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This enum is used to define the command text to use when executing the [BinaryBulkMerge](/operation/binarybulkmerge) operation. It is only used for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
 ### Enum Values
 
@@ -22,7 +22,7 @@ An enumeration that is being used to define which command text to use when execu
 
 ### Usability
 
-Let us say, you would like to merge a big dataset into the database but you prefer to use the ON CONFLICT DO UPDATE merge command of PostgreSQL, then simply pass `OnConflictDoUpdate` value on the `mergeCommandType` argument. See below.
+Let us say, you would like to merge a big dataset into the database and you prefer to use the ON CONFLICT DO UPDATE merge command of PostgreSQL. Simply pass `OnConflictDoUpdate` value on the `mergeCommandType` argument. See below.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))

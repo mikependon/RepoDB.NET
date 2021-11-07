@@ -2,7 +2,7 @@
 layout: default
 sidebar: enumerations
 title: "BulkImportIdentityBehavior"
-description: "An enumeration that is being used to define the behavior of the identity property/column when an entity is being bulk-imported towards the underlying target table."
+description: "An enumeration that is being used to define the behavior of the identity property/column when an entity is being bulk-imported towards the target table."
 permalink: /enumeration/postgresql/bulkimportidentitybehavior
 tags: [repodb, class, bulkimportidentitybehavior, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
 parent: "PostgreSQL"
@@ -13,7 +13,7 @@ grand_parent: ENUMERATIONS
 
 ---
 
-An enumeration that is being used to define the behavior of the identity property/column when an entity is being bulk-imported towards the underlying target table. This enumeration is only used for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This enum is used to define the behavior of the identity property/column when an entity is being bulk-imported towards the target table. It is only used for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
 ### Enum Values
 
@@ -23,9 +23,7 @@ An enumeration that is being used to define the behavior of the identity propert
 
 ### Usability
 
-The enumeration is being used by both the [BinaryBulkInsert](/operation/binarybulkinsert) and [BinaryBulkMerge](/operation/binarybulkmerge) operations. Simply pass the value to the `identityBehavior` argument when calling the operation.
-
-Let us say, you would like to insert a big dataset into the database by bulk and would like to return the generated identities afterwards, simply pass the value when calling the operation.
+This enum is being used by both the [BinaryBulkInsert](/operation/binarybulkinsert) and [BinaryBulkMerge](/operation/binarybulkmerge) operations. Simply pass the value to the `identityBehavior` argument when calling the operation.
 
 For [BinaryBulkInsert](/operation/binarybulkinsert) operation, see below.
 

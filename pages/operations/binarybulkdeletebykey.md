@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to delete the target rows from the database via the list of primary keys by bulk. This operation is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This method is used to delete the rows from the database via the list of primary keys by bulk. It is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
 ### Call Flow Diagram
 
@@ -21,7 +21,7 @@ The diagram below shows the flow when calling this operation.
 
 ### Use Case
 
-This method is very useful if you would like to delete multiple rows from the database (via a list of primary keys) in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
+This method is very useful if you would like to delete the rows from the database (via a list of primary keys) in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
 
 ### Special Arguments
 

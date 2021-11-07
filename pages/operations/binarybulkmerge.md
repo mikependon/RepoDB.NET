@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to merge the target rows from the database by bulk. This operation is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This method is used to merge multiple rows towards the database by bulk. The operation does not delete any rows from the database, instead, it only update the existing rows (if present), and insert the new rows (if not present) based on the given qualifiers. It is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
 ### Call Flow Diagram
 
@@ -21,9 +21,9 @@ The diagram below shows the flow when calling this operation.
 
 ### Use Case
 
-This method is very useful if you would like to merge multiple rows into the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
+This method is very useful if you would like to merge multiple rows towards the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
 
-If you are working to merge range of rows from 1000 or beyond, then use this method over the [MergeAll](/operation/mergeall) operation.
+If you are working to merge range of rows from 1000 or more, then use this method over the [MergeAll](/operation/mergeall) operation.
 
 ### Special Arguments
 
@@ -92,9 +92,9 @@ Below is the sample code to bulk-merge via `Dictionary<string, object>` or `Expa
 ```csharp
 var people = GetPeopleAsDictionary(1000);
 
-using (var destinationConnection = new NpgsqlConnection(destinationConnectionString))
+using (var connection = new NpgsqlConnection(destinationConnectionString))
 {
-    var mergedRows = destinationConnection.BinaryBulkMerge("[dbo].[Person]", people);
+    var mergedRows = connection.BinaryBulkMerge("[dbo].[Person]", people);
 }
 ```
 

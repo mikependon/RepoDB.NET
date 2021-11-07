@@ -13,9 +13,9 @@ grand_parent: ENUMERATIONS
 
 ---
 
-An enumeration that is being used to define the type of pseudo-temporary table to be created during the bulk-import operations. This enumeration is only used for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This enum is being used to define the type of pseudo-temporary table to be created during the bulk-import operations. This enumeration is only used for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
-This enumeration is being used by the following bulk import operations.
+It is used by the following bulk import operations.
 
 - [BinaryBulkDelete](/operation/binarybulkdelete)
 - [BinaryBulkDeleteByKey](/operation/binarybulkdeletebykey)
@@ -30,13 +30,59 @@ This enumeration is being used by the following bulk import operations.
 
 ### Usability
 
-Let us say, you would like to merge a big dataset into the database that uses the physical pseudo-temporary table, then simply pass `Physical` value on the `pseudoTableType` argument. See below.
+Simply pass value on the `pseudoTableType` argument.
+
+Below is for [BinaryBulkDelete](/operation/binarybulkdelete) operation.
+
+```csharp
+using (var connection = new NpgsqlConnection(connectionString))
+{
+    var people = GetPeople(1000);
+    var deletedRows = connection.BinaryBulkDelete(people,
+        pseudoTableType: BulkImportPseudoTableType.Physical);
+}
+```
+
+Below is for [BinaryBulkDeleteByKey](/operation/binarybulkdeletebykey) operation.
+
+```csharp
+using (var connection = new NpgsqlConnection(connectionString))
+{
+    var primaryKeys = GetPeople(1000).Select(e => e.Id);
+    var deletedRows = connection.BinaryBulkDeleteByKey(primaryKeys,
+        pseudoTableType: BulkImportPseudoTableType.Physical);
+}
+```
+
+Below is for [BinaryBulkInsert](/operation/binarybulkinsert) operation.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
     var insertedRows = connection.BinaryBulkInsert(people,
+        pseudoTableType: BulkImportPseudoTableType.Physical);
+}
+```
+
+Below is for [BinaryBulkMerge](/operation/binarybulkmerge) operation.
+
+```csharp
+using (var connection = new NpgsqlConnection(connectionString))
+{
+    var people = GetPeople(1000);
+    var mergedRows = connection.BinaryBulkMerge(people,
+        pseudoTableType: BulkImportPseudoTableType.Physical);
+}
+```
+
+Below is for [BinaryBulkUpdate](/operation/binarybulkupdate) operation.
+
+```csharp
+using (var connection = new NpgsqlConnection(connectionString))
+{
+    var people = GetPeople(1000);
+    var updatedRows = connection.BinaryBulkUpdate(people,
         pseudoTableType: BulkImportPseudoTableType.Physical);
 }
 ```

@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to insert the target rows from the database by bulk. This operation is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This method is used to insert multiple rows towards the database by bulk. It is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
 ### Call Flow Diagram
 
@@ -21,9 +21,9 @@ The diagram below shows the flow when calling this operation.
 
 ### Use Case
 
-This method is very useful if you would like to insert multiple rows into the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
+This method is very useful if you would like to insert multiple rows towards the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
 
-If you are working to insert range of rows from 1000 or beyond, then use this method over the [InsertAll](/operation/insertall) operation. Alternatively, you can also use the [BinaryBulkInsert](/operation/binarybulkinsert) operation.
+If you are working to insert range of rows from 1000 or more, then use this method over the [InsertAll](/operation/insertall) operation. Alternatively, you can also use the [BinaryBulkInsert](/operation/binarybulkinsert) operation.
 
 ### Special Arguments
 
@@ -84,9 +84,9 @@ Below is the sample code to bulk-insert via `Dictionary<string, object>` or `Exp
 ```csharp
 var people = GetPeopleAsDictionary(1000);
 
-using (var destinationConnection = new NpgsqlConnection(destinationConnectionString))
+using (var connection = new NpgsqlConnection(destinationConnectionString))
 {
-    var importedRows = destinationConnection.BinaryImport("[dbo].[Person]", people);
+    var importedRows = connection.BinaryImport("[dbo].[Person]", people);
 }
 ```
 
