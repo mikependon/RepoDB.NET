@@ -106,6 +106,12 @@ If you wish to work with [PostgreSQL](https://www.nuget.org/packages/RepoDb.Post
 > Install-Package RepoDb.PostgreSql
 ```
 
+Or, if you are to work with the bulk operations.
+
+```csharp
+> Install-Package RepoDb.PostgreSql.BulkOperations
+```
+
 Then, call the bootstrapper to initialize the needed references.
 
 ```csharp

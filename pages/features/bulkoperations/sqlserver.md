@@ -13,7 +13,7 @@ grand_parent: FEATURES
 
 ---
 
-For SQL Server, the underlying implementation is  leveraging the existing ADO.NET `SqlBulkCopy` class of the `Microsoft.Data.SqlClient` namespace.
+For SQL Server, the underlying implementation is leveraging the existing ADO.NET `SqlBulkCopy` class of the `Microsoft.Data.SqlClient` namespace.
 
 For [BulkInsert](/operation/bulkinsert) operation, it simply calls the `WriteToServer()` method to bring all the data into the database. Unless you would like to bring the newly generated identities back to the application after the execution, there is no additional logic is implied.
 
@@ -27,7 +27,7 @@ Image below shows the data flow of the [BulkMerge](/operation/bulkmerge) operati
 
 <img src="../../assets/images/site/bulkmerge.svg" />
 
-Basically, a pseudo-temporary table will be created in the database under the transaction context. It then uses the [BulkInsert](/operation/bulkinsert) operation to target that pseudo-temporary table and process the data afterwards. Through this technique, we brought all the data together from the client application into the database server (at one-go) and process them together at the same time.
+Basically, a pseudo-temporary table will be created in the database under a transaction context. It then uses the [BulkInsert](/operation/bulkinsert) operation to target that pseudo-temporary table and process the data afterwards. Through this technique, we brought all the data together from the client application into the database server (at one-go) and process them together at the same time.
 
 For the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, you can maximize the execution by targeting your underlying table indexes via qualifiers, simply pass a list of [Field](/class/field) object. The library will then create a CLUSTERED INDEX on the pseudo-temporary table through the passed qualifiers and do the actual joins to the original table using that index.
 
@@ -61,10 +61,10 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 > MERGE [dbo].[OriginalTable] T
 > USING [PseudoTempTable] S ON S.QualiferField1 = T.Field1 AND S.QualifierField2 = T.Field2
 > WHEN NOT MATCHED THEN
->    INSERT (...) VALUES (...)
+> INSERT (...) VALUES (...)
 > WHEN MATCHED THEN
->    UPDATE
->    SET (...);
+> UPDATE
+> SET (...);
 ```
 
 #### For BulkUpdate
@@ -72,8 +72,8 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 ```csharp
 > UPDATE T
 > SET T.Field3 = TMP.Field3
->     , T.Field4 = TMP.Field4
->     , ...
+> , T.Field4 = TMP.Field4
+> , ...
 > FROM [OriginalTable] T
 > INNER JOIN [PseudoTempTable] TMP ON TMP.QualiferField1 = T.Field1 AND TMP.QualifierField2 = T.Field2;
 ```
@@ -117,8 +117,8 @@ The code snippets below only showcasing the [BulkDelete](/operation/bulkdelete) 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetCustomers();
-    var rows = connection.BulkDelete<Customer>(customers);
+ var customers = GetCustomers();
+ var rows = connection.BulkDelete<Customer>(customers);
 }
 ```
 
@@ -127,9 +127,9 @@ Or with qualifiers.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetCustomers();
-    var qualifiers = Field.Parse<Customer>(e => new { e.LastName, e.BirthDate });
-    var rows = connection.BulkDelete<Customer>(customers, qualifiers: qualifiers);
+ var customers = GetCustomers();
+ var qualifiers = Field.Parse<Customer>(e => new { e.LastName, e.BirthDate });
+ var rows = connection.BulkDelete<Customer>(customers, qualifiers: qualifiers);
 }
 ```
 
@@ -138,8 +138,8 @@ Or via primary keys.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var keys = new object[] { 10045, ..., 11211 }
-    var rows = connection.BulkDelete<Customer>(keys);
+ var keys = new object[] { 10045, ..., 11211 }
+ var rows = connection.BulkDelete<Customer>(keys);
 }
 ```
 
@@ -148,8 +148,8 @@ You can also target via table-name.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetCustomers();
-    var rows = connection.BulkDelete("[dbo].[Customer]", customers);
+ var customers = GetCustomers();
+ var rows = connection.BulkDelete("[dbo].[Customer]", customers);
 }
 ```
 
@@ -160,8 +160,8 @@ The code snippets below only showcasing the [BulkInsert](/operation/bulkinsert) 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetCustomers();
-    var rows = connection.BulkInsert<Customer>(customers);
+ var customers = GetCustomers();
+ var rows = connection.BulkInsert<Customer>(customers);
 }
 ```
 
@@ -170,8 +170,8 @@ Or via table-name.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetCustomers();
-    var rows = connection.BulkInsert("[dbo].[Customer]", customers);
+ var customers = GetCustomers();
+ var rows = connection.BulkInsert("[dbo].[Customer]", customers);
 }
 ```
 
@@ -182,8 +182,8 @@ The code snippets below only showcasing the [BulkMerge](/operation/bulkmerge) vi
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetCustomers();
-    var rows = connection.BulkMerge<Customer>(customers);
+ var customers = GetCustomers();
+ var rows = connection.BulkMerge<Customer>(customers);
 }
 ```
 
@@ -192,9 +192,9 @@ Or with qualifiers.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetCustomers();
-    var qualifiers = Field.Parse<Customer>(e => new { e.LastName, e.BirthDate });
-    var rows = connection.BulkMerge<Customer>(customers, qualifiers: qualifiers);
+ var customers = GetCustomers();
+ var qualifiers = Field.Parse<Customer>(e => new { e.LastName, e.BirthDate });
+ var rows = connection.BulkMerge<Customer>(customers, qualifiers: qualifiers);
 }
 ```
 
@@ -203,8 +203,8 @@ You can also target via table-name.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetCustomers();
-    var rows = connection.BulkMerge("[dbo].[Customer]", customers);
+ var customers = GetCustomers();
+ var rows = connection.BulkMerge("[dbo].[Customer]", customers);
 }
 ```
 
@@ -215,8 +215,8 @@ The code snippets below only showcasing the [BulkUpdate](/operation/bulkupdate) 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetCustomers();
-    var rows = connection.BulkUpdate<Customer>(customers);
+ var customers = GetCustomers();
+ var rows = connection.BulkUpdate<Customer>(customers);
 }
 ```
 
@@ -225,9 +225,9 @@ Or with qualifiers.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetCustomers();
-    var qualifiers = Field.Parse<Customer>(e => new { e.LastName, e.BirthDate });
-    var rows = connection.BulkUpdate<Customer>(customers, qualifiers: qualifiers);
+ var customers = GetCustomers();
+ var qualifiers = Field.Parse<Customer>(e => new { e.LastName, e.BirthDate });
+ var rows = connection.BulkUpdate<Customer>(customers, qualifiers: qualifiers);
 }
 ```
 
@@ -236,7 +236,7 @@ You can also target via table-name.
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    var customers = GetCustomers();
-    var rows = connection.BulkUpdate("[dbo].[Customer]", customers);
+ var customers = GetCustomers();
+ var rows = connection.BulkUpdate("[dbo].[Customer]", customers);
 }
 ```
