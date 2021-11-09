@@ -15,19 +15,19 @@ grand_parent: FEATURES
 
 For PostgreSQL, the underlying implementation is leveraging the existing [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class of the `Npgsql` package.
 
-For [BinaryBulkInsert](/operation/binarybulkinsert) operation, it calls customized [BinaryImport](/operation/binaryimport) operation that also calls the underlying the `Write()` method of the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class to bring all the data into the database. Unless you would like to bring the newly generated identities back to the application after the execution, there is no additional logic is implied.
+For the [BinaryBulkInsert](/operation/binarybulkinsert) operation, it is calling the customized [BinaryImport](/operation/binaryimport) operation in which it also calls the underlying `Write()` method of the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class. There is no additional logic is implied unless you would like to bring the newly generated identities back to the application after the execution, 
 
-Image below shows the data flow of the [BinaryBulkInsert](/operation/binarybulkinsert) operation.
+The image below shows the data flow of the [BinaryBulkInsert](/operation/binarybulkinsert) operation.
 
 <img src="../../assets/images/site/binarybulkinsert.svg" />
 
 For the [BinaryBulkDelete](/operation/binarybulkdelete), [BinaryBulkMerge](/operation/binarybulkmerge) and [BinaryBulkUpdate](/operation/binarybulkupdate) operations, an implied logic and technique has been utilized.
 
-Image below shows the data flow of the [BinaryBulkMerge](/operation/binarybulkmerge) operation.
+The image below shows the data flow of the [BinaryBulkMerge](/operation/binarybulkmerge) operation.
 
 <img src="../../assets/images/site/binarybulkmerge.svg" />
 
-Basically, a pseudo-temporary table will be created in the database under a transaction context. It then uses the [BinaryImport](/operation/binaryimport) operation to target that pseudo-temporary table and process the data afterwards. Through this technique, we brought all the data together from the client application into the database server (at one-go) and process them together at the same time.
+Basically, a pseudo-temporary table is being created in the database under a transaction context. The operation (any operation) will then use the [BinaryImport](/operation/binaryimport) operation to target that pseudo-temporary table and process the data afterwards. Through this technique, we brought all the data together from the client application into the database server (at one-go) and process them together at the same time.
 
 For the [BinaryBulkDelete](/operation/binarybulkdelete), [BinaryBulkMerge](/operation/binarybulkmerge) and [BinaryBulkUpdate](/operation/binarybulkupdate) operations, you can maximize the execution by targeting your underlying table indexes via qualifiers, simply pass a list of [Field](/class/field) object. The library will then create a CLUSTERED INDEX on the pseudo-temporary table through the passed qualifiers and do the actual joins to the original table using that index.
 
@@ -77,6 +77,17 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 ```
 
 > Disclaimer: The generated statements are not exactly same as the one written above, but the concepts are identical.
+
+#### For BinaryBulkMerge (OnConflictDoUpdate)
+
+```csharp
+> INSERT INTO "OriginalTable"
+> (...)
+> SELECT (...)
+> FROM "PseudoTempTable"
+> ON CONFLICT (Field1, Field2) DO UPDATE
+> SET (...);
+```
 
 #### For BinaryBulkUpdate
 
