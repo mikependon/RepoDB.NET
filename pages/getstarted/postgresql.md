@@ -23,6 +23,12 @@ The library can be installed via Nuget. In your Package Manager Console, type th
 > Install-Package RepoDb.PostgreSql
 ```
 
+Or, if you are to work with the bulk operations.
+
+```csharp
+> Install-Package RepoDb.PostgreSql.BulkOperations
+```
+
 Once installed, call the bootstrapper to initialize all the dependencies for PostgreSql.
 
 ```csharp
