@@ -103,7 +103,7 @@ using (var connection = new SqlConnection(connectionString))
         { "Address", "New York" },
         { "DateOfBirth", DateTime.Parse("2020-01-01") },
         { "IsActive", true },
-        { "CreatedDateUtc", DateTime.UtcNow }
+        { "DateInsertedUtc", DateTime.UtcNow }
     };
     var id = connection.Update("[dbo].[Customer]",
         entity: person);
