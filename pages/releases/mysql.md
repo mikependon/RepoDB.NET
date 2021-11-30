@@ -14,6 +14,11 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySql) to download it.
 
+### RepoDB.MySql (Next Version)
+
+- Upgraded the `MySql.Data` package to `8.0.27`.
+
+
 ### RepoDB.MySql (v1.1.5)
 
 - Added the `net5.0` as part of the target frameworks.

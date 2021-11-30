@@ -14,10 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql.BulkOperations) to download it.
 
-### RepoDB.PostgreSql.BulkOperations (0.0.7)
+### RepoDB.PostgreSql.BulkOperations (Next Version)
 
 - Added the bulk operations extended methods on the [DbRepository](/class/dbrepository) class.
 - Added the bulk operations extended methods on the [BaseRepository](/class/baserepository) class.
+- Added the 6.0 to the target frameworks.
+- Upgraded the `Npgsql` package to `v5.0.11`.
 
 
 ### RepoDB.PostgreSql.BulkOperations (0.0.6)
