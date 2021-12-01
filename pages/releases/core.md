@@ -18,6 +18,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 - Initial support to PostgreSQL bulk operations.
 - Code refactoring specifically on the `QueryBuilders`.
+- Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 
 
 ### RepoDB (v1.12.9)

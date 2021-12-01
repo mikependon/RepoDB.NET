@@ -17,6 +17,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySql) to see the actu
 ### RepoDB.MySql (Next Version)
 
 - Upgraded the `MySql.Data` package to `8.0.27`.
+- Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 
 
 ### RepoDB.MySql (v1.1.5)

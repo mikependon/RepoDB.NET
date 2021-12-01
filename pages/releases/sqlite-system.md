@@ -14,7 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SQLite.System) to download it.
 
-### RepoDB.Sqlite.Microsoft (v1.0.1)
+### RepoDB.Sqlite.System (Next Version)
+
+- Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
+
+
+### RepoDB.Sqlite.System (v1.0.1)
 
 - Added the 6.0 to the target frameworks.
 - Upgraded the `System.Data.SQLite.Core` package to `v1.0.115.5`.
