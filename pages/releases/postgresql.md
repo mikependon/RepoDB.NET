@@ -19,8 +19,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Initial support to PostgreSQL bulk operations.
 - Enhancement: Introduced the `ClientTypeToNpgsqlDbTypeResolver` class.
 - Enhancement: Introduced the `PostgreSqlDbTypeNameToNpgsqlDbTypeResolver` class.
-- Upgraded the `Npgsql` package to `v5.0.11` for FTM `netcoreapp2.1` and `net6.0`.
-- Upgraded the `Npgsql` package to `v6.0.0` for FTM `net5.0`.
+- Upgraded the `Npgsql` package. Used the `v5.0.11` for FTM `netcoreapp2.0` and `v6.0.0` for FTM `net5.0` and `net6.0`.
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 
 
