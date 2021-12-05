@@ -24,6 +24,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 ### RepoDB (v1.12.9)
 
 - Enhancement: Make the value argument of the functional [QueryField](/class/queryfield) objects to `System.Object`. [#926](https://github.com/mikependon/RepoDB/issues/926)
+- Question: How is inheritance working in RepoDB? [#955](https://github.com/mikependon/RepoDB/issues/955)
 
 
 ### RepoDB (v1.12.8)
