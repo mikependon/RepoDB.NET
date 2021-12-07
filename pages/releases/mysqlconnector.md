@@ -18,6 +18,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 
 - Upgraded the `MySqlConnector` package to `2.1.0`.
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
+- Supported the `.NET v6.0`.
 
 
 ### RepoDB.MySqlConnector (v1.1.4)

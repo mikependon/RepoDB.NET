@@ -17,6 +17,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see 
 ### RepoDB.Sqlite.System (Next Version)
 
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
+- Supported the `.NET v6.0`.
 
 
 ### RepoDB.Sqlite.System (v1.0.1)

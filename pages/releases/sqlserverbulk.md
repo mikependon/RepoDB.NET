@@ -20,6 +20,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 - Added the `net5.0` as part of the target frameworks.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Upgraded the `RepoDb.SqlServer` package to `v1.1.4-beta4`.
+- Supported the `.NET v6.0`.
 
 
 ### RepoDB.SqlServer.BulkOperations (v1.1.5-beta2)

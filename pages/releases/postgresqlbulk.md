@@ -20,6 +20,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperati
 - Added the bulk operations extended methods on the [BaseRepository](/class/baserepository) class.
 - Added the 6.0 to the target frameworks.
 - Upgraded the `Npgsql` package to `v5.0.11`.
+- Supported the `.NET v6.0`.
 
 
 ### RepoDB.PostgreSql.BulkOperations (0.0.6)
