@@ -14,14 +14,20 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-### RepoDB (v1.10.2)
+### RepoDB (v1.12.10-beta3)
+
+- (Additional Fixes) Bug: Exceptions are thrown when using a custom [PropertyHandler](/feature/propertyhandlers) and a Where Expression to process an Enum value (that has NULL or invalid Enum Id); the Get/Set is never invoked. [#991](https://github.com/mikependon/RepoDB/issues/991)
+- Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
+
+
+### RepoDB (v1.12.10-beta2)
 
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 - Bug: Exceptions are thrown when using a custom [PropertyHandler](/feature/propertyhandlers) and a Where Expression to process an Enum value (that has NULL or invalid Enum Id); the Get/Set is never invoked. [#991](https://github.com/mikependon/RepoDB/issues/991)
 - Supported the `.NET v6.0`.
 
 
-### RepoDB (v1.10.1)
+### RepoDB (v1.12.10-beta1)
 
 - Initial support to PostgreSQL bulk operations.
 - Code refactoring specifically on the `QueryBuilders`.

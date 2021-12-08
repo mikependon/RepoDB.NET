@@ -22,6 +22,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Upgraded the `Npgsql` package. Used the `v5.0.11` for FTM `netcoreapp2.0` and `v6.0.0` for FTM `net5.0` and `net6.0`.
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 - Supported the `.NET v6.0`.
+- Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 
 
 ### RepoDB.PostgreSql (v1.1.4)

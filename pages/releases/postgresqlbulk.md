@@ -21,6 +21,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperati
 - Added the 6.0 to the target frameworks.
 - Upgraded the `Npgsql` package to `v5.0.11`.
 - Supported the `.NET v6.0`.
+- Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 
 
 ### RepoDB.PostgreSql.BulkOperations (0.0.6)
