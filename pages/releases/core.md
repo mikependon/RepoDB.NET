@@ -14,6 +14,11 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+### RepoDB (v1.12.10-beta4)
+
+- Compiler update to utilize the customized `DbParameterExtension` class to compliment the compiler's needs for the `NpgsqlParameter.NpgsqlDbType.Unknown`.
+
+
 ### RepoDB (v1.12.10-beta3)
 
 - (Additional Fixes) Bug: Exceptions are thrown when using a custom [PropertyHandler](/feature/propertyhandlers) and a Where Expression to process an Enum value (that has NULL or invalid Enum Id); the Get/Set is never invoked. [#991](https://github.com/mikependon/RepoDB/issues/991)

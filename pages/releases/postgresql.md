@@ -14,15 +14,20 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql) to download it.
 
-### RepoDB.PostgreSql (Next Version)
+### RepoDB.PostgreSql (v1.1.5-beta2)
 
-- Initial support to PostgreSQL bulk operations.
-- Enhancement: Introduced the `ClientTypeToNpgsqlDbTypeResolver` class.
-- Enhancement: Introduced the `PostgreSqlDbTypeNameToNpgsqlDbTypeResolver` class.
 - Upgraded the `Npgsql` package. Used the `v5.0.11` for FTM `netcoreapp2.0` and `v6.0.0` for FTM `net5.0` and `net6.0`.
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 - Supported the `.NET v6.0`.
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
+- Added the customized `DbParameterExtension` class to compliment the compiler's needs for the `NpgsqlParameter.NpgsqlDbType.Unknown`.
+
+
+### RepoDB.PostgreSql (v1.1.5-beta1)
+
+- Initial support to PostgreSQL bulk operations.
+- Enhancement: Introduced the `ClientTypeToNpgsqlDbTypeResolver` class.
+- Enhancement: Introduced the `PostgreSqlDbTypeNameToNpgsqlDbTypeResolver` class.
 
 
 ### RepoDB.PostgreSql (v1.1.4)
