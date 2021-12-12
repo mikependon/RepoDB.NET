@@ -14,14 +14,19 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql.BulkOperations) to download it.
 
-### RepoDB.PostgreSql.BulkOperations (Next Version)
+### RepoDB.PostgreSql.BulkOperations (0.0.8)
+
+- Supported the enumerations in all bulk operations. The different entity types (i.e.: `TEntity`, `IDictionary<string, object>`, `ExpandoObject`, `Anonymous` and `DataTable`) are covered on the enum support. 
+- Supported the `.NET v6.0`.
+- Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
+- Upgraded the `RepoDb` package to `v1.12.10-beta4`.
+- Upgraded the `RepoDb.PostgreSql` package to `v1.1.5-beta2`.
+
+
+### RepoDB.PostgreSql.BulkOperations (0.0.7)
 
 - Added the bulk operations extended methods on the [DbRepository](/class/dbrepository) class.
 - Added the bulk operations extended methods on the [BaseRepository](/class/baserepository) class.
-- Added the 6.0 to the target frameworks.
-- Upgraded the `Npgsql` package to `v5.0.11`.
-- Supported the `.NET v6.0`.
-- Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 
 
 ### RepoDB.PostgreSql.BulkOperations (0.0.6)

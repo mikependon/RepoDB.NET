@@ -17,6 +17,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 ### RepoDB (v1.12.10-beta4)
 
 - Compiler update to utilize the customized `DbParameterExtension` class to compliment the compiler's needs for the `NpgsqlParameter.NpgsqlDbType.Unknown`.
+- Complimentary support to the Enum(s) for the `RepoDb.PostgreSql.BulkOperations` package.
+- Upgraded the `System.Linq.Async` package to `v5.1.0`.
+- Upgraded the `Microsoft.Bcl.AsyncInterfaces` package to `v6.0.0`.
 
 
 ### RepoDB (v1.12.10-beta3)

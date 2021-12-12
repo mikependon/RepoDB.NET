@@ -19,8 +19,11 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Upgraded the `Npgsql` package. Used the `v5.0.11` for FTM `netcoreapp2.0` and `v6.0.0` for FTM `net5.0` and `net6.0`.
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 - Supported the `.NET v6.0`.
+- Complimentary support to the Enum(s) for the `RepoDb.PostgreSql.BulkOperations` package.
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 - Added the customized `DbParameterExtension` class to compliment the compiler's needs for the `NpgsqlParameter.NpgsqlDbType.Unknown`.
+- Upgraded the `Npgsql` package to `v6.0.1`.
+- Upgraded the `RepoDb` package to `v1.12.10-beta4`.
 
 
 ### RepoDB.PostgreSql (v1.1.5-beta1)
