@@ -14,8 +14,13 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
-### RepoDB.SqlServer.BulkOperations (Next Version)
+### RepoDB.SqlServer.BulkOperations (v1.1.6-beta1)
 
+- Upgraded the `RepoDb` package to `v1.12.10-beta4`.
+- Upgraded the `RepoDb.SqlServer` package to `v1.1.5-beta4`.
+- Added the `System.Linq.Async` (version `5.1.0`).
+- Added the `Microsoft.Bcl.AsyncInterfaces` (version `6.0.0`).
+- Initial support to the `IAsyncEnumerable` interface.
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 
 
