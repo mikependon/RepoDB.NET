@@ -14,6 +14,14 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+### RepoDB (Next Version)
+
+- Bug: the DeleteAll<T>(T entities) method results in System.InvalidOperationException errors [#1011](https://github.com/mikependon/RepoDB/issues/1011)
+- 实体继承基类的主键以及字段，无法在派生类中体现？ [#986](https://github.com/mikependon/RepoDB/issues/986)
+- [MemoryCache](/class/memorycache): "Cannot update the item that is not yet expired." [#1017](https://github.com/mikependon/RepoDB/issues/1017)
+- Behavioral Change: When calling the [MemoryCache](/class/memorycache).Add method, the existing cached item (if present) information will be updated by the latest and updated one.
+
+
 ### RepoDB (v1.12.10-beta4)
 
 - Compiler update to utilize the customized `DbParameterExtension` class to compliment the compiler's needs for the `NpgsqlParameter.NpgsqlDbType.Unknown`.
