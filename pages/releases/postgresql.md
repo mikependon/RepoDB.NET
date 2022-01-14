@@ -14,6 +14,11 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql) to download it.
 
+### RepoDB.PostgreSql (Next Version)
+
+- Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
+
+
 ### RepoDB.PostgreSql (v1.1.5-beta2)
 
 - Upgraded the `Npgsql` package. Used the `v5.0.11` for FTM `netcoreapp2.0` and `v6.0.0` for FTM `net5.0` and `net6.0`.

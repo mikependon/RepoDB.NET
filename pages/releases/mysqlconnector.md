@@ -20,6 +20,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 - Supported the `.NET v6.0`.
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
+- Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
 
 
 ### RepoDB.MySqlConnector (v1.1.4)

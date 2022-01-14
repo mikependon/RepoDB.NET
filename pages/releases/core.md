@@ -20,6 +20,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - 实体继承基类的主键以及字段，无法在派生类中体现？ [#986](https://github.com/mikependon/RepoDB/issues/986)
 - [MemoryCache](/class/memorycache): "Cannot update the item that is not yet expired." [#1017](https://github.com/mikependon/RepoDB/issues/1017)
 - Behavioral Change: When calling the [MemoryCache](/class/memorycache).Add method, the existing cached item (if present) information will be updated by the latest and updated one.
+- Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
+- Deprecated the method `DataEntityExtension.GetSchema(string)`. Use the `DataEntityExtension.GetSchema(string, IDbSetting)` instead.
+- Deprecated the method `DataEntityExtension.GetTableName(string)`. Use the `DataEntityExtension.GetTableName(string, IDbSetting)` instead.
 
 
 ### RepoDB (v1.12.10-beta4)

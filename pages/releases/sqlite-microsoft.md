@@ -14,6 +14,11 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.Sqlite.Microsoft) to download it.
 
+### RepoDB.Sqlite.Microsoft (Next Version)
+
+- Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
+
+
 ### RepoDB.Sqlite.Microsoft (v1.0.1-beta1)
 
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
