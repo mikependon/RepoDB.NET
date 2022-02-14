@@ -23,6 +23,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
 - Deprecated the method `DataEntityExtension.GetSchema(string)`. Use the `DataEntityExtension.GetSchema(string, IDbSetting)` instead.
 - Deprecated the method `DataEntityExtension.GetTableName(string)`. Use the `DataEntityExtension.GetTableName(string, IDbSetting)` instead.
+- Deprecated the method `Type.GetImplementedInterfaces()` (extended method). Use the `Type.GetInterfaces()` instead.
+- Bug: PropertyHandler doesn't seem to work in F# [#1021](https://github.com/mikependon/RepoDB/issues/1021)
 
 
 ### RepoDB (v1.12.10-beta4)
