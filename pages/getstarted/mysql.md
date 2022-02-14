@@ -34,7 +34,7 @@ Or
 Once installed, call the bootstrapper to initialize all the dependencies for MySql.
 
 ```csharp
-RepoDb.MySqlBootstrap.Initialize();
+RepoDb.MySqlConnectorBootstrap.Initialize();
 ```
 
 Or visit our [installation](/tutorial/installation) page for more information.

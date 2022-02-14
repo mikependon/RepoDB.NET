@@ -89,13 +89,13 @@ RepoDb.MySqlBootstrap.Initialize();
 If you wish to work with [MySQL](https://www.nuget.org/packages/RepoDb.MySqlConnector).
 
 ```csharp
-> Install-Package RepoDb.MySqlConnectorBootstrap.Initialize();
+> Install-Package RepoDb.MySqlConnector;
 ```
 
 Then, call the bootstrapper to initialize the needed references.
 
 ```csharp
-RepoDb.MySqlBootstrap.Initialize();
+RepoDb.MySqlConnectorBootstrap.Initialize();
 ```
 
 ### PostgreSQL
