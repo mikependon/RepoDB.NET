@@ -14,32 +14,34 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SQLite.System) to download it.
 
-### RepoDB.Sqlite.System (Next Version)
+### RepoDb.SQLite.System (v1.0.1)
 
+- Initial release.
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 - Supported the `.NET v6.0`.
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 - Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
+- Referenced the `RepoDb` package `v1.12.10`.
 
 
-### RepoDB.Sqlite.System (v1.0.1)
+### RepoDb.SQLite.System (v1.0.1-beta1)
 
 - Added the 6.0 to the target frameworks.
 - Upgraded the `System.Data.SQLite.Core` package to `v1.0.115.5`.
 
 
-### RepoDB.SQLite.System (v1.0.0)
+### RepoDb.SQLite.System (v1.0.0)
 
 - Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).
 
 
-### RepoDB.SqLite (Deprecation)
+### RepoDb.SqLite (Deprecation)
 
 - Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).
 - Added the deprecation notice.
 
 
-### RepoDB.SqLite (v1.1.4)
+### RepoDb.SqLite (v1.1.4)
 
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Upgraded the `Microsoft.Data.Sqlite` package to `v5.0.10`.
@@ -52,7 +54,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see 
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
-### RepoDB.SqLite (v1.1.4-beta1)
+### RepoDb.SqLite (v1.1.4-beta1)
 
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Upgraded the `Microsoft.Data.Sqlite` package to `v5.0.10`.
@@ -65,18 +67,18 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see 
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
-### RepoDB.SqLite (v1.1.3)
+### RepoDb.SqLite (v1.1.3)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.7](/release/core#repodb-v1127)).
 - Referenced the version [Microsoft.Data.Sqlite](https://www.nuget.org/packages/Microsoft.Data.Sqlite) ([v5.0.2](https://www.nuget.org/packages/Microsoft.Data.SQLite/5.0.2)).
 
 
-### RepoDB.SqLite (v1.1.2)
+### RepoDb.SqLite (v1.1.2)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).
 
 
-### RepoDB.SqLite (v1.1.1)
+### RepoDb.SqLite (v1.1.1)
 
 - CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.4](/release/core#repodb-v1124)).

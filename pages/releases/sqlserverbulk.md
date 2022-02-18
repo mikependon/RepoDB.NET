@@ -14,7 +14,14 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
-### RepoDB.SqlServer.BulkOperations (v1.1.6-beta1)
+### RepoDb.SqlServer.BulkOperations (v1.1.6)
+
+- Referenced the `RepoDb` package `v1.12.10`.
+- Referenced the `RepoDb.SqlServer` package `v1.1.5`.
+- Upgraded the `System.Linq.Async` package to `v6.1.0`.
+
+
+### RepoDb.SqlServer.BulkOperations (v1.1.6-beta1/beta2)
 
 - Upgraded the `RepoDb` package to `v1.12.10-beta4`.
 - Upgraded the `RepoDb.SqlServer` package to `v1.1.5-beta4`.
@@ -24,7 +31,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 
 
-### RepoDB.SqlServer.BulkOperations (v1.1.5)
+### RepoDb.SqlServer.BulkOperations (v1.1.5)
 
 - Bug: [BulkMergeAsync](/operation/bulkmerge) with multiple qualifiers [#864](https://github.com/mikependon/RepoDB/issues/864)
 - Added the `net5.0` as part of the target frameworks.
@@ -33,31 +40,31 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 - Supported the `.NET v6.0`.
 
 
-### RepoDB.SqlServer.BulkOperations (v1.1.5-beta2)
+### RepoDb.SqlServer.BulkOperations (v1.1.5-beta2)
 
 - Added the `net5.0` as part of the target frameworks.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Upgraded the `RepoDb.SqlServer` package to `v1.1.4-beta4`.
 
 
-### RepoDB.SqlServer.BulkOperations (v1.1.5-beta1)
+### RepoDb.SqlServer.BulkOperations (v1.1.5-beta1)
 
 - Bug: [BulkMergeAsync](/operation/bulkmerge) with multiple qualifiers [#864](https://github.com/mikependon/RepoDB/issues/864)
 
 
-### RepoDB.SqlServer.BulkOperations (v1.1.4)
+### RepoDb.SqlServer.BulkOperations (v1.1.4)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.7](/release/core#repodb-v1127)).
 - Referenced the version [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.1.3](/release/core#repodb-sqlver-v113)).
 
 
-### RepoDB.SqlServer.BulkOperations (v1.1.3)
+### RepoDb.SqlServer.BulkOperations (v1.1.3)
 
 - Bug: Identity Values not set correctly with Bulk Insert from Sql Server due to Incorrect Sorting of data. [#691](https://github.com/mikependon/RepoDB/issues/691)
 - The `hints` argument is removed from the [BulkInsert](/operation/bulkinsert) via `DbDataReader`.
 - Added the `WriteToServer` method to cater the ordered resultset of the `__RepoDb_OrderColumn` custom column.
 
-### RepoDB.SqlServer.BulkOperations (v1.1.2)
+### RepoDb.SqlServer.BulkOperations (v1.1.2)
 
 - Bug: Incorrect syntax near the keyword `WITH` [BulkMergeAsync](/operation/bulkinsert) [#640](https://github.com/mikependon/RepoDB/issues/640)
 - Request: Do not crash if on empty enumerable on bulk operation [#635]((https://github.com/mikependon/RepoDB/issues/635)
@@ -68,30 +75,30 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).
 
 
-### RepoDB.SqlServer.BulkOperations (v1.1.2-beta4)
+### RepoDb.SqlServer.BulkOperations (v1.1.2-beta4)
 
 - Bug: [BulkInsert](/operation/bulkinsert) with mappings [#668](https://github.com/mikependon/RepoDB/issues/668)
 
 
-### RepoDB.SqlServer.BulkOperations (v1.1.2-beta3)
+### RepoDb.SqlServer.BulkOperations (v1.1.2-beta3)
 
 - Bug: System.Data.SqlClient.SqlException: 'Column name 'ID' does not exist in the target table or view.' [#651](https://github.com/mikependon/RepoDB/issues/651)
 - Refactor the internal method implementations to only utilize the base methods for both the MDS and SDS method calls.
 
 
-### RepoDB.SqlServer.BulkOperations (v1.1.2-beta2)
+### RepoDb.SqlServer.BulkOperations (v1.1.2-beta2)
 
 - Reverted the changes to the [#635](https://github.com/mikependon/RepoDB/issues/635).
 
 
-### RepoDB.SqlServer.BulkOperations (v1.1.2-beta1)
+### RepoDb.SqlServer.BulkOperations (v1.1.2-beta1)
 
 - Bug: Incorrect syntax near the keyword `WITH` [BulkMergeAsync](/operation/bulkinsert) [#640](https://github.com/mikependon/RepoDB/issues/640)
 - Request: Do not crash if on empty enumerable on bulk operation [#635]((https://github.com/mikependon/RepoDB/issues/635)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5-beta2](/release/core#repodb-v1125-beta2)).
 
 
-### RepoDB.SqlServer.BulkOperations (v1.1.1)
+### RepoDb.SqlServer.BulkOperations (v1.1.1)
 
 - CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.4](/release/core#repodb-v1124)).

@@ -14,16 +14,17 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector) to download it.
 
-### RepoDB.MySqlConnector (Next Version)
+### RepoDb.MySqlConnector (v1.1.5)
 
-- Upgraded the `MySqlConnector` package to `2.1.0`.
+- Upgraded the `MySqlConnector` package to `2.1.6`.
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 - Supported the `.NET v6.0`.
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 - Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
+- Referenced the `RepoDb` package `v1.12.10`.
 
 
-### RepoDB.MySqlConnector (v1.1.4)
+### RepoDb.MySqlConnector (v1.1.4)
 
 - Upgraded the `MySqlConnector` package to `v1.3.12`.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
@@ -36,7 +37,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 - Wrong ordinal for Nullable filed information in MySqlConnectorDbHelper.ReaderToDbFieldAsync [#780](https://github.com/mikependon/RepoDb/issues/780)
 
 
-### RepoDB.MySqlConnector (v1.1.4-beta2)
+### RepoDb.MySqlConnector (v1.1.4-beta2)
 
 - Upgraded the `MySqlConnector` package to `v1.3.12`.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
@@ -48,23 +49,23 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
-### RepoDB.MySqlConnector (v1.1.4-beta1)
+### RepoDb.MySqlConnector (v1.1.4-beta1)
 
 - Bug: Exception on [Merge](/operation/merge) (PostgreSQL) [#776](https://github.com/mikependon/RepoDb/issues/776). RELATED
 - Wrong ordinal for Nullable filed information in MySqlConnectorDbHelper.ReaderToDbFieldAsync [#780](https://github.com/mikependon/RepoDb/issues/780)
 
 
-### RepoDB.MySqlConnector (v1.1.3)
+### RepoDb.MySqlConnector (v1.1.3)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.7](/release/core#repodb-v1127)).
 
 
-### RepoDB.MySqlConnector (v1.1.2)
+### RepoDb.MySqlConnector (v1.1.2)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).
 
 
-### RepoDB.MySqlConnector (v1.1.1)
+### RepoDb.MySqlConnector (v1.1.1)
 
 - CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.4](/release/core#repodb-v1124)).

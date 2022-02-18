@@ -14,41 +14,43 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
 
-### RepoDB.SqlServer (Next Version)
+### RepoDb.SqlServer (v1.1.5)
 
 - Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
+- Referenced the `RepoDb` package `v1.12.10`.
+- Referenced the `Microsoft.Data.SqlClient` package `v4.0.1`.
 
 
-### RepoDB.SqlServer (v1.1.5-beta4)
+### RepoDb.SqlServer (v1.1.5-beta4)
 
 - Referenced the `RepoDb` package `v1.12.10-beta4`.
 - Referenced the `Microsoft.Data.SqlClient` package `v4.0.0`.
 
 
-### RepoDB.SqlServer (v1.1.5-beta3)
+### RepoDb.SqlServer (v1.1.5-beta3)
 
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 - Referenced the `RepoDb` package `v1.12.10-beta3`.
 
 
-### RepoDB.SqlServer (v1.1.5-beta2)
+### RepoDb.SqlServer (v1.1.5-beta2)
 
-- Enhancement: Remove `System.Data.SqlClient` reference from RepoDB.SqlServer [#857](https://github.com/mikependon/RepoDb/issues/857)
+- Enhancement: Remove `System.Data.SqlClient` reference from RepoDb.SqlServer [#857](https://github.com/mikependon/RepoDb/issues/857)
 - Removed both the `MicrosoftSqlServerTypeMapAttribute` and `SystemSqlServerTypeMapAttribute` attributes. Use the the [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype) attribute instead.
 - Upgraded the `Microsoft.Data.SqlClient` package to `v3.0.1`.
 - Upgraded the `RepoDb` package to `v1.12.10-beta2`.
 - Supported the `.NET v6.0`.
 
 
-### RepoDB.SqlServer (v1.1.5-beta1)
+### RepoDb.SqlServer (v1.1.5-beta1)
 
-- Enhancement: Remove `System.Data.SqlClient` reference from RepoDB.SqlServer [#857](https://github.com/mikependon/RepoDb/issues/857)
+- Enhancement: Remove `System.Data.SqlClient` reference from RepoDb.SqlServer [#857](https://github.com/mikependon/RepoDb/issues/857)
 - Removed both the `MicrosoftSqlServerTypeMapAttribute` and `SystemSqlServerTypeMapAttribute` attributes. Use the the [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype) attribute instead.
 - Upgraded the `Microsoft.Data.SqlClient` package to `v3.0.1`.
 - Supported the `.NET v6.0`.
 
 
-### RepoDB.SqlServer (v1.1.4)
+### RepoDb.SqlServer (v1.1.4)
 
 - Added the `net5.0` as part of the target frameworks.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
@@ -67,7 +69,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
-### RepoDB.SqlServer (v1.1.4-beta1)
+### RepoDb.SqlServer (v1.1.4-beta1)
 
 - Added the `net5.0` as part of the target frameworks.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
@@ -86,17 +88,17 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
-### RepoDB.SqlServer (v1.1.3)
+### RepoDb.SqlServer (v1.1.3)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.7](/release/core#repodb-v1127)).
 
 
-### RepoDB.SqlServer (v1.1.2)
+### RepoDb.SqlServer (v1.1.2)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).
 
 
-### RepoDB.SqlServer (v1.1.1)
+### RepoDb.SqlServer (v1.1.1)
 
 - CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.4](/release/core#repodb-v1124)).

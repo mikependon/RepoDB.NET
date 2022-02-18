@@ -14,12 +14,14 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql) to download it.
 
-### RepoDB.PostgreSql (Next Version)
+### RepoDb.PostgreSql (v1.1.5)
 
 - Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
+- Referenced the `RepoDb` package `v1.12.10`.
+- Upgraded the `Npgsql` package to `v6.0.3`.
 
 
-### RepoDB.PostgreSql (v1.1.5-beta2)
+### RepoDb.PostgreSql (v1.1.5-beta2)
 
 - Upgraded the `Npgsql` package. Used the `v5.0.11` for FTM `netcoreapp2.0` and `v6.0.0` for FTM `net5.0` and `net6.0`.
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
@@ -31,14 +33,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Upgraded the `RepoDb` package to `v1.12.10-beta4`.
 
 
-### RepoDB.PostgreSql (v1.1.5-beta1)
+### RepoDb.PostgreSql (v1.1.5-beta1)
 
 - Initial support to PostgreSQL bulk operations.
 - Enhancement: Introduced the `ClientTypeToNpgsqlDbTypeResolver` class.
 - Enhancement: Introduced the `PostgreSqlDbTypeNameToNpgsqlDbTypeResolver` class.
 
 
-### RepoDB.PostgreSql (v1.1.4)
+### RepoDb.PostgreSql (v1.1.4)
 
 - Added the `net5.0` as part of the target frameworks.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
@@ -58,7 +60,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Enhancement: Add support of NpgsqlDbType in FluentMapper [#775](https://github.com/mikependon/RepoDB/issues/775)
 
 
-### RepoDB.PostgreSql (v1.1.4-beta2)
+### RepoDb.PostgreSql (v1.1.4-beta2)
 
 - Added the `net5.0` as part of the target frameworks.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
@@ -76,23 +78,23 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
-### RepoDB.PostgreSql (v1.1.4-beta1)
+### RepoDb.PostgreSql (v1.1.4-beta1)
 
 - Bug: Exception on [Merge](/operation/merge) (PostgreSQL) [#776](https://github.com/mikependon/RepoDb/issues/776).
 
 
-### RepoDB.PostgreSql (v1.1.3)
+### RepoDb.PostgreSql (v1.1.3)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.7](/release/core#repodb-v1127)).
 - Referenced the version [Npgsql](https://www.nuget.org/packages/Npgsql) ([v5.0.2](https://www.nuget.org/packages/Npgsql/5.0.3)).
 
 
-### RepoDB.PostgreSql (v1.1.2)
+### RepoDb.PostgreSql (v1.1.2)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).
 
 
-### RepoDB.PostgreSql (v1.1.1)
+### RepoDb.PostgreSql (v1.1.1)
 
 - CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.4](/release/core#repodb-v1124)).
