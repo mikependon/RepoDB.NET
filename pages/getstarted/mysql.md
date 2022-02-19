@@ -37,7 +37,7 @@ Once installed, call the bootstrapper to initialize all the dependencies for MyS
 RepoDb.MySqlConnectorBootstrap.Initialize();
 ```
 
-Or visit our [installation](/tutorial/installation) page for more information.
+Or, visit our [installation](/tutorial/installation) page for more information.
 
 ### Create a Table
 
@@ -86,8 +86,6 @@ using (var connection = new MySqlConnection(ConnectionString))
 
 To insert multiple rows, use the [InsertAll](/operation/insertall) operation.
 
-Let us say you had created a method `GetPeople()` that returns a list of `Person`.
-
 ```csharp
 private IEnumerable<Person> GetPeople(int count = 10)
 {
@@ -101,19 +99,17 @@ private IEnumerable<Person> GetPeople(int count = 10)
         };
     }
 }
-```
 
-Then, simply create a list of `Person` and pass it when you call the [InsertAll](/operation/insertall) method.
-
-```csharp
+// Code
 var people = GetPeople(100);
+
 using (var connection = new MySqlConnection(ConnectionString))
 {
     var rowsInserted = connection.InsertAll(people);
 }
 ```
 
-> The [Insert](/operation/insert) method returns the value of primary or identity column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
+> The [Insert](/operation/insert) method returns the value of primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary property of the model if present.
 
 ### Querying a Record
 
@@ -155,7 +151,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary or identity column is used as a qualifier. You can also customize the qualifiers with other columns.
+By default, the primary column is used as a qualifier. You can also customize the qualifiers with other columns.
 
 ```csharp
 var person = new Person
@@ -183,7 +179,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-> The [Merge](/operation/merge) method returns the primary or identity column value, while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary and/or identity property if present..
+> The [Merge](/operation/merge) method returns the primary column value, while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary property if present.
 
 ### Deleting a Record
 
@@ -196,7 +192,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary or identity column is used as a qualifier, but you can also use the other columns like below.
+By default, the primary column is used as a qualifier, but you can also use the other columns like below.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -266,7 +262,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary or identity column is used as a qualifier, but you can also specify your custom qualifiers.
+By default, the primary column is used as a qualifier, but you can also specify your custom qualifiers.
 
 ```csharp
 var people = GetPeople(100);

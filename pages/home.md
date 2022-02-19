@@ -30,24 +30,13 @@ Even the library is rich on features (i.e. [Batch](/feature/batchoperations)/[Bu
 
 ### Why use RepoDB?
 
-The main goal is to improve the things and simplify your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying database capability while maintaining the good programming coding standards and practices.
+The main goal is to improve and simplify your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying database capability while maintaining the good programming coding standards and practices.
 
-If you are to use a full-fledged macro-ORM, you are most likely be abstracted by the framework itself. Though they are more richer in operations, but those operations are limiting you to touch and maximize the power of the underlying database being in-used.
+If you are to use a full-fledged macro-ORM, you will most likely be abstracted by the framework itself. Though it is richer in features, it might limit you to touch and maximize the power of the underlying database being in-used.
 
-On the other hand, if you are to use a bare-metal micro-ORM, there are tendencies that most of your implementation will be verbose and are all text-based (SQLs). Even though you have a lot control with this, but it is quite tedious and is not practical in most cases.
+On the other hand, if you are to use a bare-metal micro-ORM, there is a tendency that your implementations will be verbose (text-based as SQL). Though you have a lot control with this, it is also tedious and not practical in most cases.
 
-RepoDB mediates both the micro-ORMs and macro-ORMs. When using this library, all you have to do is to pass the connection string into your connection object and direcly call the advance operations. It is the reason that makes this library the easiest-to-use ORM.
-
-```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-    var id = connection.Insert<Customer, int>(new Customer
-    {
-        Name = "John Doe",
-        Address = "New York")
-    });
-}
-```
+RepoDB mediates both the micro-ORMs and macro-ORMs. It only requires a connection string to open a connection and the entire [feature sets](/feature) can then be utilized right away. It is the main reason why this library is the easiest-to-use ORM.
 
 You can use the library to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer), [SQLite](https://www.nuget.org/packages/RepoDb.SqLite), [MySQL](https://www.nuget.org/packages/RepoDb.MySql) and [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS data providers.
 
@@ -90,13 +79,13 @@ You can use the library to work with [SQL Server](https://www.nuget.org/packages
 
 RepoDB shows an impressive performance and memory-efficiency if being compared with other ORMs available in the .NET ecosystem.
 
-It is the fastest and the most-efficient ORM in .NET space nowadays!
+(It is the fastest and the most-efficient ORM in .NET space nowadays)
 
 <img src="../../assets/images/site/statistics.svg" />
 
 The benchmark statistics shown above is the result of the community-approved ORM bencher [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher).
 
-Please visit the [benchmark](https://github.com/mikependon/RepoDB#benchmark) section of our Github page to get more information.
+You can visit the [benchmark](https://github.com/mikependon/RepoDB#benchmark) section of our Github page to get more information.
 
 ---
 

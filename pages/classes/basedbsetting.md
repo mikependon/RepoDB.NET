@@ -48,7 +48,7 @@ public sealed class MyCustomSqlServerDbSetting : BaseDbSetting
 
 ### Usability
 
-Simply use the [DbSettingMapper](/mapper/dbsettingmapper) class to map it to the specific RDBMS data provider.
+Simply use the [DbSettingMapper](/mapper/dbsettingmapper) class to map it to a specific RDBMS data provider.
 
 ```csharp
 DbSettingMapper.Add(typeof(SqlConnection), new MyCustomSqlServerDbSetting(), true);

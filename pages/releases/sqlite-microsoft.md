@@ -19,6 +19,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) to s
 - Initial release.
 - Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
 - Referenced the `RepoDb` package `v1.12.10`.
+- Upgraded the `Microsoft.Data.Sqlite` to `v6.0.2`.
 
 
 ### RepoDb.Sqlite.Microsoft (v1.0.1-beta1)

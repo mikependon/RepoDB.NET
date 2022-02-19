@@ -13,25 +13,21 @@ grand_parent: FEATURES
 
 ---
 
-For PostgreSQL, the underlying implementation is leveraging the existing [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class of the `Npgsql` package.
+The bulk operations implementation is leveraging the existing [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class of [Npgsql](https://www.npgsql.org/) library. A customized method named [BinaryImport](/operation/binaryimport) is introduced to enable this capability, in which, it also utilizes the underlying [Write](https://www.npgsql.org/doc/copy.html) method of raw binary importer class.
 
-For the [BinaryBulkInsert](/operation/binarybulkinsert) operation, it is calling the customized [BinaryImport](/operation/binaryimport) operation in which it also calls the underlying `Write()` method of the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class. There is no additional logic is implied unless you would like to bring the newly generated identities back to the application after the execution, 
+The [BinaryBulkInsert](/operation/binarybulkinsert) method, the one that does the bulk insert operation is using the [BinaryImport](/operation/binaryimport) internally. There is no implied logic is introduced on this operation unless the newly generated primary identity column is being requested back to the client (via [BulkImportIdentityBehavior.ReturnIdentity](/enumeration/postgresql/bulkimportidentitybehavior#bulkimportidentitybehavior)) right after the execution.
 
 The image below shows the data flow of the [BinaryBulkInsert](/operation/binarybulkinsert) operation.
 
 <img src="../../assets/images/site/binarybulkinsert.svg" />
 
-For the [BinaryBulkDelete](/operation/binarybulkdelete), [BinaryBulkMerge](/operation/binarybulkmerge) and [BinaryBulkUpdate](/operation/binarybulkupdate) operations, an implied logic and technique has been utilized.
+For the [BinaryBulkDelete](/operation/binarybulkdelete), [BinaryBulkMerge](/operation/binarybulkmerge) and [BinaryBulkUpdate](/operation/binarybulkupdate) operations, an implied logic is used. Basically, a pseudo-temporary table is being created in the database under a transaction context. The operation will then use the [BinaryImport](/operation/binaryimport) operation to target such pseudo-temporary table and process the data afterwards.
 
-The image below shows the data flow of the [BinaryBulkMerge](/operation/binarybulkmerge) operation.
+> Through this logic, all the data from the client application is brought to the database server at one-go, and then, being processed together afterwards.
 
-<img src="../../assets/images/site/binarybulkmerge.svg" />
+The operations can also be further optimized by targeting the underlying table indexes via the qualifier columns, simply pass the list of [Field](/class/field) objects.
 
-Basically, a pseudo-temporary table is being created in the database under a transaction context. The operation (any operation) will then use the [BinaryImport](/operation/binaryimport) operation to target that pseudo-temporary table and process the data afterwards. Through this technique, we brought all the data together from the client application into the database server (at one-go) and process them together at the same time.
-
-For the [BinaryBulkDelete](/operation/binarybulkdelete), [BinaryBulkMerge](/operation/binarybulkmerge) and [BinaryBulkUpdate](/operation/binarybulkupdate) operations, you can maximize the execution by targeting your underlying table indexes via qualifiers, simply pass a list of [Field](/class/field) object. The library will then create a CLUSTERED INDEX on the pseudo-temporary table through the passed qualifiers and do the actual joins to the original table using that index.
-
-> If you have not passed any qualifiers, the primary column will be used by default.
+> If the qualifiers are passed, a CLUSTERED INDEX will be created on the pseudo-temporary and it will be used as the qualifiers when merging with the target original table. If no qualiers are passed, the primary column will be used by default.
 
 ### Supported Objects
 

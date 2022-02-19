@@ -29,7 +29,7 @@ If you are working to delete a range of rows from 1000 or more, then use this me
 
 The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
 
-The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statement. If not given, the primary or identity column will be used.
+The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statement. If not given, the primary column will be used.
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 

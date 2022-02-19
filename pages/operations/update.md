@@ -33,7 +33,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-By default, the primary or identity column is used as a qualifier. You can override it by simply passing the primary key in the `what` argument.
+By default, the primary column is used as a qualifier. You can override it by simply passing the primary key in the `what` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

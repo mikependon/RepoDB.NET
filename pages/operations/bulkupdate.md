@@ -29,7 +29,7 @@ If you are working to update range of rows from 1000 or more, then use this meth
 
 The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
 
-The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statement. If not given, the primary or identity column will be used.
+The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statement. If not given, the primary column will be used.
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 
@@ -125,7 +125,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ### Field Qualifiers
 
-By default, this method is using the primary or identity column as the qualifier. You can override it by passing the list of [Field](/class/field) objects in the `qualifiers` argument.
+By default, this method is using the primary column as the qualifier. You can override it by passing the list of [Field](/class/field) objects in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

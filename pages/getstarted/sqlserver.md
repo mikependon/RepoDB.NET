@@ -29,7 +29,7 @@ Once installed, call the bootstrapper to initialize all the dependencies for [SQ
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-If you are to work with the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then you must install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
+If you are to work with the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
 
 In your Package Manager Console, simply type the command below to install the target package.
 
@@ -37,7 +37,7 @@ In your Package Manager Console, simply type the command below to install the ta
 > Install-Package RepoDb.SqlServer.BulkOperations
 ```
 
-Or visit our [installation](/tutorial/installation) page for more information.
+Or, visit our [installation](/tutorial/installation) page for more information.
 
 ### Create a Table
 
@@ -89,8 +89,6 @@ using (var connection = new SqlConnection(ConnectionString))
 
 To insert multiple rows, use the [InsertAll](/operation/insertall) operation.
 
-Let us say you had created a method `GetPeople()` that returns a list of `Person`.
-
 ```csharp
 private IEnumerable<Person> GetPeople(int count = 10)
 {
@@ -104,19 +102,17 @@ private IEnumerable<Person> GetPeople(int count = 10)
         };
     }
 }
-```
 
-Then, simply create a list of `Person` object and pass it when you call the [InsertAll](/operation/insertall) method.
-
-```csharp
+// Code
 var people = GetPeople(100).AsList();
+
 using (var connection = new SqlConnection(ConnectionString))
 {
     var rowsInserted = connection.InsertAll(people);
 }
 ```
 
-> The [Insert](/operation/insert) method returns the value of primary or identity column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
+> The [Insert](/operation/insert) method returns the value of primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary property of the model if present.
 
 ### Querying a Record
 
@@ -158,7 +154,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary or identity column is used as a qualifier, but you can customize the qualifiers with other columns.
+By default, the primary column is used as a qualifier, but you can customize the qualifiers with other columns.
 
 ```csharp
 var person = new Person
@@ -184,7 +180,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-> The [Merge](/operation/merge) method returns the value of the primary or identity column while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary and/or identity property of the model if present.
+> The [Merge](/operation/merge) method returns the value of the primary column while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary property of the model if present.
 
 ### Deleting a Record
 
@@ -197,7 +193,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, it uses the primary or identity column as a qualifier, but you can also use the other columns like below.
+By default, it uses the primary column as a qualifier, but you can also use the other columns like below.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -245,7 +241,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-You can also dynamically update by targeting the certain columns.
+You can also dynamically update by targeting certain columns.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -267,7 +263,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary or identity column is used as a qualifier, but you can also specify your custom qualifiers.
+By default, the primary column is used as a qualifier, but you can also specify your custom qualifiers.
 
 ```csharp
 var people = GetPeople(100);
@@ -396,11 +392,8 @@ public enum Gender
     Male,
     Female
 }
-```
 
-Then, call it like below.
-
-```csharp
+// Code
 using (var connection = new SqlConnection(ConnectionString))
 {
     var sql = "SELECT Gender FROM [dbo].[Person] WHERE Id = @Id;";
@@ -408,4 +401,4 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-> Please be noted that the resultset of this operation is an `IEnumerable<T>` object.
+> The result of this operation is a `IEnumerable<T>` object.

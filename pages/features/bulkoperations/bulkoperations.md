@@ -25,8 +25,11 @@ The bulk operations can improve the performance by more than 90% when processing
 
 #### When to use the Batch and Bulk Operations?
 
-There is no standard of when to use what. It all depends on your situation (i.e.: Network Latency, No. of Columns, Type of Data, etc).
+When using the library, we recommend to use the bulk operations if the datasets you are working is beyond 1000. Otherwhise, use the [batch](/feature/batchoperations) operations.
 
-The pros of using a bulk operation is maximum performance, however, it keeps blocking the underlying table while being under the context of bulk operation transaction. Therefore, it might trigger a deadlock if not handled by the developers properly.
+In general, there is no standard of when to use what. It all depends on your situation (see below).
 
-> We highly recommend to use the bulk operations if the data sets you are working is beyond 1000, otherwhise, just use the [batch](/feature/batchoperations) operations.
+- Network Latency
+- Infrastructure
+- No. of Columns
+- Type of Data
