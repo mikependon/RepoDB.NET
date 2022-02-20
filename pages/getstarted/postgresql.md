@@ -85,22 +85,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 To insert multiple rows, use the [InsertAll](/operation/insertall) operation.
 
 ```csharp
-private IEnumerable<Person> GetPeople(int count = 10)
-{
-    for (var i = 0; i < count; i++)
-    {
-        yield return new Person
-        {
-            Name = $"Person{i}",
-            Age = 54,
-            CreatedDateUtc = DateTime.UtcNow
-        };
-    }
-}
-
-// Call
 var people = GetPeople(100);
-
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
     var rowsInserted = connection.InsertAll(people);

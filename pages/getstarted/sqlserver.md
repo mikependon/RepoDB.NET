@@ -90,22 +90,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To insert multiple rows, use the [InsertAll](/operation/insertall) operation.
 
 ```csharp
-private IEnumerable<Person> GetPeople(int count = 10)
-{
-    for (var i = 0; i < count; i++)
-    {
-        yield return new Person
-        {
-            Name = $"Person{i}",
-            Age = 54,
-            CreatedDateUtc = DateTime.UtcNow
-        };
-    }
-}
-
-// Code
-var people = GetPeople(100).AsList();
-
+var people = GetPeople(100);
 using (var connection = new SqlConnection(ConnectionString))
 {
     var rowsInserted = connection.InsertAll(people);
@@ -173,7 +158,8 @@ To merge all the rows, use the [MergeAll](/operation/mergeall) method.
 
 ```csharp
 var people = GetPeople(100).AsList();
-people.ForEach(p => p.Name = $"{p.Name} (Merged)");
+people
+    .ForEach(p => p.Name = $"{p.Name} (Merged)");
 using (var connection = new SqlConnection(ConnectionString))
 {
     var affectedRecords = connection.MergeAll<Person>(people);

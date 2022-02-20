@@ -93,22 +93,7 @@ using (var connection = new SQLiteConnection(ConnectionString))
 To insert multiple rows, use the [InsertAll](/operation/insertall) operation.
 
 ```csharp
-private IEnumerable<Person> GetPeople(int count = 10)
-{
-    for (var i = 0; i < count; i++)
-    {
-        yield return new Person
-        {
-            Name = $"Person{i}",
-            Age = 54,
-            CreatedDateUtc = DateTime.UtcNow
-        };
-    }
-}
-
-// Code
 var people = GetPeople(100);
-
 using (var connection = new SQLiteConnection(ConnectionString))
 {
     var rowsInserted = connection.InsertAll(people);
