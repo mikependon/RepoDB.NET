@@ -15,7 +15,7 @@ grand_parent: FEATURES
 
 The bulk operations implementation is leveraging the existing [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class of [Npgsql](https://www.npgsql.org/) library. A customized method named [BinaryImport](/operation/binaryimport) is introduced to enable this capability, in which, it also utilizes the underlying [Write](https://www.npgsql.org/doc/copy.html) method of raw binary importer class.
 
-The [BinaryBulkInsert](/operation/binarybulkinsert) method, the one that does the bulk insert operation is using the [BinaryImport](/operation/binaryimport) internally. There is no implied logic is introduced on this operation unless the newly generated primary identity column is being requested back to the client (via [BulkImportIdentityBehavior.ReturnIdentity](/enumeration/postgresql/bulkimportidentitybehavior#bulkimportidentitybehavior)) right after the execution.
+The [BinaryBulkInsert](/operation/binarybulkinsert) method, the one that does the bulk insert operation is using the [BinaryImport](/operation/binaryimport) internally. There is no implied logic is introduced on this operation unless the newly generated primary identity column is being requested back to the client right after the execution (see [ReturnIdentity](/enumeration/postgresql/bulkimportidentitybehavior#bulkimportidentitybehavior)).
 
 The image below shows the data flow of the [BinaryBulkInsert](/operation/binarybulkinsert) operation.
 
@@ -27,7 +27,7 @@ For the [BinaryBulkDelete](/operation/binarybulkdelete), [BinaryBulkMerge](/oper
 
 The operations can also be further optimized by targeting the underlying table indexes via the qualifier columns, simply pass the list of [Field](/class/field) objects.
 
-> If the qualifiers are passed, a CLUSTERED INDEX will be created on the pseudo-temporary and it will be used as the qualifiers when merging with the target original table. If no qualiers are passed, the primary column will be used by default.
+> If the qualifiers are passed, a CLUSTERED INDEX will be created on the pseudo-temporary and it will be used as the qualifiers when merging with the target original table. If no qualifiers are passed, the primary column will be used by default.
 
 ### Supported Objects
 
