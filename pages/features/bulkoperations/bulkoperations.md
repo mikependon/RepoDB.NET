@@ -23,13 +23,13 @@ With the bulk operations, as mentioned above, all data is brought from the clien
 
 The bulk operations can improve the performance by more than 90% when processing a large dataset.
 
-#### When to use the Batch and Bulk Operations?
+## Recommendation
 
-When using the library, we recommend to use the bulk operations if the datasets you are working is beyond 1000. Otherwhise, use the [batch](/feature/batchoperations) operations.
-
-In general, there is no standard of when to use what. It all depends on your situation (see below).
+Below are the items you may need to consider when to use the right operations (Bulk vs [Batch](/feature/batchoperations)).
 
 - Network Latency
 - Infrastructure
 - No. of Columns
 - Type of Data
+
+Though there is no standard recommendation of when to use what, when using the library, we recommend to use the bulk operations if the datasets you are working is beyond 1000. Otherwhise, use the [batch](/feature/batchoperations) operations.
