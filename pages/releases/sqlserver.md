@@ -44,7 +44,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 
 ### RepoDb.SqlServer (v1.1.5-beta1)
 
-- Enhancement: Remove `System.Data.SqlClient` reference from RepoDb.SqlServer [#857](https://github.com/mikependon/RepoDb/issues/857)
+- Enhancement: Remove `System.Data.SqlClient` reference from RepoDb.SqlServer [#857](https://github.com/mikependon/RepoDb/issues/857) - this is a breaking changes
 - Removed both the `MicrosoftSqlServerTypeMapAttribute` and `SystemSqlServerTypeMapAttribute` attributes. Use the the [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype) attribute instead.
 - Upgraded the `Microsoft.Data.SqlClient` package to `v3.0.1`.
 - Supported the `.NET v6.0`.
