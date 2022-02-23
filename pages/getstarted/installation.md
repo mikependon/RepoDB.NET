@@ -5,7 +5,7 @@ title: "Installation of Nuget Packages"
 description: "Learn on how to install RepoDB library on your Project/Solution."
 permalink: /tutorial/installation
 tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
-parent: TUTORIAL
+parent: GET STARTED
 ---
 
 # Installation
@@ -41,6 +41,23 @@ Then, call the bootstrapper to initialize the needed references.
 ```csharp
 RepoDb.SqlServerBootstrap.Initialize();
 ```
+
+#### System.Data.SqlClient
+
+If you are working with this package, you are required to bootstrap the connection object on the startup.
+
+```csharp
+var dbSetting = new SqlServerDbSetting();
+
+DbSettingMapper
+	.Add<System.Data.SqlClient.SqlConnection>(dbSetting, true);
+DbHelperMapper
+	.Add<System.Data.SqlClient.SqlConnection>(new SqlServerDbHelper(), true);
+StatementBuilderMapper
+	.Add<System.Data.SqlClient.SqlConnection>(new SqlServerStatementBuilder(dbSetting), true);
+```
+
+Or, you can replicate the actual [SqlServerBootstrap](https://github.com/mikependon/RepoDB/blob/master/RepoDb.SqlServer/RepoDb.SqlServer/SqlServerBootstrap.cs) class implementation and attach it to your solution. Then, call the local class initializer method explicitly.
 
 ### SQLite (System)
 

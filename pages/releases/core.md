@@ -14,6 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+### RepoDb (Next Version)
+
+- Bug: No coercion operator is defined between types 'System.TimeSpan' and 'System.Int64'. [#1033](https://github.com/mikependon/RepoDB/issues/1033).
+
+
+
 ### RepoDb (v.12.10)
 
 - Bug: the DeleteAll<T>(T entities) method results in System.InvalidOperationException errors [#1011](https://github.com/mikependon/RepoDB/issues/1011)
