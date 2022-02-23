@@ -1,7 +1,7 @@
 ---
 layout: default
 sidebar: getstarted
-title: "Installation of Nuget Packages"
+title: "Installation"
 description: "Learn on how to install RepoDB library on your Project/Solution."
 permalink: /tutorial/installation
 tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
