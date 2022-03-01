@@ -81,7 +81,7 @@ RepoDb.PostgreSqlBootstrap.Initialize();
 
 ### MySQL
 
-There are 2 packages available for SQLite.
+There are 2 packages available for MySQL.
 
 #### MySql.Data
 
