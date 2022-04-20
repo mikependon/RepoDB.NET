@@ -156,7 +156,7 @@ Then, create a repository class that inherits either the [DbRepository](/class/d
 ```csharp
 public class OrderRepository : BaseRepository<Order, SqlConnection>, IOrderRepository
 {
-    private UnitOfWork unitOfWork;
+    private IUnitOfWork unitOfWork;
 
     public OrderRepository(IOptions<Settings> settings)
         : base(settings.Value.ConnectionString)
