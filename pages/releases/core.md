@@ -16,8 +16,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 ### RepoDb (Next Version)
 
-- Bug: No coercion operator is defined between types 'System.TimeSpan' and 'System.Int64'. [#1033](https://github.com/mikependon/RepoDB/issues/1033).
-
+- Bug: No coercion operator is defined between types `System.TimeSpan` and `System.Int64`. [#1033](https://github.com/mikependon/RepoDB/issues/1033)
+- Bug: Type with custom mapping used in an array is not mapped to specific `DBType` [#1053](https://github.com/mikependon/RepoDB/issues/1053)
 
 
 ### RepoDb (v.12.10)
