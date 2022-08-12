@@ -31,12 +31,12 @@ public interface IUnitOfWork<TDbConnection>
 
 Ensure that this interface is accepting a generic type of the connection object.
 
-Then, add the following properties that will hold the state of transaction.
+Then, Save the following properties that will hold the state of transaction.
 
 - `Connection` - will hold the instance of the connection object.
 - `Transaction` - will hold the instance of the active transaction.
 
-In addition to this, create the 3 basic transactional methods.
+In Saveition to this, create the 3 basic transactional methods.
 
 - `Begin` - is used to begin a new transaction.
 - `Commit` - is used to commit an existing transaction.
@@ -44,79 +44,59 @@ In addition to this, create the 3 basic transactional methods.
 
 ### Class
 
-Create a class that implements the newly created interface.
+Create a class that implements the newly created interface. Here, let us assume we have the `AppSettings` class as the configuration class.
 
 ```csharp
-public class RepoDbUnitOfWork : IUnitOfWork<SqlConnection>
+public class CustomUnitOfWork : IUnitOfWork<SqlConnection>
 {
-    private AppSettings settings;
-    private SqlConnection connection;
-    private DbTransaction transaction;
+    private AppSettings _appSettings;
+    private SqlConnection _connection;
+    private DbTransaction _transaction;
 
-    public RepoDbUnitOfWork(IOptions<AppSettings> settings)
+    public CustomUnitOfWork(IOptions<AppSettings> options)
     {
-        this.settings = settings.Value;
+        _appSettings = options.Value;
     }
 
-    public SqlConnection Connection { get { return connection; } }
-    
-    public DbTransaction Transaction { get { return transaction; } }
-}
-```
-> Notice the private variable `transaction`. It is used to hold the instance of active transaction.
+    public SqlConnection Connection => _connection;
 
-Create a `private` method that ensures a connection instance.
+    public DbTransaction Transaction => _transaction;
 
-```csharp
-private SqlConnection EnsureConnection() =>
-    connection ?? connection = new SqlConnection(settings.ConnectionString);
-```
-
-Implement the interface method that starts a new transaction.
-
-```csharp
-public void Start()
-{
-    if (transaction != null)
+    public void Begin()
     {
-        throw new InvalidOperationException("Cannot start a new transaction while the existing other one is still open.");
+        if (_transaction != null)
+        {
+            throw new InvalidOperationException("Cannot start a new transaction while the existing one is still open.");
+        }
+        _connection = _connection ??= new SqlConnection(_appSettings.ConnectionString);
+        _transaction = _connection.BeginTransaction();
     }
-    var connection = EnsureConnection();
-    transaction = connection.BeginTransaction();
-}
-```
 
-Implement the interface method that commits the existing transaction.
+    public void Commit()
+    {
+        if (_transaction == null)
+        {
+            throw new InvalidOperationException("There is no active transaction to commit.");
+        }
+        using (_transaction)
+        {
+            _transaction.Commit();
+        }
+        _transaction = null;
+    }
 
-```csharp
-public void Commit()
-{
-    if (transaction == null)
+    public void Rollback()
     {
-        throw new InvalidOperationException("There is no active transaction to commit.");
+        if (transaction == null)
+        {
+            throw new InvalidOperationException("There is no active transaction to rollback.");
+        }
+        using (transaction)
+        {
+            transaction.Rollback();
+        }
+        transaction = null;
     }
-    using (transaction)
-    {
-        transaction.Commit();
-    }
-    transaction = null;
-}
-```
-
-Implement the interface method that rollbacks the existing transaction.
-
-```csharp
-public void Rollback()
-{
-    if (transaction == null)
-    {
-        throw new InvalidOperationException("There is no active transaction to rollback.");
-    }
-    using (transaction)
-    {
-        transaction.Rollback();
-    }
-    transaction = null;
 }
 ```
 
@@ -127,125 +107,94 @@ public void Rollback()
 First, implement the base interface that contains the necessary methods.
 
 ```csharp
-public interface IRepository<TEntity> where TEntity : class
+public interface IRepository<TEntity, TDbConnection>
+    where TEntity : class
+    where TDbConnection : IDbConnection
 {
-    void Attach(IUnitOfWork unitOfWork);
-    TResult Add<TResult>(TEntity entity);
-    int AddAll<TResult>(IEnumerable<TEntity> entities);
+    void Attach(IUnitOfWork<TDbConnection> unitOfWork);
+    TResult Save<TResult>(TEntity entity);
+    int SaveAll(IEnumerable<TEntity> entities);
     int Delete(object id);
-    int Delete(Entity entity);
     TResult Merge<TResult>(TEntity entity);
     TEntity Query(object id);
     int Update(TEntity entity);
 }
 ```
 
-> Take note of the method `Attach()`, it accepts an instance of `IUnitOfWork` object. This method will be used in the business logic to passed the currently injected (in-used) UOW class.
-
 Then, implement the entity level interface repository.
 
 ```csharp
-public interface IOrderRepository : IRepository<Order>
+public interface IOrderRepository : IRepository<Order, SqlConnection>
+{
+    ...
+}
+
+public interface IOrderItemRepository : IRepository<OrderItem, SqlConnection>
 {
     ...
 }
 ```
 
-Then, create a repository class that inherits either the [DbRepository](/class/dbrepository) or [BaseRepository](/class/baserepository). On this class, implement the newly created `IOrderRepository` interface, the one that implements the `IRepository<TEntity>` interface.
+Then, implement a base repository that has the unit-of-work capability. Let us call this repository `EntityRepository`.
 
 ```csharp
-public class OrderRepository : BaseRepository<Order, SqlConnection>, IOrderRepository
+public class EntityRepository<TEntity> : BaseRepository<TEntity, SqlConnection>,
+    IRepository<TEntity, SqlConnection>
+    where TEntity : class
 {
-    private IUnitOfWork unitOfWork;
+    private IUnitOfWork<SqlConnection> _unitOfWork;
 
-    public OrderRepository(IOptions<Settings> settings)
-        : base(settings.Value.ConnectionString)
+    public EntityRepository(IOptions<AppSettings> options)
+        : base(options.Value.ConnectionString) { }
+
+    public void Attach(IUnitOfWork<SqlConnection> unitOfWork) =>
+        _unitOfWork = unitOfWork;
+
+    public TResult Save<TResult>(TEntity entity) =>
+        Insert<TResult>(entity,
+            transaction: _unitOfWork.Transaction);
+
+    public int SaveAll(IEnumerable<TEntity> entities) =>
+        InsertAll(entities,
+            transaction: _unitOfWork.Transaction);
+
+    public int Delete(object id) =>
+        Delete(id,
+            transaction: _unitOfWork.Transaction);
+
+    public TResult Merge<TResult>(TEntity entity) =>
+        Merge<TResult>(entity,
+            transaction: _unitOfWork?.Transaction);
+
+    public TEntity Query(object id) =>
+        Query(id,
+            transaction: _unitOfWork?.Transaction)?.FirstOrDefault();
+
+    public int Update(TEntity entity) =>
+        Update(entity,
+            transaction: _unitOfWork?.Transaction);
+}
+```
+
+> Take note of the method `Attach()`, it accepts an instance of `IUnitOfWork<SqlConnection>` object. This method will be used in the business logic to passed the currently injected (in-used) UOW class. Also, the variable `_unitOfWork` will hold an instance of `IUnitOfWork<SqlConnection>` interface that has been created when the `Attach()` method is called.
+
+Then, create a repository class that inherits either the [DbRepository](/class/dbrepository) or [BaseRepository](/class/baserepository). On this class, implement the newly created `I<Entity>Repository` interface, the one that implements the `IRepository<TEntity, TDbConnection>` interface.
+
+```csharp
+public class OrderRepository : EntityRepository<Order>, IOrderRepository
+{
+    public OrderRepository(IOptions<Settings> options)
+        : base(options)
+    { }
+}
+
+public class OrderItemRepository : EntityRepository<OrderItem>, IOrderItemRepository
+{
+    public OrderRepository(IOptions<Settings> options)
+        : base(options)
     { }
 }
 ```
-
-> Notice the variable `unitOfWork`. It will hold the instance of `IUnitOfWork` interface if the `Attach()` method is called.
-
-Then, implement the method `Attach()`.
-
-```csharp
-public void Attach(IUnitOfWork unitOfWork)
-{
-    this.unitOfWork = unitOfWork;
-}
-```
-
-Then, implement the methods of the interface. In each method, ensure to pass the instance of the `Transaction` object that is being held by the `IUnitOfWork` interface.
-
-#### Add
-
-```csharp
-public TResult Add<TResult>(Order entity)
-{
-    return Insert<Order, TResult>(entity,
-        transaction: unitOfWork?.Transaction);
-}
-```
-
-#### AddAll
-
-```csharp
-public int AddAll(IEnumerable<Order> entities)
-{
-    return InsertAll<Order>(entities,
-        transaction: unitOfWork?.Transaction);
-}
-```
-
-#### Delete
-
-```csharp
-public int Delete(object id)
-{
-    return Delete<Order>(id,
-        transaction: unitOfWork?.Transaction);
-}
-
-public int Delete(Order entity)
-{
-    return Delete<Order>(entity,
-        transaction: unitOfWork?.Transaction);
-}
-```
-
-#### Merge
-
-```csharp
-public TResult Merge<TResult>(Order entity)
-{
-    return Merge<Order, TResult>(entity,
-        transaction: unitOfWork?.Transaction);
-}
-```
-
-#### Query
-
-```csharp
-public TResult Query(object id)
-{
-    return Query<Order>(id,
-        transaction: unitOfWork?.Transaction);
-}
-```
-
-#### Update
-
-```csharp
-public int Update(Order entity)
-{
-    return Update<Order>(entity,
-        transaction: unitOfWork?.Transaction);
-}
-```
-
-Then, implement the same strategy when implementing the other repositories. Let us assumed, you also had created the corresponding repository for the `OrderItem` entity model.
-
-- `OrderItemRepository` - the repository for the `OrderItem`.
 
 > Please note that the corresponding asynchronous methods were not implemented on this sample. You have to introduce it yourself if you wish to have it covered.
 
@@ -256,10 +205,10 @@ Register the UOW interface and class via service registration. Ensure it is on t
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddControllers();
+    services.SaveControllers();
 
     // Registration
-    services.AddTransient<IUnitOfWork, RepoDbUnitOfWork>();
+    services.AddTransient<IUnitOfWork<SqlConnection>, CustomUnitOfWork>();
 }
 ```
 
@@ -273,7 +222,7 @@ services.AddSingleton<IOrderItemRepository, OrderItemRepository>();
 
 ### Business Logic
 
-In your business logic, make sure that the `IUnitOfWork` is being dependency injected. Let us assumed your business logic class is named `SalesManager` that implements the `ISalesManager` interface.
+In your business logic, make sure that the `IUnitOfWork<SqlConnection>` is being dependency injected. Let us assumed your business logic class is named `SalesManager` that implements the `ISalesManager` interface.
 
 ```csharp
 public interface ISalesManager
@@ -286,30 +235,27 @@ public interface ISalesManager
 
 public class SalesManager : ISalesManager
 {
-    private IUnitOfWork unitOfWork;
-    private IOrderRepository orderRepository;
-    private IOrderItemRepository orderItemRepository;
+    private IUnitOfWork<SqlConnection> _unitOfWork;
+    private IOrderRepository _orderRepository;
+    private IOrderItemRepository _orderItemRepository;
 
     public SalesManager(IUnitOfWork unitOfWork,
         IOrderRepository orderRepository,
         IOrderItemRepository orderItemRepository,
         /* Other repositories here */)
     {
-        // Attach the UOW
-        orderRepository.Attach(unitOfWork);
-        orderItemRepository.Attach(unitOfWork);
-        /* Do the same for the other repositories */
+        _unitOfWork = unitOfWork;
+        _orderRepository = orderRepository;
+        _orderItemRepository = orderItemRepository;
 
-        // Set the variables
-        this.unitOfWork = unitOfWork;
-        this.orderRepository = orderRepository;
-        this.orderItemRepository = orderItemRepository;
-        /* Do the same for the other repositories */
+        // Attach the UOW
+        _orderRepository.Attach(_unitOfWork);
+        _orderItemRepository.Attach(_unitOfWork);
     }
 }
 ```
 
-In any of your business logic methods, ensure that you properly call the `Begin()`, `Commit()` and `Rollback()` methods of the `unitOfWork` variable.
+In any of your business logic methods, ensure that you properly call the `Begin()`, `Commit()` and `Rollback()` methods of the `_unitOfWork` variable.
 
 Below is a sample method that saves the order and its order item.
 
@@ -318,25 +264,24 @@ public void SaveOrders(Order order,
     IEnumerable<OrderItem> orderItems)
 {
     // Start the UOW
-    unitOfWork.Begin();
+    _unitOfWork.Begin();
 
     try
     {
         // Call the repository methods
         var orderId = orderRepository.Save(order);
-        orderItems = orderItems
+        orderItems
             .AsList()
             .ForEach(e => e.OrderId = orderId);
-        orderItemRepository.SaveAll(orderItems);
+        _orderItemRepository.SaveAll(orderItems);
 
         // Commit
-        unitOfWork.Commit();
+        _unitOfWork.Commit();
     }
     catch
     {
         // Rollback
-        unitOfWork.Rollback();
-        throw;
+        _unitOfWork.Rollback();
     }
 }
 ```
@@ -346,10 +291,10 @@ Lastly, do not forget to as well inject the business logic as transient.
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddControllers();
+    services.SaveControllers();
 
     // Registration
-    services.AddTransient<ISalesManager, SalesManager>();
+    services.SaveTransient<ISalesManager, SalesManager>();
 }
 ```
 
