@@ -68,7 +68,7 @@ public class CustomUnitOfWork : IUnitOfWork<SqlConnection>
         {
             throw new InvalidOperationException("Cannot start a new transaction while the existing one is still open.");
         }
-        _connection = _connection ??= new SqlConnection(_appSettings.ConnectionString);
+        _connection = _connection ??= (new SqlConnection(_appSettings.ConnectionString)).EnsureOpen();
         _transaction = _connection.BeginTransaction();
     }
 
@@ -87,15 +87,15 @@ public class CustomUnitOfWork : IUnitOfWork<SqlConnection>
 
     public void Rollback()
     {
-        if (transaction == null)
+        if (_transaction == null)
         {
             throw new InvalidOperationException("There is no active transaction to rollback.");
         }
-        using (transaction)
+        using (_transaction)
         {
-            transaction.Rollback();
+            _transaction.Rollback();
         }
-        transaction = null;
+        _transaction = null;
     }
 }
 ```
