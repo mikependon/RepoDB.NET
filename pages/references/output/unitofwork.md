@@ -13,7 +13,7 @@ grand_parent: REFERENCES
 
 This page has the consolidated code of the [Unit of Work](/reference/unitofwork) reference implementation.
 
-### Interface
+### Interfaces
 
 ```csharp
 public interface IUnitOfWork<TDbConnection>
@@ -25,21 +25,27 @@ public interface IUnitOfWork<TDbConnection>
     void Commit();
 }
 
-public interface IRepository<TEntity> where TEntity : class
+public interface IRepository<TEntity, TDbConnection>
+    where TEntity : class
+    where TDbConnection : IDbConnection
 {
-    void Attach(IUnitOfWork unitOfWork);
-    TResult Add<TResult>(TEntity entity);
-    int AddAll<TResult>(IEnumerable<TEntity> entities);
+    void Attach(IUnitOfWork<TDbConnection> unitOfWork);
+    TResult Save<TResult>(TEntity entity);
+    int SaveAll(IEnumerable<TEntity> entities);
     int Delete(object id);
-    int Delete(Entity entity);
     TResult Merge<TResult>(TEntity entity);
     TEntity Query(object id);
     int Update(TEntity entity);
 }
 
-public interface IOrderRepository : IRepository<Order>
+public interface IOrderRepository : IRepository<Order, SqlConnection>
 {
-    /* No order specific methods for now */
+    ...
+}
+
+public interface IOrderItemRepository : IRepository<OrderItem, SqlConnection>
+{
+    ...
 }
 
 public interface ISalesManager
@@ -51,191 +57,162 @@ public interface ISalesManager
 }
 ```
 
-### Class
+### Classes
 
 ```csharp
-public class RepoDbUnitOfWork : IUnitOfWork<SqlConnection>
+public class CustomUnitOfWork : IUnitOfWork<SqlConnection>
 {
-    /* Privates */
+    private AppSettings _appSettings;
+    private SqlConnection _connection;
+    private DbTransaction _transaction;
 
-    private AppSettings settings;
-    private SqlConnection connection;
-    private DbTransaction transaction;
-
-    /* Constructors */
-
-    public RepoDbUnitOfWork(IOptions<AppSettings> settings)
+    public CustomUnitOfWork(IOptions<AppSettings> options)
     {
-        this.settings = settings.Value;
+        _appSettings = options.Value;
     }
 
-    /* Properties */
+    public SqlConnection Connection => _connection;
 
-    public SqlConnection Connection { get { return connection; } }
-    
-    public DbTransaction Transaction { get { return transaction; } }
+    public DbTransaction Transaction => _transaction;
 
-    /* Custom Methods */
-
-    private SqlConnection EnsureConnection() =>
-        connection ?? connection = new SqlConnection(settings.ConnectionString);
-
-    /* Interface Methods */
-
-    public void Start()
+    public void Begin()
     {
-        if (transaction != null)
+        if (_transaction != null)
         {
-            throw new InvalidOperationException("Cannot start a new transaction while the existing other one is still open.");
+            throw new InvalidOperationException("Cannot start a new transaction while the existing one is still open.");
         }
-        var connection = EnsureConnection();
-        transaction = connection.BeginTransaction();
+        _connection = _connection ??= (new SqlConnection(_appSettings.ConnectionString)).EnsureOpen();
+        _transaction = _connection.BeginTransaction();
     }
 
     public void Commit()
     {
-        if (transaction == null)
+        if (_transaction == null)
         {
             throw new InvalidOperationException("There is no active transaction to commit.");
         }
-        using (transaction)
+        using (_transaction)
         {
-            transaction.Commit();
+            _transaction.Commit();
         }
-        transaction = null;
+        _transaction = null;
     }
 
     public void Rollback()
     {
-        if (transaction == null)
+        if (_transaction == null)
         {
             throw new InvalidOperationException("There is no active transaction to rollback.");
         }
-        using (transaction)
+        using (_transaction)
         {
-            transaction.Rollback();
+            _transaction.Rollback();
         }
-        transaction = null;
+        _transaction = null;
     }
 }
 ```
 
-### Repository
+### Repositories
 
 ```csharp
-
-public class OrderRepository : BaseRepository<Order, SqlConnection>, IOrderRepository
+public class EntityRepository<TEntity> : BaseRepository<TEntity, SqlConnection>,
+    IRepository<TEntity, SqlConnection>
+    where TEntity : class
 {
-    /* Privates */
+    private IUnitOfWork<SqlConnection> _unitOfWork;
 
-    private UnitOfWork unitOfWork;
+    public EntityRepository(IOptions<AppSettings> options)
+        : base(options.Value.ConnectionString) { }
 
-    /* Constructors */
+    public void Attach(IUnitOfWork<SqlConnection> unitOfWork) =>
+        _unitOfWork = unitOfWork;
 
-    public OrderRepository(IOptions<Settings> settings)
-        : base(settings.Value.ConnectionString)
+    public TResult Save<TResult>(TEntity entity) =>
+        Insert<TResult>(entity,
+            transaction: _unitOfWork.Transaction);
+
+    public int SaveAll(IEnumerable<TEntity> entities) =>
+        InsertAll(entities,
+            transaction: _unitOfWork.Transaction);
+
+    public int Delete(object id) =>
+        Delete(id,
+            transaction: _unitOfWork.Transaction);
+
+    public TResult Merge<TResult>(TEntity entity) =>
+        Merge<TResult>(entity,
+            transaction: _unitOfWork?.Transaction);
+
+    public TEntity Query(object id) =>
+        Query(id,
+            transaction: _unitOfWork?.Transaction)?.FirstOrDefault();
+
+    public int Update(TEntity entity) =>
+        Update(entity,
+            transaction: _unitOfWork?.Transaction);
+}
+
+public class OrderRepository : EntityRepository<Order>, IOrderRepository
+{
+    public OrderRepository(IOptions<Settings> options)
+        : base(options)
     { }
+}
 
-    /* Interface Methods */
-
-    public void Attach(IUnitOfWork unitOfWork)
-    {
-        this.unitOfWork = unitOfWork;
-    }
-
-    public TResult Add<TResult>(Order entity)
-    {
-        return Insert<Order, TResult>(entity,
-            transaction: unitOfWork?.Transaction);
-    }
-
-    public int AddAll(IEnumerable<Order> entities)
-    {
-        return InsertAll<Order>(entities,
-            transaction: unitOfWork?.Transaction);
-    }
-
-    public int Delete(object id)
-    {
-        return Delete<Order>(id,
-            transaction: unitOfWork?.Transaction);
-    }
-
-    public int Delete(Order entity)
-    {
-        return Delete<Order>(entity,
-            transaction: unitOfWork?.Transaction);
-    }
-
-    public TResult Merge<TResult>(Order entity)
-    {
-        return Merge<Order, TResult>(entity,
-            transaction: unitOfWork?.Transaction);
-    }
-
-    public TResult Query(object id)
-    {
-        return Query<Order>(id,
-            transaction: unitOfWork?.Transaction);
-    }
-
-    public int Update(Order entity)
-    {
-        return Update<Order>(entity,
-            transaction: unitOfWork?.Transaction);
-    }
+public class OrderItemRepository : EntityRepository<OrderItem>, IOrderItemRepository
+{
+    public OrderRepository(IOptions<Settings> options)
+        : base(options)
+    { }
 }
 ```
 
-### Business Logic
+### Business Logics
 
 ```csharp
 public class SalesManager : ISalesManager
 {
-    private IUnitOfWork unitOfWork;
-    private IOrderRepository orderRepository;
-    private IOrderItemRepository orderItemRepository;
+    private IUnitOfWork<SqlConnection> _unitOfWork;
+    private IOrderRepository _orderRepository;
+    private IOrderItemRepository _orderItemRepository;
 
     public SalesManager(IUnitOfWork unitOfWork,
         IOrderRepository orderRepository,
         IOrderItemRepository orderItemRepository,
         /* Other repositories here */)
     {
-        // Attach the UOW
-        orderRepository.Attach(unitOfWork);
-        orderItemRepository.Attach(unitOfWork);
-        /* Do the same for the other repositories */
+        _unitOfWork = unitOfWork;
+        _orderRepository = orderRepository;
+        _orderItemRepository = orderItemRepository;
 
-        // Set the variables
-        this.unitOfWork = unitOfWork;
-        this.orderRepository = orderRepository;
-        this.orderItemRepository = orderItemRepository;
-        /* Do the same for the other repositories */
+        // Attach the UOW
+        _orderRepository.Attach(_unitOfWork);
+        _orderItemRepository.Attach(_unitOfWork);
     }
 
     public void SaveOrders(Order order,
         IEnumerable<OrderItem> orderItems)
     {
         // Start the UOW
-        unitOfWork.Begin();
+        _unitOfWork.Begin();
 
         try
         {
             // Call the repository methods
             var orderId = orderRepository.Save(order);
-            orderItems = orderItems
+            orderItems
                 .AsList()
                 .ForEach(e => e.OrderId = orderId);
-            orderItemRepository.SaveAll(orderItems);
+            _orderItemRepository.SaveAll(orderItems);
 
             // Commit
-            unitOfWork.Commit();
+            _unitOfWork.Commit();
         }
         catch
         {
             // Rollback
-            unitOfWork.Rollback();
-            throw;
+            _unitOfWork.Rollback();
         }
     }
 }
@@ -252,7 +229,6 @@ public void ConfigureServices(IServiceCollection services)
     services.AddTransient<IUnitOfWork, RepoDbUnitOfWork>();
 
     // Repositories
-    services.AddSingleton<IOrderRepository, OrderRepository>();
     services.AddSingleton<IOrderRepository, OrderRepository>();
     services.AddSingleton<IOrderItemRepository, OrderItemRepository>();
     /* Do the same for the other repositories */
