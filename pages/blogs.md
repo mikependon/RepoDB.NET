@@ -3,6 +3,7 @@ layout: default
 title: BLOGS
 nav_order: 13
 permalink: /blogs
+published: false
 ---
 
 # Blogs

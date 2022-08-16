@@ -18,6 +18,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 - Bug: No coercion operator is defined between types `System.TimeSpan` and `System.Int64`. [#1033](https://github.com/mikependon/RepoDB/issues/1033)
 - Bug: Type with custom mapping used in an array is not mapped to specific `DBType` [#1053](https://github.com/mikependon/RepoDB/issues/1053)
+- Bug: DbRepository's Truncate operations do not handle transactions [#1041](https://github.com/mikependon/RepoDB/issues/1041)
+- Bug: Sort Columns are no longer being verified [#1049](https://github.com/mikependon/RepoDB/issues/1049)
 
 
 ### RepoDb (v.12.10)
