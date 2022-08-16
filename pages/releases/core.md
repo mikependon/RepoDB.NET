@@ -20,6 +20,10 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: Type with custom mapping used in an array is not mapped to specific `DBType` [#1053](https://github.com/mikependon/RepoDB/issues/1053)
 - Bug: DbRepository's Truncate operations do not handle transactions [#1041](https://github.com/mikependon/RepoDB/issues/1041)
 - Bug: Sort Columns are no longer being verified [#1049](https://github.com/mikependon/RepoDB/issues/1049)
+- Enhancement: Explicit selection of the datatype for query parameters [#1052](https://github.com/mikependon/RepoDB/issues/1052)
+- Enhancement: Added the [DbType](https://docs.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) as property to both the [Parameter](/class/parameter) and [QueryField](/class/queryfield) classes.
+- Enhancement: Simplified the constructors of the [QueryField](/class/queryfield) and [DirectionalQueryField](/class/directionalqueryfield) classes by pre-assigning default values to the arguments. (BREAKING CHANGES)
+- Enhancement: Simplified the constructors of the extended query field objects [FunctionalQueryField](/class/functionalqueryfield), [LeftQueryField](/class/leftqueryfield), [RightQueryField](/class/rightqueryfield), [LeftTrimQueryField](/class/lefttrimqueryfield), [RightTrimQueryField](/class/righttrimqueryfield), [LengthQueryField](/class/lengthqueryfield), [LenQueryField](/class/lenqueryfield), [LowerQueryField](/class/lowerqueryfield), [UpperQueryField](/class/upperqueryfield), [TrimQueryField](/class/trimqueryfield) classes by pre-assigning default values to the arguments. (BREAKING CHANGES)
 
 
 ### RepoDb (v.12.10)
@@ -210,7 +214,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Request: Do not crash if on empty enumerable on bulk operation [#635](https://github.com/mikependon/RepoDB/issues/635).
 - Request: Introduce optional caching to [ExecuteScalar](/operation/executescalar) methods. [#648](https://github.com/mikependon/RepoDB/issues/648)
 - Enhancement: Add the non-parameterized Truncate operation. [#652](https://github.com/mikependon/RepoDB/issues/652)
-- Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673) - this is a breaking changes
+- Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673) - (BREAKING CHANGES)
 - Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
 - Bug: [FluentMapper](/mapper/fluentmapper) is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
 - Question: [IPropertyHandler](/interface/ipropertyhandler) for `Dictionary<string, string>` [#647](https://github.com/mikependon/RepoDB/issues/647)
@@ -226,7 +230,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 ### RepoDb (v1.12.5-beta5)
 
-- Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673) - this is a breaking changes
+- Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673) - (BREAKING CHANGES)
 - Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
 - Bug: [FluentMapper](/mapper/fluentmapper) is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
 - Question: [IPropertyHandler](/interface/ipropertyhandler) for `Dictionary<string, string>` [#647](https://github.com/mikependon/RepoDB/issues/647)

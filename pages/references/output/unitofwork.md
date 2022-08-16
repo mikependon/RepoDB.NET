@@ -226,7 +226,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddControllers();
 
     // Unit Of Work
-    services.AddTransient<IUnitOfWork, RepoDbUnitOfWork>();
+    services.AddTransient<IUnitOfWork, CustomUnitOfWork>();
 
     // Repositories
     services.AddSingleton<IOrderRepository, OrderRepository>();
