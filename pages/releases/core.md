@@ -22,8 +22,10 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Bug: Sort Columns are no longer being verified [#1049](https://github.com/mikependon/RepoDB/issues/1049)
 - Enhancement: Explicit selection of the datatype for query parameters [#1052](https://github.com/mikependon/RepoDB/issues/1052)
 - Enhancement: Added the [DbType](https://docs.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) as property to both the [Parameter](/class/parameter) and [QueryField](/class/queryfield) classes.
-- Enhancement: Simplified the constructors of the [QueryField](/class/queryfield) and [DirectionalQueryField](/class/directionalqueryfield) classes by pre-assigning default values to the arguments. (BREAKING CHANGES)
-- Enhancement: Simplified the constructors of the extended query field objects [FunctionalQueryField](/class/functionalqueryfield), [LeftQueryField](/class/leftqueryfield), [RightQueryField](/class/rightqueryfield), [LeftTrimQueryField](/class/lefttrimqueryfield), [RightTrimQueryField](/class/righttrimqueryfield), [LengthQueryField](/class/lengthqueryfield), [LenQueryField](/class/lenqueryfield), [LowerQueryField](/class/lowerqueryfield), [UpperQueryField](/class/upperqueryfield), [TrimQueryField](/class/trimqueryfield) classes by pre-assigning default values to the arguments. (BREAKING CHANGES)
+- Enhancement: Simplified the constructors of the [QueryField](/class/queryfield) and [DirectionalQueryField](/class/directionalqueryfield) classes. (BREAKING CHANGES)
+- Enhancement: Simplified the constructors of the extended query field objects [FunctionalQueryField](/class/functionalqueryfield), [LeftQueryField](/class/leftqueryfield), [RightQueryField](/class/rightqueryfield), [LeftTrimQueryField](/class/lefttrimqueryfield), [RightTrimQueryField](/class/righttrimqueryfield), [LengthQueryField](/class/lengthqueryfield), [LenQueryField](/class/lenqueryfield), [LowerQueryField](/class/lowerqueryfield), [UpperQueryField](/class/upperqueryfield), [TrimQueryField](/class/trimqueryfield) classes. (BREAKING CHANGES)
+- Enhancement: Removed the [Field](/class/field) argument from all the query field objects. (BREAKING CHANGES)
+- Enhancement: Removed the `Type` property from the [DirectionalQueryField](/class/directionalqueryfield) object. (BREAKING CHANGES)
 
 
 ### RepoDb (v.12.10)
