@@ -26,6 +26,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Simplified the constructors of the extended query field objects [FunctionalQueryField](/class/functionalqueryfield), [LeftQueryField](/class/leftqueryfield), [RightQueryField](/class/rightqueryfield), [LeftTrimQueryField](/class/lefttrimqueryfield), [RightTrimQueryField](/class/righttrimqueryfield), [LengthQueryField](/class/lengthqueryfield), [LenQueryField](/class/lenqueryfield), [LowerQueryField](/class/lowerqueryfield), [UpperQueryField](/class/upperqueryfield), [TrimQueryField](/class/trimqueryfield) classes. (BREAKING CHANGES)
 - Enhancement: Removed the [Field](/class/field) argument from all the query field objects. (BREAKING CHANGES)
 - Enhancement: Removed the `Type` property from the [DirectionalQueryField](/class/directionalqueryfield) object. (BREAKING CHANGES)
+- Enhancement: Enable [IDbDataParameter](https://docs.microsoft.com/en-us/dotnet/api/system.data.idbdataparameter?view=net-6.0) as query arguments [#1060](https://github.com/mikependon/RepoDB/issues/1060)
+- Enhancement: Removed the type filter (of class) in the [ExecuteQueryMultiple](/operation/executequerymultiple) operation.
 
 
 ### RepoDb (v.12.10)
