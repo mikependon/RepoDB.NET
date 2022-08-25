@@ -29,6 +29,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Enable [IDbDataParameter](https://docs.microsoft.com/en-us/dotnet/api/system.data.idbdataparameter?view=net-6.0) as query arguments [#1060](https://github.com/mikependon/RepoDB/issues/1060) (BREAKING CHANGES)
 - Enhancement: Removed the type filter (of class) in the [ExecuteQueryMultiple](/operation/executequerymultiple) operation.
 - Enhancement: Remove the [QueryBuilder](/class/querybuilder) on the [IStatementBuilder](/interface/istatementbuilder) interface methods [#1055](https://github.com/mikependon/RepoDB/issues/1055)
+- How to use [ExecuteQueryMultiple](/operation/executequerymultiple) cache? [#1044](https://github.com/mikependon/RepoDB/issues/1044)
 
 
 ### RepoDb (v.12.10)
