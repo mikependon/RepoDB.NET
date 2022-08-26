@@ -30,6 +30,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Removed the type filter (of class) in the [ExecuteQueryMultiple](/operation/executequerymultiple) operation.
 - Enhancement: Remove the [QueryBuilder](/class/querybuilder) on the [IStatementBuilder](/interface/istatementbuilder) interface methods [#1055](https://github.com/mikependon/RepoDB/issues/1055)
 - How to use [ExecuteQueryMultiple](/operation/executequerymultiple) cache? [#1044](https://github.com/mikependon/RepoDB/issues/1044)
+- Enhancement: Enable the Anonymous Types and Query Objects on [QueryMultiple](/operation/querymultiple) [#1062](https://github.com/mikependon/RepoDB/issues/1062)
 
 
 ### RepoDb (v.12.10)
