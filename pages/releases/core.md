@@ -32,6 +32,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - How to use [ExecuteQueryMultiple](/operation/executequerymultiple) cache? [#1044](https://github.com/mikependon/RepoDB/issues/1044)
 - Enhancement: Enable the Anonymous Types and Query Objects on [QueryMultiple](/operation/querymultiple) [#1062](https://github.com/mikependon/RepoDB/issues/1062)
 - Enhancement: Add the 'fields' and 'cacheItemExpiration' as arguments to the [QueryMultiple](/operation/querymultiple) operation [#1071](https://github.com/mikependon/RepoDB/issues/1071)
+- Enhancement: Enable the TableName invocation in the [QueryMultiple](/operation/querymultiple) operations [#1065](https://github.com/mikependon/RepoDB/issues/1065)
 
 ### RepoDb (v.12.10)
 
