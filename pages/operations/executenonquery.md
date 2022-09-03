@@ -124,7 +124,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
 
-### Executing a StoredProcedure
+### Executing a Stored Procedure
 
 There are 2 ways of executing a stored procedure. First, simply pass the name of the stored procedure and set the command type to `CommandType.StoredProcedure`.
 

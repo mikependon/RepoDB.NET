@@ -146,7 +146,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
 
-### Executing a StoredProcedure
+### Executing a Stored Procedure
 
 The calls to execute a stored procedure is by simply calling the `EXEC` command of the SQL Server. It can be combined together with other raw-SQL statements.
 
