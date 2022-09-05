@@ -35,6 +35,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Enable the TableName invocation in the [QueryMultiple](/operation/querymultiple) operations [#1065](https://github.com/mikependon/RepoDB/issues/1065)
 Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/querymultiple) operations [#1070](https://github.com/mikependon/RepoDB/issues/1070)
 - Enhancement: Support the Type level assignment of [PropertyValueAttribute](/attribute/propertyvalueattribute) [#1059](https://github.com/mikependon/RepoDB/issues/1059)
+- Enhancement: Removed the `includeMappings` argument from the `PropertyInfo.GetPropertyValueAttributes()`, [PropertyValueAttributeCache](/cachers/propertyvalueattributecache) and [PropertyValueAttributeResolver](/resolvers/propertyvalueattributeresolver) methods.
+- Enhancement: Introduced the [PropertyValueAttributeTypeLevelResolver](/resolvers/propertyvalueattributetypelevelresolver) class.
+- Enhancement: Obsoleted the [PropertyValueAttributeResolver](/resolvers/propertyvalueattributeresolver) class and introduced the replacement class named [PropertyValueAttributePropertyLevelResolver](/resolvers/propertyvalueattributepropertylevelresolver) class.
 
 ### RepoDb (v.12.10)
 
