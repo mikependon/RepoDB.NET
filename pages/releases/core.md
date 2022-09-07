@@ -38,6 +38,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Enhancement: Removed the `includeMappings` argument from the `PropertyInfo.GetPropertyValueAttributes()`, [PropertyValueAttributeCache](/cachers/propertyvalueattributecache) and [PropertyValueAttributeResolver](/resolvers/propertyvalueattributeresolver) methods.
 - Enhancement: Introduced the [PropertyValueAttributeTypeLevelResolver](/resolvers/propertyvalueattributetypelevelresolver) class.
 - Enhancement: Obsoleted the [PropertyValueAttributeResolver](/resolvers/propertyvalueattributeresolver) class and introduced the replacement class named [PropertyValueAttributePropertyLevelResolver](/resolvers/propertyvalueattributepropertylevelresolver) class.
+- Enhancement: [TypeMapper](/mapper/typemapper) for MSSQL (Udt and Spatial) [#1023](https://github.com/mikependon/RepoDB/issues/1023)
 
 ### RepoDb (v.12.10)
 
