@@ -42,6 +42,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Enhancement: [TypeMapper](/mapper/typemapper) for MSSQL (Udt and Spatial) [#1023](https://github.com/mikependon/RepoDB/issues/1023)
 - Enhancement: Introduce the `Async` methods to the [ICache](/interface/icache) interface [#1080](https://github.com/mikependon/RepoDB/issues/1080)
 - Bug: [QueryAsync](/operation/query) interfering with PK [#1046](https://github.com/mikependon/RepoDB/issues/1046)
+- Question: How does one trace `Async` methods? [#945](https://github.com/mikependon/RepoDB/issues/945)
 
 
 ### RepoDb (v.12.10)
