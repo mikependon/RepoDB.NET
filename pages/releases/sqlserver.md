@@ -14,6 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
 
+### RepoDb.SqlServer (Next Version)
+
+- Referenced the `RepoDb` package `v1.13.0-alpha1`.
+- Referenced the `Microsoft.Data.SqlClient` package `v5.0.0`.
+
+
 ### RepoDb.SqlServer (v1.1.5)
 
 - Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
