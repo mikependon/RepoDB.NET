@@ -14,6 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SQLite.System) to download it.
 
+### RepoDb.SQLite.System (Next Version)
+
+- Referenced the `RepoDb` package `v1.13.0-alpha1`.
+- Upgraded the `System.Data.SQLite.Core` package to `v1.0.116`.
+
+
 ### RepoDb.SQLite.System (v1.0.1)
 
 - Initial release.

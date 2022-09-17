@@ -14,6 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql) to download it.
 
+### RepoDb.PostgreSql (Next Version)
+
+- Referenced the `RepoDb` package `v1.13.0`.
+- Upgraded the `Npgsql` package to `v6.0.1`.
+
+
 ### RepoDb.PostgreSql (v1.1.5)
 
 - Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)

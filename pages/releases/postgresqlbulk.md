@@ -14,6 +14,13 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql.BulkOperations) to download it.
 
+### RepoDB.PostgreSql.BulkOperations (0.0.10)
+
+- Referenced the `RepoDb` package `v1.13.0`.
+- Referenced the `RepoDb.PostgreSql` package `v1.13.0`.
+- Upgraded the `Npgsql` package to `v6.0.1`.
+
+
 ### RepoDB.PostgreSql.BulkOperations (0.0.9)
 
 - Referenced the `RepoDb` package `v1.12.10`.

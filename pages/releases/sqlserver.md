@@ -16,8 +16,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 
 ### RepoDb.SqlServer (Next Version)
 
-- Referenced the `RepoDb` package `v1.13.0-alpha1`.
-- Referenced the `Microsoft.Data.SqlClient` package `v5.0.0`.
+- Referenced the `RepoDb` package `v1.13.0`.
+- Upgraded the `Microsoft.Data.SqlClient` package to `v5.0.0`.
 
 
 ### RepoDb.SqlServer (v1.1.5)
