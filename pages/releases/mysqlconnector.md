@@ -14,7 +14,7 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector) to download it.
 
-### RepoDB.MySqlConnector (Next Version)
+### RepoDB.MySqlConnector (v1.13.0-alpha1)
 
 - Referenced the `RepoDb` package `v1.13.0`.
 - Referenced the `RepoDb.PostgreSql` package `v1.13.0`.

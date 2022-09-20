@@ -16,6 +16,15 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 ### RepoDb (Next Version)
 
+- Introduced the `NullToDbNull` method into the [Converter](/class/converter) class.
+- Enhancement: Add a [PropertyHandlerOptions](/options/propertyhandleroptions) and [ClassHandlerOptions](/options/classhandleroptions) class [#1088](https://github.com/mikependon/RepoDB/issues/1088)
+- Enhancement: Introduce the initialization within the library using an [ApplicationConfigOptions](/options/applicationconfigurationoptions) class [#1087](https://github.com/mikependon/RepoDB/issues/1087)
+- Obsoleted the [Converter](/class/converter).ConversionType property.
+- Removed the [Constant](/class/constant).MaxParametersCount property.
+
+
+### RepoDb (v1.13.0-alpha1)
+
 - Bug: No coercion operator is defined between types `System.TimeSpan` and `System.Int64`. [#1033](https://github.com/mikependon/RepoDB/issues/1033)
 - Bug: Type with custom mapping used in an array is not mapped to specific `DBType` [#1053](https://github.com/mikependon/RepoDB/issues/1053)
 - Bug: [DbRepository](/class/dbrepository)'s [Truncate](/operation/truncate) operations do not handle transactions [#1041](https://github.com/mikependon/RepoDB/issues/1041)
