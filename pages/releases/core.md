@@ -18,9 +18,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 - Introduced the `NullToDbNull` method into the [Converter](/class/converter) class.
 - Enhancement: Add a [PropertyHandlerOptions](/options/propertyhandleroptions) and [ClassHandlerOptions](/options/classhandleroptions) class [#1088](https://github.com/mikependon/RepoDB/issues/1088)
-- Enhancement: Introduce the initialization within the library using an [ApplicationConfigOptions](/options/applicationconfigurationoptions) class [#1087](https://github.com/mikependon/RepoDB/issues/1087)
 - Obsoleted the [Converter](/class/converter).ConversionType property.
 - Removed the [Constant](/class/constant).MaxParametersCount property.
+- Enhancement: Introduce the initialization within the library using an [GloalConfigOptions](/options/globalconfigoptions) class [#1087](https://github.com/mikependon/RepoDB/issues/1087)
 
 
 ### RepoDb (v1.13.0-alpha1)
