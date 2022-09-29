@@ -21,6 +21,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Obsoleted the [Converter](/class/converter).ConversionType property.
 - Removed the [Constant](/class/constant).MaxParametersCount property.
 - Enhancement: Introduce the initialization within the library using an [GloalConfigOptions](/options/globalconfigoptions) class [#1087](https://github.com/mikependon/RepoDB/issues/1087)
+- Enhancement: Add a switch of which value to return (Identity/Primary) during the push operations ([Insert](/operation/insert), [InsertAll](/operation/insertall), [Merge](/operation/merge) and [MergeAll](/operation/mergeall)). [#1086](https://github.com/mikependon/RepoDB/issues/1086)
 
 
 ### RepoDb (v1.13.0-alpha1)
