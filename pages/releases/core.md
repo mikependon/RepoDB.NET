@@ -14,7 +14,7 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-### RepoDb (Next Version)
+### RepoDb (v1.13.0-alpha2)
 
 - Introduced the `NullToDbNull` method into the [Converter](/class/converter) class.
 - Enhancement: Add a [PropertyHandlerOptions](/options/propertyhandleroptions) and [ClassHandlerOptions](/options/classhandleroptions) class [#1088](https://github.com/mikependon/RepoDB/issues/1088)
