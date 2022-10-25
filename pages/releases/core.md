@@ -14,10 +14,16 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+### RepoDb (v1.13.0-beta1)
+
+- Upgraded the `Microsoft.Data.SqlClient` package to  `v5.0.1`.
+
+
 ### RepoDb (v1.13.0-alpha3)
 
 - Enhancement: Add a switch of which value to return (Identity/Primary) during the push operations ([Insert](/operation/insert), [InsertAll](/operation/insertall), [Merge](/operation/merge) and [MergeAll](/operation/mergeall)). [#1086](https://github.com/mikependon/RepoDB/issues/1086) - (Updates to both PostgreSQL, MySQL, SQLite (System/Microsoft) extended libraries)
 - Enum: writing to db fails, when global-option is automatic or db-field is primary-key [#1100](https://github.com/mikependon/RepoDB/issues/1100)
+- Enums: error when dbValue doesn't exist in Enum-Values [#1099](https://github.com/mikependon/RepoDB/issues/1099)
 
 
 ### RepoDb (v1.13.0-alpha2)

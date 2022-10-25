@@ -14,6 +14,17 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
 
+### RepoDb.SqlServer (v1.13.0-beta1)
+
+- Upgraded the `Microsoft.Data.SqlClient` package to  `v5.0.1`.
+- Referenced the `RepoDb` package `v1.13.0-beta1`.
+
+
+### RepoDb.SqlServer (v1.13.0-alpha3)
+
+- Referenced the `RepoDb` package `v1.13.0-alpha3`.
+
+
 ### RepoDb.SqlServer (v1.13.0-alpha2)
 
 - Referenced the `RepoDb` package `v1.13.0-alpha2`.
