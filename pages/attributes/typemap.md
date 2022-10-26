@@ -5,7 +5,7 @@ title: "TypeMap"
 nav_order: 6
 description: "Learn on how to use the RepoDB TypeMap attribute."
 permalink: /attribute/typemap
-tags: [repodb, class, typemap, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, typemap]
 parent: ATTRIBUTES
 ---
 

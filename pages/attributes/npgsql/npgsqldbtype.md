@@ -2,7 +2,7 @@
 layout: default
 title: NpgsqlDbType
 permalink: /attribute/npgsql/npgsqldbtype
-tags: [repodb, attribute, npgsqldbtype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, npgsqldbtype]
 parent: PostgreSQL
 grand_parent: ATTRIBUTES
 ---

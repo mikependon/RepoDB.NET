@@ -4,7 +4,7 @@ sidebar: classes
 title: "DbField"
 description: "A class that contains the necessary properties that defines a database field."
 permalink: /class/dbfield
-tags: [repodb, class, dbfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, dbfield]
 parent: CLASSES
 ---
 

@@ -3,7 +3,7 @@ layout: default
 sidebar: interfaces
 title: "IDbSetting"
 permalink: /interface/idbsetting
-tags: [repodb, class, idbsetting, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, idbsetting]
 parent: INTERFACES
 ---
 

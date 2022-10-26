@@ -2,7 +2,7 @@
 layout: page
 title: "Generic Repository"
 permalink: /reference/output/genericrepository
-tags: [repodb, class, genericrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, genericrepository]
 parent: OUTPUT
 grand_parent: REFERENCES
 ---

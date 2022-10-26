@@ -32,6 +32,14 @@ Or, if you are to work with the bulk operations.
 Once installed, call the bootstrapper to initialize all the dependencies for PostgreSql.
 
 ```csharp
+GlobalConfiguration
+	.Setup()
+	.UsePostgreSql();
+```
+
+For the users prior the version 1.13.0, use the code below.
+
+```csharp
 RepoDb.PostgreSqlBootstrap.Initialize();
 ```
 

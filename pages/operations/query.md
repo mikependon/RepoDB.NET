@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "Query"
 permalink: /operation/query
-tags: [repodb, tutorial, query, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, query]
 parent: OPERATIONS
 ---
 

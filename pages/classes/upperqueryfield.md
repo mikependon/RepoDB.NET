@@ -4,7 +4,7 @@ sidebar: classes
 title: "UpperQueryField"
 description: "A query field class that is being used to define a query expression for the SQL statement using the UPPER function."
 permalink: /class/upperqueryfield
-tags: [repodb, class, upperqueryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, upperqueryfield]
 parent: CLASSES
 ---
 

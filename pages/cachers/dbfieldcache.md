@@ -4,7 +4,7 @@ sidebar: cachers
 title: "DbFieldCache"
 description: "A class that is being used to retrieve the cached database fields of the class or data entity."
 permalink: /cacher/dbfieldcache
-tags: [repodb, class, dbfieldcache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, dbfieldcache]
 parent: CACHERS
 ---
 

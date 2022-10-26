@@ -3,7 +3,7 @@ layout: default
 title: PropertyValueAttribute
 nav_order: 1
 permalink: /attribute/parameter/propertyvalueattribute
-tags: [repodb, attribute, propertyvalueattribute, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, propertyvalueattribute]
 parent: Parameter
 grand_parent: ATTRIBUTES
 ---

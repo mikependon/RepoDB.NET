@@ -2,7 +2,7 @@
 layout: default
 title: Size
 permalink: /attribute/parameter/size
-tags: [repodb, attribute, size, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, size]
 parent: Parameter
 grand_parent: ATTRIBUTES
 ---

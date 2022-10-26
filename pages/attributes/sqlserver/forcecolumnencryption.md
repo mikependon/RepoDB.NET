@@ -2,7 +2,7 @@
 layout: default
 title: ForceColumnEncryption
 permalink: /attribute/sqlserver/forcecolumnencryption
-tags: [repodb, attribute, forcecolumnencryption, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, forcecolumnencryption]
 parent: "SQL Server"
 grand_parent: ATTRIBUTES
 ---

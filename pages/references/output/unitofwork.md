@@ -2,7 +2,7 @@
 layout: page
 title: "Unit of Work"
 permalink: /reference/output/unitofwork
-tags: [repodb, class, unitofwork, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, unitofwork]
 parent: OUTPUT
 grand_parent: REFERENCES
 ---

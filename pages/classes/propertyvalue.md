@@ -4,7 +4,7 @@ sidebar: classes
 title: "PropertyValue"
 description: "A class that holds the value of class or data entity property and its values."
 permalink: /class/propertyvalue
-tags: [repodb, class, propertyvalue, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, propertyvalue]
 parent: CLASSES
 ---
 

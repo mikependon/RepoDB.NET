@@ -3,7 +3,7 @@ layout: default
 sidebar: interfaces
 title: "IClassHandler"
 permalink: /interface/iclasshandler
-tags: [repodb, class, iclasshandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, iclasshandler]
 parent: INTERFACES
 ---
 
@@ -31,12 +31,12 @@ You have to manually create a class that implements this interface.
 ```csharp
 public class PersonClassHandler : IClassHandler<Person>
 {
-    public Person Get(Person input, DbDataReader dataReader)
+    public Person Get(Person input, ClassHandlerGetOptions options)
     {
         // Handle the Class before sending back to the caller
     }
 
-    public string Set(Person input)
+    public string Set(Person input, ClassHandlerSetOptions options)
     {
         // Handle the Class before sending to DB
     }

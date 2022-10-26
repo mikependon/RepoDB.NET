@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "Truncate"
 permalink: /operation/truncate
-tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, count]
 parent: OPERATIONS
 ---
 

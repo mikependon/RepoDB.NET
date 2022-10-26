@@ -4,7 +4,7 @@ sidebar: references
 title: "Connection-Based Repository"
 nav_order: 2
 permalink: /reference/connectionrepository
-tags: [repodb, class, connectionrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, connectionrepository]
 parent: REFERENCES
 ---
 

@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "Exists"
 permalink: /operation/exists
-tags: [repodb, tutorial, exists, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, exists]
 parent: OPERATIONS
 ---
 

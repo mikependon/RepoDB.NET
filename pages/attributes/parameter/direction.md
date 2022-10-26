@@ -2,7 +2,7 @@
 layout: default
 title: Direction
 permalink: /attribute/parameter/direction
-tags: [repodb, attribute, direction, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, direction]
 parent: Parameter
 grand_parent: ATTRIBUTES
 ---

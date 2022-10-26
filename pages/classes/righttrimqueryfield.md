@@ -4,7 +4,7 @@ sidebar: classes
 title: "RightTrimQueryField"
 description: "A query field class that is being used to define a query expression for the SQL statement using the RTRIM function."
 permalink: /class/righttrimqueryfield
-tags: [repodb, class, righttrimqueryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, righttrimqueryfield]
 parent: CLASSES
 ---
 

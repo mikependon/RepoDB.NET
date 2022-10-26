@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "QueryMultiple"
 permalink: /operation/querymultiple
-tags: [repodb, tutorial, querymultiple, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, querymultiple]
 parent: OPERATIONS
 ---
 

@@ -2,7 +2,7 @@
 layout: default
 title: ConvertedValue
 permalink: /attribute/npgsql/convertedvalue
-tags: [repodb, attribute, convertedvalue, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, convertedvalue]
 parent: PostgreSQL
 grand_parent: ATTRIBUTES
 ---

@@ -5,7 +5,7 @@ title: "SQL Server"
 description: "Learn on how to work with SQL Server databases using RepoDB library."
 nav_order: 1
 permalink: /tutorial/get-started-sqlserver
-tags: [repodb, tutorial, get-started, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, get-started]
 parent: GET STARTED
 ---
 
@@ -24,6 +24,14 @@ The library can be installed via Nuget. In your Package Manager Console, type th
 ```
 
 Once installed, call the bootstrapper to initialize all the dependencies for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
+
+```csharp
+GlobalConfiguration
+	.Setup()
+	.UseSqlServer();
+```
+
+For the users prior the version 1.13.0, use the code below.
 
 ```csharp
 RepoDb.SqlServerBootstrap.Initialize();

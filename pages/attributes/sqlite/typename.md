@@ -2,7 +2,7 @@
 layout: default
 title: TypeName
 permalink: /attribute/sqlite/typename
-tags: [repodb, attribute, typename, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, typename]
 parent: SQLite
 grand_parent: ATTRIBUTES
 ---

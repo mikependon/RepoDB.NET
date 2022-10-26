@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "InsertAll"
 permalink: /operation/insertall
-tags: [repodb, tutorial, insertall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, insertall]
 parent: OPERATIONS
 ---
 

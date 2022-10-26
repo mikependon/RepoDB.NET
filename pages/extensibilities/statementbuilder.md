@@ -3,7 +3,7 @@ layout: default
 sidebar: extensibilities
 title: "Statement Builder"
 permalink: /extensibility/statementbuilder
-tags: [repodb, class, statementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, statementbuilder]
 parent: EXTENSIBILITIES
 ---
 
@@ -63,8 +63,7 @@ All methods of the [BaseStatementBuilder](/class/basestatementbuilder) class wer
 Below is the sample code to implement the [Merge](/operation/merge) operation.
 
 ```csharp
-public override string CreateMerge(QueryBuilder queryBuilder,
-    string tableName,
+public override string CreateMerge(string tableName,
     IEnumerable<Field> fields,
     IEnumerable<Field> qualifiers = null,
     DbField primaryField = null,
@@ -73,7 +72,7 @@ public override string CreateMerge(QueryBuilder queryBuilder,
 {
     // Initialize the needed variables
     var dbSetting = DbSettingMapper.GetDbSetting<SqlConnection>();
-    var builder = queryBuilder ?? new QueryBuilder();
+    var builder = new QueryBuilder();
 
     // Get the insertable and updateable fields
     var insertableFields = fields
@@ -136,11 +135,10 @@ public override string CreateMerge(QueryBuilder queryBuilder,
 It is not necessary to override a virtual method of the [BaseStatementBuilder](/class/basestatementbuilder). However, if you do override, then below is a sample referrence-code that overrides the default implementation of [CreateTruncate](/operation/truncate) operation.
 
 ```csharp
-public override string CreateTruncate(QueryBuilder queryBuilder,
-    string tableName)
+public override string CreateTruncate(string tableName)
 {
     // Initialize the builder
-    var builder = queryBuilder ?? new QueryBuilder();
+    var builder = new QueryBuilder();
 
     // Build the query
     builder.Clear()

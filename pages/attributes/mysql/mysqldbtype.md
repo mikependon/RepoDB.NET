@@ -2,7 +2,7 @@
 layout: default
 title: MySqlDbType
 permalink: /attribute/mysql/mysqldbtype
-tags: [repodb, attribute, mysqldbtype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, mysqldbtype]
 parent: MySQL
 grand_parent: ATTRIBUTES
 ---

@@ -3,7 +3,7 @@ layout: default
 sidebar: interfaces
 title: "IPropertyHandler"
 permalink: /interface/ipropertyhandler
-tags: [repodb, class, ipropertyhandler, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, ipropertyhandler]
 parent: INTERFACES
 ---
 
@@ -46,12 +46,12 @@ You have to manually create a class that implements this interface.
 ```csharp
 public class AddressPropertyHandler : IPropertyHandler<string, Address>
 {
-    public Address Get(string input, ClassProperty property)
+    public Address Get(string input, PropertyHandlerGetOptions options)
     {
         // Handle the transformation from the DB towards the Class
     }
 
-    public string Set(Address input, ClassProperty property)
+    public string Set(Address input, PropertyHandlerSetOptions options)
     {
         // Handle the transformation from the Class towards the DB
     }
@@ -87,12 +87,12 @@ public class Person
 ```csharp
 public class AddressPropertyHandler : IPropertyHandler<string, Address>
 {
-    public Address Get(string input, ClassProperty property)
+    public Address Get(string input, PropertyHandlerGetOptions options)
     {
         return JsonConvert.DeserializeObject<Address>(input);
     }
 
-    public string Set(Address input, ClassProperty property)
+    public string Set(Address input, PropertyHandlerSetOptions options)
     {
         return JsonConvert.SerializeObject(input);
     }
@@ -153,13 +153,13 @@ Let us say, the scenario is to convert all the `DateTime.Kind` properties to Utc
 ```csharp
 public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<DateTime?, DateTime?>
 {
-    public DateTime? Get(DateTime? input, ClassProperty property)
+    public DateTime? Get(DateTime? input, PropertyHandlerGetOptions options)
     {
         // Reading from DB, setting the class
         return input.HasValue ? DateTime.SpecifyKind(input.Value, DateTimeKind.Utc) : null;
     }
 
-    public DateTime? Set(DateTime? input, ClassProperty property)
+    public DateTime? Set(DateTime? input, PropertyHandlerSetOptions options)
     {
         // Reading from class, setting back to DB
         return input.HasValue ? DateTime.SpecifyKind(input.Value, DateTimeKind.Unspecified) : null;

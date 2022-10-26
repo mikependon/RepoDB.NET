@@ -4,7 +4,7 @@ sidebar: classes
 title: "TypeMapFluentDefinition"
 description: "A class that is being used to define a type-level mappings (i.e.: DB Type and Property Handler)."
 permalink: /class/typemapfluentdefinition
-tags: [repodb, class, typemapfluentdefinition, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, typemapfluentdefinition]
 parent: CLASSES
 ---
 

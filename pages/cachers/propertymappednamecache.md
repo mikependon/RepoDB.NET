@@ -4,7 +4,7 @@ sidebar: cachers
 title: "PropertyMappedNameCache"
 description: "A class that is being used to retrieve the cached name of the class or data entity property."
 permalink: /cacher/propertymappednamecache
-tags: [repodb, class, propertymappednamecache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, propertymappednamecache]
 parent: CACHERS
 ---
 

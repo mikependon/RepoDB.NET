@@ -4,7 +4,7 @@ sidebar: classes
 title: "BaseDbSetting"
 description: "A base class for all the database setting classes."
 permalink: /class/basedbsetting
-tags: [repodb, class, basedbsetting, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, basedbsetting]
 parent: CLASSES
 ---
 

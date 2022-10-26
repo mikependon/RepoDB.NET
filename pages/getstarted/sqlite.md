@@ -28,6 +28,14 @@ The library can be installed via Nuget. In your Package Manager Console, type th
 Once installed, call the bootstrapper to initialize all the dependencies for SQLiteConnection.
 
 ```csharp
+GlobalConfiguration
+	.Setup()
+	.UseSQLite();
+```
+
+For the users prior the version 1.13.0, use the code below.
+
+```csharp
 RepoDb.SQLiteBootstrap.Initialize();
 ```
 
@@ -38,6 +46,14 @@ RepoDb.SQLiteBootstrap.Initialize();
 ```
 
 Once installed, call the bootstrapper to initialize all the dependencies for SqliteConnection.
+
+```csharp
+GlobalConfiguration
+	.Setup()
+	.UseSqlite();
+```
+
+For the users prior the version 1.13.0, use the code below.
 
 ```csharp
 RepoDb.SqliteBootstrap.Initialize();

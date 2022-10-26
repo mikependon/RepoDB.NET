@@ -2,7 +2,7 @@
 layout: page
 title: DbRepository
 permalink: /reference/output/dbrepository
-tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, dbrepository]
 parent: OUTPUT
 grand_parent: REFERENCES
 ---

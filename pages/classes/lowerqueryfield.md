@@ -4,7 +4,7 @@ sidebar: classes
 title: "LowerQueryField"
 description: "A query field class that is being used to define a query expression for the SQL statement using the LOWER function."
 permalink: /class/lowerqueryfield
-tags: [repodb, class, lowerqueryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, lowerqueryfield]
 parent: CLASSES
 ---
 

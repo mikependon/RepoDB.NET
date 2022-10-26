@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "MaxAll"
 permalink: /operation/maxall
-tags: [repodb, tutorial, maxall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, maxall]
 parent: OPERATIONS
 ---
 

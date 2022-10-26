@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "QueryAll"
 permalink: /operation/queryall
-tags: [repodb, tutorial, queryall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, queryall]
 parent: OPERATIONS
 ---
 

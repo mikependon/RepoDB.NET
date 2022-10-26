@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "Delete"
 permalink: /operation/delete
-tags: [repodb, tutorial, delete, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, delete]
 parent: OPERATIONS
 ---
 

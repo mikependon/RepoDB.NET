@@ -3,7 +3,7 @@ layout: default
 sidebar: extensibilities
 title: "Database Helper"
 permalink: /extensibility/databasehelper
-tags: [repodb, class, databasehelper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, databasehelper]
 parent: EXTENSIBILITIES
 ---
 

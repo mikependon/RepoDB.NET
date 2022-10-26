@@ -3,7 +3,7 @@ layout: default
 sidebar: extensibilities
 title: "Average Type Resolver"
 permalink: /extensibility/averagetyperesolver
-tags: [repodb, class, averagetyperesolver, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, averagetyperesolver]
 parent: EXTENSIBILITIES
 ---
 

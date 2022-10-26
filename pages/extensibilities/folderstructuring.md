@@ -3,7 +3,7 @@ layout: default
 sidebar: extensibilities
 title: "Folder Structuring"
 permalink: /extensibility/folderstructuring
-tags: [repodb, class, folderstructuring, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, folderstructuring]
 parent: EXTENSIBILITIES
 ---
 

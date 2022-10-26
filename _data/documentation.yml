@@ -291,6 +291,9 @@ docs:
   - title: "FunctionalQueryField"
     url: "/class/functionalqueryfield"
 
+  - title: "GlobalConfiguration"
+    url: "/class/globalconfiguration"
+
   - title: "LeftQueryField"
     url: "/class/leftqueryfield"
 
@@ -329,6 +332,9 @@ docs:
 
   - title: "QueryMultipleExtractor"
     url: "/class/querymultipleextractor"
+
+  - title: "ResultTraceLog"
+    url: "/class/resulttracelog"
 
   - title: "RightQueryField"
     url: "/class/rightqueryfield"

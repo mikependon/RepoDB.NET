@@ -4,7 +4,7 @@ sidebar: references
 title: "Generic Repository"
 nav_order: 4
 permalink: /reference/genericrepository
-tags: [repodb, class, genericrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, genericrepository]
 parent: REFERENCES
 ---
 

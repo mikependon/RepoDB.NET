@@ -3,7 +3,7 @@ layout: default
 sidebar: interfaces
 title: "ICache"
 permalink: /interface/icache
-tags: [repodb, class, icache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, icache]
 parent: INTERFACES
 ---
 
@@ -22,6 +22,8 @@ Below are the methods available from this interface.
 - `Contains` - allows you to check whether the cache item exists by cache-key.
 - `Get` - allows you to get an instance of the cache by cache-key.
 - `Remove` - allows you to remove an existing cache item from the cache storage.
+
+**Note:** All methods has its own corresponding `Async` methods.
 
 ### Use-Cases
 

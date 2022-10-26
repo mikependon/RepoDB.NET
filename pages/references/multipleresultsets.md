@@ -4,7 +4,7 @@ sidebar: references
 title: "Multiple Resultsets"
 nav_order: 6
 permalink: /reference/multipleresultsets
-tags: [repodb, class, multipleresultsets, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, multipleresultsets]
 parent: REFERENCES
 ---
 

@@ -4,7 +4,7 @@ sidebar: references
 title: DbRepository
 nav_order: 3
 permalink: /reference/dbrepository
-tags: [repodb, class, dbrepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, dbrepository]
 parent: REFERENCES
 ---
 

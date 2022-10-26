@@ -4,7 +4,7 @@ sidebar: classes
 title: "LeftQueryField"
 description: "A query field class that is being used to define a query expression for the SQL statement using the LEFT function."
 permalink: /class/leftqueryfield
-tags: [repodb, class, leftqueryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, leftqueryfield]
 parent: CLASSES
 ---
 

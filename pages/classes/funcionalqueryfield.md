@@ -4,7 +4,7 @@ sidebar: classes
 title: "FunctionalQueryField"
 description: "A query field class that is being used to define a functional query expression for the SQL statement that is useful for customizations."
 permalink: /class/functionalqueryfield
-tags: [repodb, class, functionalqueryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, functionalqueryfield]
 parent: CLASSES
 ---
 

@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "ExecuteReader"
 permalink: /operation/executereader
-tags: [repodb, tutorial, executereader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, executereader]
 parent: OPERATIONS
 ---
 
@@ -31,12 +31,27 @@ using (var connection = new SqlConnection(connectionString))
 
 You can pass a parameter via the following objects.
 
-- Dynamic
+- IDbDataParameter
+- Anonymous Types
 - ExpandoObject
 - Dictionary&lt;string, object&gt;
 - QueryField/QueryGroup
 
-#### Dynamic
+#### IDbDataParameter
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    using (var reader = connection.ExecuteReader("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", new { Id = new SqlParameter("_", 10045) }))
+    {
+        // Do more stuffs for the reader here
+    }
+}
+```
+
+**Note:** The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
+
+#### Anonymous Types
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

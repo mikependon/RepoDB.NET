@@ -4,7 +4,7 @@ sidebar: classes
 title: "RightQueryField"
 description: "A query field class that is being used to define a query expression for the SQL statement using the RIGHT function."
 permalink: /class/rightqueryfield
-tags: [repodb, class, rightqueryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, rightqueryfield]
 parent: CLASSES
 ---
 

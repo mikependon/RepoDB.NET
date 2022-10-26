@@ -4,7 +4,7 @@ sidebar: classes
 title: "LengthQueryField"
 description: "A query field class that is being used to define a query expression for the SQL statement using the LENGTH function."
 permalink: /class/lengthqueryfield
-tags: [repodb, class, lengthqueryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, lengthqueryfield]
 parent: CLASSES
 ---
 

@@ -4,7 +4,7 @@ sidebar: mappers
 title: "DbHelperMapper"
 description: "A mapper class for all the database helper classes. The mapping can be made based on the type of the target RDBMS data provider."
 permalink: /mapper/dbhelpermapper
-tags: [repodb, class, dbhelpermapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, dbhelpermapper]
 parent: MAPPERS
 ---
 

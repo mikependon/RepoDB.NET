@@ -4,7 +4,7 @@ sidebar: enumerations
 title: "BulkImportMergeCommandType"
 description: "A enumeration that is being used to define the command text to use when executing the BinaryBulkMerge operation."
 permalink: /enumeration/postgresql/bulkimportmergecommandtype
-tags: [repodb, class, bulkimportmergecommandtype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, bulkimportmergecommandtype]
 parent: "PostgreSQL"
 grand_parent: ENUMERATIONS
 ---

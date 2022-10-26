@@ -4,7 +4,7 @@ sidebar: features
 title: "Tracing"
 description: "This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via TraceLog class."
 permalink: /feature/tracing
-tags: [repodb, class, tracing, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tracing]
 parent: FEATURES
 ---
 
@@ -12,11 +12,11 @@ parent: FEATURES
 
 ---
 
-This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also allows you to cancel the existing execution before even the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class.
+This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also enables you to cancel the existing execution before the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class, and also, enables you to examine the result of the execution via [ResultTraceLog](/class/resulttracelog) class.
 
 A corresponding method in the trace class will be hit by the debugger when you call any of the connection/repository extended methods, only if the trace object is passed or injected.
 
-To be more precise, if you call the [Insert](/operation/insert) operation, the `BeforeInsert()` and `AfterInsert()` method of the trace class will be invoked before and after the operation. There you can add the breakpoint to enable the debugging.
+To be more precise, if you call the [Insert](/operation/insert) operation, the `BeforeExecution()` and `AfterExecution()` method of the trace class will be invoked before and after the operation. The exeuction has its own session id and by default having the name of the operation as the key (i.e.: `Insert`). There you can add the breakpoint to enable the debugging.
 
 ### Create a Customize Trace Class
 
@@ -25,21 +25,40 @@ Create a class that implements the [ITrace](/interface/itrace) interface.
 ```csharp
 public class NorthwindTrace : ITrace
 {
-    public void AfterQuery(TraceLog log)
+    public void BeforeExecution(CancellableTraceLog log)
     {
         // Some implementations here
     }
 
-    public void BeforeQuery(CancellableTraceLog log)
+    public void AfterExecution<TResult>(ResultTraceLog<TResult> log)
     {
         // Some implementations here
     }
-
-    ...
 }
 ```
 
-> You have to implement all the interface methods and manually handle each of them. You can leave it empty if you would like.
+In the `BeforeExecution` method, you are enable to put a logic and cancel the operation (if necessary) like below.
+
+```csharp
+public void BeforeExecution(CancellableTraceLog log)
+{
+    if (log.Key == TraceKeys.Insert && !log.Statement.Contains("INSERT"))
+    {
+        logger.Warning($"Cancelling the operation with SessionId = {log.SessionId}, Statement = {log.Statement}");
+        log.Cancel(true);
+    }
+}
+```
+
+In the `AfterExecution` method, you are able to identify the result of the execution like below.
+
+```csharp
+public void AfterExecution<TResult>(ResultTraceLog<TResult> log)
+{
+    logger.Info($"Session Id = {log.SessioId}, Total Execution Time (in Seconds) = {log.ExecutionTime.TotalSeconds}, Statement = {log.Statement}");
+    logger.Info(log.Result.AsJson()); // AsJson() is just a sample extended method
+}
+```
 
 ### Using a Trace in a Connection
 

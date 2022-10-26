@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "Count"
 permalink: /operation/count
-tags: [repodb, tutorial, count, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, count]
 parent: OPERATIONS
 ---
 

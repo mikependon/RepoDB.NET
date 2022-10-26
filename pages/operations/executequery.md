@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "ExecuteQuery"
 permalink: /operation/executequery
-tags: [repodb, tutorial, executequery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, executequery]
 parent: OPERATIONS
 ---
 
@@ -55,7 +55,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ### Typed Result
 
-You can also infer the result back to any .NET CLR Type. Below is for `long` type.
+You can infer the result back to any .NET CLR Type.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -119,12 +119,28 @@ using (var connection = new SqlConnection(connectionString))
 
 You can pass a parameter via the following objects.
 
+- IDbDataParameter
 - Anonymous Types
 - ExpandoObject
 - IDictionary&lt;string, object&gt;
 - QueryField/QueryGroup
 
 Please see the sample code snippets below.
+
+#### IDbDataParameter
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var param = new
+    {
+        Id = new SqlParameter("_", 10045)
+    };
+    var person = connection.ExecuteQuery<Person>("SELECT * FROM [dbo].[Person] WHERE Id = @Id;", param).FirstOrDefault();
+}
+```
+
+**Note:** The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
 
 #### Anonymous Types
 

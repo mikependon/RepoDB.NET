@@ -4,7 +4,7 @@ sidebar: enumerations
 title: "BulkImportIdentityBehavior"
 description: "An enumeration that is being used to define the behavior of the identity property/column when an entity is being bulk-imported towards the target table."
 permalink: /enumeration/postgresql/bulkimportidentitybehavior
-tags: [repodb, class, bulkimportidentitybehavior, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, bulkimportidentitybehavior]
 parent: "PostgreSQL"
 grand_parent: ENUMERATIONS
 ---

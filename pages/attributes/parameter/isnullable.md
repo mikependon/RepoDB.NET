@@ -2,7 +2,7 @@
 layout: default
 title: IsNullable
 permalink: /attribute/parameter/isnullable
-tags: [repodb, attribute, isnullable, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, isnullable]
 parent: Parameter
 grand_parent: ATTRIBUTES
 ---

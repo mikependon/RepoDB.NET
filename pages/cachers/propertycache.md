@@ -4,7 +4,7 @@ sidebar: cachers
 title: "PropertyCache"
 description: "A class that is being used to retrieve the cached properties of the class or data entity."
 permalink: /cacher/propertycache
-tags: [repodb, class, propertycache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, propertycache]
 parent: CACHERS
 ---
 

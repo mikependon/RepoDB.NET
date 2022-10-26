@@ -4,7 +4,7 @@ sidebar: classes
 title: "BaseStatementBuilder"
 description: "A base class for all the statement builder classes."
 permalink: /class/basestatementbuilder
-tags: [repodb, class, basestatementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, basestatementbuilder]
 parent: CLASSES
 ---
 
@@ -14,11 +14,11 @@ parent: CLASSES
 
 This class stands as the base class of all [IStatementBuilder](/interface/istatementbuilder)-based classes.
 
-### Use-Cases
+#### Use-Cases
 
 To simplify your implementation, always use this class over the [IStatementBuilder](/interface/istatementbuilder) interface when working with customized SQL generator.
 
-### Virtual Methods
+#### Virtual Methods
 
 This class has virtual methods pre-implemented with the defined logic. It is the author's choices to add this virtual methods on this base class.
 

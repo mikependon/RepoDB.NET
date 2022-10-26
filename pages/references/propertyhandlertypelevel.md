@@ -4,7 +4,7 @@ sidebar: references
 title: "Property Handler (Type Level)"
 nav_order: 8
 permalink: /reference/propertyhandlertypelevel
-tags: [repodb, class, propertyhandlertypelevel, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, propertyhandlertypelevel]
 parent: REFERENCES
 ---
 

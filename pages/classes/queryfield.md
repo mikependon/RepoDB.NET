@@ -4,7 +4,7 @@ sidebar: classes
 title: "QueryField"
 description: "A class that is being used to define a query expression for the SQL statement. You can define the name, operation and the value of the target expression."
 permalink: /class/queryfield
-tags: [repodb, class, queryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, queryfield]
 parent: CLASSES
 ---
 
@@ -26,10 +26,16 @@ Below is the way on how to create an instance of this class.
 var field = new QueryField("Id", 10045);
 ```
 
-Or, you can also use define the operation.
+Below is the way on how to create an instance of this class with an operation.
 
 ```csharp
-var field = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1));
+var field = new QueryField("Id", Operation.Between, new [] { 100, 1000 });
+```
+
+Or, with `DbType`.
+
+```csharp
+var field = new QueryField("Id", Operation.Between, new [] { 100, 1000 }, DbType.Int);
 ```
 
 ### Use-Cases

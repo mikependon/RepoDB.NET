@@ -4,7 +4,7 @@ sidebar: classes
 title: "CacheItem"
 description: "A class that is used as an item for the cache object."
 permalink: /class/cacheitem
-tags: [repodb, class, cacheitem, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, cacheitem]
 parent: CLASSES
 ---
 
@@ -14,11 +14,11 @@ parent: CLASSES
 
 This class is used as an item for the [ICache](/interface/icache) object.
 
-### Methods
+#### Methods
 
 Please see the [IExpirable](/interface/iexpirable) methods.
 
-### Properties
+#### Properties
 
 - `Key` - the key to the cache.
 - `Value` - the value of the class (a generic type).

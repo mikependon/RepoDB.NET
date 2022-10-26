@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "AverageAll"
 permalink: /operation/averageall
-tags: [repodb, tutorial, averageall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, averageall]
 parent: OPERATIONS
 ---
 

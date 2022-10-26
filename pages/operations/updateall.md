@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "UpdateAll"
 permalink: /operation/updateall
-tags: [repodb, tutorial, updateall, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, updateall]
 parent: OPERATIONS
 ---
 

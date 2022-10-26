@@ -4,7 +4,7 @@ sidebar: classes
 title: "DataReader"
 description: "The most fastest data reader extractor in .NET. It is used to extract the content of the data reader object and map it into a class object."
 permalink: /class/datareader
-tags: [repodb, class, datareader, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, datareader]
 parent: CLASSES
 ---
 

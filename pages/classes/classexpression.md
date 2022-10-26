@@ -4,7 +4,7 @@ sidebar: classes
 title: "ClassExpression"
 description: "A helper class to extract class properties and values."
 permalink: /class/classexpression
-tags: [repodb, class, classexpression, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, classexpression]
 parent: CLASSES
 ---
 

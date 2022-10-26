@@ -4,7 +4,7 @@ sidebar: enumerations
 title: "BulkImportPseudoTableType"
 description: "An enumeration that is being used to define the type of pseudo-temporary table to be created during the bulk-import operations."
 permalink: /enumeration/postgresql/bulkimportpseudotabletype
-tags: [repodb, class, bulkimportpseudotabletype, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, bulkimportpseudotabletype]
 parent: "PostgreSQL"
 grand_parent: ENUMERATIONS
 ---

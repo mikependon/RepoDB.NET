@@ -4,7 +4,7 @@ sidebar: mappers
 title: "PrimaryMapper"
 description: "A mapper class that is being used to map a class property to be primary property. This class is used as an alternative to Primary attribute."
 permalink: /mapper/primarymapper
-tags: [repodb, class, primarymapper, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, primarymapper]
 parent: MAPPERS
 ---
 

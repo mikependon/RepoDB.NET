@@ -2,7 +2,7 @@
 layout: default
 title: Precision
 permalink: /attribute/parameter/precision
-tags: [repodb, attribute, precision, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, precision]
 parent: Parameter
 grand_parent: ATTRIBUTES
 ---

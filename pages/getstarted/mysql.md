@@ -19,19 +19,43 @@ The [MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector) drive
 
 ### Installation
 
+#### MySql.Data
+
 The library can be installed via Nuget. In your Package Manager Console, type the command below.
 
 ```csharp
 > Install-Package RepoDb.MySql
 ```
 
-Or
+Once installed, call the bootstrapper to initialize all the dependencies for MySql.
+
+```csharp
+GlobalConfiguration
+	.Setup()
+	.UseMySql();
+```
+
+For the users prior the version 1.13.0, use the code below.
+
+```csharp
+RepoDb.MySqlBootstrap.Initialize();
+```
+
+#### MySqlConnector
 
 ```csharp
 > Install-Package RepoDb.MySqlConnector
 ```
 
 Once installed, call the bootstrapper to initialize all the dependencies for MySql.
+
+```csharp
+GlobalConfiguration
+	.Setup()
+	.UseMySqlConnector();
+```
+
+For the users prior the version 1.13.0, use the code below.
 
 ```csharp
 RepoDb.MySqlConnectorBootstrap.Initialize();

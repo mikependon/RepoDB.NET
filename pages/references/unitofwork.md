@@ -4,7 +4,7 @@ sidebar: references
 title: "Unit of Work"
 nav_order: 11
 permalink: /reference/unitofwork
-tags: [repodb, class, unitofwork, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, unitofwork]
 parent: REFERENCES
 ---
 

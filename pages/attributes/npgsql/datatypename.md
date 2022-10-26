@@ -2,7 +2,7 @@
 layout: default
 title: DataTypeName
 permalink: /attribute/npgsql/datatypename
-tags: [repodb, attribute, datatypename, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, datatypename]
 parent: PostgreSQL
 grand_parent: ATTRIBUTES
 ---

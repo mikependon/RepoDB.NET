@@ -2,7 +2,7 @@
 layout: default
 title: Scale
 permalink: /attribute/parameter/scale
-tags: [repodb, attribute, scale, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, scale]
 parent: Parameter
 grand_parent: ATTRIBUTES
 ---

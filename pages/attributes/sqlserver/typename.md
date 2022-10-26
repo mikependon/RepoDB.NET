@@ -2,7 +2,7 @@
 layout: default
 title: TypeName
 permalink: /attribute/sqlserver/typename
-tags: [repodb, attribute, typename, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, typename]
 parent: "SQL Server"
 grand_parent: ATTRIBUTES
 ---

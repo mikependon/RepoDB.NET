@@ -4,7 +4,7 @@ sidebar: features
 title: "Transaction"
 description: "A process of making the executions more ACID in nature."
 permalink: /feature/transaction
-tags: [repodb, class, transaction, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, transaction]
 parent: FEATURES
 ---
 

@@ -4,7 +4,7 @@ sidebar: cachers
 title: "PropertyValueAttributeCache"
 description: "A class that is being used to retrieve the cached attributes of the property."
 permalink: /cacher/propertyvalueattributecache
-tags: [repodb, class, propertyvalueattributecache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, propertyvalueattributecache]
 parent: CACHERS
 ---
 

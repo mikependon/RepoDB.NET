@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "ExecuteNonQuery"
 permalink: /operation/executenonquery
-tags: [repodb, tutorial, executenonquery, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, executenonquery]
 parent: OPERATIONS
 ---
 
@@ -28,12 +28,30 @@ using (var connection = new SqlConnection(connectionString))
 
 You can pass a parameter via the following objects.
 
-- Dynamic
+- IDbDataParameter
+- Anonymous Types
 - ExpandoObject
 - Dictionary&lt;string, object&gt;
 - QueryField/QueryGroup
 
-#### Dynamic
+#### IDbDataParameter
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var param = new
+    {
+        IsEnabled = new SqlParameter("_", true),
+        LastAccessDateUtc = new SqlParameter("_", DateTime.UtcNow.AddMonths(-6).Date)
+    };
+    var commandText = "UPDATE IsEnabled = @IsEnabled FROM [dbo].[Person] WHERE ([LastAccessDateUtc] = @LastAccessDateUtc);";
+    var affectedRows = connection.ExecuteNonQuery(commandText, param);
+}
+```
+
+**Note:** The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
+
+#### Anonymous Types
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

@@ -2,7 +2,7 @@
 layout: default
 title: XmlSchemaCollectionName
 permalink: /attribute/sqlserver/xmlschemacollectionname
-tags: [repodb, attribute, xmlschemacollectionname, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, xmlschemacollectionname]
 parent: "SQL Server"
 grand_parent: ATTRIBUTES
 ---

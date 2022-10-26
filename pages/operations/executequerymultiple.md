@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "ExecuteQueryMultiple"
 permalink: /operation/executequerymultiple
-tags: [repodb, tutorial, executequerymultiple, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, executequerymultiple]
 parent: OPERATIONS
 ---
 
@@ -47,12 +47,27 @@ using (var connection = new SqlConnection(connectionString))
 
 You can pass a parameter via the following objects.
 
-- Dynamic
+- IDbDataParameter
+- Anonymous Types
 - ExpandoObject
 - Dictionary&lt;string, object&gt;
 - QueryField/QueryGroup
 
-#### Dynamic
+#### IDbDataParameter
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    using (var result = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Person] WHERE [Id] = @PersonId; SELECT * FROM [dbo].[Address] WHERE PersonId = @PersonId;", new { PersonId = new SqlParameter("_", 10045) }))
+    {
+        // Do more stuffs here
+    }
+}
+```
+
+**Note:** The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
+
+#### Anonymous Types
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

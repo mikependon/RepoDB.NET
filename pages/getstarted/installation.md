@@ -4,7 +4,7 @@ sidebar: getstarted
 title: "Installation"
 description: "Learn on how to install RepoDB library on your Project/Solution."
 permalink: /tutorial/installation
-tags: [repodb, tutorial, installation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, installation]
 parent: GET STARTED
 ---
 
@@ -37,6 +37,14 @@ Or, if you are to work with the bulk operations.
 ```
 
 Then, call the bootstrapper to initialize the needed references.
+
+```csharp
+GlobalConfiguration
+	.Setup()
+	.UseSqlServer();
+```
+
+For the users prior the version 1.13.0, use the code below.
 
 ```csharp
 RepoDb.SqlServerBootstrap.Initialize();
@@ -76,6 +84,14 @@ Or, if you are to work with the bulk operations.
 Then, call the bootstrapper to initialize the needed references.
 
 ```csharp
+GlobalConfiguration
+	.Setup()
+	.UsePostgreSql();
+```
+
+For the users prior the version 1.13.0, use the code below.
+
+```csharp
 RepoDb.PostgreSqlBootstrap.Initialize();
 ```
 
@@ -94,6 +110,14 @@ If you wish to work with [RepoDb.MySql](https://www.nuget.org/packages/RepoDb.My
 Then, call the bootstrapper to initialize the needed references.
 
 ```csharp
+GlobalConfiguration
+	.Setup()
+	.UseMySql();
+```
+
+For the users prior the version 1.13.0, use the code below.
+
+```csharp
 RepoDb.MySqlBootstrap.Initialize();
 ```
 
@@ -106,6 +130,14 @@ If you wish to work with [RepoDb.MySqlConnector](https://www.nuget.org/packages/
 ```
 
 Then, call the bootstrapper to initialize the needed references.
+
+```csharp
+GlobalConfiguration
+	.Setup()
+	.UseMySqlConector();
+```
+
+For the users prior the version 1.13.0, use the code below.
 
 ```csharp
 RepoDb.MySqlConnectorBootstrap.Initialize();
@@ -126,6 +158,14 @@ If you wish to work with [RepoDb.SQLite.System](https://www.nuget.org/packages/R
 Then, call the bootstrapper to initialize the needed references.
 
 ```csharp
+GlobalConfiguration
+	.Setup()
+	.UseSQLite();
+```
+
+For the users prior the version 1.13.0, use the code below.
+
+```csharp
 RepoDb.SQLiteBootstrap.Initialize();
 ```
 
@@ -138,6 +178,14 @@ If you wish to work with [RepoDb.Sqlite.Microsoft](https://www.nuget.org/package
 ```
 
 Then, call the bootstrapper to initialize the needed references.
+
+```csharp
+GlobalConfiguration
+	.Setup()
+	.UseSqlite();
+```
+
+For the users prior the version 1.13.0, use the code below.
 
 ```csharp
 RepoDb.SqliteBootstrap.Initialize();

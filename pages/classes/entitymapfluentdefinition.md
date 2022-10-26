@@ -4,7 +4,7 @@ sidebar: classes
 title: "EntityMapFluentDefinition"
 description: "A class that is being used to define a data entity level mappings (i.e.: Table, Column, Primary, Identity, DB Type and Class/Property Handler)."
 permalink: /class/entitymapfluentdefinition
-tags: [repodb, class, entitymapfluentdefinition, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, entitymapfluentdefinition]
 parent: CLASSES
 ---
 

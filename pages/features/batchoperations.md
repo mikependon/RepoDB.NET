@@ -4,7 +4,7 @@ sidebar: features
 title: "Batch Operations"
 description: "It is the process of making the multiple single-operations be executed against the database in one-go."
 permalink: /feature/batchoperations
-tags: [repodb, class, batch, batch-operations, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, batch, batch-operations]
 parent: FEATURES
 ---
 

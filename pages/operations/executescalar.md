@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "ExecuteScalar"
 permalink: /operation/executescalar
-tags: [repodb, tutorial, executescalar, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, tutorial, executescalar]
 parent: OPERATIONS
 ---
 
@@ -28,12 +28,24 @@ using (var connection = new SqlConnection(connectionString))
 
 You can pass a parameter via the following objects.
 
-- Dynamic
+- IDbDataParameter
+- Anonymous Types
 - ExpandoObject
 - Dictionary&lt;string, object&gt;
 - QueryField/QueryGroup
 
-#### Dynamic
+#### IDbDataParameter
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM [dbo].[Person] WHERE DateInsertedUtc <= @DateInsertedUtc;", new { DateInsertedUtc = new SqlParameter("_", DateTime.UtcNow) });
+}
+```
+
+**Note:** The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
+
+#### Anonymous Types
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

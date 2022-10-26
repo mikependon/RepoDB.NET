@@ -4,7 +4,7 @@ sidebar: cachers
 title: "FieldCache"
 description: "A class that is being used to retrieve the cached fields or properties of the class or data entity."
 permalink: /cacher/fieldcache
-tags: [repodb, class, fieldcache, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, fieldcache]
 parent: CACHERS
 ---
 

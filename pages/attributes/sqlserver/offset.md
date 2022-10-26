@@ -2,7 +2,7 @@
 layout: default
 title: Offset
 permalink: /attribute/sqlserver/offset
-tags: [repodb, attribute, offset, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, offset]
 parent: "SQL Server"
 grand_parent: ATTRIBUTES
 ---

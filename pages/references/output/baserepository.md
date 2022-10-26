@@ -2,7 +2,7 @@
 layout: page
 title: BaseRepository
 permalink: /reference/output/baserepository
-tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, baserepository]
 parent: OUTPUT
 grand_parent: REFERENCES
 ---

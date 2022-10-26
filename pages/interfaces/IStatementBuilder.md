@@ -3,7 +3,7 @@ layout: default
 sidebar: interfaces
 title: "IStatementBuilder"
 permalink: /interface/istatementbuilder
-tags: [repodb, class, istatementbuilder, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, istatementbuilder]
 parent: INTERFACES
 ---
 

@@ -4,7 +4,7 @@ sidebar: enumerations
 title: "Operation"
 description: "A enumeration that defines the different operations that can be used when composing a query expression."
 permalink: /enumeration/operation
-tags: [repodb, class, operation, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, operation]
 parent: ENUMERATIONS
 ---
 

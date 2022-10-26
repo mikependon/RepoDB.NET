@@ -4,7 +4,7 @@ sidebar: classes
 title: "LenQueryField"
 description: "A query field class that is being used to define a query expression for the SQL statement using the LEN function."
 permalink: /class/lenqueryfield
-tags: [repodb, class, lenqueryfield, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, lenqueryfield]
 parent: CLASSES
 ---
 

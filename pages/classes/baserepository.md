@@ -4,7 +4,7 @@ sidebar: classes
 title: "BaseRepository"
 description: "A base class that is being used to implement an entity-based repositories."
 permalink: /class/baserepository
-tags: [repodb, class, baserepository, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, baserepository]
 parent: CLASSES
 ---
 

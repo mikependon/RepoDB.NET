@@ -2,7 +2,7 @@
 layout: default
 title: Name
 permalink: /attribute/parameter/name
-tags: [repodb, attribute, name, orm, hybrid-orm, sqlserver, sqlite, mysql, postgresql]
+tags: [repodb, attribute, name]
 parent: Parameter
 grand_parent: ATTRIBUTES
 ---
