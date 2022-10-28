@@ -14,6 +14,15 @@ parent: FEATURES
 
 This is a feature that would allow you to map the .NET CLR type into its equivalent database type.
 
+Below are the important attributes per data provider.
+
+| Attribute | RDBMS | Data Provider  | 
+|:-------------|:-------------|
+| [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype) | SQL Server | Microsoft.Data.SqlClient |
+| [MySqlDbTypeAttribute](/attribute/mysql/mysqldbtype) | MySQL | MySql.Data, MySqlConnector |
+| [NpgsqlDbTypeAttribute](/attribute/npgsql/npgsqldbtype) | PostgreSQL | Npgsql |
+| [SqliteTypeAttribute](/attribute/sqlite/sqlitetype) | SQLite | Microsoft.Data.Sqlite |
+
 ## Mapping a .NET CLR type
 
 To map a .NET CLR type, simply use the [TypeMapper](/mapper/typemapper) class.
@@ -45,7 +54,7 @@ public class Person
 }
 ```
 
-### SQL Server
+#### SQL Server
 
 In SQL Server, you can also map to a specific `System.Data.SqlDbType` [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype).
 
@@ -60,7 +69,7 @@ public class Person
 }
 ```
 
-### MySQL
+#### MySQL
 
 In MySQL, you can also map to a specific `MySql.Data.MySqlClient.MySqlDbType` using the [MySqlDbTypeAttribute](/attribute/mysql/mysqldbtype).
 
@@ -75,7 +84,7 @@ public class Person
 }
 ```
 
-### PostgreSQL
+#### PostgreSQL
 
 In PostgreSQL, you can also map to a specific `NpgsqlTypes.NpgsqlDbType` using the [NpgsqlDbTypeAttribute](/attribute/npgsql/npgsqldbtype).
 
@@ -90,7 +99,7 @@ public class Person
 }
 ```
 
-### SQLite
+#### SQLite
 
 In PostgreSQL, you can also map to a specific `Microsoft.Data.Sqlite.SqliteType` using the [SqliteTypeAttribute](/attribute/sqlite/sqlitetype).
 
