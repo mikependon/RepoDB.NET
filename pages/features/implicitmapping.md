@@ -14,12 +14,11 @@ parent: FEATURES
 
 This is a feature that would allow you to implicitly map the .NET CLR types or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes within the classes.
 
-### Fluent Mapping
+## Fluent Mapping
 
 Use the [FluentMapper](/mapper/fluentmapper) class to fluently manage the mappings of the table/properties, primary/identity columns, database types and class/property handlers.
 
-
-#### Entity Mapping
+#### Property Level
 
 To define the mappings for an entity, use the `Entity()` method.
 
@@ -43,7 +42,7 @@ FluentMapper
     }); // Defines the PropertyHandler of the Property
 ```
 
-#### Type-Level Mapping
+#### Type Level
 
 To define the mappings for a specfic .NET CLR type, use the `Type()` method.
 
@@ -52,13 +51,21 @@ FluentMapper
     .Type<DateTime>() // Define which .NET CLR type
     .DbType(DbType.DateTime2) // Define the DatabaseType of the .NET CLR type
     .PropertyHandler<DateTimeKindToUtcPropertyHandler>(); // Define the PropertyHandler of the .NET CLR type
+
+FluentMapper
+    .Type<Microsoft.SqlServer.Types.SqlGeography>()
+    .PropertyValueAttributes(new[]
+    {
+        new SqlDbTypeAttribute(SqlDbType.Udt),
+        new UdtTypeNameAttribute("Geography")
+    });
 ```
 
 The priority of the mapping is first identified via an attribute-level, then followed by a property-level and lastly by a type-level.
 
 > The [FluentMapper](/mapper/fluentmapper) is using the following classes ([ClassMapper](/mapper/classmapper), [ClassHandlerMapper](/mapper/classhandlermapper), [IdentityMapper](/mapper/identitymapper), [PrimaryMapper](/mapper/primarymapper), [PropertyHandlerMapper](/mapper/propertyhandlermapper), [PropertyMapper](/mapper/propertymapper) and [TypeMapper](/mapper/typemapper)) underneath to establish the proper mappings.
 
-### Class Name Mapping
+## Class Name Mapping
 
 Use the [ClassMapper](/mapper/classmapper) class to manage the mappings of the class into its equivalent object in the database (i.e.: Table, View).
 
@@ -97,7 +104,7 @@ To remove the mapping, use the `Remove()` method.
 ClassMapper.Remove<Customer>();
 ```
 
-### Identity Mapping
+## Identity Mapping
 
 Use the [IdentityMapper](/mapper/identitymapper) class to manage the mappings of the class property as an identity.
 
@@ -125,7 +132,7 @@ To remove the mapping, use the `Remove()` method.
 IdentityMapper.Remove<Customer>();
 ```
 
-### Primary Mapping
+## Primary Mapping
 
 Use the [PrimaryMapper](/mapper/primarymapper) class to manage the mappings of the class property as a primary.
 
@@ -152,7 +159,7 @@ To remove the mapping, use the `Remove()` method.
 PrimaryMapper.Remove<Customer>();
 ```
 
-### ClassHandler Mapping
+## ClassHandler Mapping
 
 Use the [ClassHandlerMapper](/mapper/classhandlermapper) class to manage the mappings of the .NET CLR type class handler.
 
@@ -197,7 +204,7 @@ To remove the mapping, use the `Remove()` method.
 ClassHandlerMapper.Remove<Customer>();
 ```
 
-### PropertyHandler Mapping
+## PropertyHandler Mapping
 
 Use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to manage the mappings between the property handlers and the .NET CLR type or class property.
 
@@ -287,7 +294,7 @@ To remove the mapping, use the type-level `Remove()` method.
 PropertyHandlerMapper.Remove<DateTime>();
 ```
 
-### Property Name Mapping
+## Property Name Mapping
 
 Use the [PropertyMapper](/mapper/propertymapper) class to manage the mappings of the class property into its equivalent column in the database.
 
@@ -352,7 +359,7 @@ PropertyMapper.Remove<Customer>(e => e.LastName);
 PropertyMapper.Remove<Customer>(e => e.DateOfBirth);
 ```
 
-### Database Type Mapping
+## Database Type Mapping
 
 Use the [TypeMapper](/mapper/typemapper) class to manage the mappings of the .NET CLR type or class property into its equivalent database type.
 
@@ -426,7 +433,7 @@ TypeMapper.Remove<DateTime>();
 
 Please visit the [Type Mapping](/feature/typemapping) feature for further information.
 
-### Property Value Attribute Mapping
+## Property Value Attribute Mapping
 
 Use the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper) class to manage the mappings of the property value attributes.
 

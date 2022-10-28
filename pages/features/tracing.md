@@ -18,7 +18,7 @@ A corresponding method in the trace class will be hit by the debugger when you c
 
 To be more precise, if you call the [Insert](/operation/insert) operation, the `BeforeExecution()` and `AfterExecution()` method of the trace class will be invoked before and after the operation. The exeuction has its own session id and by default having the name of the operation as the key (i.e.: `Insert`). There you can add the breakpoint to enable the debugging.
 
-### Create a Customize Trace Class
+## Create a customize Trace Class
 
 Create a class that implements the [ITrace](/interface/itrace) interface.
 
@@ -60,7 +60,7 @@ public void AfterExecution<TResult>(ResultTraceLog<TResult> log)
 }
 ```
 
-### Using a Trace in a Connection
+## Using a Trace in a Connection
 
 Simply pass the trace object when calling the operation.
 
@@ -71,7 +71,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Injecting the Trace in the Repository
+## Injecting the Trace in the Repository
 
 Simply inject it in the contructor. Below is the sample code for [BaseRepository](/class/baserepository) class.
 
@@ -123,7 +123,7 @@ using (var repository = new DbRepository<SqlConnection>(settings.Value.Connectio
 }
 ```
 
-### Dependency Injection Implementation
+## Dependency Injection Implementation
 
 Create a custom interface that implements the [ITrace](/interface/itrace) interface.
 
@@ -169,7 +169,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 }
 ```
 
-### Create a Trace Factory
+## Create a Trace Factory
 
 If you do not prefer the dependency injection way, creating a simple trace factory class is a good way to abstract and ensure single instance of trace object is being created.
 

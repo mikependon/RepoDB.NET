@@ -15,7 +15,7 @@ parent: GET STARTED
 
 RepoDB is a hybrid .NET ORM library for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
-### Installation
+## Installation
 
 The library can be installed via Nuget. In your Package Manager Console, type the command below.
 
@@ -23,13 +23,13 @@ The library can be installed via Nuget. In your Package Manager Console, type th
 > Install-Package RepoDb.PostgreSql
 ```
 
-Or, if you are to work with the bulk operations.
+If you are to work with bulk operations ([BinaryBulkDelete](/operation/binarybulkdelete), [BinaryBulkInsert](/operation/binarybulkinsert), [BinaryBulkMerge](/operation/binarybulkmerge) and [BinaryBulkUpdate](/operation/binarybulkupdate)), then install the [RepoDb.PostgreSql.BulkOperations](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) package.
 
 ```csharp
 > Install-Package RepoDb.PostgreSql.BulkOperations
 ```
 
-Once installed, call the bootstrapper to initialize all the dependencies for PostgreSql.
+Once installed, call the globalized setup method to initialize all the dependencies for PostgreSql.
 
 ```csharp
 GlobalConfiguration
@@ -37,7 +37,7 @@ GlobalConfiguration
 	.UsePostgreSql();
 ```
 
-For the users prior the version 1.13.0, use the code below.
+For the users prior the version 1.13.0, use the bootstrapper code below.
 
 ```csharp
 RepoDb.PostgreSqlBootstrap.Initialize();
@@ -45,7 +45,7 @@ RepoDb.PostgreSqlBootstrap.Initialize();
 
 Or, visit our [installation](/tutorial/installation) page for more information.
 
-### Create a Table
+## Create a Table
 
 Let us say you have this table on your database.
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS "Person"
 );
 ```
 
-### Create a Model
+## Create a Model
 
 And you have this model on your application.
 
@@ -73,7 +73,7 @@ public class Person
 }
 ```
 
-### Creating a Record
+## Creating a Record
 
 To create a row, use the [Insert](/operation/insert) method.
 
@@ -102,7 +102,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 
 > The [Insert](/operation/insert) method returns the value of primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary property of the model if present.
 
-### Querying a Record
+## Querying a Record
 
 To query a row, use the [Query](/operation/query) method.
 
@@ -124,7 +124,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### Merging a Record
+## Merging a Record
 
 To merge a row, use the [Merge](/operation/merge) method.
 
@@ -172,7 +172,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 
 > The [Merge](/operation/merge) method returns the primary column value, while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary property if present.
 
-### Deleting a Record
+## Deleting a Record
 
 To delete a row, use the [Delete](/operation/delete) method.
 
@@ -213,7 +213,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 > Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the execution.
 
-### Updating a Record
+## Updating a Record
 
 To update a row, use the [Update](/operation/update) method.
 
@@ -269,7 +269,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 
 > Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution.
 
-### Executing a Query
+## Executing a Query
 
 To execute a query, use the [ExecuteNonQuery](/operation/executenonquery) method.
 
@@ -315,7 +315,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### Typed Result Execution
+## Typed Result Execution
 
 You can infer the single-column resultsets to any .NET CLR type via [ExecuteQuery](/operation/executequery) operation.
 

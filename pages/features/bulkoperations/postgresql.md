@@ -29,7 +29,7 @@ The operations can also be further optimized by targeting the underlying table i
 
 > If the qualifiers are passed, a CLUSTERED INDEX will be created on the pseudo-temporary and it will be used as the qualifiers when merging with the target original table. If no qualifiers are passed, the primary column will be used by default.
 
-### Supported Objects
+## Supported Objects
 
 Below are the following objects supported by the bulk operations.
 
@@ -39,25 +39,25 @@ Below are the following objects supported by the bulk operations.
 - ExpandoObject
 - IDictionary&lt;string, object&gt;
 
-### Operation SQL Statements
+## Operation SQL Statements
 
 Once all the data is in the database pseudo-temporary table, the correct SQL statement will be used to cascade the changes towards the original table.
 
-#### For BinaryBulkDelete
+### For BinaryBulkDelete
 
 ```csharp
 > DELETE FROM "OriginalTable" AS T
 > USING "PseudoTempTable" AS S ON S.QualiferField1 = T.Field1 AND T.QualifierField2 = T.Field2;
 ```
 
-#### For BinaryBulkDeleteByKey
+### For BinaryBulkDeleteByKey
 
 ```csharp
 > DELETE FROM "OriginalTable" AS T
 > USING "PseudoTempTable" AS S ON S.PrimaryKey = T.PrimaryKey;
 ```
 
-#### For BinaryBulkMerge (InsertAndUpdate)
+### For BinaryBulkMerge (InsertAndUpdate)
 
 ```csharp
 > UPDATE "OriginalTable" AS T
@@ -74,7 +74,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 
 > Disclaimer: The generated statements are not exactly same as the one written above, but the concepts are identical.
 
-#### For BinaryBulkMerge (OnConflictDoUpdate)
+### For BinaryBulkMerge (OnConflictDoUpdate)
 
 ```csharp
 > INSERT INTO "OriginalTable"
@@ -85,7 +85,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 > SET (...);
 ```
 
-#### For BinaryBulkUpdate
+### For BinaryBulkUpdate
 
 ```csharp
 > UPDATE "OriginalTable" AS T
@@ -96,7 +96,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 
 ## Special Arguments
 
-The arguments `qualifiers`, `keepIdentity`, `identityBehavior`, `pseudoTableType` and `mergeCommanType` were provided in most operations.
+The arguments `qualifiers`, `keepIdentity`, `identityBehavior`, `pseudoTableType` and `mergeCommandType` were provided in most operations.
 
 The argument `qualifiers` is used to define the qualifier fields to be used in the operations. It usually refers to the `WHERE` expression of SQL Statements. If not given, the primary key field will be used.
 
@@ -108,7 +108,7 @@ The argument `pseudoTableType` is used to define a value whether a physical pseu
 
 The argument `mergedCommandType` is used to define a value whether the existing `ON CONFLICT DO UPDATE` will be used over the `UPDATE/INSERT` SQL commands during operations.
 
-### Identity Setting Alignment
+## Identity Setting Alignment
 
 Behind the scene, the library has enforced an additional logic to ensure the identity setting alignment. Basically, a new column named `__RepoDb_OrderColumn` is being added into the pseudo-temporary table if the identity field is present on the underlying table. This column will contain the actual index of the entity model from the `IEnumerable<T>` object.
 
@@ -120,17 +120,24 @@ For both the [BinaryBulkInsert](https://repodb.net/operation/binarybulkinsert) a
 
 All the provided operations has a `batchSize` attribute that enables you to override the size of the items being wired-up to the server during the operation. By default it is `null`, all the items are being sent together in one-go.
 
-Use this attribute if you wish to optimize the operation based on certain sitution (i.e.: No. of Columns, Type/Size of Data, Network Latency).
+Use this attribute if you wish to optimize the operation based on certain situtions.
+
+- Network Latency
+- Infrastructure
+- No. of Columns
+- Type of Data
 
 ## Async Methods
 
 All the provided synchronous operations has its equivalent asynchronous (Async) operations.
 
+---
+
 ## BinaryBulkDelete
 
 Delete the existing rows from the database by bulk. It returns the number of rows that has been deleted during the operation.
 
-### BinaryBulkDelete via DataEntities
+### BinaryBulkDelete (via DataEntities)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -170,7 +177,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkDelete via DataTable
+### BinaryBulkDelete (via DataTable)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -190,7 +197,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkDelete via DbDataReader
+### BinaryBulkDelete (via DbDataReader)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -214,6 +221,8 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
+---
+
 ## BinaryBulkDeleteByKey
 
 Delete the existing rows from the database by bulk via a list of primary keys. It returns the number of rows that has been deleted during the operation.
@@ -226,11 +235,13 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
+---
+
 ## BinaryBulkInsert
 
 Insert a list of entities into the database by bulk. It returns the number of rows that has been inserted in the database.
 
-### BinaryBulkInsert via DataEntities
+### BinaryBulkInsert (via DataEntities)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -250,7 +261,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkInsert via DataTable
+### BinaryBulkInsert (via DataTable)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -260,7 +271,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkInsert via DbDataReader
+### BinaryBulkInsert (via DbDataReader)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -272,11 +283,13 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
+---
+
 ## BinaryBulkMerge
 
 Merge a list of entities into the database by bulk. A new row is being inserted (if not present) and an existing row is being updated (if present) through the defined qualifiers. It returns the number of rows that has been inserted/updated in the database.
 
-### BinaryBulkMerge via DataEntities
+### BinaryBulkMerge (via DataEntities)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -316,7 +329,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkMerge via DataTable
+### BinaryBulkMerge (via DataTable)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -336,7 +349,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkMerge via DbDataReader
+### BinaryBulkMerge (via DbDataReader)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -360,11 +373,13 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
+---
+
 ## BinaryBulkUpdate
 
 Update the existing rows from the database by bulk. The affected rows are strongly bound to the values of the qualifier fields when calling the operation. It returns the number of rows that has been updated in the database.
 
-### BinaryBulkUpdate via DataEntities
+### BinaryBulkUpdate (via DataEntities)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -404,7 +419,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkUpdate via DataTable
+### BinaryBulkUpdate (via DataTable)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -424,7 +439,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkUpdate via DbDataReader
+### BinaryBulkUpdate (via DbDataReader)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))

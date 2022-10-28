@@ -15,7 +15,7 @@ parent: GET STARTED
 
 RepoDB is a hybrid .NET ORM library for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
-### Installation
+## Installation
 
 The library can be installed via Nuget. In your Package Manager Console, type the command below.
 
@@ -23,7 +23,7 @@ The library can be installed via Nuget. In your Package Manager Console, type th
 > Install-Package RepoDb.SqlServer
 ```
 
-Once installed, call the bootstrapper to initialize all the dependencies for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
+Once installed, call the globalized setup method to initialize all the dependencies for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
 
 ```csharp
 GlobalConfiguration
@@ -31,15 +31,13 @@ GlobalConfiguration
 	.UseSqlServer();
 ```
 
-For the users prior the version 1.13.0, use the code below.
+For the users prior the version 1.13.0, use the bootstrapper code below.
 
 ```csharp
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-If you are to work with the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
-
-In your Package Manager Console, simply type the command below to install the target package.
+If you are to work with bulk operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
 
 ```csharp
 > Install-Package RepoDb.SqlServer.BulkOperations
@@ -47,7 +45,7 @@ In your Package Manager Console, simply type the command below to install the ta
 
 Or, visit our [installation](/tutorial/installation) page for more information.
 
-### Create a Table
+## Create a Table
 
 Let us say you have this table on your database.
 
@@ -64,7 +62,7 @@ ON [PRIMARY];
 GO
 ```
 
-### Create a Model
+## Create a Model
 
 And you have this model on your application.
 
@@ -78,7 +76,7 @@ public class Person
 }
 ```
 
-### Creating a Record
+## Creating a Record
 
 To create a row, use the [Insert](/operation/insert) method.
 
@@ -107,7 +105,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 > The [Insert](/operation/insert) method returns the value of primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary property of the model if present.
 
-### Querying a Record
+## Querying a Record
 
 To query a row, use the [Query](/operation/query) method.
 
@@ -129,7 +127,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-### Merging a Record
+## Merging a Record
 
 To merge a row, use the [Merge](/operation/merge) method.
 
@@ -176,7 +174,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 > The [Merge](/operation/merge) method returns the value of the primary column while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary property of the model if present.
 
-### Deleting a Record
+## Deleting a Record
 
 To delete a row, use the [Delete](/operation/delete) method.
 
@@ -217,7 +215,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 > Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the deletion.
 
-### Updating a Record
+## Updating a Record
 
 To update a row, use the [Update](/operation/update) method.
 
@@ -273,7 +271,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 > Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution.
 
-### Executing a SQL Text
+## Executing a SQL Text
 
 To execute a query, use the [ExecuteNonQuery](/operation/executenonquery) method.
 
@@ -319,7 +317,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-### Table-Valued Parameters
+## Table-Valued Parameters
 
 To execute a Table-Valued Parameter (TVP), create a `DataTable` and set its name equals to the name of the User-Defined Type (UDT).
 
@@ -341,7 +339,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-### Executing a Stored Procedure
+## Executing a Stored Procedure
 
 To execute a stored procedure, you can use any of the execute methods mentioned above, but you have to pass the `CommandType.StoredProcedure` enumeration value on the `commandType` argument.
 
@@ -366,7 +364,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 > You can also use the types defined at the [Passing of Parameters](/operation/executequery#passing-of-parameters) section when passing a parameter.
 
-### Typed Result Execution
+## Typed Result Execution
 
 You can infer the single-column resultsets to any .NET CLR type via [ExecuteQuery](/operation/executequery) operation.
 

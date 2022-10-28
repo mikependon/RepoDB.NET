@@ -14,7 +14,7 @@ parent: FEATURES
 
 The way transaction works in the library is very identical with the way how it works with ADO.NET.
 
-### Using a Transaction via Connection
+## Using a Transaction via Connection
 
 Creates a transaction object and pass it when you call any of the operation.
 
@@ -33,7 +33,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Using a Transaction via Repository
+## Using a Transaction via Repository
 
 Same as previous section, simply create a transaction object and pass it when you call any of the operation.
 

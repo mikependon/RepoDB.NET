@@ -20,19 +20,25 @@ Below is the high-level diagram of the property handler.
 
 <img src="../../assets/images/site/propertyhandler.svg" />
 
-#### It uses the following objects
+It uses the following objects.
 
-- [IPropertyHandler](/interface/ipropertyhandler) - an interface to mark your class as property handler.
-- [PropertyHandler](/attribute/propertyhandler) - an attribute used to map a property handler into a specific property.
-- [PropertyHandlerMapper](/mapper/propertyhandlermapper) - a mapper used to map into a property handler into a specific property.
-- [FluentMapper](/mapper/fluentmapper) - a fluent mapper class used to map into a property handler into a specific property.
+| Object | Description  | 
+|:-------------|:-------------|
+| [IPropertyHandler](/interface/ipropertyhandler) | An interface to mark your class as property handler. |
+| [PropertyHandler](/attribute/propertyhandler) | An attribute used to map a property handler into a specific property. |
+| [PropertyHandlerMapper](/mapper/propertyhandlermapper) | A mapper used to map into a property handler into a specific property. |
+| [FluentMapper](/mapper/fluentmapper) | A fluent mapper class used to map into a property handler into a specific property. |
 
-### Relevant Use-Cases
+## Relevant Use-Cases
 
-- A string to class conversion. Imagine you have a column `Address` of type `NVARCHAR` and you would like it to be an `Address` type/class within your application.
-- A date kind handler. Imagine you would like to convert the `Kind` property of the `DateTime` object everytime you pull/push the record towards the database.
+Below are the common use-cases that can be solved by this functionality.
 
-The scenarios can be unlimitted depends on your own situation (like below).
+| Use-Case | Description  | 
+|:-------------|:-------------|
+| String to Complex-Type | Imagine you have a column `Address` of type `NVARCHAR` and you would like it to be an `Address` type/class within your application (vice versa). |
+| As Type Handler | Imagine you would like to convert the `Kind` property of the `DateTime` object everytime you pull/push the record towards the database (vice versa). |
+
+But, in general, it can handle unlimitted use-cases depends on your own situation.
 
 - Overriding the monetary columns conversion into a specific .NET type.
 - Querying the related child records of the parent rows.
@@ -41,38 +47,24 @@ The scenarios can be unlimitted depends on your own situation (like below).
 - Manually override the default handler for the enumerations.
 - And many more.
 
-### Implementing a Property Handler
+## Implementing a Property Handler
 
 Create a class that implements the [IPropertyHandler](/interface/ipropertyhandler) interface.
 
 ```csharp
 public class PersonAddressPropertyHandler : IPropertyHandler<string, Address>
 {
-    public Address Get(string input, ClassProperty property)
-    {
-        if (!string.IsNullOrEmpty(input))
-        {
-            return JsonConvert.Deserialize<Address>(input);
-        }
-        return null;
-    }
+    public Address Get(string input, PropertyHandlerGetOptions options) =>
+        !string.IsNullOrEmpty(input) ? JsonConvert.Deserialize<Address>(input) : null;
 
-    public string Set(Address input, ClassProperty property)
-    {
-        if (input != null)
-        {
-            return JsonConvert.Serialize(input);
-        }
-        return null;
-    }
+    public string Set(Address input, PropertyHandlerSetOptions options) =>
+        (input != null) ? JsonConvert.Serialize(input) : null;
 }
 ```
 
 The property handler above is meant for a scenario of converting a string column type into a class object.
 
-> The code above uses the package [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) for JSON conversion.
-
-### Attaching to a Property
+## Attaching to a Property
 
 To attach a property handler into a class property, simply use the [PropertyHandller](/attribute/propertyhandler) attribute.
 
@@ -100,22 +92,18 @@ On the other hand, when you call the push operations (i.e.: [Insert](/operation/
 
 > Please visit our [Property Handler (Property Level)](/reference/propertyhandlerpropertylevel) reference implementation page for the detailed implementation.
 
-### Creating a Type-Level Property Handler
+## Creating a Type-Level Property Handler
 
 The process is the same as with [Implementing a Property Handler](#implementing-a-property-handler) section. Create a class that implements the [IPropertyHandler](/interface/ipropertyhandler) interface.
 
 ```csharp
 public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<DateTime?, DateTime?>
 {
-    public DateTime? Get(DateTime? input, ClassProperty property)
-    {
-        return DateTime.SpecifyKind(input, DateTimeKind.Utc);
-    }
+    public DateTime? Get(DateTime? input, PropertyHandlerGetOptions options) =>
+        DateTime.SpecifyKind(input, DateTimeKind.Utc);
 
-    public DateTime? Set(DateTime? input, ClassProperty property)
-    {
-        return DateTime.SpecifyKind(input.GetValueOrDefault(), DateTimeKind.Unspecified);
-    }
+    public DateTime? Set(DateTime? input, PropertyHandlerSetOptions options) =>
+        DateTime.SpecifyKind(input.GetValueOrDefault(), DateTimeKind.Unspecified);
 }
 ```
 

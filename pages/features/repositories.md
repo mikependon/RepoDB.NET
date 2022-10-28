@@ -20,14 +20,14 @@ Below is the high-level diagram of the repository.
 
 In the repository, we usually add the basic database operations (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and etc), but, here we also place the relevant advance operations usable within the application. Then, all the code in your application that fetches or pushes a data into the database is using this object instead of directly accessing the database. Thus allowing the developers to follow the correct chain-of calls and reusability when it comes to the data accessibility.
 
-### Type of Repositories
+## Type of Repositories
 
 In this library, there are 2 kinds of repositories available for implementation.
 
 - [BaseRepository](/class/baserepository) - is used as a base repository for all entity-based repositories.
 - [DbRepository](/class/dbrepository) - is used as a generic base repository for any types of entity.
 
-### Creating an Entity-Based Repository
+## Creating an Entity-Based Repository
 
 First, create an interface.
 
@@ -116,7 +116,7 @@ public void ConfigureServices(IServiceCollection services)
 
 > Please visit our [BaseRepository](/reference/baserepository) reference implementation page for the detailed implementation.
 
-### Creating a Database Level Repository
+## Creating a Database Level Repository
 
 First, create an interface.
 
@@ -261,7 +261,7 @@ public void ConfigureServices(IServiceCollection services)
 
 > Please visit our [DbRepository](/reference/dbrepository) reference implementation page for the detailed implementation.
 
-### Creating a Custom Generic Repository
+## Creating a Custom Generic Repository
 
 First, create a generic interface.
 

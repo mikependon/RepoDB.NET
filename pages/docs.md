@@ -14,8 +14,6 @@ Help you navigate to learn RepoDB!
 
 ---
 
-Below are the items you will learn with RepoDB.
-
 {% for doc in site.data.documentation.docs %}
 {% if doc.isdoc == true %}
 

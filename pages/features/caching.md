@@ -24,7 +24,7 @@ It is implemented as a storage in the computer memory by default through [Memory
 
 > The database tables that are not frequently changing but is mostly in used in the application are the candidate for caching.
 
-### How to use the Cache?
+## How to use the Cache?
 
 Simply pass a literal string value to the `cacheKey` argument when calling the operation.
 
@@ -52,7 +52,7 @@ Notice, we have not passed an instance of [ICache](/interface/icache) object dur
 
 > It is highly recommended to use the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects if you tend to skip managing the cache object.
 
-### Selecting a Proper Cache Key
+## Selecting a Proper Cache Key
 
 Each cache key should preferably be unique to the query executed, so that different methods do not ended up unintentionally sharing the same data.
 
@@ -76,7 +76,7 @@ using (var connection = new SqlConnection(connectionString))
 
 As mentioned, by default the cache is placed in the computer memory via [MemoryCache](/class/memorycache) object. It is a simple dictionary object (key/value pairs).
 
-### Setting the Cache Expiration
+## Setting the Cache Expiration
 
 Simply pass a value to the `cacheItemExpiration` argument when calling the operation, however, this value will be ignored if the `cacheKey` is not provided.
 
@@ -90,7 +90,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Removing the Cache Item
+## Removing the Cache Item
 
 To remove the cache item, use the `Remove()` method of the [ICache](/interface/icache) interface.
 
@@ -125,7 +125,7 @@ using (var repository = new DbRepository<Product, SqlConnection>(connectionStrin
 }
 ```
 
-### Create a Customize Cache Class
+## Create a Customize Cache Class
 
 Create a class that implements the [ICache](/interface/icache) interface.
 
@@ -172,7 +172,7 @@ public class JsonCache : ICache
 
 > You have to implement all the interface methods and manually handle each of them.
 
-### Injecting the Cache in the Repository
+## Injecting the Cache in the Repository
 
 Simply inject it in the contructor. Below is the sample code for [BaseRepository](/class/baserepository) class.
 
@@ -224,7 +224,7 @@ using (var repository = new DbRepository<SqlConnection>(settings.Value.Connectio
 }
 ```
 
-### Dependency Injection Implementation
+## Dependency Injection Implementation
 
 Create a custom interface that implements the [ICache](/interface/icache) interface.
 
@@ -270,7 +270,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 }
 ```
 
-### Create a Cache Factory
+## Create a Cache Factory
 
 If you do not prefer injecting a cache object, creating a simple cache factory class is good to ensure a single instance of cache object is being managed.
 

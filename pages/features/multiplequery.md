@@ -18,13 +18,13 @@ The [ExecuteQueryMultiple](/operation/executequerymultiple) is a raw method that
 
 The underlying implementation of this feature is abstracting both the `Read()` and `NextResult()` methods of the the `DbDataReader` object.
 
-### Type of Return Types
+## Type of Return Types
 
 The the method [ExecuteQueryMultiple](/operation/executequerymultiple) is returning an instance of [QueryMultipleExtractor](/class/querymultipleextractor). It allows you to control and manage the way on how to extract the resultsets. The execution is differed as it is relying on the explicit calls you are making towards the `Extract()` and `Scalar()` methods.
 
 However, method [QueryMultiple](/operation/querymultiple) is returning an instance of `Tuple` object. It has a maximum of 7 generic types, also defined as max types for the `Tuple` object. The pointer to the item properties of the `Tuple` object is dependent to the order of the generic types passed during the call.
 
-### Hints
+## Hints
 
 The hints were provided as part of the execution. For [ExecuteQueryMultiple](/operation/executequerymultiple) method, you can write your own hints as you are the one composing the SQL statement. For the [QueryMultiple](/class/sqlservertablehints) method, each order of execution has an equivalent `hints` argument that you can use.
 
@@ -44,7 +44,7 @@ var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, /
     hints2: SqlServerTableHints.NoLock); // Hints for Order
 ```
 
-### Ordering
+## Ordering
 
 The result ordering is available via [OrderField](/class/orderfield) class as part of the execution. For [ExecuteQueryMultiple](/operation/executequerymultiple) method, you can write your own ordering during the SQL statement composition. For the [QueryMultiple](/class/sqlservertablehints) method, each order of execution has equivalent `orderBy` argument that you can use.
 
@@ -55,7 +55,7 @@ var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, /
     orderBy2: OrderField.Ascending<Order>(o => o.OrderDateUtc)); // Ordering for Order
 ```
 
-### Filtering
+## Filtering
 
 The result filtering is available by simply passing the number of rows during the execution. For [ExecuteQueryMultiple](/operation/executequerymultiple) method, you can write your `TOP` or `LIMIT` keyword during SQL statement composition. For the [QueryMultiple](/class/sqlservertablehints) method, each order of execution has equivalent `top` argument that you can use.
 
@@ -65,7 +65,7 @@ var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, /
     top2: 10); // Filtering for Order
 ```
 
-### Querying Single Parent with Multiple Children
+## Querying Single Parent with Multiple Children
 
 For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
 
@@ -120,7 +120,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Querying Multiple Parent and Multiple Children
+## Querying Multiple Parent and Multiple Children
 
 For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
 
