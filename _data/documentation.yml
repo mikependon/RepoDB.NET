@@ -476,6 +476,9 @@ docs:
   - title: "ConversionType"
     url: "/enumeration/conversiontype"
 
+  - title: "KeyColumnReturnBehavior"
+    url: "/enumeration/keycolumnreturnbehavior"
+
   - title: "Operation"
     url: "/enumeration/operation"
 

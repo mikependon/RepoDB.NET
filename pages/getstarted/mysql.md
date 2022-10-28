@@ -13,21 +13,19 @@ parent: GET STARTED
 
 ---
 
-RepoDB is a hybrid .NET ORM library for [MySQL](https://www.nuget.org/packages/RepoDb.MySql) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
+RepoDB is a hybrid .NET ORM library for MySQL RDBMS. The project is hosted at Github and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
-The [MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector) driver has newly been supported  and is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector) as well.
-
-### Installation
-
-#### MySql.Data
+## Installation
 
 The library can be installed via Nuget. In your Package Manager Console, type the command below.
+
+### MySql.Data
 
 ```csharp
 > Install-Package RepoDb.MySql
 ```
 
-Once installed, call the bootstrapper to initialize all the dependencies for MySql.
+Once installed, call the globalized setup method to initialize all the dependencies for MySql.
 
 ```csharp
 GlobalConfiguration
@@ -35,19 +33,19 @@ GlobalConfiguration
 	.UseMySql();
 ```
 
-For the users prior the version 1.13.0, use the code below.
+For the users prior the version 1.13.0, use the bootstrapper code below.
 
 ```csharp
 RepoDb.MySqlBootstrap.Initialize();
 ```
 
-#### MySqlConnector
+### MySqlConnector
 
 ```csharp
 > Install-Package RepoDb.MySqlConnector
 ```
 
-Once installed, call the bootstrapper to initialize all the dependencies for MySql.
+Once installed, call the globalized setup method to initialize all the dependencies for MySql.
 
 ```csharp
 GlobalConfiguration
@@ -55,7 +53,7 @@ GlobalConfiguration
 	.UseMySqlConnector();
 ```
 
-For the users prior the version 1.13.0, use the code below.
+For the users prior the version 1.13.0, use the bootstrapper code below.
 
 ```csharp
 RepoDb.MySqlConnectorBootstrap.Initialize();
@@ -63,7 +61,7 @@ RepoDb.MySqlConnectorBootstrap.Initialize();
 
 Or, visit our [installation](/tutorial/installation) page for more information.
 
-### Create a Table
+## Create a Table
 
 Let us say you have this table on your database.
 
@@ -77,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `Person`
 );
 ```
 
-### Create a Model
+## Create a Model
 
 And you have this model on your application.
 
@@ -91,7 +89,7 @@ public class Person
 }
 ```
 
-### Creating a Record
+## Creating a Record
 
 To create a row, use the [Insert](/operation/insert) method.
 
@@ -120,7 +118,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 
 > The [Insert](/operation/insert) method returns the value of primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary property of the model if present.
 
-### Querying a Record
+## Querying a Record
 
 To query a row, use the [Query](/operation/query) method.
 
@@ -142,7 +140,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-### Merging a Record
+## Merging a Record
 
 To merge a row, use the [Merge](/operation/merge) method.
 
@@ -190,7 +188,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 
 > The [Merge](/operation/merge) method returns the primary column value, while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary property if present.
 
-### Deleting a Record
+## Deleting a Record
 
 To delete a row, use the [Delete](/operation/delete) method.
 
@@ -231,7 +229,7 @@ using (var connection = new MySqlConnection(connectionString))
 
 > Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the execution.
 
-### Updating a Record
+## Updating a Record
 
 To update a row, use the [Update](/operation/update) method.
 
@@ -287,7 +285,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 
 > Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution.
 
-### Executing a Query
+## Executing a Query
 
 To execute a query, use the [ExecuteNonQuery](/operation/executenonquery) method.
 
@@ -333,7 +331,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-### Typed Result Execution
+## Typed Result Execution
 
 You can infer the single-column resultsets to any .NET CLR type via [ExecuteQuery](/operation/executequery) operation.
 

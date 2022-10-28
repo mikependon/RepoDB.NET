@@ -14,7 +14,7 @@ parent: FEATURES
 
 This is a feature that enables you to work on enumeration objects within the class object (property). The library supports various kind of transformation for enumerations.
 
-### Property String
+## Property String
 
 Let us say you have a table named `[dbo].[Person]` with the following structure.
 
@@ -56,7 +56,7 @@ public class Person
 
 > The enumeration values will be saved in the database as `string`.
 
-### Property String (As Int)
+## Property String (As Int)
 
 You can force the value to be saved as `int` type if you are using the [TypeMap](/attribute/typemap).
 
@@ -71,13 +71,22 @@ public class Person
 }
 ```
 
-Or you can also use the type-level mapping via [TypeMapper](/mapper/typemapper) class.
+Or, via [FluentMapper](/mapper/fluentmapper) class.
 
 ```csharp
-TypeMapper.Map(typeof(Gender), DbType.Int32);
+FluentMapper
+    .Type<Gender>()
+    .DbType(DbType.Int32);
 ```
 
-### Property Int
+Or, via [TypeMapper](/mapper/typemapper) class.
+
+```csharp
+TypeMapper
+    .Map(typeof(Gender), DbType.Int32);
+```
+
+## Property Int
 
 Let us say you have a table named `[dbo].[Person]` with the following structure.
 
@@ -119,24 +128,28 @@ public class Person
 
 > The enumeration values will be saved in the database as `int`.
 
-### Default Conversion
+## Default Conversion
 
-By default, the library is using the `DbType.String` as a conversion to all enumerations if being used to the non-model based operations (i.e.: [ExecuteScalar](/operation/executescalar), [ExecuteNonQuery](/operation/executenonquery) and [ExecuteReader](/operation/executereader)). However, you can always override the value by simply setting the `Converter` class property `EnumDefaultDatabaseType` to any `DbType` value.
+By default, the library is using the `DbType.String` as a conversion to all enumerations if being used to the non-model based operations (i.e.: [ExecuteScalar](/operation/executescalar), [ExecuteNonQuery](/operation/executenonquery) and [ExecuteReader](/operation/executereader)). You can override this behavior by simply setting the `EnumDefaultDatabaseType` to any `DbType`.
 
 ```csharp
-Converter.EnumDefaultDatabaseType = DbType.Int32;
+GlobalConfiguration
+    .Setup(new()
+    {
+        EnumDefaultDatabaseType = DbType.Int32
+    });
 ```
 
-> The library is intelligent enough to understand your table schema, if you call any model-based operations (i.e.: [Query](/operation/query), [Update](/operation/update), [Merge](/operation/merge), etc), the default conversion is not used as it has already projected the correct database type to be passed/parsed based the underlying table schema.
+> If you call any model-based operations (i.e.: [Query](/operation/query), [Update](/operation/update), [Merge](/operation/merge), etc), the default conversion is not used as it has already projected the correct database type to be passed/parsed based the underlying table schema.
 
-### PropertyHandler
+## PropertyHandler
 
 You can as well create a property handler to manually handle the enumerations transformation by implementing the [IPropertyHandler](/interface/ipropertyhandler).
 
 ```csharp
 public class PersonGenderPropertyHandler : IPropertyHandler<string, Gender?>
 {
-    public Gender? Get(string input, ClassProperty property)
+    public Gender? Get(string input, PropertyHandlerGetOptons options)
     {
         if (!string.IsNullOrEmpty(input))
         {
@@ -145,7 +158,7 @@ public class PersonGenderPropertyHandler : IPropertyHandler<string, Gender?>
         return null;
     }
 
-    public string Get(Gender? input, ClassProperty property)
+    public string Get(Gender? input, PropertyHandlerSetOptons options)
     {
         return input?.ToString();
     }
@@ -167,7 +180,7 @@ public class Person
 
 > The enumeration auto-mapping is being disregard if you have the property handler mapped into the enumeration property. By using the property handler, you have a lot of control as a developer about the transformation.
 
-### Query Expression
+## Query Expression
 
 You can as well use the enumeration in your query expression.
 
@@ -191,7 +204,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Type Inference
+## Type Inference
 
 As type inference is supported by the library, you can as well infer the enumeration directly when fetching a row from the database via [ExecuteQuery](/operation/executequery).
 

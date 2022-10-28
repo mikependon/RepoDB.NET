@@ -12,14 +12,18 @@ parent: FEATURES
 
 ---
 
-This is a feature that enables you to control the persistency of the database connection object/instance within the repository objects (aka: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)). Please see the [ConnectionPersistency](/enumeration/connectionpersistency) enumeration for more information.
+This is a feature that enables you to control the persistency of the database connection object/instance within the repository objects (i.e.: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)).
 
-### Types of Persitency
+> Please see the [ConnectionPersistency](/enumeration/connectionpersistency) enumeration for more information.
 
-- `PerCall` - in every method call, a new connection object is being used. This is the default setting.
-- `Instance` - a single instance of connection object is used all throughout the lifespan of the repository.
+## Types of Persitency
 
-### Repository
+| Name         | Description  | 
+|:-------------|:-------------|
+| PerCall | In every method call, a new connection object is being used. This is the default setting. |
+| Instance | A single instance of connection object is used all throughout the lifespan of the repository. |
+
+## Repository
 
 If you are working with [BaseRepository](/class/baserepository) object, you have to pass it on the constructor of your derived repository.
 
@@ -42,7 +46,7 @@ using (var repository = new PersonRepository(connectionString, ConnectionPersist
 }
 ```
 
-You should do the same on the [DbRepository](/class/dbrepository) object.
+You should do the same if you are to use the [DbRepository](/class/dbrepository) object.
 
 ```csharp
 // Repository
@@ -72,12 +76,12 @@ using (var repository = new DbRepository<SqlConnection>(settings.Value.Connectio
 }
 ```
 
-### Create Connection Method
+## Create Connection Method
 
-This method behaves differently based on the type of the persistency you had chosen. If it is used with `PerCall`, it always returns a new instance of connection object. If it is used with `Instance`, it always return the already created instance of connection object within the repository. However, such behavior will be superceded if the `force` argument is enforced with the value of `true`, as the new instance of connection object is always being created.
+It creates a connection object that can be utilized within the repository object. Its behaviour will be based on the type of the persistency you had chosen. If it is used with `PerCall`, it always returns a new instance of connection object. If it is used with `Instance`, it always return the already created instance of connection object within the repository. However, such behavior will be superceded if the `force` argument is enforced (a value of `true`), as the new instance of connection object is always being created.
 
-### Dispose Process
+## Dispose Process
 
-If you are using the `PerCall`, the instance of the connection object is always being disposed right after the method call. However, if you are using the `Instance`, the active instance of the connection object is only being disposed if the parent repository object has been disposed. Therefore, it is always important to call the `Dispose()` method of the repository if you are using the `Instance` persistency and finished using it, to ensure avoid an orphaned open connection towards the database.
+If you are using the `PerCall`, the instance of the connection object is always being disposed right after the call to any operation. However, if you are using the `Instance`, the active instance of the connection object is only being disposed if the parent repository object has been disposed. Therefore, it is always important to call the `Dispose()` method of the repository if you are using the `Instance` persistency and finished using it, to ensure avoid an orphaned open connection towards the database.
 
 > Please be aware of when to call the repository `Dispose()` method, otherwise it may behave unexpectedly.

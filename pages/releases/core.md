@@ -38,17 +38,28 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 ### RepoDb (v1.13.0-alpha1)
 
+#### Highlights
+{: .label .label-green }
+
+- Enhancement: Re-implement the Tracing overall implementations - Addressing the Simplicity and Extensibility [#941](https://github.com/mikependon/RepoDB/issues/941)
+
+#### Breaking
+{: .label .label-red }
+
+- Enhancement: Simplified the constructors of the [QueryField](/class/queryfield) and [DirectionalQueryField](/class/directionalqueryfield) classes.
+- Enhancement: Simplified the constructors of the extended query field objects [FunctionalQueryField](/class/functionalqueryfield), [LeftQueryField](/class/leftqueryfield), [RightQueryField](/class/rightqueryfield), [LeftTrimQueryField](/class/lefttrimqueryfield), [RightTrimQueryField](/class/righttrimqueryfield), [LengthQueryField](/class/lengthqueryfield), [LenQueryField](/class/lenqueryfield), [LowerQueryField](/class/lowerqueryfield), [UpperQueryField](/class/upperqueryfield), [TrimQueryField](/class/trimqueryfield) classes.
+- Enhancement: Removed the [Field](/class/field) argument from all the query field objects.
+- Enhancement: Removed the `Type` property from the [DirectionalQueryField](/class/directionalqueryfield) object.
+- Enhancement: Enable [IDbDataParameter](https://docs.microsoft.com/en-us/dotnet/api/system.data.idbdataparameter?view=net-6.0) as query arguments [#1060](https://github.com/mikependon/RepoDB/issues/1060)
+
+#### Non-Breaking
+
 - Bug: No coercion operator is defined between types `System.TimeSpan` and `System.Int64`. [#1033](https://github.com/mikependon/RepoDB/issues/1033)
 - Bug: Type with custom mapping used in an array is not mapped to specific `DBType` [#1053](https://github.com/mikependon/RepoDB/issues/1053)
 - Bug: [DbRepository](/class/dbrepository)'s [Truncate](/operation/truncate) operations do not handle transactions [#1041](https://github.com/mikependon/RepoDB/issues/1041)
 - Bug: Sort Columns are no longer being verified [#1049](https://github.com/mikependon/RepoDB/issues/1049)
 - Enhancement: Explicit selection of the datatype for query parameters [#1052](https://github.com/mikependon/RepoDB/issues/1052)
 - Enhancement: Added the [DbType](https://docs.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) as property to both the [Parameter](/class/parameter) and [QueryField](/class/queryfield) classes.
-- Enhancement: Simplified the constructors of the [QueryField](/class/queryfield) and [DirectionalQueryField](/class/directionalqueryfield) classes. (BREAKING CHANGES)
-- Enhancement: Simplified the constructors of the extended query field objects [FunctionalQueryField](/class/functionalqueryfield), [LeftQueryField](/class/leftqueryfield), [RightQueryField](/class/rightqueryfield), [LeftTrimQueryField](/class/lefttrimqueryfield), [RightTrimQueryField](/class/righttrimqueryfield), [LengthQueryField](/class/lengthqueryfield), [LenQueryField](/class/lenqueryfield), [LowerQueryField](/class/lowerqueryfield), [UpperQueryField](/class/upperqueryfield), [TrimQueryField](/class/trimqueryfield) classes. (BREAKING CHANGES)
-- Enhancement: Removed the [Field](/class/field) argument from all the query field objects. (BREAKING CHANGES)
-- Enhancement: Removed the `Type` property from the [DirectionalQueryField](/class/directionalqueryfield) object. (BREAKING CHANGES)
-- Enhancement: Enable [IDbDataParameter](https://docs.microsoft.com/en-us/dotnet/api/system.data.idbdataparameter?view=net-6.0) as query arguments [#1060](https://github.com/mikependon/RepoDB/issues/1060) (BREAKING CHANGES)
 - Enhancement: Removed the type filter (of class) in the [ExecuteQueryMultiple](/operation/executequerymultiple) operation.
 - Enhancement: Remove the [QueryBuilder](/class/querybuilder) on the [IStatementBuilder](/interface/istatementbuilder) interface methods [#1055](https://github.com/mikependon/RepoDB/issues/1055)
 - How to use [ExecuteQueryMultiple](/operation/executequerymultiple) cache? [#1044](https://github.com/mikependon/RepoDB/issues/1044)
@@ -237,6 +248,13 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 
 ### RepoDb (v1.12.5)
 
+#### Breaking
+{: .label .label-red }
+
+- Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673)
+
+#### Non-Breaking
+
 - Enhancement: Add the dynamic [ExecuteQueryMultiple](/operation/executequerymultiple) method in the [DbRepository](/class/dbrepository) [#630](https://github.com/mikependon/RepoDB/issues/630)
 - Possible bug - Enum with Flag attribute is not correctly handled [#624](https://github.com/mikependon/RepoDB/issues/624)
 - [Core] Support `ExpandoObject` in [Insert](/operation/insert) via `TableName`. [#234](https://github.com/mikependon/RepoDB/issues/234)
@@ -255,7 +273,6 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Request: Do not crash if on empty enumerable on bulk operation [#635](https://github.com/mikependon/RepoDB/issues/635).
 - Request: Introduce optional caching to [ExecuteScalar](/operation/executescalar) methods. [#648](https://github.com/mikependon/RepoDB/issues/648)
 - Enhancement: Add the non-parameterized Truncate operation. [#652](https://github.com/mikependon/RepoDB/issues/652)
-- Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673) - (BREAKING CHANGES)
 - Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
 - Bug: [FluentMapper](/mapper/fluentmapper) is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
 - Question: [IPropertyHandler](/interface/ipropertyhandler) for `Dictionary<string, string>` [#647](https://github.com/mikependon/RepoDB/issues/647)
@@ -271,7 +288,13 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 
 ### RepoDb (v1.12.5-beta5)
 
-- Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673) - (BREAKING CHANGES)
+#### Breaking
+{: .label .label-red }
+
+- Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673) 
+
+#### Non-Breaking
+
 - Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
 - Bug: [FluentMapper](/mapper/fluentmapper) is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
 - Question: [IPropertyHandler](/interface/ipropertyhandler) for `Dictionary<string, string>` [#647](https://github.com/mikependon/RepoDB/issues/647)

@@ -16,7 +16,7 @@ This page contains the recommended way of using the query expressions when fetch
 
 ### Disclaimer
 
-The support to query objects are massive and well tested with high-quality. However, the Linq-Expression parser of the library is not as extensive as Entity Framework. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expressions.
+The support to query objects are massive, however, the Linq-Expression parser of the library is not as extensive as other macro-ORMs. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expressions.
 
 ### Equal
 

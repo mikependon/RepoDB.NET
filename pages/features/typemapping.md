@@ -14,7 +14,16 @@ parent: FEATURES
 
 This is a feature that would allow you to map the .NET CLR type into its equivalent database type.
 
-### Mapping a .NET CLR type
+Below are the important attributes per data provider.
+
+| Attribute | RDBMS | Data Provider  | 
+|:-------------|:-------------|
+| [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype) | SQL Server | Microsoft.Data.SqlClient |
+| [MySqlDbTypeAttribute](/attribute/mysql/mysqldbtype) | MySQL | MySql.Data, MySqlConnector |
+| [NpgsqlDbTypeAttribute](/attribute/npgsql/npgsqldbtype) | PostgreSQL | Npgsql |
+| [SqliteTypeAttribute](/attribute/sqlite/sqlitetype) | SQLite | Microsoft.Data.Sqlite |
+
+## Mapping a .NET CLR type
 
 To map a .NET CLR type, simply use the [TypeMapper](/mapper/typemapper) class.
 
@@ -30,7 +39,7 @@ FluentMapper
     .DbType(DbType.DateTime2);
 ```
 
-### Mapping a Specific Property
+## Mapping a Specific Property
 
 To map a specific class property, simply use the [TypeMap](/attribute/typemap) attribute.
 
@@ -47,26 +56,13 @@ public class Person
 
 #### SQL Server
 
-In SQL Server, you can also map to a specific `System.Data.SqlDbType` using the [MicrosoftSqlServerTypeMap](/attribute/microsoftsqlservertypemap) (for `Microsoft.Data.SqlClient`).
+In SQL Server, you can also map to a specific `System.Data.SqlDbType` [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype).
 
 ```csharp
 public class Person
 {
 	public int Id { get; set; }
-	[MicrosoftSqlServerTypeMap(SqlDbType.NVarChar)] // Mapping this to 'NVarChar'
-	public string Name { get; set; }
-	public DateTime DateOfBirth { get; set; }
-	public DateTime DateInsertedUtc { get; set; }
-}
-```
-
-Or, use the [SystemSqlServerTypeMap](/attribute/systemsqlservertypemap) (for `System.Data.SqlClient`).
-
-```csharp
-public class Person
-{
-	public int Id { get; set; }
-	[SystemSqlServerTypeMap(SqlDbType.NVarChar)] // Mapping this to 'NVarChar'
+	[SqlDbType(SqlDbType.NVarChar)] // Mapping this to 'NVarChar'
 	public string Name { get; set; }
 	public DateTime DateOfBirth { get; set; }
 	public DateTime DateInsertedUtc { get; set; }
@@ -75,13 +71,13 @@ public class Person
 
 #### MySQL
 
-In MySQL, you can also map to a specific `MySql.Data.MySqlClient.MySqlDbType` using the [MySqlTypeMap](/attribute/mysqltypemap).
+In MySQL, you can also map to a specific `MySql.Data.MySqlClient.MySqlDbType` using the [MySqlDbTypeAttribute](/attribute/mysql/mysqldbtype).
 
 ```csharp
 public class Person
 {
 	public int Id { get; set; }
-	[MySqlTypeMapAttribute(MySqlDbType.VarChar)] // Mapping this to a 'VarChar'
+	[MySqlDbType(MySqlDbType.VarChar)] // Mapping this to a 'VarChar'
 	public string Name { get; set; }
 	public DateTime DateOfBirth { get; set; }
 	public DateTime DateInsertedUtc { get; set; }
@@ -90,17 +86,30 @@ public class Person
 
 #### PostgreSQL
 
-In PostgreSQL, you can also map to a specific `NpgsqlTypes.NpgsqlDbType` using the [NpgsqlTypeMap](/attribute/npgsqltypemap).
+In PostgreSQL, you can also map to a specific `NpgsqlTypes.NpgsqlDbType` using the [NpgsqlDbTypeAttribute](/attribute/npgsql/npgsqldbtype).
 
 ```csharp
 public class Person
 {
 	public int Id { get; set; }
-	[NpgsqlTypeMapAttribute(NpgsqlDbType.Text)] // Mapping this to a 'Text'
+	[NpgsqlDbType(NpgsqlDbType.Text)] // Mapping this to a 'Text'
 	public string Name { get; set; }
 	public DateTime DateOfBirth { get; set; }
 	public DateTime DateInsertedUtc { get; set; }
 }
 ```
 
-> Both the MySQL and PostgreSQL type mapping is not yet supported in the [FluentMapper](/mapper/fluentmapper) object, therefore, you have to always explicitly decorate the mentioned attributes for every usage.
+#### SQLite
+
+In PostgreSQL, you can also map to a specific `Microsoft.Data.Sqlite.SqliteType` using the [SqliteTypeAttribute](/attribute/sqlite/sqlitetype).
+
+```csharp
+public class Person
+{
+	public int Id { get; set; }
+    [SqliteType(SqliteType.Text)] // Mapping this to a 'Text'
+	public string Name { get; set; }
+	public DateTime DateOfBirth { get; set; }
+	public DateTime DateInsertedUtc { get; set; }
+}
+```

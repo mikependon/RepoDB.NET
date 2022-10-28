@@ -12,7 +12,7 @@ parent: GET STARTED
 
 The packages can be installed using the Package Manager Console window.
 
-### Raw SQLs
+## Raw SQLs
 
 If you wish to work only with raw-SQLs.
 
@@ -22,7 +22,7 @@ If you wish to work only with raw-SQLs.
 
 > It supports all kinds of RDBMS data providers.
 
-### SQL Server
+## SQL Server
 
 If you wish to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
 
@@ -44,13 +44,13 @@ GlobalConfiguration
 	.UseSqlServer();
 ```
 
-For the users prior the version 1.13.0, use the code below.
+For the users prior the version 1.13.0, use the bootstrapper code below.
 
 ```csharp
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-#### System.Data.SqlClient
+### System.Data.SqlClient
 
 If you are working with this package, you are required to bootstrap the connection object on the startup.
 
@@ -67,7 +67,7 @@ StatementBuilderMapper
 
 Or, you can replicate the actual [SqlServerBootstrap](https://github.com/mikependon/RepoDB/blob/master/RepoDb.SqlServer/RepoDb.SqlServer/SqlServerBootstrap.cs) class implementation and attach it to your solution. Then, call the local class initializer method explicitly.
 
-### PostgreSQL
+## PostgreSQL
 
 If you wish to work with [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql).
 
@@ -89,17 +89,17 @@ GlobalConfiguration
 	.UsePostgreSql();
 ```
 
-For the users prior the version 1.13.0, use the code below.
+For the users prior the version 1.13.0, use the bootstrapper code below.
 
 ```csharp
 RepoDb.PostgreSqlBootstrap.Initialize();
 ```
 
-### MySQL
+## MySQL
 
 There are 2 packages available for MySQL.
 
-#### MySql.Data
+### MySql.Data
 
 If you wish to work with [RepoDb.MySql](https://www.nuget.org/packages/RepoDb.MySql).
 
@@ -115,13 +115,13 @@ GlobalConfiguration
 	.UseMySql();
 ```
 
-For the users prior the version 1.13.0, use the code below.
+For the users prior the version 1.13.0, use the bootstrapper code below.
 
 ```csharp
 RepoDb.MySqlBootstrap.Initialize();
 ```
 
-#### MySqlConnector
+### MySqlConnector
 
 If you wish to work with [RepoDb.MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector).
 
@@ -137,17 +137,17 @@ GlobalConfiguration
 	.UseMySqlConector();
 ```
 
-For the users prior the version 1.13.0, use the code below.
+For the users prior the version 1.13.0, use the bootstrapper code below.
 
 ```csharp
 RepoDb.MySqlConnectorBootstrap.Initialize();
 ```
 
-### SQLite
+## SQLite
 
 There are 2 packages available for SQLite.
 
-#### System.Data.SQLite.Core
+### System.Data.SQLite.Core
 
 If you wish to work with [RepoDb.SQLite.System](https://www.nuget.org/packages/RepoDb.SQLite.System).
 
@@ -163,13 +163,13 @@ GlobalConfiguration
 	.UseSQLite();
 ```
 
-For the users prior the version 1.13.0, use the code below.
+For the users prior the version 1.13.0, use the bootstrapper code below.
 
 ```csharp
 RepoDb.SQLiteBootstrap.Initialize();
 ```
 
-#### Microsoft.Data.Sqlite
+### Microsoft.Data.Sqlite
 
 If you wish to work with [RepoDb.Sqlite.Microsoft](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft).
 
@@ -185,7 +185,7 @@ GlobalConfiguration
 	.UseSqlite();
 ```
 
-For the users prior the version 1.13.0, use the code below.
+For the users prior the version 1.13.0, use the bootstrapper code below.
 
 ```csharp
 RepoDb.SqliteBootstrap.Initialize();
