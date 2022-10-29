@@ -18,8 +18,8 @@ A cacher class that is being used to retrieve the existing mapped [PropertyValue
 
 Below are the methods available from this class.
 
-- `Flush` - allows you to flush the caches.
-- `Get` - returns the list of [PropertyValueAttribute](/attribute/propertyvalueattribute) objects.
+| Flush | Allows you to flush the caches. |
+| Get | Returns the list of [PropertyValueAttribute](/attribute/propertyvalueattribute) objects. |
 
 ## Usability
 

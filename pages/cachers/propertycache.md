@@ -20,8 +20,8 @@ A hugely-used cacher class for the [ClassProperty](/class/classproperty). It pro
 
 Below are the methods available from this class.
 
-- `Flush` - allows you to flush the caches.
-- `Get` - returns the list of [ClassProperty](/class/classproperty) objects.
+| Flush | Allows you to flush the caches. |
+| Get | Returns the list of [ClassProperty](/class/classproperty) objects. |
 
 ## Usability
 
