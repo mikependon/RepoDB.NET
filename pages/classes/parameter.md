@@ -16,7 +16,7 @@ This class is used to handle the necessary information when constructing a data 
 
 > Internally, the library is using this class as an entries for creating the `DbParameter` objects.
 
-### Usability
+## Usability
 
 ```csharp
 var parameter = new Parameter("@Id", 10045);
@@ -28,7 +28,7 @@ Or with `DbType`.
 var parameter = new Parameter("@Id", 10045, DbType.String);
 ```
 
-### QueryField
+## QueryField
 
 The [QueryField](/class/queryfield) class is instantiating this class internally during the constructor.
 
@@ -39,7 +39,7 @@ var name = parameter.Name; // @Id
 var value = parameter.Value; // 10045
 ```
 
-### QueryGroup
+## QueryGroup
 
 Since the [QueryGroup](/class/querygroup) is a grouping class of the list of [QueryField](/class/queryfield) objects, then you can also extract the parameters here.
 
@@ -59,7 +59,7 @@ var parameters = queryGroup
 // Make the stuffs for the 'parameters' here
 ```
 
-### Reset
+## Reset
 
 This method is used to reset the current instance to its default state just right after the instantiation.
 

@@ -43,21 +43,21 @@ Below are the following objects supported by the bulk operations.
 
 Once all the data is in the database pseudo-temporary table, the correct SQL statement will be used to cascade the changes towards the original table.
 
-### For BinaryBulkDelete
+#### For BinaryBulkDelete
 
 ```csharp
 > DELETE FROM "OriginalTable" AS T
 > USING "PseudoTempTable" AS S ON S.QualiferField1 = T.Field1 AND T.QualifierField2 = T.Field2;
 ```
 
-### For BinaryBulkDeleteByKey
+#### For BinaryBulkDeleteByKey
 
 ```csharp
 > DELETE FROM "OriginalTable" AS T
 > USING "PseudoTempTable" AS S ON S.PrimaryKey = T.PrimaryKey;
 ```
 
-### For BinaryBulkMerge (InsertAndUpdate)
+#### For BinaryBulkMerge (InsertAndUpdate)
 
 ```csharp
 > UPDATE "OriginalTable" AS T
@@ -74,7 +74,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 
 > Disclaimer: The generated statements are not exactly same as the one written above, but the concepts are identical.
 
-### For BinaryBulkMerge (OnConflictDoUpdate)
+#### For BinaryBulkMerge (OnConflictDoUpdate)
 
 ```csharp
 > INSERT INTO "OriginalTable"
@@ -85,7 +85,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 > SET (...);
 ```
 
-### For BinaryBulkUpdate
+#### For BinaryBulkUpdate
 
 ```csharp
 > UPDATE "OriginalTable" AS T
@@ -137,7 +137,7 @@ All the provided synchronous operations has its equivalent asynchronous (Async) 
 
 Delete the existing rows from the database by bulk. It returns the number of rows that has been deleted during the operation.
 
-### BinaryBulkDelete (via DataEntities)
+#### BinaryBulkDelete (via DataEntities)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -177,7 +177,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkDelete (via DataTable)
+#### BinaryBulkDelete (via DataTable)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -197,7 +197,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkDelete (via DbDataReader)
+#### BinaryBulkDelete (via DbDataReader)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -241,7 +241,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 
 Insert a list of entities into the database by bulk. It returns the number of rows that has been inserted in the database.
 
-### BinaryBulkInsert (via DataEntities)
+#### BinaryBulkInsert (via DataEntities)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -261,7 +261,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkInsert (via DataTable)
+#### BinaryBulkInsert (via DataTable)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -271,7 +271,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkInsert (via DbDataReader)
+#### BinaryBulkInsert (via DbDataReader)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -289,7 +289,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 
 Merge a list of entities into the database by bulk. A new row is being inserted (if not present) and an existing row is being updated (if present) through the defined qualifiers. It returns the number of rows that has been inserted/updated in the database.
 
-### BinaryBulkMerge (via DataEntities)
+#### BinaryBulkMerge (via DataEntities)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -329,7 +329,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkMerge (via DataTable)
+#### BinaryBulkMerge (via DataTable)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -349,7 +349,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkMerge (via DbDataReader)
+#### BinaryBulkMerge (via DbDataReader)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -379,7 +379,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 
 Update the existing rows from the database by bulk. The affected rows are strongly bound to the values of the qualifier fields when calling the operation. It returns the number of rows that has been updated in the database.
 
-### BinaryBulkUpdate (via DataEntities)
+#### BinaryBulkUpdate (via DataEntities)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -419,7 +419,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkUpdate (via DataTable)
+#### BinaryBulkUpdate (via DataTable)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
@@ -439,7 +439,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-### BinaryBulkUpdate (via DbDataReader)
+#### BinaryBulkUpdate (via DbDataReader)
 
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))

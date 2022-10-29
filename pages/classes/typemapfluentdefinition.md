@@ -16,7 +16,7 @@ A class that is being used to define a type level mappings for the database type
 
 > The mapping will be applied (at the least) to all data entity properties with the same .NET CLR type.
 
-### Mapping a Database Type
+## Mapping a Database Type
 
 To map an equivalent database type into a .NET CLR type, use the `DbType` method.
 
@@ -27,7 +27,7 @@ definition.DbType(DbType.DateTime2);
 
 It is using the [TypeMapper](/mapper/typemapper) class underneath.
 
-### Defining a Property Handler
+## Defining a Property Handler
 
 To define the property handler for the data entity property, use the `PropertyHandler` method.
 

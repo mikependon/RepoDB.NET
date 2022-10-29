@@ -12,21 +12,19 @@ parent: CLASSES
 
 ---
 
-This class is used as an item for the [ICache](/interface/icache) object.
+This class is used as an item for the [ICache](/interface/icache) object. It implements the [IExpirable](/interface/iexpirable) interface.
 
-#### Methods
+## Properties
 
-Please see the [IExpirable](/interface/iexpirable) methods.
+Below is the list of properties.
 
-#### Properties
+| Name | Description |
+|:-----|:------------|
+| Key | The key to the cache. |
+| Value | The value of the class (a generic type). |
+| CacheItemExpiration | The expiration of the cache in minutes. |
 
-- `Key` - the key to the cache.
-- `Value` - the value of the class (a generic type).
-- `CacheItemExpiration` - the expiration of the cache in minutes.
-
-In addition, please see the [IExpirable](/interface/iexpirable) properties.
-
-#### Creating New Instance
+## Creating New Instance
 
 Below is the way on how to create a new instance of this class.
 
@@ -35,7 +33,7 @@ var expirationInMinutes = 180;
 var item = new CacheItem("Key", "Value", expirationInMinutes);
 ```
 
-#### Passing to the Cache
+## Passing to the Cache
 
 Usually, the [ICache](/interface/icache) object is embedded within the repository. Let us say you have a repository named `PersonRepository`.
 
@@ -54,7 +52,7 @@ using (var repository = new PersonRepository())
 
 > Usually, the cache will automatically be set by passing a value to the `cacheKey` argument when calling the [Query](/operation/query) or [BatchQuery](/operation/batchquery) operations.
 
-#### Retrieving from the Cache
+## Retrieving from the Cache
 
 To retrieve an item from the cache, directly access the [ICache](/interface/icache) object and call the `Get()` method passing the key.
 

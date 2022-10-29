@@ -14,8 +14,6 @@ parent: CLASSES
 
 This class is used to convert the `IEnumerable<T>` object into a `DbDataReader` object.
 
-### Learnings
-
 Let us say you have a method named `GetPeople()` that creates an enumerable of `Person` model.
 
 ```csharp

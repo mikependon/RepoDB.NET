@@ -13,7 +13,7 @@ grand_parent: REFERENCES
 
 This page has the consolidated code of the [Unit of Work](/reference/unitofwork) reference implementation.
 
-### Interfaces
+## Interfaces
 
 ```csharp
 public interface IUnitOfWork<TDbConnection>
@@ -57,7 +57,7 @@ public interface ISalesManager
 }
 ```
 
-### Classes
+## Classes
 
 ```csharp
 public class CustomUnitOfWork : IUnitOfWork<SqlConnection>
@@ -113,7 +113,7 @@ public class CustomUnitOfWork : IUnitOfWork<SqlConnection>
 }
 ```
 
-### Repositories
+## Repositories
 
 ```csharp
 public class EntityRepository<TEntity> : BaseRepository<TEntity, SqlConnection>,
@@ -168,7 +168,7 @@ public class OrderItemRepository : EntityRepository<OrderItem>, IOrderItemReposi
 }
 ```
 
-### Business Logics
+## Business Logics
 
 ```csharp
 public class SalesManager : ISalesManager
@@ -218,7 +218,7 @@ public class SalesManager : ISalesManager
 }
 ```
 
-### Dependency Injection
+## Dependency Injection
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

@@ -14,7 +14,7 @@ parent: REFERENCES
 
 This page contains the recommended way of querying the records with multiple resultsets.
 
-### Single Parent with Multiple Children
+## Single Parent with Multiple Children
 
 For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
 
@@ -48,7 +48,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Multiple Parent with Multiple Children
+## Multiple Parent with Multiple Children
 
 For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
 
@@ -93,7 +93,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > You can also visit our [Multiple Query](/feature/multiplequery) feature to get more information.
 
-### Key Take-aways
+## Key Take-aways
 
 - The method [QueryMultiple](/operation/querymultiple) is pre-extracting all the resultsets, whereas [ExecuteQueryMultiple](/operation/executequerymultiple) is extracting as per call-basis (via `Extract()` or `Scalar()` method).
 - Ensure to always wrap the calls to [ExecuteQueryMultiple](/operation/executequerymultiple) with `using` keyword.

@@ -14,9 +14,9 @@ parent: FEATURES
 
 This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also enables you to cancel the existing execution before the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class, and also, enables you to examine the result of the execution via [ResultTraceLog](/class/resulttracelog) class.
 
-A corresponding method in the trace class will be hit by the debugger when you call any of the connection/repository extended methods, only if the trace object is passed or injected.
+By having the trace enabled, if you call an operation, the `BeforeExecution()` method of the trace class will be invoked before the actual execution towards the database, while the `AfterExecution()` method will be invoked after the execution. Every trace execution has its own dedicated session and by default having the name of the operation as the key (i.e.: `Insert`).
 
-To be more precise, if you call the [Insert](/operation/insert) operation, the `BeforeExecution()` and `AfterExecution()` method of the trace class will be invoked before and after the operation. The exeuction has its own session id and by default having the name of the operation as the key (i.e.: `Insert`). There you can add the breakpoint to enable the debugging.
+Within the trace class, you can add a breakpoint to enable the debugging.
 
 ## Create a customize Trace Class
 

@@ -14,7 +14,7 @@ parent: REFERENCES
 
 This page contains the recommended way of implementing a trace object that is injectable to the repositories.
 
-### Implementation
+## Implementation
 
 Create an interface that implements the [ITrace](/interface/itrace). This is also to support the dependency injection.
 
@@ -46,7 +46,7 @@ public class NorthwindTrace : INorthwindTrace
 
 > Implement all the [ITrace](/interface/itrace) methods manually.
 
-### Factory
+## Factory
 
 Create a trace factory class.
 
@@ -86,7 +86,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 }
 ```
 
-### Dependency Injection
+## Dependency Injection
 
 Or inject it as a singleton object.
 

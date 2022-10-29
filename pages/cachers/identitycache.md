@@ -14,14 +14,14 @@ parent: CACHERS
 
 A cacher class for the class identity property. Underneath, it uses the [IdentityMapper](/mapper/identitymapper) class to extract the results and caching it for future use.
 
-### Methods
+## Methods
 
 Below are the methods available from this class.
 
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the list of [Field](/class/field) objects.
 
-### Usability
+## Usability
 
 You can simply call the `Get()` method of this class by passing the class type.
 

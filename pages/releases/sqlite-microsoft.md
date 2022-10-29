@@ -14,24 +14,24 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.Sqlite.Microsoft) to download it.
 
-### RepoDb.Sqlite.Microsoft (v1.13.0-beta1)
+## RepoDb.Sqlite.Microsoft (v1.13.0-beta1)
 
 - Referenced the `RepoDb` package `v1.13.0-beta1`.
 
 
-### RepoDb.Sqlite.Microsoft (v1.13.0-alpha2)
+## RepoDb.Sqlite.Microsoft (v1.13.0-alpha2)
 
 - Referenced the `RepoDb` package `v1.13.0-alpha2`.
 - Upgraded the `Microsoft.Data.Sqlite` package to `v6.0.10`.
 
 
-### RepoDb.Sqlite.Microsoft (v1.13.0-alpha1)
+## RepoDb.Sqlite.Microsoft (v1.13.0-alpha1)
 
 - Referenced the `RepoDb` package `v1.13.0-alpha1`.
 - Upgraded the `Microsoft.Data.Sqlite` package to `v6.0.9`.
 
 
-### RepoDb.Sqlite.Microsoft (v1.0.1)
+## RepoDb.Sqlite.Microsoft (v1.0.1)
 
 - Initial release.
 - Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
@@ -39,7 +39,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) to s
 - Upgraded the `Microsoft.Data.Sqlite` to `v6.0.2`.
 
 
-### RepoDb.Sqlite.Microsoft (v1.0.1-beta1)
+## RepoDb.Sqlite.Microsoft (v1.0.1-beta1)
 
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 - Supported the `.NET v6.0`.
@@ -49,6 +49,6 @@ Please click [here](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) to s
 - Added the 6.0 to the target frameworks.
 
 
-### RepoDb.Sqlite.Microsoft (v1.0.0)
+## RepoDb.Sqlite.Microsoft (v1.0.0)
 
 - Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).

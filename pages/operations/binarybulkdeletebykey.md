@@ -13,23 +13,23 @@ parent: OPERATIONS
 
 This method is used to delete the rows from the database via the list of primary keys by bulk. It is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
-### Call Flow Diagram
+## Call Flow Diagram
 
 The diagram below shows the flow when calling this operation.
 
 <img src="../../assets/images/site/binarybulkdeletebykey.svg" />
 
-### Use Case
+## Use Case
 
 This method is very useful if you would like to delete the rows from the database (via a list of primary keys) in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
 
-### Special Arguments
+## Special Arguments
 
 A `pseudoTableType` argument is provided on this operation to define a value whether a physical pseudo-table will be created during the operation. By default, a temporary table is used.
 
 > Please be noted that it is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
-### Usability
+## Usability
 
 Simply pass the list of primary keys on the operation.
 
@@ -58,7 +58,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 > If the `batchSize` argument is not set, then all the items from the collection will be sent and used.
 
-### Physical Temporary Table
+## Physical Temporary Table
 
 To use a physical pseudo-temporary table, simply pass the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#physical) value in the `pseudoTableType` argument.
 

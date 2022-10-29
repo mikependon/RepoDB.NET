@@ -18,10 +18,10 @@ The composition of the expression trees can be supported by various objects.
 
 | Object | Description  | 
 |:-------------|:-------------|
-| Anonymous Types | It is the most simple and direct way of filterting the results. You can use the anonymous object to filter data. |
-| Linq-Expression | It is the most common way of filtering the data. Only works for entity-model based operations. |
-| ExpandoObject or IDictionary&lt;string, object&gt; | It is the most dynamic way of filtering the data. |
-| QueryField or QueryGroup | It is the most advance, efficient, performant and powerful way of composing a tree expression. However, it is a bit tedious and verbose. |
+| [Anonymous Types](#anonymous-type) | It is the most simple and direct way of filterting the results. You can use the anonymous object to filter data. |
+| [Linq-Expression](#linq-expression) | It is the most common way of filtering the data. Only works for entity-model based operations. |
+| [ExpandoObject or IDictionary<string, object>](#expandoobject-and-dictionarystring-object) | It is the most dynamic way of filtering the data. |
+| [QueryField or QueryGroup](#queryfieldquerygroup) | It is the most advance, efficient, performant and powerful way of composing a tree expression. However, it is a bit tedious and verbose. |
 
 The support to the query objects are massive, however, the Linq-Expression parser is not as extensive as other macro-ORMs. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expression.
 

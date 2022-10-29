@@ -14,14 +14,14 @@ parent: CACHERS
 
 A cacher class for the database table fields. It provides a 2nd-layer caching for the library when it comes to database fields extraction. As a result, the library is fast-enough when reusing the already extracted database fields on any execution.
 
-### Methods
+## Methods
 
 Below are the methods available from this class.
 
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the list of [DbField](/class/dbfield) objects.
 
-### Usability
+## Usability
 
 You can simply call the `Get()` method of this class passing the literal table name.
 

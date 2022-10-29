@@ -13,7 +13,7 @@ parent: OPERATIONS
 
 This method is used to compute the average value of the target field.
 
-### Code Snippets
+## Code Snippets
 
 Below is the sample code that averages the column `Value` from a `[dbo].[Sales]` table for a specific customer since yesterday.
 
@@ -25,7 +25,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Targeting a Table
+## Targeting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 
@@ -50,7 +50,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Table Hints
+## Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 

@@ -14,18 +14,16 @@ parent: FEATURES
 
 A repository is a software design pattern and practice in which it is being implemented as an additional layer between your application and your database. It is being represented as a class object within the application. Through repository, you are managing how the data is being manipulated from/to the database.
 
-Below is the high-level diagram of the repository.
-
-<img src="../../assets/images/site/repository.svg" />
-
 In the repository, we usually add the basic database operations (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and etc), but, here we also place the relevant advance operations usable within the application. Then, all the code in your application that fetches or pushes a data into the database is using this object instead of directly accessing the database. Thus allowing the developers to follow the correct chain-of calls and reusability when it comes to the data accessibility.
 
 ## Type of Repositories
 
 In this library, there are 2 kinds of repositories available for implementation.
 
-- [BaseRepository](/class/baserepository) - is used as a base repository for all entity-based repositories.
-- [DbRepository](/class/dbrepository) - is used as a generic base repository for any types of entity.
+| Object | Description  | 
+|:-------------|:-------------|
+| [BaseRepository](/class/baserepository) | It is used as a base repository for all entity-based repositories. |
+| [DbRepository](/class/dbrepository) | It is used as a generic base repository for any types of entity. |
 
 ## Creating an Entity-Based Repository
 

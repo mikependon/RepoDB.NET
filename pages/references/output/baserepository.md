@@ -154,7 +154,7 @@ public class CustomerRepository : BaseRepository<Customer, SqlConnection>, ICust
 }
 ```
 
-### Interface
+## Interface
 
 ```csharp
 public interface ICustomerRepository
@@ -211,7 +211,7 @@ public interface ICustomerRepository
 }
 ```
 
-### Settings
+## Settings
 
 ```csharp
 public class AppSetting
@@ -222,7 +222,7 @@ public class AppSetting
 }
 ```
 
-### Dependency Injections
+## Dependency Injections
 
 For singleton.
 
@@ -248,7 +248,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Cache
+## Cache
 
 ```csharp
 // Custom Class
@@ -289,7 +289,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Trace
+## Trace
 
 ```csharp
 // Custom Class

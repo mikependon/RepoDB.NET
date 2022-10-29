@@ -14,12 +14,16 @@ parent: CLASSES
 
 A trace-logging class that is used when executing an operation. It provides vital information of the actual execution via the [ITrace](/interface/itrace) object.
 
-### Properties
+## Properties
 
-- `SessionId` - handles the identifier of the trace execution.
-- `Key` - handles the key of the of the actual execution. By default, the value is the name of the operation that is being executed.
+Below is the list of properties.
 
-### Tracing
+| Name | Description |
+|:-----|:------------|
+| SessionId | Handles the identifier of the trace execution. |
+| Key | Handles the key of the of the actual execution. By default, the value is the name of the operation that is being executed. |
+
+## Tracing
 
 All methods of the [ITrace](/interface/itrace) interface is using this class. You can debug to any method of the [ITrace](/interface/itrace)-based classes to trace the actual execution information.
 

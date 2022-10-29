@@ -14,7 +14,7 @@ parent: CLASSES
 
 An extended query field class that is being used to define a functional query expression for the SQL statement. This class is very useful if you wish to customize your query expression in many ways. It inherits the [QueryField](/class/queryfield) object.
 
-### Usability
+## Usability
 
 Below is a sample code that is using the `TRIM` function of the underlying database.
 
@@ -25,7 +25,7 @@ var result = connection.Query<Entity>(where);
 
 The result would contain all the records where the trimmed value of the `Column` is equals to `Value`.
 
-### GetString
+## GetString
 
 The `GetString()` method returns a command text that utilizes the passed formatted function.
 
@@ -34,7 +34,7 @@ var where = new FunctionalQueryField("Column", "Value", "TRIM({0})");
 var text = where.GetString(connection.GetDbSetting()); // Returns (TRIM([Column]) = @Column)
 ```
 
-### Formatting
+## Formatting
 
 It is important to take note that the library is using the `string.Format()` method to compose the formatting of the expression. Therefore, in the `format` argument of the constructor, always put the `{0}` format indexer as a placement of the actual field.
 

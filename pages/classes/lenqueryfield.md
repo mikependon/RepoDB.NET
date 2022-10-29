@@ -16,7 +16,7 @@ An extended query field class that is being used to define a query expression fo
 
 > This functional query field object is only useful for SQL Server data provider.
 
-### Usability
+## Usability
 
 Below is a sample code on how to use this class.
 
@@ -27,7 +27,7 @@ var result = connection.Query<Entity>(where);
 
 The result would contain all the records where the lenght of the `Column` is equals `3`.
 
-### GetString
+## GetString
 
 The `GetString()` method returns a command text that utilizes the `LEN` function.
 

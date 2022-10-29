@@ -14,7 +14,7 @@ parent: CLASSES
 
 This is the class that is being used to define a field in many ways. This class is widely use within the library or even hugely use during the actual development.
 
-### Use-Cases
+## Use-Cases
 
 - It is used to define a field to be queried during the [Query](/operation/query) and [BatchQuery](/operation/batchquery) operations.
 - It is used to define a field to be affected during push operations like the [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update) operations.
@@ -22,7 +22,7 @@ This is the class that is being used to define a field in many ways. This class 
 - It is used to define an argument that defines a field information.
 - It is used as an output in many of the extension methods within the library. A method of like `ClassProperty.AsField()` as an example.
 
-### Creating an Instance
+## Creating an Instance
 
 ```csharp
 var field = new Field("Id");
@@ -40,7 +40,7 @@ Or via a static method named `From()`.
 var fields = Field.From("Id", "Name", "CreatedDateUtc");
 ```
 
-### Parse Entity
+## Parse Entity
 
 You can also extract an array of field by extracting an entity.
 
@@ -54,7 +54,7 @@ Or by type.
 var fields = Field.Parse(typeof(Person));
 ```
 
-### Parse Expression
+## Parse Expression
 
 You can also extract by parsing an expression.
 
@@ -68,7 +68,7 @@ Or by parsing the multiple properties.
 var fields = Field.Parse<Person>(e => new { e.Id, e.Name, e.DateOfBirth });
 ```
 
-### Parse Object
+## Parse Object
 
 You can also extract by parsing a class or an anonymous object.
 

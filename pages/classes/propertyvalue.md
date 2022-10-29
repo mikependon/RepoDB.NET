@@ -16,12 +16,12 @@ This class is used to handle the name and the value of the class property. It al
 
 > Internally, the library is using this class as a parameter before executing any operation.
 
-### Use Case
+## Use Case
 
 - If you are to manually handle the properties and values of the data entity.
 - It is used to fast-extract the data entities property and values via [ClassExpression](/class/classexpression).
 
-### Usability
+## Usability
 
 ```csharp
 var person = repository.Query(10045);

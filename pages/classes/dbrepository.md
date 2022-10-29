@@ -15,11 +15,11 @@ parent: CLASSES
 
 This is the base class of all repository classes. It accepts the type of `DbConnection` as the generic type.
 
-### Use-Cases
+## Use-Cases
 
 You should implement this class if you wish to create a repository that is meant for processing all the database tables (and multiple entity models) together. This is a common design which we called a shared-repository.
 
-### Implementation
+## Implementation
 
 Let us say you have the following tables.
 
@@ -105,7 +105,7 @@ public IEnumerable<Order> GetCustomerOrders(int customerId)
 
 > Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base. Please visit our [DbRepository](/reference/dbrepository) reference implementation page for the detailed implementation.
 
-### Usability
+## Usability
 
 Simply create a new instance of the class to use the repository.
 
@@ -125,7 +125,7 @@ using (var repository = new NorthwindRepository(settings.Value.ConnectionString)
 
 > A respository is disposable, so please do not forget to wrap it with `using` keyword.
 
-### Dependency Injection
+## Dependency Injection
 
 Simply register the `INorthwindRepository` interface and the `NorthwindRepository` class in the service registration.
 
@@ -141,7 +141,7 @@ public void ConfigureServices(IServiceCollection services)
 
 > Do not use the repository class directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
 
-### The CreateConnection Method
+## The CreateConnection Method
 
 This method is used to create a new instance of connection object. If the value of [Connection Persistency](/enumeration/connectionpersistency) enumeration is `Instance`, then this method returns the existing active connection.
 
@@ -154,7 +154,7 @@ using (var connection = CreateConnection(true))
 }
 ```
 
-### Connection Persistency
+## Connection Persistency
 
 This property enables your repository to manage the persistency of your connection within the lifespan of the repository. Please have a look at the [Connection Persistency](/enumeration/connectionpersistency) enumeration to see more details.
 
@@ -171,7 +171,7 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 }
 ```
 
-### Command Timeout
+## Command Timeout
 
 This property is used as the execution timeout of every operation. By default it is null, defaultly using the ADO.NET execution timeout.
 
@@ -188,7 +188,7 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 }
 ```
 
-### Adding a Cache
+## Adding a Cache
 
 This property allows the repository to enable the 2nd-layer cache for the purpose of performance. By default, the caching is enabled with the use of [MemoryCache](/class/memorycache). You can override the caching by passing the instance of [ICache](/interface/icache)-based class in the constructor.
 
@@ -214,7 +214,7 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 
 > Please visit our [JSON Cache](/reference/jsoncache) reference implementation page for the detailed implementation about file-based caching using JSON.
 
-### Adding a Trace
+## Adding a Trace
 
 This property allows you as a developer to trace and audit the execution of any operation in the repository. To enable the trace, you have to pass the instance of [ITrace](/interface/itrace)-based class in the constructor.
 
@@ -240,7 +240,7 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 
 > Please visit our [Trace](/reference/trace) reference implementation page for the detailed implementation.
 
-### SQL Builder
+## SQL Builder
 
 This property allows you to override the default SQL statement generator of the library. To override, you have to create your custom [Statement Builder](/extensibility/statementbuilder) and pass the instance of [IStatementBuilder](/interface/istatementbuilder)-based class in the constructor.
 

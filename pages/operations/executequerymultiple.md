@@ -13,7 +13,7 @@ parent: OPERATIONS
 
 This method is used to execute multiple raw-SQL Statements directly towards the database (in one-go). It returns an object of [QueryMultipleExtractor](/class/querymultipleextractor). This method supports all types of RDMBS data providers.
 
-### Code Snippets
+## Code Snippets
 
 Below is a code that queries a parent person row from the `[dbo].[Person]` table and all its related historical addresses from the `[dbo].[Address]` table.
 
@@ -43,7 +43,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > The calls to the `Extract()` and `Scalar()` methods varry on the order of the calls you have made at the [QueryMultipleExtractor](/class/querymultipleextractor) object. Underneath, it is uses the `DbDataReader.NextResult()` method to extract the rows in order.
 
-### Passing of Parameters
+## Passing of Parameters
 
 You can pass a parameter via the following objects.
 
@@ -53,7 +53,7 @@ You can pass a parameter via the following objects.
 - Dictionary&lt;string, object&gt;
 - QueryField/QueryGroup
 
-#### IDbDataParameter
+## IDbDataParameter
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -67,7 +67,7 @@ using (var connection = new SqlConnection(connectionString))
 
 **Note:** The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
 
-#### Anonymous Types
+## Anonymous Types
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -79,7 +79,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### ExpandoObject
+## ExpandoObject
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -93,7 +93,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Dictionary<string, object>
+## Dictionary<string, object>
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -109,7 +109,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### QueryField/QueryGroup
+## QueryField/QueryGroup
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -141,7 +141,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Array Parameters (for the IN keyword)
+## Array Parameters (for the IN keyword)
 
 You can pass an array of values if you are using the `IN` keyword.
 
@@ -161,7 +161,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
 
-### Executing a Stored Procedure
+## Executing a Stored Procedure
 
 The calls to execute a stored procedure is by simply calling the `EXEC` command of the SQL Server. It can be combined together with other raw-SQL statements.
 

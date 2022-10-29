@@ -16,15 +16,15 @@ This class gives your application the maximum performance as it eliminates the r
 
 > This class is used as the default cacher-class of the library.
 
-### Use-Cases
+## Use-Cases
 
 You should use this class if you wish to cache all the fetched objects from the database into memory.
 
-### Usability
+## Usability
 
 Simply pass the instance in the constructor of the repositories (i.e.: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)) or when calling the fetched operations (i.e.: [Query](/operation/query) and [QueryAll](/operation/queryall)).
 
-### Customize
+## Customize
 
 Create a custom interface that implements the [ICache](/interface/icache) interface.
 

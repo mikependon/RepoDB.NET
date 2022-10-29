@@ -18,9 +18,7 @@ This is a feature that would allow you to implicitly map the .NET CLR types or c
 
 Use the [FluentMapper](/mapper/fluentmapper) class to fluently manage the mappings of the table/properties, primary/identity columns, database types and class/property handlers.
 
-#### Property Level
-
-To define the mappings for an entity, use the `Entity()` method.
+Below is the code to define the mappings for an entity property, use the `Entity()` method.
 
 ```csharp
 FluentMapper
@@ -42,9 +40,7 @@ FluentMapper
     }); // Defines the PropertyHandler of the Property
 ```
 
-#### Type Level
-
-To define the mappings for a specfic .NET CLR type, use the `Type()` method.
+Below is the code on how to define the mappings for a specfic .NET CLR type, use the `Type()` method.
 
 ```csharp
 FluentMapper
@@ -208,9 +204,7 @@ ClassHandlerMapper.Remove<Customer>();
 
 Use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to manage the mappings between the property handlers and the .NET CLR type or class property.
 
-#### Property Level
-
-Let us say you have property handler below.
+Below is the code on how to map a property hanlder on an entity model property. Let us say you have property handler below.
 
 ```csharp
 public class CustomerAddressPropertyHandler : IPropertyHandler<string, Address>
@@ -251,9 +245,7 @@ To remove the mapping, use the `Remove()` method.
 PropertyHandlerMapper.Remove<Customer>(e => e.Address);
 ```
 
-#### Type Level
-
-Let us say you want to handle all the `System.DateTime` properties and you have created the property handler below.
+Below is a code on how to define a property handler mapping in a type level. Let us say you want to handle all the `System.DateTime` properties and you have created the property handler below.
 
 ```csharp
 public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<datetime?, datetime?>

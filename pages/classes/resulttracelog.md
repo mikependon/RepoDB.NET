@@ -14,13 +14,17 @@ parent: CLASSES
 
 A trace-logging class that holds the reuslt of the trace operation. It derives from [TraceLog](/class/tracelog) class.
 
-#### Properties
+## Properties
 
-- `ExecutionTime` - handles the total elapsed time of the actual execution.
-- `Result` - handles the actual execution result.
-- `CancellableTraceLog` - handles the actual reference to the associated [CancellableTracelog](/class/cancellabletracelog) object.
+Below is the list of properties.
 
-#### Learnings
+| Name | Description |
+|:-----|:------------|
+| ExecutionTime | Handles the total elapsed time of the actual execution. |
+| Result | Handles the actual execution result. |
+| CancellableTraceLog | handles the actual reference to the associated [CancellableTracelog](/class/cancellabletracelog) object. |
+
+## Implementation
 
 Let us say you have a custom trace class named `MyCustomTrace`. Then, you pass this object when you call the [Insert](/operation/insert) operation.
 

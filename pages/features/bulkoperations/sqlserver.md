@@ -49,7 +49,7 @@ Below are the following objects supported by the bulk operations.
 
 Once all the data is in the database pseudo-temporary table, the correct SQL statement will be used to cascade the changes towards the original table.
 
-### For BulkDelete
+## BulkDelete
 
 ```csharp
 > DELETE T
@@ -57,7 +57,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 > INNER JOIN [PseudoTempTable] TMP ON TMP.QualiferField1 = T.Field1 AND TMP.QualifierField2 = T.Field2;
 ```
 
-### For BulkMerge
+## BulkMerge
 
 ```csharp
 > MERGE [dbo].[OriginalTable] T
@@ -69,7 +69,7 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 > SET (...);
 ```
 
-### For BulkUpdate
+## BulkUpdate
 
 ```csharp
 > UPDATE T
@@ -108,11 +108,9 @@ The library is automatically setting the value of the `options` argument to `Sql
 
 In addition, when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, the library is creating a pseudo-temporary table behind the scene. It requires your user to have the proper CREATE TABLE privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
-## Calling the Operations
+---
 
-Below are the ways on how to call the operations.
-
-### For BulkDelete
+## BulkDelete
 
 The code snippets below only showcasing the [BulkDelete](/operation/bulkdelete) via `IEnumerable<T>`.
 
@@ -155,7 +153,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### For BulkInsert
+## BulkInsert
 
 The code snippets below only showcasing the [BulkInsert](/operation/bulkinsert) via `IEnumerable<T>`.
 
@@ -177,7 +175,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### For BulkMerge
+## BulkMerge
 
 The code snippets below only showcasing the [BulkMerge](/operation/bulkmerge) via `IEnumerable<T>`.
 
@@ -210,7 +208,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### For BulkUpdate
+## BulkUpdate
 
 The code snippets below only showcasing the [BulkUpdate](/operation/bulkupdate) via `IEnumerable<T>`.
 

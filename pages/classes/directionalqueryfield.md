@@ -14,8 +14,6 @@ parent: CLASSES
 
 This is used as a field on the query expression that supports two direction (input/output) via `ParamDirection` enumeration of the `System.Data` namespace. It inherits and works like the [QueryField](/class/queryfield) class, however, it was extended to be capable of receiving an output data from the database after the execution.
 
-### Use-Cases
-
 This can be very useful if you would like to execute and retrieve an output from an existing stored procedure from the database.
 
 Let us say, you have the stored procedure below.

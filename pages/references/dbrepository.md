@@ -26,7 +26,7 @@ This page contains the reference implementation when implementing a repository t
 - [ConnectionPersistency](/enumeration/connectionpersistency)
 - [CommandTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand.commandtimeout?view=sqlclient-dotnet-core-1.1)
 
-### Cache
+## Cache
 
 Create a custom cache class.
 
@@ -74,7 +74,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Trace
+## Trace
 
 Create a custom trace class.
 
@@ -122,7 +122,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Settings
+## Settings
 
 The settings object must be injected within the constructor of the repository. Please refer to Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
@@ -135,7 +135,7 @@ public class AppSetting
 }
 ```
 
-### Repository
+## Repository
 
 Simply inherit the [DbRepository](/class/dbrepository) class and pass a generic type for the connection object.
 
@@ -181,7 +181,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 }
 ```
 
-### Methods
+## Methods
 
 Below is the recommended way when exposing a method that returns all the records.
 
@@ -373,7 +373,7 @@ public int UpdateProduct(Product product,
 }
 ```
 
-### Async Methods
+## Async Methods
 
 Ensure that all the synchronous methods you had created has the corresponding asynchronous methods suffixed by `Async` keyword. Within these methods, ensure that you are calling the corresponding asynchronous operations of the library.
 
@@ -526,7 +526,7 @@ public async Task<int> UpdateProductAsync(Product product,
 }
 ```
 
-### Dependency Injection
+## Dependency Injection
 
 Create an interface that contains all the necessary methods. The name must be identitical on the purpose of the repository.
 
@@ -684,7 +684,7 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>, INorth
 }
 ```
 
-### Service Configuration and Registration
+## Service Configuration and Registration
 
 Register it as singleton if you...
 
@@ -714,7 +714,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Key Take-aways
+## Key Take-aways
 
 - The transaction argument is needed in every method in order for you to enable the Unit of Work (UOW).
 - The cache key argument is needed in the case you need to cache the result.

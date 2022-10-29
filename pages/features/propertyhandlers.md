@@ -16,10 +16,6 @@ This is a feature that would allow you to handle the tranformation of the class 
 
 The execution of the transformation contains the actual values and the affected [ClassProperty](/class/classproperty) object to provide more context.
 
-Below is the high-level diagram of the property handler.
-
-<img src="../../assets/images/site/propertyhandler.svg" />
-
 It uses the following objects.
 
 | Object | Description  | 
@@ -46,6 +42,10 @@ But, in general, it can handle unlimitted use-cases depends on your own situatio
 - Can be used as trigger.
 - Manually override the default handler for the enumerations.
 - And many more.
+
+## How does it works?
+
+If you are reading a data from the DB (i.e.: [ExecuteQuery](/operation/executequery), [Query](/operation/query), [BatchQuery](/operation/batchquery)), the `Get()` method will be invoked after deserializing the model propery. On the other hand, if you are pushing a data towards the DB (i.e.: [Insert](/operation/insert), [Merge](/operation/merge), [Update](/operation/update)), the `Set()` method will be invoked prior the actual DB operation.
 
 ## Implementing a Property Handler
 

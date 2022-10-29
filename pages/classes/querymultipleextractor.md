@@ -18,16 +18,18 @@ Internally, it is abstracting the instance of `DbDataReader`, `IDbConnection` an
 
 It is also managing how the pointer of the `DbDataReader` object when you (as the developer) is calling its method. Underneath to this, it calls the `DbDataReader.NextResult()` method.
 
-### Methods
+## Methods
 
-These are the methods available on this class.
+These is the list of methods.
 
-- `Extract` - a generic based method that will extract the contents of the `DbDataReader` into a class object.
-- `Scalar` - a method that is being used to get the first column of the result.
+| Name | Description |
+|:-----|:------------|
+| Extract | A generic based method that will extract the contents of the `DbDataReader` into a class object. |
+| Scalar | a method that is being used to get the first column of the result |
 
 > When using the `Scalar()` method, you can pass a generic type as a type of the result. Also, when calling any of the mentioned above, the pointer of the `DbDataReader` is advances to the next result.
 
-### Usability
+## Usability
 
 You need to handle the result of [ExecuteQueryMultiple](/operation/executequerymultiple) into a variable and manage the extraction via `Extrac()` method.
 

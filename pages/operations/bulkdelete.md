@@ -13,19 +13,19 @@ parent: OPERATIONS
 
 This method is used to delete the target rows from the database by bulk. It is only supporting the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
 
-### Call Flow Diagram
+## Call Flow Diagram
 
 The diagram below shows the flow when calling this operation.
 
 <img src="../../assets/images/site/bulkdelete.svg" />
 
-### Use Case
+## Use Case
 
 This method is very useful if you are deleting multiple rows from the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
 
 If you are working to delete a range of rows from 1000 or more, then use this method over the [DeleteAll](/operation/deleteall) operation.
 
-### Special Arguments
+## Special Arguments
 
 The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
 
@@ -35,13 +35,13 @@ The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-tab
 
 > Please be noted that it is not recommended to enable the `usePhysicalPseudoTempTable` argument if you are to work with parallelism. Ensure to always utilize the session-based non-physical pseudo-temporary table when working with parallelism.
 
-### Caveats
+## Caveats
 
 RepoDB is automatically setting the value of the `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an IDENTITY primary key column. The same logic will apply if there is no primary key but has an IDENTITY column defined in the table.
 
 In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a `SqlException` will be thrown.
 
-### Usability
+## Usability
 
 Let us say you are retrieving all the inactive people from the database.
 
@@ -116,7 +116,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-### Targeting a Table
+## Targeting a Table
 
 You can also target a specific table by passing the literal table and field name like below.
 
@@ -127,7 +127,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Field Qualifiers
+## Field Qualifiers
 
 By default, this operation is using the primary column as the qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
 
@@ -143,7 +143,7 @@ Or by parsing the field expression.
 
 > When using the qualifiers, we recommend that you use the list of columns that has the correct index from the original table.
 
-### Table Hints
+## Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
@@ -167,7 +167,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Physical Temporary Table
+## Physical Temporary Table
 
 To use a physical pseudo-temporary table, simply pass `true` in the `usePhysicalPseudoTempTable` argument.
 

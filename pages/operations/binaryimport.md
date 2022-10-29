@@ -13,23 +13,23 @@ parent: OPERATIONS
 
 This method is used to insert multiple rows towards the database by bulk. It is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
-### Call Flow Diagram
+## Call Flow Diagram
 
 The diagram below shows the flow when calling this operation.
 
 <img src="../../assets/images/site/binaryimport.svg" />
 
-### Use Case
+## Use Case
 
 This method is very useful if you would like to insert multiple rows towards the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
 
 If you are working to insert range of rows from 1000 or more, then use this method over the [InsertAll](/operation/insertall) operation. Alternatively, you can also use the [BinaryBulkInsert](/operation/binarybulkinsert) operation.
 
-### Special Arguments
+## Special Arguments
 
 The `keepIdentity` argument is provided to define a value whether the identity property of the entity/model will be kept during the operation. 
 
-### Usability
+## Usability
 
 Simply pass the list of the entities when calling this operation.
 
