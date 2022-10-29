@@ -13,19 +13,27 @@ parent: INTERFACES
 
 This interface is used to mark a class to be a property handler object. This interface has `TInput` and `TResult` generic types in which being used at both the `Get()` and `Set()`  methods.
 
-### Generic Types
+## Generic Types
 
-- `TInput` - refers to the type of the database column. The input type for the getter; the output type for the setter.
-- `TOutput` - refers to the type of the data entity property. The input type for the setter; the output type for the getter.
+Below is the list of generic types.
 
-### Methods
+| Name | Description |
+|:-----|:------------|
+| TInput | Refers to the type of the database column. The input type for the getter; the output type for the setter. |
+| TOutput | Refers to the type of the data entity property. The input type for the setter; the output type for the getter. |
 
-- `Get` - the method that is being invoked when the outbound transformation is triggered (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)).
-- `Set`  - the method that is being invoked when the inbound transformation is triggered (i.e.: [Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge) and etc).
+## Methods
+
+Below is the list of methods.
+
+| Name | Description |
+|:-----|:------------|
+| Get | The method that is being invoked when the outbound transformation is triggered (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)). |
+| Set | The method that is being invoked when the inbound transformation is triggered (i.e.: [Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge) and etc). |
 
 > Both methods accept the [ClassProperty](/class/classproperty) to give more context on the current method of the property handler.
 
-### Use-Cases
+## Use-Cases
 
 This is very useful when you would like to handle the following scenarios.
 
@@ -39,7 +47,7 @@ This is very useful when you would like to handle the following scenarios.
 
 > The use-cases can be unlimitted depends on your situation. In addition to this note, by implementing the property handler and mapping it to the property will ignore the automatic conversion of [TypeMapper](/mapper/typemapper#automatic) and enumerations.
 
-### How to Implement?
+## How to Implement?
 
 You have to manually create a class that implements this interface.
 
@@ -58,7 +66,7 @@ public class AddressPropertyHandler : IPropertyHandler<string, Address>
 }
 ```
 
-### Property Level Handling
+## Property Level Handling
 
 You can handle the property transformation on a property level. Imagine that you have a table named `[dbo].[Person]` in which the column `Address` is of type `NVARCHAR(MAX)`.
 
@@ -140,7 +148,7 @@ publi class Person
 
 > When you call any of the fetch ([Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)) or push ([Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge)) operations, the methods `Get()` and `Set()`  of the property handler will be invoked immediately.
 
-### Type Level Handling
+## Type Level Handling
 
 On the other hand, you can also handle the property transformation on a type level. It is useful on a situation if you would like to handle a specific database type transformation into a .NET CLR type (i.e.: converting the `DateTime` object `Kind` to `Utc`).
 

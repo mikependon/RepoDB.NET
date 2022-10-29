@@ -13,23 +13,25 @@ parent: INTERFACES
 
 This interface is used to mark a class to be a cache object. It gives you the full control on the implementations of your own cache object (i.e.: File Caching, SqLite Caching, XML Caching, Memory Caching, etc).
 
-### Methods
+## Methods
 
-Below are the methods available from this interface.
+Below is the list of methods.
 
-- `Add` - allows you to add a new cache item value into the cache storage.
-- `Clear` - allows you to clear the cache storage.
-- `Contains` - allows you to check whether the cache item exists by cache-key.
-- `Get` - allows you to get an instance of the cache by cache-key.
-- `Remove` - allows you to remove an existing cache item from the cache storage.
+| Name | Description |
+|:-----|:------------|
+| Add | Allows you to add a new cache item value into the cache storage. |
+| Clear | Allows you to clear the cache storage. |
+| Contains | Allows you to check whether the cache item exists by cache-key. |
+| Get | Allows you to get an instance of the cache by cache-key. |
+| Remove | Allows you to remove an existing cache item from the cache storage. |
 
 **Note:** All methods has its own corresponding `Async` methods.
 
-### Use-Cases
+## Use-Cases
 
 You can use this feature to maximize the performance by using the 2nd layer cache for the static and look-up records (or those records that are not frequently changing or not changing at all).
 
-### How to Implement?
+## How to Implement?
 
 You have to manually create a class that implements this interface.
 
@@ -70,7 +72,7 @@ public class JsonCache : ICache
 
 > You have to implement all the methods needed by this interface. With this, you have the full control of you cacher object.
 
-### Usability
+## Usability
 
 You can pass it on the constructor of the [BaseRepository](/class/baserepository) object.
 

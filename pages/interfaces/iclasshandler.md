@@ -13,18 +13,22 @@ parent: INTERFACES
 
 This interface is used to mark a class to be a class handler object. This interface has `TEntity` generic types in which being used at both the `Get()` and `Set()`  methods.
 
-### Generic Types
+## Generic Types
 
 - `TEntity` - refers to the type of the entity type. This type is used as the input to and result type of the `Get()` and `Set()`  methods.
 
-### Methods
+## Methods
 
-- `Get` - the method that is being invoked when the outbound execution is triggered (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)).
-- `Set`  - the method that is being invoked when the inbound execution is triggered (i.e.: [Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge) and etc).
+Below is the list of methods.
+
+| Name | Description |
+|:-----|:------------|
+| Get | The method that is being invoked when the outbound execution is triggered (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)). |
+| Set | The method that is being invoked when the inbound execution is triggered (i.e.: [Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge) and etc). |
 
 > The `Get()` method has an additional argument of type  `DbDataReader`. It refers to the actual instance of the `DbDataReader` in used during the deserialization process.
 
-### How to Implement?
+## How to Implement?
 
 You have to manually create a class that implements this interface.
 
@@ -43,7 +47,7 @@ public class PersonClassHandler : IClassHandler<Person>
 }
 ```
 
-### How to Map?
+## How to Map?
 
 There are various ways of mapping a class handler into an entity model. You can use either do the following approach.
 

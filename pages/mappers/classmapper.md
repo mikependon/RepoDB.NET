@@ -14,16 +14,18 @@ parent: MAPPERS
 
 A mapper class that is being used to map the class into its equivalent object in the database (i.e.: Table, View). This class is used as an alternative to the [Map](/attribute/map) attribute.
 
-### Methods
+## Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Add` - adds a mapping between the class and the name of the database object.
-- `Clear` - clears all the existing database object name mappings.
-- `Get` - gets the existing mapped database object name of the class.
-- `Remove` - removes the exising database object name of the class.
+| Name | Description |
+|:-----|:------------|
+| Add | Adds a mapping between the class and the name of the database object. |
+| Clear | Clears all the existing database object name mappings. |
+| Get | Gets the existing mapped database object name of the class. |
+| Remove | Removes the exising database object name of the class. |
 
-### Usability
+## Usability
 
 To add a mapping, simply call the `Add()` method.
 

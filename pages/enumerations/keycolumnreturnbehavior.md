@@ -16,7 +16,11 @@ This enum is used to define how the push operations (i.e.: [Insert](/operation/i
 
 ### Enum Values
 
-- `Primary` - returns the value of the primary column.
-- `Identity` - returns the value of the identity column.
-- `PrimaryOrElseIdentity`- returns the coalesced value of the primary and identity columns. This is the default value.
-- `IdentityOrElsePrimary`- eturns the coalesced value of the identity and primary columns.
+Below is the list of enum values.
+
+| Name | Description |
+|:-----|:------------|
+| Primary | Returns the value of the primary column. |
+| Identity | Returns the value of the identity column. |
+| PrimaryOrElseIdentity | Returns the coalesced value of the primary and identity columns. This is the default value. |
+| IdentityOrElsePrimary | Returns the coalesced value of the identity and primary columns. |

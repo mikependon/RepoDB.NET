@@ -15,10 +15,12 @@ This interface is used to mark a class to be a trace object.
 
 ### Methods
 
-Below are the `BEFORE` methods available from this interface.
+Below is the list of methods.
 
-- `BeforeExecution` - triggered before the method is being executed.
-- `AfterExecution` - triggered after the method has been executed.
+| Name | Description |
+|:-----|:------------|
+! BeforeExecution ! Triggered before the actual database operation is being executed. !
+! AfterExecution ! Triggered after the actual database operation has been executed. |
 
 **Note:** The methods mentioned above has its corresponding `Async` methods.
 

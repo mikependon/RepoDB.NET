@@ -14,12 +14,16 @@ parent: ENUMERATIONS
 
 This is an enum used to define a conjunction when grouping an expression via [QueryGroup](/class/querygroup) object.
 
-### Enum Values
+## Enum Values
 
-- `And` - is used to define an `AND` expression during the grouping. This is the default setting.
-- `Or` - is used to define an `OR` expression during the grouping.
+Below is the list of enum values.
 
-### Usability
+| Name | Description |
+|:-----|:------------|
+! And ! Is used to define an `AND` expression during the grouping. This is the default setting. |
+| Or | Is used to define an `OR` expression during the grouping |
+
+## Usability
 
 Simply pass it in the constructor when instantiating a [QueryGroup](/class/querygroup) object.
 

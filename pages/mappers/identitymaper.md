@@ -16,12 +16,14 @@ A mapper class that is being used to map a class property to be an identity prop
 
 ### Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Add` - adds an identity property mapping into a class.
-- `Clear` - clears all the exising identity property mappings.
-- `Get` - gets the existing mapped identity property of the class.
-- `Remove` - removes the exising mapped identity property of the class.
+| Name | Description |
+|:-----|:------------|
+| Add | Adds an identity property mapping into a class. |
+| Clear | Clears all the exising identity property mappings. |
+| Get | Gets the existing mapped identity property of the class. |
+| Remove | Removes the exising mapped identity property of the class. |
 
 ### Usability
 

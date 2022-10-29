@@ -16,12 +16,16 @@ This is the enumeration used to define the persistency of the `DbConnection` ins
 
 > This enumueration is very useful when you are on a situation that you do need to control the way how repository instantiate a connection object.
 
-### Enum Values
+## Enum Values
 
-- `PerCall` - in every method call, a new `DbConnection` object is being used. This is the default setting.
-- `Instance` - a single instance of `DbConnection` object is used all throughout the lifespan of the repository.
+Below is the list of enum values.
 
-### Usability
+| Name | Description |
+|:-----|:------------|
+| PerCall | In every method call, a new `DbConnection` object is being used. This is the default setting. |
+| Instance | A single instance of `DbConnection` object is used all throughout the lifespan of the repository. |
+
+## Usability
 
 Simply pass the connection persistency value in the constructor when instantiating a repository object.
 

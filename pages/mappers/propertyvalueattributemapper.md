@@ -14,16 +14,18 @@ parent: MAPPERS
 
 A mapper class that is being used to map the list [PropertyValueAttribute](/attribute/parameter/propertyvalueattribute) objects into a class property.
 
-### Methods
+## Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Add` - adds a property attributes mapping into a property.
-- `Clear` - clears all the existing property attribute mappings.
-- `Get` - gets the existing mapped property attributes of the property.
-- `Remove` - removes the exising mapped property attributes of the property.
+| Name | Description |
+|:-----|:------------|
+| Add | Adds a property attributes mapping into a property. |
+| Clear | Clears all the existing property attribute mappings. |
+| Get | Gets the existing mapped property attributes of the property. |
+| Remove | Removes the exising mapped property attributes of the property. |
 
-### Usability
+## Usability
 
 To add a mapping, simply call the `Add()` method.
 

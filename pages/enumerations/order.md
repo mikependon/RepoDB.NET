@@ -16,8 +16,12 @@ This enum is used to define an ordering of the query results. It is usually used
 
 ### Enum Values
 
-- `Ascending` - is used to define an ascending order. This is the default setting.
-- `Descending` - is used to define a descending order.
+Below is the list of enum values.
+
+| Name | Description |
+|:-----|:------------|
+| Ascending | Is used to define an ascending order. This is the default setting. |
+| Descending | Is used to define a descending order. |
 
 ### Usability
 
