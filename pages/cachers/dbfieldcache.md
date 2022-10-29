@@ -16,10 +16,12 @@ A cacher class for the database table fields. It provides a 2nd-layer caching fo
 
 ## Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Flush` - allows you to flush the caches.
-- `Get` - returns the list of [DbField](/class/dbfield) objects.
+| Name | Description |
+|:-----|:------------|
+| Flush | Allows you to flush the caches. |
+| Get | Returns the list of [DbField](/class/dbfield) objects. |
 
 ## Usability
 

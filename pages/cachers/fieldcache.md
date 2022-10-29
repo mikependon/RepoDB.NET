@@ -18,10 +18,12 @@ A cacher class for the class properties (as fields). It provides a 2nd-layer cac
 
 ## Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Flush` - allows you to flush the caches.
-- `Get` - returns the list of [Field](/class/field) objects.
+| Name | Description |
+|:-----|:------------|
+| Flush | Allows you to flush the caches. |
+| Get | Returns the list of [Field](/class/field) objects. |
 
 ## Usability
 

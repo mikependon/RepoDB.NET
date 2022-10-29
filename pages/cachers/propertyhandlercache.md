@@ -18,8 +18,8 @@ A cacher class for the [IPropertyHandler](/interface/ipropertyhandler) objects t
 
 Below are the methods available from this class.
 
-- `Flush` - allows you to flush the caches.
-- `Get` - returns the instance of the property handler.
+| Flush | Allows you to flush the caches. |
+| Get | Returns the instance of the property handler. |
 
 ## Usability
 

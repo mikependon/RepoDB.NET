@@ -20,8 +20,8 @@ A cacher class for the `System.Reflection.PropertyInfo`. Underneath, it uses the
 
 Below are the methods available from this class.
 
-- `Flush` - allows you to flush the caches.
-- `Get` - returns the mapped name of the property.
+| Flush | Allows you to flush the caches. |
+| Get | Returns the mapped name of the property. |
 
 ## Usability
 

@@ -20,8 +20,8 @@ A cacher class for the class primary property. Underneath, it uses the [PrimaryM
 
 Below are the methods available from this class.
 
-- `Flush` - allows you to flush the caches.
-- `Get` - returns the list of [Field](/class/field) objects.
+| Flush | Allows you to flush the caches. |
+| Get | Returns the list of [Field](/class/field) objects. |
 
 ## Usability
 

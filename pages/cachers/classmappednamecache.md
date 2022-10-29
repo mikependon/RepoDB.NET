@@ -18,10 +18,12 @@ A cacher class for the class name mapping. Underneath, it uses the [ClassMapper]
 
 ## Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Flush` - allows you to flush the caches.
-- `Get` - returns the mapped name of the class.
+| Name | Description |
+|:-----|:------------|
+| Flush | Allows you to flush the caches. |
+| Get | Returns the mapped name of the class. |
 
 ## Usability
 
