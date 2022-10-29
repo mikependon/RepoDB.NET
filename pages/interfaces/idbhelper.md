@@ -13,14 +13,16 @@ parent: INTERFACES
 
 This interface is used to mark a class to be a database helper object. It is very useful if you would like optimize and override the default implementation of the library (i.e.: retrieving the list of fields, retrieving newly generated identity).
 
-### Methods
+## Methods
 
-Below are the methods available from this interface.
+Below is the list of methods.
 
-- `GetFields` - gets the list of [DbField](/class/dbfield) objects from the database.
-- `GetScopedIdentity` - gets the newly generated identity from the database.
+| Name | Description |
+|:-----|:------------|
+| GetFields | Gets the list of [DbField](/class/dbfield) objects from the database. |
+| GetScopedIdentity | Gets the newly generated identity from the database. |
 
-### How to Implement?
+## How to Implement?
 
 You have to manually create a class that implements this interface.
 
@@ -48,7 +50,7 @@ Please see the more detailed implementations at [Database Helper](/extensibility
 
 > You have to implement all the methods needed by this interface. With this, you have the full control of you helper object.
 
-### Usability
+## Usability
 
 Once you have the database helper implemented in a customized class, you can use the [DbHelperMapper](/mapper/dbhelpermapper) class to map it in your target RDDMS data provider.
 

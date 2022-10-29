@@ -16,16 +16,18 @@ A class that is being used to map a class handler into a class. This class is us
 
 Please see the [IClassHandlerMapper](/interface/iclasshandler) for more details about the property handling implementation.
 
-### Methods
+## Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Add` - adds a class handler mapping on a specific class.
-- `Clear` - clears all the existing property handler mappings.
-- `Get` - gets the existing mapped class handler object on the class.
-- `Remove` - removes the existing mapped class handler of the class.
+| Name | Description |
+|:-----|:------------|
+| Add | Adds a class handler mapping on a specific class. |
+| Clear | Clears all the existing property handler mappings. |
+| Get | Gets the existing mapped class handler object on the class. |
+| Remove | Removes the existing mapped class handler of the class. |
 
-### Usability
+## Usability
 
 Let us say you had implemented a `Person` handler like below.
 
@@ -44,7 +46,7 @@ public class PersonClassHandler : IClassHandler<Person>
 }
 ```
 
-### How to Map?
+## How to Map?
 
 There are various ways of mapping a class handler into an entity model. You can use either do the following approach.
 

@@ -13,23 +13,25 @@ parent: INTERFACES
 
 This interface is used to mark a class to be a database setting object. It allows you to control the behavior of the library on a specific RDBMS data provider based on the value you provided on the properties this class.
 
-### Properties
+## Properties
 
-Below are the properties available from this interface.
+Below is the list of properties.
 
-- `AreTableHintsSupported` - gets the value that indicates whether the table hints are supported.
-- `ClosingQuote` - gets the character used for closing quote.
-- `AverageableType` - gets the default averageable .NET CLR types for the database.
-- `DefaultSchema` - gets the default schema of the database.
-- `IsDirectionSupported` - gets a value that indicates whether setting the value of `DbParameter.Direction` object is supported.
-- `IsExecuteReaderDisposable` - gets a value that indicates whether the `DbCommand` object must be disposed after calling the `DbCommand.ExecuteReader()` method.
-- `IsMultiStatementExecutable` - gets a value whether the multiple statement execution is supported.
-- `IsPreparable` - gets a value that indicates whether the current DB Provider supports the `DbCommand.Prepare()` calls.
-- `IsUseUpsert` - gets a value that indicates whether the [Insert](/operation/insert)/[Update](/operation/update) operation will be used for [Merge](/operation/merge) operation.
-- `OpeningQuote` - gets the character used for opening quote.
-- `ParameterPrefix` - gets the character used for the database command parameter prefixing.
+| Name | Description |
+|:-----|:------------|
+| AreTableHintsSupported | Gets the value that indicates whether the table hints are supported. |
+| ClosingQuote | Gets the character used for closing quote. |
+| AverageableType | Gets the default averageable .NET CLR types for the database. |
+| DefaultSchema | Gets the default schema of the database. |
+| IsDirectionSupported | Gets a value that indicates whether setting the value of `DbParameter.Direction` object is supported. |
+| IsExecuteReaderDisposable | Gets a value that indicates whether the `DbCommand` object must be disposed after calling the `DbCommand.ExecuteReader()` method. |
+| IsMultiStatementExecutable | Gets a value whether the multiple statement execution is supported. |
+| IsPreparable | Gets a value that indicates whether the current DB Provider supports the `DbCommand.Prepare()` calls. |
+| IsUseUpsert | Gets a value that indicates whether the [Insert](/operation/insert)/[Update](/operation/update) operation will be used for [Merge](/operation/merge) operation. |
+| OpeningQuote | Gets the character used for opening quote. |
+| ParameterPrefix | Gets the character used for the database command parameter prefixing. |
 
-### How to Implement?
+## How to Implement?
 
 You have to manually create a class that implements this interface.
 
@@ -52,7 +54,7 @@ public class MyCustomSqlServerDbSetting : IDbSetting
 
 Please see the more detailed implementations at [Database Setting](/extensibility/databasesetting) page.
 
-### GetHashCode
+## GetHashCode
 
 You have to override the implementation of the `GetHashCode()` based on the combinations of the properties.
 
@@ -60,7 +62,7 @@ The reason to this, the library is using the equality based on the generated has
 
 > We recommend to instead use the [BaseDbSetting](/class/basedbsetting) class when implementing a customized database setting.
 
-### Usability
+## Usability
 
 Once the class has been implemented, you have to call the [DbSettingMapper](/mapper/dbsettingmapper) class for mappings (per RDBMS data provider).
 

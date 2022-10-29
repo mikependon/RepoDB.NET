@@ -14,20 +14,22 @@ parent: MAPPERS
 
 A class that is being used to map a .NET CLR type or class property into its equivalent database type (via `DbType` object). This class is used as an alternative to the [TypeMap](/attribute/typemap) attribute.
 
-### Methods
+## Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Add` - adds a mapping between a .NET CLR type and a database type.
-- `Clear` - clears all the existing database type mappings.
-- `Get` - gets the existing mapped database type on the .NET CLR type.
-- `Remove` - removes the existing mapped database type on the .NET CLR type.
+| Name | Description |
+|:-----|:------------|
+| Add | Adds a mapping between a .NET CLR type and a database type. |
+| Clear | Clears all the existing database type mappings. |
+| Get | Gets the existing mapped database type on the .NET CLR type. |
+| Remove | Removes the existing mapped database type on the .NET CLR type. |
 
-### Usability
+## Usability
 
 Let us say you would like to map the `System.DateTime` .NET CLR type into a `DbType.DateTime2` database type.
 
-#### Property Level Mapping
+### Property Level Mapping
 
 To add a property level mapping, simply call the `Add()` method and pass the target property and the value of `DbType` object.
 
@@ -49,7 +51,7 @@ To remove the mapping, use the `Remove()` method.
 TypeMapper.Remove<Customer>(e => e.DateOfBirth);
 ```
 
-#### Type Level Mapping
+### Type Level Mapping
 
 To add a class level mapping, simply call the type-level `Add()` method and pass the target .NET CLR type and the value of `DbType` object.
 

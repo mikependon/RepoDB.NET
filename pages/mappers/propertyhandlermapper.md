@@ -16,16 +16,18 @@ A class that is being used to map a property handler into a .NET CLR type or a c
 
 Please see the [IPropertyHandler](/interface/ipropertyhandler) for more details about the property handling implementation.
 
-### Methods
+## Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Add` - adds a property handler mapping on a class or property.
-- `Clear` - clears all the existing mappings of the property handlers.
-- `Get` - gets the existing mapped property handler of the class or property.
-- `Remove` - removes the existing mapped property handler of the class or property.
+| Name | Description |
+|:-----|:------------|
+| Add | Adds a property handler mapping on a class or property. |
+| Clear | Clears all the existing mappings of the property handlers. |
+| Get | Gets the existing mapped property handler of the class or property. |
+| Remove | Removes the existing mapped property handler of the class or property. |
 
-### Usability
+## Usability
 
 Let us say you had implemented a `DateTime` handler like below.
 
@@ -44,7 +46,7 @@ public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<DateTime?, Date
 }
 ```
 
-#### Property Level Mapping
+### Property Level Mapping
 
 To add a property level mapping, simply call the `Add()` method and pass the target property and the instance of the property handler.
 
@@ -66,7 +68,7 @@ To remove the mapping, use the `Remove()` method.
 PropertyHandlerMapper.Remove<Customer, DateTimeKindToUtcPropertyHandler>(e => e.DateOfBirth);
 ```
 
-#### Type Level Mapping
+### Type Level Mapping
 
 To add a class level mapping, simply call the type-level `Add()` method and pass the target .NET CLR type and the instance of property handler.
 

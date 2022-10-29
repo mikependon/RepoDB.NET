@@ -23,12 +23,16 @@ It is used by the following bulk import operations.
 - [BinaryBulkMerge](/operation/binarybulkmerge)
 - [BinaryBulkUpdate](/operation/binarybulkupdate)
 
-### Enum Values
+## Enum Values
 
-- `Temporary` - a temporary pseudo-table will be created. The table is dedicated to the session of the connection and is automatically being destroyed once the connection is closed/disposed. Use this if you are working within an asynchronous environment.
-- `Physical` - a physical pseudo-table will be created. The table is shared to any other connections. Use this if you prefer performance and is not working within an asynchronous environment.
+Below is the list of enum values.
 
-### Usability
+| Name | Description |
+|:-----|:------------|
+| Temporary | A temporary pseudo-table will be created. The table is dedicated to the session of the connection and is automatically being destroyed once the connection is closed/disposed. Use this if you are working within an asynchronous environment.
+| Physical | A physical pseudo-table will be created. The table is shared to any other connections. Use this if you prefer performance and is not working within an asynchronous environment. |
+
+## Usability
 
 Simply pass value on the `pseudoTableType` argument.
 

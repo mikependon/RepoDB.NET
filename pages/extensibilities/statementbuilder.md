@@ -17,7 +17,7 @@ You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class wh
 
 > We recommend to use the [BaseStatementBuilder](/class/basestatementbuilder) over [IStatementBuilder](/interface/istatementbuilder) when creating a customized statement builder.
 
-### Pre-requisites
+## Pre-requisites
 
 - The naming to this object must be `Desired Name` + `StatementBuiler` (i.e.: `SqlServerStatementBuiler`).
 - The implementation must be `internal sealed`.
@@ -26,7 +26,7 @@ You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class wh
 
 > Please see the [folder structuring](/extensibility/folderstructuring) page.
 
-### Get Started
+## Get Started
 
 To create a statement builder class, simply inherits the [BaseStatementBuilder](/class/basestatementbuilder) class.
 
@@ -47,7 +47,7 @@ You have to call the `base()` method on the constructor by passing the following
 - [Convert Field Resolver](/extensibility/convertfieldresolver) - a resolver that is being used by the library as an equivalent calls to `CONVERT` keyword.
 - [Average Type Resolver](/extensibility/averagetyperesolver) - a resolver that is being used to define which type of .NET CLR type the library is going to be used when calling the [Average](/operation/average) and [AverageAll](/operation/averageall) operations.
 
-### Implementing the Abstract Methods
+## Implementing the Abstract Methods
 
 All methods of the [BaseStatementBuilder](/class/basestatementbuilder) class were implemented as virtuals, except for the following.
 
@@ -55,7 +55,7 @@ All methods of the [BaseStatementBuilder](/class/basestatementbuilder) class wer
 - `CreateMerge` - a method that generates a SQL statement for [Merge](/operation/merge) operation.
 - `CreateMergeAll` - a method that generates a SQL statement for [MergeAll](/operation/mergeall) operation.
 
-#### Why?
+### Why?
 
 - [BatchQuery](/operation/batchquery) - each RDBMS data provider has a different syntax for paging/batching.
 - [Merging](/operation/merge) - not all RDBMS data providers are supporting the default merge statement.
@@ -130,7 +130,7 @@ public override string CreateMerge(string tableName,
 
 > The code snippets above is just a sample, it was not tested and is not working. In addition to this note, you have to manually implement all the abstract methods.
 
-### Overriding the Virtual Methods
+## Overriding the Virtual Methods
 
 It is not necessary to override a virtual method of the [BaseStatementBuilder](/class/basestatementbuilder). However, if you do override, then below is a sample referrence-code that overrides the default implementation of [CreateTruncate](/operation/truncate) operation.
 
@@ -156,7 +156,7 @@ You can do override the other virtual methods (as many as you like).
 
 > It is very important to only override the virtual methods if a customization or different implementation is needed.
 
-### Usability
+## Usability
 
 Once you have the statement builder implemented in a customized class, you can directly inject it on the library using the [StatementBuilderMapper](/mapper/statementbuildermapper) class.
 
@@ -205,7 +205,7 @@ using (var repository = new DatabaseRepository(new AppSettings()))
 }
 ```
 
-### How to Retrieve?
+## How to Retrieve?
 
 You can use the [StatementBuilderMapper](/mapper/statementbuildermapper) to get the statement builder by connection type.
 

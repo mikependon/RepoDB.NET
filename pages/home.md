@@ -18,22 +18,9 @@ A hybrid ORM library for .NET.
 
 We are glad and thankful for your interest in learning [RepoDB](https://github.com/mikependon/RepoDb). It is an open-source .NET ORM library that bridges the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
 
+The main goal of this library is to hugely improve your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying database capability while maintaining the good programming coding standard and practices.
+
 ## Why use RepoDB?
-
-The main goal is to improve and simplify your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying database capability while maintaining the good programming coding standards and practices.
-
-The following attributes make this library stands out!
-
-| Attribute  | Description |
-|:-------------|:------------------|
-| Easy-to-Use | The operations were all implemented as extension methods of your IDbConnection object. For as long your connection is open, any operations can then be called against your database. |
-| High Performant | It caches the already-generated compiled expressions for future reusabilities and executions. It understands your schema to create the most optimal compiled expression AOT. |
-| Memory Efficient | It extracts and caches your object properties, execution contexts, object mappings and SQL statements. It is reusing them all throughout the process of transformations and executions. |
-| Dynamic and Hybrid | It provides some advance features of the full-fledged ORMs. It significantly help the developers to simplify the experience when context-switching during the development. |
-| Open-Source Software | It is an open-source software and will always be free. It is authored to further improve the .NET data access experiences and solutions, together with the collective ideas of the community. |
-| High Quality | It is a high-quality micro-ORM supported by 10K+ real-life Unit and Integration Tests. It is highly tested and is used by various critical systems that are running in the Production environment. |
-
-## User Experience
 
 If you are to use a full-fledged macro-ORM, you will most likely be abstracted by the framework itself. Though it is richer in features, it might limit you to touch and maximize the power of the underlying database being in-used.
 

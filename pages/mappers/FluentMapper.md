@@ -16,10 +16,12 @@ A mapper classed that is being used to define the mappings for both data entity 
 
 ### Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Entity` - gets the mapping definition for the specific data entity.
-- `Type` - get the mapping definition for the specific .NET CLR type.
+| Name | Description |
+|:-----|:------------|
+| Entity | Gets the mapping definition for the specific data entity. |
+| Type | Gets the mapping definition for the specific .NET CLR type. |
 
 ### Capabilities
 

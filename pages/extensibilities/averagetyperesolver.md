@@ -13,9 +13,7 @@ parent: EXTENSIBILITIES
 
 This object is used within the [BaseStatementBuilder](/class/basestatementbuilder) class as a resolver of which system type to be used for conversion when calling the [Average](/operation/average) and [AverageAll](/operation/averageall) operations.
 
-### How to Implement?
-
-Simply create a class that implements the [IResolver](/interface/iresolver).
+To implement, simply create a class that implements the [IResolver](/interface/iresolver).
 
 ```csharp
 public class AverageableTypeResolver : IResolver<Type, Type>
@@ -53,9 +51,7 @@ public Type Resolve(Type type)
 }
 ```
 
-### Usability
-
-You have to simply pass it when inheritting the [BaseStatementBuilder](/class/basestatementbuilder) class.
+Once implemented, simply pass it when inheritting the [BaseStatementBuilder](/class/basestatementbuilder) class.
 
 ```csharp
 internal sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder

@@ -14,16 +14,18 @@ parent: MAPPERS
 
 A mapper class for the [IDbSetting](/interface/idbsetting)-based class. The mapping can be made based on the type of the target RDBMS data provider. Please visit the [Database Setting](/extensibility/databasesetting) for more information.
 
-### Methods
+## Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Add` - adds a mapping between the [IDbSetting](/interface/idbsetting) and the type of the `DbConnection`.
-- `Clear` - clears all the existing mappings of the database settings.
-- `Get` - gets the existing mapped [IDbSetting](/interface/idbsetting) object based on the type of the `DbConnection`.
-- `Remove` - removes the existing mapped [IDbSetting](/interface/idbsetting) object based on the type of the `DbConnection`.
+| Name | Description |
+|:-----|:------------|
+| Add | Adds a mapping between the [IDbSetting](/interface/idbsetting) and the type of the `DbConnection`. |
+| Clear | Clears all the existing mappings of the database settings. |
+| Get | Gets the existing mapped [IDbSetting](/interface/idbsetting) object based on the type of the `DbConnection`. |
+| Remove | Removes the existing mapped [IDbSetting](/interface/idbsetting) object based on the type of the `DbConnection`. |
 
-### Usability
+## Usability
 
 To add a mapping, simply call the `Add()` method.
 

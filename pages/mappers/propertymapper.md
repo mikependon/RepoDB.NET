@@ -14,16 +14,18 @@ parent: MAPPERS
 
 A mapper class that is being used to map the class property into its equivalent column in the database. This class is used as an alternative to the [Map](/attribute/map) attribute.
 
-### Methods
+## Methods
 
-Below are the methods available from this class.
+Below is the list of methods.
 
-- `Add` - adds a database column name mapping into a property.
-- `Clear` - clears all the existing database columns mappings.
-- `Get` - gets the existing mapped database column name of the property.
-- `Remove` - removes the exising mapped database column name of the property.
+| Name | Description |
+|:-----|:------------|
+| Add | Adds a database column name mapping into a property. |
+| Clear | Clears all the existing database columns mappings. |
+| Get | Gets the existing mapped database column name of the property. |
+| Remove | Removes the exising mapped database column name of the property. |
 
-### Usability
+## Usability
 
 To add a mapping, simply call the `Add()` method.
 

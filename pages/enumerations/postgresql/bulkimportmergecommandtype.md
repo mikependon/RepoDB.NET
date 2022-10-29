@@ -15,12 +15,16 @@ grand_parent: ENUMERATIONS
 
 This enum is used to define the command text to use when executing the [BinaryBulkMerge](/operation/binarybulkmerge) operation. It is only used for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
-### Enum Values
+## Enum Values
 
-- `InsertAndUpdate` - an explicit INSERT and UPDATE commands will be used during the operation. It is the legacy UPSERT operation. (This is the default value)
-- `OnConflictDoUpdate` - an existing ON CONFLICT DO UPDATE command will be used during the operation. By using this value, it  requires that every entity only targets a single row from the underlying table, otherwise, an exception will be thrown. To ensure that the operation is targetting the correct row, we highly recommend to always pass the value of the primary column from your entities. If the 'qualifiers' argument is used, ensures that every qualifier field being in-used is present from the table indexes, otherwise, a unique or exclusion constraint exception will be thrown. (The exceptions thrown are default from PostgreSQL)
+Below is the list of enum values.
 
-### Usability
+| Name | Description |
+|:-----|:------------|
+| InsertAndUpdate | An explicit INSERT and UPDATE commands will be used during the operation. It is the legacy UPSERT operation. (This is the default value) |
+| OnConflictDoUpdate | An existing ON CONFLICT DO UPDATE command will be used during the operation. By using this value, it  requires that every entity only targets a single row from the underlying table, otherwise, an exception will be thrown. To ensure that the operation is targetting the correct row, we highly recommend to always pass the value of the primary column from your entities. If the 'qualifiers' argument is used, ensures that every qualifier field being in-used is present from the table indexes, otherwise, a unique or exclusion constraint exception will be thrown. (The exceptions thrown are default from PostgreSQL) |
+
+## Usability
 
 Let us say, you would like to merge a big dataset into the database and you prefer to use the ON CONFLICT DO UPDATE merge command of PostgreSQL. Simply pass `OnConflictDoUpdate` value on the `mergeCommandType` argument. See below.
 

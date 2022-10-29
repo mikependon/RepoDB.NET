@@ -15,7 +15,7 @@ A database helper is an object that is used by the library as a helper class for
 
 You have use the [IDbHelper](/interface/idbhelper) interface as the contract for the implementation and [DbHelperMapper](/mapper/dbhelpermapper) class for the mapping.
 
-### Pre-requisites
+## Pre-requisites
 
 - The naming must be `Desired Name` + `DbHelper` (i.e.: `SqlServerDbHelper`).
 - The implementation must be `internal sealed`.
@@ -24,7 +24,7 @@ You have use the [IDbHelper](/interface/idbhelper) interface as the contract for
 
 > Please see the [folder structuring](/extensibility/folderstructuring) page.
 
-### Get Started
+## Get Started
 
 First, you have to manually create a class that implements the [IDbHelper](/interface/idbhelper) interface.
 
@@ -63,7 +63,7 @@ internal sealed class OptimizedSqlServerDbHelper : IDbHelper
 
 > You have to implement all the methods needed by this interface. With this, you have the full control of you helper object.
 
-### Method GetFields
+## Method GetFields
 
 This method is returning the list of [DbField](/class/dbfield) objects. Below are the sample implementations for SQL Server.
 
@@ -194,7 +194,7 @@ public IEnumerable<DbField> GetFields(IDbConnection connection,
 }
 ```
 
-### Method GetScopedIdentity
+## Method GetScopedIdentity
 
 This method is returning the latest generated identity from the database (scoped level). If not present at the scoped level, then it will return the global level. Below is a sample implementation.
 
@@ -208,7 +208,7 @@ public object GetScopeIdentity(IDbConnection connection,
 }
 ```
 
-### Usability
+## Usability
 
 Once you have the database helper implemented in a customized class, you can use the [DbHelperMapper](/mapper/dbhelpermapper) class to map it in your target RDDMS data provider.
 
@@ -218,7 +218,7 @@ DbHelperMapper.Add(typeof(SqlConnection), new OptimizedSqlServerDbHelper(), true
 
 The library will then use your customized database helper when you are calling the extended [methods](/docs#methods) of the `SqlConnection` object.
 
-### How to Retrieve?
+## How to Retrieve?
 
 You can use the [DbHelperMapper](/mapper/dbhelpermapper) to get the database helper by connection type.
 

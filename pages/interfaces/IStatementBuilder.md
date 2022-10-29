@@ -13,41 +13,43 @@ parent: INTERFACES
 
 This interface is used to mark a class to be a statement builder object. I provides necessary methods for your to be able to override the way how the SQL statements are being constructed.
 
-### Methods
+## Methods
 
-Below are the methods available from this interface.
+Below is the list of methods.
 
-- `CreateAverage` - used to create a SQL statement for the [Average](/operation/average) operation.
-- `CreateAverageAll` - used to create a SQL statement for the [AverageAll](/operation/averageall) operation.
-- `CreateBatchQuery` - used to create a SQL statement for the [BatchQuery](/operation/batchquery) operation.
-- `CreateCount` - used to create a SQL statement for the [Count](/operation/count) operation.
-- `CreateCountAll` - used to create a SQL statement for the [Average](/operation/countall) operation.
-- `CreateDelete` - used to create a SQL statement for the [Delete](/operation/delete) operation.
-- `CreateDeleteAll` - used to create a SQL statement for the [DeleteAll](/operation/deleteall) operation.
-- `CreateExists` - used to create a SQL statement for the [Exists](/operation/exists) operation.
-- `CreateInsert` - used to create a SQL statement for the [Insert](/operation/insert) operation.
-- `CreateInsertAll` - used to create a SQL statement for the [InsertAll](/operation/insertall) operation.
-- `CreateMax` - used to create a SQL statement for the [Max](/operation/max) operation.
-- `CreateMaxAll` - used to create a SQL statement for the [MaxAll](/operation/maxall) operation.
-- `CreateMerge` - used to create a SQL statement for the [Merge](/operation/merge) operation.
-- `CreateMergeAll` - used to create a SQL statement for the [MergeAll](/operation/mergeall) operation.
-- `CreateMin` - used to create a SQL statement for the [Min](/operation/min) operation.
-- `CreateMinAll` - used to create a SQL statement for the [MinAll](/operation/minall) operation.
-- `CreateQuery` - used to create a SQL statement for the [Query](/operation/query) operation.
-- `CreateQueryAll` - used to create a SQL statement for the [QueryAll](/operation/queryall) operation.
-- `CreateSum` - used to create a SQL statement for the [Sum](/operation/sum) operation.
-- `CreateSumAll` - used to create a SQL statement for the [SumAll](/operation/sumall) operation.
-- `CreateTruncate` - used to create a SQL statement for the [Truncate](/operation/truncate) operation.
-- `CreateUpdate` - used to create a SQL statement for the [Update](/operation/update) operation.
-- `CreateUpdateAll` - used to create a SQL statement for the [UpdateAll](/operation/updateall) operation.
+| Name | Description |
+|:-----|:------------|
+| CreateAverage | Used to create a SQL statement for the [Average](/operation/average) operation. |
+| CreateAverageAll | Used to create a SQL statement for the [AverageAll](/operation/averageall) operation. |
+| CreateBatchQuery | Used to create a SQL statement for the [BatchQuery](/operation/batchquery) operation. |
+| CreateCount | Used to create a SQL statement for the [Count](/operation/count) operation. |
+| CreateCountAll | Used to create a SQL statement for the [Average](/operation/countall) operation. |
+| CreateDelete | Used to create a SQL statement for the [Delete](/operation/delete) operation. |
+| CreateDeleteAll | Used to create a SQL statement for the [DeleteAll](/operation/deleteall) operation. |
+| CreateExists | Used to create a SQL statement for the [Exists](/operation/exists) operation. |
+| CreateInsert | Used to create a SQL statement for the [Insert](/operation/insert) operation. |
+| CreateInsertAll | Used to create a SQL statement for the [InsertAll](/operation/insertall) operation. |
+| CreateMax | Used to create a SQL statement for the [Max](/operation/max) operation. |
+| CreateMaxAll | Used to create a SQL statement for the [MaxAll](/operation/maxall) operation. |
+| CreateMerge | Used to create a SQL statement for the [Merge](/operation/merge) operation. |
+| CreateMergeAll | Used to create a SQL statement for the [MergeAll](/operation/mergeall) operation. |
+| CreateMin | Used to create a SQL statement for the [Min](/operation/min) operation. |
+| CreateMinAll | Used to create a SQL statement for the [MinAll](/operation/minall) operation. |
+| CreateQuery | Used to create a SQL statement for the [Query](/operation/query) operation. |
+| CreateQueryAll | Used to create a SQL statement for the [QueryAll](/operation/queryall) operation. |
+| CreateSum | Used to create a SQL statement for the [Sum](/operation/sum) operation. |
+| CreateSumAll | Used to create a SQL statement for the [SumAll](/operation/sumall) operation. |
+| CreateTruncate | Used to create a SQL statement for the [Truncate](/operation/truncate) operation. |
+| CreateUpdate | Used to create a SQL statement for the [Update](/operation/update) operation. |
+| CreateUpdateAll | Used to create a SQL statement for the [UpdateAll](/operation/updateall) operation. |
 
-### Use-Cases
+## Use-Cases
 
 This is very useful if you wish to override the existing statement builder of the library, or wish to support the other RDBMS database providers.
 
 Please visit the [Statement Builder](/extensibility/statementbuilder) to learn more about the statement builder.
 
-### How to Implement?
+## How to Implement?
 
 You have to manually create a class that implements this interface.
 
@@ -113,7 +115,7 @@ public class OptimizedSqlServerStatementBuilder : IStatementBuilder
 }
 ```
 
-### Usability
+## Usability
 
 You can instantiate a new instance and pass it when you are calling any [fluent methods](/links/fluent-methods).
 
