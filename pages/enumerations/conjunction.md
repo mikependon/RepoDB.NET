@@ -20,7 +20,7 @@ Below is the list of enum values.
 
 | Name | Description |
 |:-----|:------------|
-! And ! Is used to define an `AND` expression during the grouping. This is the default setting. |
+! And | Is used to define an `AND` expression during the grouping. This is the default setting. |
 | Or | Is used to define an `OR` expression during the grouping |
 
 ## Usability
