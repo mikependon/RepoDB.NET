@@ -16,7 +16,7 @@ This page contains the recommended way of implementing a property handler for sp
 
 > It is important to take note that this property handler is based on database column type (database-bound).
 
-### PropertyHandler
+## PropertyHandler
 
 Create a class that implements the [IPropertyHandler](/interface/ipropertyhandler) interface.
 
@@ -53,7 +53,7 @@ public class GuidToStringPropertyHandler : IPropertyHandler<Guid?, string>
 }
 ```
 
-### Mapping
+## Mapping
 
 #### Explict
 
@@ -78,7 +78,7 @@ FluentMapper
     .PropertyHandler<GuidToStringPropertyHandler>();
 ```
 
-### Key Take-aways
+## Key Take-aways
 
 - Ensure to always make both the `TInput` and `TResult` generic types `nullable`. It is handling both the properties/columns that are nullables/non-nullables.
 - Make the code snippets to both `Get()` and `Set()` method concise and highly performant.

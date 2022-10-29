@@ -16,7 +16,7 @@ This page contains the reference implementation when implementing a file system 
 
 > The class is using the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) package.
 
-### Implementation
+## Implementation
 
 First, create an interface that implements an [ICache](/interface/icache) interface. This is also to support the dependency injection.
 
@@ -48,7 +48,7 @@ public class JsonCache : IJsonCache
 
 > All methods of the [ICache](/interface/icache) interface must be implemented manually.
 
-### Properties
+## Properties
 
 Implement the properties that will hold the extension of the file and the location of the caches.
 
@@ -57,7 +57,7 @@ public string Extension { get; }
 public string Path { get; }
 ```
 
-### Methods
+## Methods
 
 Implement the helper methods that would help you compose the filename and creates a directory.
 
@@ -178,7 +178,7 @@ IEnumerator IEnumerable.GetEnumerator()
 
 > The class [CacheItem](/class/cacheitem) does not have default constructor, therefore, you cannot serialize/deserialize this object into JSON. The only thing that you can serialize/deserialize is the value itself. If you wish to cache the properties (i.e.: `Key`, `Expiration`, `ExpirationInMinutes`), then you have to create a class in between before serializing/deserializing it.
 
-### Usability
+## Usability
 
 Create a factory class.
 

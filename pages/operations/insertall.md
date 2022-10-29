@@ -13,7 +13,7 @@ parent: OPERATIONS
 
 This method is used to insert the multiple data entity objects as new rows in the table.
 
-### Use Case
+## Use Case
 
 If you are inserting multiple rows in the database, avoid iterating it, instead, insert them by batch. This method solves that problem by creating a multi-packed SQL statements that can be executed in one-go.
 
@@ -25,7 +25,7 @@ The execution is ACID as the transaction object will be created if not given.
 
 > Be aware that if you are managing the size of your batch, it may collide on the number of maximum allowable parameters of ADO.NET. The max parameters are 2100.
 
-### Code Snippets
+## Code Snippets
 
 Let us say you have a method that returns a list of `Person` models.
 
@@ -63,7 +63,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Targeting a Table
+## Targeting a Table
 
 You can also target a specific table by passing the literal table like below.
 
@@ -87,7 +87,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Specific Columns
+## Specific Columns
 
 You can also target a specific columns to be inserted by passing the list of fields to be included in the `fields` argument.
 
@@ -118,7 +118,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Batch Size
+## Batch Size
 
 You can adjust the size of your batch by simply passing the value at the `batchSize` argument. By default, the value is `10` (found at `Constant.DefaultBatchOperationSize`).
 
@@ -131,7 +131,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Table Hints
+## Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 

@@ -25,7 +25,7 @@ This page contains the reference implementation when implementing a generic repo
 
 - [CommandTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand.commandtimeout?view=sqlclient-dotnet-core-1.1)
 
-### Cache
+## Cache
 
 Create a custom cache class.
 
@@ -73,7 +73,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Trace
+## Trace
 
 Create a custom trace class.
 
@@ -121,7 +121,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Settings
+## Settings
 
 The settings object must be injected within the constructor of the repository. Please refer to Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
@@ -135,7 +135,7 @@ public class AppSetting
 ```
 
 
-### Interface
+## Interface
 
 Create an interface that contains all the necessary methods.
 
@@ -177,7 +177,7 @@ public interface IRepositoryBase<TDbConnection>
 }
 ```
 
-### Repository (Base)
+## Repository (Base)
 
 Below is the sample repository implementation. It implements the `IRepositoryBase` interface repository above.
 
@@ -206,11 +206,11 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
 }
 ```
 
-### Interface Methods
+## Interface Methods
 
 Implement all the methods of the base interface.
 
-#### Create Connection
+## Create Connection
 
 ```csharp
 public TDbConnection CreateConnection()
@@ -221,7 +221,7 @@ public TDbConnection CreateConnection()
 }
 ```
 
-#### Get
+## Get
 
 ```csharp
 public IEnumerable<TEntity> GetAll<TEntity>(string cacheKey = null)
@@ -247,7 +247,7 @@ public TEntity Get<TEntity>(object id)
 }
 ```
 
-#### Delete
+## Delete
 
 ```csharp
 public int Delete<TEntity>(object id)
@@ -261,7 +261,7 @@ public int Delete<TEntity>(object id)
 }
 ```
 
-#### Merge
+## Merge
 
 ```csharp
 public object Merge<TEntity>(TEntity entity)
@@ -275,7 +275,7 @@ public object Merge<TEntity>(TEntity entity)
 }
 ```
 
-#### Save
+## Save
 
 ```csharp
 public object Save<TEntity>(TEntity entity)
@@ -289,7 +289,7 @@ public object Save<TEntity>(TEntity entity)
 }
 ```
 
-#### Update
+## Update
 
 ```csharp
 public int Update<TEntity>(TEntity entity)
@@ -302,11 +302,11 @@ public int Update<TEntity>(TEntity entity)
 }
 ```
 
-### Async Methods
+## Async Methods
 
 Ensure that all the synchronous methods you had created has the corresponding asynchronous methods suffixed by `Async` keyword. Within these methods, ensure that you are calling the corresponding asynchronous operations of the library.
 
-#### Get
+## Get
 
 ```csharp
 public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(string cacheKey = null)
@@ -332,7 +332,7 @@ public async Task<TEntity> GetAsync<TEntity>(object id)
 }
 ```
 
-#### Delete
+## Delete
 
 ```csharp
 public async Task<int> DeleteAsync<TEntity>(object id)
@@ -346,7 +346,7 @@ public async Task<int> DeleteAsync<TEntity>(object id)
 }
 ```
 
-#### Merge
+## Merge
 
 ```csharp
 public async Task<object> MergeAsync<TEntity>(TEntity entity)
@@ -360,7 +360,7 @@ public async Task<object> MergeAsync<TEntity>(TEntity entity)
 }
 ```
 
-#### Save
+## Save
 
 ```csharp
 public async Task<object> SaveAsync<TEntity>(TEntity entity)
@@ -374,7 +374,7 @@ public async Task<object> SaveAsync<TEntity>(TEntity entity)
 }
 ```
 
-#### Update
+## Update
 
 ```csharp
 public async Task<int> UpdateAsync<TEntity>(TEntity entity)
@@ -388,7 +388,7 @@ public async Task<int> UpdateAsync<TEntity>(TEntity entity)
 }
 ```
 
-### Using the RepositoryBase
+## Using the RepositoryBase
 
 Create a class that inherits the repository.
 
@@ -418,7 +418,7 @@ public class NorthwindRepository : RepositoryBase<SqlConnection>
 }
 ```
 
-### Derived Repository Methods
+## Derived Repository Methods
 
 Create a method that calls the base method. Below is the recommended way for retrieving a single record.
 
@@ -460,7 +460,7 @@ public int SaveProduct(Product product)
 
 > Do the same calls for the other methods. Also, please take note to always implement the corresponding asynchronous methods.
 
-### Interface for Derived Repository
+## Interface for Derived Repository
 
 Implement the interface for the derived repository.
 
@@ -506,7 +506,7 @@ public interface INorthwindRepository
 }
 ```
 
-### Derived Interface Implementation
+## Derived Interface Implementation
 
 Create a class that inherits the repository and implements the interface.
 
@@ -536,7 +536,7 @@ public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepo
 }
 ```
 
-### Service Configuration and Registration
+## Service Configuration and Registration
 
 Register it as singleton if you...
 
@@ -565,7 +565,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Key Take-aways
+## Key Take-aways
 
 - The dependency injection must be happened only in the derived repositories.
 - The async methods must be provided in all methods.

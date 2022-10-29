@@ -18,7 +18,7 @@ It contains the actual [Field](/class/field), [Operation](/enumeration/operation
 
 By using this class, it would increase the performance of your application as the library's core implementation is very dependent on the tree structuring of the query objects.
 
-### Creating an Instance
+## Creating an Instance
 
 Below is the way on how to create an instance of this class.
 
@@ -38,7 +38,7 @@ Or, with `DbType`.
 var field = new QueryField("Id", Operation.Between, new [] { 100, 1000 }, DbType.Int);
 ```
 
-### Use-Cases
+## Use-Cases
 
 This can be very useful if you are running a query in a dynamic way and if you would like to manage the tree structure of your expression.
 
@@ -91,7 +91,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Converting to an Enumerable
+## Converting to an Enumerable
 
 You can call the `AsEnumerable()` method to convert the instance of this class to an `IEnumerable<QueryField>` object.
 
@@ -99,7 +99,7 @@ You can call the `AsEnumerable()` method to convert the instance of this class t
 var fields = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1)).AsEnumerable();
 ```
 
-### Retrieving the Operation Text
+## Retrieving the Operation Text
 
 To retrieve the text of the [Operation](/enumeration/operation), simply call the `GetOperationText()` method.
 
@@ -110,17 +110,17 @@ var operation = field.GetOperationText();
 
 The value of the `operation` variable would be `>=`.
 
-### DbParameter Property
+## DbParameter Property
 
 This property is quitely important if you wish to get a reference to the associated `DbParameter` object on the current instance after the execution.
 
 It is useful if you are retrieving a value of the output parameter from the database after the execution.
 
-### GetValue Method
+## GetValue Method
 
 This method returns the value of the [Parameter](/class/parameter) object currently in used by the instance. However, if the current instance has already been used as a parameter to the execution where the `ParameterDirection` is either of the `Output/Input`, then, the value of the output parameter via `DbParameter` object is returned. This will happen usually if the current instance of this object is of type [DirectionalQueryField](/class/directionalqueryfield).
 
-### Reusability
+## Reusability
 
 We sometimes have a scenario to reuse the instance of this class just to avoid creating the same expression.
 
@@ -151,7 +151,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > Above calls was happened at the `IEnumerable<QueryField>` object. You can also call the `Reset()` method on an instance basis.
 
-### IsForUpdate Method
+## IsForUpdate Method
 
 There is a scenario that we are using this class for the purpose of updates.
 

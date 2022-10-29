@@ -14,7 +14,7 @@ parent: CLASSES
 
 This class is used to define a mapping of the source and destination columns when doing the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 
-### Create a new Instance
+## Create a new Instance
 
 Below is simple way to create an instance.
 
@@ -22,7 +22,7 @@ Below is simple way to create an instance.
 var mapItem = new BulkInsertMapItem("SourceId", "DestinationId");
 ```
 
-### Usage for BulkOperations
+## Usage for BulkOperations
 
 Let us say you a model class like below.
 

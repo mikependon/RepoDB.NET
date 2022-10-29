@@ -16,14 +16,14 @@ A cacher class for the `System.Reflection.PropertyInfo`. Underneath, it uses the
 
 > You should rely on this class rather using the `nameof(Class.Property)` of C# when working against the property name.
 
-### Methods
+## Methods
 
 Below are the methods available from this class.
 
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the mapped name of the property.
 
-### Usability
+## Usability
 
 You can simply call the `Get()` method of this class by passing the instance of `System.Reflection.PropertyInfo`.
 

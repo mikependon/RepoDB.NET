@@ -14,19 +14,19 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-### RepoDb (v1.13.0-beta1)
+## RepoDb (v1.13.0-beta1)
 
 - Upgraded the `Microsoft.Data.SqlClient` package to  `v5.0.1`.
 
 
-### RepoDb (v1.13.0-alpha3)
+## RepoDb (v1.13.0-alpha3)
 
 - Enhancement: Add a switch of which value to return (Identity/Primary) during the push operations ([Insert](/operation/insert), [InsertAll](/operation/insertall), [Merge](/operation/merge) and [MergeAll](/operation/mergeall)). [#1086](https://github.com/mikependon/RepoDB/issues/1086) - (Updates to both PostgreSQL, MySQL, SQLite (System/Microsoft) extended libraries)
 - Enum: writing to db fails, when global-option is automatic or db-field is primary-key [#1100](https://github.com/mikependon/RepoDB/issues/1100)
 - Enums: error when dbValue doesn't exist in Enum-Values [#1099](https://github.com/mikependon/RepoDB/issues/1099)
 
 
-### RepoDb (v1.13.0-alpha2)
+## RepoDb (v1.13.0-alpha2)
 
 - Introduced the `NullToDbNull` method into the [Converter](/class/converter) class.
 - Enhancement: Add a [PropertyHandlerOptions](/options/propertyhandleroptions) and [ClassHandlerOptions](/options/classhandleroptions) class [#1088](https://github.com/mikependon/RepoDB/issues/1088)
@@ -36,14 +36,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Add a switch of which value to return (Identity/Primary) during the push operations ([Insert](/operation/insert), [InsertAll](/operation/insertall), [Merge](/operation/merge) and [MergeAll](/operation/mergeall)). [#1086](https://github.com/mikependon/RepoDB/issues/1086)
 
 
-### RepoDb (v1.13.0-alpha1)
+## RepoDb (v1.13.0-alpha1)
 
-#### Highlights
+Highlights
 {: .label .label-green }
 
 - Enhancement: Re-implement the Tracing overall implementations - Addressing the Simplicity and Extensibility [#941](https://github.com/mikependon/RepoDB/issues/941)
 
-#### Breaking
+Breaking
 {: .label .label-red }
 
 - Enhancement: Simplified the constructors of the [QueryField](/class/queryfield) and [DirectionalQueryField](/class/directionalqueryfield) classes.
@@ -52,7 +52,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 - Enhancement: Removed the `Type` property from the [DirectionalQueryField](/class/directionalqueryfield) object.
 - Enhancement: Enable [IDbDataParameter](https://docs.microsoft.com/en-us/dotnet/api/system.data.idbdataparameter?view=net-6.0) as query arguments [#1060](https://github.com/mikependon/RepoDB/issues/1060)
 
-#### Non-Breaking
+### Non-Breaking
 
 - Bug: No coercion operator is defined between types `System.TimeSpan` and `System.Int64`. [#1033](https://github.com/mikependon/RepoDB/issues/1033)
 - Bug: Type with custom mapping used in an array is not mapped to specific `DBType` [#1053](https://github.com/mikependon/RepoDB/issues/1053)
@@ -78,7 +78,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Question: How does one trace `Async` methods? [#945](https://github.com/mikependon/RepoDB/issues/945)
 
 
-### RepoDb (v.12.10)
+## RepoDb (v.12.10)
 
 - Bug: the DeleteAll<T>(T entities) method results in System.InvalidOperationException errors [#1011](https://github.com/mikependon/RepoDB/issues/1011)
 - 实体继承基类的主键以及字段，无法在派生类中体现？ [#986](https://github.com/mikependon/RepoDB/issues/986)
@@ -94,7 +94,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Upgraded the `System.Linq.Async` package to `v6.1.0`.
 
 
-### RepoDb (v1.12.10-beta4)
+## RepoDb (v1.12.10-beta4)
 
 - Compiler update to utilize the customized `DbParameterExtension` class to compliment the compiler's needs for the `NpgsqlParameter.NpgsqlDbType.Unknown`.
 - Complimentary support to the Enum(s) for the `RepoDb.PostgreSql.BulkOperations` package.
@@ -102,32 +102,32 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Upgraded the `Microsoft.Bcl.AsyncInterfaces` package to `v6.0.0`.
 
 
-### RepoDb (v1.12.10-beta3)
+## RepoDb (v1.12.10-beta3)
 
 - (Additional Fixes) Bug: Exceptions are thrown when using a custom [PropertyHandler](/feature/propertyhandlers) and a Where Expression to process an Enum value (that has NULL or invalid Enum Id); the Get/Set is never invoked. [#991](https://github.com/mikependon/RepoDB/issues/991)
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 
 
-### RepoDb (v1.12.10-beta2)
+## RepoDb (v1.12.10-beta2)
 
 - Question: why to order by a field, it needs to be in the select? [#963](https://github.com/mikependon/RepoDB/issues/963)
 - Bug: Exceptions are thrown when using a custom [PropertyHandler](/feature/propertyhandlers) and a Where Expression to process an Enum value (that has NULL or invalid Enum Id); the Get/Set is never invoked. [#991](https://github.com/mikependon/RepoDB/issues/991)
 - Supported the `.NET v6.0`.
 
 
-### RepoDb (v1.12.10-beta1)
+## RepoDb (v1.12.10-beta1)
 
 - Initial support to PostgreSQL bulk operations.
 - Code refactoring specifically on the `QueryBuilders`.
 
 
-### RepoDb (v1.12.9)
+## RepoDb (v1.12.9)
 
 - Enhancement: Make the value argument of the functional [QueryField](/class/queryfield) objects to `System.Object`. [#926](https://github.com/mikependon/RepoDB/issues/926)
 - Question: How is inheritance working in RepoDB? [#955](https://github.com/mikependon/RepoDB/issues/955)
 
 
-### RepoDb (v1.12.8)
+## RepoDb (v1.12.8)
 
 - NETSTANDARD2.0: Added the `Microsoft.Bcl.AsyncInterfaces v5.0.0` package.
 - NETSTANDARD2.0: Added the `Microsoft.Bcl.HashCode v1.1.1` package.
@@ -170,7 +170,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Enhancement: Introduce the formatters for the [QueryField](/class/queryfield) class [899](https://github.com/mikependon/RepoDB/issues/899))
 
 
-### RepoDb (v1.12.8-beta5)
+## RepoDb (v1.12.8-beta5)
 
 - NETSTANDARD2.0: Added the `Microsoft.Bcl.AsyncInterfaces v5.0.0` package.
 - NETSTANDARD2.0: Added the `Microsoft.Bcl.HashCode v1.1.1` package.
@@ -206,28 +206,28 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Enhancement: Added the `PropertyValueAttributes()` method on the [FluentMapper](/mapper/fluentmapper) class.
 - Enhancement: Introduce the formatters for the [QueryField](/class/queryfield) class [899](https://github.com/mikependon/RepoDB/issues/899))
 
-### RepoDb (v1.12.8-beta4)
+## RepoDb (v1.12.8-beta4)
 
 - Bug: Different lambdas in [QueryAsync](/operation/query) generate the same SQL expression (cache problem) [#782](https://github.com/mikependon/RepoDB/issues/782).
 
 
-### RepoDb (v1.12.8-beta3)
+## RepoDb (v1.12.8-beta3)
 
 - (Rebuilt Only) Bug: [OrderField](/class/orderfield) ignores MapAttribute [#769](https://github.com/mikependon/RepoDB/issues/769)
 
 
-### RepoDb (v1.12.8-beta2)
+## RepoDb (v1.12.8-beta2)
 
 - Bug: [OrderField](/class/orderfield) ignores [MapAttribute](/attribute/map) [#769](https://github.com/mikependon/RepoDB/issues/769)
 - Bug: Querying by string field fails in VB .Net [#767](https://github.com/mikependon/RepoDB/issues/767)
 
 
-### RepoDb (v1.12.8-beta1)
+## RepoDb (v1.12.8-beta1)
 
 - Bug: [Insert](/operation/insert) exception since 1.1.3 with mysql... [#765](https://github.com/mikependon/RepoDB/issues/765)
 
 
-### RepoDb (v1.12.7)
+## RepoDb (v1.12.7)
 
 - Enhancement: Add a `Reset()` method into the [Parameter](/class/parameter) object. [#709](https://github.com/mikependon/RepoDB/issues/709)
 - Enhancement: Add a method `DbParameter` into the [QueryField](/class/queryfield) object. [#711](https://github.com/mikependon/RepoDB/issues/711)
@@ -237,7 +237,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Bug: null reference during fetch [#748](https://github.com/mikependon/RepoDB/issues/748)
 
 
-### RepoDb (v1.12.6)
+## RepoDb (v1.12.6)
 
 - Feature: Support the Output Parameters [#686](https://github.com/mikependon/RepoDB/issues/686) - **NEW**
 - Enhancement: Add the `__RepoDb_OrderColumn` at the Batch Operations ([InsertAll](/operation/insertall), [MergeAll](/operation/mergeall)) [#703](https://github.com/mikependon/RepoDB/issues/703)
@@ -246,14 +246,14 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Enhancement: Add a method `DbParameter` into the [QueryField](/class/queryfield) object. [#711](https://github.com/mikependon/RepoDB/issues/711)
 
 
-### RepoDb (v1.12.5)
+## RepoDb (v1.12.5)
 
-#### Breaking
+Breaking
 {: .label .label-red }
 
 - Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673)
 
-#### Non-Breaking
+### Non-Breaking
 
 - Enhancement: Add the dynamic [ExecuteQueryMultiple](/operation/executequerymultiple) method in the [DbRepository](/class/dbrepository) [#630](https://github.com/mikependon/RepoDB/issues/630)
 - Possible bug - Enum with Flag attribute is not correctly handled [#624](https://github.com/mikependon/RepoDB/issues/624)
@@ -281,19 +281,19 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Fixed the related issues found at model-based operation [ExecuteQuery](/operation/executequery) (almost related to [#666](https://github.com/mikependon/RepoDB/issues/666))
 
 
-### RepoDb (v1.12.5-beta6)
+## RepoDb (v1.12.5-beta6)
 
 - Fixed the related issues found at model-based operation [ExecuteQuery](/operation/executequery) (almost related to [#666](https://github.com/mikependon/RepoDB/issues/666))
 
 
-### RepoDb (v1.12.5-beta5)
+## RepoDb (v1.12.5-beta5)
 
-#### Breaking
+Breaking
 {: .label .label-red }
 
 - Adhoc: Remove the Initialize method from the [DataEntityDataReader](https://repodb.net/class/dataentitydatareader). [#673](https://github.com/mikependon/RepoDB/issues/673) 
 
-#### Non-Breaking
+### Non-Breaking
 
 - Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
 - Bug: [FluentMapper](/mapper/fluentmapper) is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
@@ -302,22 +302,22 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Upgraded the `System.ComponentModel.Annotations` to `v5.0.0`.
 
 
-### RepoDb (v1.12.5-beta4)
+## RepoDb (v1.12.5-beta4)
 
 - Request: Introduce optional caching to [ExecuteScalar](/operation/executescalar) methods. [#648](https://github.com/mikependon/RepoDB/issues/648)
 - Enhancement: Add the non-parameterized Truncate operation. [#652](https://github.com/mikependon/RepoDB/issues/652)
 
-###  RepoDb (v1.12.5-beta3)
+##  RepoDb (v1.12.5-beta3)
 
 - Request: Do not crash if on empty enumerable on bulk operation [#635](https://github.com/mikependon/RepoDB/issues/635).
 
-### RepoDb (v1.12.5-beta2)
+## RepoDb (v1.12.5-beta2)
 
 - Bug: Exception is being thrown for the Type level [PropertyHandler](/features/propertyhandlers) for Dynamic Insertion [#628](https://github.com/mikependon/RepoDB/issues/628).
 - Added a validation to ensure the type of the `TPropertyHandler` has implemented the [IPropertyHandler](/interface/ipropertyhandler) interface when calling the `Add()` method of the [PropertyHandlerCache](/cacher/propertyhandlercache) object.
 
 
-### RepoDb (v1.12.5-beta1)
+## RepoDb (v1.12.5-beta1)
 
 - Enhancement: Add the dynamic [ExecuteQueryMultiple](/operation/executequerymultiple) method in the [DbRepository](/class/dbrepository) [#630](https://github.com/mikependon/RepoDB/issues/630)
 - Possible bug - Enum with Flag attribute is not correctly handled [#624](https://github.com/mikependon/RepoDB/issues/624)
@@ -334,29 +334,29 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Enhancement: Support `ExpandoObject` in [BulkDelete](/operation/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
 
 
-### RepoDb (v1.12.4)
+## RepoDb (v1.12.4)
 
 - CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
 
 
-### RepoDb (v1.12.3)
+## RepoDb (v1.12.3)
 
 - Bug: Behavior change from previous versions prior v1.12.0 [#602](https://github.com/mikependon/RepoDB/issues/602)
 - Bug: Async fetch operations are not using the `DbDataReader.ReadAsync` method (in v1.12.0 to v1.12.2) [#601](https://github.com/mikependon/RepoDB/issues/601)
 
 
-### RepoDb (v1.12.2)
+## RepoDb (v1.12.2)
 
 - Bug: A `NullReferenceException` Is Thrown for NULL Query Expression [#600](https://github.com/mikependon/RepoDB/issues/600)
 
 
-### RepoDb (v1.12.1)
+## RepoDb (v1.12.1)
 
 - Enhancement: New Compiler Possible Collision Problem - Refactor the DbDataReader GetHashCode() Generator [#597](https://github.com/mikependon/RepoDb/issues/597)
 - Bug: Unable to share POCOs between different database providers (Sqlite and Postgres) [#595](https://github.com/mikependon/RepoDb/issues/595]
 
 
-### RepoDb (v1.12.0)
+## RepoDb (v1.12.0)
 
 - Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
 - Request: F# - Consider the Anonymous Types in the Query and QueryAll operation [#536](https://github.com/mikependon/RepoDb/issues/536).
@@ -410,13 +410,13 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added the execution context provider internal classes for the [Insert](/operation/insert), [Merge](/operation/merge), [Update](/operation/update), internal class for the [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall) and [UpdateAll](/operation/updateall)operations.
 
 
-### RepoDb (v1.12.0-beta4)
+## RepoDb (v1.12.0-beta4)
 
 - Enhancement: Consider supporting the execution of the TVP in SQL Server. [#566](https://github.com/mikependon/RepoDb/issues/566)
 - Integration Tests: Added more Integration Tests for the `DbType` Map Attribute (includes SQL Server, PostgreSQL and MySQL).
 
 
-### RepoDb (v1.12.0-beta3)
+## RepoDb (v1.12.0-beta3)
 
 - Enhancement: Refactor the Table-Based Calls to return `IEnumerable<ExpandoObject>` instead of `IEnumerable<dynamics>`. [#540](https://github.com/mikependon/RepoDb/issues/540)
 - Enhancement: Support for returning `IDictionary<string, object>` instead of ExpandoObject. [#537](https://github.com/mikependon/RepoDb/issues/537)
@@ -425,7 +425,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Feature: Support to Enumerable Scalar Values [#538](https://github.com/mikependon/RepoDb/issues/538) - **NEW**
 
 
-### RepoDb (v1.12.0-beta2)
+## RepoDb (v1.12.0-beta2)
 
 - Enhancement: Updated the [QueryGroup.Parse()](/class/querygroup) method to be an argument-typed-based method.
 - Enhancement: Refactored and optimized the `Parse` method of the [QueryField](/class/queryfield) and [QueryGroup](/class/querygroup) objects.
@@ -434,7 +434,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Question: Specific Columns in `Query<TEntity>` [#545](https://github.com/mikependon/RepoDb/issues/545)
 
 
-### RepoDb (v1.12.0-beta1)
+## RepoDb (v1.12.0-beta1)
 
 - Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
 - Bug: [QueryAsync](/operation/query) with empty [QueryField](/class/queryfield) list throws SQL exception [#498](https://github.com/mikependon/RepoDb/issues/498).
@@ -474,7 +474,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added the execution context provider internal classes for the [Insert](/operation/insert), [Merge](/operation/merge), [Update](/operation/update), internal class for the [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall) and [UpdateAll](/operation/updateall)operations.
 
 
-### RepoDb (v1.11.6)
+## RepoDb (v1.11.6)
 
 - Code optimizations and XML comments refactoring.
 - Bug: `NullReferenceException` occurs when [InsertAllAsync](/operation/insertall) is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
@@ -496,13 +496,13 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added a `DataEntityReader.InitializeAsync()` method.
 
 
-### RepoDb (v1.11.5)
+## RepoDb (v1.11.5)
 
 - Fixed the problem when installing the library in .NET Framework `4.7.x`.
 - Restored the referenced `System.ComponentModel.Annotations` package to `v4.7.0`.
 
 
-### RepoDb (v1.11.4)
+## RepoDb (v1.11.4)
 
 - Bug: Table schema is ignored for the identical table names [#456](https://github.com/mikependon/RepoDb/issues/456)
 - Bug: Regression Issue [#457](https://github.com/mikependon/RepoDb/issues/457)
@@ -511,7 +511,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Updated the XML documentations of the `cache` argument for both [Query](/operation/query) and [QueryAll](/operation/queryall) operations.
 
 
-### RepoDb (v1.11.4-beta3)
+## RepoDb (v1.11.4-beta3)
 
 - Bug: Table schema is ignored for the identical table names [#456](https://github.com/mikependon/RepoDb/issues/456)
 - Bug: Regression Issue [#457](https://github.com/mikependon/RepoDb/issues/457)
@@ -520,17 +520,17 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Updated the XML documentations of the `cache` argument for both [Query](/operation/query) and [QueryAll](/operation/queryall) operations.
 
 
-### RepoDb (v1.11.4-beta2)
+## RepoDb (v1.11.4-beta2)
 
 - Community Request: Additional fix for [#457](https://github.com/mikependon/RepoDb/issues/457)
 
 
-### RepoDb (v1.11.4-beta1)
+## RepoDb (v1.11.4-beta1)
 
 - Bug: Regression Issue [#457](https://github.com/mikependon/RepoDb/issues/457)
 
 
-### RepoDb (v1.11.3)
+## RepoDb (v1.11.3)
 
 - Community Request: Enhancement: Enable Field class to Parse the Expression for Multiple Properties [#453](https://github.com/mikependon/RepoDb/issues/453)
 - Enhancement: Set the return type `Field.Parse<T>()` to `IEnumerable<Field>` (instead of [Field](/class/field)).
@@ -540,13 +540,13 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added an overload method for the [Merge](/operation/merge), [MergeAll](/operation/mergeall) and [UpdateAll](/operation/updateall) operations that accepts the `expression` for the `qualifiers` argument.
 
 
-### RepoDb (v1.11.2)
+## RepoDb (v1.11.2)
 
 - Bug: [SQL Server 2019] RepoDB truncates strings of "Text" types [#444](https://github.com/mikependon/RepoDb/issues/444)
 - Request: [SQL Server] Provide better exception message when table mapping is wrong [#443](https://github.com/mikependon/RepoDb/issues/443)
 
 
-### RepoDb (v1.11.1)
+## RepoDb (v1.11.1)
 
 - Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
 - Requests: Support for Table attribute [#360](https://github.com/mikependon/RepoDb/issues/360)
@@ -567,12 +567,12 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added the `entityType` argument in the `DbCommandExtensions.CreateParameters()` method.
 
 
-### RepoDb (v1.11.1-beta3)
+## RepoDb (v1.11.1-beta3)
 
 - Added the `entityType` argument in the `DbCommandExtensions.CreateParameters()` method.
 
 
-### RepoDb (v1.11.1-beta2)
+## RepoDb (v1.11.1-beta2)
 
 - Requests: Support for Table attribute [#360](https://github.com/mikependon/RepoDb/issues/360)
 - Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
@@ -590,13 +590,13 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added both the `PropertyHandlerPropertyLevelResolver` and `PropertyHandlerTypeLevelResolver` classes to resolve the equivalent property handler of both the property and .NET CLR type.
 
 
-### RepoDb (v1.11.1-beta1)
+## RepoDb (v1.11.1-beta1)
 
 - Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
 - Added an extensive Integration Tests for Property Handler Implicit Mapping.
 
 
-### RepoDb (v1.11.0)
+## RepoDb (v1.11.0)
 
 - Enhancement: Use lambda to define property handlers within DTO constructor. [#421](https://github.com/mikependon/RepoDb/issues/421)
 - Enhancement: Consider Mapping class [#415](https://github.com/mikependon/RepoDb/issues/415)
@@ -617,7 +617,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Rename all the mappers `Flush()` method into `Clear()`.
 
 
-### RepoDb (v1.11.0-beta4)
+## RepoDb (v1.11.0-beta4)
 
 - Refactor: Renamed the argument `objectName` to `databaseObjectName` of [ClassMapper](/mapper/classmapper) class.
 - Added: Added the method `Get()` via `propertyName`, [Field](/class/field) and Linq expression at [PropertyCache](/cache/propertycache) class.
@@ -625,19 +625,19 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Removed: Removed the method `Get()` via [DbField](/class/dbfield) at [ClassExpression](/class/classexpression) class.
 
 
-#### All packages are affected:
+### All packages are affected:
 - Bug: (Direct Reports) Fixed the issue at `DeleteAll()` via primary keys if the items is beyond `2100`.
 - Performance: Reverted the value of `Constant.DefaultBatchOperationSize` into `10`.
 
 
-### RepoDb (v1.11.0-beta3)
+## RepoDb (v1.11.0-beta3)
 
 - Issue in the [PrimaryMapper](/mapper/primarymapper) and [IdentityMapper](/mapper/identitymapper) for the interface property collision reported by the user in RepoDB v1.11.0-beta2.
 - Removed the exposure of the `PropertyInfo` and [ClassProperty](/class/classproperty) in [PropertyHandlerCache](/cacher/propertyhandlercache), [TypeMapCache](/cacher/typemapcache), [PropertyHandlerMapper](/mapper/propertyhandlermapper) and [TypeMapper](/class/typemapper) classes.
 - Removed the `Add()`, `Get`, `Remove()` methods of the [PropertyMapper](/mapper/propertymapper) with both `PropertyInfo` and [ClassProperty](/class/classproperty) arguments.
 
 
-### RepoDb (v1.11.0-beta2)
+## RepoDb (v1.11.0-beta2)
 
 - Removed the return value of the `Remove()` method of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper).
 - Added the expression-based invocation in the `Add()`, `Get()` and `Remove()` methods of the [DbHelperMapper](/mapper/dbhelpermapper), [DbSettingMapper](/mapper/dbsettingmapper) and [StatementBuilderMapper](/mapper/statementbuildermapper) classes.
@@ -647,7 +647,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added more Integration Tests on the implicit mappings feature.
 
 
-### RepoDb (v1.11.0-beta1)
+## RepoDb (v1.11.0-beta1)
 
 - Added the [PropertyHandlerCache](/cacher/propertyhandlercache) class.
 - Added the methods `Add()`, `Remove()` and `Get()` at the `PropertyHandlerMapper` class to cater the property level mapping.
@@ -655,7 +655,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added the `ObseleteAttribute` attribute at the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class.
 - Rename all the mappers `Flush()` method into `Clear()`.
 
-### RepoDb (v1.11.0-alpha1):
+## RepoDb (v1.11.0-alpha1):
 
 - Added the [ClassMapper](/mapper/classmapper), [PropertyMapper](/mapper/propertymapper), [PrimaryMapper](/mapper/primarymapper), [IdentityMapper](/mapper/identitymapper) and [TypeMapCache](/cacher/typemapcache) classes.
 - Added the `Add<T>`, `Get<T>` and `Remove<T>` methods in the [TypeMapper](/mapper/typemapper) class.
@@ -669,7 +669,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added more thorough Unit Tests for `Class`, `Property`, `Primary`, `Identity` and `Type` mappings (both [Cachers](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core/RepoDb.Tests/RepoDb.UnitTests/Caches) and [Mappers](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Core/RepoDb.Tests/RepoDb.UnitTests/Mappers)).
 
 
-### RepoDb (v1.10.11):
+## RepoDb (v1.10.11):
 
 - Implemented the [IExpirable](/interface/iexpirable) into [CacheItem](/class/cacheitem).
 - Added a `TEntity` generic type in the [CacheItem](/class/cacheitem) properties.
@@ -686,7 +686,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Bug: Calling to [DeleteAll](/operation/deleteall) operation with the list of `PrimaryKeys` and `Transaction` object is failing. Reported by Christian Franck. [#404](https://github.com/mikependon/RepoDb/issues/404).
 
 
-### RepoDb (v1.10.11-beta3):
+## RepoDb (v1.10.11-beta3):
 
 - Implemented the [IExpirable](/interface/iexpirable) into [CacheItem](/class/cacheitem).
 - Added a `TEntity` generic type in the [CacheItem](/class/cacheitem) properties.
@@ -698,19 +698,19 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targeting the bulk operations (i.e.: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
 
 
-### RepoDb (v1.10.11-beta2):
+## RepoDb (v1.10.11-beta2):
 
 - Bug: Enum Bug [#400](https://github.com/mikependon/RepoDb/issues/400)
 - Bug; [PropertyHandler](/interface/ipropertyhandler) for Nullable Enum [#402](https://github.com/mikependon/RepoDb/issues/402)
 
 
-### RepoDb (v1.10.11-beta1):
+## RepoDb (v1.10.11-beta1):
 
 - At the [CancellableTraceLog.Cancel()](/class/cancellabletracelog) method, the `throwException` argument has been defaulted the `true`.
 - Bug: Calling to [DeleteAll](/operation/deleteall) operation with the list of `PrimaryKeys` and `Transaction` object is failing. Reported by Christian Franck. [#404](https://github.com/mikependon/RepoDb/issues/404).
 
 
-### RepoDb (v1.10.10)
+## RepoDb (v1.10.10)
 
 - Features: Full support to Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 - Enhancement: `AsFieldsAsAliasFields` - added left and right aliases.
@@ -720,47 +720,47 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Bug: The property handlers mapped via `PropertyHandlerMapper` is failing if both `NULLABLE` and `NON-NULLABLE` property types are present in the class. [#394](https://github.com/mikependon/RepoDb/issues/394)
 
 
-### RepoDb (v1.10.10-beta1)
+## RepoDb (v1.10.10-beta1)
 
 - Full support to Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
 - `AsFieldsAsAliasFields` - added left and right aliases.
 - XML Documentation updates for the SQL statement Builders.
 
 
-### RepoDb (v1.10.9)
+## RepoDb (v1.10.9)
 
 - Enhancement: Compiler changes for `ClassProperty.GetDbType()` calls.
 - Feature: Support for `SqlServer.SqlDbType` (Microsoft and System), `PostgreSql.NpgsqlDbType` [#390](https://github.com/mikependon/RepoDb/issues/390) and `MySql.MySqlDbType`.
 
 
-### RepoDb (v1.10.8)
+## RepoDb (v1.10.8)
 
 - Bug: `InvalidCastException` Converting `Enums` to `Strings` in Postgres [#388](https://github.com/mikependon/RepoDb/issues/388)
 
 
-### RepoDb (v1.10.7)
+## RepoDb (v1.10.7)
 
 - Enhancement: Separate the `Bulk` operations into a separate Solution and Nuget Package. [#385](https://github.com/mikependon/RepoDb/issues/385)
 - Enhancement: Separete all `SqlServer` related stuffs to a different library named `RepoDb.SqlServer`. [#282](https://github.com/mikependon/RepoDb/issues/282)
 - Enhancement: Remove the support to `System.Data.SqlClient` in the `RepoDb.Core`. [#386](https://github.com/mikependon/RepoDb/issues/386)
 
 
-### RepoDb (v1.10.6)
+## RepoDb (v1.10.6)
 
 - Added the class property as an argument context in the `Get()` and `Set()`  method.
 - Exposed the underlying `DbRepository` property at the ``BaseRepository`` object.
 
 
-### RepoDb (v1.10.5)
+## RepoDb (v1.10.5)
 
-#### Highlights
+Highlights
 
 - Support: Initiate the support to `Microsoft.Data.SqlClient` namespace. [#374](https://github.com/mikependon/RepoDb/issues/374)
 - Feature: Support `PropertyHandlerAttribute` as requested. [#367](https://github.com/mikependon/RepoDb/issues/367)
 - Feature: Re-enabled the [BulkInsert](/operation/bulkinsert) for `DataTable`.
 - Feature: Support deleting an array of entity objects or primary keys via [DeleteAll](/operation/deleteall). [#353](https://github.com/mikependon/RepoDb/issues/353)
 
-#### Others
+### Others
 
 - Support: Change the target type to .NetStandard 2.0.
 - Support: Initiate the support to `Microsoft.Data.SqlClient` namespace. [#374](https://github.com/mikependon/RepoDb/issues/374)
@@ -771,7 +771,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - NTH: Add a table hints in [Insert](/operation/insert) and [InsertAll](/operation/insertall). [#379](https://github.com/mikependon/RepoDb/issues/379)
 
 
-### RepoDb (v1.10.4)
+## RepoDb (v1.10.4)
 
 - Initial support of RepoDb.PostgreSql.
 - Added `IsPreparable` Property for `IDbSetting`.
@@ -782,46 +782,46 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Enhancement: Introduced the `DbConvertFieldResolver` as the base converter field.
 
 
-### RepoDb (v1.10.4-beta2)
+## RepoDb (v1.10.4-beta2)
 
 - Initial support of RepoDb.PostgreSql.
 
 
-### RepoDb (v1.10.4-beta1)
+## RepoDb (v1.10.4-beta1)
 
 - Error: Invalid expression. The property `Id` is not defined on a target type #364 - MySql Support.
 
 
-### RepoDb (v1.10.3)
+## RepoDb (v1.10.3)
 
 - Revert the recurrent calls to `DbFieldCache`.Get() in the `ExecuteQuery` method.
 
 
-### RepoDb (v1.10.2)
+## RepoDb (v1.10.2)
 
 - Bug (Community Request): The primary field is not found exception when primary key column name is different from `Primary` attribute property name is different while `Connection.Update` is called. [#356](https://github.com/mikependon/RepoDb/issues/356)
 - Bug: Set the return value of `Max` and `Min` operations to object. [#357](https://github.com/mikependon/RepoDb/issues/357)
 - Performance: Refactor to remove the recurrent calls to `DbFieldCache`.Get() in the `ExecuteQuery` method.
 
 
-### RepoDb (v1.10.2-alpha2)
+## RepoDb (v1.10.2-alpha2)
 
 - Bug: Set the return value of `Max` and `Min` operations to object. [#357](https://github.com/mikependon/RepoDb/issues/357)
 - Refactor to remove the recurrent calls to `DbFieldCache`.Get() in the `ExecuteQuery` method.
 
 
-### RepoDb (v1.10.2-alpha1)
+## RepoDb (v1.10.2-alpha1)
 
 - Bug (Community Request): The primary field is not found exception when primary key column name is different from `Primary` attribute property name is different while `Connection.Update` is called. [#356](https://github.com/mikependon/RepoDb/issues/356)
 
 
-### RepoDb (v1.10.1)
+## RepoDb (v1.10.1)
 
 - Removed the NetFramework Specific Library at Nuget.
 - Supported the RepoDb.MySql extended library.
 
 
-### RepoDb (v1.10.0)
+## RepoDb (v1.10.0)
 
 - Breaking changes from the previous versions.
 - This release contains major code refactoring for performance optimization purposes.
@@ -844,20 +844,20 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Bug: Where expression using IEnumerable`s contains throws error when using inherited class property [#301](https://github.com/mikependon/RepoDb/issues/301)
 
 
-### RepoDb (v1.9.11)
+## RepoDb (v1.9.11)
 
 - Stable release.
 - Enhancement: Check current transaction (System.Transactions.Transaction.Current) before applying an explicit System.Data.`IDbTransaction` object. [#279](https://github.com/mikependon/RepoDb/issues/279)
 - Enhancement: Table Hints is not passing properly in the `BatchQuery`. [#283](https://github.com/mikependon/RepoDb/issues/283)
 
 
-### RepoDb (v1.9.10)
+## RepoDb (v1.9.10)
 
 - Stable release.
 - v1.9.9 changes + more Integration Tests for `DbConnection`.
 
 
-### RepoDb (v1.9.9)
+## RepoDb (v1.9.9)
 
 - Bug: `SqlException`: Login failed for user `xxx`
 - Bug: Calling [InsertAll](/operation/insertall) with `MapAttribute` leads to `System.NullReferenceException`: Object reference not set to an instance of an object. [#274](https://github.com/mikependon/RepoDb/issues/274)
@@ -874,19 +874,19 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Refactoring: Removed the `ToLower()` and replaced by `StringComparer.OrdinalIgnoreCase`.
 
 
-### RepoDb (v1.9.9-beta5)
+## RepoDb (v1.9.9-beta5)
 
 - Bug: `SqlDbHelper.GetFields` is failing if the transaction object is present. [#278](https://github.com/mikependon/RepoDb/issues/278)
 - Refactoring: Refactor the code snippets for `DbFieldCache` to accept `IDbTransaction` objects. These affected too many chain of calls.
 
 
-### RepoDb (v1.9.9-beta4)
+## RepoDb (v1.9.9-beta4)
 
 - To Consider: Enable [BulkInsert](/operation/bulkinsert) with System.`DataTable` [#277](https://github.com/mikependon/RepoDb/issues/277)
 - v1.9.9 release candidate
 
 
-### RepoDb (v1.9.9-beta3)
+## RepoDb (v1.9.9-beta3)
 
 - Enhancement: Add `DbFieldCache.GetAsync` method. [#275](https://github.com/mikependon/RepoDb/issues/275)
 - Enhancement: Add `DataEntityDataReader` into [BulkInsert](/operation/bulkinsert) that accepts TableName and Entities [#271](https://github.com/mikependon/RepoDb/issues/271)
@@ -894,19 +894,19 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Test: Add IntegrationTests on [BulkInsert](/operation/bulkinsert) that accepts DataEntities and TableName.
 
 
-### RepoDb (v1.9.9-beta2)
+## RepoDb (v1.9.9-beta2)
 
 - Enhancement: Add `AsFields()` extended methods for the `IEnumerable<DbField>` [#273](https://github.com/mikependon/RepoDb/issues/273)
 - Bug: Calling [InsertAll](/operation/insertall) with `MapAttribute` leads to `System.NullReferenceException`: Object reference not set to an instance of an object. [#274](https://github.com/mikependon/RepoDb/issues/274)
 
 
-### RepoDb (v1.9.9-beta1)
+## RepoDb (v1.9.9-beta1)
 
 - Bug: SqlException: Login failed for user `xxx`
 - Enhancement: Remove database streaming when extracting table schema.
 
 
-### RepoDb (v1.9.8)
+## RepoDb (v1.9.8)
 
 - Stable release of RepoDb.
 - Enum Supports.
@@ -914,35 +914,35 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Bug Fixes.
 
 
-### RepoDb (v1.9.8-beta4)
+## RepoDb (v1.9.8-beta4)
 
 - Title: A hybrid ORM library for .NET.
 - Fix: Fixed the issue in the `[QueryGroup](/class/querygroup).Fix()` method if the depth of the Tree is at Level 4.
 
 
-### RepoDb (v1.9.8-beta3)
+## RepoDb (v1.9.8-beta3)
 
 - Fixed: Fixed the issue when using the Mapped/Quoted/Unorganized property in `[QueryGroup](/class/querygroup).Parse()` method.
 
 
-### RepoDb (v1.9.8-beta2)
+## RepoDb (v1.9.8-beta2)
 
 - Fixed: Failing operations on a purposely quoted class property. Reported by Christian Franck.
 
 
-### RepoDb (v1.9.8-beta1)
+## RepoDb (v1.9.8-beta1)
      
 - Requested: Document Enum Support [#261](https://github.com/mikependon/RepoDb/issues/261)
 - Bug: Operations are failing on the Unorganized Table - by Christian Franck [#262](https://github.com/mikependon/RepoDb/issues/262)
 
 
-### RepoDb (v1.9.7)
+## RepoDb (v1.9.7)
 
 - Stable release with complete feature sets.
 - Added netstandard2.0 as the default target framework at Nuget Package.
 
 
-### RepoDb (v1.9.6)
+## RepoDb (v1.9.6)
 
 - [Note] This version is the first ever version release with complete features. The next version will be only be bug-fixes from this version (if we found some).
 - [Core] Optimize the Expression field iteration between the number of Class properties and `DbDataReader` columns. [#136](https://github.com/mikependon/RepoDb/issues/136)
@@ -966,7 +966,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - [Minor] Hide the exposed extended internal methods. [#244](https://github.com/mikependon/RepoDb/issues/244)
 
 
-### RepoDb (v1.9.5)
+## RepoDb (v1.9.5)
 
 - [Note] This version is the first ever version release with complete features. The next version will be only be bug-fixes from this version (if we found some).
 - [Core] Introduce `UpdateMultiple`, different from [UpdateAll](/operation/updateall). [#94](https://github.com/mikependon/RepoDb/issues/94)
@@ -1005,7 +1005,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - [Removed] DbIdentityCache Class
 
 
-### RepoDb (v1.9.4)
+## RepoDb (v1.9.4)
 
 - [Note] This version is the first ever version release with complete features. The next version will be only be bug-fixes from this version (if we found some).
 - [Core] Introduce `UpdateMultiple`, different from [UpdateAll](/operation/updateall). [#94](https://github.com/mikependon/RepoDb/issues/94)
@@ -1043,7 +1043,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - [Removed] `DbIdentityCache` Class
 
 
-### RepoDb (v1.9.3)
+## RepoDb (v1.9.3)
 
 - [Core] Introduce ExecutionContext to hold the caching of the execution for [InsertAll](/operation/insertall). [#204](https://github.com/mikependon/RepoDb/issues/204)
 - [Enhancement, Performance] [InsertAll](/operation/insertall) Compiled Expressions
@@ -1068,7 +1068,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - [Added] `InsertAllExecutionContextCache`
 
 
-### RepoDb (v1.9.2)
+## RepoDb (v1.9.2)
 
 - [Core] Introduce the [InsertAll](/operation/insertall), different from `InsertMultiple`. [#91](https://github.com/mikependon/RepoDb/issues/91)
 - [Core] Return the number of affected rows during [BulkInsert](/operation/bulkinsert) for `DbDataReader`. [#192](https://github.com/mikependon/RepoDb/issues/192)
@@ -1089,13 +1089,13 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - [Enhancement] Auto-set the `PrimaryField` value of the object after calling the `Insert<T>` operation. [#187](https://github.com/mikependon/RepoDb/issues/187)
 
 
-### RepoDb (v1.9.1)
+## RepoDb (v1.9.1)
 
 - Stable Release of RepoDb.
 - [Update] Exposed BulkCopyOptions and Transaction to [BulkInsert](/operation/bulkinsert) Operation.
 
 
-### RepoDb (v1.9.0)
+## RepoDb (v1.9.0)
 
 - [Core] Introduced table-based operations for  [Count](/operation/count), `[CountAll](/operation/countall)`, [Delete](/operation/delete), [DeleteAll](/operation/deleteall), [Insert](/operation/insert), [Merge](/operation/merge), `[Truncate](/operation/truncate)` and [Update](/operation/update).
 - [Core] Introduced `[CountAll](/operation/countall)` and [QueryAll](/operation/queryall) operations.
@@ -1120,7 +1120,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - See v1.9.0-beta1 and v1.9.0-beta2 for complete set of changes.
 
 
-### RepoDb (v1.9.0-beta2)
+## RepoDb (v1.9.0-beta2)
 
 - [Core] Make the `DbHelper` Pluggable by Provider. [#137](https://github.com/mikependon/RepoDb/issues/137)
 - [Core] [NTH]: Support `InlineDelete(string tableName, object where ...)` [#113](https://github.com/mikependon/RepoDb/issues/113) -- Moved to Delete
@@ -1157,7 +1157,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - [Documentation] Add a separate documentation entry for Execute<Method> with Array parameters argument. [#143](https://github.com/mikependon/RepoDb/issues/143)
 
 
-### RepoDb (v1.9.0-beta1)
+## RepoDb (v1.9.0-beta1)
 
 - [New] Updated the description to "A dynamic, lightweight, efficient and very fast Hybrid ORM library for .NET.".
 - [New] Re-instate the row deletion by entity level (connection.Delete<T>(T entity)) [#112](https://github.com/mikependon/RepoDb/issues/112)
@@ -1176,44 +1176,44 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - [Enhancement] Support passing of IDictionary<string, object> as `param` in the Execute<Methods> operation. [#125](https://github.com/mikependon/RepoDb/issues/125)
 - [Enhancement] Allow passing of cache expiration time during creation and in the repository. [#128](https://github.com/mikependon/RepoDb/issues/128)
 
-### RepoDb (v1.8.4)
+## RepoDb (v1.8.4)
 
 - Stable Spring Release of RepoDb. Enjoy!
 
 
-### RepoDb (v1.8.3)
+## RepoDb (v1.8.3)
 
 - Stable Spring Release of RepoDb. Enjoy!
 
-### RepoDb (v1.8.2)
+## RepoDb (v1.8.2)
 
-#### Updates
+### Updates
 
 - Updated to again support the `BatchQuery` dynamic expression (first-level properties).
 - Updated to again support the  [Count](/operation/count) dynamic expression (first-level properties).
 - Updated to again support the `whereOrPrimaryKey` argument rather than `primaryKey` (first-level properties).
 
-#### Added
+### Added
 
 - Additional Integration Tests for class/object mappings (CRUD).
 - Additional Integration Tests for the `Dynamics` and `Expressions` query expression for `DbConnection`, `DbRepository` and ``BaseRepository``.
 
 
-### RepoDb (v1.8.1)
+## RepoDb (v1.8.1)
 
-### New Features
+## New Features
 
 - New: Introduced the [ExecuteQueryMultiple](/operation/executequerymultiple) into the `DbRepository`.
 - New: Introduced the `QueryMultiple` into the `DbRepository`.
 - New: Introduced the `ConversionType` to let the users decide the type of the conversions. Accessible via `TypeMapper.ConversionType` property.
 
-### Optimizations
+## Optimizations
 
 - Optimization: Added a class-level checking when identifying the ``PrimaryKey`` of a class.
 - Optimization: Supported the type conversions(if convertible) when querying the data from the database.
 - Optimization: Simplified the extraction of the result of the [ExecuteQueryMultiple](/operation/executequerymultiple) via `Extract()` method.
 
-#### Added
+### Added
 
 - Added: A class named `AsyncResultExtractor` to control the extraction of the result in the caller side for all `Async` methods of the ``BaseRepository`/DbRepository`.
 - Added: A class named `QueryMultipleRequest` to handle the request when calling the `QueryMultiple` operation.
@@ -1226,22 +1226,22 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added: An intensive `IntegrationTests` for the invalid casings.
 - Added: An intensive `IntegrationTests` for all the operations of the `DbConnection`, `DbRepository` and ``BaseRepository`` objects.
 
-### Fixes
+## Fixes
 
 - Fixed: An issue in the `InlineMerge` if the primary key is not defined in the dynamic object.
 - Fixed: An issue in the [Merge](/operation/merge) if the primary key is an identity.
 - Fixed: An issue in the `QueryMultiple` if the same expression is are used multiple times.
 
 
-### RepoDb (v1.8.1-beta1)
+## RepoDb (v1.8.1-beta1)
 
-### New Features
+## New Features
 
 - Introduced the [ExecuteQueryMultiple](/operation/executequerymultiple) into the `DbRepository`.
 - Introduced the `QueryMultiple` into the `DbRepository`.
 - Introduced the `ConversionType` to let the users decide the strictness of the conversions. Accesible via `TypeMapper.ConversionType` property.
 
-#### Added
+### Added
 
 - In the `Async` methods, introduced the `AsyncResultExtractor` class to control the extraction of the result in the caller side.
 - Supported [BulkInsert](/operation/bulkinsert) for `DbRepository` with `DbDataReader` as the parameter.
@@ -1249,25 +1249,25 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added an `IntegrationTests` for the data types conversions(i.e: String-to-Numbers (vice versa), String-to-Dates (vice versa), etc).
 - Added an `IntegrationTests` for the invalid casings.
 
-### Optimizations
+## Optimizations
 
 - Added a class-level checking when identifying the ``PrimaryKey`` of a class.
 - Supported the type conversions(if convertible) when querying the data from the database.
 
-### Todo for 1.8.1
+## Todo for 1.8.1
 
 - Complete sets of `IntegrationTests` for `DbConnection`, `DbRepository`, `BaseRepository` operations.
 - The version 1.8.1 will be the highest production-grade release of the library.
 
 
-### RepoDb (v1.8.0)
+## RepoDb (v1.8.0)
 
-### New Features
+## New Features
 
 - Introduced the support for `DbConnection.QueryMultiple`.
 - Introduced the support for `DbConnection.ExecuteQueryMultiple`.
 
-#### Added
+### Added
 
 - Added a class [QueryMultipleExtractor](/class/querymultipleextractor) to manage the extraction of the result of `DbConnection.ExecuteQueryMultiple` operation.
 - Added a class named `CommandParameter` to handle the value of the parameter mapping into the target Type.
@@ -1276,7 +1276,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added class `SqlTableHints`.
 - Supported [BulkInsert](/operation/bulkinsert) for `DbDataReader`.
 
-#### Removed
+### Removed
 
 - Removed the `Operation.Any`.
 - Removed the `Operation.All`.
@@ -1286,38 +1286,38 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Removed the `DbConnection.Delete` method without the WHERE parameter.
 - Removed the support on `dynamic` object query tree expressions.
 
-### Discontinued
+## Discontinued
 
 - Removed the attribute `Command`.
 - Removed the attribute `Ignored`.
 
-### Optimizations
+## Optimizations
 
 - Revisits the way on how to map the `[QueryGroup](/class/querygroup)` list of [QueryField](/class/queryfield) into the data entity type.
 - Refactor the Linq (IEnumerable<T>.ToList()) into an old-school (foreach / for (var i..)) approach.
 
 
-### RepoDb (v1.8.0-beta5)
+## RepoDb (v1.8.0-beta5)
 
 - (Major [Update](/operation/update)) Introduced the support for `DbConnection.QueryMultiple`.
 - (Major [Update](/operation/update)) Introduced the support for `DbConnection.ExecuteQueryMultiple`.
 - Added class [QueryMultipleExtractor](/class/querymultipleextractor).
 
 
-### RepoDb (v1.8.0-beta4)
+## RepoDb (v1.8.0-beta4)
 
 - Introduced a `hints` argument in the `DbConnection.Query` operation.
 - Added class `SqlTableHints`.
 
 
-### RepoDb (v1.8.0-beta3)
+## RepoDb (v1.8.0-beta3)
 
 - Supported [BulkInsert](/operation/bulkinsert) for `DbDataReader`.
 - Removed the `Operation.Any`.
 - Removed the `Operation.All`.
 
 
-### RepoDb (v1.8.0-beta2)
+## RepoDb (v1.8.0-beta2)
 
 - Removed the `orderBy` and `top` argument in the [Query](/operation/query) method with `primaryKey` argument.
 - Removed the `DbConnection.BatchQuery` method with `primaryKey` argument.
@@ -1325,14 +1325,14 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Removed the `DbConnection.Delete` method without the WHERE parameter.
 
 
-### RepoDb (v1.8.0-beta1)
+## RepoDb (v1.8.0-beta1)
 
 - Remove the support on dynamic query tree expresssions.
 - Removed the Command enumeration.
 - Removed the Ignored attribute.
 
 
-### RepoDb (v1.7.0)
+## RepoDb (v1.7.0)
    
 - `Async` Method Calls Optimizations
 - Expression-Based Queries
@@ -1340,7 +1340,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Initial Support for Different Database Providers
 
 
-### RepoDb (v1.7.0-beta5)
+## RepoDb (v1.7.0-beta5)
    
 - Fixed the invalid binaries deployed at v1.7.0-beta4.
 - Modified `async` operations implementation to leverage the awaitable features.
@@ -1349,7 +1349,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Removed the recursive query features (DataEntity, DataEntityChildItemData, DataEntityChildListData, RecursionManager, ForeignAttribute).
 
 
-### RepoDb (v1.7.0-beta4)
+## RepoDb (v1.7.0-beta4)
 
 - Modified `async` operations implementation to leverage the awaitable features.
 - Exposed the `IsForProvider` and `GetProvider` `DbConnection` extended methods.
@@ -1357,14 +1357,14 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Removed the recursive query features (DataEntity, DataEntityChildItemData, DataEntityChildListData, RecursionManager, ForeignAttribute).
 
 
-### RepoDb (v1.7.0-beta3)
+## RepoDb (v1.7.0-beta3)
 
 - Fixed Target Framework Referencing Issues of NuGet Package
 - Added a new enumeration for data providers.
 - Updated the statement builder mapper to use the Provider object instead of `DbConnection` type.
 
 
-### RepoDb (v1.7.0-beta2)
+## RepoDb (v1.7.0-beta2)
 
 - Introduced Expression-Based `Query` for Connection and Repository Operations
 - Introduced Support to All (as `Operation.Al`l), Any (as `Operation.Any`), Contains (as `Operation.Like`, `Operation.NotLike`, `Operation.In`, Operation.NotIn`)
@@ -1372,7 +1372,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Unit Test updates for `All`, `Any`, and `Contains` operation
 
 
-### RepoDb (v1.7.0-beta1)
+## RepoDb (v1.7.0-beta1)
 
 - Introduced Expression-Based `Query` for Connection and Repository Operations
 - Introduced Expression-Based Parsing for [QueryGroup](/class/querygroup), [QueryField](/class/queryfield), [Field](/class/field), [OrderField](/class/orderfield)
@@ -1381,41 +1381,41 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Bug Fixes: https://github.com/RepoDb/RepoDb/issues?q=is:issue+is:closed
 
 
-### RepoDb (v1.6.4)
+## RepoDb (v1.6.4)
 
 - Performance: Introduced the field definitions for NULL checks at IL. [#48](https://github.com/mikependon/RepoDb/issues/48)
 - Performance: Added a compiled-functions (Expression) when converting the DataReader to Entity. FransBouma Recommendation #47
 
 
-### RepoDb (v1.6.2)
+## RepoDb (v1.6.2)
 
 - Performance: Introduced the field definitions for NULL checks at IL. [#48](https://github.com/mikependon/RepoDb/issues/48)
 - Performance: Added a compiled-functions (Expression) when converting the DataReader to Entity. FransBouma Recommendation #47
 
 
-### RepoDb (v1.6.0)
+## RepoDb (v1.6.0)
 
 - Performance: Introduced the field definitions for NULL checks at IL. [#48](https://github.com/mikependon/RepoDb/issues/48)
 - Performance: Added a compiled-functions (Expression) when converting the DataReader to Entity. FransBouma Recommendation #47
 
 
-### RepoDb (v1.5.3)
+## RepoDb (v1.5.3)
 
 - Optimization: This release has an extreme performance improvement. This is an update at v1.5.2.
 - Bug: Fixed the packages.config dependencies issues.
 
 
-### RepoDb (v1.5.2)
+## RepoDb (v1.5.2)
 
 - Performance Optimization: This release has an extreme performance improvement.
 
 
-### RepoDb (v1.5.0)
+## RepoDb (v1.5.0)
 
 - Performance Optimization: This release has an extreme performance improvement.
 
 
-### RepoDb (v1.3.5)
+## RepoDb (v1.3.5)
 
 - Refactor: Removed the `DataEntity` base class (request from the community)
 - Performance: Added a mechanism to cache the command texts
@@ -1423,7 +1423,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Bug Fix: Incorrect milliseconds is being saved for nullable `System.DateTime` properties
 
 
-### RepoDb (v1.3.0)
+## RepoDb (v1.3.0)
 
 - Refactor: Removed `DataEntity` - requested from the community
 - Performance: Cached the command texts
@@ -1431,55 +1431,55 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Bug Fix: Incorrect milliseconds is being saved for nullable `System.DateTime` properties
 
 
-### RepoDb (v1.2.0)
+## RepoDb (v1.2.0)
 
 - Stable Release (v1.2.0)
 
 
-### RepoDb (v1.2.0-beta5)
+## RepoDb (v1.2.0-beta5)
 
 - Stabilization: Enabled the recursive query, recursion depth and cyclomatic stack overflow complexity features.
 
 
-### RepoDb (v1.2.0-beta4)
+## RepoDb (v1.2.0-beta4)
 
 - Stabilization: Enabled the Recursive `Query` feature.
 
 
-### RepoDb (v1.2.0-beta3)
+## RepoDb (v1.2.0-beta3)
 
 - Stabilizing: Added additional validator for query expressions.
 - Stabilizing: Enabling the NULL values for [Field](/class/field) when composing a query expression.
 
 
-### RepoDb (v1.2.0-beta2)
+## RepoDb (v1.2.0-beta2)
 
 - Stabilizing: Enabled the (Field.Name = (object)null)
 - Stabilizing: Enabled the Repository.Query if `PrimaryKey` is not Present
 
 
-### RepoDb (v1.2.0-beta1)
+## RepoDb (v1.2.0-beta1)
 
 - Beta Release 1
 
 
-### RepoDb (v1.1.11)
+## RepoDb (v1.1.11)
 
 - Supported multi-targeted framework (net40, netstandard1.3, netcore1.1)
 
 
-### RepoDb (v1.1.10)
+## RepoDb (v1.1.10)
 
 - Candidate for Beta Release
 
 
-### RepoDb (v1.1.10-beta1)
+## RepoDb (v1.1.10-beta1)
 
 - Supported multi-targeted framework (net40, netstandard1.3, netcore1.1)
 - Beta release 1 for v1.2.0
 
 
-### RepoDb (v1.1.9)
+## RepoDb (v1.1.9)
 
 - Introduced the IDbConnection Extended Operational Methods.
 - Optimized the `DbRepository` to use the IDbConnection Extended Operational Methods.
@@ -1489,21 +1489,9 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Documented the ConnectionPersistency, [DeleteAll](/operation/deleteall), InlineInsert, InlineMerge, InlineUpdate and [Truncate](/operation/truncate) operations.
 
 
-### RepoDb (v1.1.8)
+## RepoDb (v1.1.8)
 
-#### Updates for v1.1.7 and v1.1.8
-
-- Supported identity primary key field identification from the database.
-- Fixed the parallelism issues by removing the unnecessary cache classes from the library.
-- Created a customized DataReader object for the [BulkInsert](/operation/bulkinsert) operation, for future support for the .Net Core.
-- Introduced the repository [Truncate](/operation/truncate) operation.
-- Supported the inline operations for [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update).
-- Added ConnectionPersistency capability for the repositories.
-- Built on a lower target framework 4.0 for earlier compatibility.
-- Next release is to support the .Net Core.
-
-
-### RepoDb (v1.1.7)
+### Updates for v1.1.7 and v1.1.8
 
 - Supported identity primary key field identification from the database.
 - Fixed the parallelism issues by removing the unnecessary cache classes from the library.
@@ -1515,7 +1503,19 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Next release is to support the .Net Core.
 
 
-### RepoDb (v1.1.6)
+## RepoDb (v1.1.7)
+
+- Supported identity primary key field identification from the database.
+- Fixed the parallelism issues by removing the unnecessary cache classes from the library.
+- Created a customized DataReader object for the [BulkInsert](/operation/bulkinsert) operation, for future support for the .Net Core.
+- Introduced the repository [Truncate](/operation/truncate) operation.
+- Supported the inline operations for [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update).
+- Added ConnectionPersistency capability for the repositories.
+- Built on a lower target framework 4.0 for earlier compatibility.
+- Next release is to support the .Net Core.
+
+
+## RepoDb (v1.1.6)
 
 - Supported identity primary key field identification from the database.
 - Fixed the parallelism issues by removing the unnecessary cache objects from the library.
@@ -1526,7 +1526,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Next release is to support the .Net Core.
 
 
-### RepoDb (v1.1.5)
+## RepoDb (v1.1.5)
 
 - Built on a lower target framework 4.0 for earlier compatibility.
 - Solution clean-up, removed interfaces that is not unnecessary for extensions.
@@ -1535,7 +1535,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Next release is to support the .Net Core.
 
 
-### RepoDb (v1.1.4)
+## RepoDb (v1.1.4)
 
 - Built on a lower target framework 4.0 for earlier compatibility.
 - Solution clean-up, removed interfaces that is not unnecessary for extensions.
@@ -1543,7 +1543,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Next release is to support the .Net Core.
 
 
-### RepoDb (v1.1.3)
+## RepoDb (v1.1.3)
 
 - Built on a target framework 4.0 for earlier compatibility
 - Renamed CacheItem.Timestamp to CacheItem.CreatedDate
@@ -1565,7 +1565,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Removed IBaseRepository
 
 
-### RepoDb (v1.1.2)
+## RepoDb (v1.1.2)
 
 - Built on a target framework 4.0 for earlier compatibility
 - Renamed CacheItem.Timestamp to CacheItem.CreatedDate
@@ -1584,82 +1584,82 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Removed IDataEntityMap
 
 
-### RepoDb (v1.1.1)
+## RepoDb (v1.1.1)
 
 - Version 1.1.0
 
 
-### RepoDb (v1.1.0)
+## RepoDb (v1.1.0)
 
 - Version 1.1.0
 
 
-### RepoDb (v1.0.20)
+## RepoDb (v1.0.20)
 
 - Version 1.0.20
 
 
-### RepoDb (v1.0.19)
+## RepoDb (v1.0.19)
 
 - Version 1.0.19
 
 
-### RepoDb (v1.0.18-beta01)
+## RepoDb (v1.0.18-beta01)
 
-#### Updates
+### Updates
 - Supported the `DbConnection`.ExecuteQuery<TEntity> method, to return the `IEnumerable` list of RepoDb.Interfaces.IDataEntity.
 - IL Emit the conversion of System.Data.`DbDataReader` to System.Dynamic.DynamicObject when calling the `DbConnection`.ExecuteQuery method.
 
 
-### RepoDb (v1.0.17-alpha3)
+## RepoDb (v1.0.17-alpha3)
 
-#### Updates
+### Updates
 
 - Created a RepoDb.Reflection.ObjectConverter.
 - Supported the `DbConnection`.ExecuteQuery<TEntity> method, to return the `IEnumerable` list of RepoDb.Interfaces.IDataEntity.
 
-### Notes
+## Notes
 
 - Next version will be the Beta version of the library.
 
 
-### RepoDb (v1.0.17-alpha02)
+## RepoDb (v1.0.17-alpha02)
 
-#### Updates
-
-- Created a RepoDb.Reflection.ObjectConverter.
-- Supported the `DbConnection`.ExecuteQuery<TEntity> method, to return the `IEnumerable` list of RepoDb.Interfaces.IDataEntity.
-
-### Notes
-
-- Next version will be the Alpha version of the library.
-
-
-### RepoDb (v1.0.16)
-
-#### Updates
+### Updates
 
 - Created a RepoDb.Reflection.ObjectConverter.
 - Supported the `DbConnection`.ExecuteQuery<TEntity> method, to return the `IEnumerable` list of RepoDb.Interfaces.IDataEntity.
 
-### Notes
+## Notes
 
 - Next version will be the Alpha version of the library.
 
 
-### RepoDb (v1.0.16-alpha-01)
+## RepoDb (v1.0.16)
 
-#### Updates
+### Updates
 
 - Created a RepoDb.Reflection.ObjectConverter.
 - Supported the `DbConnection`.ExecuteQuery<TEntity> method, to return the `IEnumerable` list of RepoDb.Interfaces.IDataEntity.
 
-### Notes
+## Notes
 
 - Next version will be the Alpha version of the library.
 
 
-### RepoDb (v1.0.15)
+## RepoDb (v1.0.16-alpha-01)
+
+### Updates
+
+- Created a RepoDb.Reflection.ObjectConverter.
+- Supported the `DbConnection`.ExecuteQuery<TEntity> method, to return the `IEnumerable` list of RepoDb.Interfaces.IDataEntity.
+
+## Notes
+
+- Next version will be the Alpha version of the library.
+
+
+## RepoDb (v1.0.15)
 
 - Added RepoDb.Reflection.Delegates.DataReaderToEntityMapperDelegate
 - Added RepoDb.Reflection.ConstructorInfoCache
@@ -1682,36 +1682,36 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Support Multi-Mapping for Class-Level
 
 
-### RepoDb (v1.0.14)
+## RepoDb (v1.0.14)
 
 - Reflection (IL Emitting)
 
 
-### RepoDb (v1.0.13)
+## RepoDb (v1.0.13)
 
 - Reflection (IL Emitting)
 
 
-### RepoDb (v1.0.12)
+## RepoDb (v1.0.12)
 
 - Same as RepoDb (v1.0.11)
 
 
 ## RepoDb (v1.0.11)
 
-#### Updates
+### Updates
 
 - Same as RepoDb (v1.0.10)
 
-### Fixes
+## Fixes
 
 - Issue 2: `Operation.In` Exception is Thrown for Array Values
 - Issue 1: Class Entity `Map` Attribute `PrimaryKey` Identification
 
 
-### RepoDb (v1.0.10)
+## RepoDb (v1.0.10)
 
-#### Updates
+### Updates
 
 - Support Column-Based [Update](/operation/update) using Dynamics (new Repository.InlineUpdate operation)
 - Supported `BatchQuery` Operation
@@ -1731,20 +1731,20 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Added ClassMapCache object
 - Cached the `Map` attribute on every calls
 
-### Fixes
+## Fixes
 
 - Issue 2: `Operation.In` Exception is Thrown for Array Values
 - Issue 1: Class Entity `Map` Attribute `PrimaryKey` Identification
 
 
-### RepoDb (v1.0.9)
+## RepoDb (v1.0.9)
 
 - Renamed `ICache.Has` to `ICache.Contains`
 - Removed `ICache.GetAll` and implement the `IEnumerable` interface instead
 - Optimized the mapping for SqlBulkCopy for [BulkInsert](/operation/bulkinsert)
 
 
-### RepoDb (v1.0.8)
+## RepoDb (v1.0.8)
 
 - Fix the bug found when injecting the `IStatementBuilder` at the `BaseRepository`.
 - Renamed argument name `orderFields` to `orderBy`.
@@ -1755,34 +1755,9 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Remove the `sealed` keyword at `CacheItem` to make it inheritable
 
 
-### RepoDb (v1.0.7)
+## RepoDb (v1.0.7)
 
-#### Updates
-
-- Support dynamic query objects for [QueryGroup](/class/querygroup)
-- MemoryCache (ICache) object
-- `Trace` (ITrace) object
-- Added Constant class
-- Added support for Operation.Like and Operation.NotLike
-- Allow Querying, Deleting, Updating by `PrimaryKey` (when the value is passed in the method of WHERE argument)
-- Support of Operation.Between and Operation.NotBetween
-- Support `Operation.In` and Operation.NotIn
-- Optimized Statement Builder (SqlDbStatementBuilder)
-- Injectable Statement Builder
-- Support TOP and ORDER BY
-- Order.Ascending and Order.Descending
-- Support StatementBuilderMapper, IStatementBuilderMapper, StatementBuilderMap, StatementBuilderMap
-- Support ORDER BY parsing of the dynamic objects
-- Added support for the new Operation.Any and Operation.All
-
-#### Removed
-
-- EventNotifier class has been obsolete by the `Trace` class
-
-
-### RepoDb (v1.0.6)
-
-#### Updates
+### Updates
 
 - Support dynamic query objects for [QueryGroup](/class/querygroup)
 - MemoryCache (ICache) object
@@ -1800,14 +1775,39 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Support ORDER BY parsing of the dynamic objects
 - Added support for the new Operation.Any and Operation.All
 
-#### Removed
+### Removed
 
 - EventNotifier class has been obsolete by the `Trace` class
 
 
-### RepoDb (v1.0.5)
+## RepoDb (v1.0.6)
 
-#### Updates
+### Updates
+
+- Support dynamic query objects for [QueryGroup](/class/querygroup)
+- MemoryCache (ICache) object
+- `Trace` (ITrace) object
+- Added Constant class
+- Added support for Operation.Like and Operation.NotLike
+- Allow Querying, Deleting, Updating by `PrimaryKey` (when the value is passed in the method of WHERE argument)
+- Support of Operation.Between and Operation.NotBetween
+- Support `Operation.In` and Operation.NotIn
+- Optimized Statement Builder (SqlDbStatementBuilder)
+- Injectable Statement Builder
+- Support TOP and ORDER BY
+- Order.Ascending and Order.Descending
+- Support StatementBuilderMapper, IStatementBuilderMapper, StatementBuilderMap, StatementBuilderMap
+- Support ORDER BY parsing of the dynamic objects
+- Added support for the new Operation.Any and Operation.All
+
+### Removed
+
+- EventNotifier class has been obsolete by the `Trace` class
+
+
+## RepoDb (v1.0.5)
+
+### Updates
 
 - EntityNotBulkInsertableException supported when calling [BulkInsert](/operation/bulkinsert) with non SqlConnection connection object
 - [BulkInsert](/operation/bulkinsert) optimization - ordering the columns based on the DB Table ordering (not on `DataEntity` properties ordering)
@@ -1845,26 +1845,26 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - CancelledExecution
 
 
-### RepoDb (v1.0.4)
+## RepoDb (v1.0.4)
 
 - Bug Fix: Error when converting the SqlDataReader data back to the class object when the value is DBNull.Value
 - Minor code optimizations and refactoring
 
 
-### RepoDb (v1.0.3)
+## RepoDb (v1.0.3)
 
 - Bug Fix: Error when converting the SqlDataReader data back to the class object when the value is DBNull.Value
 - Minor code optimizations and refactoring
 
 
-### RepoDb (v1.0.2)
+## RepoDb (v1.0.2)
 
 - Converting DataReader to Object
 - `Async` Calls (Task.Factory.StartNew)
 - Added support to auto find (Id) property as prospected `PrimaryKey` if the [Primary] attribute is not on place
 
 
-### RepoDb (v1.0.1)
+## RepoDb (v1.0.1)
 
 - Initial Release for RepoDb (.Net Extension)
 - Supported Dynamic `DbConnection`
@@ -1885,7 +1885,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Supported Type Mapper
 
 
-### RepoDb (v1.0.0)
+## RepoDb (v1.0.0)
 
 - Initial Release for RepoDb (.Net Extension)
 - Supported Dynamic `DbConnection`

@@ -13,19 +13,19 @@ parent: OPERATIONS
 
 This method is used to merge multiple rows towards the database by bulk. The operation does not delete any rows from the database, instead, it only update the existing rows (if present), and insert the new rows (if not present) based on the given qualifiers. It is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
-### Call Flow Diagram
+## Call Flow Diagram
 
 The diagram below shows the flow when calling this operation.
 
 <img src="../../assets/images/site/binarybulkmerge.svg" />
 
-### Use Case
+## Use Case
 
 This method is very useful if you would like to merge multiple rows towards the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
 
 If you are working to merge range of rows from 1000 or more, then use this method over the [MergeAll](/operation/mergeall) operation.
 
-### Special Arguments
+## Special Arguments
 
 The `mergedCommandType`, `identityBehavior` and `pseudoTableType` arguments were provided on this operation.
 
@@ -37,7 +37,7 @@ The `pseudoTableType` is used to define a value whether a physical pseudo-table 
 
 > Please be noted that it is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
-### Usability
+## Usability
 
 Simply pass the list of the entities when calling this operation.
 
@@ -127,7 +127,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
-### Field Qualifiers
+## Field Qualifiers
 
 By default, this operation is using the primary column as the qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
 
@@ -141,7 +141,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 > When using the qualifiers, we recommend that you use the list of columns that is indexed from the target table to maximize the performance.
 
-### Physical Temporary Table
+## Physical Temporary Table
 
 To use a physical pseudo-temporary table, simply pass the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#physical) value in the `pseudoTableType` argument.
 

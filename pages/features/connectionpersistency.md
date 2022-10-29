@@ -16,7 +16,9 @@ This is a feature that enables you to control the persistency of the database co
 
 > Please see the [ConnectionPersistency](/enumeration/connectionpersistency) enumeration for more information.
 
-## Types of Persitency
+## Types of Persistence
+
+Below is the list of persistence supported by this library.
 
 | Name         | Description  | 
 |:-------------|:-------------|

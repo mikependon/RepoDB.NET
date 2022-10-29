@@ -14,15 +14,23 @@ parent: CLASSES
 
 This class is used to define a globalized configuration for the library. This class must be called and setup during the startup.
 
-#### Methods
+## Methods
 
-- `Setup` - a method that is used to setup the configurations.
+Below is the list of methods.
 
-#### Properties
+| Name | Description |
+|:-----|:------------|
+| Setup | A method that is used to setup the configurations. |
 
-- `Options` - the instance that contains the configurations defined during the setup.
+## Properties
 
-#### Setup
+Below is the list of properties.
+
+| Name | Description |
+|:-----|:------------|
+| Options | The instance that contains the configurations defined during the setup. |
+
+## Setup
 
 Below is the code used to setup the application. This method is used to define the configuration options via the [GlobalConfigurationOptions](/class/globalconfigurationoptions) class.
 

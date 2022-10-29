@@ -13,7 +13,7 @@ parent: OPERATIONS
 
 This method is used to query the rows from the database by batch.
 
-### Code Snippets
+## Code Snippets
 
 Below is the sample code that query the 1st 20 batch of the active rows from the `[dbo].[Person]` table based on the date creation.
 
@@ -47,7 +47,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Targeting a Table
+## Targeting a Table
 
 You can also target a specific table by passing the literal table name like below.
 
@@ -81,7 +81,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Specific Columns
+## Specific Columns
 
 You can also query specific columns by passing the list of fields.
 
@@ -122,7 +122,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Filtering the Results
+## Filtering the Results
 
 You can also use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the WHERE expressions.
 
@@ -145,7 +145,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Table Hints
+## Table Hints
 
 You can also pass a hint.
 

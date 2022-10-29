@@ -18,7 +18,7 @@ It contains the list of child Query Group(s) and [QueryField](/class/queryfield)
 
 By using this class, it would increase the performance of your application as the library's core implementation is very dependent on the tree structuring of the query objects.
 
-### Creating an Instance
+## Creating an Instance
 
 Below is the way on how to create an instance of this class.
 
@@ -56,7 +56,7 @@ var whereB = new []
 var queryGroup = new QueryGroup(new [] { new QueryGroup(whereA), new QueryGroup(whereB) });
 ```
 
-### Creating through Parse
+## Creating through Parse
 
 You can also create a query group by parsing any object (.NET CLR Types or Dynamic).
 
@@ -77,7 +77,7 @@ Or, via expression.
 var queryGroup = QueryGroup.Parse<Person>(p => p.LastName == "Doe" && State == "Michigan");
 ```
 
-### Setting the Conjunction
+## Setting the Conjunction
 
 By default, the conjuction is equals to `AND`. Let us say you have the code snippets below.
 
@@ -115,7 +115,7 @@ And the SQL statement will be generated as below.
 > WHERE ([LastName] LIKE @LastName OR [State] = @State OR [Age] BETWEEN (@Age_1, @Age_2));
 ```
 
-### Unary IS NOT
+## Unary IS NOT
 
 There is a scenario where we are negating the condition of the expressions by simply reversing the logic.
 
@@ -152,7 +152,7 @@ Then, the statement will be generated as below.
 
 > By default, the value is `false`. Please be reminded that negating does not gives you the most performant condition when writing SQL. It still recommended to create a targeted query expression rather than negating it.
 
-### Getting all the Children
+## Getting all the Children
 
 To retrieve the child Query Group(s), use the `QueryGroups` property.
 
@@ -192,7 +192,7 @@ var queryFields = queryGroup.GetFields(true);
 // There will be 7 QueryField(s) at the 'queryFields' variable
 ```
 
-### Converting to an Enumerable
+## Converting to an Enumerable
 
 You can call the `AsEnumerable()` method to convert the instance of this class to an `IEnumerable<QueryGroup>` object.
 
@@ -201,11 +201,11 @@ var queryField = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, 
 var queryGroup = new QueryGroup(queryField).AsEnumerable();
 ```
 
-### Use-Cases
+## Use-Cases
 
 We recommend you to visit the [use-cases](/class/queryfield#use-cases) section of the [QueryField](/class/queryfield) class.
 
-### Retrieving the Conjunction Text
+## Retrieving the Conjunction Text
 
 To retrieve the text of the [Conjunction](/operation/conjunction), simply call the `GetConjunctionText()` method.
 
@@ -222,7 +222,7 @@ var conjunction = queryGroup.GetConjunctionText();
 
 The value of the `conjunction` variable would be `AND`.
 
-### The Fix Method
+## The Fix Method
 
 This method is used within the library core's implementation when it comes to the execution of the actual operation.
 
@@ -257,7 +257,7 @@ And the SQL statement will be generated as below.
 > WHERE (FirstName = @FirstName AND FirstName = @FirstName_1 AND FirstName = @FirstName_2);
 ```
 
-### The GetString Method
+## The GetString Method
 
 This method is used to get the string representation of the QueryGroup object into a SQL statement. This is used internally by the library during the creation of the SQL statements.
 
@@ -278,7 +278,7 @@ The value of the `whereText` variable would be like below.
 ([LastName] LIKE @LastName AND [State] = @State AND [Age] NOT BETWEEN @Age_Left AND @Age_Right)
 ```
 
-### Reusability
+## Reusability
 
 We sometimes have a scenario to reuse the instance of this class just to avoid creating the same expression.
 

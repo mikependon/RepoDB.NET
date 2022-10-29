@@ -13,19 +13,19 @@ parent: OPERATIONS
 
 This method is used to delete the existing rows from the database by bulk. It is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
-### Call Flow Diagram
+## Call Flow Diagram
 
 The diagram below shows the flow when calling this operation.
 
 <img src="../../assets/images/site/binarybulkdelete.svg" />
 
-### Use Case
+## Use Case
 
 This method is very useful if you would like to delete the rows from the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
 
 If you are working to delete a range of rows from 1000 or more, then use this method over the [DeleteAll](/operation/deleteall) operation.
 
-### Special Arguments
+## Special Arguments
 
 The `qualifiers`, `keepIdentity` and `pseudoTableType` arguments were provided on this operation.
 
@@ -37,7 +37,7 @@ The `pseudoTableType` is used to define a value whether a physical pseudo-table 
 
 > Please be noted that it is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
-### Usability
+## Usability
 
 Simply pass the list of the entities when calling this operation.
 
@@ -128,7 +128,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
-### Field Qualifiers
+## Field Qualifiers
 
 By default, this operation is using the primary as the qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
 
@@ -142,7 +142,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 > When using the qualifiers, we recommend that you use the list of columns that is indexed from the target table to maximize the performance.
 
-### Physical Temporary Table
+## Physical Temporary Table
 
 To use a physical pseudo-temporary table, simply pass the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#physical) value in the `pseudoTableType` argument.
 

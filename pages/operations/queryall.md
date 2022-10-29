@@ -13,7 +13,7 @@ parent: OPERATIONS
 
 This method is used to query all the rows from the table.
 
-### Code Snippets
+## Code Snippets
 
 Below is the sample code to fetch a row from the `[dbo].[Person]` table.
 
@@ -24,7 +24,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Targeting a Table
+## Targeting a Table
 
 You can also target a specific table by passing the literal table like below.
 
@@ -46,7 +46,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > The result is a list of dynamic objects of type `ExpandoObject`.
 
-### Specific Columns
+## Specific Columns
 
 You can also target a specific columns to be queried by passing the list of fields to be included in the `fields` argument.
 
@@ -74,7 +74,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Type Result
+## Type Result
 
 You can also directly target a `string` column as a result set.
 
@@ -88,7 +88,7 @@ using (var connection = new SqlConnection(connectionString))
 
 **Note:** Inferrence works in all types but not from this operation. The other non-class type (i.e.: `long`, `int`, `System.DateTime`, etc) cannot be inferred as the `TEntity` generic type is filtered as `class`. Please see the [ExecuteQuery](/operation/executequery) operation for the support to the other types.
 
-### Table Hints
+## Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 
@@ -108,7 +108,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Ordering the Results
+## Ordering the Results
 
 To order the results, you have to pass an array of `OrderField` objects in the `orderBy` argument.
 
@@ -125,7 +125,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Caching the Results
+## Caching the Results
 
 To cache the results, simply pass a literal string key into the `cacheKey` argument.
 

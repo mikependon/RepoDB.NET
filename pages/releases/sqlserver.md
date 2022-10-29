@@ -14,48 +14,48 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
 
-### RepoDb.SqlServer (v1.13.0-beta1)
+## RepoDb.SqlServer (v1.13.0-beta1)
 
 - Upgraded the `Microsoft.Data.SqlClient` package to  `v5.0.1`.
 - Referenced the `RepoDb` package `v1.13.0-beta1`.
 
 
-### RepoDb.SqlServer (v1.13.0-alpha3)
+## RepoDb.SqlServer (v1.13.0-alpha3)
 
 - Referenced the `RepoDb` package `v1.13.0-alpha3`.
 
 
-### RepoDb.SqlServer (v1.13.0-alpha2)
+## RepoDb.SqlServer (v1.13.0-alpha2)
 
 - Referenced the `RepoDb` package `v1.13.0-alpha2`.
 
 
-### RepoDb.SqlServer (v1.13.0-alpha1)
+## RepoDb.SqlServer (v1.13.0-alpha1)
 
 - Referenced the `RepoDb` package `v1.13.0-alpha1`.
 - Upgraded the `Microsoft.Data.SqlClient` package to `v5.0.0`.
 
 
-### RepoDb.SqlServer (v1.1.5)
+## RepoDb.SqlServer (v1.1.5)
 
 - Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
 - Referenced the `RepoDb` package `v1.12.10`.
 - Referenced the `Microsoft.Data.SqlClient` package `v4.0.1`.
 
 
-### RepoDb.SqlServer (v1.1.5-beta4)
+## RepoDb.SqlServer (v1.1.5-beta4)
 
 - Referenced the `RepoDb` package `v1.12.10-beta4`.
 - Referenced the `Microsoft.Data.SqlClient` package `v4.0.0`.
 
 
-### RepoDb.SqlServer (v1.1.5-beta3)
+## RepoDb.SqlServer (v1.1.5-beta3)
 
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 - Referenced the `RepoDb` package `v1.12.10-beta3`.
 
 
-### RepoDb.SqlServer (v1.1.5-beta2)
+## RepoDb.SqlServer (v1.1.5-beta2)
 
 - Enhancement: Remove `System.Data.SqlClient` reference from RepoDb.SqlServer [#857](https://github.com/mikependon/RepoDb/issues/857)
 - Removed both the `MicrosoftSqlServerTypeMapAttribute` and `SystemSqlServerTypeMapAttribute` attributes. Use the the [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype) attribute instead.
@@ -64,7 +64,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Supported the `.NET v6.0`.
 
 
-### RepoDb.SqlServer (v1.1.5-beta1)
+## RepoDb.SqlServer (v1.1.5-beta1)
 
 - Enhancement: Remove `System.Data.SqlClient` reference from RepoDb.SqlServer [#857](https://github.com/mikependon/RepoDb/issues/857) - this is a breaking changes
 - Removed both the `MicrosoftSqlServerTypeMapAttribute` and `SystemSqlServerTypeMapAttribute` attributes. Use the the [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype) attribute instead.
@@ -72,7 +72,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Supported the `.NET v6.0`.
 
 
-### RepoDb.SqlServer (v1.1.4)
+## RepoDb.SqlServer (v1.1.4)
 
 - Added the `net5.0` as part of the target frameworks.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
@@ -91,7 +91,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
-### RepoDb.SqlServer (v1.1.4-beta1)
+## RepoDb.SqlServer (v1.1.4-beta1)
 
 - Added the `net5.0` as part of the target frameworks.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
@@ -110,23 +110,23 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
-### RepoDb.SqlServer (v1.1.3)
+## RepoDb.SqlServer (v1.1.3)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.7](/release/core#repodb-v1127)).
 
 
-### RepoDb.SqlServer (v1.1.2)
+## RepoDb.SqlServer (v1.1.2)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5](/release/core#repodb-v1125)).
 
 
-### RepoDb.SqlServer (v1.1.1)
+## RepoDb.SqlServer (v1.1.1)
 
 - CancellationToken support? [#343](https://github.com/mikependon/RepoDB/issues/343)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.4](/release/core#repodb-v1124)).
 
 
-### RepoDb.SqlServer (v1.1.0)
+## RepoDb.SqlServer (v1.1.0)
 
 - Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
 - Breaking: Introduced the `fields` argument to the fetch (i.e.: [Query](/operation/query), [ExecuteQuery](/operation/executequery) and [BatchQuery](/operation/batchquery)) and push (i.e.: [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update)) operations.
@@ -139,12 +139,12 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0](/release/core#repodb-v1120)).
 
 
-### RepoDb.SqlServer (v1.1.0-beta2)
+## RepoDb.SqlServer (v1.1.0-beta2)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta4](/release/core#repodb-v1120-beta4)).
 
 
-### RepoDb.SqlServer (v1.1.0-beta1)
+## RepoDb.SqlServer (v1.1.0-beta1)
 
 - Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
 - Breaking: Introduced the `fields` argument to the fetch (i.e.: [Query](/operation/query), [ExecuteQuery](/operation/executequery) and [BatchQuery](/operation/batchquery)) and push (i.e.: [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update)) operations.
@@ -157,7 +157,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta1](/release/core#repodb-v1120-beta1)).
 
 
-### RepoDb.SqlServer (v1.0.13)
+## RepoDb.SqlServer (v1.0.13)
 
 - Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
 - Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
@@ -165,39 +165,39 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Bug: RepoDB does not seem to work for SQL Server tables with dot in the name [#492](https://github.com/mikependon/RepoDb/issues/492)
 
 
-### RepoDb.SqlServer (v1.0.12)
+## RepoDb.SqlServer (v1.0.12)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.5](/release/core#repodb-v1115)).
 
 
-### RepoDb.SqlServer (v1.0.11)
+## RepoDb.SqlServer (v1.0.11)
 
 - Updated the version of `Microsoft.Data.SqlClient` into `v2.0.0`.
 - Bug: table schema are ignored [#456](https://github.com/mikependon/RepoDb/issues/456)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.4](/release/core#repodb-v1114)).
 
 
-### RepoDb.SqlServer (v1.0.11-beta1)
+## RepoDb.SqlServer (v1.0.11-beta1)
 
 - Bug: table schema are ignored [#456](https://github.com/mikependon/RepoDb/issues/456)
 
 
-### RepoDb.SqlServer (v1.0.10)
+## RepoDb.SqlServer (v1.0.10)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.3](/release/core#repodb-v1113)).
 
 
-### RepoDb.SqlServer (v1.0.9)
+## RepoDb.SqlServer (v1.0.9)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.2](/release/core#repodb-v1112)).
 
 
-### RepoDb.SqlServer (v1.0.8)
+## RepoDb.SqlServer (v1.0.8)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.1](/release/core#repodb-v1111)).
 
 
-### RepoDb.SqlServer (v1.0.7)
+## RepoDb.SqlServer (v1.0.7)
 
 - Bug: Truncates string and bytes [#423](https://github.com/mikependon/RepoDb/issues/423)
 - Referenced the Microsoft.Data.SqlClient version 1.1.2.
@@ -205,37 +205,37 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.0](/release/core#repodb-v1110)).
 
 
-### RepoDb.SqlServer (v1.0.6)
+## RepoDb.SqlServer (v1.0.6)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
 
 
-### RepoDb.SqlServer (v1.0.5)
+## RepoDb.SqlServer (v1.0.5)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.11](/release/core#repodb-v11011)).
 
 
-### RepoDb.SqlServer (v1.0.4)
+## RepoDb.SqlServer (v1.0.4)
 
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.10.10](/release/core#repodb-v11010)).
 
 
-### RepoDb.SqlServer (v1.0.3)
+## RepoDb.SqlServer (v1.0.3)
 
 - Feature: Introduce the SQL Server support to `SqlParameter.SqlDbType` via `MicrosoftSqlServerTypeMapAttribute` class (for Microsoft.Data.SqlClient) and `SystemSqlServerTypeMapAttribute` class (for System.Data.SqlClient).
 - Added more Unit Tests.
 
 
-### RepoDb.SqlServer (v1.0.2)
+## RepoDb.SqlServer (v1.0.2)
 
 - Resume the support to System.Data.SqlClient.
 
 
-### RepoDb.SqlServer(v1.0.1)
+## RepoDb.SqlServer(v1.0.1)
 
 - Initial release for RepoDb.SqlServer.
 
 
-### RepoDb.SqlServer (v1.0.0)
+## RepoDb.SqlServer (v1.0.0)
 
 - Initial release for RepoDb.SqlServer.

@@ -64,8 +64,9 @@ var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, /
     o => o.CustomerId == customerId, // Order
     top2: 10); // Filtering for Order
 ```
+---
 
-## Querying Single Parent with Multiple Children
+## Single Parent with Multiple Children
 
 For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
 
@@ -73,27 +74,21 @@ For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) me
 using (var connection = new SqlConnection(connectionString))
 {
     using (var extractor = connection.ExecuteQueryMultiple(@"SELECT * FROM [dbo].[Customer] WITH (NOLOCK) WHERE [Id] = @CustomerId;
-        SELECT * FROM [dbo].[Order] WITH (NOLOCK) WHERE [CustomerId] = @CustomerId",
+        SELECT * FROM [dbo].[Order] WITH (NOLOCK) WHERE [CustomerId] = @CustomerId;",
         new { CustomerId = 10045 }))
     {
-        // Extract the results here
+        // Extract the first result
+        var customer = extractor.Extract<Customer>().FirstOrDefault();
+
+        // Extract the second result
+        var orders = extractor.Extract<Order>().AsList();
+
+        // Set the child orders
+        customer.Orders = orders;
+
+        // Process the 'customer' here
     }
 }
-```
-
-Then, extract the values from the extractor result.
-
-```csharp
-// Extract the first result
-var customer = extractor.Extract<Customer>().FirstOrDefault();
-
-// Extract the second result
-var orders = extractor.Extract<Order>().AsList();
-
-// Set the child orders
-customer.Orders = orders;
-
-// Process the 'customer' here
 ```
 
 For fluent-method, you can call the [QueryMultiple](/operation/querymultiple) method as below.
@@ -105,16 +100,17 @@ using (var connection = new SqlConnection(connectionString))
     var customerId = 10045;
 
     // Execution by passing the order of entity
-    var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
-        o => o.CustomerId == customerId, // Order
-        hints1: SqlServerTableHints.NoLock, // Hints for Customer
-        hints2: SqlServerTableHints.NoLock); // Hints for Order
+    var (customers, orders) = connection
+        .QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
+            o => o.CustomerId == customerId, // Order
+            hints1: SqlServerTableHints.NoLock, // Hints for Customer
+            hints2: SqlServerTableHints.NoLock); // Hints for Order
 
     // Extract the customer
-    var customer = tuple.Item1.FirstOrDefault();
+    var customer = customers.FirstOrDefault();
 
     // Extract the orders
-    customer.Orders = tuple.Item2.AsList();
+    customer.Orders = orders.AsList();
 
     // Process the 'customer' here
 }
@@ -131,25 +127,19 @@ using (var connection = new SqlConnection(connectionString))
         SELECT [Id], [CustomerId], [ProductId], [Price], [Quantity], [OrderDateUtc] FROM [dbo].[Order] WITH (NOLOCK) WHERE [CustomerId] IN (@Keys);",
         new { Keys = new [] { 10045, ..., 11211 }))
     {
-        // Extract the results here
+        // Extract the first result
+        var customers = extractor.Extract<Customer>().AsList();
+
+        // Extract the second result
+        var orders = extractor.Extract<Order>();
+
+        // Iterate the customers and map all the orders
+        customers.ForEach(
+            c => c.Orders = orders.Where(o => o.CustomerId == c.Id).AsList());
+
+        // Process the 'customers' here
     }
 }
-```
-
-Then, extract the values from the extractor result.
-
-```csharp
-// Extract the first result
-var customers = extractor.Extract<Customer>().AsList();
-
-// Extract the second result
-var orders = extractor.Extract<Order>();
-
-// Iterate the customers and map all the orders
-customers.ForEach(
-    c => c.Orders = orders.Where(o => o.CustomerId == c.Id).AsList());
-
-// Process the 'customers' here
 ```
 
 For fluent-method, you can call the [QueryMultiple](/operation/querymultiple) method as below.
@@ -161,15 +151,13 @@ using (var connection = new SqlConnection(connectionString))
     var keys = new [] { 10045, ..., 11211 };
 
     // Execution by passing the order of types
-    var tuple = connection.QueryMultiple<Customer, Order>(c => keys.Contains(c.Id), o => keys.Contains(o.CustomerId),
-        hints1: SqlServerTableHints.NoLock, hints2: SqlServerTableHints.NoLock);
-
-    // Extract the customers
-    var customers = tuple.Item1.AsList();
+    var (customers, orders) = connection
+        .QueryMultiple<Customer, Order>(c => keys.Contains(c.Id), o => keys.Contains(o.CustomerId),
+            hints1: SqlServerTableHints.NoLock, hints2: SqlServerTableHints.NoLock);
 
     // Iterate the customers and map all the orders
     customers.AsList().ForEach(
-        c => c.Orders = tuple.Item2.Where(o => o.CustomerId == c.Id).AsList());
+        c => c.Orders = orders.Where(o => o.CustomerId == c.Id).AsList());
 
     // Process the 'customers' here
 }

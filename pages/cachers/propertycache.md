@@ -16,14 +16,14 @@ A hugely-used cacher class for the [ClassProperty](/class/classproperty). It pro
 
 > Internally, this class is widely used within the library.
 
-### Methods
+## Methods
 
 Below are the methods available from this class.
 
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the list of [ClassProperty](/class/classproperty) objects.
 
-### Usability
+## Usability
 
 You can simply call the `Get()` method of this class by passing the class type.
 

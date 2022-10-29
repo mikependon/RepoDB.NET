@@ -14,14 +14,14 @@ parent: CACHERS
 
 A cacher class for the [IPropertyHandler](/interface/ipropertyhandler) objects that has been mapped to .NET CLR type or class property. Underneath, it uses the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to extract the results and caching it for future use.
 
-### Methods
+## Methods
 
 Below are the methods available from this class.
 
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the instance of the property handler.
 
-### Usability
+## Usability
 
 You can simply call the `Get()` method of this class by passing the class type.
 

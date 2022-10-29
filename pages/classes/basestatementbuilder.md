@@ -14,17 +14,17 @@ parent: CLASSES
 
 This class stands as the base class of all [IStatementBuilder](/interface/istatementbuilder)-based classes.
 
-#### Use-Cases
+## Use-Cases
 
 To simplify your implementation, always use this class over the [IStatementBuilder](/interface/istatementbuilder) interface when working with customized SQL generator.
 
-#### Virtual Methods
+## Virtual Methods
 
 This class has virtual methods pre-implemented with the defined logic. It is the author's choices to add this virtual methods on this base class.
 
 The reason to have these virtual methods are the commonality of the SQL Statements used on most RDBMS data providers (i.e.: the SQL Server and the other RDBMS almost have the same way of SQL generation).
 
-#### Below are the list of virtual methods.
+Below are the list of virtual methods.
 
 - CreateAverage
 - CreateAverageAll
@@ -45,19 +45,19 @@ The reason to have these virtual methods are the commonality of the SQL Statemen
 - CreateUpdate
 - CreateUpdateAll
 
-### Abstract Methods
+## Abstract Methods
 
 This class has some abstract methods that is required to be implemented in the derived classes. It is the author's choices to add this abstract methods on this base class.
 
 The reason to have these abstract methods are the implementation-difference of the SQL Statements between the different RDBMS data providers (i.e.: the SQL Server is using `MERGE` keyword for merging rows whereas the other RDBMS are not).
 
-#### Below are the list of abstract methods.
+Below are the list of abstract methods.
 
 - CreateBatchQuery
 - CreateMerge
 - CreateMergeAll
 
-### How to Implement?
+## How to Implement?
 
 Simply create a class that inherits this class.
 
@@ -112,7 +112,7 @@ public sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 
 > You can also override the other non-abstract methods as they were all implemented as `virtual`. It is very important to take note that you should only override the base functionalities if you have a specialized implementation for the specific RDBMS data provider.
 
-### Usability
+## Usability
 
 Simply use the [StatementBuilderMapper](/mapper/statementbuildermapper) class to map it to the specific RDBMS data provider.
 

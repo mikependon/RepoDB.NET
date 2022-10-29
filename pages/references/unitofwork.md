@@ -14,7 +14,7 @@ parent: REFERENCES
 
 This page contains the recommended way of implementing a Unit of Work (UOW) object when using this library. The consolidated output of this page can be found [here](/reference/output/unitofwork).
 
-### Interface
+## Interface
 
 Create an inteface that would enable your UOW class to be dependency injectable.
 
@@ -42,7 +42,7 @@ In Saveition to this, create the 3 basic transactional methods.
 - `Commit` - is used to commit an existing transaction.
 - `Rollback` - is used to rollback an existing transaction.
 
-### Class
+## Class
 
 Create a class that implements the newly created interface. Here, let us assume we have the `AppSettings` class as the configuration class.
 
@@ -102,7 +102,7 @@ public class CustomUnitOfWork : IUnitOfWork<SqlConnection>
 
 > Please note that the corresponding asynchronous methods were not implemented on this sample. You have to introduce it yourself if you wish to have it covered.
 
-### Repositories
+## Repositories
 
 First, implement the base interface that contains the necessary methods.
 
@@ -198,7 +198,7 @@ public class OrderItemRepository : EntityRepository<OrderItem>, IOrderItemReposi
 
 > Please note that the corresponding asynchronous methods were not implemented on this sample. You have to introduce it yourself if you wish to have it covered.
 
-### Dependency Injection
+## Dependency Injection
 
 Register the UOW interface and class via service registration. Ensure it is on transient level.
 
@@ -220,7 +220,7 @@ services.AddSingleton<IOrderItemRepository, OrderItemRepository>();
 /* Do the same for the other repositories */
 ```
 
-### Business Logic
+## Business Logic
 
 In your business logic, make sure that the `IUnitOfWork<SqlConnection>` is being dependency injected. Let us assumed your business logic class is named `SalesManager` that implements the `ISalesManager` interface.
 

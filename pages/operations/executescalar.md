@@ -13,7 +13,7 @@ parent: OPERATIONS
 
 This method is used to execute a raw-SQL directly towards the database. It returns the value of the first-row's first-column from any kind of resultsets. This method supports all types of RDMBS data providers.
 
-### Code Snippets
+## Code Snippets
 
 Below is a code that gets the server date time from the database.
 
@@ -24,7 +24,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Passing of Parameters
+## Passing of Parameters
 
 You can pass a parameter via the following objects.
 
@@ -34,7 +34,7 @@ You can pass a parameter via the following objects.
 - Dictionary&lt;string, object&gt;
 - QueryField/QueryGroup
 
-#### IDbDataParameter
+## IDbDataParameter
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -45,7 +45,7 @@ using (var connection = new SqlConnection(connectionString))
 
 **Note:** The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
 
-#### Anonymous Types
+## Anonymous Types
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -54,7 +54,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### ExpandoObject
+## ExpandoObject
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -65,7 +65,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### Dictionary<string, object>
+## Dictionary<string, object>
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -78,7 +78,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-#### QueryField/QueryGroup
+## QueryField/QueryGroup
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -104,7 +104,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Array Parameters (for the IN keyword)
+## Array Parameters (for the IN keyword)
 
 You can pass an array of values if you are using the `IN` keyword.
 
@@ -121,7 +121,7 @@ using (var connection = new SqlConnection(connectionString))
 
 > You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
 
-### Executing a Stored Procedure
+## Executing a Stored Procedure
 
 There are 2 ways of executing a stored procedure. First, simply pass the name of the stored procedure and set the command type to `CommandType.StoredProcedure`.
 

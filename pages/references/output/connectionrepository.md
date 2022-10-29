@@ -195,7 +195,7 @@ public class NorthwindRepository : ConnectionRepository<Customer, SqlConnection>
 }
 ```
 
-### Interface
+## Interface
 
 ```csharp
 public interface INorthwindRepository<TDbConnection>
@@ -235,7 +235,7 @@ public interface INorthwindRepository<TDbConnection>
 }
 ```
 
-### Settings
+## Settings
 
 ```csharp
 public class AppSetting
@@ -246,7 +246,7 @@ public class AppSetting
 }
 ```
 
-### Dependency Injection
+## Dependency Injection
 
 For singleton.
 
@@ -272,7 +272,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Cache
+## Cache
 
 ```csharp
 // Custom Class
@@ -313,7 +313,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Trace
+## Trace
 
 ```csharp
 // Custom Class

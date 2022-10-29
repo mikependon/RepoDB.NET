@@ -14,20 +14,22 @@ parent: CLASSES
 
 An immutable class that holds the definition of the database columns. This class is hugely used internally in the library.
 
-#### List of Properties
+## List of Properties
 
-- `Name` - the name of the column.
-- `IsPrimary` - returns `true` if the column is primary.
-- `IsIdentity` - returns `true` if the column is identity.
-- `IsNullable` - returns `true` if the column is nullable.
-- `Type` - the equivalent .NET CLR type.
-- `Size` - the size of the column from the database.
-- `Precision` - the precision of the column from the database.
-- `Scale` - the scale of the column from the database.
-- `DatabaseType` - the  type of the column from the database.
-- `Provider` - the database provider who created the instance.
+Below is the list of properties.
 
-#### How to Extract?
+| Name | Description |
+|:-----|:------------|
+| Name | The name of the column.
+| IsPrimary | Returns `true` if the column is primary. |
+| IsIdentity | Returns `true` if the column is identity. |
+| IsNullable | Returns `true` if the column is nullable. |
+| Type | The equivalent .NET CLR type. |
+| Size | The size of the column from the database. |
+| Precision | The precision of the column from the database. |
+| Scale | The scale of the column from the database. |
+| DatabaseType | The  type of the column from the database. |
+| Provider | The database provider who created the instance. |
 
 Below is the way on how to extract the database columns using [IDbHelper](/interface/idbhelper).
 

@@ -20,7 +20,7 @@ Below is the high-level diagram that showcase how the caching implementation is 
 
 <img src="../../assets/images/site/cache.svg" />
 
-It is implemented as a storage in the computer memory by default through [MemoryCache](/class/memorycache) object. It is just a simple dictionary object that holds a key that represents as pointer to the actual data in the cache storage. It is persisting the data in the cache storage for 180 minutes, but the user can manually set the time of the persistency during the calls.
+By default, the caching is implemented as a storage in the computer memory by default through [MemoryCache](/class/memorycache) object. It is just a simple dictionary object that holds a key that represents as pointer to the actual data in the cache storage. It is persisting the data in the cache storage for 180 minutes, but the user can manually set the time of the persistency during the calls.
 
 > The database tables that are not frequently changing but is mostly in used in the application are the candidate for caching.
 

@@ -14,11 +14,11 @@ parent: REFERENCES
 
 This page contains the recommended way of using the query expressions when fetching/pushing the data from/to the database.
 
-### Disclaimer
+## Disclaimer
 
 The support to query objects are massive, however, the Linq-Expression parser of the library is not as extensive as other macro-ORMs. Therefore, we highly recommend to always use the [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects when composing a complex expressions.
 
-### Equal
+## Equal
 
 Via Dynamic:
 
@@ -40,7 +40,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Id", Operation.Equal, 10045));
 ```
 
-### NotEqual
+## NotEqual
 
 Via Expression:
 
@@ -54,7 +54,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Name", Operation.NotEqual, "Anna Fullerton" });
 ```
 
-### LessThan
+## LessThan
 
 Via Expression:
 
@@ -68,7 +68,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Id", Operation.LessThan, 100 });
 ```
 
-### GreaterThan
+## GreaterThan
 
 Via Expression:
 
@@ -82,7 +82,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Id", Operation.GreaterThan, 100 });
 ```
 
-### LessThanOrEqual
+## LessThanOrEqual
 
 Via Expression:
 
@@ -96,7 +96,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Id", Operation.LessThanOrEqual, 100 });
 ```
 
-### GreaterThanOrEqual
+## GreaterThanOrEqual
 
 Via Expression:
 
@@ -110,7 +110,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Id", Operation.GreaterThanOrEqual, 0 });
 ```
 
-### Like
+## Like
 
 There are various combinations.
 
@@ -156,7 +156,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Name", Operation.Like, "%Anna" });
 ```
 
-### NotLike
+## NotLike
 
 There are various combinations.
 
@@ -202,7 +202,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Name", Operation.NotLike, "%Anna" });
 ```
 
-### Between
+## Between
 
 Via Expression:
 
@@ -216,7 +216,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Id", Operation.Between, new [] { 10045, 10075 } ));
 ```
 
-### NotBetween
+## NotBetween
 
 Via Expression:
 
@@ -230,7 +230,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Id", Operation.NotBetween, new [] { 10045, 10075 } ));
 ```
 
-### In
+## In
 
 Via Expression:
 
@@ -245,7 +245,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Id", Operation.In, new [] { 10045, 10046, 10047, 10048 }));
 ```
 
-### NotIn
+## NotIn
 
 Via Expression:
 
@@ -260,7 +260,7 @@ Via [QueryField](/class/queryfield).
 var result = connection.Query<Customer>(new QueryField("Id", Operation.NotIn, new [] { 10045, 10046, 10047, 10048 }));
 ```
 
-### Complex Expressions
+## Complex Expressions
 
 As mentioned in the [disclaimer](#disclaimer) above, do not to do this.
 

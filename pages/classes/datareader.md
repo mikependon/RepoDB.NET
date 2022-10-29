@@ -18,7 +18,7 @@ It only contains one method named `ToEnumerable`. This method is pre-compiled AO
 
 > This class is high-performant and efficient. It understands and caches the schema of your database into the memory. It also reuses all the other caches within the library during the extraction to construct and generate the most-optimal AOT compilation.
 
-### Extracting an Entities
+## Extract as Entity Model
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -31,7 +31,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Extracting a Dynamics
+## Extract as Dynamic/ExpandoObject
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -44,7 +44,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### DbFields
+## DbFields
 
 It is also quitely important to pass the list of the [DbField](/class/dbfield) object in order for the compiler to skip the unnecessary DB-NULL checks.
 

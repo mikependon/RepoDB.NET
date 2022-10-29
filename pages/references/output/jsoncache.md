@@ -15,7 +15,7 @@ This page has the consolidated code of the [JSON Cache](/reference/jsoncache) re
 
 > The class is using the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) package.
 
-### Interface
+## Interface
 
 ```csharp
 public interface IJsonCache : ICache
@@ -30,7 +30,7 @@ public interface IJsonCache : ICache
 }
 ```
 
-### Class
+## Class
 
 ```csharp
 public class JsonCache : ICache
@@ -141,7 +141,7 @@ public class JsonCache : ICache
 }
 ```
 
-### Cache Factory
+## Cache Factory
 
 ```csharp
 public static class CacheFactory
@@ -166,7 +166,7 @@ public static class CacheFactory
 }
 ```
 
-### Dependency Injection
+## Dependency Injection
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

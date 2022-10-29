@@ -16,14 +16,14 @@ A cacher class for the class primary property. Underneath, it uses the [PrimaryM
 
 > Internally, this class is widely used within the library.
 
-### Methods
+## Methods
 
 Below are the methods available from this class.
 
 - `Flush` - allows you to flush the caches.
 - `Get` - returns the list of [Field](/class/field) objects.
 
-### Usability
+## Usability
 
 You can simply call the `Get()` method of this class by passing the class type.
 

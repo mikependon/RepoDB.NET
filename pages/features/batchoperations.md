@@ -18,10 +18,6 @@ This operation comes with flexibility as it allows you to control the number of 
 
 In RepoDB, the following operations (i.e.: [InsertAll](/operation/insertall), [UpdateAll](/operation/updateall) and [MergeAll](/operation/mergeall)) are the batch operations. They are all ACID in nature.
 
-Below is the high-level diagram for the batch operations.
-
-<img src="../../assets/images/site/batchoperations.svg" />
-
 ## Identity Setting Alignment
 
 The library has enforced an additional logic to ensure the identity setting alignment is correct if the [InsertAll](/operation/insertall) and [MergeAll](/operation/mergeall) operations are being used.

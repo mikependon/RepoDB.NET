@@ -13,7 +13,7 @@ parent: OPERATIONS
 
 This method is used to delete an array-of (and/or all) rows from the table.
 
-### Code Snippets
+## Code Snippets
 
 Below is the sample code that delete all the rows from the `[dbo].[Person]` table.
 
@@ -34,7 +34,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Targeting a Table
+## Targeting a Table
 
 You can also target a specific table by passing the literal table name like below.
 
@@ -45,7 +45,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-### Table Hints
+## Table Hints
 
 To pass a hint, simply write the table-hints and pass it in the `hints` argument.
 

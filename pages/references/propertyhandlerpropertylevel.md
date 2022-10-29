@@ -14,7 +14,7 @@ parent: REFERENCES
 
 This page contains the recommended way of implementing a property handler for the class properties.
 
-### PropertyHandler
+## PropertyHandler
 
 Create a class that implements the [IPropertyHandler](/interface/ipropertyhandler) interface.
 
@@ -50,7 +50,7 @@ public class PersonAddressPropertyHandler : IPropertyHandler<string, Address>
 }
 ```
 
-### Mapping
+## Mapping
 
 #### Explict
 
@@ -87,7 +87,7 @@ FluentMapper
     .PropertyHandler<PersonAddressPropertyHandler>(e => e.Location);
 ```
 
-### Key Take-aways
+## Key Take-aways
 
 - Ensure to make the `TInput` generic type `nullable` if the database column is `nullable`.
 - Make the code snippets to both `Get()` and `Set()` methods concise and highly performant.

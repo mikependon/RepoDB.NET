@@ -13,7 +13,7 @@ grand_parent: REFERENCES
 
 This page has the consolidated code of the [GenericRepository](/reference/genericrepository) reference implementation.
 
-### Interface
+## Interface
 
 ```csharp
 public interface IRepositoryBase<TDbConnection>
@@ -53,7 +53,7 @@ public interface IRepositoryBase<TDbConnection>
 }
 ```
 
-### Repository (Base)
+## Repository (Base)
 
 ```csharp
 public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
@@ -242,7 +242,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
 }
 ```
 
-### Derived Repository Interface
+## Derived Repository Interface
 
 ```csharp
 public interface INorthwindRepository
@@ -286,7 +286,7 @@ public interface INorthwindRepository
 }
 ```
 
-### Derived Repository
+## Derived Repository
 
 ```csharp
 public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepository
@@ -378,7 +378,7 @@ public class NorthwindRepository : RepositoryBase<SqlConnection>, INorthwindRepo
 }
 ```
 
-### Settings
+## Settings
 
 ```csharp
 public class AppSetting
@@ -389,7 +389,7 @@ public class AppSetting
 }
 ```
 
-### Dependency Injection
+## Dependency Injection
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -401,7 +401,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Cache
+## Cache
 
 ```csharp
 // Custom Class
@@ -442,7 +442,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Trace
+## Trace
 
 ```csharp
 // Custom Class

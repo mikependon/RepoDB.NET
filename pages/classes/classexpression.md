@@ -14,7 +14,7 @@ parent: CLASSES
 
 This is a helper class used for extracting class objects via `Linq.Expressions` namespace. The operations residing on this class are all pre-compiled operations.
 
-#### GetEntitiesPropertyValues
+## GetEntitiesPropertyValues
 
 This method is used to get the data entities property values. The result is an array of generic type `TResult`.
 
@@ -28,7 +28,7 @@ var keys = ClassExpression.GetEntitiesPropertyValues<Person, long>(people, "Id")
 
 > You can also extract using [Field](/class/field), [DbField](/class/dbfield) or [ClassProperty](/class/classproperty) objects.
 
-#### GetProperties
+## GetProperties
 
 This method is used to get the list of the [ClassProperty](/class/classproperty) objects of the target entity.
 
@@ -40,7 +40,7 @@ var properties = ClassExpression.GetProperties<Person>();
 > We recommend that you should use the [PropertyCache](/cacher/propertycache) object when extracting the class properties.
 
 
-#### GetPropertiesAndValues
+## GetPropertiesAndValues
 
 This method is used to extract the list of properties and values of the target entity. The result is an array of [PropertyValue](/class/propertyvalue) object.
 

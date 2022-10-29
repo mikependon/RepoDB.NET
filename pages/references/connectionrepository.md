@@ -25,7 +25,7 @@ This page contains the reference implementation when implementing a repository t
 
 - [CommandTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand.commandtimeout?view=sqlclient-dotnet-core-1.1)
 
-### Cache
+## Cache
 
 Create a custom cache class.
 
@@ -73,7 +73,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Trace
+## Trace
 
 Create a custom trace class.
 
@@ -121,7 +121,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Settings
+## Settings
 
 The settings object must be injected within the constructor of the repository. Please refer to Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
@@ -134,7 +134,7 @@ public class AppSetting
 }
 ```
 
-### Repository
+## Repository
 
 Below is the sample repository implementation.
 
@@ -188,7 +188,7 @@ public class NorthwindRepository
 }
 ```
 
-### Operational Methods
+## Operational Methods
 
 Below is the recommended way when exposing a method that return the records.
 
@@ -275,7 +275,7 @@ public int UpdateCustomer(Customer entity)
 }
 ```
 
-### Async Methods
+## Async Methods
 
 Ensure that all the synchronous methods you had created has the corresponding asynchronous methods suffixed by `Async` keyword. Within these methods, ensure that you are calling the corresponding asynchronous operations of the library.
 
@@ -355,7 +355,7 @@ public async Task<int> UpdateCustomerAsync(Customer entity)
 }
 ```
 
-### Dependency Injection
+## Dependency Injection
 
 Create an interface that contains all the necessary methods. The name must be identitical on the purpose of the repository.
 
@@ -407,7 +407,7 @@ public class NorthwindRepository<DbConnection> : INorthwindRepository<DbConnecti
 }
 ```
 
-### Service Configuration and Registration
+## Service Configuration and Registration
 
 Register it as singleton if you...
 
@@ -436,7 +436,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Key Take-aways
+## Key Take-aways
 
 - The async methods must be provided in all methods.
 - The repository must be short and precise on its purpose.

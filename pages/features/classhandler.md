@@ -14,7 +14,7 @@ parent: FEATURES
 
 This is a feature that would allow you to handle the event during the serialization/deserialization process of the entity model and the data reader object. It enables you as developer to handle any kind of serialization event within the model, a validation of the serializable data and/or even trigger a workflow during and after the transformation process.
 
-## It uses the following objects
+It uses the following objects.
 
 | Name         | Description  | 
 |:-------------|:-------------|
