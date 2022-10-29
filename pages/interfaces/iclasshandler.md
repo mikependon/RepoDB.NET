@@ -15,7 +15,11 @@ This interface is used to mark a class to be a class handler object. This interf
 
 ## Generic Types
 
-- `TEntity` - refers to the type of the entity type. This type is used as the input to and result type of the `Get()` and `Set()`  methods.
+Below is the list of generic types.
+
+| Name | Description |
+|:-----|:------------|
+| TEntity | Refers to the type of the entity type. This type is used as the input to and result type of the `Get()` and `Set()`  methods. |
 
 ## Methods
 
