@@ -15,19 +15,17 @@ parent: ATTRIBUTES
 
 This attribute is used to signal a property handling operation on the class property. By having this attribute, the library compiler will automatically trigger the property handler `Get()` and `Set()` method during the serialization/deserialization and hydration process.
 
-### Implementation
-
 Let us say you had created a customized [IPropertyHandler](/interface/ipropertyhandler) like below.
 
 ```csharp
 private class PersonAddressHandler : IPropertyHandler<string, Address>
 {
-    public Address Get(string input, ClassProperty property)
+    public Address Get(string input, PropertyHandlerGetOptions options)
     {
         return JsonConvert.Deserialize<Address>(input);
     }
 
-    public string Set(Address input, ClassProperty property)
+    public string Set(Address input, PropertyHandlerSetOptions options)
     {
         return JsonConvert.Serialize(input);
     }

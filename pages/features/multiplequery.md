@@ -29,7 +29,7 @@ However, method [QueryMultiple](/operation/querymultiple) is returning an instan
 The hints were provided as part of the execution. For [ExecuteQueryMultiple](/operation/executequerymultiple) method, you can write your own hints as you are the one composing the SQL statement. For the [QueryMultiple](/class/sqlservertablehints) method, each order of execution has an equivalent `hints` argument that you can use.
 
 ```csharp
-var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
+var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
     o => o.CustomerId == customerId, // Order
     hints1: "WITH (NOLOCK)", // Hints for Customer
     hints2: "WITH (NOLOCK)"); // Hints for Order
@@ -38,7 +38,7 @@ var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, /
 To simplify the usage, use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
-var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
+var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
     o => o.CustomerId == customerId, // Order
     hints1: SqlServerTableHints.NoLock, // Hints for Customer
     hints2: SqlServerTableHints.NoLock); // Hints for Order
@@ -49,7 +49,7 @@ var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, /
 The result ordering is available via [OrderField](/class/orderfield) class as part of the execution. For [ExecuteQueryMultiple](/operation/executequerymultiple) method, you can write your own ordering during the SQL statement composition. For the [QueryMultiple](/class/sqlservertablehints) method, each order of execution has equivalent `orderBy` argument that you can use.
 
 ```csharp
-var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
+var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
     o => o.CustomerId == customerId, // Order
     orderBy1: OrderField.Ascending<Customer>(c => c.DateInsertedUtc), // Ordering for Customer
     orderBy2: OrderField.Ascending<Order>(o => o.OrderDateUtc)); // Ordering for Order
@@ -60,7 +60,7 @@ var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, /
 The result filtering is available by simply passing the number of rows during the execution. For [ExecuteQueryMultiple](/operation/executequerymultiple) method, you can write your `TOP` or `LIMIT` keyword during SQL statement composition. For the [QueryMultiple](/class/sqlservertablehints) method, each order of execution has equivalent `top` argument that you can use.
 
 ```csharp
-var tuple = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
+var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
     o => o.CustomerId == customerId, // Order
     top2: 10); // Filtering for Order
 ```

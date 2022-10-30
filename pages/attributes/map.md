@@ -15,7 +15,7 @@ parent: ATTRIBUTES
 
 This is an attribute that is being used to map the class and its properties into its equivalent table and columns in the database.
 
-### Class Mapping
+## Class Mapping
 
 Let us say you have a the table named `[department].[Person]` like below.
 
@@ -42,7 +42,7 @@ public class Person
 
 > You can also use the mapping if the table name and the class name is not matching in terms of casing.
 
-### Property Mapping
+## Property Mapping
 
 Let us say you have a the table named `[department].[Person]` like below.
 
@@ -70,7 +70,7 @@ public class Person
 }
 ```
 
-### Retrieval
+## Retrieval
 
 You can use the [ClassMappedNameCache](/cacher/classmappednamecache) to retrieve the mappings for the class.
 

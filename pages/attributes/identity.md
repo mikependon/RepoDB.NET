@@ -15,8 +15,6 @@ parent: ATTRIBUTES
 
 This is an attribute that is being used to mark the property of the class as an identity property.
 
-### Usability
-
 Let us say you have a the table named `[dbo].[Person]` where the field `Id` is an identity.
 
 ```csharp
@@ -41,8 +39,6 @@ public class Person
 ```
 
 > By explicitly setting this attribute to any class property, you had overriden the auto-identification logic of the library. If you place this attribute in a property that is not really an identity from the database, then the library will use that property instead. By doing so, it may fail some of the operations.
-
-### Retrieval
 
 To retrieve the identity property, you can use the [IdentityCache](/cacher/identitycache) object.
 

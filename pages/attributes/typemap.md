@@ -17,8 +17,6 @@ This attribute is used to map a property into its equivalent type from the datab
 
 > This attribute supercede the type-level mapping defined at the [TypeMapper](/mapper/typemapper) object.
 
-### Usability
-
 Below is a a sample code on how to map an existing `DateTime` property to a `System.Data.DbType.DateTime2` database type.
 
 ```csharp
