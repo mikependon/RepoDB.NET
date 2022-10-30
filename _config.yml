@@ -144,7 +144,7 @@ color_scheme: light
 
 # Additions as per the documentation
 remote_theme: just-the-docs/just-the-docs
-theme: just-the-docs
+#theme: just-the-docs
 
 # Callouts (https://just-the-docs.github.io/just-the-docs/docs/ui-components/callouts/)
 callouts_level: quiet # or loud
