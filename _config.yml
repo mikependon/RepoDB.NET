@@ -19,9 +19,26 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://repodb.net" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty
-exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"
-, "docs/tests/"
-]
+exclude:
+   - .sass-cache/
+   - .jekyll-cache/
+   - gemfiles/
+   - Gemfile
+   - Gemfile.lock
+   - node_modules/
+   - vendor/bundle/
+   - vendor/cache/
+   - vendor/gems/
+   - vendor/ruby/
+   - bin/
+   - lib/
+   - "*.gemspec"
+   - "*.gem"
+   - LICENSE.txt
+   - package.json
+   - package-lock.json
+   - Rakefile
+   - README.md
 
 # Regression tests
 # By default, the pages in /docs/tests are excluded when the ste is built.
@@ -81,7 +98,7 @@ nav_sort: case_sensitive # Capital letters sorted before lowercase
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Copyright &copy; 2020 Michael Camara Pendon. Licensed using the <a href=\"https://github.com/mikependon/RepoDB/blob/master/LICENSE.txt\">Apache License 2.0</a>."
+footer_content: "Copyright &copy; 2018-2022 Michael Camara Pendon. Licensed using the <a href=\"https://github.com/mikependon/RepoDB/blob/master/LICENSE.txt\">Apache License 2.0</a>."
 
 # Footer last edited timestamp
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
@@ -95,9 +112,6 @@ gh_edit_branch: "master" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
 
-# Color scheme currently only supports "dark", "light"/nil (default), or a custom scheme that you define
-color_scheme: light
-
 # Google Analytics Tracking (optional)
 # e.g, UA-1234567-89
 ga_tracking: UA-2709176-10
@@ -105,6 +119,7 @@ ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (t
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-github-metadata
 
 kramdown:
   syntax_highlighter_opts:
@@ -121,3 +136,31 @@ compress_html:
   # uncomment the settings below if you wish to show the line_numbers
   # ignore:
   #   envs: all
+
+#####################################################################################
+# [Just-The-Docs]
+
+# Color scheme currently only supports "dark", "light"/nil (default), or a custom scheme that you define
+color_scheme: light
+
+# Additions as per the documentation
+remote_theme: just-the-docs/just-the-docs
+theme: just-the-docs
+
+# Callouts (https://just-the-docs.github.io/just-the-docs/docs/ui-components/callouts/)
+callouts_level: quiet # or loud
+callouts:
+  highlight:
+    color: yellow
+  important:
+    title: Important
+    color: blue
+  new:
+    title: New
+    color: green
+  note:
+    title: Note
+    color: purple
+  warning:
+    title: Warning
+    color: red
