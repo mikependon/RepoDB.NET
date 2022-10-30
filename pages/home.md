@@ -28,7 +28,7 @@ On the other hand, if you are to use a bare-metal micro-ORM, there is a tendency
 
 RepoDB mediates both the micro-ORMs and macro-ORMs. It only requires a connection string to open a connection and the entire [feature sets](/feature) can then be utilized right away. It is the main reason why this library is the easiest-to-use ORM.
 
-## Let us get started
+## Getting Started
 
 Please click any of the link below to fast-track your learnings about this library.
 
@@ -38,3 +38,15 @@ Please click any of the link below to fast-track your learnings about this libra
 - [PostgreSQL](/tutorial/get-started-postgresql)
 
 Or, please visit our [installation](/tutorial/installation) page for more information, otherwise, visit our [docs](/docs) page to simplify your navigation.
+
+## Contributors
+
+Thank you to all the contributors of RepoDB documentation site!
+
+<ul class="list-style-none">
+{% for contributor in site.github.contributors %}
+  <li class="d-inline-block mr-1">
+     <a href="{{ contributor.html_url }}"><img src="{{ contributor.avatar_url }}" width="32" height="32" alt="{{ contributor.login }}"/></a>
+  </li>
+{% endfor %}
+</ul>

@@ -103,6 +103,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
+{: .note }
 > The [Insert](/operation/insert) method returns the value of primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary property of the model if present.
 
 ## Querying a Record
@@ -172,6 +173,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
+{: .note }
 > The [Merge](/operation/merge) method returns the value of the primary column while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary property of the model if present.
 
 ## Deleting a Record
@@ -213,6 +215,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
+{: .note }
 > Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the deletion.
 
 ## Updating a Record
@@ -269,6 +272,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
+{: .note }
 > Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution.
 
 ## Executing a SQL Text
@@ -321,6 +325,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 To execute a Table-Valued Parameter (TVP), create a `DataTable` and set its name equals to the name of the User-Defined Type (UDT).
 
+{: .highlight }
 > Please follow the Microsoft [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) on how to create a TVP and UDT and call it from C#/ADO.NET.
 
 ```csharp
@@ -351,6 +356,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
+{: .warning }
 > Beware of not putting a semi-colon at the end of the calls.
 
 Or, you can direct call using the `EXEC` command. With this, you do not need to pass the value of the `commandType` argument.
@@ -362,6 +368,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
+{: .note }
 > You can also use the types defined at the [Passing of Parameters](/operation/executequery#passing-of-parameters) section when passing a parameter.
 
 ## Typed Result Execution
@@ -393,4 +400,5 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
+{: .note }
 > The result of this operation is a `IEnumerable<T>` object.
