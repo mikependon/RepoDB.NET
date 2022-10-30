@@ -34,12 +34,12 @@ Let us say you had implemented a `Person` handler like below.
 ```csharp
 public class PersonClassHandler : IClassHandler<Person>
 {
-    public Person Get(Person entity, DbDataReader dataReader)
+    public Person Get(Person entity, ClassHandlerGetOptions options)
     {
         return entity;
     }
 
-    public Person Set(Person entity)
+    public Person Set(Person entity, ClassHandlerSetOptions options)
     {
         return entity;
     }

@@ -30,13 +30,7 @@ If you wish to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlS
 > Install-Package RepoDb.SqlServer
 ```
 
-Or, if you are to work with the bulk operations.
-
-```csharp
-> Install-Package RepoDb.SqlServer.BulkOperations
-```
-
-Then, call the bootstrapper to initialize the needed references.
+Once installed, call the globalized setup method to initialize all the dependencies for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
 
 ```csharp
 GlobalConfiguration
@@ -50,7 +44,13 @@ For the users prior the version 1.13.0, use the bootstrapper code below.
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-### System.Data.SqlClient
+Or, if you are to work with the bulk operations.
+
+```csharp
+> Install-Package RepoDb.SqlServer.BulkOperations
+```
+
+#### System.Data.SqlClient
 
 If you are working with this package, you are required to bootstrap the connection object on the startup.
 
@@ -75,13 +75,7 @@ If you wish to work with [PostgreSQL](https://www.nuget.org/packages/RepoDb.Post
 > Install-Package RepoDb.PostgreSql
 ```
 
-Or, if you are to work with the bulk operations.
-
-```csharp
-> Install-Package RepoDb.PostgreSql.BulkOperations
-```
-
-Then, call the bootstrapper to initialize the needed references.
+Once installed, call the globalized setup method to initialize all the dependencies for PostgreSql.
 
 ```csharp
 GlobalConfiguration
@@ -95,11 +89,17 @@ For the users prior the version 1.13.0, use the bootstrapper code below.
 RepoDb.PostgreSqlBootstrap.Initialize();
 ```
 
+Or, if you are to work with the bulk operations.
+
+```csharp
+> Install-Package RepoDb.PostgreSql.BulkOperations
+```
+
 ## MySQL
 
 There are 2 packages available for MySQL.
 
-### MySql.Data
+#### MySql.Data
 
 If you wish to work with [RepoDb.MySql](https://www.nuget.org/packages/RepoDb.MySql).
 
@@ -107,7 +107,7 @@ If you wish to work with [RepoDb.MySql](https://www.nuget.org/packages/RepoDb.My
 > Install-Package RepoDb.MySql
 ```
 
-Then, call the bootstrapper to initialize the needed references.
+Once installed, call the globalized setup method to initialize all the dependencies for MySQL.
 
 ```csharp
 GlobalConfiguration
@@ -121,7 +121,7 @@ For the users prior the version 1.13.0, use the bootstrapper code below.
 RepoDb.MySqlBootstrap.Initialize();
 ```
 
-### MySqlConnector
+#### MySqlConnector
 
 If you wish to work with [RepoDb.MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector).
 
@@ -129,7 +129,7 @@ If you wish to work with [RepoDb.MySqlConnector](https://www.nuget.org/packages/
 > Install-Package RepoDb.MySqlConnector;
 ```
 
-Then, call the bootstrapper to initialize the needed references.
+Once installed, call the globalized setup method to initialize all the dependencies for MySQL.
 
 ```csharp
 GlobalConfiguration
@@ -147,7 +147,7 @@ RepoDb.MySqlConnectorBootstrap.Initialize();
 
 There are 2 packages available for SQLite.
 
-### System.Data.SQLite.Core
+#### System.Data.SQLite.Core
 
 If you wish to work with [RepoDb.SQLite.System](https://www.nuget.org/packages/RepoDb.SQLite.System).
 
@@ -155,7 +155,7 @@ If you wish to work with [RepoDb.SQLite.System](https://www.nuget.org/packages/R
 > Install-Package RepoDb.SQLite.System
 ```
 
-Then, call the bootstrapper to initialize the needed references.
+Once installed, call the globalized setup method to initialize all the dependencies for SQLite.
 
 ```csharp
 GlobalConfiguration
@@ -177,7 +177,7 @@ If you wish to work with [RepoDb.Sqlite.Microsoft](https://www.nuget.org/package
 > Install-Package RepoDb.Sqlite.Microsoft
 ```
 
-Then, call the bootstrapper to initialize the needed references.
+Once installed, call the globalized setup method to initialize all the dependencies for SQLite.
 
 ```csharp
 GlobalConfiguration

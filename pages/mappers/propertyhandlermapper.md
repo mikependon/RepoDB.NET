@@ -34,12 +34,12 @@ Let us say you had implemented a `DateTime` handler like below.
 ```csharp
 public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<DateTime?, DateTime?>
 {
-    public DateTime? Get(DateTime? input, ClassProperty property)
+    public DateTime? Get(DateTime? input, PropertyHandlerGetOptions options)
     {
         return DateTime.SpecifyKind(input, DateTimeKind.Utc);
     }
 
-    public DateTime? Set(DateTime? input, ClassProperty property)
+    public DateTime? Set(DateTime? input, PropertyHandlerSetOptions options)
     {
         return DateTime.SpecifyKind(input.GetValueOrDefault(), DateTimeKind.Unspecified);
     }

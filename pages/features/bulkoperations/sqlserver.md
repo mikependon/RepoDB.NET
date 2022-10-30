@@ -153,6 +153,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+---
+
 ## BulkInsert
 
 The code snippets below only showcasing the [BulkInsert](/operation/bulkinsert) via `IEnumerable<T>`.
@@ -174,6 +176,8 @@ using (var connection = new SqlConnection(connectionString))
     var rows = connection.BulkInsert("[dbo].[Customer]", customers);
 }
 ```
+
+---
 
 ## BulkMerge
 
@@ -207,6 +211,8 @@ using (var connection = new SqlConnection(connectionString))
     var rows = connection.BulkMerge("[dbo].[Customer]", customers);
 }
 ```
+
+---
 
 ## BulkUpdate
 
