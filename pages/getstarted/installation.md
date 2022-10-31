@@ -169,7 +169,7 @@ For the users prior the version 1.13.0, use the bootstrapper code below.
 RepoDb.SQLiteBootstrap.Initialize();
 ```
 
-### Microsoft.Data.Sqlite
+#### Microsoft.Data.Sqlite
 
 If you wish to work with [RepoDb.Sqlite.Microsoft](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft).
 
