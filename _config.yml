@@ -119,7 +119,6 @@ ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (t
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-github-metadata
 
 kramdown:
   syntax_highlighter_opts:
@@ -145,7 +144,7 @@ color_scheme: light
 
 # Additions as per the documentation
 remote_theme: just-the-docs/just-the-docs
-theme: just-the-docs
+#theme: just-the-docs
 
 # Callouts (https://just-the-docs.github.io/just-the-docs/docs/ui-components/callouts/)
 callouts_level: quiet # or loud
