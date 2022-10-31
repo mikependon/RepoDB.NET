@@ -163,5 +163,6 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > You can as well visit our [Multiple Resultsets](/reference/multipleresultsets) reference implementation page for more details.
 

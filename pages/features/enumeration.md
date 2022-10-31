@@ -180,7 +180,7 @@ public class Person
 }
 ```
 
-{: .note }
+{: .important }
 > The enumeration auto-mapping is being disregard if you have the property handler mapped into the enumeration property. By using the property handler, you have a lot of control as a developer about the transformation.
 
 ## Query Expression
