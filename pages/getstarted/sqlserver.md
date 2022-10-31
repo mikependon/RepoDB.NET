@@ -104,7 +104,7 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> The [Insert](/operation/insert) method returns the value of primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary property of the model if present.
+> The [Insert](/operation/insert) method returns the value of identity/primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary property of the model if present.
 
 ## Querying a Record
 
@@ -174,7 +174,7 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> The [Merge](/operation/merge) method returns the value of the primary column while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary property of the model if present.
+> The [Merge](/operation/merge) method returns the value of the identity/primary column while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary property of the model if present.
 
 ## Deleting a Record
 
