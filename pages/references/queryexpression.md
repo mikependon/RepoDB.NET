@@ -26,6 +26,7 @@ Via Dynamic:
 var result = connection.Query<Customer>(new { Id = 10045 });
 ```
 
+{: .note }
 > The query via dynamic object is only supporting the `Equal` operation.
 
 Via Expression:
@@ -269,6 +270,7 @@ var result = connection.Query<Customer>(e => (e.IsActive == true && (e.DateInser
     (e.IsActive == false && (e.DateInserted >= LastMonth && e.DateInserted <= Yesterday) && (new[] { "Washington", "New York", "California" }).Contains(e.State));
 ```
 
+{: .note }
 > We will support the complex Linq-expression soon. But, until further notice, please use the query objects when composing complex expressions.
 
 Instead, do this.

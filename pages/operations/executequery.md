@@ -51,7 +51,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-**Note:** You can as well pass an anonymous type in the generic type `TResult` of the [ExecuteQuery](/operation/executequery) operation. This scenario is very important to the F# programming language.
+{: .note }
+You can as well pass an anonymous type in the generic type `TResult` of the [ExecuteQuery](/operation/executequery) operation. This scenario is very important to the F# programming language.
 
 ## Typed Result
 
@@ -91,7 +92,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-**Note:** The inferrence of the enumeration will work for string types (i.e: `NVARCHAR`, `TEXT`, etc) and non-string types (i.e: `SMALLINT`, `INT`, `BIGINT`, etc) column types.
+{: .important }
+The inferrence of the enumeration will work for string types (i.e: `NVARCHAR`, `TEXT`, etc) and non-string types (i.e: `SMALLINT`, `INT`, `BIGINT`, etc) column types.
 
 ## Table-Valued Parameters
 
@@ -140,7 +142,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-**Note:** The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
+{: .important }
+The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
 
 ## Anonymous Types
 
@@ -220,6 +223,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
 
 ## Executing a Stored Procedure
@@ -244,4 +248,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > Notice in the second call, there is semi-colon at the end of the command text and the command type was not set.

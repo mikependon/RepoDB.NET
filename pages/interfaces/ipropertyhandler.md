@@ -31,6 +31,7 @@ Below is the list of methods.
 | Get | The method that is being invoked when the outbound transformation is triggered (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)). |
 | Set | The method that is being invoked when the inbound transformation is triggered (i.e.: [Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge) and etc). |
 
+{: .note }
 > Both methods accept the [ClassProperty](/class/classproperty) to give more context on the current method of the property handler.
 
 ## Use-Cases
@@ -45,6 +46,7 @@ This is very useful when you would like to handle the following scenarios.
 - Can be used as trigger.
 - Manually override the default handler for the Enumerations.
 
+{: .important }
 > The use-cases can be unlimitted depends on your situation. In addition to this note, by implementing the property handler and mapping it to the property will ignore the automatic conversion of [TypeMapper](/mapper/typemapper#automatic) and enumerations.
 
 ## How to Implement?
@@ -146,6 +148,7 @@ publi class Person
 }
 ```
 
+{: .note }
 > When you call any of the fetch ([Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)) or push ([Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge)) operations, the methods `Get()` and `Set()`  of the property handler will be invoked immediately.
 
 ## Type Level Handling

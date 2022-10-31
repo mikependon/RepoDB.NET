@@ -100,6 +100,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
+{: .note }
 > The [Insert](/operation/insert) method returns the value of primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary property of the model if present.
 
 ## Querying a Record
@@ -170,6 +171,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
+{: .note }
 > The [Merge](/operation/merge) method returns the primary column value, while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary property if present.
 
 ## Deleting a Record
@@ -211,6 +213,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the execution.
 
 ## Updating a Record
@@ -267,6 +270,7 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
+{: .note }
 > Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution.
 
 ## Executing a Query
@@ -347,4 +351,5 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
-> Please be noted that the resultset of this operation is an `IEnumerable<T>` object.
+{: .note }
+> The resultset of this operation is an `IEnumerable<T>` object.

@@ -103,6 +103,7 @@ public IEnumerable<Order> GetCustomerOrders(int customerId)
 /* More methods */
 ```
 
+{: .warning }
 > Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base. Please visit our [DbRepository](/reference/dbrepository) reference implementation page for the detailed implementation.
 
 ## Usability
@@ -123,6 +124,7 @@ using (var repository = new NorthwindRepository(settings.Value.ConnectionString)
 }
 ```
 
+{: .note }
 > A respository is disposable, so please do not forget to wrap it with `using` keyword.
 
 ## Dependency Injection
@@ -139,7 +141,8 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-> Do not use the repository class directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
+{: .warning }
+> Avoid using the repository class directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
 
 ## The CreateConnection Method
 
@@ -212,6 +215,7 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 }
 ```
 
+{: .note }
 > Please visit our [JSON Cache](/reference/jsoncache) reference implementation page for the detailed implementation about file-based caching using JSON.
 
 ## Adding a Trace
@@ -238,6 +242,7 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 }
 ```
 
+{: .note }
 > Please visit our [Trace](/reference/trace) reference implementation page for the detailed implementation.
 
 ## SQL Builder
@@ -264,4 +269,5 @@ public class NorthwindRepository : DbRepository<Customer, SqlConnection>
 }
 ```
 
+{: .note }
 > The constructor of this class accepts all the possible combinations of the argument mentioned above.

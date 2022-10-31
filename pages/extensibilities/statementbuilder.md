@@ -15,6 +15,7 @@ A statement builder is an object that is being used by the library to generate t
 
 You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class when implementing a customized statement builder. With this, some methods of the [IStatementBuilder](/interface/istatementbuilder) interface were already implemented and you automatically inheritted them. Therefore, you do not need to implement it yourselves.
 
+{: .important }
 > We recommend to use the [BaseStatementBuilder](/class/basestatementbuilder) over [IStatementBuilder](/interface/istatementbuilder) when creating a customized statement builder.
 
 ## Pre-requisites
@@ -24,6 +25,7 @@ You have to use the [BaseStatementBuilder](/class/basestatementbuilder) class wh
 - The namespace must be `RepoDb.StatementBuilders`.
 - The class must be residing inside the `StatementBuilders` folder.
 
+{: .note }
 > Please see the [folder structuring](/extensibility/folderstructuring) page.
 
 ## Get Started
@@ -43,22 +45,26 @@ internal sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 
 You have to call the `base()` method on the constructor by passing the following arguments.
 
-- [Database Setting](/extensibility/databasesetting) - the actual database settings to be used.
-- [Convert Field Resolver](/extensibility/convertfieldresolver) - a resolver that is being used by the library as an equivalent calls to `CONVERT` keyword.
-- [Average Type Resolver](/extensibility/averagetyperesolver) - a resolver that is being used to define which type of .NET CLR type the library is going to be used when calling the [Average](/operation/average) and [AverageAll](/operation/averageall) operations.
+| Name | Description |
+|:-----|:------------|
+| [Database Setting](/extensibility/databasesetting) | The actual database settings to be used. |
+| [Convert Field Resolver](/extensibility/convertfieldresolver) | A resolver that is being used by the library as an equivalent calls to `CONVERT` keyword. |
+| [Average Type Resolver](/extensibility/averagetyperesolver) | A resolver that is being used to define which type of .NET CLR type the library is going to be used when calling the [Average](/operation/average) and [AverageAll](/operation/averageall) operations.|
 
 ## Implementing the Abstract Methods
 
 All methods of the [BaseStatementBuilder](/class/basestatementbuilder) class were implemented as virtuals, except for the following.
 
-- `CreateBatchQuery` - a method that generates a SQL statement for [BatchQuery](/operation/batchquery) operation.
-- `CreateMerge` - a method that generates a SQL statement for [Merge](/operation/merge) operation.
-- `CreateMergeAll` - a method that generates a SQL statement for [MergeAll](/operation/mergeall) operation.
+| Name | Description |
+|:-----|:------------|
+| CreateBatchQuery | A method that generates a SQL statement for [BatchQuery](/operation/batchquery) operation. |
+| CreateMerge | A method that generates a SQL statement for [Merge](/operation/merge) operation.|
+| CreateMergeAll | A method that generates a SQL statement for [MergeAll](/operation/mergeall) operation. |
 
 ### Why?
 
-- [BatchQuery](/operation/batchquery) - each RDBMS data provider has a different syntax for paging/batching.
-- [Merging](/operation/merge) - not all RDBMS data providers are supporting the default merge statement.
+| [BatchQuery](/operation/batchquery) | Each RDBMS data provider has a different syntax for paging/batching. |
+| [Merging](/operation/merge) | Not all RDBMS data providers are supporting the default merge statement. |
 
 Below is the sample code to implement the [Merge](/operation/merge) operation.
 
@@ -128,6 +134,7 @@ public override string CreateMerge(string tableName,
 }
 ```
 
+{: .note }
 > The code snippets above is just a sample, it was not tested and is not working. In addition to this note, you have to manually implement all the abstract methods.
 
 ## Overriding the Virtual Methods
@@ -154,6 +161,7 @@ public override string CreateTruncate(string tableName)
 
 You can do override the other virtual methods (as many as you like).
 
+{: .important }
 > It is very important to only override the virtual methods if a customization or different implementation is needed.
 
 ## Usability

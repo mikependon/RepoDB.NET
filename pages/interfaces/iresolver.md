@@ -24,6 +24,7 @@ Or, you can use it on a situation like:
 - Handling the transformation of the column based on the database settings.
 - Handling the way on how to correct the inputted value.
   
+{: .note }
 > The use-case can be unlimitted based your situation.
 
 ## How to Implement?
@@ -65,4 +66,5 @@ public class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 }
 ```
 
-Please see the [convert field resolver](/extensibility/convertfieldresolver) page for more details.
+{: .note }
+> Please see the [convert field resolver](/extensibility/convertfieldresolver) page for more details.

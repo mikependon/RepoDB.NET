@@ -26,6 +26,7 @@ var keys = ClassExpression.GetEntitiesPropertyValues<Person, long>(people, "Id")
 // Do the stuffs for the 'keys' here
 ```
 
+{: .note }
 > You can also extract using [Field](/class/field), [DbField](/class/dbfield) or [ClassProperty](/class/classproperty) objects.
 
 ## GetProperties
@@ -37,8 +38,8 @@ var properties = ClassExpression.GetProperties<Person>();
 // Do the stuffs for the 'properties' here
 ```
 
-> We recommend that you should use the [PropertyCache](/cacher/propertycache) object when extracting the class properties.
-
+{: .important }
+> We recommend that you use the [PropertyCache](/cacher/propertycache) object when extracting the class properties.
 
 ## GetPropertiesAndValues
 

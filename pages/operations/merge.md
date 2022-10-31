@@ -52,7 +52,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> The result is always the value of primary key. If the primary key is an identity and a new record has been inserted, then the newly generated identity value will be returned.
+{: .important }
+> The result will vary from the value of the `GlobalConfiguration.Options` property [KeyColumnReturnBehavior](/enumeration/keycolumnreturnbehavior).
 
 ## Targeting a Table
 
@@ -113,7 +114,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> Please note that the library will add the newly created value of the identity column into the `Dictionary<string, object>` or `ExpandoObject` object (if not present).
+{: .note }
+> The library will add the newly created value of the identity column into the `Dictionary<string, object>` or `ExpandoObject` object (if not present).
 
 ## Specific Columns
 

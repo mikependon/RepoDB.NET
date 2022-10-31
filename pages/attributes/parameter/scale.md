@@ -39,6 +39,7 @@ FluentMapper
     .PropertyValueAttributes(e => e.Assets, new ScaleAttribute(1));
 ```
 
+{: .note }
 > The value from the database table/view is taking the precedence if present.
 
 ### Retrieval
@@ -47,7 +48,7 @@ You can retrieve the attribute via [PropertyValueAttributeCache](/cacher/propert
 
 ```csharp
 var attribute = PropertyValueAttributeCache
-    .Get<Person>(e => e.Name, includeMappings: true)?
+    .Get<Person>(e => e.Name)?
     .FirstOrDefault(e => e.GetType() == typeof(ScaleAttribute));
 ```
 
@@ -59,4 +60,5 @@ var attribute = PropertyValueAttributeMapper
     .FirstOrDefault(e => e.GetType() == typeof(ScaleAttribute));
 ```
 
+{: .important }
 > We strongly suggest to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) to maximize the performance.

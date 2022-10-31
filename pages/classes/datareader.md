@@ -16,6 +16,7 @@ This class is used to convert the `DbDataReader` object into an `IEnumerable<T>`
 
 It only contains one method named `ToEnumerable`. This method is pre-compiled AOT using `Linq.Expressions`.
 
+{: .note }
 > This class is high-performant and efficient. It understands and caches the schema of your database into the memory. It also reuses all the other caches within the library during the extraction to construct and generate the most-optimal AOT compilation.
 
 ## Extract as Entity Model
@@ -64,4 +65,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > Please note to always pass the [IDbSetting](/interface/idbsetting) object when using the `dbFields` argument.

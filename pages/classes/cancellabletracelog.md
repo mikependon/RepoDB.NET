@@ -56,4 +56,5 @@ public void BeforeExecution(CancellableTraceLog log)
 }
 ```
 
+{: .note }
 > By setting the `throwException` argument to `true`, an exception will be thrown back to the actual operation.

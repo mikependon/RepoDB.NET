@@ -60,6 +60,7 @@ You have to override the implementation of the `GetHashCode()` based on the comb
 
 The reason to this, the library is using the equality based on the generated hashcode. Failure to comply may trigger a performance problem in your application.
 
+{: .important }
 > We recommend to instead use the [BaseDbSetting](/class/basedbsetting) class when implementing a customized database setting.
 
 ## Usability

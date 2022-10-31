@@ -159,4 +159,5 @@ using (var repository = new DatabaseRepository(new AppSettings()))
 }
 ```
 
-> Always consider to only create a single trace object within the application and have it passed as a singleton object in any operations or reporitories. This is the reason why we had created the factory class above.
+{: .important }
+> Always consider to only create a single trace object within the application and have it passed as a singleton object in any operations or repositories, irregardless of your preference. This is the reason why we had created the factory class above.

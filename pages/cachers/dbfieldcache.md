@@ -45,4 +45,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > By using the `Get()` method, a `DbConnection` is necessary. If the cache is not yet present, then the entries will be extracted from the database, cache it and sent it back to the caller.

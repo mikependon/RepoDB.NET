@@ -46,6 +46,7 @@ Converter.ConversionType = ConversionType.Automatic;
 Deprecated
 {: .label .label-red }
 
+{: .note }
 > Please see the [ConversionType](/enumeration/conversiontype) enumeration to learn more about this conversion.
 
 ## When to use the Enum Default Database Type?
@@ -90,6 +91,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .important }
 > Please be reminded that this setting does not apply to the model-based operations. The library will automatically utilize the schema definition from the database when mapping the enumeration if the model-based operations are being used. In addition, this setting does not supercede the configured mappings on the specific property and/or type.
 
 ## DbNull Conversion

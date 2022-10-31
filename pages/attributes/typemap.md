@@ -15,6 +15,7 @@ parent: ATTRIBUTES
 
 This attribute is used to map a property into its equivalent type from the database (via `System.Data.DbType`).
 
+{: .important }
 > This attribute supercede the type-level mapping defined at the [TypeMapper](/mapper/typemapper) object.
 
 Below is a a sample code on how to map an existing `DateTime` property to a `System.Data.DbType.DateTime2` database type.

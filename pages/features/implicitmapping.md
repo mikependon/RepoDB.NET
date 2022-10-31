@@ -59,6 +59,7 @@ FluentMapper
 
 The priority of the mapping is first identified via an attribute-level, then followed by a property-level and lastly by a type-level.
 
+{: .note }
 > The [FluentMapper](/mapper/fluentmapper) is using the following classes ([ClassMapper](/mapper/classmapper), [ClassHandlerMapper](/mapper/classhandlermapper), [IdentityMapper](/mapper/identitymapper), [PrimaryMapper](/mapper/primarymapper), [PropertyHandlerMapper](/mapper/propertyhandlermapper), [PropertyMapper](/mapper/propertymapper) and [TypeMapper](/mapper/typemapper)) underneath to establish the proper mappings.
 
 ## Class Name Mapping
@@ -88,7 +89,8 @@ To retrieve the mapped name, use the `Get()` method.
 var mappedName = ClassMapper.Get<Customer>();
 ```
 
-> We highly recommend to use the [ClassMappedNameCache](/cacher/classmappednamecache) class when retrieving the mapped name. This is to maximize the reusability and performance.
+{: .important }
+> We recommend to use the [ClassMappedNameCache](/cacher/classmappednamecache) class when retrieving the mapped name. This is to maximize the reusability and performance.
 
 ```csharp
 var mappedName = ClassMappedNameCache.Get<Customer>();
@@ -116,7 +118,8 @@ To retrieve the mapping, use the `Get()` method. The method returns an instance 
 var property = IdentityMapper.Get<Customer>();
 ```
 
-> We highly recommend to use the [IdentityCache](/cacher/identitycache) class when retrieving the identity property. This is to maximize the reusability and performance.
+{: .important }
+> We recommend to use the [IdentityCache](/cacher/identitycache) class when retrieving the identity property. This is to maximize the reusability and performance.
 
 ```csharp
 var property = IdentityCache.Get<Customer>();
@@ -143,7 +146,8 @@ To retrieve the mapping, use the `Get()` method. The method returns an instance 
 var property = PrimaryMapper.Get<Customer>();
 ```
 
-> We highly recommend to use the [PrimaryCache](/cacher/primarycache) class when retrieving the primary property. This is to maximize the reusability and performance.
+{: .important }
+> We recommend to use the [PrimaryCache](/cacher/primarycache) class when retrieving the primary property. This is to maximize the reusability and performance.
 
 ```csharp
 var mappedName = PrimaryCache.Get<Customer>();
@@ -188,7 +192,8 @@ To retrieve the mapping, use the `Get()` method.
 var classHandler = ClassHandlerMapper.Get<Customer, CustomerClassHandler>();
 ```
 
-> We highly recommend to use the [ClassHandlerCache](/cacher/classhandlercache) class when retrieving the cached class handlers. This is to maximize the reusability and performance.
+{: .important }
+> We recommend to use the [ClassHandlerCache](/cacher/classhandlercache) class when retrieving the cached class handlers. This is to maximize the reusability and performance.
 
 ```csharp
 var classHandler = ClassHandlerCache.Get<Customer, CustomerClassHandler>();
@@ -233,7 +238,8 @@ To retrieve the mapping, use the `Get()` method.
 var propertyHandler = PropertyHandlerMapper.Get<Customer, CustomerAddressPropertyHandler>(e => e.Address);
 ```
 
-> We highly recommend to use the [PropertyHandlerCache](/cacher/propertyhandlercache) class when retrieving the cached property handlers. This is to maximize the reusability and performance.
+{: .important }
+> We recommend to use the [PropertyHandlerCache](/cacher/propertyhandlercache) class when retrieving the cached property handlers. This is to maximize the reusability and performance.
 
 ```csharp
 var propertyHandler = PropertyHandlerMapper.Get<Customer, CustomerAddressPropertyHandler>(e => e.Address);
@@ -335,7 +341,8 @@ var lastName = PropertyMapper.Get<Customer>(e => e.LastName);
 var dob = PropertyMapper.Get<Customer>(e => e.DateOfBirth);
 ```
 
-> We highly recommend to use the [PropertyMappedNameCache](/cacher/propertymappednamecache) class when retrieving the cached mapped name. This is to maximize the reusability and performance.
+{: .important }
+> We recommend to use the [PropertyMappedNameCache](/cacher/propertymappednamecache) class when retrieving the cached mapped name. This is to maximize the reusability and performance.
 
 ```csharp
 var firstName = PropertyMappedNameCache.Get<Customer>(e => e.FirstName);
@@ -383,7 +390,8 @@ To retrieve the mapping, use the `Get()` method.
 var dbType = TypeMapper.Get<Customer>(e => e.DateOfBirth);
 ```
 
-> We highly recommend to use the [TypeMapCache](/cacher/typemapcache) class when retrieving the cached database types. This is to maximize the reusability and performance.
+{: .important }
+> We recommend to use the [TypeMapCache](/cacher/typemapcache) class when retrieving the cached database types. This is to maximize the reusability and performance.
 
 ```csharp
 var dbType = TypeMapCache.Get<Customer>(e => e.DateOfBirth);
@@ -454,7 +462,8 @@ To retrieve the mapping, use the `Get()` method.
 var attributes = PropertyValueAttributeMapper.Get<Customer>(e => e.FirstName);
 ```
 
-> We highly recommend to use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) class when retrieving the cached property value attributes. This is to maximize the reusability and performance.
+{: .important }
+> We recommend to use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) class when retrieving the cached property value attributes. This is to maximize the reusability and performance.
 
 ```csharp
 var attributes = PropertyValueAttributeCache.Get<Customer>(e => e.FirstName);
@@ -466,4 +475,8 @@ To remove the mapping, use the `Remove()` method.
 PropertyValueAttributeMapper.Remove<Customer>(e => e.FirstName);
 ```
 
-> In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and if you did not enfored the call using the `force` argument. Please be noted that the `force` argument is not overriding that attribute-based mapping (i.e.: by using the `System.ComponentModel.DataAnnotations.Schema` (`Table`, `Column`), [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap), [ClassHandler](/attribute/classhandler) and [PropertyHandler](/attribute/propertyhandler)).
+{: .note }
+Please be noted that the `force` argument is not overriding that attribute-based mapping (i.e.: by using the `System.ComponentModel.DataAnnotations.Schema` (`Table`, `Column`), [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap), [ClassHandler](/attribute/classhandler) and [PropertyHandler](/attribute/propertyhandler)).
+
+{: .warning }
+> In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and if you did not enfored the call using the `force` argument. 

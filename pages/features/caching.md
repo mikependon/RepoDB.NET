@@ -22,6 +22,7 @@ Below is the high-level diagram that showcase how the caching implementation is 
 
 By default, the caching is implemented as a storage in the computer memory by default through [MemoryCache](/class/memorycache) object. It is just a simple dictionary object that holds a key that represents as pointer to the actual data in the cache storage. It is persisting the data in the cache storage for 180 minutes, but the user can manually set the time of the persistency during the calls.
 
+{: .important }
 > The database tables that are not frequently changing but is mostly in used in the application are the candidate for caching.
 
 ## How to use the Cache?
@@ -50,6 +51,7 @@ using (var repository = new DbRepository<Product, SqlConnection>(connectionStrin
 
 Notice, we have not passed an instance of [ICache](/interface/icache) object during the call. That is one of the advantages if you are working with the mentioned repositories.
 
+{: .important }
 > It is highly recommended to use the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects if you tend to skip managing the cache object.
 
 ## Selecting a Proper Cache Key
@@ -170,6 +172,7 @@ public class JsonCache : ICache
 }
 ```
 
+{: .note }
 > You have to implement all the interface methods and manually handle each of them.
 
 ## Injecting the Cache in the Repository
@@ -326,4 +329,5 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 }
 ```
 
+{: .note }
 > Please visit our [JSON Cache](/reference/jsoncache) reference implementation page to get more insights on how to implement a file-based caching object using JSON.

@@ -14,6 +14,7 @@ parent: CACHERS
 
 A hugely-used cacher class for the [ClassProperty](/class/classproperty). It provides a 2nd-layer caching for the library when it comes to the class properties extraction.
 
+{: .note }
 > Internally, this class is widely used within the library.
 
 ## Methods
@@ -39,4 +40,5 @@ var properties = PropertyCache.Get<Person>();
 // Use the 'properties' here
 ```
 
+{: .note }
 > Internally, it uses the [PropertyMapper](/mapper/propertymapper) and [ClassExpression](/class/classexpression) classes to extract and cache the list of [ClassProperty](/class/classproperty) objects.

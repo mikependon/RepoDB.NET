@@ -110,6 +110,7 @@ public sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 }
 ```
 
+{: .note }
 > You can also override the other non-abstract methods as they were all implemented as `virtual`. It is very important to take note that you should only override the base functionalities if you have a specialized implementation for the specific RDBMS data provider.
 
 ## Usability
@@ -152,4 +153,5 @@ using (var repository = new DatabaseRepository(new AppSettings()))
 }
 ```
 
+{: .note }
 > Please visit the [Statement Builder](/extensibility/statementbuilder) page for more details.

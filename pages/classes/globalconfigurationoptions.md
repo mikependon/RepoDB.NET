@@ -43,4 +43,5 @@ GlobalConfiguration
     .UseSqlServer();
 ```
 
-**Note:** All the properties defined in the options are optional. The one defined above are the default values.
+{: .note }
+> All the properties defined in the options are optional. The one defined above are the default values.

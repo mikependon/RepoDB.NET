@@ -56,7 +56,7 @@ FluentMapper
 You can retrieve the list of mapped attributes via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
 
 ```csharp
-var attributes = PropertyValueAttributeCache.Get<Person>(e => e.Name, includeMappings: true);
+var attributes = PropertyValueAttributeCache.Get<Person>(e => e.Name);
 ```
 
 Or, via the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper).
@@ -65,6 +65,7 @@ Or, via the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper)
 var attributes = PropertyValueAttributeMapper.Get<Person>(e => e.Name);
 ```
 
+{: .important }
 > We strongly suggest to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) to maximize the performance.
 
 ### Implementation
@@ -101,5 +102,6 @@ FluentMapper
         new [] { new CustomizedNameAttribute("CompleteName" })
 ```
 
+{: .note }
 > The implementation is dynamic, therefore, you can target any property of the `IDbDataParameter` regardless of the data providers (i.e.: SQL Server, PostgreSQL, MySQL or SQLite).
 

@@ -44,6 +44,7 @@ PropertyValueAttributeMapper.Add<Customer>(c => c.Name, new PropertyValueAttribu
 });
 ```
 
+{: .warning }
 > An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
 
 To get the mapping, use the `Get()` method.
@@ -52,6 +53,7 @@ To get the mapping, use the `Get()` method.
 var property = PropertyValueAttributeMapper.Get<Customer>(c => c.Name);
 ```
 
+{: .note }
 > Please consider to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) class when extracting the mapped property attributes.
 
 To remove the mapping, use the `Remove()` method.

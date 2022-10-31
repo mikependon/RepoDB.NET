@@ -23,10 +23,12 @@ The image below shows the data flow of the [BinaryBulkInsert](/operation/binaryb
 
 For the [BinaryBulkDelete](/operation/binarybulkdelete), [BinaryBulkMerge](/operation/binarybulkmerge) and [BinaryBulkUpdate](/operation/binarybulkupdate) operations, an implied logic is used. Basically, a pseudo-temporary table is being created in the database under a transaction context. The operation will then use the [BinaryImport](/operation/binaryimport) operation to target such pseudo-temporary table and process the data afterwards.
 
+{: .note }
 > Through this logic, all the data from the client application is brought to the database server at one-go, and then, being processed together afterwards.
 
 The operations can also be further optimized by targeting the underlying table indexes via the qualifier columns, simply pass the list of [Field](/class/field) objects.
 
+{: .important }
 > If the qualifiers are passed, a CLUSTERED INDEX will be created on the pseudo-temporary and it will be used as the qualifiers when merging with the target original table. If no qualifiers are passed, the primary column will be used by default.
 
 ## Supported Objects
@@ -72,7 +74,8 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 > WHERE NOT (S.QualiferField1 = T.Field1 AND T.QualifierField2 = T.Field2);
 ```
 
-> Disclaimer: The generated statements are not exactly same as the one written above, but the concepts are identical.
+{: .note }
+> Disclaimer: The actual generated statements are not exactly the same as the one written above, but the concepts are identical.
 
 #### For BinaryBulkMerge (OnConflictDoUpdate)
 

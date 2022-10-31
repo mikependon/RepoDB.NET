@@ -14,6 +14,7 @@ parent: REFERENCES
 
 This page contains the reference implementation when implementing a file system cache object that is based for JSON. The consolidated output of this page can be found [here](/reference/output/jsoncache).
 
+{: .note }
 > The class is using the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) package.
 
 ## Implementation
@@ -46,6 +47,7 @@ public class JsonCache : IJsonCache
 }
 ```
 
+{: .note }
 > All methods of the [ICache](/interface/icache) interface must be implemented manually.
 
 ## Properties
@@ -176,6 +178,7 @@ IEnumerator IEnumerable.GetEnumerator()
 }
 ```
 
+{: .important }
 > The class [CacheItem](/class/cacheitem) does not have default constructor, therefore, you cannot serialize/deserialize this object into JSON. The only thing that you can serialize/deserialize is the value itself. If you wish to cache the properties (i.e.: `Key`, `Expiration`, `ExpirationInMinutes`), then you have to create a class in between before serializing/deserializing it.
 
 ## Usability

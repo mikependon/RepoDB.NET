@@ -225,4 +225,5 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 }
 ```
 
+{: .note }
 > You can as well visit our [Trace](/reference/trace) reference implementation page for more details.

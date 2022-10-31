@@ -101,6 +101,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > Please note that the library will add the newly created value of the identity column into the `Dictionary` or `ExpandoObject` object (if not present).
 
 ## Deleting a Data
@@ -150,4 +151,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > Please be noted, in general, you can always target the specific columns during the [Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge) or [Update](/operation/update) operations.

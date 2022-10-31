@@ -41,6 +41,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > The calls to the `Extract()` and `Scalar()` methods varry on the order of the calls you have made at the [QueryMultipleExtractor](/class/querymultipleextractor) object. Underneath, it is uses the `DbDataReader.NextResult()` method to extract the rows in order.
 
 ## Passing of Parameters
@@ -65,7 +66,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-**Note:** The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
+{: .important }
+The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
 
 ## Anonymous Types
 
@@ -159,6 +161,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
 
 ## Executing a Stored Procedure

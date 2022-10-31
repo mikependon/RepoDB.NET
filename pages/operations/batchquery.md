@@ -30,7 +30,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> Please be aware that the page is starting at 0.
+{: .warning }
+> Please be aware that the paging starts at 0.
 
 And below is a sample code that queries the 3rd batch.
 

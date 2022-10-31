@@ -49,7 +49,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-**Note:** The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
+{: .note }
+The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
 
 ## Anonymous Types
 
@@ -140,7 +141,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
+{: .note }
+You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
 
 ## Executing a Stored Procedure
 
@@ -165,4 +167,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> Notice in the second call, there is semi-colon at the end of the command text and the command type was not set.
+{: .note }
+Notice in the second call, there is semi-colon at the end of the command text and the command type was not set.

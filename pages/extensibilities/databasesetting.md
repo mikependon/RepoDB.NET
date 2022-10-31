@@ -92,7 +92,7 @@ Then, the following SQL statement will be generated.
 > SELECT [Id], [Name], ..., [CreatedDateUtc] FROM [dbo].[Person] WHERE ([Id] = @Id);
 ```
 
-> As you noticed on the generated SQL statement, the following settings (i.e.: OpeningQuote, ClosingQuote, SchemaSeparator and ParameterPrefix) were used.
+As you noticed on the generated SQL statement, the following settings (i.e.: OpeningQuote, ClosingQuote, SchemaSeparator and ParameterPrefix) were used.
 
 ## How to Retrieve?
 

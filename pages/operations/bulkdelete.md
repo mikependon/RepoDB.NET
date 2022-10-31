@@ -33,7 +33,8 @@ The `qualifiers` is used to define the qualifier fields to be used in the operat
 
 The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 
-> Please be noted that it is not recommended to enable the `usePhysicalPseudoTempTable` argument if you are to work with parallelism. Ensure to always utilize the session-based non-physical pseudo-temporary table when working with parallelism.
+{: .important }
+> It is not recommended to enable the `usePhysicalPseudoTempTable` argument if you are to work with parallelism. Ensure to always utilize the session-based non-physical pseudo-temporary table when working with parallelism.
 
 ## Caveats
 
@@ -70,6 +71,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > By default, the batch size is 10, equals to `Constant.DefaultBatchOperationSize` value.
 
 #### DataTable
@@ -141,6 +143,7 @@ using (var connection = new SqlConnection(connectionString))
 
 Or by parsing the field expression.
 
+{: .important }
 > When using the qualifiers, we recommend that you use the list of columns that has the correct index from the original table.
 
 ## Table Hints
@@ -180,4 +183,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > By using the actual pseudo physical temporary table, it will further help you maximize the performance over using the normal temporary table. However, you need to be aware that the table is shared to any call, so parallelism may fail on this scenario.

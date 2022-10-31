@@ -30,8 +30,6 @@ Below is the list of methods.
 | Get | The method that is being invoked when the outbound execution is triggered (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) and [BatchQuery](/operation/batchquery)). |
 | Set | The method that is being invoked when the inbound execution is triggered (i.e.: [Insert](/operation/insert), [Update](/operation/update), [Merge](/operation/merge) and etc). |
 
-> The `Get()` method has an additional argument of type  `DbDataReader`. It refers to the actual instance of the `DbDataReader` in used during the deserialization process.
-
 ## How to Implement?
 
 You have to manually create a class that implements this interface.

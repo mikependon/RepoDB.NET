@@ -14,7 +14,8 @@ parent: CLASSES
 
 This class gives your application the maximum performance as it eliminates the round-trips towards the database for the next 180 minutes (overridable). It implements the [ICache](/interface/icache) interface.
 
-> This class is used as the default cacher-class of the library.
+{: .important }
+> By default, this class is used as the default cache class of the library.
 
 ## Use-Cases
 

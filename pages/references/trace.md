@@ -44,6 +44,7 @@ public class NorthwindTrace : INorthwindTrace
 }
 ```
 
+{: .note }
 > Implement all the [ITrace](/interface/itrace) methods manually.
 
 ## Factory

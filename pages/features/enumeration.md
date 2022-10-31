@@ -54,6 +54,7 @@ public class Person
 }
 ```
 
+{: .note }
 > The enumeration values will be saved in the database as `string`.
 
 ## Property String (As Int)
@@ -126,6 +127,7 @@ public class Person
 }
 ```
 
+{: .note }
 > The enumeration values will be saved in the database as `int`.
 
 ## Default Conversion
@@ -178,6 +180,7 @@ public class Person
 }
 ```
 
+{: .note }
 > The enumeration auto-mapping is being disregard if you have the property handler mapped into the enumeration property. By using the property handler, you have a lot of control as a developer about the transformation.
 
 ## Query Expression

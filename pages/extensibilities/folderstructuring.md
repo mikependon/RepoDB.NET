@@ -38,4 +38,5 @@ The namespaces of the classes must be the following.
 - All classes that is residing inside the `Resolvers` folder must have a namespace of `RepoDb.Resolvers`.
 - All classes that is residing inside the `StatementBuilders` folder must have a namespace of `RepoDb.StatementBuilders`.
 
+{: .important }
 > They should not be prefixed with RepoDb.<NewDataProvider>.FolderName.

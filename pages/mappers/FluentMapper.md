@@ -67,4 +67,5 @@ FluentMapper
     .PropertyHandler<DateTimeToUtcKindTypeHandler>(); // Defines the PropertyHandler of the .NET CLR type
 ```
 
+{: .note }
 > By using the type-level mapping, all data entity properties with the same type will be affected.

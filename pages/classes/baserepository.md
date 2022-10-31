@@ -105,6 +105,7 @@ public int RemoveById(int id)
 }
 ```
 
+{: .warning }
 > Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base. Please visit our [BaseRepository](/reference/baserepository) reference implementation page for the detailed implementation.
 
 ## Usability
@@ -119,6 +120,7 @@ using (var repository = new PersonRepository(settings.Value.ConnectionString))
 }
 ```
 
+{: .important }
 > A respository is disposable, so please do not forget to wrap it with `using` keyword.
 
 ## Dependency Injection
@@ -135,7 +137,8 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-> Do not use the repository class directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
+{: .important }
+> Avoid using the repository class directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
 
 ## The CreateConnection Method
 
@@ -208,6 +211,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 }
 ```
 
+{: .note }
 > Please visit our [JSON Cache](/reference/jsoncache) reference implementation page for the detailed implementation about file-based caching using JSON.
 
 ## Adding a Trace
@@ -234,6 +238,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 }
 ```
 
+{: .note }
 > Please visit our [Trace](/reference/trace) reference implementation page for the detailed implementation.
 
 ## SQL Builder
@@ -260,4 +265,5 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 }
 ```
 
+{: .note }
 > The constructor of this class accepts all the possible combinations of the argument mentioned above.

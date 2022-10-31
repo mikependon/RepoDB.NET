@@ -14,7 +14,8 @@ parent: CACHERS
 
 A cacher class for the `System.Reflection.PropertyInfo`. Underneath, it uses the [PropertyMapper](/mapper/propertymapper) class to extract the results and caching it for future use.
 
-> You should rely on this class rather using the `nameof(Class.Property)` of C# when working against the property name.
+{: .important }
+> You should rely on this class rather than using the `nameof(Class.Property)` of C# when working against the property name.
 
 ## Methods
 
@@ -45,4 +46,5 @@ var mappedName = PropertyCache.Get<Person>(e => e.FirstName);
 // Use the 'mappedName' here
 ```
 
+{: .important }
 > The extraction is first checking the presence of the [Map](/attribute/map#property-mapping) attribute and extract the name-mapping from there, then checks the implicit-mapping, otherwise, it will use the `PropertyInfo.Name` of the `System.Reflection`.

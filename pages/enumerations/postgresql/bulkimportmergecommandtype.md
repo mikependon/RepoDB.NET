@@ -37,4 +37,5 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
+{: .important }
 > By default, the `InsertAndUpdate` is used. An explicit calls to the UPDATE and INSERT commands of the underlying database (PostgreSQL) are used when merging the information towards the target table. The execution is under a single transaction context.

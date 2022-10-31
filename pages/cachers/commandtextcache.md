@@ -22,4 +22,5 @@ This class only expose a single method named `Flush()`. It allows you as a devel
 
 You should only call the `Flush()` method if you wish to regenerate the already-generated SQL statements, otherwise, please refrain of using this class.
 
-> We recommend to not to use this class in any of your development.
+{: .warning }
+> We recommend to avoid using this class in any of your development if necessary.

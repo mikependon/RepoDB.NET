@@ -44,6 +44,7 @@ public sealed class MyCustomSqlServerDbSetting : BaseDbSetting
 }
 ```
 
+{: .note }
 > Additional benefits when using this class, you do not need to implement the `GetHashCode()` method as it is already implemented within the base class.
 
 ## Usability

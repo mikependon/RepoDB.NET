@@ -90,6 +90,7 @@ When calling the pull operations (i.e.: [Query](/operation/query), [QueryAll](/o
 
 On the other hand, when you call the push operations (i.e.: [Insert](/operation/insert), [Update](/operation/update) and [Merge](/operation/merge)), then the `Set()` method will be invoked. 
 
+{: .note }
 > Please visit our [Property Handler (Property Level)](/reference/propertyhandlerpropertylevel) reference implementation page for the detailed implementation.
 
 ## Creating a Type-Level Property Handler
@@ -121,4 +122,5 @@ FluentMapper
     .PropertyHandler<PersonAddressPropertyHandler>();
 ```
 
+{: .note }
 > Please visit our [Property Handler (Type Level)](/reference/propertyhandlertypelevel) reference implementation page for the detailed implementation.

@@ -58,4 +58,5 @@ public void AfterExecution<TResult>(ResultTraceLog<TResult> log)
 }
 ```
 
+{: .note }
 > You can do the same in all operational method of the [ITrace](/interface/itrace)-based classes.

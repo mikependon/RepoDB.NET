@@ -23,6 +23,7 @@ You can adjust the size of the batches to further optimize the operation depends
 
 The execution is ACID as the transaction object will be created if not given.
 
+{: .warning }
 > Be aware that if you are managing the size of your batch, it may collide on the number of maximum allowable parameters of ADO.NET. The max parameters are 2100.
 
 ## Code Snippets
@@ -64,7 +65,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-By default, the primary column is used as a qualifier. You can override it by simply passing the list of fields in the `qualifiers` argument.
+{: .important }
+> By default, the primary column is used as a qualifier. You can override it by simply passing the list of fields in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

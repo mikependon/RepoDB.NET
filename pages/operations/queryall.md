@@ -44,6 +44,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > The result is a list of dynamic objects of type `ExpandoObject`.
 
 ## Specific Columns
@@ -86,7 +87,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-**Note:** Inferrence works in all types but not from this operation. The other non-class type (i.e.: `long`, `int`, `System.DateTime`, etc) cannot be inferred as the `TEntity` generic type is filtered as `class`. Please see the [ExecuteQuery](/operation/executequery) operation for the support to the other types.
+{: .note }
+Inferrence works in all types but not from this operation. The other non-class type (i.e.: `long`, `int`, `System.DateTime`, etc) cannot be inferred as the `TEntity` generic type is filtered as `class`. Please see the [ExecuteQuery](/operation/executequery) operation for the support to the other types.
 
 ## Table Hints
 
@@ -137,4 +139,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > The cache expiration is defaulted to 180 minutes. You can override it by passing an integer value at the `cacheExpirationInMinutes` argument.

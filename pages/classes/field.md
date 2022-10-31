@@ -77,4 +77,5 @@ var person = new Person();
 var fields = Field.Parse(person);
 ```
 
+{: .note }
 > You can use this object anytime anywhere as long the context of the usage defines the field.

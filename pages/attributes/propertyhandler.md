@@ -54,4 +54,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> The aim of this sample is to show that the property `Address` of the `Person` class is on type `NVARCHAR(MAX)` at the `[dbo].[Person]` table. In addition to this note, if this attribute is present on the property, then it ignores the automatic conversion of [TypeMapper](/mapper/typemapper#automatic) and enumerations.
+{: .note }
+> The aim of this sample is to show that the property `Address` of the `Person` class is on type `NVARCHAR(MAX)` at the `[dbo].[Person]` table. In addition, if this attribute is present on the property, then it ignores the automatic conversion of [TypeMapper](/mapper/typemapper#automatic) and enumerations.

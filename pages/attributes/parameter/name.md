@@ -47,7 +47,7 @@ You can retrieve the attribute via [PropertyValueAttributeCache](/cacher/propert
 
 ```csharp
 var attribute = PropertyValueAttributeCache
-    .Get<Person>(e => e.Name, includeMappings: true)?
+    .Get<Person>(e => e.Name)?
     .FirstOrDefault(e => e.GetType() == typeof(NameAttribute));
 ```
 
@@ -59,4 +59,5 @@ var attribute = PropertyValueAttributeMapper
     .FirstOrDefault(e => e.GetType() == typeof(NameAttribute));
 ```
 
+{: .important }
 > We strongly suggest to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) to maximize the performance.

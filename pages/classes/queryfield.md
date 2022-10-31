@@ -149,6 +149,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > Above calls was happened at the `IEnumerable<QueryField>` object. You can also call the `Reset()` method on an instance basis.
 
 ## IsForUpdate Method

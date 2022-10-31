@@ -27,7 +27,8 @@ This method is very useful if you would like to delete the rows from the databas
 
 A `pseudoTableType` argument is provided on this operation to define a value whether a physical pseudo-table will be created during the operation. By default, a temporary table is used.
 
-> Please be noted that it is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
+{: .important }
+> It is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
 ## Usability
 
@@ -42,6 +43,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > It returns the number of rows deleted from the underlying table.
 
 And below if you would like to specify the batch size.
@@ -56,6 +58,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
+{: .important }
 > If the `batchSize` argument is not set, then all the items from the collection will be sent and used.
 
 ## Physical Temporary Table
@@ -72,4 +75,5 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > By using the actual pseudo physical temporary table, it will further help you maximize the performance over using the normal temporary table. However, you need to be aware that the table is shared to any call, so parallelism may fail on this scenario.

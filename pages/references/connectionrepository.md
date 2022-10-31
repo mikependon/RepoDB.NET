@@ -14,6 +14,7 @@ parent: REFERENCES
 
 This page contains the reference implementation when implementing a repository that is using a connection object per method. The consolidated output of this page can be found [here](/reference/output/connectionrepository).
 
+{: .important }
 > This kind of repository is direct and is usually unstructured. Use this repository if you are in minimal development.
 
 #### Recommended Objects (Optional)

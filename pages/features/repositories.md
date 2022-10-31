@@ -387,5 +387,6 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+{: .note }
 > Please visit our [Generic Repository](/reference/genericrepository) reference implementation page for the detailed implementation.
 

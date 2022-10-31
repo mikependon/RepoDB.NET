@@ -64,4 +64,5 @@ internal sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 }
 ```
 
+{: .note }
 > Please see the [Statement Builder](/extensibility/statementbuilder) for more information. In addition to this note, there is already an existing resolver that does the same named *RepoDb.Resolvers.ClientTypeToAverageableClientTypeResolver*. It can be used and inheritted immediately.

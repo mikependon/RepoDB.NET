@@ -53,4 +53,5 @@ internal sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 }
 ```
 
+{: .note }
 > Please see the [Statement Builder](/extensibility/statementbuilder) for more information.

@@ -14,6 +14,7 @@ parent: CLASSES
 
 This class is used to handle the necessary information when constructing a data parameter. It is used by both [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects to manage all the parameters creation.
 
+{: .note }
 > Internally, the library is using this class as an entries for creating the `DbParameter` objects.
 
 ## Usability
@@ -69,5 +70,6 @@ var parameter = new Parameter("@Id", 10045, false);
 parameter.Reset();
 ```
 
-If you call the [QueryField.IsForUpdate()](/class/queryfield#isforupdate-method), the name of the parameter is prefixed by an underscore ('_'), and by calling this method, it will reinstate it back to its original name.
+{: .important }
+> If you call the [QueryField.IsForUpdate()](/class/queryfield#isforupdate-method), the name of the parameter is prefixed by an underscore ('_'), and by calling this method, it will reinstate it back to its original name.
 

@@ -26,6 +26,7 @@ Or the [ClassExpression](/class/classexpression) object.
 var properties = ClassExpression.GetProperties<Person>();
 ```
 
+{: .note }
 > The `PropertyCache` is also using the [ClassExpression](/class/classexpression) underneath, however, it caches the already extracted class properties for future reusabilities.
 
 ## AsField
@@ -46,6 +47,7 @@ var primary = PropertyCache.Get<Person>().FirstOrDefault(p => p.IsPrimary() == t
 var dbType = primary.GetDbType();
 ```
 
+{: .note }
 > This is useful when you are creating a `DbParameter` object before passing it to the actual `DbCommand` object for execution.
 
 ## GetPropertyHandler
@@ -139,6 +141,7 @@ If the [Primary](/attribute/primary) is not present, it tries to identify using 
 - If the name is equals to `ClassName` + `Id`.
 - If the name is equals to `ClassMappedName` + `Id`.
 
+{: .note }
 > The logic of extracting the primary property is being compared with case-insensitivity.
 
 

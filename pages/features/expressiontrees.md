@@ -45,6 +45,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .warning }
 > Please be aware that the compiler does not understand the anonymous types, any changes made on the column name would not trigger a pre-compilation exception. Also, the anonymous types only supports the expression-equality and cannot be used for other equalities (i.e.: non-equality, greater or lesser equality, etc).
 
 ## Linq-Expression
@@ -106,6 +107,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .important }
 > Both the `ExpandoObject` and `IDictionary<string, object>` expression only supports the expression-equality and cannot be used for other equalities (i.e.: non-equality, greater or lesser equality, etc).
 
 ## QueryField/QueryGroup
@@ -149,4 +151,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > Please visit our [Query Expressions](/reference/queryexpressions) reference implementation page for more details.

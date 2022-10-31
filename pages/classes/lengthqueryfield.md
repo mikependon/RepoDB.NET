@@ -14,7 +14,8 @@ parent: CLASSES
 
 An extended query field class that is being used to define a query expression for the SQL statement using the LENGTH function. It inherits the [QueryField](/class/queryfield) object.
 
-> This functional query field object is only useful for PostgreSQL, MySQL and SQLite data providers.
+{: .important }
+> This functional query field object is only for PostgreSQL, MySQL and SQLite data providers.
 
 ## Usability
 

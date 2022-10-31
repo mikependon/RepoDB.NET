@@ -54,6 +54,7 @@ To add a property level mapping, simply call the `Add()` method and pass the tar
 PropertyHandlerMapper.Add<Customer, DateTimeKindToUtcPropertyHandler>(e => e.DateOfBirth, new DateTimeKindToUtcPropertyHandler(), true);
 ```
 
+{: .warning }
 > An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
 
 To get the mapping, use the `Get()` method.

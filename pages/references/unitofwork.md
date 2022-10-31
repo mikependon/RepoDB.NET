@@ -31,16 +31,20 @@ public interface IUnitOfWork<TDbConnection>
 
 Ensure that this interface is accepting a generic type of the connection object.
 
-Then, Save the following properties that will hold the state of transaction.
+Then, save the following properties that will hold the state of transaction.
 
-- `Connection` - will hold the instance of the connection object.
-- `Transaction` - will hold the instance of the active transaction.
+| Name | Description |
+|:-----|:------------|
+| Connection | Will hold the instance of the connection object. |
+| Transaction | Will hold the instance of the active transaction. |
 
-In Saveition to this, create the 3 basic transactional methods.
+And, create the 3 basic transactional methods.
 
-- `Begin` - is used to begin a new transaction.
-- `Commit` - is used to commit an existing transaction.
-- `Rollback` - is used to rollback an existing transaction.
+| Name | Description |
+|:-----|:------------|
+| Begin | Is used to begin a new transaction. |
+| Commit | Is used to commit an existing transaction. |
+| Rollback | Is used to rollback an existing transaction. |
 
 ## Class
 

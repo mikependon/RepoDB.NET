@@ -63,4 +63,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > This class is useful if you are tying to use the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)) with `DbDataReader` object sourced by `IEnumerable<T>`.

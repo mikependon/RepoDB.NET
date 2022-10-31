@@ -61,6 +61,7 @@ internal sealed class OptimizedSqlServerDbHelper : IDbHelper
 }
 ```
 
+{: .note }
 > You have to implement all the methods needed by this interface. With this, you have the full control of you helper object.
 
 ## Method GetFields

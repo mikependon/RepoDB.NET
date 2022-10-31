@@ -48,6 +48,7 @@ public class OptimizedSqlServerDbHelper : IDbHelper
 
 Please see the more detailed implementations at [Database Helper](/extensibility/databasehelper) page.
 
+{: .note }
 > You have to implement all the methods needed by this interface. With this, you have the full control of you helper object.
 
 ## Usability

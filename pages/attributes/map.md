@@ -40,6 +40,7 @@ public class Person
 }
 ```
 
+{: .note }
 > You can also use the mapping if the table name and the class name is not matching in terms of casing.
 
 ## Property Mapping

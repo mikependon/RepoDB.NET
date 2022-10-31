@@ -29,10 +29,12 @@ Image below shows the data flow of the [BulkMerge](/operation/bulkmerge) operati
 
 Basically, a pseudo-temporary table will be created in the database under a transaction context. It then uses the [BulkInsert](/operation/bulkinsert) operation to target that pseudo-temporary table and process the data afterwards.
 
+{: .note }
 > The data is brought together from the client application into the database server (at one-go). It then get processed together at the same time.
 
 For the other bulk operation methods (i.e.: [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), the execution can be maximized by targeting the underlying table indexes (via qualifiers). To do this, simply pass a list of [Field](/class/field) object when calling the operations.
 
+{: .important }
 > The library will create a CLUSTERED INDEX on the pseudo-temporary table through the passed qualifiers and used that during the actual operation. If there are no qualifiers passed, the coalesce value of primary and identity column will be used.
 
 ## Supported Objects
@@ -90,6 +92,7 @@ The argument `isReturnIdentity` is used to define the behaviour of the execution
 
 The argument `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
 
+{: .important }
 > Please be noted that it is not recommended to enable the `usePhysicalPseudoTempTable` argument if you are to work with parallelism. Ensure to always utilize the session-based non-physical pseudo-temporary table when working with parallelism.
 
 ## Identity Setting Alignment

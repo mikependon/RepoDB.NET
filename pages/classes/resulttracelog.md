@@ -44,4 +44,5 @@ public void AfterExecution<TResult>(ResultTraceLog<TResult> log)
 }
 ```
 
+{: .important }
 > By setting the `throwException` argument to `true`, an exception will be thrown back to the actual operation.

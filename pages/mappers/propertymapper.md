@@ -35,6 +35,7 @@ PropertyMapper.Add<Customer>(c => c.LastName, "[LName]", true);
 PropertyMapper.Add<Customer>(c => c.DateOfBirth, "[DOB]", true);
 ```
 
+{: .warning }
 > An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
 
 To get the mapping, use the `Get()` method.
@@ -43,6 +44,7 @@ To get the mapping, use the `Get()` method.
 var mappedName = PropertyMapper.Get<Customer>(c => c.FirstName);
 ```
 
+{: .note }
 > Please consider to always use the [PropertyMappedNameCache](/cacher/classmappednamecache) class when extracting the mapped property name.
 
 To remove the mapping, use the `Remove()` method.

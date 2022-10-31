@@ -27,6 +27,7 @@ These is the list of methods.
 | Extract | A generic based method that will extract the contents of the `DbDataReader` into a class object. |
 | Scalar | a method that is being used to get the first column of the result |
 
+{: .note }
 > When using the `Scalar()` method, you can pass a generic type as a type of the result. Also, when calling any of the mentioned above, the pointer of the `DbDataReader` is advances to the next result.
 
 ## Usability
@@ -90,4 +91,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > Please be ensure to always wrap the result with `using` keyword to auto-dispose the object. Otherwise, you may leak some memory pointers that is left unmanaged.

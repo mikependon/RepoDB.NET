@@ -14,6 +14,7 @@ parent: REFERENCES
 
 This page contains the reference implementation when implementing a generic repository that can be used by any entity model. The consolidated output of this page can be found [here](/reference/output/genericrepository).
 
+{: .important }
 > This kind of repository is usually being created as a base repository that can be used by any entity model. Imagine that you would like to have a reusable repository in any purpose. This works like [DbRepository](/class/dbrepository).
 
 #### Recommended Objects (Optional)

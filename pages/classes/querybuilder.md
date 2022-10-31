@@ -14,6 +14,7 @@ parent: CLASSES
 
 This class is used to compose a SQL statement in a fluent manner. It is very fluent as it only appending the specific string based on the name of the methods.
 
+{: .note }
 > Some methods accepts an argument of classes and objects and that will automatically be converted to a SQL text.
 
 ## Use-Cases
@@ -205,4 +206,5 @@ WITH CTE AS
 SELECT * FROM CTE;
 ```
 
+{: .note }
 > This class has a rich method-sets that can be used during the composition of the SQL Text. It can also be used when composing an `INSERT`, `DELETE`, `UPDATE` or whatever statement you wished to create.

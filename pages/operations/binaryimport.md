@@ -41,6 +41,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > It returns the number of rows inserted into the underlying table.
 
 And below if you would like to specify the batch size.
@@ -53,6 +54,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
+{: .important }
 > If the `batchSize` argument is not set, then all the items from the collection will be sent together.
 
 You can also target a specific table by passing the literal table name like below.

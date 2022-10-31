@@ -39,6 +39,7 @@ FluentMapper
     .PropertyValueAttributes(e => e.Assets, new ParameterDirectionAttribute(ParameterDirection.InputOutput));
 ```
 
+{: .note }
 > Currently, all the properties with output direction (i.e.: `Output`, `InputOutput`, `ReturnValue`) are not being updated with the values from the database. This capability will soon to be added on the library.
 
 ### Retrieval
@@ -47,7 +48,7 @@ You can retrieve the attribute via [PropertyValueAttributeCache](/cacher/propert
 
 ```csharp
 var attribute = PropertyValueAttributeCache
-    .Get<Person>(e => e.Name, includeMappings: true)?
+    .Get<Person>(e => e.Name)?
     .FirstOrDefault(e => e.GetType() == typeof(ParameterDirectionAttribute));
 ```
 
@@ -59,4 +60,5 @@ var attribute = PropertyValueAttributeMapper
     .FirstOrDefault(e => e.GetType() == typeof(ParameterDirectionAttribute));
 ```
 
+{: .important }
 > We strongly suggest to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) to maximize the performance.

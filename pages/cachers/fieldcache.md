@@ -14,6 +14,7 @@ parent: CACHERS
 
 A cacher class for the class properties (as fields). It provides a 2nd-layer caching for the library when it comes to the class properties extraction (as fields).
 
+{: .note }
 > Internally, this class is widely used within the library.
 
 ## Methods
@@ -41,4 +42,5 @@ var fields = FieldCache.Get<Person>();
 // Use the 'fields' here
 ```
 
+{: .note }
 > Internally, it uses the [PropertyCache](/cacher/propertycache) class to extract the list of [ClassProperty](/class/classproperty) and convert and cache it all as an `Enumerable<Field>`.

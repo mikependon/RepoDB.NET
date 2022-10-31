@@ -14,7 +14,8 @@ parent: CLASSES
 
 A class that is being used to define a type level mappings for the database types and property handlers. It is the result of the `Type()` method of the [FluentMapper](/mapper/fluentmapper) mapper class.
 
-> The mapping will be applied (at the least) to all data entity properties with the same .NET CLR type.
+{: .important }
+> The mapping will be applied (at the least) to all data entity properties with the same .NET CLR type. So please be reminded of this.
 
 ## Mapping a Database Type
 

@@ -14,6 +14,7 @@ parent: CLASSES
 
 This class is used to handle the name and the value of the class property. It also handles an instance of [ClassProperty](/class/classproperty).
 
+{: .note }
 > Internally, the library is using this class as a parameter before executing any operation.
 
 ## Use Case

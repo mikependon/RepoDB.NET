@@ -25,7 +25,8 @@ Below is the list of methods.
 | Get | Allows you to get an instance of the cache by cache-key. |
 | Remove | Allows you to remove an existing cache item from the cache storage. |
 
-**Note:** All methods has its own corresponding `Async` methods.
+{: .note }
+> All methods has its own corresponding `Async` methods.
 
 ## Use-Cases
 
@@ -70,6 +71,7 @@ public class JsonCache : ICache
 }
 ```
 
+{: .note }
 > You have to implement all the methods needed by this interface. With this, you have the full control of you cacher object.
 
 ## Usability
@@ -114,4 +116,5 @@ using (var repository = new DatabaseRepository(new AppSettings()))
 }
 ```
 
+{: .note }
 > Please consider to only create a single cache object within the application and have it passed as a singleton object in any fetch-calls or reporitories.

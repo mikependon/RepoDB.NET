@@ -14,6 +14,7 @@ parent: ENUMERATIONS
 
 This is the enumeration used to define the persistency of the `DbConnection` instance within the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects.
 
+{: .note }
 > This enumueration is very useful when you are on a situation that you do need to control the way how repository instantiate a connection object.
 
 ## Enum Values

@@ -40,6 +40,7 @@ public class Person
 }
 ```
 
+{: .note }
 > By setting this attribute to any class property, you had overriden the auto-identification logic of the library. If you place this attribute in a property that is not really a primary from the database, then the library will use that property instead. By doing so, it may fail some of the operations.
 
 To retrieve the primary property, you can use the [PrimaryCache](/cacher/primarycache) object.

@@ -50,6 +50,7 @@ using (var repository = new PersonRepository())
 }
 ```
 
+{: .note }
 > Usually, the cache will automatically be set by passing a value to the `cacheKey` argument when calling the [Query](/operation/query) or [BatchQuery](/operation/batchquery) operations.
 
 ## Retrieving from the Cache
@@ -62,5 +63,6 @@ Let us say, the repository `PersonRepository` is existing.
 var item = repository.Cache.Get<IEnumerable<Person>>("CacheKey:ActivePeople");
 ```
 
+{: .note }
 > If the cache is not found on the given key, by default it will throw an exception. You can set the `throwException` argument to `false` if you wish not to throw an exception.
 

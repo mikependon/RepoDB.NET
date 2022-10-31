@@ -14,6 +14,7 @@ parent: REFERENCES
 
 This page contains the reference implementation when implementing a repository that inherits the [DbRepository](/class/dbrepository) class. The consolidated output of this page can be found [here](/reference/output/dbrepository).
 
+{: .important }
 > The [DbRepository](/class/dbrepository) class is used for implementing a shared repository. Imagine you are working with `[dbo].[Customer]`, `[dbo].[Product]` and `[dbo].[Order]` tables.
 
 #### Recommended Objects (Optional)

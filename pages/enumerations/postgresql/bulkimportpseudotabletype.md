@@ -91,4 +91,5 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
+{: .important }
 > By default, the `Temporary` is used and it is thread-safe in nature. The pseudo-temporary table that is being created is localized to the instance of the connection.

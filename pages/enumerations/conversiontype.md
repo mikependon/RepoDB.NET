@@ -68,4 +68,5 @@ Simply set the value of `ConversionType` property of the [Converter](/class/conv
 Converter.ConversionType = ConversionType.Automatic;
 ```
 
-> Please be reminded that if the database column is not auto-convertible to a target property, then the `System.Convert` method will be explicitly be used during the transformation. With this additional logic implied, the performance will be affected during transformation.
+{: .important }
+> Please be reminded that if the database column is not auto-convertible to a target property, then the `System.Convert` method will used during the transformation. With this additional logic implied, the performance will be affected during the transformations.

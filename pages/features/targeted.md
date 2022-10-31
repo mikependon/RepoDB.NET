@@ -14,6 +14,7 @@ parent: FEATURES
 
 This feature allows you to make a targeted invocation when executing the operations against the database. This feature is very useful if you do really care on the performance and efficiency of your execution against the database. The execution will help your application runs in a very efficient manner, as using the targeted operations completely eliminate the high-usage of the network traffic.
 
+{: .note }
 > Imagine you have a table/entity-model with plenty of columns/properties and you are only querying, inserting, merging or updating into the specific columns.
 
 In this page, let us say the `[dbo].[Customer]` table and the `Customer` entity-model has plenty of columns. You will see how the sample code below are targetting certain columns when calling the actual operation.

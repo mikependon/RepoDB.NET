@@ -14,6 +14,7 @@ parent: FEATURES
 
 This is a feature that enables you to control the persistency of the database connection object/instance within the repository objects (i.e.: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)).
 
+{: .note }
 > Please see the [ConnectionPersistency](/enumeration/connectionpersistency) enumeration for more information.
 
 ## Types of Persistence
@@ -86,4 +87,5 @@ It creates a connection object that can be utilized within the repository object
 
 If you are using the `PerCall`, the instance of the connection object is always being disposed right after the call to any operation. However, if you are using the `Instance`, the active instance of the connection object is only being disposed if the parent repository object has been disposed. Therefore, it is always important to call the `Dispose()` method of the repository if you are using the `Instance` persistency and finished using it, to ensure avoid an orphaned open connection towards the database.
 
+{: .note }
 > Please be aware of when to call the repository `Dispose()` method, otherwise it may behave unexpectedly.

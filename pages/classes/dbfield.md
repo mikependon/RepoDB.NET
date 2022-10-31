@@ -42,4 +42,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> We suggest that you should not instantiate an instance of this class in any of your development, unless very necessary.
+{: .warning }
+> We suggest to avoid using this class in any of your development, unless very necessary.

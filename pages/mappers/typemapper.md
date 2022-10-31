@@ -37,6 +37,7 @@ To add a property level mapping, simply call the `Add()` method and pass the tar
 TypeMapper.Add<Customer>(e => e.DateOfBirth, DbType.DateTime2, true);
 ```
 
+{: .warning }
 > An exception will be thrown if the mapping is already exists and you passed a `false` value in the `force` argument.
 
 To get the mapping, use the `Get()` method.

@@ -54,4 +54,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > The class contains a lot of hints, we recommend that you visits the official Microsoft [documentation](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-2017) for further understanding.

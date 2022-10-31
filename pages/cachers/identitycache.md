@@ -37,4 +37,5 @@ var identity = IdentityCache.Get<Person>();
 // Use the 'identity' here
 ```
 
+{: .note }
 > Internally, it uses the [IdentityMapper](/mapper/identitymapper) and [PropertyCache](/cacher/propertycache) classes to extract the list of [ClassProperty](/class/classproperty) and filter the result using the given [IsIdentity()](/class/classproperty#isidentity) method.

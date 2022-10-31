@@ -14,7 +14,8 @@ parent: REFERENCES
 
 This page contains the recommended way of implementing a property handler for specific type.
 
-> It is important to take note that this property handler is based on database column type (database-bound).
+{: .important }
+> This property handler is based on database column type (database-bound).
 
 ## PropertyHandler
 

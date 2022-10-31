@@ -69,6 +69,7 @@ var param = new // This is a dynamic, can also be .NET CLR type
 var queryGroup = QueryGroup.Parse(param);
 ```
 
+{: .important }
 > Using the above parse method, all the parsed fields will always have the `Equal` operation.
 
 Or, via expression.
@@ -150,6 +151,7 @@ Then, the statement will be generated as below.
 > WHERE NOT ([IsActive] = @IsActive OR [Gender] = @Gender);
 ```
 
+{: .important }
 > By default, the value is `false`. Please be reminded that negating does not gives you the most performant condition when writing SQL. It still recommended to create a targeted query expression rather than negating it.
 
 ## Getting all the Children
@@ -308,4 +310,5 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+{: .note }
 > Above calls was happened at the `IEnumerable<QueryGroup>` object. You can also call the `Reset()` method on an instance basis.

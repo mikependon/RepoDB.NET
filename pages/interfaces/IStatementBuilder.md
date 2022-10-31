@@ -151,4 +151,5 @@ Or, you can use the [StatementBuilderMapper](/mapper/statementbuildermapper) cla
 StatementBuilderMapper.Map(typeof(SqlConnection), new OptimizedSqlServerStatementBuilder(), true);
 ```
 
+{: .note }
 > By using the [StatementBuilderMapper](/mapper/statementbuildermapper), the library will automatically use the mapped statement builder when calling the `DbConnection`, [BaseRepository](/class/baserepository) or [DbRepository](/class/dbrepository) methods. It will vary on the type of the `DbConnection` object you used.
