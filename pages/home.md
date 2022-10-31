@@ -17,7 +17,7 @@ A hybrid ORM library for .NET.
 ---
 
 {: .warning }
-> Some breaking changes has been introduced in the newer version of the library. Therefore, it is important and is highly recommended to test your solution with the latest beta release [v1.13.0-beta1](https://www.nuget.org/packages/RepoDb/1.13.0-beta1) before upgrading.
+> Some breaking changes has been introduced in the newer version of the library. It is important and is highly recommended to test your solution with the latest beta release [v1.13.0-beta1](https://www.nuget.org/packages/RepoDb/1.13.0-beta1) before upgrading.
 >
 > You can report an issue by [creating a bug](https://github.com/mikependon/RepoDB/issues/new?assignees=mikependon&labels=bug&template=report-a-bug.md&title=Bug%3A+%3CYour+bug%2Fissue+title%3E) directly on our Github repository.
 
