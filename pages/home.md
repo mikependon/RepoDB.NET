@@ -16,9 +16,10 @@ A hybrid ORM library for .NET.
 
 ---
 
-{: .warning }
+{: .new }
 > Some breaking changes has been introduced in the newer version of the library. It is important and is highly recommended to test your solution with the latest beta release [v1.13.0-beta1](https://www.nuget.org/packages/RepoDb/1.13.0-beta1) before upgrading.
->
+
+{: .important }
 > You can report an issue by [creating a bug](https://github.com/mikependon/RepoDB/issues/new?assignees=mikependon&labels=bug&template=report-a-bug.md&title=Bug%3A+%3CYour+bug%2Fissue+title%3E) directly on our Github repository.
 
 We are glad and thankful for your interest in learning [RepoDB](https://github.com/mikependon/RepoDb). It is an open-source .NET ORM library that bridges the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
