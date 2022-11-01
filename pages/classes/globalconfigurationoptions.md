@@ -31,16 +31,15 @@ Below is the list of properties.
 Below is the code used to setup the application using this class.
 
 ```csharp
-GlobalConfiguration
-    .Setup(new()
-    {
-        ConversionType = ConversionType.Default,
-        DefaultBatchOperationSize = Constant.DefaultBatchOperationSize,
-        DefaultCacheItemExpirationInMinutes = Constant.DefaultCacheItemExpirationInMinutes,
-        EnumDefaultDatabaseType = DbType.String,
-        KeyColumnReturnBehavior = KeyColumnReturnBehavior.IdentityOrElsePrimary
-    })
-    .UseSqlServer();
+var options = new GlobalConfigurationOptions()
+{
+    ConversionType = ConversionType.Default,
+    DefaultBatchOperationSize = Constant.DefaultBatchOperationSize,
+    DefaultCacheItemExpirationInMinutes = Constant.DefaultCacheItemExpirationInMinutes,
+    EnumDefaultDatabaseType = DbType.String,
+    KeyColumnReturnBehavior = KeyColumnReturnBehavior.IdentityOrElsePrimary
+};
+GlobalConfiguration.Setup(options);
 ```
 
 {: .note }
