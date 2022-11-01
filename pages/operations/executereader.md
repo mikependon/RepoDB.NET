@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to execute a raw-SQL directly towards the database. It returns an instance of `DbDataReader` object. This method supports all types of RDMBS data providers.
+This method is used to execute a raw-SQL directly towards the database. It returns an instance of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object. This method supports all types of RDMBS data providers.
 
 ## Code Snippets
 

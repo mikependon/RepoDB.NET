@@ -467,7 +467,7 @@ A very simple yet quitely important features awaited by some of the users of the
 
 Historically, if you wish to query a single column from the table, you are required to return it as dynamics or an explicit class model.
 
-Via a dynamic object of type `ExpandoObject`.
+Via a dynamic object of type [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ```csharp
 // Returns an IEnumerable<ExpandoObject>

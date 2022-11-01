@@ -16,7 +16,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 
 ## RepoDb.SqlServer (v1.13.0-beta1)
 
-- Upgraded the `Microsoft.Data.SqlClient` package to  `v5.0.1`.
+- Upgraded the [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) package to  `v5.0.1`.
 - Referenced the `RepoDb` package `v1.13.0-beta1`.
 
 
@@ -33,20 +33,20 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 ## RepoDb.SqlServer (v1.13.0-alpha1)
 
 - Referenced the `RepoDb` package `v1.13.0-alpha1`.
-- Upgraded the `Microsoft.Data.SqlClient` package to `v5.0.0`.
+- Upgraded the [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) package to `v5.0.0`.
 
 
 ## RepoDb.SqlServer (v1.1.5)
 
 - Bug: Dot in schema name [#1015](https://github.com/mikependon/RepoDB/issues/1015)
 - Referenced the `RepoDb` package `v1.12.10`.
-- Referenced the `Microsoft.Data.SqlClient` package `v4.0.1`.
+- Referenced the [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) package `v4.0.1`.
 
 
 ## RepoDb.SqlServer (v1.1.5-beta4)
 
 - Referenced the `RepoDb` package `v1.12.10-beta4`.
-- Referenced the `Microsoft.Data.SqlClient` package `v4.0.0`.
+- Referenced the [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) package `v4.0.0`.
 
 
 ## RepoDb.SqlServer (v1.1.5-beta3)
@@ -59,7 +59,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 
 - Enhancement: Remove `System.Data.SqlClient` reference from RepoDb.SqlServer [#857](https://github.com/mikependon/RepoDb/issues/857)
 - Removed both the `MicrosoftSqlServerTypeMapAttribute` and `SystemSqlServerTypeMapAttribute` attributes. Use the the [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype) attribute instead.
-- Upgraded the `Microsoft.Data.SqlClient` package to `v3.0.1`.
+- Upgraded the [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) package to `v3.0.1`.
 - Upgraded the `RepoDb` package to `v1.12.10-beta2`.
 - Supported the `.NET v6.0`.
 
@@ -68,7 +68,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 
 - Enhancement: Remove `System.Data.SqlClient` reference from RepoDb.SqlServer [#857](https://github.com/mikependon/RepoDb/issues/857) - this is a breaking changes
 - Removed both the `MicrosoftSqlServerTypeMapAttribute` and `SystemSqlServerTypeMapAttribute` attributes. Use the the [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype) attribute instead.
-- Upgraded the `Microsoft.Data.SqlClient` package to `v3.0.1`.
+- Upgraded the [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) package to `v3.0.1`.
 - Supported the `.NET v6.0`.
 
 
@@ -88,7 +88,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Added the [XmlSchemaCollectionDatabaseAttribute](/attribute/sqlserver/xmlschemacollectiondatabase) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Added the [XmlSchemaCollectionNameAttribute](/attribute/sqlserver/xmlschemacollectionname) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Added the [XmlSchemaCollectionOwningSchemaAttribute](/attribute/sqlserver/xmlschemacollectionowningschema) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
 ## RepoDb.SqlServer (v1.1.4-beta1)
@@ -107,7 +107,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Added the [XmlSchemaCollectionDatabaseAttribute](/attribute/parameter/sqlserver/xmlschemacollectiondatabase) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Added the [XmlSchemaCollectionNameAttribute](/attribute/parameter/sqlserver/xmlschemacollectionname) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Added the [XmlSchemaCollectionOwningSchemaAttribute](/attribute/parameter/sqlserver/xmlschemacollectionowningschema) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
 ## RepoDb.SqlServer (v1.1.3)
@@ -172,7 +172,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 
 ## RepoDb.SqlServer (v1.0.11)
 
-- Updated the version of `Microsoft.Data.SqlClient` into `v2.0.0`.
+- Updated the version of [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) into `v2.0.0`.
 - Bug: table schema are ignored [#456](https://github.com/mikependon/RepoDb/issues/456)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.11.4](/release/core#repodb-v1114)).
 

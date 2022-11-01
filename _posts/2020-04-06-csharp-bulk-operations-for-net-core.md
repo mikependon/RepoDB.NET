@@ -35,7 +35,7 @@ To explain further, when you only use the Batch operations, it is only batching 
 
 ### How does it works?
 
-It is leveraging the ADO.NET `SqlBulkCopy` class (both `System.Data.SqlClient/Microsoft.Data.SqlClient`).
+It is leveraging the ADO.NET [SqlBulkCopy](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlbulkcopy?view=dotnet-plat-ext-7.0) class (both `System.Data.SqlClient/Microsoft.Data.SqlClient`).
 
 For [BulkInsert](/operation/bulkinsert) operation, it simply calls the *WriteToServer* method to bring all the data from the application into the database. No additional logic is implied.
 
@@ -100,7 +100,7 @@ The argument `usePhysicalPseudoTempTable` is used to define whether a physical p
 
 RepoDB is automatically setting the value of `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) if you have not passed any `qualifiers` and if your table has an IDENTITY primary key column. The same logic will apply if there is no primary key but has an IDENTITY column defined in the table.
 
-In addition, when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to `CREATE` a table in the database, otherwise a `SqlException` will be thrown.
+In addition, when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to `CREATE` a table in the database, otherwise a [SqlException](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlexception?view=dotnet-plat-ext-6.0) will be thrown.
 
 ## Get Started
 

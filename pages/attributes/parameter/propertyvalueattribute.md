@@ -12,7 +12,7 @@ grand_parent: ATTRIBUTES
 
 ---
 
-This is the base class for all the attributes that are used when setting the properties of the `DbParameter` object.
+This is the base class for all the attributes that are used when setting the properties of the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object.
 
 ### Attribute
 

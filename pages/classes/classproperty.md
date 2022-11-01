@@ -48,7 +48,7 @@ var dbType = primary.GetDbType();
 ```
 
 {: .note }
-> This is useful when you are creating a `DbParameter` object before passing it to the actual `DbCommand` object for execution.
+> This is useful when you are creating a [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object before passing it to the actual `DbCommand` object for execution.
 
 ## GetPropertyHandler
 

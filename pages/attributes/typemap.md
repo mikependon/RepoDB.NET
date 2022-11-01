@@ -18,7 +18,7 @@ This attribute is used to map a property into its equivalent type from the datab
 {: .important }
 > This attribute supercede the type-level mapping defined at the [TypeMapper](/mapper/typemapper) object.
 
-Below is a a sample code on how to map an existing `DateTime` property to a `System.Data.DbType.DateTime2` database type.
+Below is a a sample code on how to map an existing [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) property to a `System.Data.DbType.DateTime2` database type.
 
 ```csharp
 public class Person

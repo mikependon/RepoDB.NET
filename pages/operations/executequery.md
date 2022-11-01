@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to execute a raw-SQL directly towards the database. It returns an `IEnumerable<T>` object. This method supports all types of RDMBS data providers.
+This method is used to execute a raw-SQL directly towards the database. It returns an [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object. This method supports all types of RDMBS data providers.
 
 ## Code Snippets
 
@@ -24,7 +24,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Returning the enumerable of dynamic objects. The type of the dynamic object is an `ExpandoObject`.
+Returning the enumerable of dynamic objects. The type of the dynamic object is an [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -33,7 +33,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Returning the enumerable of `ExpandoObject` objects.
+Returning the enumerable of [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) objects.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -42,7 +42,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Returning the enumerable of `IDictionary<string, object>` objects.
+Returning the enumerable of [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0) objects.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -65,7 +65,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or for the other types like `string` and `DateTime`.
+Or for the other types like [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0) and [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

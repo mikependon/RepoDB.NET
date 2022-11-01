@@ -20,7 +20,7 @@ Below is the list of properties.
 
 | Name | Description |
 |:-----|:------------|
-| ConversionType | Is used as a conversion type when converting an instance of `DbDataReader` object into its destination .NET CLR types. The default value is [ConversionType.Default](/enumeration/conversiontype). |
+| ConversionType | Is used as a conversion type when converting an instance of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object into its destination .NET CLR types. The default value is [ConversionType.Default](/enumeration/conversiontype). |
 | EnumDefaultDatabaseType | Is used as a default equivalent database type of an enumeration if it is being used as a parameter to the execution of any non-entity-based operations (i.e.: [ExecuteScalar](/operation/executescalar), [ExecuteNonQuery](/operation/executenonquery) and [ExecuteReader](/operation/executereader)). |
 
 Deprecated
@@ -51,7 +51,7 @@ Deprecated
 
 ## When to use the Enum Default Database Type?
 
-You should only use the enumeration default database type setting if you wish to override the default conversion of the library pertaining to enumeration. By default, the library is auto-converting the enumeration to `DbType.String`, but this behavior is only applicable to the non-model-based operations.
+You should only use the enumeration default database type setting if you wish to override the default conversion of the library pertaining to enumeration. By default, the library is auto-converting the enumeration to [DbType.String](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0), but this behavior is only applicable to the non-model-based operations.
 
 Let us say you have these enums.
 
@@ -69,7 +69,7 @@ public enum CustomerStatus
 }
 ```
 
-Then, the code below is forcing all the enumeration properties to be converted to `DbType.Int32` instead of `DbType.String`.
+Then, the code below is forcing all the enumeration properties to be converted to `DbType.Int32` instead of [DbType.String](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0).
 
 ```csharp
 // Set the Default Conversion for Enums
@@ -96,7 +96,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## DbNull Conversion
 
-You can use the `DbNullToNull` method to convert the `DbDataReader` result into a `null` object if it the value is `DBNull.Value`.
+You can use the `DbNullToNull` method to convert the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) result into a `null` object if it the value is `DBNull.Value`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

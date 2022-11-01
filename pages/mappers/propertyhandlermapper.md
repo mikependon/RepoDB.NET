@@ -29,7 +29,7 @@ Below is the list of methods.
 
 ## Usability
 
-Let us say you had implemented a `DateTime` handler like below.
+Let us say you had implemented a [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) handler like below.
 
 ```csharp
 public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<DateTime?, DateTime?>

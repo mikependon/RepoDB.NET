@@ -113,11 +113,11 @@ The argument `mergedCommandType` is used to define a value whether the existing 
 
 ## Identity Setting Alignment
 
-Behind the scene, the library has enforced an additional logic to ensure the identity setting alignment. Basically, a new column named `__RepoDb_OrderColumn` is being added into the pseudo-temporary table if the identity field is present on the underlying table. This column will contain the actual index of the entity model from the `IEnumerable<T>` object.
+Behind the scene, the library has enforced an additional logic to ensure the identity setting alignment. Basically, a new column named `__RepoDb_OrderColumn` is being added into the pseudo-temporary table if the identity field is present on the underlying table. This column will contain the actual index of the entity model from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
 
-During the bulk operation, a dedicated index (entity model index) value is passed to this column, thus ensuring that the index value is really equating to the index of the item from the `IEnumerable<T>` object. The resultsets of the pseudo-temporary table are being ordered using this column, prior the actual merge to the underlying table.
+During the bulk operation, a dedicated index (entity model index) value is passed to this column, thus ensuring that the index value is really equating to the index of the item from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object. The resultsets of the pseudo-temporary table are being ordered using this column, prior the actual merge to the underlying table.
 
-For both the [BinaryBulkInsert](https://repodb.net/operation/binarybulkinsert) and [BinaryBulkMerge](https://repodb.net/operation/binarybulkmerge) operations, when the newly generated identity value is being set back to the data model, the value of the `__RepoDb_OrderColumn` column is being used to look-up the proper index of the equating item from the `IEnumerable<T>` object, then, the compiled identity-setter function is used to assign back the identity value into the identity property.
+For both the [BinaryBulkInsert](https://repodb.net/operation/binarybulkinsert) and [BinaryBulkMerge](https://repodb.net/operation/binarybulkmerge) operations, when the newly generated identity value is being set back to the data model, the value of the `__RepoDb_OrderColumn` column is being used to look-up the proper index of the equating item from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object, then, the compiled identity-setter function is used to assign back the identity value into the identity property.
 
 ## BatchSize
 

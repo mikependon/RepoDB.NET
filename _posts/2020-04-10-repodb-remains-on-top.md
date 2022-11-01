@@ -9,7 +9,7 @@ categories: blogs repodb
 Yesterday (April 9, 2020), I had issued a PR to FransBouma's [RawDataAccessBencher](https://github.com/FransBouma/RawDataAccessBencher) with the latest version of [RepoDB](https://github.com/mikependon/RepoDb), plus with the following updates:
 
 - Upgrading the `System.Data.SqlClient` to version `4.8.0`.
-- Referencing the `Microsoft.Data.SqlClient` version `1.1.1`.
+- Referencing the [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) version `1.1.1`.
 - Added the `Initialize()` method in the [BencherBase](https://github.com/FransBouma/RawDataAccessBencher/blob/master/RawBencher/Benchers/BencherBase.cs) class.
 
 By today (April 10, 2020), FransBouma reach out to me to have some collaborations about the PR (can be found [here](https://github.com/FransBouma/RawDataAccessBencher/pull/50)), in which was approved in few hours after.

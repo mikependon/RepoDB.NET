@@ -72,7 +72,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via `Dictionary<string, object>` or `ExpandoObject`.
+Or via `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -91,7 +91,7 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> The library will add the newly created value of the identity column into the `Dictionary<string, object>` or `ExpandoObject` object (if not present).
+> The library will add the newly created value of the identity column into the `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) object (if not present).
 
 ## Specific Columns
 

@@ -26,7 +26,7 @@ public class Customer
 }
 ```
 
-Or, use the `Table` attribute of `System.ComponentModel.DataAnnotations.Schema` namespace.
+Or, use the [Table](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.tableattribute?view=net-6.0) attribute of [System.ComponentModel.DataAnnotations.Schema](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema?view=net-6.0) namespace.
 
 ```csharp
 [Table("[sales].[Customer]")]
@@ -63,7 +63,7 @@ public class Customer
 }
 ```
 
-Or, use the the `Column` attribute of `System.ComponentModel.DataAnnotations.Schema` namespace.
+Or, use the the `Column` attribute of [System.ComponentModel.DataAnnotations.Schema](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema?view=net-6.0) namespace.
 
 ```csharp
 public class Customer

@@ -16,13 +16,13 @@ This is a feature that allows you to fetch multiple resultsets in a single call 
 
 The [ExecuteQueryMultiple](/operation/executequerymultiple) is a raw method that would allow you to pass your own SQL statement for execution, whereas the [QueryMultiple](/operation/querymultiple) is a fluent-method that would allow you to pass a Linq-based query expression and have the library automatically compose the SQL statement for you.
 
-The underlying implementation of this feature is abstracting both the `Read()` and `NextResult()` methods of the the `DbDataReader` object.
+The underlying implementation of this feature is abstracting both the [Read()](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader.read?view=net-6.0) and [NextResult()](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader.nextresult?view=net-7.0) methods of the the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object.
 
 ## Type of Return Types
 
 The the method [ExecuteQueryMultiple](/operation/executequerymultiple) is returning an instance of [QueryMultipleExtractor](/class/querymultipleextractor). It allows you to control and manage the way on how to extract the resultsets. The execution is differed as it is relying on the explicit calls you are making towards the `Extract()` and `Scalar()` methods.
 
-However, method [QueryMultiple](/operation/querymultiple) is returning an instance of `Tuple` object. It has a maximum of 7 generic types, also defined as max types for the `Tuple` object. The pointer to the item properties of the `Tuple` object is dependent to the order of the generic types passed during the call.
+However, method [QueryMultiple](/operation/querymultiple) is returning an instance of [Tuple](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples) object. It has a maximum of 7 generic types, also defined as max types for the [Tuple](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples) object. The pointer to the item properties of the [Tuple](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples) object is dependent to the order of the generic types passed during the call.
 
 ## Hints
 

@@ -23,7 +23,7 @@ These releases comes with the complete support to the DYNAMIC operations. It als
 
 ### Push Operations
 
-This release is now supporting the capability of pusing an instance of `ExpandoObject` or `IDictionary<string, object>` object into the push operations mentioned below.
+This release is now supporting the capability of pusing an instance of [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) or [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0) object into the push operations mentioned below.
 
 - [Insert](/operation/insert)
 - [Merge](/operation/merge)
@@ -98,7 +98,7 @@ using (var sourceConnection = new SqlConnection(sourceConnection))
 }
 ```
 
-> As the `ExpandoObject` is also a dictionary object underneath, if the identity column is present at the destination table but is absent on the source list (i.e.: `IEnumerable<ExpandoObject>`, `IEnumerable<IDictionary<string, object>>`) during the operations (i.e.: [Insert](/operation/insert), [InsertAll](/operation/insertall) and [BulkInsert](/operation/bulkinsert)), then, the new key-value-pair (KVP) entry will be created on the underlying dictionary object. The same logic is implied to the [Merge](/operation/merge), [MergeAll](/operation/mergeall) and [BulkMerge](/operation/bulkmerge) operations.
+> As the [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) is also a dictionary object underneath, if the identity column is present at the destination table but is absent on the source list (i.e.: `IEnumerable<ExpandoObject>`, `IEnumerable<IDictionary<string, object>>`) during the operations (i.e.: [Insert](/operation/insert), [InsertAll](/operation/insertall) and [BulkInsert](/operation/bulkinsert)), then, the new key-value-pair (KVP) entry will be created on the underlying dictionary object. The same logic is implied to the [Merge](/operation/merge), [MergeAll](/operation/mergeall) and [BulkMerge](/operation/bulkmerge) operations.
 
 ### Operations
 
@@ -371,7 +371,7 @@ using (var connection = new SqlConnection(connection))
 - Bug: [FluentMapper](/mapper/fluentmapper) is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
 - Bug: [BulkInsert](/operation/bulkinsert) with mappings [#668](https://github.com/mikependon/RepoDB/issues/668)
 - Question: [IPropertyHandler](/interface/ipropertyhandler) for `Dictionary<string, string>` [#647](https://github.com/mikependon/RepoDB/issues/647)
-- Upgraded the `Microsoft.Data.SqlClient` to `v2.1.0`.
+- Upgraded the [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) to `v2.1.0`.
 - Upgraded the `System.ComponentModel.Annotations` to `v5.0.0`.
 - Request: Introduce optional caching to [ExecuteScalar](/operation/executescalar) methods. [#648](https://github.com/mikependon/RepoDB/issues/648)
 - Enhancement: Add the non-parameterized Truncate operation. [#652](https://github.com/mikependon/RepoDB/issues/652)
@@ -380,17 +380,17 @@ using (var connection = new SqlConnection(connection))
 - Added a validation to ensure the type of the `TPropertyHandler` has implemented the [IPropertyHandler](/interface/ipropertyhandler) interface when calling the `Add()` method of the [PropertyHandlerCache](/cacher/propertyhandlercache) object.
 - Enhancement: Add the dynamic [ExecuteQueryMultiple](/operation/executequerymultiple) method in the [DbRepository](/class/dbrepository) [#630](https://github.com/mikependon/RepoDB/issues/630)
 - Possible bug - Enum with Flag attribute is not correctly handled [#624](https://github.com/mikependon/RepoDB/issues/624)
-- [Core] Support `ExpandoObject` in [Insert](/operation/insert) via `TableName`. [#234](https://github.com/mikependon/RepoDB/issues/234)
-- [Core] Support `ExpandoObject` in [Merge](/operation/merge) via `TableName`. [#238](https://github.com/mikependon/RepoDB/issues/238)
-- [Core] Support `ExpandoObject` in [Update](/operation/update) via `TableName`. [#236](https://github.com/mikependon/RepoDB/issues/236)
-- [Core] Support `ExpandoObject` in [InsertAll](/operation/insertall) via `TableName`. [#235](https://github.com/mikependon/RepoDB/issues/235)
-- [Core] Support `ExpandoObject` in [MergeAll](/operation/mergeall) via `TableName`. [#239](https://github.com/mikependon/RepoDB/issues/239)
-- [Core] Support `ExpandoObject` in [UpdateAll](/operation/updateall) via `TableName`. [#237](https://github.com/mikependon/RepoDB/issues/237)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [Insert](/operation/insert) via `TableName`. [#234](https://github.com/mikependon/RepoDB/issues/234)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [Merge](/operation/merge) via `TableName`. [#238](https://github.com/mikependon/RepoDB/issues/238)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [Update](/operation/update) via `TableName`. [#236](https://github.com/mikependon/RepoDB/issues/236)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [InsertAll](/operation/insertall) via `TableName`. [#235](https://github.com/mikependon/RepoDB/issues/235)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [MergeAll](/operation/mergeall) via `TableName`. [#239](https://github.com/mikependon/RepoDB/issues/239)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [UpdateAll](/operation/updateall) via `TableName`. [#237](https://github.com/mikependon/RepoDB/issues/237)
 - Introduce the support of Dynamic and ExpandoObject in [BulkInsert](/operation/bulkinsert). [#243](https://github.com/mikependon/RepoDB/issues/243)
-- Enhancement: Support `ExpandoObject` in [BulkInsert](/operation/bulkinsert) [#610](https://github.com/mikependon/RepoDB/issues/610)
-- Enhancement: Support `ExpandoObject` in [BulkMerge](/operation/bulkmerge) [#611](https://github.com/mikependon/RepoDB/issues/611)
-- Enhancement: Support `ExpandoObject` in [BulkUpdate](/operation/bulkupdate) [#612](https://github.com/mikependon/RepoDB/issues/612)
-- Enhancement: Support `ExpandoObject` in [BulkDelete](/operation/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkInsert](/operation/bulkinsert) [#610](https://github.com/mikependon/RepoDB/issues/610)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkMerge](/operation/bulkmerge) [#611](https://github.com/mikependon/RepoDB/issues/611)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkUpdate](/operation/bulkupdate) [#612](https://github.com/mikependon/RepoDB/issues/612)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkDelete](/operation/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
 - Bug: BulkInsert with mappings [#668](https://github.com/mikependon/RepoDB/issues/668)
 - Bug: System.Data.SqlClient.SqlException: 'Column name 'ID' does not exist in the target table or view.' [#651](https://github.com/mikependon/RepoDB/issues/651)
 - Refactor the internal method implementations to only utilize the base methods for both the MDS and SDS method calls.
@@ -405,7 +405,7 @@ Thank you to our contributors and to all the collaborators.
 
 - [fredliex](https://github.com/fredliex) - for issuing the following PRs
   - [#657](https://github.com/mikependon/RepoDB/issues/657) - fix [#650](https://github.com/mikependon/RepoDB/issues/650) `TypeExtension.IsPlainType` seems to misjudge the string property
-  - [#658](https://github.com/mikependon/RepoDB/issues/658) - some unit test case assign culture en-US when convert `DateTime` to `String`.
+  - [#658](https://github.com/mikependon/RepoDB/issues/658) - some unit test case assign culture en-US when convert [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) to [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0).
   - [#680](https://github.com/mikependon/RepoDB/issues/680) - fix convert error for type level with `propertyHandler`. 🚀 **This is awesome!**
 - [SergerGood](https://github.com/SergerGood) - for issuing the following PRs. Btw, thanks for being a frequent PR contributor.
   - [#625](https://github.com/mikependon/RepoDB/issues/625) - Benchmarks for the UpdateAll methods

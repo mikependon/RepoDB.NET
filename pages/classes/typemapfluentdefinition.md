@@ -19,7 +19,7 @@ A class that is being used to define a type level mappings for the database type
 
 ## Mapping a Database Type
 
-To map an equivalent database type into a .NET CLR type, use the `DbType` method.
+To map an equivalent database type into a .NET CLR type, use the [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) method.
 
 ```csharp
 var definition = FluentMapper.Type<DateTime>();

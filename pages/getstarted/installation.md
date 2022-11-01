@@ -191,4 +191,5 @@ For the users prior the version 1.13.0, use the bootstrapper code below.
 RepoDb.SqliteBootstrap.Initialize();
 ```
 
+{: .note }
 > Please visit our [documentation](/docs) page to learn more about this library.

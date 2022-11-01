@@ -29,7 +29,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-> It returns a type of `Tuple<T1, .., T7>` object. The maximum type that it can cater is 7. Each item in the tuple object is an `IEnumerable<T>` object of the target generic type.
+{: .note }
+> It returns a type of `Tuple<T1, .., T7>` object. The maximum type that it can cater is 7. Each item in the tuple object is an [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object of the target generic type.
 
 ## Table Hints
 

@@ -48,7 +48,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 - Enhancement: Added the [MySqlDbTypeAttribute](/attribute/mysqlconnector/mysqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Deprecated the [MySqlConnectorTypeMapAttribute](/attribute/mysqlconnectortypemap) attribute.
 - Enhancement: Moved the `MySqlConnectorDbSetting` to `RepoDb.DbSettings` namespace.
-- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 - Bug: Exception on [Merge](/operation/merge) (PostgreSQL) [#776](https://github.com/mikependon/RepoDb/issues/776). RELATED
 - Wrong ordinal for Nullable filed information in MySqlConnectorDbHelper.ReaderToDbFieldAsync [#780](https://github.com/mikependon/RepoDb/issues/780)
 
@@ -62,7 +62,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 - Enhancement: Added the [MySqlDbTypeAttribute](/attribute/parameter/mysqlconnectordbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Deprecated the [MySqlConnectorTypeMapAttribute](/attribute/mysqlconnectortypemap) attribute.
 - Enhancement: Moved the `MySqlConnectorDbSetting` to `RepoDb.DbSettings` namespace.
-- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
 ## RepoDb.MySqlConnector (v1.1.4-beta1)

@@ -80,7 +80,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## ExpandoObject and Dictionary<string, object>
 
-Below is a sample way of querying via an `ExpandoObject` and/or `IDictionary<string, object>` object. 
+Below is a sample way of querying via an [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) and/or [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0) object. 
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -108,7 +108,7 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .important }
-> Both the `ExpandoObject` and `IDictionary<string, object>` expression only supports the expression-equality and cannot be used for other equalities (i.e.: non-equality, greater or lesser equality, etc).
+> Both the [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) and [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0) expression only supports the expression-equality and cannot be used for other equalities (i.e.: non-equality, greater or lesser equality, etc).
 
 ## QueryField/QueryGroup
 

@@ -12,7 +12,7 @@ parent: CLASSES
 
 ---
 
-This class is used to convert the `DbDataReader` object into an `IEnumerable<T>` or `IEnumerable<dynamic>` object. This is the heart of the library when it comes to data extraction from the database.
+This class is used to convert the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object into an [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) or `IEnumerable<dynamic>` object. This is the heart of the library when it comes to data extraction from the database.
 
 It only contains one method named `ToEnumerable`. This method is pre-compiled AOT using `Linq.Expressions`.
 

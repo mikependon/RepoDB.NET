@@ -515,7 +515,7 @@ using (var connection = new SqlConnection(connectionString))
 
 The above operation can be batched by passing a value on the `batchSize` argument.
 
-**Note:** This is just an FYI. The operation is using the `SqlBulkCopy` of ADO.Net. This should not be compared to Dapper performance due to the fact that this is a real bulk-operation. This is far (extremely fast) when compared to both Dapper (multi-inserts) and RepoDB (`InsertAll`) operations.
+**Note:** This is just an FYI. The operation is using the [SqlBulkCopy](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlbulkcopy?view=dotnet-plat-ext-7.0) of ADO.Net. This should not be compared to Dapper performance due to the fact that this is a real bulk-operation. This is far (extremely fast) when compared to both Dapper (multi-inserts) and RepoDB (`InsertAll`) operations.
 
 #### Merging multiple rows
 
@@ -619,7 +619,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-**Note:** You can as well pass an instance of `DbDataReader` (instead of `DataTable`).
+**Note:** You can as well pass an instance of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) (instead of `DataTable`).
 
 #### RepoDB
 
@@ -633,7 +633,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-**Note:** You can as well pass an instance of `DbDataReader`.
+**Note:** You can as well pass an instance of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
 - Fluent (Targeted):
 

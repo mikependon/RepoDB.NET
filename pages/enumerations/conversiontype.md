@@ -12,7 +12,7 @@ parent: ENUMERATIONS
 
 ---
 
-This enum is used to set the value of the `ConversionType` property of [Converter](/mapper/converter) object. It defines how the conversion type is when extracting the `DbDataReader` into its equivalent .NET CLR type.
+This enum is used to set the value of the `ConversionType` property of [Converter](/mapper/converter) object. It defines how the conversion type is when extracting the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) into its equivalent .NET CLR type.
 
 ## Enum Values
 
@@ -20,12 +20,12 @@ Below is the list of enum values.
 
 | Name | Description |
 |:-----|:------------|
-| Default | The conversion is strict. There is no additional implied logic in used during the conversion of the `DbDataReader` object into its destination .NET CLR type. |
-| Automatic | The conversion is not strict (or automatic). An additional logic from the `System.Linq.Expressions.Expression.Convert(Expression, Type)` and/or `System.Convert` objects will be used to properly map the instance of `DbDataReader` object into its destination .NET CLR type. The operation is compiled ahead-of-time (AOT) and will only succeed if the data types of both objects are convertible. |
+| Default | The conversion is strict. There is no additional implied logic in used during the conversion of the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object into its destination .NET CLR type. |
+| Automatic | The conversion is not strict (or automatic). An additional logic from the `System.Linq.Expressions.Expression.Convert(Expression, Type)` and/or `System.Convert` objects will be used to properly map the instance of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object into its destination .NET CLR type. The operation is compiled ahead-of-time (AOT) and will only succeed if the data types of both objects are convertible. |
 
 ## Use-Cases
 
-You can use the value of `Automatic` if the database column type is not the same as the class property type (i.e.: `Int` to `string`, `string` to `Guid`, `DateTime` to `string`, etc).
+You can use the value of `Automatic` if the database column type is not the same as the class property type (i.e.: `Int` to [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0), [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0) to `Guid`, [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) to [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0), etc).
 
 Let us say, you have a given class named `Customer` as defined below.
 

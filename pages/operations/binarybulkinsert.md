@@ -88,7 +88,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 #### Dictionary/ExpandoObject
 
-Below is the sample code to bulk-insert via `Dictionary<string, object>` or `ExpandoObject`.
+Below is the sample code to bulk-insert via `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ```csharp
 var people = GetPeopleAsDictionary(1000);
@@ -101,7 +101,7 @@ using (var connection = new NpgsqlConnection(destinationConnectionString))
 
 #### DataReader
 
-Below is the sample code to bulk-insert via `DbDataReader`.
+Below is the sample code to bulk-insert via [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
 ```csharp
 using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))

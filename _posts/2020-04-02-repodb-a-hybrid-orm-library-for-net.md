@@ -25,7 +25,7 @@ To begin with, you can start reading our [Get Started](/tutorial/get-started-sql
 
 ### How does it works?
 
-Basically, all [operations](/docs#operations) were implemented as extended methods of the `IDbConnection` object. Once you hold the opened-state of your database connection object, you can then do all the activities you would like to do with your database through those extended methods.
+Basically, all [operations](/docs#operations) were implemented as extended methods of the [IDbConnection](https://learn.microsoft.com/en-us/dotnet/api/system.data.idbconnection?view=net-7.0) object. Once you hold the opened-state of your database connection object, you can then do all the activities you would like to do with your database through those extended methods.
 
 #### See sample code snippets below:
 

@@ -56,7 +56,7 @@ public class Person
 
 #### SQL Server
 
-In SQL Server, you can also map to a specific `System.Data.SqlDbType` [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype).
+In SQL Server, you can also map to a specific [System.Data.SqlDbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqldbtype?view=net-7.0) [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype).
 
 ```csharp
 public class Person
@@ -71,7 +71,7 @@ public class Person
 
 #### MySQL
 
-In MySQL, you can also map to a specific `MySql.Data.MySqlClient.MySqlDbType` using the [MySqlDbTypeAttribute](/attribute/mysql/mysqldbtype).
+In MySQL, you can also map to a specific [MySql.Data.MySqlClient.MySqlDbType](https://dev.mysql.com/doc/dev/connector-net/6.10/html/T_MySql_Data_MySqlClient_MySqlDbType.htm) using the [MySqlDbTypeAttribute](/attribute/mysql/mysqldbtype).
 
 ```csharp
 public class Person
@@ -86,7 +86,7 @@ public class Person
 
 #### PostgreSQL
 
-In PostgreSQL, you can also map to a specific `NpgsqlTypes.NpgsqlDbType` using the [NpgsqlDbTypeAttribute](/attribute/npgsql/npgsqldbtype).
+In PostgreSQL, you can also map to a specific [NpgsqlTypes.NpgsqlDbType](https://www.npgsql.org/doc/api/NpgsqlTypes.NpgsqlDbType.html) using the [NpgsqlDbTypeAttribute](/attribute/npgsql/npgsqldbtype).
 
 ```csharp
 public class Person
@@ -101,7 +101,7 @@ public class Person
 
 #### SQLite
 
-In PostgreSQL, you can also map to a specific `Microsoft.Data.Sqlite.SqliteType` using the [SqliteTypeAttribute](/attribute/sqlite/sqlitetype).
+In PostgreSQL, you can also map to a specific [Microsoft.Data.Sqlite.SqliteType](https://learn.microsoft.com/en-us/dotnet/api/microsoft.data.sqlite.sqlitetype?view=msdata-sqlite-6.0.0) using the [SqliteTypeAttribute](/attribute/sqlite/sqlitetype).
 
 ```csharp
 public class Person

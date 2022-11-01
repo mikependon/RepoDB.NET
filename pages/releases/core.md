@@ -16,7 +16,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 ## RepoDb (v1.13.0-beta1)
 
-- Upgraded the `Microsoft.Data.SqlClient` package to  `v5.0.1`.
+- Upgraded the [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) package to  `v5.0.1`.
 
 
 ## RepoDb (v1.13.0-alpha3)
@@ -55,7 +55,7 @@ Breaking
 ### Non-Breaking
 
 - Bug: No coercion operator is defined between types `System.TimeSpan` and `System.Int64`. [#1033](https://github.com/mikependon/RepoDB/issues/1033)
-- Bug: Type with custom mapping used in an array is not mapped to specific `DBType` [#1053](https://github.com/mikependon/RepoDB/issues/1053)
+- Bug: Type with custom mapping used in an array is not mapped to specific [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) [#1053](https://github.com/mikependon/RepoDB/issues/1053)
 - Bug: [DbRepository](/class/dbrepository)'s [Truncate](/operation/truncate) operations do not handle transactions [#1041](https://github.com/mikependon/RepoDB/issues/1041)
 - Bug: Sort Columns are no longer being verified [#1049](https://github.com/mikependon/RepoDB/issues/1049)
 - Enhancement: Explicit selection of the datatype for query parameters [#1052](https://github.com/mikependon/RepoDB/issues/1052)
@@ -154,7 +154,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Enhancement: Enhancement: Add an additional property on the [DbField](/class/dbfield) class that handles the DB Provider. [#890](https://github.com/mikependon/RepoDB/issues/890)
 - Enhancement: Added the [PropertyValueAttribute](/attribute/propertyvalue) attribute class.
 - Enhancement: Create a base class for the Type Map attributes ([NpgsqlTypeMapAttribute](/attribute/npgsqltypemap), [MySqlTypeMapAttribute](/attribute/npgsqltypemap), [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap)) [#873](https://github.com/mikependon/RepoDB/issues/873).
-- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 - Enhancement: Add a mapper for [PropertyValueAttribute](/attribute/propertyvalue) [#887](https://github.com/mikependon/RepoDB/issues/887)
 - Enhancement: Added the [DbTypeAttribute](/attribute/dbtype) attribute.
 - Enhancement: Added the [DirectionAttribute](/attribute/direction) attribute.
@@ -192,7 +192,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Enhancement: Enhancement: Add an additional property on the [DbField](/class/dbfield) class that handles the DB Provider. [#890](https://github.com/mikependon/RepoDB/issues/890)
 - Enhancement: Added the [PropertyValueAttribute](/attribute/propertyvalue) attribute class.
 - Enhancement: Create a base class for the Type Map attributes ([NpgsqlTypeMapAttribute](/attribute/npgsqltypemap), [MySqlTypeMapAttribute](/attribute/npgsqltypemap), [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap)) [#873](https://github.com/mikependon/RepoDB/issues/873).
-- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 - Enhancement: Added the [DbTypeAttribute](/attribute/dbtype) attribute.
 - Enhancement: Added the [DirectionAttribute](/attribute/direction) attribute.
 - Enhancement: Added the [IsNullableAttribute](/attribute/isnullable) attribute.
@@ -230,7 +230,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 ## RepoDb (v1.12.7)
 
 - Enhancement: Add a `Reset()` method into the [Parameter](/class/parameter) object. [#709](https://github.com/mikependon/RepoDB/issues/709)
-- Enhancement: Add a method `DbParameter` into the [QueryField](/class/queryfield) object. [#711](https://github.com/mikependon/RepoDB/issues/711)
+- Enhancement: Add a method [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) into the [QueryField](/class/queryfield) object. [#711](https://github.com/mikependon/RepoDB/issues/711)
 - Enhancement: Revisits the Immutable Classes Instantiation [#753](https://github.com/mikependon/RepoDB/issues/753)
 - Bug: Extract function throws exception when using [ExecuteQueryMultiple](/operation/executequerymultiple) [#761](https://github.com/mikependon/RepoDB/issues/761)
 - Bug: RepoDb.SqlServer Enum picking up 2 types when upgraded from 1.1.1 -> 1.1.2 [#736](https://github.com/mikependon/RepoDB/issues/736)
@@ -243,7 +243,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Enhancement: Add the `__RepoDb_OrderColumn` at the Batch Operations ([InsertAll](/operation/insertall), [MergeAll](/operation/mergeall)) [#703](https://github.com/mikependon/RepoDB/issues/703)
 - Enhancement: Add a `Reset()` method into the [Parameter](/class/parameter) object. [#709](https://github.com/mikependon/RepoDB/issues/709)
 - Enhancement: Add the methods named `GetName()` and `GetValue()` in the [QueryField](/class/queryfield) object. [#707](https://github.com/mikependon/RepoDB/issues/707)
-- Enhancement: Add a method `DbParameter` into the [QueryField](/class/queryfield) object. [#711](https://github.com/mikependon/RepoDB/issues/711)
+- Enhancement: Add a method [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) into the [QueryField](/class/queryfield) object. [#711](https://github.com/mikependon/RepoDB/issues/711)
 
 
 ## RepoDb (v1.12.5)
@@ -257,17 +257,17 @@ Breaking
 
 - Enhancement: Add the dynamic [ExecuteQueryMultiple](/operation/executequerymultiple) method in the [DbRepository](/class/dbrepository) [#630](https://github.com/mikependon/RepoDB/issues/630)
 - Possible bug - Enum with Flag attribute is not correctly handled [#624](https://github.com/mikependon/RepoDB/issues/624)
-- [Core] Support `ExpandoObject` in [Insert](/operation/insert) via `TableName`. [#234](https://github.com/mikependon/RepoDB/issues/234)
-- [Core] Support `ExpandoObject` in [Merge](/operation/merge) via `TableName`. [#238](https://github.com/mikependon/RepoDB/issues/238)
-- [Core] Support `ExpandoObject` in [Update](/operation/update) via `TableName`. [#236](https://github.com/mikependon/RepoDB/issues/236)
-- [Core] Support `ExpandoObject` in [InsertAll](/operation/insertall) via `TableName`. [#235](https://github.com/mikependon/RepoDB/issues/235)
-- [Core] Support `ExpandoObject` in [MergeAll](/operation/mergeall) via `TableName`. [#239](https://github.com/mikependon/RepoDB/issues/239)
-- [Core] Support `ExpandoObject` in [UpdateAll](/operation/updateall) via `TableName`. [#237](https://github.com/mikependon/RepoDB/issues/237)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [Insert](/operation/insert) via `TableName`. [#234](https://github.com/mikependon/RepoDB/issues/234)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [Merge](/operation/merge) via `TableName`. [#238](https://github.com/mikependon/RepoDB/issues/238)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [Update](/operation/update) via `TableName`. [#236](https://github.com/mikependon/RepoDB/issues/236)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [InsertAll](/operation/insertall) via `TableName`. [#235](https://github.com/mikependon/RepoDB/issues/235)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [MergeAll](/operation/mergeall) via `TableName`. [#239](https://github.com/mikependon/RepoDB/issues/239)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [UpdateAll](/operation/updateall) via `TableName`. [#237](https://github.com/mikependon/RepoDB/issues/237)
 - Introduce the support of Dynamic and ExpandoObject in [BulkInsert](/operation/bulkinsert). [#243](https://github.com/mikependon/RepoDB/issues/243)
-- Enhancement: Support `ExpandoObject` in [BulkInsert](/operation/bulkinsert) [#610](https://github.com/mikependon/RepoDB/issues/610)
-- Enhancement: Support `ExpandoObject` in [BulkMerge](/operation/bulkmerge) [#611](https://github.com/mikependon/RepoDB/issues/611)
-- Enhancement: Support `ExpandoObject` in [BulkUpdate](/operation/bulkupdate) [#612](https://github.com/mikependon/RepoDB/issues/612)
-- Enhancement: Support `ExpandoObject` in [BulkDelete](/operation/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkInsert](/operation/bulkinsert) [#610](https://github.com/mikependon/RepoDB/issues/610)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkMerge](/operation/bulkmerge) [#611](https://github.com/mikependon/RepoDB/issues/611)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkUpdate](/operation/bulkupdate) [#612](https://github.com/mikependon/RepoDB/issues/612)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkDelete](/operation/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
 - Bug: Exception is being thrown for the Type level [PropertyHandler](/features/propertyhandlers) for Dynamic Insertion [#628](https://github.com/mikependon/RepoDB/issues/628).
 - Added a validation to ensure the type of the `TPropertyHandler` has implemented the [IPropertyHandler](/interface/ipropertyhandler) interface when calling the `Add()` method of the [PropertyHandlerCache](/cacher/propertyhandlercache) object.
 - Request: Do not crash if on empty enumerable on bulk operation [#635](https://github.com/mikependon/RepoDB/issues/635).
@@ -276,7 +276,7 @@ Breaking
 - Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
 - Bug: [FluentMapper](/mapper/fluentmapper) is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
 - Question: [IPropertyHandler](/interface/ipropertyhandler) for `Dictionary<string, string>` [#647](https://github.com/mikependon/RepoDB/issues/647)
-- Upgraded the `Microsoft.Data.SqlClient` to `v2.1.0`.
+- Upgraded the [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) to `v2.1.0`.
 - Upgraded the `System.ComponentModel.Annotations` to `v5.0.0`.
 - Fixed the related issues found at model-based operation [ExecuteQuery](/operation/executequery) (almost related to [#666](https://github.com/mikependon/RepoDB/issues/666))
 
@@ -298,7 +298,7 @@ Breaking
 - Bug: Query failed when field mapping used on FSharp records. [#662](https://github.com/mikependon/RepoDB/issues/662)
 - Bug: [FluentMapper](/mapper/fluentmapper) is not working with Abstract Properties [#666](https://github.com/mikependon/RepoDB/issues/666)
 - Question: [IPropertyHandler](/interface/ipropertyhandler) for `Dictionary<string, string>` [#647](https://github.com/mikependon/RepoDB/issues/647)
-- Upgraded the `Microsoft.Data.SqlClient` to `v2.1.0`.
+- Upgraded the [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) to `v2.1.0`.
 - Upgraded the `System.ComponentModel.Annotations` to `v5.0.0`.
 
 
@@ -321,17 +321,17 @@ Breaking
 
 - Enhancement: Add the dynamic [ExecuteQueryMultiple](/operation/executequerymultiple) method in the [DbRepository](/class/dbrepository) [#630](https://github.com/mikependon/RepoDB/issues/630)
 - Possible bug - Enum with Flag attribute is not correctly handled [#624](https://github.com/mikependon/RepoDB/issues/624)
-- [Core] Support `ExpandoObject` in [Insert](/operation/insert) via `TableName`. [#234](https://github.com/mikependon/RepoDB/issues/234)
-- [Core] Support `ExpandoObject` in [Merge](/operation/merge) via `TableName`. [#238](https://github.com/mikependon/RepoDB/issues/238)
-- [Core] Support `ExpandoObject` in [Update](/operation/update) via `TableName`. [#236](https://github.com/mikependon/RepoDB/issues/236)
-- [Core] Support `ExpandoObject` in [InsertAll](/operation/insertall) via `TableName`. [#235](https://github.com/mikependon/RepoDB/issues/235)
-- [Core] Support `ExpandoObject` in [MergeAll](/operation/mergeall) via `TableName`. [#239](https://github.com/mikependon/RepoDB/issues/239)
-- [Core] Support `ExpandoObject` in [UpdateAll](/operation/updateall) via `TableName`. [#237](https://github.com/mikependon/RepoDB/issues/237)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [Insert](/operation/insert) via `TableName`. [#234](https://github.com/mikependon/RepoDB/issues/234)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [Merge](/operation/merge) via `TableName`. [#238](https://github.com/mikependon/RepoDB/issues/238)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [Update](/operation/update) via `TableName`. [#236](https://github.com/mikependon/RepoDB/issues/236)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [InsertAll](/operation/insertall) via `TableName`. [#235](https://github.com/mikependon/RepoDB/issues/235)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [MergeAll](/operation/mergeall) via `TableName`. [#239](https://github.com/mikependon/RepoDB/issues/239)
+- [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [UpdateAll](/operation/updateall) via `TableName`. [#237](https://github.com/mikependon/RepoDB/issues/237)
 - Introduce the support of Dynamic and ExpandoObject in [BulkInsert](/operation/bulkinsert). [#243](https://github.com/mikependon/RepoDB/issues/243)
-- Enhancement: Support `ExpandoObject` in [BulkInsert](/operation/bulkinsert) [#610](https://github.com/mikependon/RepoDB/issues/610)
-- Enhancement: Support `ExpandoObject` in [BulkMerge](/operation/bulkmerge) [#611](https://github.com/mikependon/RepoDB/issues/611)
-- Enhancement: Support `ExpandoObject` in [BulkUpdate](/operation/bulkupdate) [#612](https://github.com/mikependon/RepoDB/issues/612)
-- Enhancement: Support `ExpandoObject` in [BulkDelete](/operation/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkInsert](/operation/bulkinsert) [#610](https://github.com/mikependon/RepoDB/issues/610)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkMerge](/operation/bulkmerge) [#611](https://github.com/mikependon/RepoDB/issues/611)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkUpdate](/operation/bulkupdate) [#612](https://github.com/mikependon/RepoDB/issues/612)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkDelete](/operation/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
 
 
 ## RepoDb (v1.12.4)
@@ -388,14 +388,14 @@ Breaking
 - Enhancement: Refactored and optimized the `Parse` method of the [QueryField](/class/queryfield) and [QueryGroup](/class/querygroup) objects.
 - Enhancement: Refactor the Table-Based Calls to return `IEnumerable<ExpandoObject>` instead of `IEnumerable<dynamics>`. [#540](https://github.com/mikependon/RepoDb/issues/540)
 - Enhancement: Consider supporting the execution of the TVP in SQL Server. [#566](https://github.com/mikependon/RepoDb/issues/566)
-- Enhancement: Support for returning `IDictionary<string, object>` instead of ExpandoObject. [#537](https://github.com/mikependon/RepoDb/issues/537)
+- Enhancement: Support for returning [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0) instead of ExpandoObject. [#537](https://github.com/mikependon/RepoDb/issues/537)
 - Enhancement: Re-assess if the `IsAssignableFrom` can be used over the customized `IsInterfacedTo`. [#469](https://github.com/mikependon/RepoDb/issues/469)
 - Enhancement: Handle the Exception Handling of the Serialization/Deserialization process of the [ClassHandler](/feature/classhanders) that is connected to a different Data Entity [#539](https://github.com/mikependon/RepoDb/issues/539)
 - Refactoring: Make all the `cacheItemExpiration` arguments nullable. **BREAKING**
 - Refactoring: Make the [BaseRepository](/class/dbrepository) and [DbRepository](/class/dbrepository) objects `CacheItemExpiration` property nullable.
 - Refactoring: Make the [CacheItem](/class/cacheitem) object `CacheItemExpiration` property nullable.
 - Test: Added the Integration Tests for the `NonKeyedTable`.
-- Integration Tests: Added more Integration Tests for the `DbType` Map Attribute (includes SQL Server, PostgreSQL and MySQL).
+- Integration Tests: Added more Integration Tests for the [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) Map Attribute (includes SQL Server, PostgreSQL and MySQL).
 - Added the `KeyFieldNotFoundException`, `MissingQualifierFieldsException` and the `IdentityFieldNotFoundException`.
 - Added the `<TEntity>(TableName)` methods to the [BatchQuery](/operation/batchquery) operation.
 - Added the `<TEntity>(TableName)` methods to the [Query](/operation/query) and [QueryAll](/operation/queryall) operations.
@@ -413,13 +413,13 @@ Breaking
 ## RepoDb (v1.12.0-beta4)
 
 - Enhancement: Consider supporting the execution of the TVP in SQL Server. [#566](https://github.com/mikependon/RepoDb/issues/566)
-- Integration Tests: Added more Integration Tests for the `DbType` Map Attribute (includes SQL Server, PostgreSQL and MySQL).
+- Integration Tests: Added more Integration Tests for the [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) Map Attribute (includes SQL Server, PostgreSQL and MySQL).
 
 
 ## RepoDb (v1.12.0-beta3)
 
 - Enhancement: Refactor the Table-Based Calls to return `IEnumerable<ExpandoObject>` instead of `IEnumerable<dynamics>`. [#540](https://github.com/mikependon/RepoDb/issues/540)
-- Enhancement: Support for returning `IDictionary<string, object>` instead of ExpandoObject. [#537](https://github.com/mikependon/RepoDb/issues/537)
+- Enhancement: Support for returning [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0) instead of ExpandoObject. [#537](https://github.com/mikependon/RepoDb/issues/537)
 - Enhancement: Re-assess if the `IsAssignableFrom` can be used over the customized `IsInterfacedTo`. [#469](https://github.com/mikependon/RepoDb/issues/469)
 - Enhancement: Handle the Exception Handling of the Serialization/Deserialization process of the [ClassHandler](/feature/classhanders) that is connected to a different Data Entity [#539](https://github.com/mikependon/RepoDb/issues/539)
 - Feature: Support to Enumerable Scalar Values [#538](https://github.com/mikependon/RepoDb/issues/538) - **NEW**
@@ -555,14 +555,14 @@ Breaking
 - Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
 - Bug: No coercion operator is defined between types `System.String` and `System.Guid`. [#437](https://github.com/mikependon/RepoDb/issues/437)
 - Added an extensive Integration Tests for Property Handler Implicit Mapping.
-- Added an extensive Unit and Integration Tests for `Key`, `Column` and `Table` attributes support. [#435](https://github.com/mikependon/RepoDb/issues/435)
+- Added an extensive Unit and Integration Tests for `Key`, `Column` and [Table](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.tableattribute?view=net-6.0) attributes support. [#435](https://github.com/mikependon/RepoDb/issues/435)
 - Added more Unit Tests for `Key/Primary` and `Table/Column/Map` collisions. [#435](https://github.com/mikependon/RepoDb/issues/435)
 - Added the `GetTypeMapAttribute()`, `GetPropertyHandler()`, `GetPropertyHandlerAttribute()` methods in the [ClassProperty](/class/classproperty) class.
 - Added the `PrimaryResolver` to resolve the primary [ClassProperty](/class/classproperty) of the data entity type.
 - Added the `IdentityResolver` to resolve the identity [ClassProperty](/class/classproperty) of the data entity type.
 - Added the `ClassMappedNameResolver` to resolve the database object name mapping of the data entity type.
 - Added the `PropertyMappedNameResolver` to resolve the cached column name mappings of the property.
-- Added both the `TypeMapPropertyLevelResolver` and `TypeMapTypeLevelResolver` classes to resolve the equivalent `DbType` object of both the property and .NET CLR type.
+- Added both the `TypeMapPropertyLevelResolver` and `TypeMapTypeLevelResolver` classes to resolve the equivalent [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) object of both the property and .NET CLR type.
 - Added both the `PropertyHandlerPropertyLevelResolver` and `PropertyHandlerTypeLevelResolver` classes to resolve the equivalent property handler of both the property and .NET CLR type.
 - Added the `entityType` argument in the `DbCommandExtensions.CreateParameters()` method.
 
@@ -577,7 +577,7 @@ Breaking
 - Requests: Support for Table attribute [#360](https://github.com/mikependon/RepoDb/issues/360)
 - Bug: The property handler mapping via [FluentMapper](/mapper/fluentmapper) or [PropertyHandlerMapper](/mapper/propertyhandlermapper) is not being triggered. [#438](https://github.com/mikependon/RepoDb/issues/438)
 - Bug: No coercion operator is defined between types `System.String` and `System.Guid`. [#437](https://github.com/mikependon/RepoDb/issues/437)
-- Added an extensive Unit and Integration Tests for `Key`, `Column` and `Table` attributes support. [#435](https://github.com/mikependon/RepoDb/issues/435)
+- Added an extensive Unit and Integration Tests for `Key`, `Column` and [Table](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.tableattribute?view=net-6.0) attributes support. [#435](https://github.com/mikependon/RepoDb/issues/435)
 - Added more Unit Tests for `Key/Primary` and `Table/Column/Map` collisions. [#435](https://github.com/mikependon/RepoDb/issues/435)
 - Added the `GetTypeMapAttribute()`, `GetPropertyHandler()`, `GetPropertyHandlerAttribute()` methods in the [ClassProperty](/class/classproperty) class.
 - Optimization: Transfer the logic of [ClassProperty](/class/classproperty) into various mappers.
@@ -586,7 +586,7 @@ Breaking
 - Added the `IdentityResolver` to resolve the identity [ClassProperty](/class/classproperty) of the data entity type.
 - Added the `ClassMappedNameResolver` to resolve the database object name mapping of the data entity type.
 - Added the `PropertyMappedNameResolver` to resolve the cached column name mappings of the property.
-- Added both the `TypeMapPropertyLevelResolver` and `TypeMapTypeLevelResolver` classes to resolve the equivalent `DbType` object of both the property and .NET CLR type.
+- Added both the `TypeMapPropertyLevelResolver` and `TypeMapTypeLevelResolver` classes to resolve the equivalent [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) object of both the property and .NET CLR type.
 - Added both the `PropertyHandlerPropertyLevelResolver` and `PropertyHandlerTypeLevelResolver` classes to resolve the equivalent property handler of both the property and .NET CLR type.
 
 
@@ -755,7 +755,7 @@ Breaking
 
 Highlights
 
-- Support: Initiate the support to `Microsoft.Data.SqlClient` namespace. [#374](https://github.com/mikependon/RepoDb/issues/374)
+- Support: Initiate the support to [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) namespace. [#374](https://github.com/mikependon/RepoDb/issues/374)
 - Feature: Support `PropertyHandlerAttribute` as requested. [#367](https://github.com/mikependon/RepoDb/issues/367)
 - Feature: Re-enabled the [BulkInsert](/operation/bulkinsert) for `DataTable`.
 - Feature: Support deleting an array of entity objects or primary keys via [DeleteAll](/operation/deleteall). [#353](https://github.com/mikependon/RepoDb/issues/353)
@@ -763,7 +763,7 @@ Highlights
 ### Others
 
 - Support: Change the target type to .NetStandard 2.0.
-- Support: Initiate the support to `Microsoft.Data.SqlClient` namespace. [#374](https://github.com/mikependon/RepoDb/issues/374)
+- Support: Initiate the support to [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) namespace. [#374](https://github.com/mikependon/RepoDb/issues/374)
 - Enhancement: Support to Microsoft.Data.SqlClient [#359](https://github.com/mikependon/RepoDb/issues/359)
 - NTH: Add a table hints in [Merge](/operation/merge) and [MergeAll](/operation/mergeall). [#370](https://github.com/mikependon/RepoDb/issues/370)
 - NTH: Add a table hints in [Update](/operation/update) and [UpdateAll](/operation/updateall). [#371](https://github.com/mikependon/RepoDb/issues/371)
@@ -775,7 +775,7 @@ Highlights
 
 - Initial support of RepoDb.PostgreSql.
 - Added `IsPreparable` Property for `IDbSetting`.
-- Removed the `basedOnFields` logic when extracting the `DbDataReader`.
+- Removed the `basedOnFields` logic when extracting the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 - [InsertAll](/operation/insertall): Parsed the first entity property fields if the `fields` argument is not defined.
 - Enhancement: Introduce the `BaseDbSetting` class to cater a uniform `HashCode` generator. #369
 - Adhoc: Sealed and exposed the `DbSettings`, `DbHelpers` and the `DbStatementBuilders` classes.
@@ -859,7 +859,7 @@ Highlights
 
 ## RepoDb (v1.9.9)
 
-- Bug: `SqlException`: Login failed for user `xxx`
+- Bug: [SqlException](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlexception?view=dotnet-plat-ext-6.0): Login failed for user `xxx`
 - Bug: Calling [InsertAll](/operation/insertall) with `MapAttribute` leads to `System.NullReferenceException`: Object reference not set to an instance of an object. [#274](https://github.com/mikependon/RepoDb/issues/274)
 - Bug: `SqlDbHelper.GetFields` is failing if the transaction object is present. [#278](https://github.com/mikependon/RepoDb/issues/278)
 - Enhancement: Remove database streaming when extracting table schema.
@@ -945,7 +945,7 @@ Highlights
 ## RepoDb (v1.9.6)
 
 - [Note] This version is the first ever version release with complete features. The next version will be only be bug-fixes from this version (if we found some).
-- [Core] Optimize the Expression field iteration between the number of Class properties and `DbDataReader` columns. [#136](https://github.com/mikependon/RepoDb/issues/136)
+- [Core] Optimize the Expression field iteration between the number of Class properties and [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) columns. [#136](https://github.com/mikependon/RepoDb/issues/136)
 - [Core] Add a pluggable interface/abstract for `DbProviderOperation` [#158](https://github.com/mikependon/RepoDb/issues/158)
 - [Core] Add a `DbTransaction` object on [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall) operations. [#213](https://github.com/mikependon/RepoDb/issues/213)
 - [Test] Added an Integration Tests for `IdentityClassWithDifferentIdentity`.
@@ -1071,7 +1071,7 @@ Highlights
 ## RepoDb (v1.9.2)
 
 - [Core] Introduce the [InsertAll](/operation/insertall), different from `InsertMultiple`. [#91](https://github.com/mikependon/RepoDb/issues/91)
-- [Core] Return the number of affected rows during [BulkInsert](/operation/bulkinsert) for `DbDataReader`. [#192](https://github.com/mikependon/RepoDb/issues/192)
+- [Core] Return the number of affected rows during [BulkInsert](/operation/bulkinsert) for [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0). [#192](https://github.com/mikependon/RepoDb/issues/192)
 - [Core] Add a `SetParameters` extended methods for `DbCommand` object. [#196](https://github.com/mikependon/RepoDb/issues/196)
 - [Core, Requested] Re-enable the operation for [Delete](/operation/delete)via `DataEntity` object. [#185](https://github.com/mikependon/RepoDb/issues/185)
 - [Core, Requested] Re-enable the operation for [Update](/operation/update)via `DataEntity` object. [#188](https://github.com/mikependon/RepoDb/issues/188)
@@ -1102,7 +1102,7 @@ Highlights
 - [Core] Introduced pluggable interface `DbHelpers`.
 - [Core] Updated the `QueryBuilder` to remove the `TEntity` at class level (moved it to method level).
 - [Core] Updated the `StatementBuilder` SQL Text generation via TableName.
-- [Core] Supported `Dynamic`, `ExpandoObject`, `IDictionary<string, object>`, [QueryField](/class/queryfield), `IEnumerable<QueryField>` and `[QueryGroup](/class/querygroup)` objects in the `Execute<Method>` calls.
+- [Core] Supported `Dynamic`, [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0), [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0), [QueryField](/class/queryfield), `IEnumerable<QueryField>` and `[QueryGroup](/class/querygroup)` objects in the `Execute<Method>` calls.
 - [Added] `ExecuteScalar<T>` and `ExecuteScalarAsync<T>`
 - [Added] `DbField`
 - [Added] `DbFieldCache`
@@ -1131,7 +1131,7 @@ Highlights
 - [Enhancement] Support passing of [QueryGroup](/class/querygroup), [QueryField](/class/queryfield), IEnumerable<QueryField> in the Execution<Method> Operations [#140](https://github.com/mikependon/RepoDb/issues/140)
 - [Enhancement] Remove the `StatementBuilderMapItem` class if possible. [#139](https://github.com/mikependon/RepoDb/issues/139)
 - [Enhancement] Remove the `Provider` Enumeration. [#138](https://github.com/mikependon/RepoDb/issues/138)
-- [Enhancement] Reorder the parameter of for target table to [BulkInsert](/operation/bulkinsert)(TableName, `DbDataReader`). [#145](https://github.com/mikependon/RepoDb/issues/145)
+- [Enhancement] Reorder the parameter of for target table to [BulkInsert](/operation/bulkinsert)(TableName, [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0)). [#145](https://github.com/mikependon/RepoDb/issues/145)
 - [Enhancement] Properly parse the type of the passed parameters when parsing the RawSql Array Parameters. [#147](https://github.com/mikependon/RepoDb/issues/147)
 - [Enhancement] [NTH]: Support InlineInsert(string tableName, object param ...) [#114](https://github.com/mikependon/RepoDb/issues/114) -- Moved to [Insert](/operation/insert)
 - [Enhancement] Implement the `prefix` as a passable argument when during conversion. [#148](https://github.com/mikependon/RepoDb/issues/148)
@@ -1219,7 +1219,7 @@ Highlights
 - Added: A class named `QueryMultipleRequest` to handle the request when calling the `QueryMultiple` operation.
 - Added: A class named `CommandArrayParameter` to hold the array parameters for Raw SQL statements.
 - Added: A method named `Reset` for both [QueryField](/class/queryfield) and `[QueryGroup](/class/querygroup)` objects  allow the user to reinstate the instance of that object.
-- Added: An operation named [BulkInsert](/operation/bulkinsert) at  `DbRepository` with `DbDataReader` as the parameter.
+- Added: An operation named [BulkInsert](/operation/bulkinsert) at  `DbRepository` with [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) as the parameter.
 - Added: An argument named `hints` for both the `BatchQuery` and  [Count](/operation/count) operation.
 - Added: An intensive `IntegrationTests` for all the different data types of the database (SQL Server) (Numbers, Spatials, Strings, Dates, Bytes, Others).
 - Added: An intensive `IntegrationTests` for the data types conversions(i.e: String-to-Numbers (vice versa), String-to-Dates (vice versa), etc).
@@ -1244,7 +1244,7 @@ Highlights
 ### Added
 
 - In the `Async` methods, introduced the `AsyncResultExtractor` class to control the extraction of the result in the caller side.
-- Supported [BulkInsert](/operation/bulkinsert) for `DbRepository` with `DbDataReader` as the parameter.
+- Supported [BulkInsert](/operation/bulkinsert) for `DbRepository` with [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) as the parameter.
 - Added an `IntegrationTests` for all the different data types of the database (SQL Server) (Numbers, Spatials, Strings, Dates, Bytes, Others).
 - Added an `IntegrationTests` for the data types conversions(i.e: String-to-Numbers (vice versa), String-to-Dates (vice versa), etc).
 - Added an `IntegrationTests` for the invalid casings.
@@ -1274,7 +1274,7 @@ Highlights
 - Added a class named `QueryGroupTimeMap` to support the mapping of the [QueryGroup](/class/querygroup) into the Type.
 - Introduced a `hints` argument in the `DbConnection.Query` operation.
 - Added class `SqlTableHints`.
-- Supported [BulkInsert](/operation/bulkinsert) for `DbDataReader`.
+- Supported [BulkInsert](/operation/bulkinsert) for [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
 ### Removed
 
@@ -1312,7 +1312,7 @@ Highlights
 
 ## RepoDb (v1.8.0-beta3)
 
-- Supported [BulkInsert](/operation/bulkinsert) for `DbDataReader`.
+- Supported [BulkInsert](/operation/bulkinsert) for [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 - Removed the `Operation.Any`.
 - Removed the `Operation.All`.
 
@@ -1420,7 +1420,7 @@ Highlights
 - Refactor: Removed the `DataEntity` base class (request from the community)
 - Performance: Added a mechanism to cache the command texts
 - Bug Fix: Exception is thrown at `Repository.Query` when `cacheKey` is present
-- Bug Fix: Incorrect milliseconds is being saved for nullable `System.DateTime` properties
+- Bug Fix: Incorrect milliseconds is being saved for nullable [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) properties
 
 
 ## RepoDb (v1.3.0)
@@ -1428,7 +1428,7 @@ Highlights
 - Refactor: Removed `DataEntity` - requested from the community
 - Performance: Cached the command texts
 - Bug Fix: Exception is thrown at `Repository.Query` when `cacheKey` is present
-- Bug Fix: Incorrect milliseconds is being saved for nullable `System.DateTime` properties
+- Bug Fix: Incorrect milliseconds is being saved for nullable [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) properties
 
 
 ## RepoDb (v1.2.0)
@@ -1608,7 +1608,7 @@ Highlights
 
 ### Updates
 - Supported the `DbConnection`.ExecuteQuery<TEntity> method, to return the `IEnumerable` list of RepoDb.Interfaces.IDataEntity.
-- IL Emit the conversion of System.Data.`DbDataReader` to System.Dynamic.DynamicObject when calling the `DbConnection`.ExecuteQuery method.
+- IL Emit the conversion of System.Data.[DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) to System.Dynamic.DynamicObject when calling the `DbConnection`.ExecuteQuery method.
 
 
 ## RepoDb (v1.0.17-alpha3)

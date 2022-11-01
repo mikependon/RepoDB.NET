@@ -104,7 +104,7 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> The [Insert](/operation/insert) method returns the value of identity/primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of the primary property of the model if present.
+> The [Insert](/operation/insert) method returns the value of identity/primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of identity/primary property to the entity model (if present).
 
 ## Querying a Record
 
@@ -174,7 +174,7 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> The [Merge](/operation/merge) method returns the value of the identity/primary column while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of the primary property of the model if present.
+> The [Merge](/operation/merge) method returns the value of the identity/primary column while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of identity/primary property to the entity model (if present).
 
 ## Deleting a Record
 
@@ -308,7 +308,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of `DbDataReader` object, use the [ExecuteReader](/operation/executereader) method.
+To execute a query while expecting a result of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object, use the [ExecuteReader](/operation/executereader) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -401,4 +401,4 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> The result of this operation is a `IEnumerable<T>` object.
+> The result of this operation is a [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.

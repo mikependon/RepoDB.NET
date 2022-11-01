@@ -41,7 +41,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperati
 
 ## RepoDB.PostgreSql.BulkOperations (0.0.8)
 
-- Supported the enumerations in all bulk operations. The different entity types (i.e.: `TEntity`, `IDictionary<string, object>`, `ExpandoObject`, `Anonymous` and `DataTable`) are covered on the enum support. 
+- Supported the enumerations in all bulk operations. The different entity types (i.e.: `TEntity`, [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0), [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0), `Anonymous` and `DataTable`) are covered on the enum support. 
 - Supported the `.NET v6.0`.
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 - Upgraded the `RepoDb` package to `v1.12.10-beta4`.

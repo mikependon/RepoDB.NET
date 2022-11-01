@@ -67,7 +67,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see 
 - Bug: SQLite [Identity](/attribute/identity) field cannot identified [#790](https://github.com/mikependon/RepoDb/issues/790)
 - Enhancement: Added the [SqliteTypeAttribute](/attribute/sqlite/sqlitetype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Added the [TypeNameAttribute](/attribute/parameter/sqlite/typename) attribute.  [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
 ## RepoDb.SqLite (v1.1.4-beta1)
@@ -80,7 +80,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see 
 - Bug: SQLite [Identity](/attribute/identity) field cannot identified [#790](https://github.com/mikependon/RepoDb/issues/790)
 - Enhancement: Added the [SqliteTypeAttribute](/attribute/parameter/sqlitetype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Added the [TypeNameAttribute](/attribute/parameter/sqlite/typename) attribute.  [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
 ## RepoDb.SqLite (v1.1.3)

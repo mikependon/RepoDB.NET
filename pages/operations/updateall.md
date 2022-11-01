@@ -90,7 +90,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics (Anonymous Type, `Dictionary<string, object>`, `ExpandoObject`).
+Or via dynamics (Anonymous Type, `Dictionary<string, object>`, [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0)).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

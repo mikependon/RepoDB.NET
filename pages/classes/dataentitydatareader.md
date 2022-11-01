@@ -12,7 +12,7 @@ parent: CLASSES
 
 ---
 
-This class is used to convert the `IEnumerable<T>` object into a `DbDataReader` object.
+This class is used to convert the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object into a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object.
 
 Let us say you have a method named `GetPeople()` that creates an enumerable of `Person` model.
 
@@ -31,7 +31,7 @@ private void IEnumerable<Person> GetPeople(int count = 10000)
 }
 ```
 
-Then, you can extract it to be a `DbDataReader` object via this class.
+Then, you can extract it to be a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object via this class.
 
 ```csharp
 var people = GetPeople();
@@ -64,4 +64,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> This class is useful if you are tying to use the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)) with `DbDataReader` object sourced by `IEnumerable<T>`.
+> This class is useful if you are tying to use the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)) with [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object sourced by [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0).

@@ -27,7 +27,7 @@ public class Person
 }
 ```
 
-This works exactly the same as [Map](/attribute/map) or the `Table` attribute of the `System.ComponentModel.DataAnnotations.Schema` namespace.
+This works exactly the same as [Map](/attribute/map) or the [Table](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.tableattribute?view=net-6.0) attribute of the [System.ComponentModel.DataAnnotations.Schema](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema?view=net-6.0) namespace.
 
 ### Fluent Mapping
 

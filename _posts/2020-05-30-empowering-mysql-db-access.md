@@ -233,7 +233,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of `DbDataReader`, use the [ExecuteReader](http://repodb.net/operation/executereader) method.
+To execute a query while expecting a result of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0), use the [ExecuteReader](http://repodb.net/operation/executereader) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))

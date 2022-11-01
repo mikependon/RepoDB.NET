@@ -72,7 +72,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Enhancement: Added the [NpgsqlDbTypeAttribute](/attribute/npgsql/npgsqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Deprecated the [NpgsqlTypeMapAttribute](/attribute/npgsqltypemapattribute) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Moved the `PostgreSqlDbSetting` to `RepoDb.DbSettings` namespace.
-- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 - Enhancement: Add support of NpgsqlDbType in FluentMapper [#775](https://github.com/mikependon/RepoDB/issues/775)
 
 
@@ -91,7 +91,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the
 - Enhancement: Added the [DbTypeAttribute](/attribute/parameter/npgsql/npgsqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Deprecated the [NpgsqlTypeMapAttribute](/attribute/npgsqltypemapattribute) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Moved the `PostgreSqlDbSetting` to `RepoDb.DbSettings` namespace.
-- Enhancement: Add the attribute-based parameter setters for the `DbParameter` object. [#886](https://github.com/mikependon/RepoDB/issues/886)
+- Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
 ## RepoDb.PostgreSql (v1.1.4-beta1)

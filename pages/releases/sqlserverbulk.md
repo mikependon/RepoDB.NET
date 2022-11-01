@@ -85,7 +85,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 ## RepoDb.SqlServer.BulkOperations (v1.1.3)
 
 - Bug: Identity Values not set correctly with Bulk Insert from Sql Server due to Incorrect Sorting of data. [#691](https://github.com/mikependon/RepoDB/issues/691)
-- The `hints` argument is removed from the [BulkInsert](/operation/bulkinsert) via `DbDataReader`.
+- The `hints` argument is removed from the [BulkInsert](/operation/bulkinsert) via [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 - Added the `WriteToServer` method to cater the ordered resultset of the `__RepoDb_OrderColumn` custom column.
 
 ## RepoDb.SqlServer.BulkOperations (v1.1.2)

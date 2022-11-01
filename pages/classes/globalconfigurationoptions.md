@@ -20,10 +20,10 @@ Below is the list of properties.
 
 | Name | Description |
 |:-----|:------------|
-| ConversionType | A property that is being used to gets or sets the value that defines the conversion logic when converting an instance of `DbDataReader` into a .NET CLR class. |
+| ConversionType | A property that is being used to gets or sets the value that defines the conversion logic when converting an instance of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) into a .NET CLR class. |
 | DefaultBatchOperationSize | A property that is being used to gets or sets the default value of the batch operation size. The value defines on this property mainly affects the batch size of the InsertAll, MergeAll and UpdateAll operations. |
 | DefaultCacheItemExpirationInMinutes | A property that is being used to gets or sets the default value of the cache expiration in minutes. |
-| EnumDefaultDatabaseType | A property that is being used to gets or sets the default equivalent `DbType` of an enumeration if it is being used as a parameter to the execution of any non-entity-based operations. |
+| EnumDefaultDatabaseType | A property that is being used to gets or sets the default equivalent [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) of an enumeration if it is being used as a parameter to the execution of any non-entity-based operations. |
 | KeyColumnReturnBehavior | A property that is being used to gets or sets the default value of how the push operations (i.e.: [Insert](/operation/insert), [InsertAll](/operation/insertall), [Merge](/operation/m\erge) and [MergeAll](/operation/mergeall)) behaves when returning the value from the key columns (i.e.: Primary and Identity). 
 
 ## Setup

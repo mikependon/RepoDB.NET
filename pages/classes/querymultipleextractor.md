@@ -12,11 +12,11 @@ parent: CLASSES
 
 ---
 
-This class is a result object of the [ExecuteQueryMultiple](/operation/executequerymultiple) operation. It offers you a much more controllability on how to extract the results from the `DbDataReader`.
+This class is a result object of the [ExecuteQueryMultiple](/operation/executequerymultiple) operation. It offers you a much more controllability on how to extract the results from the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
-Internally, it is abstracting the instance of `DbDataReader`, `IDbConnection` and `IDbTransaction` (if present).
+Internally, it is abstracting the instance of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0), [IDbConnection](https://learn.microsoft.com/en-us/dotnet/api/system.data.idbconnection?view=net-7.0) and `IDbTransaction` (if present).
 
-It is also managing how the pointer of the `DbDataReader` object when you (as the developer) is calling its method. Underneath to this, it calls the `DbDataReader.NextResult()` method.
+It is also managing how the pointer of the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object when you (as the developer) is calling its method. Underneath to this, it calls the `DbDataReader.NextResult()` method.
 
 ## Methods
 
@@ -24,11 +24,11 @@ These is the list of methods.
 
 | Name | Description |
 |:-----|:------------|
-| Extract | A generic based method that will extract the contents of the `DbDataReader` into a class object. |
+| Extract | A generic based method that will extract the contents of the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) into a class object. |
 | Scalar | a method that is being used to get the first column of the result |
 
 {: .note }
-> When using the `Scalar()` method, you can pass a generic type as a type of the result. Also, when calling any of the mentioned above, the pointer of the `DbDataReader` is advances to the next result.
+> When using the `Scalar()` method, you can pass a generic type as a type of the result. Also, when calling any of the mentioned above, the pointer of the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) is advances to the next result.
 
 ## Usability
 

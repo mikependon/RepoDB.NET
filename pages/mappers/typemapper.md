@@ -12,7 +12,7 @@ parent: MAPPERS
 
 ---
 
-A class that is being used to map a .NET CLR type or class property into its equivalent database type (via `DbType` object). This class is used as an alternative to the [TypeMap](/attribute/typemap) attribute.
+A class that is being used to map a .NET CLR type or class property into its equivalent database type (via [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) object). This class is used as an alternative to the [TypeMap](/attribute/typemap) attribute.
 
 ## Methods
 
@@ -27,11 +27,11 @@ Below is the list of methods.
 
 ## Usability
 
-Let us say you would like to map the `System.DateTime` .NET CLR type into a `DbType.DateTime2` database type.
+Let us say you would like to map the [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) .NET CLR type into a `DbType.DateTime2` database type.
 
 ### Property Level Mapping
 
-To add a property level mapping, simply call the `Add()` method and pass the target property and the value of `DbType` object.
+To add a property level mapping, simply call the `Add()` method and pass the target property and the value of [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) object.
 
 ```csharp
 TypeMapper.Add<Customer>(e => e.DateOfBirth, DbType.DateTime2, true);
@@ -54,7 +54,7 @@ TypeMapper.Remove<Customer>(e => e.DateOfBirth);
 
 ### Type Level Mapping
 
-To add a class level mapping, simply call the type-level `Add()` method and pass the target .NET CLR type and the value of `DbType` object.
+To add a class level mapping, simply call the type-level `Add()` method and pass the target .NET CLR type and the value of [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) object.
 
 ```csharp
 TypeMapper.Add<DateTime>(DbType.DateTime2, true);

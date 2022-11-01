@@ -19,7 +19,7 @@ A cacher class for the database type objects that has been mapped to .NET CLR ty
 Below are the methods available from this class.
 
 | Flush | Allows you to flush the caches. |
-| Get | Returns the instance of the database type (via `DbType` object). |
+| Get | Returns the instance of the database type (via [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) object). |
 
 ## Usability
 

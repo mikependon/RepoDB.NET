@@ -44,7 +44,7 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> It always returns an `IEnumerable<T>` object even if your result is one.
+> It always returns an [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object even if your result is one.
 
 ## Targeting a Table
 
@@ -69,7 +69,7 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> The result is a list of dynamic objects of type `ExpandoObject`.
+> The result is a list of dynamic objects of type [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ## Specific Columns
 
@@ -103,7 +103,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Type Result
 
-You can also directly infer the resultset into a `string` type.
+You can also directly infer the resultset into a [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0) type.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -115,7 +115,7 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-Inferrence works in all types but not from this operation. The other non-class type (i.e.: `long`, `int`, `System.DateTime`, etc) cannot be inferred as the `TEntity` generic type is filtered as `class`. Please see the [ExecuteQuery](/operation/executequery) operation for the support to the other types.
+Inferrence works in all types but not from this operation. The other non-class type (i.e.: `long`, `int`, [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0), etc) cannot be inferred as the `TEntity` generic type is filtered as `class`. Please see the [ExecuteQuery](/operation/executequery) operation for the support to the other types.
 
 ## Table Hints
 

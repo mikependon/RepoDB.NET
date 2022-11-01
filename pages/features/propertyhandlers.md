@@ -32,7 +32,7 @@ Below are the common use-cases that can be solved by this functionality.
 | Use-Case | Description  | 
 |:-------------|:-------------|
 | String to Complex-Type | Imagine you have a column `Address` of type `NVARCHAR` and you would like it to be an `Address` type/class within your application (vice versa). |
-| As Type Handler | Imagine you would like to convert the `Kind` property of the `DateTime` object everytime you pull/push the record towards the database (vice versa). |
+| As Type Handler | Imagine you would like to convert the `Kind` property of the [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) object everytime you pull/push the record towards the database (vice versa). |
 
 But, in general, it can handle unlimitted use-cases depends on your own situation.
 

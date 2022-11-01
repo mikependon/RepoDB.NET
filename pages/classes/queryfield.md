@@ -32,7 +32,7 @@ Below is the way on how to create an instance of this class with an operation.
 var field = new QueryField("Id", Operation.Between, new [] { 100, 1000 });
 ```
 
-Or, with `DbType`.
+Or, with [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0).
 
 ```csharp
 var field = new QueryField("Id", Operation.Between, new [] { 100, 1000 }, DbType.Int);
@@ -112,13 +112,13 @@ The value of the `operation` variable would be `>=`.
 
 ## DbParameter Property
 
-This property is quitely important if you wish to get a reference to the associated `DbParameter` object on the current instance after the execution.
+This property is quitely important if you wish to get a reference to the associated [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object on the current instance after the execution.
 
 It is useful if you are retrieving a value of the output parameter from the database after the execution.
 
 ## GetValue Method
 
-This method returns the value of the [Parameter](/class/parameter) object currently in used by the instance. However, if the current instance has already been used as a parameter to the execution where the `ParameterDirection` is either of the `Output/Input`, then, the value of the output parameter via `DbParameter` object is returned. This will happen usually if the current instance of this object is of type [DirectionalQueryField](/class/directionalqueryfield).
+This method returns the value of the [Parameter](/class/parameter) object currently in used by the instance. However, if the current instance has already been used as a parameter to the execution where the `ParameterDirection` is either of the `Output/Input`, then, the value of the output parameter via [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object is returned. This will happen usually if the current instance of this object is of type [DirectionalQueryField](/class/directionalqueryfield).
 
 ## Reusability
 

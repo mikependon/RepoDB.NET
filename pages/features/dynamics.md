@@ -54,7 +54,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Iterating the Result
 
-When fetching a data from the database, it is automatically converted into an enumerable of `ExpandoObject` object.
+When fetching a data from the database, it is automatically converted into an enumerable of [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) object.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -86,7 +86,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via `Dictionary` or `ExpandoObject`.
+Or via [Dictionary](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-7.0) or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -102,7 +102,7 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> Please note that the library will add the newly created value of the identity column into the `Dictionary` or `ExpandoObject` object (if not present).
+> Please note that the library will add the newly created value of the identity column into the [Dictionary](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-7.0) or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) object (if not present).
 
 ## Deleting a Data
 

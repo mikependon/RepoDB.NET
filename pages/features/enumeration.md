@@ -55,7 +55,7 @@ public class Person
 ```
 
 {: .note }
-> The enumeration values will be saved in the database as `string`.
+> The enumeration values will be saved in the database as [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0).
 
 ## Property String (As Int)
 
@@ -132,7 +132,7 @@ public class Person
 
 ## Default Conversion
 
-By default, the library is using the `DbType.String` as a conversion to all enumerations if being used to the non-model based operations (i.e.: [ExecuteScalar](/operation/executescalar), [ExecuteNonQuery](/operation/executenonquery) and [ExecuteReader](/operation/executereader)). You can override this behavior by simply setting the `EnumDefaultDatabaseType` to any `DbType`.
+By default, the library is using the [DbType.String](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) as a conversion to all enumerations if being used to the non-model based operations (i.e.: [ExecuteScalar](/operation/executescalar), [ExecuteNonQuery](/operation/executenonquery) and [ExecuteReader](/operation/executereader)). You can override this behavior by simply setting the `EnumDefaultDatabaseType` to any [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0).
 
 ```csharp
 GlobalConfiguration

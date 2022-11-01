@@ -39,7 +39,7 @@ Below is the list of methods.
 This is very useful when you would like to handle the following scenarios.
 
 - Converting a JSON column into a class object.
-- Handling the correct `DateTime` objects `Kind`.
+- Handling the correct [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) objects `Kind`.
 - Overriding the monetary columns conversion into a specific .NET type.
 - Querying a child records of the parent rows.
 - Updating a record as a reaction to the transformation.
@@ -153,7 +153,7 @@ publi class Person
 
 ## Type Level Handling
 
-On the other hand, you can also handle the property transformation on a type level. It is useful on a situation if you would like to handle a specific database type transformation into a .NET CLR type (i.e.: converting the `DateTime` object `Kind` to `Utc`).
+On the other hand, you can also handle the property transformation on a type level. It is useful on a situation if you would like to handle a specific database type transformation into a .NET CLR type (i.e.: converting the [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) object `Kind` to `Utc`).
 
 To enable this, you have to use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class for the mappings.
 

@@ -145,7 +145,7 @@ private string GetCommandText()
 }
 ```
 
-Then, a method that converts the instance of the `DbDataReader` into a [DbField](/class/dbfield) object.
+Then, a method that converts the instance of the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) into a [DbField](/class/dbfield) object.
 
 ```csharp
 private DbField ReaderToDbField(IDataReader reader)

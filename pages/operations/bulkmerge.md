@@ -21,7 +21,7 @@ The diagram below shows the flow when calling this operation.
 
 ## Use Case
 
-This method is very useful if you are merging multiple rows towards the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via `SqlBulkCopy` class).
+This method is very useful if you are merging multiple rows towards the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via [SqlBulkCopy](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlbulkcopy?view=dotnet-plat-ext-7.0) class).
 
 If you are working to merge range of rows from 1000 or more, then use this method over the [MergeAll](/operation/mergeall) operation.
 
@@ -42,17 +42,17 @@ The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-tab
 
 The library has enforced an additional logic to ensure the identity setting alignment if the `isReturnIdentity` is enabled during the calls.
 
-Basically, a new column named `__RepoDb_OrderColumn` is being added into the pseudo-temporary table if the identity field is present on the underlying target table. This column will contain the actual index of the entity model from the `IEnumerable<T>` object.
+Basically, a new column named `__RepoDb_OrderColumn` is being added into the pseudo-temporary table if the identity field is present on the underlying target table. This column will contain the actual index of the entity model from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
 
-During the bulk operation, a dedicated `DbParameter` object is created that targets this additional column with a value of the entity model index, thus ensuring that the index value is really equating the index of the entity data from the `IEnumerable<T>` object. The resultsets of the pseudo-temporary table are being ordered using this newly generated column prior the actual merge to the underlying table.
+During the bulk operation, a dedicated [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object is created that targets this additional column with a value of the entity model index, thus ensuring that the index value is really equating the index of the entity data from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object. The resultsets of the pseudo-temporary table are being ordered using this newly generated column prior the actual merge to the underlying table.
 
-When the newly generated identity value is being set back to the data model, the value of the `__RepoDb_OrderColumn` column is being used to look-up the proper index of the equating entity model from the `IEnumerable<T>` object, then, the compiled identity-setter function is used to assign back the identity value into the identity property.
+When the newly generated identity value is being set back to the data model, the value of the `__RepoDb_OrderColumn` column is being used to look-up the proper index of the equating entity model from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object, then, the compiled identity-setter function is used to assign back the identity value into the identity property.
 
 ## Caveats
 
 RepoDB is automatically setting the value of the `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an IDENTITY primary key column. The same logic will apply if there is no primary key but has an IDENTITY column defined in the table.
 
-In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a `SqlException` will be thrown.
+In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a [SqlException](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlexception?view=dotnet-plat-ext-6.0) will be thrown.
 
 ## Usability
 
@@ -93,7 +93,7 @@ using (var connection = new SqlConnection(connectionString))
 
 #### Dictionary/ExpandoObject
 
-Below is the sample code to bulk-merge via `Dictionary<string, object>` or `ExpandoObject`.
+Below is the sample code to bulk-merge via `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -109,7 +109,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 
 #### DataReader
 
-Below is the sample code to bulk-merge via `DbDataReader`.
+Below is the sample code to bulk-merge via [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))

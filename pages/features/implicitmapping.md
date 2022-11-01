@@ -251,7 +251,7 @@ To remove the mapping, use the `Remove()` method.
 PropertyHandlerMapper.Remove<Customer>(e => e.Address);
 ```
 
-Below is a code on how to define a property handler mapping in a type level. Let us say you want to handle all the `System.DateTime` properties and you have created the property handler below.
+Below is a code on how to define a property handler mapping in a type level. Let us say you want to handle all the [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) properties and you have created the property handler below.
 
 ```csharp
 public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<datetime?, datetime?>
@@ -405,7 +405,7 @@ TypeMapper.Remove<Customer>(e => e.DateOfBirth);
 
 #### Type Level
 
-Let us say you would like to always map the `System.DateTime` .NET CLR type equivalent to `DbType.DateTime2` database type.
+Let us say you would like to always map the [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) .NET CLR type equivalent to `DbType.DateTime2` database type.
 
 Then, use the type-level mapping via `Add()` method.
 
@@ -476,7 +476,7 @@ PropertyValueAttributeMapper.Remove<Customer>(e => e.FirstName);
 ```
 
 {: .note }
-Please be noted that the `force` argument is not overriding that attribute-based mapping (i.e.: by using the `System.ComponentModel.DataAnnotations.Schema` (`Table`, `Column`), [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap), [ClassHandler](/attribute/classhandler) and [PropertyHandler](/attribute/propertyhandler)).
+Please be noted that the `force` argument is not overriding that attribute-based mapping (i.e.: by using the [System.ComponentModel.DataAnnotations.Schema](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema?view=net-6.0) ([Table](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.tableattribute?view=net-6.0), `Column`), [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap), [ClassHandler](/attribute/classhandler) and [PropertyHandler](/attribute/propertyhandler)).
 
 {: .warning }
 > In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and if you did not enfored the call using the `force` argument. 

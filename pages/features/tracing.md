@@ -14,7 +14,7 @@ parent: FEATURES
 
 This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via [TraceLog](/class/tracelog) class. It also enables you to cancel the existing execution before the actual execution via [CancellableTraceLog](/class/cancellabletracelog) class, and also, enables you to examine the result of the execution via [ResultTraceLog](/class/resulttracelog) class.
 
-By having the trace enabled, if you call an operation, the `BeforeExecution()` method of the trace class will be invoked before the actual execution towards the database, while the `AfterExecution()` method will be invoked after the execution. Every trace execution has its own dedicated session and by default having the name of the operation as the key (i.e.: `Insert`).
+By having the trace enabled, if you call an operation, the `BeforeExecution()` method of the trace class will be invoked before the actual execution towards the database, while the `AfterExecution()` method will be invoked after the execution. Every trace execution has its own dedicated session and by default having the name of the operation as the key (i.e.: [Insert](/operation/insert)).
 
 Within the trace class, you can add a breakpoint to enable the debugging.
 
@@ -203,7 +203,7 @@ public static class TraceFactory
 }
 ```
 
-And use it in the `IDbConnection` object like below.
+And use it in the [IDbConnection](https://learn.microsoft.com/en-us/dotnet/api/system.data.idbconnection?view=net-7.0) object like below.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

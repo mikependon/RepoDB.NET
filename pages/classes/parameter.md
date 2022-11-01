@@ -15,7 +15,7 @@ parent: CLASSES
 This class is used to handle the necessary information when constructing a data parameter. It is used by both [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects to manage all the parameters creation.
 
 {: .note }
-> Internally, the library is using this class as an entries for creating the `DbParameter` objects.
+> Internally, the library is using this class as an entries for creating the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) objects.
 
 ## Usability
 
@@ -23,7 +23,7 @@ This class is used to handle the necessary information when constructing a data 
 var parameter = new Parameter("@Id", 10045);
 ```
 
-Or with `DbType`.
+Or with [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0).
 
 ```csharp
 var parameter = new Parameter("@Id", 10045, DbType.String);

@@ -14,6 +14,7 @@ parent: REFERENCES
 
 This page contains the reference implementation when implementing a repository that inherits the [BaseRepository](/class/baserepository) class. The consolidated output of this page can be found [here](/reference/output/baserepository).
 
+{: .note }
 > The [BaseRepository](/class/baserepository) class is only being used if you wished to implement an entity-based repository. Imagine that you are only working with `[dbo].[Customer]` table.
 
 #### Recommended Objects (Optional)

@@ -59,6 +59,6 @@ var output = new DirectionalQueryField("Output", 100, ParamDirection.InputOutput
 ```
 
 {: .note }
-> If you are calling the [ExecuteReader](/operation/executereader) operation, please be noted that the output parameter is only set once the instance of the `DbDataReader` is disposed. This is a default behaviour of the ADO.NET.
+> If you are calling the [ExecuteReader](/operation/executereader) operation, please be noted that the output parameter is only set once the instance of the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) is disposed. This is a default behaviour of the ADO.NET.
 
 For more information, please visit its base object [QueryField](/class/queryfield).

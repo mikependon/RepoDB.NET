@@ -88,7 +88,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 #### Dictionary/ExpandoObject
 
-Below is the sample code to bulk-delete via `Dictionary<string, object>` or `ExpandoObject`.
+Below is the sample code to bulk-delete via `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ```csharp
 using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
@@ -104,7 +104,7 @@ using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
 
 #### DataReader
 
-Below is the sample code to bulk-delete via `DbDataReader`.
+Below is the sample code to bulk-delete via [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
 ```csharp
 using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
