@@ -59,7 +59,7 @@ public class Person
 
 ## Property String (As Int)
 
-You can force the value to be saved as `int` type if you are using the [TypeMap](/attribute/typemap).
+You can force the value to be saved as [int](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types) type if you are using the [TypeMap](/attribute/typemap).
 
 ```csharp
 public class Person
@@ -128,7 +128,7 @@ public class Person
 ```
 
 {: .note }
-> The enumeration values will be saved in the database as `int`.
+> The enumeration values will be saved in the database as [int](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types).
 
 ## Default Conversion
 

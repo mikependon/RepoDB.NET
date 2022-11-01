@@ -88,7 +88,7 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-Inferrence works in all types but not from this operation. The other non-class type (i.e.: `long`, `int`, [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0), etc) cannot be inferred as the `TEntity` generic type is filtered as `class`. Please see the [ExecuteQuery](/operation/executequery) operation for the support to the other types.
+Inferrence works in all types but not from this operation. The other non-class type (i.e.: `long`, [int](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types), [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0), etc) cannot be inferred as the `TEntity` generic type is filtered as `class`. Please see the [ExecuteQuery](/operation/executequery) operation for the support to the other types.
 
 ## Table Hints
 

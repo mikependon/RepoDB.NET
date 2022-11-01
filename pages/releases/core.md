@@ -1115,7 +1115,7 @@ Highlights
 - [Renamed] `PrimaryKeyIdentityCache` to `PrimaryIdentityCache`
 - [Optimization] CountAsync operation is now returning the `Task<int>` type instead of `Task<object>`.
 - [Optimization] Allow passing of cache expiration time during [Query](/operation/query) and [QueryAll](/operation/queryall) calls.
-- [Optimization, Pull-Request] Enumerations `Order`, `Conjunction` and `Operation` is now a pre-generated `int` values.
+- [Optimization, Pull-Request] Enumerations `Order`, `Conjunction` and `Operation` is now a pre-generated [int](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types) values.
 - Introduced complete sets of IntegrationTests and UnitTests in all of the changes mentioned above.
 - See v1.9.0-beta1 and v1.9.0-beta2 for complete set of changes.
 
