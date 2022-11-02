@@ -14,6 +14,12 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
+## RepoDb.SqlServer.BulkOperations (v1.13.0)
+
+- Referenced the `RepoDb` package `v1.13.0`.
+- Referenced the `RepoDb.SqlServer` package `v1.13.0`.
+
+
 ## RepoDb.SqlServer.BulkOperations (v1.13.0-beta1)
 
 - Referenced the `RepoDb` package `v1.13.0-beta1`.
