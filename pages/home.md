@@ -16,17 +16,19 @@ A hybrid ORM library for .NET.
 
 ---
 
-{: .warning }
-> Some breaking changes has been introduced in the newer version of the library. It is important and is highly recommended to test your solution with the latest beta release [v1.13.0-beta1](https://www.nuget.org/packages/RepoDb/1.13.0-beta1) before upgrading.
+{: .new }
+> In the latest release of the library, we have [refactored](https://github.com/mikependon/RepoDB/issues/941) the overall implementations of the [Trace](/feature/tracing) functionality. In addition, the [GlobalConfiguration](/class/globalconfiguration) has been introduced to simplify the library initialization.
 
-{: .important }
+{: .warning }
+> As we have introduced some breaking changes in the newer version of the library, therefore, it is highly recommended to test your solution with the latest beta release [v1.13.0-beta1](https://www.nuget.org/packages/RepoDb/1.13.0-beta1) before upgrading.
+>
 > You can report an issue by [creating a bug](https://github.com/mikependon/RepoDB/issues/new?assignees=mikependon&labels=bug&template=report-a-bug.md&title=Bug%3A+%3CYour+bug%2Fissue+title%3E) directly on our Github repository.
 
 We are glad and thankful for your interest in learning [RepoDB](https://github.com/mikependon/RepoDb). It is an open-source .NET ORM library that bridges the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
 
 The main goal of this library is to hugely improve your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying database capability while maintaining the good programming coding standard and practices.
 
-## Why use RepoDB?
+## Well, Why?
 
 If you are to use a full-fledged macro-ORM, you will most likely be abstracted by the framework itself. Though it is richer in features, it might limit you to touch and maximize the power of the underlying database being in-used.
 

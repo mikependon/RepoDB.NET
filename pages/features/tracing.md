@@ -18,6 +18,9 @@ By having the trace enabled, if you call an operation, the `BeforeExecution()` m
 
 Within the trace class, you can add a breakpoint to enable the debugging.
 
+{: .note }
+> By default, when you call an [operation](/feature/operation), the name of the method is used as the default value to the tracing key. This can be overriden by simply passing an explicit value to the `traceKey` argument.
+
 ## Create a customize Trace Class
 
 Create a class that implements the [ITrace](/interface/itrace) interface.
