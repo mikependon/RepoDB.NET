@@ -14,7 +14,7 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-## RepoDb (v1.13.0-beta1)
+## RepoDb (v1.13.0)
 
 Highlights
 {: .label .label-green }
