@@ -19,8 +19,8 @@ Below is the list of methods.
 
 | Name | Description |
 |:-----|:------------|
-! BeforeExecution ! Triggered before the actual database operation is being executed. !
-! AfterExecution ! Triggered after the actual database operation has been executed. |
+| BeforeExecution | Triggered before the actual database operation is being executed. |
+| AfterExecution | Triggered after the actual database operation has been executed. |
 
 **Note:** The methods mentioned above has its corresponding `Async` methods.
 
