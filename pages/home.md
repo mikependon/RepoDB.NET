@@ -16,7 +16,7 @@ A hybrid ORM library for .NET.
 
 ---
 
-{: .new }
+{: .warning }
 > Some breaking changes has been introduced in the newer version of the library. It is important and is highly recommended to test your solution with the latest beta release [v1.13.0-beta1](https://www.nuget.org/packages/RepoDb/1.13.0-beta1) before upgrading.
 
 {: .important }

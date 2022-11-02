@@ -401,4 +401,4 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> The result of this operation is a [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+> The result of this operation is an [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
