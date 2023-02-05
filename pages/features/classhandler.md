@@ -39,7 +39,7 @@ public class PersonClassHandler : IClassHandler<Person>
         return entity;
     }
 
-    public Person Set(Person entity, ClassHandlerSetOptions options)
+    public string Set(Person entity, ClassHandlerSetOptions options)
     {
         return entity;
     }
