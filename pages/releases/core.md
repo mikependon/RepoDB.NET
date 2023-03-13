@@ -14,6 +14,16 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
+## RepoDb (v1.13.1-alpha2)
+
+- Introduced the `DynamicHandler()` method into the [IDbSetting](/interface/idbsetting) interface.
+
+
+## RepoDb (v1.13.1-alpha1)
+
+- Enabled the `net7.0` TFM.
+
+
 ## RepoDb (v1.13.0)
 
 Highlights
