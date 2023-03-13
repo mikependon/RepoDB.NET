@@ -17,6 +17,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 ## RepoDb (v1.13.1-alpha2)
 
 - Introduced the `DynamicHandler()` method into the [IDbSetting](/interface/idbsetting) interface.
+- Could not load file or assembly 'RepoDb.PostgreSql.dll' [#1040](https://github.com/mikependon/RepoDB/issues/1040)
 
 
 ## RepoDb (v1.13.1-alpha1)
