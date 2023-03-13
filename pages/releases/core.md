@@ -32,7 +32,7 @@ Highlights
 - Enhancement: Re-implement the Tracing overall implementations - Addressing the Simplicity and Extensibility [#941](https://github.com/mikependon/RepoDB/issues/941)
 
 Breaking
-{: .label .label-red }
+{: .label }
 
 - Enhancement: Simplified the constructors of the [QueryField](/class/queryfield) and [DirectionalQueryField](/class/directionalqueryfield) classes.
 - Enhancement: Simplified the constructors of the extended query field objects [FunctionalQueryField](/class/functionalqueryfield), [LeftQueryField](/class/leftqueryfield), [RightQueryField](/class/rightqueryfield), [LeftTrimQueryField](/class/lefttrimqueryfield), [RightTrimQueryField](/class/righttrimqueryfield), [LengthQueryField](/class/lengthqueryfield), [LenQueryField](/class/lenqueryfield), [LowerQueryField](/class/lowerqueryfield), [UpperQueryField](/class/upperqueryfield), [TrimQueryField](/class/trimqueryfield) classes.
@@ -40,7 +40,8 @@ Breaking
 - Enhancement: Removed the `Type` property from the [DirectionalQueryField](/class/directionalqueryfield) object.
 - Enhancement: Enable [IDbDataParameter](https://docs.microsoft.com/en-us/dotnet/api/system.data.idbdataparameter?view=net-6.0) as query arguments [#1060](https://github.com/mikependon/RepoDB/issues/1060)
 
-### Non-Breaking
+Non-Breaking
+{: .label .label-red }
 
 - Bug: No coercion operator is defined between types `System.TimeSpan` and `System.Int64`. [#1033](https://github.com/mikependon/RepoDB/issues/1033)
 - Bug: Type with custom mapping used in an array is not mapped to specific [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) [#1053](https://github.com/mikependon/RepoDB/issues/1053)
@@ -113,7 +114,8 @@ Breaking
 - Enhancement: Removed the `Type` property from the [DirectionalQueryField](/class/directionalqueryfield) object.
 - Enhancement: Enable [IDbDataParameter](https://docs.microsoft.com/en-us/dotnet/api/system.data.idbdataparameter?view=net-6.0) as query arguments [#1060](https://github.com/mikependon/RepoDB/issues/1060)
 
-### Non-Breaking
+Non-Breaking
+{: .label }
 
 - Bug: No coercion operator is defined between types `System.TimeSpan` and `System.Int64`. [#1033](https://github.com/mikependon/RepoDB/issues/1033)
 - Bug: Type with custom mapping used in an array is not mapped to specific [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) [#1053](https://github.com/mikependon/RepoDB/issues/1053)
