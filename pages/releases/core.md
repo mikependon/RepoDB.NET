@@ -22,6 +22,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 ## RepoDb (v1.13.1-alpha1)
 
+- Referenced the `Microsoft.Data.SqlClient` package `v5.1.0`.
 - Enabled the `net7.0` TFM.
 
 
