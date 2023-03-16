@@ -17,7 +17,6 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see 
 ## RepoDb.SQLite.System (v1.13.1)
 
 - Referenced the `RepoDb` package `v1.13.1`.
-- Referenced the `RepoDb` package `v1.13.1`.
 
 
 ## RepoDb.SQLite.System (v1.13.1-alpha1)
