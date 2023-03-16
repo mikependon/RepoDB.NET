@@ -16,6 +16,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nug
 
 ## RepoDb (v1.13.1)
 
+- Feature: Introduce the [SkipQuery](/operation/skipquery) operation. [#377](https://github.com/mikependon/RepoDB/issues/377)
 - Bug: [RepoDb.SqlServer v1.13.0](https://www.nuget.org/packages/RepoDb/1.13.0) - Memory leak in [Microsoft.Data.SqlClient 5.0.1](https://github.com/dotnet/SqlClient/issues/1810) [#1128](https://github.com/mikependon/RepoDB/issues/1128)
 - Introduced the `DynamicHandler()` method into the [IDbSetting](/interface/idbsetting) interface.
 
