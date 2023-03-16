@@ -14,6 +14,18 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql) to download it.
 
+## RepoDb.PostgreSql (v1.13.1)
+
+- Could not load file or assembly 'RepoDb.PostgreSql.dll' [#1040](https://github.com/mikependon/RepoDB/issues/1040)
+- Upgraded the `Npgsql` package to `v7.0.2`.
+- Referenced the `RepoDb` package `v1.13.1`.
+
+
+## RepoDb.PostgreSql (v1.13.1-alpha1)
+
+- Enabled the `net7.0` TFM.
+
+
 ## RepoDb.PostgreSql (v1.13.0)
 
 - Referenced the `RepoDb` package `v1.13.0`.

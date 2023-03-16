@@ -14,6 +14,17 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.Sqlite.Microsoft) to download it.
 
+## RepoDb.Sqlite.Microsoft (v1.13.1)
+
+- Upgraded the `Microsoft.Data.Sqlite` package to `v7.0.4`.
+- Referenced the `RepoDb` package `v1.13.1`.
+
+
+## RepoDb.Sqlite.Microsoft (v1.13.1-alpha1)
+
+- Enabled the `net7.0` TFM.
+
+
 ## RepoDb.Sqlite.Microsoft (v1.13.0)
 
 - Referenced the `RepoDb` package `v1.13.0`.

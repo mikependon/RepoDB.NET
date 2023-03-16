@@ -14,6 +14,17 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SQLite.System) to download it.
 
+## RepoDb.SQLite.System (v1.13.1)
+
+- Referenced the `RepoDb` package `v1.13.1`.
+- Referenced the `RepoDb` package `v1.13.1`.
+
+
+## RepoDb.SQLite.System (v1.13.1-alpha1)
+
+- Enabled the `net7.0` TFM.
+
+
 ## RepoDb.SQLite.System (v1.13.0)
 
 - Referenced the `RepoDb` package `v1.13.0`.

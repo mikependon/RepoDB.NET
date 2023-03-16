@@ -14,10 +14,10 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb) to download it.
 
-## RepoDb (v1.13.1-alpha2)
+## RepoDb (v1.13.1)
 
+- Bug: [RepoDb.SqlServer v1.13.0](https://www.nuget.org/packages/RepoDb/1.13.0) - Memory leak in [Microsoft.Data.SqlClient 5.0.1](https://github.com/dotnet/SqlClient/issues/1810) [#1128](https://github.com/mikependon/RepoDB/issues/1128)
 - Introduced the `DynamicHandler()` method into the [IDbSetting](/interface/idbsetting) interface.
-- Could not load file or assembly 'RepoDb.PostgreSql.dll' [#1040](https://github.com/mikependon/RepoDB/issues/1040)
 
 
 ## RepoDb (v1.13.1-alpha1)

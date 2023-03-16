@@ -14,6 +14,18 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql.BulkOperations) to download it.
 
+## RepoDb.PostgreSql.BulkOperations (v1.13.1)
+
+- Fixed the issues when writing the records into the database via `System.DataTable` object using the [BinaryBulkImport](/operation/binarybulkimport), when an Enum-based property is present.
+- Referenced the `RepoDb` package `v1.13.1`.
+- Referenced the `RepoDb.PostgreSql` package `v1.13.1`.
+
+
+## RepoDb.PostgreSql.BulkOperations (v1.13.1-alpha1)
+
+- Enabled the `net7.0` TFM.
+
+
 ## RepoDB.PostgreSql.BulkOperations (v1.13.0)
 
 - Referenced the `RepoDb` package `v1.13.0`.
