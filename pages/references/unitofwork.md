@@ -72,7 +72,7 @@ public class CustomUnitOfWork : IUnitOfWork<SqlConnection>
         {
             throw new InvalidOperationException("Cannot start a new transaction while the existing one is still open.");
         }
-        _connection = _connection ??= (new SqlConnection(_appSettings.ConnectionString)).EnsureOpen();
+        _connection = _connection ??= (SqlConnection)(new SqlConnection(_appSettings.ConnectionString)).EnsureOpen();
         _transaction = _connection.BeginTransaction();
     }
 
@@ -130,12 +130,10 @@ Then, implement the entity level interface repository.
 ```csharp
 public interface IOrderRepository : IRepository<Order, SqlConnection>
 {
-    ...
 }
 
 public interface IOrderItemRepository : IRepository<OrderItem, SqlConnection>
 {
-    ...
 }
 ```
 
@@ -168,15 +166,15 @@ public class EntityRepository<TEntity> : BaseRepository<TEntity, SqlConnection>,
 
     public TResult Merge<TResult>(TEntity entity) =>
         Merge<TResult>(entity,
-            transaction: _unitOfWork?.Transaction);
+            transaction: _unitOfWork.Transaction);
 
     public TEntity Query(object id) =>
         Query(id,
-            transaction: _unitOfWork?.Transaction)?.FirstOrDefault();
+            transaction: _unitOfWork.Transaction)?.FirstOrDefault();
 
     public int Update(TEntity entity) =>
         Update(entity,
-            transaction: _unitOfWork?.Transaction);
+            transaction: _unitOfWork.Transaction);
 }
 ```
 
@@ -224,28 +222,26 @@ services.AddSingleton<IOrderItemRepository, OrderItemRepository>();
 /* Do the same for the other repositories */
 ```
 
-## Business Logic
+## Services
 
-In your business logic, make sure that the `IUnitOfWork<SqlConnection>` is being dependency injected. Let us assumed your business logic class is named `SalesManager` that implements the `ISalesManager` interface.
+In your services, make sure that the `IUnitOfWork<SqlConnection>` is being dependency injected. Let us assumed your business logic class is named `SalesService` that implements the `ISalesService` interface.
 
 ```csharp
-public interface ISalesManager
+public interface ISalesService
 {
-    void SaveOrder(Order order,
+    void SaveOrders(Order order,
         IEnumerable<OrderItem> orderItems);
-
-    /* More business logic methods */
 }
 
-public class SalesManager : ISalesManager
+public class SalesService : ISalesService
 {
     private IUnitOfWork<SqlConnection> _unitOfWork;
     private IOrderRepository _orderRepository;
     private IOrderItemRepository _orderItemRepository;
 
-    public SalesManager(IUnitOfWork unitOfWork,
+    public SalesService(IUnitOfWork<SqlConnection> unitOfWork,
         IOrderRepository orderRepository,
-        IOrderItemRepository orderItemRepository,
+        IOrderItemRepository orderItemRepository
         /* Other repositories here */)
     {
         _unitOfWork = unitOfWork;
@@ -273,7 +269,7 @@ public void SaveOrders(Order order,
     try
     {
         // Call the repository methods
-        var orderId = orderRepository.Save(order);
+        var orderId = _orderRepository.Save<int>(order);
         orderItems
             .AsList()
             .ForEach(e => e.OrderId = orderId);
@@ -298,7 +294,7 @@ public void ConfigureServices(IServiceCollection services)
     services.SaveControllers();
 
     // Registration
-    services.SaveTransient<ISalesManager, SalesManager>();
+    services.SaveTransient<ISalesService, SalesService>();
 }
 ```
 

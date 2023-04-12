@@ -40,20 +40,16 @@ public interface IRepository<TEntity, TDbConnection>
 
 public interface IOrderRepository : IRepository<Order, SqlConnection>
 {
-    ...
 }
 
 public interface IOrderItemRepository : IRepository<OrderItem, SqlConnection>
 {
-    ...
 }
 
-public interface ISalesManager
+public interface ISalesService
 {
-    void SaveOrder(Order order,
+    void SaveOrders(Order order,
         IEnumerable<OrderItem> orderItems);
-
-    /* More business logic methods */
 }
 ```
 
@@ -81,7 +77,7 @@ public class CustomUnitOfWork : IUnitOfWork<SqlConnection>
         {
             throw new InvalidOperationException("Cannot start a new transaction while the existing one is still open.");
         }
-        _connection = _connection ??= (new SqlConnection(_appSettings.ConnectionString)).EnsureOpen();
+        _connection = _connection ??= (SqlConnection)(new SqlConnection(_appSettings.ConnectionString)).EnsureOpen();
         _transaction = _connection.BeginTransaction();
     }
 
@@ -142,44 +138,44 @@ public class EntityRepository<TEntity> : BaseRepository<TEntity, SqlConnection>,
 
     public TResult Merge<TResult>(TEntity entity) =>
         Merge<TResult>(entity,
-            transaction: _unitOfWork?.Transaction);
+            transaction: _unitOfWork.Transaction);
 
     public TEntity Query(object id) =>
         Query(id,
-            transaction: _unitOfWork?.Transaction)?.FirstOrDefault();
+            transaction: _unitOfWork.Transaction)?.FirstOrDefault();
 
     public int Update(TEntity entity) =>
         Update(entity,
-            transaction: _unitOfWork?.Transaction);
+            transaction: _unitOfWork.Transaction);
 }
 
 public class OrderRepository : EntityRepository<Order>, IOrderRepository
 {
-    public OrderRepository(IOptions<Settings> options)
+    public OrderRepository(IOptions<AppSettings> options)
         : base(options)
     { }
 }
 
 public class OrderItemRepository : EntityRepository<OrderItem>, IOrderItemRepository
 {
-    public OrderRepository(IOptions<Settings> options)
+    public OrderItemRepository(IOptions<AppSettings> options)
         : base(options)
     { }
 }
 ```
 
-## Business Logics
+## Services
 
 ```csharp
-public class SalesManager : ISalesManager
+public class SalesService : ISalesService
 {
     private IUnitOfWork<SqlConnection> _unitOfWork;
     private IOrderRepository _orderRepository;
     private IOrderItemRepository _orderItemRepository;
 
-    public SalesManager(IUnitOfWork unitOfWork,
+    public SalesService(IUnitOfWork<SqlConnection> unitOfWork,
         IOrderRepository orderRepository,
-        IOrderItemRepository orderItemRepository,
+        IOrderItemRepository orderItemRepository
         /* Other repositories here */)
     {
         _unitOfWork = unitOfWork;
@@ -200,7 +196,7 @@ public class SalesManager : ISalesManager
         try
         {
             // Call the repository methods
-            var orderId = orderRepository.Save(order);
+            var orderId = _orderRepository.Save<int>(order);
             orderItems
                 .AsList()
                 .ForEach(e => e.OrderId = orderId);
