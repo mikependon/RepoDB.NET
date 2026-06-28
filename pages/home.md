@@ -17,10 +17,7 @@ A hybrid ORM library for .NET.
 ---
 
 {: .new }
-> In the [latest release](https://repodb.net/release/core#repodb-v1130) of the library, we have [refactored](https://github.com/mikependon/RepoDB/issues/941) the overall implementations of the [Trace](/feature/tracing) functionality. In addition, the [GlobalConfiguration](/class/globalconfiguration) has been introduced to simplify the library initialization.
-
-{: .warning }
-> We have introduced some [breaking changes](https://github.com/mikependon/RepoDB.Stories/blob/main/contents/release-notes/v1.13.0.md) in the newer version of the library.
+> We are introducing the insights capability in order for you to see the activity of the library within your application. Visit our [story](https://github.com/mikependon/RepoDB/issues/1217) to share your thoughts.
 
 {: .important }
 > You can report an issue by [creating a bug](https://github.com/mikependon/RepoDB/issues/new?assignees=mikependon&labels=bug&template=report-a-bug.md&title=Bug%3A+%3CYour+bug%2Fissue+title%3E) directly on our Github repository.

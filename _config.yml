@@ -47,7 +47,8 @@ exclude:
 # include: ["docs/tests/"]
 
 # Set a path/url to a logo that will be displayed instead of the title
-#logo: "/assets/images/site/repodb.svg"
+logo: "/assets/images/logo.png"
+#favicon_ico: "/assets/images/repodb.png"
 
 # Enable or disable the site search
 # Supports true (default) or false
@@ -98,7 +99,7 @@ nav_sort: case_sensitive # Capital letters sorted before lowercase
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Copyright &copy; 2018-2022 Michael Camara Pendon. Licensed using the <a href=\"https://github.com/mikependon/RepoDB/blob/master/LICENSE.txt\">Apache License 2.0</a>."
+footer_content: "Copyright &copy; 2018-2026 Michael Camara Pendon. Licensed using the <a href=\"https://github.com/mikependon/RepoDB/blob/master/LICENSE.txt\">Apache License 2.0</a>."
 
 # Footer last edited timestamp
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
@@ -123,7 +124,14 @@ plugins:
 kramdown:
   syntax_highlighter_opts:
     block:
-      line_numbers: false # true
+      line_numbers: false #true
+
+sass:
+  silence_deprecations:
+    - import
+    - global-builtin
+    - color-functions
+    - slash-div
 
 compress_html:
   clippings: all
@@ -140,11 +148,11 @@ compress_html:
 # [Just-The-Docs]
 
 # Color scheme currently only supports "dark", "light"/nil (default), or a custom scheme that you define
-color_scheme: light
+color_scheme: blue
 
 # Additions as per the documentation
-remote_theme: just-the-docs/just-the-docs
-#theme: just-the-docs
+#remote_theme: just-the-docs/just-the-docs
+theme: just-the-docs
 
 # Callouts (https://just-the-docs.github.io/just-the-docs/docs/ui-components/callouts/)
 callouts_level: quiet # or loud
