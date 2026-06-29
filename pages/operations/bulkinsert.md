@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to insert all the rows from the client application into the database by bulk. It is only supporting the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
+This method inserts all rows from the client application into the database in bulk. It is supported only for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 
 ## Call Flow Diagram
 
@@ -21,34 +21,32 @@ The diagram below shows the flow when calling this operation.
 
 ## Use Case
 
-This method is very useful if you are inserting multiple rows towards the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via [SqlBulkCopy](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlbulkcopy?view=dotnet-plat-ext-7.0) class).
+Use this method to insert rows at high speed. It leverages the native bulk operation from ADO.NET via the [SqlBulkCopy](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlbulkcopy?view=dotnet-plat-ext-7.0) class.
 
-If you are working to insert range of rows from 1000 or more, then use this method over the [InsertAll](/operation/insertall) operation.
+For inserting 1,000 or more rows, prefer this method over [InsertAll](/operation/insertall).
 
 ## Special Arguments
 
-The arguments `isReturnIdentity`, and `usePhysicalPseudoTempTable` is provided on this operation.
+The `isReturnIdentity` and `usePhysicalPseudoTempTable` arguments are available for this operation.
 
-The `isReturnIdentity` is used to define the behaviour of the execution whether the newly generated identities will be set-back to the data entities. By default, it is disabled.
+`isReturnIdentity` controls whether newly generated identity values are set back on the data entities. Disabled by default.
 
-The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. This will only work if the `isReturnIdentity` is `true`. By default, a temporary table (i.e.: `#TableName`) is used.
+`usePhysicalPseudoTempTable` controls whether a physical pseudo-table is created during the operation. Applies only when `isReturnIdentity` is `true`. Defaults to a temporary table (e.g., `#TableName`).
 
 {: .important }
-> It is not recommended to enable the `usePhysicalPseudoTempTable` argument if you are to work with parallelism. Ensure to always utilize the session-based non-physical pseudo-temporary table when working with parallelism.
+> Do not enable `usePhysicalPseudoTempTable` when using parallelism. Always use the session-based non-physical pseudo-temporary table in parallel scenarios.
 
 ## Identity Setting Alignment
 
-The library has enforced an additional logic to ensure the identity setting alignment if the `isReturnIdentity` is enabled during the calls.
+When `isReturnIdentity` is enabled, the library adds a column named `__RepoDb_OrderColumn` to the pseudo-temporary table whenever an identity field is present in the target table. This column holds the index of each entity model from the [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
 
-Basically, a new column named `__RepoDb_OrderColumn` is being added into the pseudo-temporary table if the identity field is present on the underlying target table. This column will contain the actual index of the entity model from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+During the bulk operation, a [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) is created targeting this column with the entity's index value, ensuring correct order alignment. The pseudo-temporary table result set is ordered by this column before insertion into the target table.
 
-During the bulk operation, a dedicated [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object is created that targets this additional column with a value of the entity model index, thus ensuring that the index value is really equating the index of the entity data from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object. The resultsets of the pseudo-temporary table are being ordered using this newly generated column prior the actual insertion to the underlying table.
-
-When the newly generated identity value is being set back to the data model, the value of the `__RepoDb_OrderColumn` column is being used to look-up the proper index of the equating entity model from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object, then, the compiled identity-setter function is used to assign back the identity value into the identity property.
+When assigning identity values back to the data models, the `__RepoDb_OrderColumn` value is used to locate the correct entity in the [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object, and the compiled identity-setter function assigns the value to the identity property.
 
 ## Usability
 
-Let us say you have a method that create a list of `Person` from the client application.
+The following example defines a method that produces a list of `Person` objects, then bulk-inserts 10,000 rows into the `[dbo].[Person]` table.
 
 ```csharp
 private IEnumerable<Person> GetPeople(int count = 1000)
@@ -66,8 +64,6 @@ private IEnumerable<Person> GetPeople(int count = 1000)
 }
 ```
 
-Then, below is the code that bulk-inserts 10K of rows towards the `[dbo].[Person]` table.
-
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
@@ -76,7 +72,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-And below if you would like to specify the batch size.
+To specify a batch size:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -87,11 +83,9 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> By default, the batch size is 10, equals to `Constant.DefaultBatchOperationSize` value.
+> By default, the batch size is 10, equal to the `Constant.DefaultBatchOperationSize` value.
 
 #### DataTable
-
-Below is the sample code to bulk-insert via data table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -103,8 +97,6 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 #### Dictionary/ExpandoObject
-
-Below is the sample code to bulk-insert via `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -119,8 +111,6 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 
 #### DataReader
 
-Below is the sample code to bulk-insert via [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
-
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
 {
@@ -134,7 +124,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-Or you can also convert the list of `Person` into a `DataEntityDataReader` object and bulk-insert it.
+To bulk-insert via [DataEntityDataReader](/class/dataentitydatareader):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -149,7 +139,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Column Mappings
 
-You can add a mapping via `BulkInsertMapItem` class.
+Add column mappings using the `BulkInsertMapItem` class.
 
 ```csharp
 var mappings = new List<BulkInsertMapItem>();
@@ -171,7 +161,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Bulk Copy Options
 
-You can define your bulk-copy options by passing a value of `SqlBulkCopyOptions` in the `options` argument.
+Pass a `SqlBulkCopyOptions` value via the `options` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -184,7 +174,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table and field name like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -196,7 +186,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass a table hint via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -207,7 +197,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

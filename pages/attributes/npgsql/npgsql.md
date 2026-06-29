@@ -10,5 +10,5 @@ parent: ATTRIBUTES
 # Attributes
 {: .fs-9 }
 
-Decorate your NpgsqlParameter object.
+Attributes for decorating NpgsqlParameter objects.
 {: .fs-6 .fw-300 }

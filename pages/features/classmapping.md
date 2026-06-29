@@ -12,11 +12,11 @@ parent: FEATURES
 
 ---
 
-This is a feature that would allow you to map any .NET CLR types or class properties into its equivalent database objects and types. It includes the mapping capabilities for the class/property name, primary/identity columns, class/property handlers, property attributes and the database types.
+This feature allows you to map .NET CLR types or class properties to their equivalent database objects and types. It covers class and property name mapping, primary and identity columns, class and property handlers, property attributes, and database types.
 
 ## Class Name Mapping
 
-To map the class name, simply use the [Map](/attribute/map) attribute.
+Use the [Map](/attribute/map) attribute to map the class name.
 
 ```csharp
 [Map("[sales].[Customer]")]
@@ -26,7 +26,7 @@ public class Customer
 }
 ```
 
-Or, use the [Table](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.tableattribute?view=net-6.0) attribute of [System.ComponentModel.DataAnnotations.Schema](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema?view=net-6.0) namespace.
+Or use the [Table](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.tableattribute?view=net-6.0) attribute from the [System.ComponentModel.DataAnnotations.Schema](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema?view=net-6.0) namespace.
 
 ```csharp
 [Table("[sales].[Customer]")]
@@ -36,7 +36,7 @@ public class Customer
 }
 ```
 
-Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [ClassMapper](/mapper/classmapper) underneath.
+Or use the [FluentMapper](/mapper/fluentmapper) class for an attribute-free setup. It uses [ClassMapper](/mapper/classmapper) underneath.
 
 ```csharp
 FluentMapper
@@ -46,7 +46,7 @@ FluentMapper
 
 ## Property Name Mapping
 
-To map the property name, simply use the [Map](/attribute/map) attribute.
+Use the [Map](/attribute/map) attribute to map a property name.
 
 ```csharp
 public class Customer
@@ -63,7 +63,7 @@ public class Customer
 }
 ```
 
-Or, use the the `Column` attribute of [System.ComponentModel.DataAnnotations.Schema](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema?view=net-6.0) namespace.
+Or use the `Column` attribute from the [System.ComponentModel.DataAnnotations.Schema](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema?view=net-6.0) namespace.
 
 ```csharp
 public class Customer
@@ -80,7 +80,7 @@ public class Customer
 }
 ```
 
-Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [PropertyMapper](/mapper/propertymapper) underneath.
+Or use the [FluentMapper](/mapper/fluentmapper) class for an attribute-free setup. It uses [PropertyMapper](/mapper/propertymapper) underneath.
 
 ```csharp
 FluentMapper
@@ -91,7 +91,7 @@ FluentMapper
 
 ## Primary Mapping
 
-To map the class primary property, simply use the [Primary](/attribute/primary) attribute.
+Use the [Primary](/attribute/primary) attribute to designate a primary property.
 
 ```csharp
 public class Customer
@@ -103,7 +103,7 @@ public class Customer
 }
 ```
 
-Or, use the `Key` attribute of `System.ComponentModel.DataAnnotations` namespace.
+Or use the `Key` attribute from the `System.ComponentModel.DataAnnotations` namespace.
 
 ```csharp
 public class Customer
@@ -115,7 +115,7 @@ public class Customer
 }
 ```
 
-Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [PrimaryMapper](/mapper/primarymapper) underneath.
+Or use the [FluentMapper](/mapper/fluentmapper) class for an attribute-free setup. It uses [PrimaryMapper](/mapper/primarymapper) underneath.
 
 ```csharp
 FluentMapper
@@ -125,7 +125,7 @@ FluentMapper
 
 ## Identity Mapping
 
-To map the class identity property, simply use the [Identity](/attribute/identity) attribute.
+Use the [Identity](/attribute/identity) attribute to designate an identity property.
 
 ```csharp
 public class Customer
@@ -137,7 +137,7 @@ public class Customer
 }
 ```
 
-Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [IdentityMapper](/mapper/identitymapper) underneath.
+Or use the [FluentMapper](/mapper/fluentmapper) class for an attribute-free setup. It uses [IdentityMapper](/mapper/identitymapper) underneath.
 
 ```csharp
 FluentMapper
@@ -147,7 +147,7 @@ FluentMapper
 
 ## Class Handler Mapping
 
-To map the class handler, simply use the [ClassHandler](/attribute/classhandler) attribute.
+Use the [ClassHandler](/attribute/classhandler) attribute to map a class handler.
 
 ```csharp
 [ClassHandler(CustomerClassHandler)]
@@ -158,7 +158,7 @@ public class Customer
 }
 ```
 
-Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [ClassHandlerMapper](/mapper/classhandlermapper) underneath.
+Or use the [FluentMapper](/mapper/fluentmapper) class for an attribute-free setup. It uses [ClassHandlerMapper](/mapper/classhandlermapper) underneath.
 
 ```csharp
 FluentMapper
@@ -168,7 +168,7 @@ FluentMapper
 
 ## Property Handler Mapping
 
-To map the class property equivalent property handler, simply use the [PropertyHandler](/attribute/propertyhandler) attribute.
+Use the [PropertyHandler](/attribute/propertyhandler) attribute to map a property handler to a class property.
 
 ```csharp
 public class Customer
@@ -184,7 +184,7 @@ public class Customer
 }
 ```
 
-Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [PropertyHandlerMapper](/mapper/propertyhandlermapper) underneath.
+Or use the [FluentMapper](/mapper/fluentmapper) class for an attribute-free setup. It uses [PropertyHandlerMapper](/mapper/propertyhandlermapper) underneath.
 
 ```csharp
 FluentMapper
@@ -194,7 +194,7 @@ FluentMapper
 
 ## Database Type Mapping
 
-To map the class property equivalent database type, simply use the [TypeMap](/attribute/typemap) attribute.
+Use the [TypeMap](/attribute/typemap) attribute to map a class property to a database type.
 
 ```csharp
 public class Customer
@@ -210,7 +210,7 @@ public class Customer
 }
 ```
 
-Or, use the [FluentMapper](/mapper/fluentmapper) class for attribute-free setup. It uses the [TypeMapper](/mapper/typemapper) underneath.
+Or use the [FluentMapper](/mapper/fluentmapper) class for an attribute-free setup. It uses [TypeMapper](/mapper/typemapper) underneath.
 
 ```csharp
 FluentMapper
@@ -220,7 +220,7 @@ FluentMapper
 
 #### Type Level
 
-You can also use the [FluentMapper](/mapper/fluentmapper) or the [TypeMapper](/mapper/typemapper) classes to map the .NET CLR type into its equivalent database type.
+Use [FluentMapper](/mapper/fluentmapper) or [TypeMapper](/mapper/typemapper) to map a .NET CLR type to its equivalent database type.
 
 ```csharp
 FluentMapper

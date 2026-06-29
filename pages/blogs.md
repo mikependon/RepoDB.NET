@@ -9,7 +9,7 @@ published: false
 # Blogs
 {: .fs-9 }
 
-What we share to the open community!
+Articles and updates from the RepoDB team.
 {: .fs-6 .fw-300 }
 
 ---

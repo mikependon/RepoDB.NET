@@ -11,11 +11,11 @@ grand_parent: ATTRIBUTES
 
 ---
 
-This attribute is used to set the value of the `DbParameter.Direction` property via a class property.
+This attribute sets the `DbParameter.Direction` property value via a class property.
 
 ### Attribute
 
-Below a sample code on how to use this attribute.
+Example usage:
 
 ```csharp
 public class Person
@@ -31,7 +31,7 @@ public class Person
 
 ### Fluent Mapping
 
-Below is a sample code on how to use this attribute via [FluentMapper](/mapper/fluentmapper).
+To configure via [FluentMapper](/mapper/fluentmapper):
 
 ```csharp
 FluentMapper
@@ -40,11 +40,11 @@ FluentMapper
 ```
 
 {: .note }
-> Currently, all the properties with output direction (i.e.: `Output`, `InputOutput`, `ReturnValue`) are not being updated with the values from the database. This capability will soon to be added on the library.
+> Properties with an output direction (`Output`, `InputOutput`, `ReturnValue`) are not yet updated with values returned from the database. This capability will be added in a future release.
 
 ### Retrieval
 
-You can retrieve the attribute via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
+Retrieve the attribute via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache):
 
 ```csharp
 var attribute = PropertyValueAttributeCache
@@ -52,7 +52,7 @@ var attribute = PropertyValueAttributeCache
     .FirstOrDefault(e => e.GetType() == typeof(ParameterDirectionAttribute));
 ```
 
-Or, via the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper).
+Or via [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper):
 
 ```csharp
 var attribute = PropertyValueAttributeMapper
@@ -61,4 +61,4 @@ var attribute = PropertyValueAttributeMapper
 ```
 
 {: .important }
-> We strongly suggest to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) to maximize the performance.
+> We strongly recommend using [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) for maximum performance.

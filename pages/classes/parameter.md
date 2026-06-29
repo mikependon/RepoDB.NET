@@ -12,10 +12,10 @@ parent: CLASSES
 
 ---
 
-This class is used to handle the necessary information when constructing a data parameter. It is used by both [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) objects to manage all the parameters creation.
+Holds the information required to construct a data parameter. Used internally by [QueryGroup](/class/querygroup) and [QueryField](/class/queryfield) to manage parameter creation.
 
 {: .note }
-> Internally, the library is using this class as an entries for creating the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) objects.
+> The library uses this class as the basis for creating [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) objects.
 
 ## Usability
 
@@ -23,7 +23,7 @@ This class is used to handle the necessary information when constructing a data 
 var parameter = new Parameter("@Id", 10045);
 ```
 
-Or with [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0).
+Or with a [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0).
 
 ```csharp
 var parameter = new Parameter("@Id", 10045, DbType.String);
@@ -31,7 +31,7 @@ var parameter = new Parameter("@Id", 10045, DbType.String);
 
 ## QueryField
 
-The [QueryField](/class/queryfield) class is instantiating this class internally during the constructor.
+[QueryField](/class/queryfield) instantiates this class internally.
 
 ```csharp
 var queryField = new QueryField("Id", 10045);
@@ -42,7 +42,7 @@ var value = parameter.Value; // 10045
 
 ## QueryGroup
 
-Since the [QueryGroup](/class/querygroup) is a grouping class of the list of [QueryField](/class/queryfield) objects, then you can also extract the parameters here.
+Since [QueryGroup](/class/querygroup) groups a list of [QueryField](/class/queryfield) objects, parameters can also be extracted from it.
 
 ```csharp
 var queryFields = new[]
@@ -62,7 +62,7 @@ var parameters = queryGroup
 
 ## Reset
 
-This method is used to reset the current instance to its default state just right after the instantiation.
+Resets the instance to its initial state after instantiation.
 
 ```csharp
 var parameter = new Parameter("@Id", 10045, false);
@@ -71,5 +71,4 @@ parameter.Reset();
 ```
 
 {: .important }
-> If you call the [QueryField.IsForUpdate()](/class/queryfield#isforupdate-method), the name of the parameter is prefixed by an underscore ('_'), and by calling this method, it will reinstate it back to its original name.
-
+> If [QueryField.IsForUpdate()](/class/queryfield#isforupdate-method) was called, the parameter name is prefixed with an underscore (`_`). Calling `Reset()` restores the original name.

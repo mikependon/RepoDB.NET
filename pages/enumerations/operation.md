@@ -12,11 +12,9 @@ parent: ENUMERATIONS
 
 ---
 
-This enum is used to set the value of the `Operation` property of [QueryField](/class/queryfield) object.
+This enum sets the `Operation` property of a [QueryField](/class/queryfield) object.
 
 ### Enum Values
-
-Below is the list of enum values.
 
 | Name | Description |
 |:-----|:------------|
@@ -35,7 +33,7 @@ Below is the list of enum values.
 
 ### Usability
 
-Simply pass the value of when instantiating the [QueryField](/class/queryfield) object.
+Pass the value when instantiating a [QueryField](/class/queryfield) object.
 
 ```csharp
 var field = new QueryField("Id", Operation.Equal, 10045);
@@ -45,7 +43,7 @@ var field = new QueryField("Id", Operation.Equal, 10045);
 
 #### Equal
 
-Part of the expression tree used to determine the equality of the field and data.
+Determines equality between the field and the specified value.
 
 ```csharp
 var result = connection.Query<Customer>(new QueryField("Id", Operation.Equal, 10045));
@@ -53,7 +51,7 @@ var result = connection.Query<Customer>(new QueryField("Id", Operation.Equal, 10
 
 #### NotEqual
 
-Part of the expression tree used to determine the inequality of the field and data.
+Determines inequality between the field and the specified value.
 
 ```csharp
 var result = connection.Query<Customer>(new QueryField("Name", Operation.NotEqual, "Anna Fullerton" });
@@ -61,7 +59,7 @@ var result = connection.Query<Customer>(new QueryField("Name", Operation.NotEqua
 
 #### LessThan
 
-Part of the expression tree used to determine whether the field value is less-than of the defined value.
+Determines whether the field value is less than the specified value.
 
 ```csharp
 var result = connection.Query<Customer>(new QueryField("Id", Operation.LessThan, 100 });
@@ -69,7 +67,7 @@ var result = connection.Query<Customer>(new QueryField("Id", Operation.LessThan,
 
 #### GreaterThan
 
-Part of the expression tree used to determine whether the field value is greater-than of the defined value.
+Determines whether the field value is greater than the specified value.
 
 ```csharp
 var result = connection.Query<Customer>(new QueryField("Id", Operation.GreaterThan, 0 });
@@ -77,7 +75,7 @@ var result = connection.Query<Customer>(new QueryField("Id", Operation.GreaterTh
 
 #### LessThanOrEqual
 
-Part of the expression tree used to determine whether the field value is less-than-or-equal of the defined value.
+Determines whether the field value is less than or equal to the specified value.
 
 ```csharp
 var result = connection.Query<Customer>.Query(new QueryField("Id", Operation.LessThanOrEqual, 100 });
@@ -85,7 +83,7 @@ var result = connection.Query<Customer>.Query(new QueryField("Id", Operation.Les
 
 #### GreaterThanOrEqual
 
-Part of the expression tree used to determine whether the field value is greater-than-or-equal of the defined value.
+Determines whether the field value is greater than or equal to the specified value.
 
 ```csharp
 var result = connection.Query<Customer>(new QueryField("Id", Operation.GreaterThanOrEqual, 0 });
@@ -93,7 +91,7 @@ var result = connection.Query<Customer>(new QueryField("Id", Operation.GreaterTh
 
 #### Like
 
-Part of the expression tree used to determine whether the field is identitical to a given value.
+Determines whether the field matches a given pattern.
 
 ```csharp
 var result = connection.Query<Customer>(new QueryField("Name", Operation.Like, "Anna%" });
@@ -101,7 +99,7 @@ var result = connection.Query<Customer>(new QueryField("Name", Operation.Like, "
 
 #### NotLike
 
-Part of the expression tree used to determine whether the field is not-identitical to a given value.
+Determines whether the field does not match a given pattern.
 
 ```csharp
 var result = connection.Query<Customer>(new QueryField("Name", Operation.NotLike, "Anna%" });
@@ -109,7 +107,7 @@ var result = connection.Query<Customer>(new QueryField("Name", Operation.NotLike
 
 #### Between
 
-Part of the expression tree used to determine whether the field value is in-between the given 2 values.
+Determines whether the field value falls between two specified values.
 
 ```csharp
 var result = connection.Query<Customer>(new QueryField("Id", Operation.Between, new [] { 10045, 10075 } });
@@ -117,7 +115,7 @@ var result = connection.Query<Customer>(new QueryField("Id", Operation.Between, 
 
 #### NotBetween
 
-Part of the expression tree used to determine whether the field value is not-in-between of the given 2 values.
+Determines whether the field value does not fall between two specified values.
 
 ```csharp
 var result = connection.Query<Customer>(new QueryField("Id", Operation.NotBetween, new [] { 10045, 10075 } });
@@ -125,7 +123,7 @@ var result = connection.Query<Customer>(new QueryField("Id", Operation.NotBetwee
 
 #### In
 
-Part of the expression tree used to determine whether the field value is in the given values.
+Determines whether the field value is present in a set of values.
 
 ```csharp
 var result = connection.Query<Customer>(new QueryField("Id", Operation.In, new [] { 10045, 10046, 10047, 10048 } });
@@ -133,9 +131,8 @@ var result = connection.Query<Customer>(new QueryField("Id", Operation.In, new [
 
 #### NotIn
 
-Part of the expression tree used to determine whether the field value is not-in given values.
+Determines whether the field value is absent from a set of values.
 
 ```csharp
 var result = connection.Query<Customer>(new QueryField("Id", Operation.NotIn, new [] { 10045, 10046, 10047, 10048 } });
 ```
-

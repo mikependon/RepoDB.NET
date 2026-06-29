@@ -154,7 +154,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 - Breaking: Renamed of argument `whereOrPrimaryKey` to `what`.
 - Enhacement: Complete support to the immutable classes and/or types.
 - Refactoring: Refactored the compiler implementations by simplifying the code from Monolithic to Smaller/Shorter/Cleaner code.
-- Feature: Introduced the support to the [Class Handler](/feature/classhandler).
+- Feature: Introduced the support to the [Class Handler](/feature/classhandlers).
 - Test: More coverage of Integration Tests and Unit Tests.
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0](/release/core#repodb-v1120)).
 - Referenced the version [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.1.0](/release/core#repodb-sqlver-v110)).
@@ -174,7 +174,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 - Breaking: Renamed of argument `whereOrPrimaryKey` to `what`.
 - Enhacement: Complete support to the immutable classes and/or types.
 - Refactoring: Refactored the compiler implementations by simplifying the code from Monolithic to Smaller/Shorter/Cleaner code.
-- Feature: Introduced the support to the [Class Handler](/feature/classhandler).
+- Feature: Introduced the support to the [Class Handler](/feature/classhandlers).
 - Test: More coverage of Integration Tests and Unit Tests.
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta1](/release/core#repodb-v1120-beta1)).
 - Referenced the version [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.1.0-beta1](/release/core#repodb-sqlver-v110-beta1)).

@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 sidebar: operations
 title: "BinaryBulkUpdate"
@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to update the existing rows from the database by bulk. It is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This method updates existing rows in the database in bulk. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 
 ## Call Flow Diagram
 
@@ -21,26 +21,26 @@ The diagram below shows the flow when calling this operation.
 
 ## Use Case
 
-This method is very useful if you would like to update existing rows from the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
+Use this method to update rows at high speed. It leverages the native bulk operation from the Npgsql library via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class.
 
-If you are working to update range of rows from 1000 or more, then use this method over the [UpdateAll](/operation/updateall) operation.
+For updating 1,000 or more rows, prefer this method over [UpdateAll](/operation/updateall).
 
 ## Special Arguments
 
-The `qualifiers`, `keepIdentity` and `pseudoTableType` arguments were provided on this operation.
+The `qualifiers`, `keepIdentity`, and `pseudoTableType` arguments are available for this operation.
 
-The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statement. If not given, the primary column will be used.
+`qualifiers` defines the qualifier fields used in the operation, corresponding to the WHERE clause. Defaults to the primary column if not specified.
 
-The `keepIdentity` is used to define a value whether the identity property of the entity/model will be kept during the operation. 
+`keepIdentity` controls whether the identity property of the entity/model is preserved during the operation.
 
-The `pseudoTableType` is used to define a value whether a physical pseudo-table will be created during the operation. By default, a temporary table is used.
+`pseudoTableType` controls whether a physical pseudo-table is created during the operation. Defaults to a temporary table.
 
 {: .important }
-> It is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
+> It is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
 ## Usability
 
-Simply pass the list of the entities when calling this operation.
+Pass the list of entities to the operation.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -51,9 +51,9 @@ using (var connection = new NpgsqlConnection(connectionString))
 ```
 
 {: .note }
-> It returns the number of rows updated into the underlying table.
+> It returns the number of rows updated in the underlying table.
 
-And below if you would like to specify the batch size.
+To specify a batch size:
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -64,9 +64,9 @@ using (var connection = new NpgsqlConnection(connectionString))
 ```
 
 {: .important }
-> If the `batchSize` argument is not set, then all the items from the collection will be sent together.
+> If `batchSize` is not set, all items in the collection are sent at once.
 
-You can also target a specific table by passing the literal table name like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -76,8 +76,6 @@ using (var connection = new NpgsqlConnection(connectionString))
 ```
 
 #### DataTable
-
-Below is the sample code to bulk-update via data table.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -90,8 +88,6 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 #### Dictionary/ExpandoObject
 
-Below is the sample code to bulk-update via `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
-
 ```csharp
 var people = GetPeopleAsDictionary(1000);
 
@@ -102,8 +98,6 @@ using (var connection = new NpgsqlConnection(destinationConnectionString))
 ```
 
 #### DataReader
-
-Below is the sample code to bulk-update via [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
 ```csharp
 using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
@@ -118,7 +112,7 @@ using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
 }
 ```
 
-Or via [DataEntityDataReader](/class/dataentitydatareader) class.
+Or via [DataEntityDataReader](/class/dataentitydatareader).
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -132,7 +126,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 ## Field Qualifiers
 
-By default, this operation is using the primary column as the qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
+By default, the primary column is used as the qualifier. To override, pass a list of [Field](/class/field) objects in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -143,11 +137,11 @@ using (var connection = new NpgsqlConnection(connectionString))
 ```
 
 {: .important }
-> When using the qualifiers, we recommend that you use the list of columns that is indexed from the target table to maximize the performance.
+> Use indexed columns from the target table as qualifiers to maximize performance.
 
 ## Physical Temporary Table
 
-To use a physical pseudo-temporary table, simply pass the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#physical) value in the `pseudoTableType` argument.
+To use a physical pseudo-temporary table, pass [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -159,4 +153,5 @@ using (var connection = new NpgsqlConnection(connectionString))
 ```
 
 {: .note }
-> By using the actual pseudo physical temporary table, it will further help you maximize the performance over using the normal temporary table. However, you need to be aware that the table is shared to any call, so parallelism may fail on this scenario.
+> A physical pseudo-temporary table improves performance over a standard temporary table, but is shared across all calls. Parallelism may fail in this scenario.
+

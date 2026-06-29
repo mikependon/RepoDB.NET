@@ -9,7 +9,7 @@ permalink: /docs
 # Docs
 {: .fs-9 }
 
-Help you navigate to learn RepoDB!
+Navigate the RepoDB documentation.
 {: .fs-6 .fw-300 }
 
 ---

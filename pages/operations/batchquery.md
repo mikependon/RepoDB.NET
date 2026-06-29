@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to query the rows from the database by batch.
+This method queries rows from the database in batches.
 
 ## Code Snippets
 
-Below is the sample code that query the 1st 20 batch of the active rows from the `[dbo].[Person]` table based on the date creation.
+The following example queries the first batch of 20 active rows from the `[dbo].[Person]` table, ordered by creation date.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -31,9 +31,9 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .warning }
-> Please be aware that the paging starts at 0.
+> Paging starts at 0.
 
-And below is a sample code that queries the 3rd batch.
+The following example queries the third batch.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -50,7 +50,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table name like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -66,7 +66,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, via dynamics.
+Or via dynamics.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -84,7 +84,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Specific Columns
 
-You can also query specific columns by passing the list of fields.
+To query specific columns, pass a list of fields.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -106,7 +106,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, via dynamics.
+Or via dynamics.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -125,7 +125,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Filtering the Results
 
-You can also use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the WHERE expressions.
+Use [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) to build more complex WHERE expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -148,7 +148,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Table Hints
 
-You can also pass a hint.
+Pass a table hint via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -164,7 +164,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/classes[SqlServerTableHints](/class/sqlservertablehints)) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

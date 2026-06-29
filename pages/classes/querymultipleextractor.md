@@ -12,27 +12,23 @@ parent: CLASSES
 
 ---
 
-This class is a result object of the [ExecuteQueryMultiple](/operation/executequerymultiple) operation. It offers you a much more controllability on how to extract the results from the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
+The result object of the [ExecuteQueryMultiple](/operation/executequerymultiple) operation. It provides fine-grained control over how results are extracted from the underlying [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
-Internally, it is abstracting the instance of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0), [IDbConnection](https://learn.microsoft.com/en-us/dotnet/api/system.data.idbconnection?view=net-7.0) and `IDbTransaction` (if present).
-
-It is also managing how the pointer of the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object when you (as the developer) is calling its method. Underneath to this, it calls the `DbDataReader.NextResult()` method.
+Internally, it wraps the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0), [IDbConnection](https://learn.microsoft.com/en-us/dotnet/api/system.data.idbconnection?view=net-7.0), and the `IDbTransaction` (if present), and advances the reader pointer by calling `DbDataReader.NextResult()` on each extraction call.
 
 ## Methods
 
-These is the list of methods.
-
 | Name | Description |
 |:-----|:------------|
-| Extract | A generic based method that will extract the contents of the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) into a class object. |
-| Scalar | a method that is being used to get the first column of the result |
+| Extract | Extracts the current resultset into a typed object. |
+| Scalar | Returns the first column of the current resultset. |
 
 {: .note }
-> When using the `Scalar()` method, you can pass a generic type as a type of the result. Also, when calling any of the mentioned above, the pointer of the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) is advances to the next result.
+> `Scalar()` accepts a generic type argument. Each call to either method advances the reader to the next resultset.
 
 ## Usability
 
-You need to handle the result of [ExecuteQueryMultiple](/operation/executequerymultiple) into a variable and manage the extraction via `Extrac()` method.
+Assign the result of [ExecuteQueryMultiple](/operation/executequerymultiple) to a variable and extract results using the `Extract()` method.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -51,8 +47,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, using the `Scalar()` method.
-
+Or using `Scalar()`.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -71,8 +66,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or by combination.
-
+Or a combination of both.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -92,4 +86,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> Please be ensure to always wrap the result with `using` keyword to auto-dispose the object. Otherwise, you may leak some memory pointers that is left unmanaged.
+> Always wrap the result in a `using` statement to ensure proper disposal and avoid memory leaks.

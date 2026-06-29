@@ -9,5 +9,5 @@ permalink: /release
 # Releases
 {: .fs-9 }
 
-What's new about this library!
+Release notes for all RepoDB packages.
 {: .fs-6 .fw-300 }

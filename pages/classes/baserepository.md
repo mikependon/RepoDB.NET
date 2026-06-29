@@ -12,17 +12,17 @@ parent: CLASSES
 
 ---
 
-This is the base class of all entity-based repository classes. It accepts 2 generic types, the model type and the connection type. It uses the [DbRepository](/class/dbrepository) as the underlying controlling repository.
+This is the base class for all entity-based repository classes. It accepts two generic types — the model type and the connection type — and uses [DbRepository](/class/dbrepository) as the underlying repository.
 
 ## Use-Cases
 
-You should inherit this class if you wish to create a repository that is meant for processing a single entity model/table only.
+Inherit this class to create a repository scoped to a single entity model/table.
 
 ## Implementation
 
-Let us say you have a table named `[dbo].[Person]` and a class named `Person`.
+Given a table named `[dbo].[Person]` and a class named `Person`:
 
-First, create a customized entity-based repository interface.
+First, define a repository interface.
 
 ```csharp
 public interface IPersonRepository<TEntity, TPrimaryKey>
@@ -37,7 +37,7 @@ public interface IPersonRepository<TEntity, TPrimaryKey>
 }
 ```
 
-Secondly, create a class that inherits from [BaseRepository](/class/baserepository) class. In this class, implement the newly created interface-repository above.
+Then, create a class that inherits [BaseRepository](/class/baserepository) and implements the interface.
 
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
@@ -48,7 +48,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 }
 ```
 
-Then, implement the needed interface methods.
+Implement the interface methods.
 
 #### Create
 
@@ -106,11 +106,11 @@ public int RemoveById(int id)
 ```
 
 {: .warning }
-> Beware of the recurring calls. Ensure to prepend the `base` keyword if your method name is with the same signature as with the base. Please visit our [BaseRepository](/reference/baserepository) reference implementation page for the detailed implementation.
+> Prepend the `base` keyword when your method name matches a base class method to avoid recursive calls. See the [BaseRepository](/reference/baserepository) reference implementation for details.
 
 ## Usability
 
-Simply create a new instance of the class to use the repository.
+Create a new instance of the repository to use it.
 
 ```csharp
 // The settings must be DI(ed) (or,the repository itself must be DI(ed))
@@ -121,11 +121,11 @@ using (var repository = new PersonRepository(settings.Value.ConnectionString))
 ```
 
 {: .important }
-> A respository is disposable, so please do not forget to wrap it with `using` keyword.
+> The repository is disposable — wrap it in a `using` statement.
 
 ## Dependency Injection
 
-Simply register the `IPersonRepository` interface and the `PersonRepository` class in the service registration.
+Register the interface and the implementation in the service collection.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -138,13 +138,13 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 {: .important }
-> Avoid using the repository class directly as the injected object to make your design more SOLID (adhering the single-responsibility concepts).
+> Inject the interface, not the concrete class, to keep your design SOLID.
 
 ## The CreateConnection Method
 
-This method is used to create a new instance of connection object. If the value of [Connection Persistency](/enumeration/connectionpersistency) enumeration is `Instance`, then this method returns the existing active connection.
+This method creates a new connection instance. If [Connection Persistency](/enumeration/connectionpersistency) is set to `Instance`, it returns the existing active connection.
 
-To always force returning the new instance of connection object, simply pass `true` in the `force` argument.
+Pass `true` to the `force` argument to always return a new connection.
 
 ```csharp
 using (var connection = CreateConnection(true))
@@ -155,9 +155,9 @@ using (var connection = CreateConnection(true))
 
 ## Connection Persistency
 
-This property enables your repository to manage the persistency of your connection within the lifespan of the repository. Please have a look at the [Connection Persistency](/enumeration/connectionpersistency) enumeration to see more details.
+This property controls connection lifetime within the repository. See [Connection Persistency](/enumeration/connectionpersistency) for details.
 
-To enable an instanced-level connection persistency, simply pass the [Connection Persistency](/enumeration/connectionpersistency#instance) value in the constructor.
+To enable instance-level persistency, pass [ConnectionPersistency.Instance](/enumeration/connectionpersistency#instance) in the constructor.
 
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
@@ -172,9 +172,9 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 
 ## Command Timeout
 
-This property is used as the execution timeout of every operation. By default it is null; defaultly using the ADO.NET execution timeout.
+This property sets the execution timeout for all operations. By default it is `null`, inheriting the ADO.NET default.
 
-To enable your customized timeout, simply pass it on the constructor.
+Pass a custom timeout value in the constructor.
 
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
@@ -189,7 +189,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 
 ## Adding a Cache
 
-This property allows the repository to enable the 2nd-layer cache for the purpose of performance. By default, the caching is enabled with the use of [MemoryCache](/class/memorycache). You can override the caching by passing the instance of [ICache](/interface/icache)-based class in the constructor.
+This property enables second-layer caching for performance. By default, [MemoryCache](/class/memorycache) is used. Override by passing a custom [ICache](/interface/icache) instance in the constructor.
 
 ```csharp
 public class MyCustomCache : ICache
@@ -198,7 +198,7 @@ public class MyCustomCache : ICache
 }
 ```
 
-Then, pass it on the constructor.
+Then pass it in the constructor.
 
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
@@ -212,11 +212,11 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 ```
 
 {: .note }
-> Please visit our [JSON Cache](/reference/jsoncache) reference implementation page for the detailed implementation about file-based caching using JSON.
+> See the [JSON Cache](/reference/jsoncache) reference implementation for file-based caching using JSON.
 
 ## Adding a Trace
 
-This property allows you as a developer to trace and audit the execution of any operation in the repository. To enable the trace, you have to pass the instance of [ITrace](/interface/itrace)-based class in the constructor.
+This property enables tracing and auditing of operation execution. Pass a custom [ITrace](/interface/itrace) instance in the constructor.
 
 ```csharp
 public class MyCustomTrace : ITrace
@@ -225,7 +225,7 @@ public class MyCustomTrace : ITrace
 }
 ```
 
-Then, pass it on the constructor.
+Then pass it in the constructor.
 
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
@@ -239,11 +239,11 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 ```
 
 {: .note }
-> Please visit our [Trace](/reference/trace) reference implementation page for the detailed implementation.
+> See the [Trace](/reference/trace) reference implementation for details.
 
 ## SQL Builder
 
-This property allows you to override the default SQL statement generator of the library. To override, you have to create your custom [Statement Builder](/extensibility/statementbuilder) and pass the instance of [IStatementBuilder](/interface/istatementbuilder)-based class in the constructor.
+This property overrides the default SQL statement generator. Create a custom [Statement Builder](/extensibility/statementbuilder) and pass an [IStatementBuilder](/interface/istatementbuilder) instance in the constructor.
 
 ```csharp
 public class OptimizedSqlServerStatementBuilder : IStatementBuilder
@@ -252,7 +252,7 @@ public class OptimizedSqlServerStatementBuilder : IStatementBuilder
 }
 ```
 
-Then, pass it on the constructor.
+Then pass it in the constructor.
 
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
@@ -266,4 +266,4 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 ```
 
 {: .note }
-> The constructor of this class accepts all the possible combinations of the argument mentioned above.
+> The constructor accepts any combination of the arguments described above.

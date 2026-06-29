@@ -12,22 +12,22 @@ parent: CLASSES
 
 ---
 
-This class gives your application the maximum performance as it eliminates the round-trips towards the database for the next 180 minutes (overridable). It implements the [ICache](/interface/icache) interface.
+This class caches objects in memory, eliminating database round-trips for up to 180 minutes (configurable). It implements the [ICache](/interface/icache) interface.
 
 {: .important }
-> By default, this class is used as the default cache class of the library.
+> This is the default cache implementation used by the library.
 
 ## Use-Cases
 
-You should use this class if you wish to cache all the fetched objects from the database into memory.
+Use this class to cache objects fetched from the database in memory.
 
 ## Usability
 
-Simply pass the instance in the constructor of the repositories (i.e.: [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository)) or when calling the fetched operations (i.e.: [Query](/operation/query) and [QueryAll](/operation/queryall)).
+Pass an instance to the constructor of [BaseRepository](/class/baserepository) or [DbRepository](/class/dbrepository), or to fetch operations such as [Query](/operation/query) and [QueryAll](/operation/queryall).
 
 ## Customize
 
-Create a custom interface that implements the [ICache](/interface/icache) interface.
+Define a custom interface that extends [ICache](/interface/icache).
 
 ```csharp
 public interface IJsonCache : ICache
@@ -36,7 +36,7 @@ public interface IJsonCache : ICache
 }
 ```
 
-Then, implement it in the cache class.
+Implement it in a cache class.
 
 ```csharp
 public class JsonCache : IJsonCache
@@ -45,7 +45,7 @@ public class JsonCache : IJsonCache
 }
 ```
 
-Lastly, register in the services collection.
+Register it in the service collection.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -57,7 +57,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Below is the code on how to inject it in the repositories.
+Inject it into the repository.
 
 ```csharp
 public class NorthwindRepository : DbRepository<SqlConnection>
@@ -71,7 +71,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 }
 ```
 
-Alternatviely, you can create a factory class that returns an instance of [ICache](/interface/icache) object.
+Alternatively, use a factory class to provide a singleton [ICache](/interface/icache) instance.
 
 ```csharp
 public static CacheFactory
@@ -96,7 +96,7 @@ public static CacheFactory
 }
 ```
 
-Then, pass it when calling the [Query](/operation/query) and [QueryAll](/operation/queryall) operations.
+Pass it to [Query](/operation/query) or [QueryAll](/operation/queryall) operations.
 
 ```csharp
 // Factory class as pointer to the cacher
@@ -109,7 +109,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or pass it in the constructor of the [BaseRepository](/class/baserepository) or [DbRepository](/class/dbrepository) objects.
+Or pass it to the [BaseRepository](/class/baserepository) or [DbRepository](/class/dbrepository) constructor.
 
 ```csharp
 // Pass it on the constructor
@@ -120,4 +120,3 @@ public class NorthwithRepository : DbRepository<SqlConnection>
     { }
 }
 ```
-

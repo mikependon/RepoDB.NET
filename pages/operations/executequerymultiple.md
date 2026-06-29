@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to execute multiple raw-SQL Statements directly towards the database (in one-go). It returns an object of [QueryMultipleExtractor](/class/querymultipleextractor). This method supports all types of RDMBS data providers.
+This method executes multiple raw SQL statements against the database in a single round-trip and returns a [QueryMultipleExtractor](/class/querymultipleextractor) object. It supports all RDBMS data providers.
 
 ## Code Snippets
 
-Below is a code that queries a parent person row from the `[dbo].[Person]` table and all its related historical addresses from the `[dbo].[Address]` table.
+The following example queries a parent `Person` row and all related `Address` rows in one call.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -28,7 +28,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-You can also get a single value by calling the `Scalar()` method.
+To retrieve a scalar value, call the `Scalar()` method:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -42,11 +42,11 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> The calls to the `Extract()` and `Scalar()` methods varry on the order of the calls you have made at the [QueryMultipleExtractor](/class/querymultipleextractor) object. Underneath, it is uses the `DbDataReader.NextResult()` method to extract the rows in order.
+> Calls to `Extract()` and `Scalar()` are order-dependent and correspond to the order of statements. Internally, `DbDataReader.NextResult()` advances the reader to each result set in sequence.
 
 ## Passing of Parameters
 
-You can pass a parameter via the following objects.
+Parameters can be passed via any of the following types:
 
 - IDbDataParameter
 - Anonymous Types
@@ -61,13 +61,13 @@ using (var connection = new SqlConnection(connectionString))
 {
     using (var result = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Person] WHERE [Id] = @PersonId; SELECT * FROM [dbo].[Address] WHERE PersonId = @PersonId;", new { PersonId = new SqlParameter("_", 10045) }))
     {
-        // Do more stuffs here
+        // Process results here
     }
 }
 ```
 
 {: .important }
-The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
+The parameter name is not required. The library replaces it with the actual property name from the object.
 
 ## Anonymous Types
 
@@ -76,7 +76,7 @@ using (var connection = new SqlConnection(connectionString))
 {
     using (var result = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Person] WHERE [Id] = @PersonId; SELECT * FROM [dbo].[Address] WHERE PersonId = @PersonId;", new { PersonId = 10045 }))
     {
-        // Do more stuffs here
+        // Process results here
     }
 }
 ```
@@ -90,7 +90,7 @@ using (var connection = new SqlConnection(connectionString))
     param.Add("PersonId", 10045);
     using (var result = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Person] WHERE [Id] = @PersonId; SELECT * FROM [dbo].[Address] WHERE PersonId = @PersonId;", param))
     {
-        // Do more stuffs here
+        // Process results here
     }
 }
 ```
@@ -106,7 +106,7 @@ using (var connection = new SqlConnection(connectionString))
     };
     using (var result = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Person] WHERE [Id] = @PersonId; SELECT * FROM [dbo].[Address] WHERE PersonId = @PersonId;", param))
     {
-        // Do more stuffs here
+        // Process results here
     }
 }
 ```
@@ -122,7 +122,7 @@ using (var connection = new SqlConnection(connectionString))
     };
     using (var result = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Person] WHERE [Id] = @PersonId; SELECT * FROM [dbo].[Address] WHERE PersonId = @PersonId;", param))
     {
-        // Do more stuffs here
+        // Process results here
     }
 }
 ```
@@ -138,14 +138,14 @@ using (var connection = new SqlConnection(connectionString))
     });
     using (var result = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Person] WHERE [Id] = @PersonId; SELECT * FROM [dbo].[Address] WHERE PersonId = @PersonId;", param))
     {
-        // Do more stuffs here
+        // Process results here
     }
 }
 ```
 
 ## Array Parameters (for the IN keyword)
 
-You can pass an array of values if you are using the `IN` keyword.
+Pass an array of values when using the `IN` keyword.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -156,24 +156,24 @@ using (var connection = new SqlConnection(connectionString))
     };
     using (var result = connection.ExecuteQueryMultiple("SELECT * FROM [dbo].[Person] WHERE [Id] IN (@Keys); SELECT * FROM [dbo].[Address] WHERE PersonId IN (@Keys);", param))
     {
-        // Do more stuffs here
+        // Process results here
     }
 }
 ```
 
 {: .note }
-> You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
+> Any of the parameter types listed in [Passing of Parameters](#passing-of-parameters) can also be used here.
 
 ## Executing a Stored Procedure
 
-The calls to execute a stored procedure is by simply calling the `EXEC` command of the SQL Server. It can be combined together with other raw-SQL statements.
+Execute a stored procedure using the `EXEC` SQL command. It can be combined with other raw SQL statements.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
     using (var result = connection.ExecuteQueryMultiple("EXEC [dbo].[sp_GetPerson](@PersonId); SELECT * FROM [dbo].[Address] WHERE PersonId = @PersonId;", new { Id = 10045 }))
     {
-        // Do more stuffs here
+        // Process results here
     }
 }
 ```

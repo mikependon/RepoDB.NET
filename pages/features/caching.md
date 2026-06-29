@@ -12,24 +12,24 @@ parent: FEATURES
 
 ---
 
-In general terms, a cache is a component that stores an object (or its states) in any form of temporary storage that is accessible for future used. The object that is being stored can be a result of computational, operational, inputs/outputs or analytical operations and calculations.
+A cache is a component that stores an object (or its state) in temporary storage for future use. The stored object can be the result of computational, operational, I/O, or analytical operations.
 
-Usually, it is implemented as a 2nd-layer data storage to provide a fast accessibility to the requestor of the data. It is by design to prevent the frequent calls towards the underlying data-store, thus helps improve the performance of the application by large margin.
+Caching is typically implemented as a second-layer data store to provide fast data access, reducing frequent calls to the underlying data store and improving application performance.
 
-Below is the high-level diagram that showcase how the caching implementation is with this library.
+The diagram below shows the caching implementation in this library.
 
 <img src="../../assets/images/site/cache.svg" />
 
-By default, the caching is implemented as a storage in the computer memory by default through [MemoryCache](/class/memorycache) object. It is just a simple dictionary object that holds a key that represents as pointer to the actual data in the cache storage. It is persisting the data in the cache storage for 180 minutes, but the user can manually set the time of the persistency during the calls.
+By default, caching is backed by in-memory storage through the [MemoryCache](/class/memorycache) object — a simple dictionary that maps keys to cached data. Cache entries persist for 180 minutes by default, but the expiration can be set explicitly during each call.
 
 {: .important }
-> The database tables that are not frequently changing but is mostly in used in the application are the candidate for caching.
+> Database tables that change infrequently but are frequently read are good candidates for caching.
 
 ## How to use the Cache?
 
-Simply pass a literal string value to the `cacheKey` argument when calling the operation.
+Pass a literal string to the `cacheKey` argument when calling the operation.
 
-The direct usage of the connection object requires an instance of [ICache](/interface/icache) to be explicitly passed into the `cache` argument.
+When using the connection object directly, an [ICache](/interface/icache) instance must be passed explicitly to the `cache` argument.
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
@@ -39,7 +39,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Below is the code if the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) are being used.
+When using [BaseRepository](/class/baserepository) or [DbRepository](/class/dbrepository), the cache instance is managed by the repository and does not need to be passed on each call.
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
@@ -49,21 +49,19 @@ using (var repository = new DbRepository<Product, SqlConnection>(connectionStrin
 }
 ```
 
-Notice, we have not passed an instance of [ICache](/interface/icache) object during the call. That is one of the advantages if you are working with the mentioned repositories.
-
 {: .important }
-> It is highly recommended to use the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects if you tend to skip managing the cache object.
+> Use [BaseRepository](/class/baserepository) or [DbRepository](/class/dbrepository) when you prefer not to manage the cache object manually.
 
 ## Selecting a Proper Cache Key
 
-Each cache key should preferably be unique to the query executed, so that different methods do not ended up unintentionally sharing the same data.
+Each cache key should be unique to the query it represents, so that different methods do not unintentionally share the same cached data.
 
-Constructing a unique key is left to the developer, but a good best practice is to adopt a convention for generating the cache keys, such as:
+Key construction is left to the developer, but a consistent naming convention is recommended:
 
 - Class Name + Property Name + Query Argument1 + Query Argument2 (Product-Name-Chocolate-White)
 - Entity Name + Argument1 Name + Argument2 Name + Argument1Value + Argument2Value (Product-Name-Color--Chocolate-White)
 
-Following this naming convention makes it easy to examine keys at run-time and establish the source. It also guarantees uniqueness to avoid the collisions.
+A consistent convention makes it easy to inspect keys at runtime and determine their source. It also guarantees uniqueness to avoid cache collisions.
 
 ```csharp
 // An example of the second cache key convention:
@@ -76,11 +74,11 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-As mentioned, by default the cache is placed in the computer memory via [MemoryCache](/class/memorycache) object. It is a simple dictionary object (key/value pairs).
+By default, the cache is stored in memory via the [MemoryCache](/class/memorycache) object — a simple key/value dictionary.
 
 ## Setting the Cache Expiration
 
-Simply pass a value to the `cacheItemExpiration` argument when calling the operation, however, this value will be ignored if the `cacheKey` is not provided.
+Pass a value to the `cacheItemExpiration` argument when calling the operation. This value is ignored if `cacheKey` is not provided.
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
@@ -94,7 +92,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Removing the Cache Item
 
-To remove the cache item, use the `Remove()` method of the [ICache](/interface/icache) interface.
+Use the `Remove()` method of the [ICache](/interface/icache) interface to remove a cache entry.
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
@@ -105,7 +103,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Alternatively, the `Expiration` property can be used to force the expiration.
+Alternatively, set the `Expiration` property to force expiration.
 
 ```csharp
 var cache = CacheFactory.GetMemoryCache();
@@ -117,7 +115,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-When using the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects, the `Cache` property can be used directly.
+When using [BaseRepository](/class/baserepository) or [DbRepository](/class/dbrepository), use the `Cache` property directly.
 
 ```csharp
 using (var repository = new DbRepository<Product, SqlConnection>(connectionString))
@@ -173,11 +171,11 @@ public class JsonCache : ICache
 ```
 
 {: .note }
-> You have to implement all the interface methods and manually handle each of them.
+> All interface methods must be implemented and handled manually.
 
 ## Injecting the Cache in the Repository
 
-Simply inject it in the contructor. Below is the sample code for [BaseRepository](/class/baserepository) class.
+Inject the cache in the constructor. The following is a sample for the [BaseRepository](/class/baserepository) class.
 
 ```csharp
 // Repository
@@ -197,7 +195,7 @@ using (var repository = new CustomerRepository(settings))
 }
 ```
 
-And below is for [DbRepository](/class/dbrepository) class.
+For the [DbRepository](/class/dbrepository) class:
 
 ```csharp
 // Repository
@@ -217,7 +215,7 @@ using (var repository = new NorthwindRepository(settings))
 }
 ```
 
-Or via direct class instantiation.
+Or via direct class instantiation:
 
 ```csharp
 // Direct class instantiation of DbRepository
@@ -229,7 +227,7 @@ using (var repository = new DbRepository<SqlConnection>(settings.Value.Connectio
 
 ## Dependency Injection Implementation
 
-Create a custom interface that implements the [ICache](/interface/icache) interface.
+Create a custom interface that extends [ICache](/interface/icache).
 
 ```csharp
 public interface IJsonCache : ICache
@@ -238,7 +236,7 @@ public interface IJsonCache : ICache
 }
 ```
 
-Then, implement it in the cache class.
+Then implement it in the cache class.
 
 ```csharp
 public class JsonCache : IJsonCache
@@ -247,7 +245,7 @@ public class JsonCache : IJsonCache
 }
 ```
 
-Lastly, register in the services collection.
+Register it in the services collection.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -259,7 +257,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Below is the code on how to inject it in the repositories.
+Inject it into the repository constructor.
 
 ```csharp
 public class NorthwindRepository : DbRepository<SqlConnection>
@@ -275,9 +273,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>
 
 ## Create a Cache Factory
 
-If you do not prefer injecting a cache object, creating a simple cache factory class is good to ensure a single instance of cache object is being managed.
-
-The code below ensures that only a single instance of cache object is being used all throughout the application.
+If dependency injection is not preferred, a cache factory class ensures a single cache instance is used throughout the application.
 
 ```csharp
 public static class CacheFactory
@@ -307,7 +303,7 @@ public static class CacheFactory
 }
 ```
 
-And use it in the connection object like below.
+Use it with a connection object:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -316,7 +312,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via repositories.
+Or via a repository:
 
 ```csharp
 public class NorthwindRepository : DbRepository<SqlConnection>

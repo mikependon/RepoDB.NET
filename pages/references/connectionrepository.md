@@ -12,10 +12,10 @@ parent: REFERENCES
 
 ---
 
-This page contains the reference implementation when implementing a repository that is using a connection object per method. The consolidated output of this page can be found [here](/reference/output/connectionrepository).
+This page contains the reference implementation for a repository that creates a connection object per method call. The consolidated output can be found [here](/reference/output/connectionrepository).
 
 {: .important }
-> This kind of repository is direct and is usually unstructured. Use this repository if you are in minimal development.
+> This repository style is direct and unstructured. It is best suited for minimal or lightweight development scenarios.
 
 #### Recommended Objects (Optional)
 
@@ -62,7 +62,7 @@ public static class CacheFactory
 }
 ```
 
-Or, if you wish to dependency inject.
+Or, use dependency injection.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -110,7 +110,7 @@ public static class TraceFactory
 }
 ```
 
-Or, if you wish to dependency inject.
+Or, use dependency injection.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -124,7 +124,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Settings
 
-The settings object must be injected within the constructor of the repository. Please refer to Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+Inject the settings object via the repository constructor. See the Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1) for details.
 
 ```csharp
 public class AppSetting
@@ -137,9 +137,7 @@ public class AppSetting
 
 ## Repository
 
-Below is the sample repository implementation.
-
-For the factory classes.
+Using factory classes:
 
 ```csharp
 public class NorthwindRepository
@@ -163,7 +161,7 @@ public class NorthwindRepository
 }
 ```
 
-For the dependency-injected classes.
+Using dependency injection:
 
 ```csharp
 public class NorthwindRepository
@@ -191,7 +189,7 @@ public class NorthwindRepository
 
 ## Operational Methods
 
-Below is the recommended way when exposing a method that return the records.
+Recommended implementation for a method that returns records:
 
 ```csharp
 public IEnumerable<Customer> GetCustomers(string cacheKey = null)
@@ -207,7 +205,7 @@ public IEnumerable<Customer> GetCustomers(string cacheKey = null)
 }
 ```
 
-Below is the recommended way when exposing a method that returns a single record.
+Recommended implementation for a method that returns a single record:
 
 ```csharp
 public Customer GetCustomer(int id)
@@ -221,7 +219,7 @@ public Customer GetCustomer(int id)
 }
 ```
 
-Below is the recommended way when exposing a method that deletes a record.
+Recommended implementation for a method that deletes a record:
 
 ```csharp
 public int DeleteCustomer(int id)
@@ -235,7 +233,7 @@ public int DeleteCustomer(int id)
 }
 ```
 
-Below is the recommended way when exposing a method that merges a record.
+Recommended implementation for a method that merges a record:
 
 ```csharp
 public int MergeCustomer(Customer entity)
@@ -249,7 +247,7 @@ public int MergeCustomer(Customer entity)
 }
 ```
 
-Below is the recommended way when exposing a method that saves a record.
+Recommended implementation for a method that saves a record:
 
 ```csharp
 public int SaveCustomer(Customer entity)
@@ -263,7 +261,7 @@ public int SaveCustomer(Customer entity)
 }
 ```
 
-Below is the recommended way when exposing a method that updates a record.
+Recommended implementation for a method that updates a record:
 
 ```csharp
 public int UpdateCustomer(Customer entity)
@@ -278,7 +276,7 @@ public int UpdateCustomer(Customer entity)
 
 ## Async Methods
 
-Ensure that all the synchronous methods you had created has the corresponding asynchronous methods suffixed by `Async` keyword. Within these methods, ensure that you are calling the corresponding asynchronous operations of the library.
+Each synchronous method must have a corresponding asynchronous counterpart with the `Async` suffix, delegating to the library's async operations.
 
 ```csharp
 // Get (Many)
@@ -358,7 +356,7 @@ public async Task<int> UpdateCustomerAsync(Customer entity)
 
 ## Dependency Injection
 
-Create an interface that contains all the necessary methods. The name must be identitical on the purpose of the repository.
+Create an interface covering all required methods. Name it to reflect the repository's purpose.
 
 ```csharp
 public interface INorthwindRepository<TDbConnection>
@@ -398,7 +396,7 @@ public interface INorthwindRepository<TDbConnection>
 }
 ```
 
-Then, implement it on the repository.
+Then implement it on the repository.
 
 ```csharp
 public class NorthwindRepository<DbConnection> : INorthwindRepository<DbConnection>
@@ -410,9 +408,9 @@ public class NorthwindRepository<DbConnection> : INorthwindRepository<DbConnecti
 
 ## Service Configuration and Registration
 
-Register it as singleton if you...
+Register as singleton when:
 
-- Enabled the [ICache](/interface/icache) object.
+- [ICache](/interface/icache) is enabled.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -424,8 +422,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Otherwise, register it as transient.
-
+Otherwise, register as transient.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -439,5 +436,5 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Key Take-aways
 
-- The async methods must be provided in all methods.
-- The repository must be short and precise on its purpose.
+- Provide async counterparts for all methods.
+- Keep each repository focused on a single, well-defined purpose.

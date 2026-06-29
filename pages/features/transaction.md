@@ -12,11 +12,11 @@ parent: FEATURES
 
 ---
 
-The way transaction works in the library is very identical with the way how it works with ADO.NET.
+Transactions in this library work identically to ADO.NET transactions.
 
 ## Using a Transaction via Connection
 
-Creates a transaction object and pass it when you call any of the operation.
+Create a transaction object and pass it to any operation.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -35,7 +35,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Using a Transaction via Repository
 
-Same as previous section, simply create a transaction object and pass it when you call any of the operation.
+Create a transaction object and pass it to any operation.
 
 ```csharp
 using (var repository = new NorthwindRepository(connectionString))

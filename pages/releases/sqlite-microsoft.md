@@ -12,7 +12,7 @@ parent: RELEASES
 
 ---
 
-Please click [here](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.Sqlite.Microsoft) to download it.
+View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Sqlite.Microsoft).
 
 ## RepoDb.Sqlite.Microsoft (v1.13.1)
 

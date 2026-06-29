@@ -99,11 +99,11 @@ The argument `usePhysicalPseudoTempTable` is used to define whether a physical p
 
 The library has enforced an additional logic to ensure the identity setting alignment if the `isReturnIdentity` is enabled during the calls. This affects both the [BulkInsert](/operation/bulkinsert) and [BulkMerge](/operation/bulkmerge) operations.
 
-Basically, a new column named `__RepoDb_OrderColumn` is being added into the pseudo-temporary table if the identity field is present on the underlying target table. This column will contain the actual index of the entity model from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+Basically, a new column named `__RepoDb_OrderColumn` is being added into the pseudo-temporary table if the identity field is present on the underlying target table. This column will contain the actual index of the entity model from the [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
 
-During the bulk operation, a dedicated [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object is created that targets this additional column with a value of the entity model index, thus ensuring that the index value is really equating the index of the entity data from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object. The resultsets of the pseudo-temporary table are being ordered using this newly generated column prior the actual merge to the underlying table.
+During the bulk operation, a dedicated [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object is created that targets this additional column with a value of the entity model index, thus ensuring that the index value is really equating the index of the entity data from the [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object. The resultsets of the pseudo-temporary table are being ordered using this newly generated column prior the actual merge to the underlying table.
 
-When the newly generated identity value is being set back to the data model, the value of the `__RepoDb_OrderColumn` column is being used to look-up the proper index of the equating entity model from the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object, then, the compiled identity-setter function is used to assign back the identity value into the identity property.
+When the newly generated identity value is being set back to the data model, the value of the `__RepoDb_OrderColumn` column is being used to look-up the proper index of the equating entity model from the [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object, then, the compiled identity-setter function is used to assign back the identity value into the identity property.
 
 ## Caveats
 
@@ -115,7 +115,7 @@ In addition, when calling the [BulkDelete](/operation/bulkdelete), [BulkMerge](/
 
 ## BulkDelete
 
-The code snippets below only showcasing the [BulkDelete](/operation/bulkdelete) via [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0).
+The code snippets below only showcasing the [BulkDelete](/operation/bulkdelete) via [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -160,7 +160,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## BulkInsert
 
-The code snippets below only showcasing the [BulkInsert](/operation/bulkinsert) via [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0).
+The code snippets below only showcasing the [BulkInsert](/operation/bulkinsert) via [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -184,7 +184,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## BulkMerge
 
-The code snippets below only showcasing the [BulkMerge](/operation/bulkmerge) via [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0).
+The code snippets below only showcasing the [BulkMerge](/operation/bulkmerge) via [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -219,7 +219,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## BulkUpdate
 
-The code snippets below only showcasing the [BulkUpdate](/operation/bulkupdate) via [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0).
+The code snippets below only showcasing the [BulkUpdate](/operation/bulkupdate) via [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

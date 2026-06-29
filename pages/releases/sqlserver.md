@@ -93,8 +93,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Added the `net5.0` as part of the target frameworks.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Upgraded the `System.Data.SqlClient` package to `v4.8.3`.
-- Deprecated both the [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap) attributes.
-- Added the [CompareInfoAttribute](/attribute/sqlparametercompareinfo) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Deprecated both the MicrosoftSqlServerTypeMapAttribute and SystemSqlServerTypeMapAttribute attributes.
+- Added the [CompareInfoAttribute](/attribute/sqlserver/compareinfo) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Added the [ForceColumnEncryptionAttribute](/attribute/sqlserver/forcecolumnencryption) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Added the [LocaleIdAttribute](/attribute/sqlserver/localeid) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Added the [OffsetAttribute](/attribute/sqlserver/offset) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
@@ -112,17 +112,17 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Added the `net5.0` as part of the target frameworks.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Upgraded the `System.Data.SqlClient` package to `v4.8.3`.
-- Deprecated both the [MicrosoftSqlServerTypeMapAttribute](/attribute/microsoftsqlservertypemap) and [SystemSqlServerTypeMapAttribute](/attribute/systemsqlservertypemap) attributes.
-- Added the [CompareInfoAttribute](/attribute/sqlparametercompareinfo) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Added the [ForceColumnEncryptionAttribute](/attribute/sqlparameterforcecolumnencryption) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Added the [LocaleIdAttribute](/attribute/parameter/sqlserver/localeid) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Added the [OffsetAttribute](/attribute/parameter/sqlserver/offset) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Added the [SqlDbTypeAttribute](/attribute/parameter/sqlserver/sqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Added the [TypeNameAttribute](/attribute/parameter/sqlserver/typename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Added the [UdtTypeNameAttribute](/attribute/parameter/sqlserver/udttypename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Added the [XmlSchemaCollectionDatabaseAttribute](/attribute/parameter/sqlserver/xmlschemacollectiondatabase) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Added the [XmlSchemaCollectionNameAttribute](/attribute/parameter/sqlserver/xmlschemacollectionname) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Added the [XmlSchemaCollectionOwningSchemaAttribute](/attribute/parameter/sqlserver/xmlschemacollectionowningschema) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Deprecated both the MicrosoftSqlServerTypeMapAttribute and SystemSqlServerTypeMapAttribute attributes.
+- Added the [CompareInfoAttribute](/attribute/sqlserver/compareinfo) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [ForceColumnEncryptionAttribute](/attribute/sqlserver/forcecolumnencryption) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [LocaleIdAttribute](/attribute/sqlserver/localeid) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [OffsetAttribute](/attribute/sqlserver/offset) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [TypeNameAttribute](/attribute/sqlserver/typename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [UdtTypeNameAttribute](/attribute/sqlserver/udttypename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [XmlSchemaCollectionDatabaseAttribute](/attribute/sqlserver/xmlschemacollectiondatabase) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [XmlSchemaCollectionNameAttribute](/attribute/sqlserver/xmlschemacollectionname) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Added the [XmlSchemaCollectionOwningSchemaAttribute](/attribute/sqlserver/xmlschemacollectionowningschema) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
@@ -150,7 +150,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Breaking: Renamed of argument `whereOrPrimaryKey` to `what`.
 - Enhacement: Complete support to the immutable classes and/or types.
 - Refactoring: Refactored the compiler implementations by simplifying the code from Monolithic to Smaller/Shorter/Cleaner code.
-- Feature: Introduced the support to the [Class Handler](/feature/classhandler).
+- Feature: Introduced the support to the [Class Handler](/feature/classhandlers).
 - Test: More coverage of Integration Tests and Unit Tests.
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0](/release/core#repodb-v1120)).
 
@@ -168,7 +168,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 - Breaking: Renamed of argument `whereOrPrimaryKey` to `what`.
 - Enhacement: Complete support to the immutable classes and/or types.
 - Refactoring: Refactored the compiler implementations by simplifying the code from Monolithic to Smaller/Shorter/Cleaner code.
-- Feature: Introduced the support to the [Class Handler](/feature/classhandler).
+- Feature: Introduced the support to the [Class Handler](/feature/classhandlers).
 - Test: More coverage of Integration Tests and Unit Tests.
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta1](/release/core#repodb-v1120-beta1)).
 

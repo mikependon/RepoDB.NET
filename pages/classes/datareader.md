@@ -12,12 +12,12 @@ parent: CLASSES
 
 ---
 
-This class is used to convert the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object into an [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) or `IEnumerable<dynamic>` object. This is the heart of the library when it comes to data extraction from the database.
+Converts a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) into an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0). It is the core of the library's data extraction pipeline.
 
-It only contains one method named `ToEnumerable`. This method is pre-compiled AOT using `Linq.Expressions`.
+It exposes a single method, `ToEnumerable`, which is pre-compiled AOT using `Linq.Expressions`.
 
 {: .note }
-> This class is high-performant and efficient. It understands and caches the schema of your database into the memory. It also reuses all the other caches within the library during the extraction to construct and generate the most-optimal AOT compilation.
+> This class caches the database schema and reuses all library-level caches during extraction to produce the most efficient AOT compilation.
 
 ## Extract as Entity Model
 
@@ -47,9 +47,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## DbFields
 
-It is also quitely important to pass the list of the [DbField](/class/dbfield) object in order for the compiler to skip the unnecessary DB-NULL checks.
-
-To do this, simply pass the list of the DB fields in the `dbFields` argument.
+Passing a list of [DbField](/class/dbfield) objects allows the compiler to skip unnecessary DB-NULL checks.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -66,4 +64,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> Please note to always pass the [IDbSetting](/interface/idbsetting) object when using the `dbFields` argument.
+> Always pass the [IDbSetting](/interface/idbsetting) object when using the `dbFields` argument.

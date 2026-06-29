@@ -13,12 +13,12 @@ parent: ATTRIBUTES
 
 ---
 
-This attribute is used to map a property into its equivalent type from the database (via `System.Data.DbType`).
+This attribute maps a property to a specific database type via `System.Data.DbType`.
 
 {: .important }
-> This attribute supercede the type-level mapping defined at the [TypeMapper](/mapper/typemapper) object.
+> This attribute takes precedence over the type-level mapping defined in [TypeMapper](/mapper/typemapper).
 
-Below is a a sample code on how to map an existing [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) property to a `System.Data.DbType.DateTime2` database type.
+The following example maps a [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) property to `DbType.DateTime2`:
 
 ```csharp
 public class Person
@@ -30,7 +30,7 @@ public class Person
 }
 ```
 
-In some realistic scenario, we tend to force some `byte[]` type to become a binary.
+The following example maps a `byte[]` property to `DbType.Binary`:
 
 ```csharp
 public class Person

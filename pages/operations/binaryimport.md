@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to insert multiple rows towards the database by bulk. It is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This method inserts multiple rows into the database in bulk. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 
 ## Call Flow Diagram
 
@@ -21,17 +21,17 @@ The diagram below shows the flow when calling this operation.
 
 ## Use Case
 
-This method is very useful if you would like to insert multiple rows towards the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
+Use this method to insert rows at high speed. It leverages the native bulk operation from the Npgsql library via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class.
 
-If you are working to insert range of rows from 1000 or more, then use this method over the [InsertAll](/operation/insertall) operation. Alternatively, you can also use the [BinaryBulkInsert](/operation/binarybulkinsert) operation.
+For inserting 1,000 or more rows, prefer this method over [InsertAll](/operation/insertall). The [BinaryBulkInsert](/operation/binarybulkinsert) operation is also available as an alternative.
 
 ## Special Arguments
 
-The `keepIdentity` argument is provided to define a value whether the identity property of the entity/model will be kept during the operation. 
+The `keepIdentity` argument controls whether the identity property of the entity/model is preserved during the operation.
 
 ## Usability
 
-Simply pass the list of the entities when calling this operation.
+Pass the list of entities to the operation.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -44,7 +44,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 {: .note }
 > It returns the number of rows inserted into the underlying table.
 
-And below if you would like to specify the batch size.
+To specify a batch size:
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -55,9 +55,9 @@ using (var connection = new NpgsqlConnection(connectionString))
 ```
 
 {: .important }
-> If the `batchSize` argument is not set, then all the items from the collection will be sent together.
+> If `batchSize` is not set, all items in the collection are sent at once.
 
-You can also target a specific table by passing the literal table name like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -67,8 +67,6 @@ using (var connection = new NpgsqlConnection(connectionString))
 ```
 
 #### DataTable
-
-Below is the sample code to bulk-insert via data table.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -81,8 +79,6 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 #### Dictionary/ExpandoObject
 
-Below is the sample code to bulk-insert via `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
-
 ```csharp
 var people = GetPeopleAsDictionary(1000);
 
@@ -93,8 +89,6 @@ using (var connection = new NpgsqlConnection(destinationConnectionString))
 ```
 
 #### DataReader
-
-Below is the sample code to bulk-insert via [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
 ```csharp
 using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
@@ -109,7 +103,7 @@ using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
 }
 ```
 
-Or via [DataEntityDataReader](/class/dataentitydatareader) class.
+Or via [DataEntityDataReader](/class/dataentitydatareader).
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))

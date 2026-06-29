@@ -12,15 +12,15 @@ parent: CLASSES
 
 ---
 
-This class is used to handle the name and the value of the class property. It also handles an instance of [ClassProperty](/class/classproperty).
+Holds the name and value of a class property, along with a reference to its [ClassProperty](/class/classproperty) instance.
 
 {: .note }
-> Internally, the library is using this class as a parameter before executing any operation.
+> The library uses this class internally as a parameter before executing operations.
 
 ## Use Case
 
-- If you are to manually handle the properties and values of the data entity.
-- It is used to fast-extract the data entities property and values via [ClassExpression](/class/classexpression).
+- Manually handling properties and values of a data entity.
+- Fast extraction of entity properties and values via [ClassExpression](/class/classexpression).
 
 ## Usability
 

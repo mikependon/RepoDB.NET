@@ -10,11 +10,11 @@ parent: GET STARTED
 
 # Installation
 
-The packages can be installed using the Package Manager Console window.
+Install packages using the Package Manager Console.
 
 ## Raw SQLs
 
-If you wish to work only with raw-SQLs.
+For raw SQL usage only:
 
 ```csharp
 > Install-Package RepoDb
@@ -24,13 +24,13 @@ If you wish to work only with raw-SQLs.
 
 ## SQL Server
 
-If you wish to work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
+To work with [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer):
 
 ```csharp
 > Install-Package RepoDb.SqlServer
 ```
 
-Once installed, call the globalized setup method to initialize all the dependencies for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
+After installation, call the globalized setup method to initialize all dependencies for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
 
 ```csharp
 GlobalConfiguration
@@ -38,13 +38,13 @@ GlobalConfiguration
 	.UseSqlServer();
 ```
 
-For the users prior the version 1.13.0, use the bootstrapper code below.
+For versions prior to 1.13.0, use the bootstrapper below.
 
 ```csharp
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-Or, if you are to work with the bulk operations.
+For bulk operations:
 
 ```csharp
 > Install-Package RepoDb.SqlServer.BulkOperations
@@ -52,7 +52,7 @@ Or, if you are to work with the bulk operations.
 
 #### System.Data.SqlClient
 
-If you are working with this package, you are required to bootstrap the connection object on the startup.
+When using this package, bootstrap the connection object at startup.
 
 ```csharp
 var dbSetting = new SqlServerDbSetting();
@@ -65,17 +65,17 @@ StatementBuilderMapper
 	.Add<System.Data.SqlClient.SqlConnection>(new SqlServerStatementBuilder(dbSetting), true);
 ```
 
-Or, you can replicate the actual [SqlServerBootstrap](https://github.com/mikependon/RepoDB/blob/master/RepoDb.SqlServer/RepoDb.SqlServer/SqlServerBootstrap.cs) class implementation and attach it to your solution. Then, call the local class initializer method explicitly.
+Alternatively, replicate the [SqlServerBootstrap](https://github.com/mikependon/RepoDB/blob/master/RepoDb.SqlServer/RepoDb.SqlServer/SqlServerBootstrap.cs) class and call the initializer explicitly.
 
 ## PostgreSQL
 
-If you wish to work with [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql).
+To work with [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql):
 
 ```csharp
 > Install-Package RepoDb.PostgreSql
 ```
 
-Once installed, call the globalized setup method to initialize all the dependencies for PostgreSql.
+After installation, call the globalized setup method to initialize all dependencies for PostgreSql.
 
 ```csharp
 GlobalConfiguration
@@ -83,13 +83,13 @@ GlobalConfiguration
 	.UsePostgreSql();
 ```
 
-For the users prior the version 1.13.0, use the bootstrapper code below.
+For versions prior to 1.13.0, use the bootstrapper below.
 
 ```csharp
 RepoDb.PostgreSqlBootstrap.Initialize();
 ```
 
-Or, if you are to work with the bulk operations.
+For bulk operations:
 
 ```csharp
 > Install-Package RepoDb.PostgreSql.BulkOperations
@@ -97,17 +97,17 @@ Or, if you are to work with the bulk operations.
 
 ## MySQL
 
-There are 2 packages available for MySQL.
+Two packages are available for MySQL.
 
 #### MySql.Data
 
-If you wish to work with [RepoDb.MySql](https://www.nuget.org/packages/RepoDb.MySql).
+To work with [RepoDb.MySql](https://www.nuget.org/packages/RepoDb.MySql):
 
 ```csharp
 > Install-Package RepoDb.MySql
 ```
 
-Once installed, call the globalized setup method to initialize all the dependencies for MySQL.
+After installation, call the globalized setup method to initialize all dependencies for MySQL.
 
 ```csharp
 GlobalConfiguration
@@ -115,7 +115,7 @@ GlobalConfiguration
 	.UseMySql();
 ```
 
-For the users prior the version 1.13.0, use the bootstrapper code below.
+For versions prior to 1.13.0, use the bootstrapper below.
 
 ```csharp
 RepoDb.MySqlBootstrap.Initialize();
@@ -123,13 +123,13 @@ RepoDb.MySqlBootstrap.Initialize();
 
 #### MySqlConnector
 
-If you wish to work with [RepoDb.MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector).
+To work with [RepoDb.MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector):
 
 ```csharp
 > Install-Package RepoDb.MySqlConnector;
 ```
 
-Once installed, call the globalized setup method to initialize all the dependencies for MySQL.
+After installation, call the globalized setup method to initialize all dependencies for MySQL.
 
 ```csharp
 GlobalConfiguration
@@ -137,7 +137,7 @@ GlobalConfiguration
 	.UseMySqlConector();
 ```
 
-For the users prior the version 1.13.0, use the bootstrapper code below.
+For versions prior to 1.13.0, use the bootstrapper below.
 
 ```csharp
 RepoDb.MySqlConnectorBootstrap.Initialize();
@@ -145,17 +145,17 @@ RepoDb.MySqlConnectorBootstrap.Initialize();
 
 ## SQLite
 
-There are 2 packages available for SQLite.
+Two packages are available for SQLite.
 
 #### System.Data.SQLite.Core
 
-If you wish to work with [RepoDb.SQLite.System](https://www.nuget.org/packages/RepoDb.SQLite.System).
+To work with [RepoDb.SQLite.System](https://www.nuget.org/packages/RepoDb.SQLite.System):
 
 ```csharp
 > Install-Package RepoDb.SQLite.System
 ```
 
-Once installed, call the globalized setup method to initialize all the dependencies for SQLite.
+After installation, call the globalized setup method to initialize all dependencies for SQLite.
 
 ```csharp
 GlobalConfiguration
@@ -163,7 +163,7 @@ GlobalConfiguration
 	.UseSQLite();
 ```
 
-For the users prior the version 1.13.0, use the bootstrapper code below.
+For versions prior to 1.13.0, use the bootstrapper below.
 
 ```csharp
 RepoDb.SQLiteBootstrap.Initialize();
@@ -171,13 +171,13 @@ RepoDb.SQLiteBootstrap.Initialize();
 
 #### Microsoft.Data.Sqlite
 
-If you wish to work with [RepoDb.Sqlite.Microsoft](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft).
+To work with [RepoDb.Sqlite.Microsoft](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft):
 
 ```csharp
 > Install-Package RepoDb.Sqlite.Microsoft
 ```
 
-Once installed, call the globalized setup method to initialize all the dependencies for SQLite.
+After installation, call the globalized setup method to initialize all dependencies for SQLite.
 
 ```csharp
 GlobalConfiguration
@@ -185,7 +185,7 @@ GlobalConfiguration
 	.UseSqlite();
 ```
 
-For the users prior the version 1.13.0, use the bootstrapper code below.
+For versions prior to 1.13.0, use the bootstrapper below.
 
 ```csharp
 RepoDb.SqliteBootstrap.Initialize();

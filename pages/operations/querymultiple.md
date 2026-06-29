@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to query the data as multiple resultsets from the table based on the given number of target types.
+This method queries data as multiple result sets from the table based on the given target types.
 
 ## Code Snippets
 
-Below is the sample code to fetch a single parent row from the `[dbo].[Customer]` table and all the related orders made from the `[dbo].[Order]` table.
+The following example fetches a single `Customer` row and all related `Order` rows.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -25,16 +25,16 @@ using (var connection = new SqlConnection(connectionString))
     var customer = result.Item1.FirstOrDefault();
     var orders = result.Item2.AsList();
 
-    // Do the stuffs for the `customer` and `orders` here
+    // Process 'customer' and 'orders' here
 }
 ```
 
 {: .note }
-> It returns a type of `Tuple<T1, .., T7>` object. The maximum type that it can cater is 7. Each item in the tuple object is an [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object of the target generic type.
+> Returns a `Tuple<T1, .., T7>` object. Up to 7 types are supported. Each tuple item is an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) of the corresponding generic type.
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass table hints via the `hints` arguments.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -46,11 +46,11 @@ using (var connection = new SqlConnection(connectionString))
     var customer = result.Item1.FirstOrDefault();
     var orders = result.Item2.AsList();
 
-    // Do the stuffs for the `customer` and `orders` here
+    // Process 'customer' and 'orders' here
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -62,13 +62,13 @@ using (var connection = new SqlConnection(connectionString))
     var customer = result.Item1.FirstOrDefault();
     var orders = result.Item2.AsList();
 
-    // Do the stuffs for the `customer` and `orders` here
+    // Process 'customer' and 'orders' here
 }
 ```
 
 ## Ordering the Results
 
-To order the results, you have to pass an array of `OrderField` objects in the `orderBy` argument.
+Pass an array of `OrderField` objects in the `orderBy` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -83,13 +83,13 @@ using (var connection = new SqlConnection(connectionString))
     var customer = result.Item1.FirstOrDefault();
     var orders = result.Item2.AsList();
 
-    // Do the stuffs for the `customer` and `orders` here
+    // Process 'customer' and 'orders' here
 }
 ```
 
 ## Filtering the Results
 
-To filter the results, you have to pass a value at the `top` argument.
+Pass a value in the `top` argument to limit the number of rows returned.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -100,6 +100,6 @@ using (var connection = new SqlConnection(connectionString))
     var customer = result.Item1.FirstOrDefault();
     var orders = result.Item2.AsList();
 
-    // Do the stuffs for the `customer` and `orders` here
+    // Process 'customer' and 'orders' here
 }
 ```

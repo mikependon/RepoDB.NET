@@ -12,9 +12,9 @@ parent: CLASSES
 
 ---
 
-This class is used to convert the [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object into a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object.
+Converts an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) into a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
-Let us say you have a method named `GetPeople()` that creates an enumerable of `Person` model.
+Given a method that returns an enumerable of `Person`:
 
 ```csharp
 private void IEnumerable<Person> GetPeople(int count = 10000)
@@ -31,7 +31,7 @@ private void IEnumerable<Person> GetPeople(int count = 10000)
 }
 ```
 
-Then, you can extract it to be a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object via this class.
+Convert it to a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0):
 
 ```csharp
 var people = GetPeople();
@@ -41,7 +41,7 @@ using (var reader = new DataEntityDataReader<Person>(people))
 }
 ```
 
-Then, you can use it like a normal data reader.
+Use it like a standard data reader:
 
 ```csharp
 while (reader.Read())
@@ -50,7 +50,7 @@ while (reader.Read())
 }
 ```
 
-Or use it in the bulk operations.
+Or pass it to bulk operations:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -64,4 +64,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> This class is useful if you are tying to use the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)) with [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object sourced by [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0).
+> This class is useful when performing bulk operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge), [BulkUpdate](/operation/bulkupdate)) with a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) sourced from an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0).

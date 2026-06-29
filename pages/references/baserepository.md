@@ -12,10 +12,10 @@ parent: REFERENCES
 
 ---
 
-This page contains the reference implementation when implementing a repository that inherits the [BaseRepository](/class/baserepository) class. The consolidated output of this page can be found [here](/reference/output/baserepository).
+This page contains the reference implementation for a repository that inherits the [BaseRepository](/class/baserepository) class. The consolidated output can be found [here](/reference/output/baserepository).
 
 {: .note }
-> The [BaseRepository](/class/baserepository) class is only being used if you wished to implement an entity-based repository. Imagine that you are only working with `[dbo].[Customer]` table.
+> The [BaseRepository](/class/baserepository) class is intended for entity-based repositories. Use it when working with a single table, such as `[dbo].[Customer]`.
 
 #### Recommended Objects (Optional)
 
@@ -63,7 +63,7 @@ public static class CacheFactory
 }
 ```
 
-Or, if you wish to dependency inject.
+Or, use dependency injection.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -111,7 +111,7 @@ public static class TraceFactory
 }
 ```
 
-Or, if you wish to dependency inject.
+Or, use dependency injection.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -125,7 +125,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Settings
 
-The settings object must be injected within the constructor of the repository. Please refer to Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+Inject the settings object via the repository constructor. See the Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1) for details.
 
 ```csharp
 public class AppSetting
@@ -138,11 +138,9 @@ public class AppSetting
 
 ## Repository
 
-Simply inherit the [BaseRepository](/class/baserepository) class and pass the generic types for the entity-model and connection object.
+Inherit the [BaseRepository](/class/baserepository) class and provide the entity model and connection object as generic type arguments.
 
-Below is the sample repository implementation.
-
-For the factory classes.
+Using factory classes:
 
 ```csharp
 public class CustomerRepository : BaseRepository<Customer, SqlConnection>
@@ -161,7 +159,7 @@ public class CustomerRepository : BaseRepository<Customer, SqlConnection>
 }
 ```
 
-For the dependency-injected classes.
+Using dependency injection:
 
 ```csharp
 public class CustomerRepository : BaseRepository<Customer, SqlConnection>
@@ -184,7 +182,7 @@ public class CustomerRepository : BaseRepository<Customer, SqlConnection>
 
 ## Methods
 
-Below is the recommended way when exposing a method that returns all the records.
+Recommended implementation for a method that returns all records:
 
 ```csharp
 public IEnumerable<Customer> GetAll(string cacheKey = null,
@@ -195,7 +193,7 @@ public IEnumerable<Customer> GetAll(string cacheKey = null,
 }
 ```
 
-Below is the recommended way when exposing a method that returns a single record.
+Recommended implementation for a method that returns a single record:
 
 ```csharp
 public Customer Get(int id,
@@ -217,7 +215,7 @@ public Customer GetByName(string name,
 }
 ```
 
-Below is the recommended way when exposing a method that deletes a record.
+Recommended implementation for a method that deletes a record:
 
 ```csharp
 public int Delete(int id,
@@ -228,7 +226,7 @@ public int Delete(int id,
 }
 ```
 
-Below is the recommended way when exposing a method that pushes a record.
+Recommended implementation for methods that write a record:
 
 ```csharp
 public int Merge(Customer customer,
@@ -255,7 +253,7 @@ public int Update(Customer customer,
 
 ## Async Methods
 
-Ensure that all the synchronous methods you had created has the corresponding asynchronous methods suffixed by `Async` keyword. Within these methods, ensure that you are calling the corresponding asynchronous operations of the library.
+Each synchronous method must have a corresponding asynchronous counterpart with the `Async` suffix, delegating to the library's async operations.
 
 ```csharp
 public async Task<IEnumerable<Customer>> GetAllAsync(string cacheKey = null,
@@ -314,7 +312,7 @@ public async Task<int> UpdateAsync(Customer customer,
 
 ## Dependency Injection
 
-Create an interface that contains all the necessary methods (both sync and async). The name must be identitical on the purpose of the repository.
+Create an interface covering all synchronous and asynchronous methods. Name the interface to reflect the repository's purpose.
 
 ```csharp
 public interface ICustomerRepository
@@ -371,7 +369,7 @@ public interface ICustomerRepository
 }
 ```
 
-Then, implement it on the repository.
+Then implement it on the repository.
 
 ```csharp
 public class CustomerRepository : BaseRepository<Customer, SqlConnection>, ICustomerRepository
@@ -382,10 +380,10 @@ public class CustomerRepository : BaseRepository<Customer, SqlConnection>, ICust
 
 ## Service Configuration and Registration
 
-Register it as singleton if you...
+Register as singleton when:
 
-- Are using the [ConnectionPersistency.Instance](/enumeration/connectionpersistency#instance) enumeration.
-- Enabled the [ICache](/interface/icache) object.
+- Using the [ConnectionPersistency.Instance](/enumeration/connectionpersistency#instance) enumeration.
+- [ICache](/interface/icache) is enabled.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -397,7 +395,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Otherwise, register it as transient.
+Otherwise, register as transient.
 
 
 ```csharp
@@ -412,8 +410,8 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Key Take-aways
 
-- The transaction argument is needed in every method in order for you to enable the Unit of Work (UOW).
-- The cache key argument is needed in the case you need to cache the result.
-- The interface is needed for dependency injection.
-- The singleton registration is needed for caching and connection persistency.
-- The repository must be short and precise on its purpose.
+- Pass the transaction argument in every method to support the Unit of Work (UOW) pattern.
+- Pass the cache key argument to enable result caching.
+- Define an interface to support dependency injection.
+- Register as singleton when caching or connection persistency is required.
+- Keep each repository focused on a single, well-defined purpose.

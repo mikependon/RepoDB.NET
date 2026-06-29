@@ -9,5 +9,5 @@ permalink: /mapper
 # Mappers
 {: .fs-9 }
 
-Override the default settings through your own customizations!
+Override default behaviors with custom mappings and configurations.
 {: .fs-6 .fw-300 }

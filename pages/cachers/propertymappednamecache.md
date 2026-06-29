@@ -12,10 +12,10 @@ parent: CACHERS
 
 ---
 
-A cacher class for the `System.Reflection.PropertyInfo`. Underneath, it uses the [PropertyMapper](/mapper/propertymapper) class to extract the results and caching it for future use.
+A cacher class for `System.Reflection.PropertyInfo` mapped names. It uses [PropertyMapper](/mapper/propertymapper) internally to extract results and caches them for future use.
 
 {: .important }
-> You should rely on this class rather than using the `nameof(Class.Property)` of C# when working against the property name.
+> Use this class instead of the C# `nameof(Class.Property)` expression when working with property names.
 
 ## Methods
 
@@ -26,7 +26,7 @@ Below are the methods available from this class.
 
 ## Usability
 
-You can simply call the `Get()` method of this class by passing the instance of `System.Reflection.PropertyInfo`.
+Call the `Get()` method by passing a `System.Reflection.PropertyInfo` instance:
 
 ```csharp
 var properties = PropertyCache.Get<Person>();
@@ -39,7 +39,7 @@ properties
     })
 ```
 
-Or via expression.
+Or via expression:
 
 ```csharp
 var mappedName = PropertyCache.Get<Person>(e => e.FirstName);
@@ -47,4 +47,4 @@ var mappedName = PropertyCache.Get<Person>(e => e.FirstName);
 ```
 
 {: .important }
-> The extraction is first checking the presence of the [Map](/attribute/map#property-mapping) attribute and extract the name-mapping from there, then checks the implicit-mapping, otherwise, it will use the `PropertyInfo.Name` of the `System.Reflection`.
+> The extraction checks for the [Map](/attribute/map#property-mapping) attribute first, then falls back to implicit mapping, and finally uses `PropertyInfo.Name` from `System.Reflection`.

@@ -17,30 +17,33 @@ A hybrid ORM library for .NET.
 ---
 
 {: .new }
-> We are introducing the insights capability in order for you to see the activity of the library within your application. Visit our [story](https://github.com/mikependon/RepoDB/issues/1217) to share your thoughts.
+> We are introducing an insights capability to expose library activity within your application. Stay tuned! Visit our [story](https://github.com/mikependon/RepoDB/issues/1217) to share your thoughts.
 
-{: .important }
-> You can report an issue by [creating a bug](https://github.com/mikependon/RepoDB/issues/new?assignees=mikependon&labels=bug&template=report-a-bug.md&title=Bug%3A+%3CYour+bug%2Fissue+title%3E) directly on our Github repository.
+{: .highlight }
+> Starting v1.14.0, the support to .NET 8, .NET 9 and .NET 10 has been introduced, while we have removed the support to .NET 6 and .NET 7 respectively.
 
-We are glad and thankful for your interest in learning [RepoDB](https://github.com/mikependon/RepoDb). It is an open-source .NET ORM library that bridges the gaps of micro-ORMs and macro-ORMs (aka Full-ORMs). It helps you simplify the switch-over of when to use the BASIC and ADVANCE operations during the development.
+[RepoDB](https://github.com/mikependon/RepoDb) is an open-source .NET ORM library that bridges the gap between micro-ORMs and macro-ORMs (full-ORMs). It simplifies the decision of when to use basic versus advanced data-access operations during development.
 
-The main goal of this library is to hugely improve your development experiences when working with data access technology in .NET ecosystem. We would like you to have an easy access to the underlying database capability while maintaining the good programming coding standard and practices.
+The library's primary goal is to improve developer productivity when working with data-access technology in the .NET ecosystem — providing direct access to underlying database capabilities while promoting clean coding standards and practices.
 
-## Well, Why?
+## Why RepoDB?
 
-If you are to use a full-fledged macro-ORM, you will most likely be abstracted by the framework itself. Though it is richer in features, it might limit you to touch and maximize the power of the underlying database being in-used.
+A full macro-ORM abstracts away the database, which — while feature-rich — can prevent you from fully leveraging the underlying database engine.
 
-On the other hand, if you are to use a bare-metal micro-ORM, there is a tendency that your implementations will be verbose (text-based as SQL). Though you have a lot control with this, it is also tedious and not practical in most cases.
+A bare-metal micro-ORM gives you fine-grained control, but implementations tend to be verbose and SQL-heavy, making them tedious and impractical at scale.
 
-RepoDB mediates both the micro-ORMs and macro-ORMs. It only requires a connection string to open a connection and the entire [feature sets](/feature) can then be utilized right away. It is the main reason why this library is the easiest-to-use ORM.
+RepoDB occupies the middle ground. It requires only a connection string to open a connection, after which the complete [feature set](/feature) is immediately available — making it the easiest-to-use ORM for .NET.
 
 ## Getting Started
 
-Please click any of the link below to fast-track your learnings about this library.
+Choose a database to get started quickly:
 
 - [SQL Server](/tutorial/get-started-sqlserver)
 - [SQLite](/tutorial/get-started-sqlite)
 - [MySQL](/tutorial/get-started-mysql)
 - [PostgreSQL](/tutorial/get-started-postgresql)
 
-Or, please visit our [installation](/tutorial/installation) page for more information, otherwise, visit our [docs](/docs) page to simplify your navigation.
+For setup instructions, visit the [installation](/tutorial/installation) page. For a full topic index, visit the [docs](/docs) page.
+
+{: .important }
+> Report issues by [creating a bug](https://github.com/mikependon/RepoDB/issues/new?assignees=mikependon&labels=bug&template=report-a-bug.md&title=Bug%3A+%3CYour+bug%2Fissue+title%3E) directly in our GitHub repository.

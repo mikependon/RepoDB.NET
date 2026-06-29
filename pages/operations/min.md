@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to compute the minimum value of the target field.
+This method computes the minimum value of the target field.
 
 ## Code Snippets
 
-Below is the sample code that gets the minimum value of column `Value` from the `[dbo].[Sales]` table for a specific customer since yesterday.
+The following example returns the minimum value of the `Value` column from the `[dbo].[Sales]` table for a specific customer since yesterday.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -27,7 +27,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table and field name like below.
+To target a specific table, pass the literal table and field name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -37,7 +37,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the WHERE expressions.
+Use [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) to build more complex WHERE expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -53,7 +53,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass a table hint via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -64,7 +64,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

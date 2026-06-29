@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to truncates a table from the database.
+This method truncates a table in the database.
 
 ## Code Snippets
 
-Below is the sample code that truncates the `[dbo].[Person]` table.
+The following example truncates the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -26,7 +26,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table and field name like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

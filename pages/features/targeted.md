@@ -12,16 +12,16 @@ parent: FEATURES
 
 ---
 
-This feature allows you to make a targeted invocation when executing the operations against the database. This feature is very useful if you do really care on the performance and efficiency of your execution against the database. The execution will help your application runs in a very efficient manner, as using the targeted operations completely eliminate the high-usage of the network traffic.
+This feature allows targeted invocation when executing operations against the database. It is particularly useful when performance and efficiency matter, as targeting specific columns eliminates unnecessary network traffic.
 
 {: .note }
-> Imagine you have a table/entity-model with plenty of columns/properties and you are only querying, inserting, merging or updating into the specific columns.
+> This is especially relevant when your table or entity model has many columns and you only need to query, insert, merge, or update a subset of them.
 
-In this page, let us say the `[dbo].[Customer]` table and the `Customer` entity-model has plenty of columns. You will see how the sample code below are targetting certain columns when calling the actual operation.
+The examples below assume the `[dbo].[Customer]` table and `Customer` entity model have many columns. Each example demonstrates how to target specific columns in the operation.
 
 ## Querying a Data
 
-Use the [Query](/operation/query) operation and pass the target fields to query.
+Use the [Query](/operation/query) operation and pass the target fields.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -37,7 +37,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -51,7 +51,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Querying Multiple Data
 
-Use the [QueryAll](/operation/queryall) operation and pass the target fields to query.
+Use the [QueryAll](/operation/queryall) operation and pass the target fields.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -66,7 +66,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -79,7 +79,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Inserting a Data
 
-Use the [Insert](/operation/insert) operation and pass the target fields to insert.
+Use the [Insert](/operation/insert) operation and pass the target fields.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -99,7 +99,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -114,7 +114,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics with fields.
+Or via dynamics with fields:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -132,7 +132,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Inserting Multiple Data
 
-Use the [InsertAll](/operation/insertall) operation and pass the target fields to insert.
+Use the [InsertAll](/operation/insertall) operation and pass the target fields.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -148,7 +148,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -159,7 +159,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics with fields.
+Or via dynamics with fields:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -174,7 +174,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Merging a Data
 
-Use the [Merge](/operation/merge) operation and pass the target fields to merge.
+Use the [Merge](/operation/merge) operation and pass the target fields.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -198,7 +198,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -215,7 +215,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics with fields.
+Or via dynamics with fields:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -236,7 +236,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Merging Multiple Data
 
-Use the [MergeAll](/operation/mergeall) operation and pass the target fields to merge.
+Use the [MergeAll](/operation/mergeall) operation and pass the target fields.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -252,7 +252,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -263,7 +263,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics with fields.
+Or via dynamics with fields:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -278,7 +278,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Updating a Data
 
-Use the [Update](/operation/update) operation and pass the target fields to update.
+Use the [Update](/operation/update) operation and pass the target fields.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -302,7 +302,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -319,7 +319,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics with fields.
+Or via dynamics with fields:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -340,7 +340,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Updating Multiple Data
 
-Use the [UpdateAll](/operation/updateall) operation and pass the target fields to update.
+Use the [UpdateAll](/operation/updateall) operation and pass the target fields.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -356,7 +356,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -367,7 +367,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics with fields.
+Or via dynamics with fields:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

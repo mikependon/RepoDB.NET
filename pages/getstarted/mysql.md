@@ -17,7 +17,7 @@ RepoDB is a hybrid .NET ORM library for MySQL RDBMS. The project is hosted at Gi
 
 ## Installation
 
-The library can be installed via Nuget. In your Package Manager Console, type the command below.
+Install the library via NuGet using the Package Manager Console.
 
 ### MySql.Data
 
@@ -25,7 +25,7 @@ The library can be installed via Nuget. In your Package Manager Console, type th
 > Install-Package RepoDb.MySql
 ```
 
-Once installed, call the globalized setup method to initialize all the dependencies for MySql.
+After installation, call the globalized setup method to initialize all dependencies for MySql.
 
 ```csharp
 GlobalConfiguration
@@ -33,7 +33,7 @@ GlobalConfiguration
 	.UseMySql();
 ```
 
-For the users prior the version 1.13.0, use the bootstrapper code below.
+For versions prior to 1.13.0, use the bootstrapper below.
 
 ```csharp
 RepoDb.MySqlBootstrap.Initialize();
@@ -45,7 +45,7 @@ RepoDb.MySqlBootstrap.Initialize();
 > Install-Package RepoDb.MySqlConnector
 ```
 
-Once installed, call the globalized setup method to initialize all the dependencies for MySql.
+After installation, call the globalized setup method to initialize all dependencies for MySql.
 
 ```csharp
 GlobalConfiguration
@@ -53,17 +53,17 @@ GlobalConfiguration
 	.UseMySqlConnector();
 ```
 
-For the users prior the version 1.13.0, use the bootstrapper code below.
+For versions prior to 1.13.0, use the bootstrapper below.
 
 ```csharp
 RepoDb.MySqlConnectorBootstrap.Initialize();
 ```
 
-Or, visit our [installation](/tutorial/installation) page for more information.
+For more information, visit the [installation](/tutorial/installation) page.
 
 ## Create a Table
 
-Let us say you have this table on your database.
+The examples below assume the following table exists in the database.
 
 ```csharp
 CREATE TABLE IF NOT EXISTS `Person`
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `Person`
 
 ## Create a Model
 
-And you have this model on your application.
+The examples below assume the following model exists in the application.
 
 ```csharp
 public class Person
@@ -91,7 +91,7 @@ public class Person
 
 ## Creating a Record
 
-To create a row, use the [Insert](/operation/insert) method.
+To insert a row, use the [Insert](/operation/insert) method.
 
 ```csharp
 var person = new Person
@@ -127,17 +127,17 @@ To query a row, use the [Query](/operation/query) method.
 using (var connection = new MySqlConnection(ConnectionString))
 {
     var person = connection.Query<Person>(e => e.Id == 1);
-    /* Do the stuffs for the 'person' here */
+    /* Process the result here */
 }
 ```
 
-To query all the rows, use the [QueryAll](/operation/queryall) method.
+To query all rows, use the [QueryAll](/operation/queryall) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
 {
     var people = connection.QueryAll<Person>();
-    /* Do the stuffs for the 'people' here */
+    /* Process the results here */
 }
 ```
 
@@ -159,7 +159,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary column is used as a qualifier. You can also customize the qualifiers with other columns.
+By default, the primary column is used as a qualifier. Custom qualifiers can also be specified.
 
 ```csharp
 var person = new Person
@@ -174,7 +174,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To merge all the rows, use the [MergeAll](/operation/mergeall) method.
+To merge multiple rows, use the [MergeAll](/operation/mergeall) method.
 
 ```csharp
 var people = GetPeople(100);
@@ -201,7 +201,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary column is used as a qualifier, but you can also use the other columns like below.
+Other columns can also be used as qualifiers.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -210,7 +210,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To delete all the rows, use the [DeleteAll](/operation/deleteall) method.
+To delete all rows, use the [DeleteAll](/operation/deleteall) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -219,7 +219,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-You can also pass the list of primary keys to be deleted.
+A list of primary keys can also be passed for targeted deletion.
 
 ```csharp
 using (var connection = new MySqlConnection(connectionString))
@@ -250,7 +250,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-You can also update via dynamic by targeting certain columns.
+Specific columns can also be targeted using a dynamic update.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -259,7 +259,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To update all the rows, use the [UpdateAll](/operation/updateall) method.
+To update multiple rows, use the [UpdateAll](/operation/updateall) method.
 
 ```csharp
 var people = GetPeople(100);
@@ -272,7 +272,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary column is used as a qualifier, but you can also specify your custom qualifiers.
+By default, the primary column is used as a qualifier. Custom qualifiers can also be specified.
 
 ```csharp
 var people = GetPeople(100);
@@ -291,7 +291,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 
 ## Executing a Query
 
-To execute a query, use the [ExecuteNonQuery](/operation/executenonquery) method.
+To execute a non-query statement, use the [ExecuteNonQuery](/operation/executenonquery) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -301,18 +301,18 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of class object, use the [ExecuteQuery](/operation/executequery) method.
+To execute a query and return mapped objects, use the [ExecuteQuery](/operation/executequery) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
 {
     var sql = "SELECT * FROM `Person` ORDER BY Id ASC;";
     var people = connection.ExecuteQuery<Person>(sql);
-    /* Do the stuffs for the 'people' here */
+    /* Process the results here */
 }
 ```
 
-To execute a query while expecting a single result, use the [ExecuteScalar](/operation/executescalar) method.
+To execute a query and return a scalar value, use the [ExecuteScalar](/operation/executescalar) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -322,7 +322,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object, use the [ExecuteReader](/operation/executereader) method.
+To execute a query and return a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0), use the [ExecuteReader](/operation/executereader) method.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -330,14 +330,14 @@ using (var connection = new MySqlConnection(ConnectionString))
     var sql = "SELECT * FROM `Person` ORDER BY Id ASC;";
     using (var reader = connection.ExecuteReader(sql))
     {
-        /* Do the stuffs for the data reader here */
+        /* Process the data reader here */
     }
 }
 ```
 
 ## Typed Result Execution
 
-You can infer the single-column resultsets to any .NET CLR type via [ExecuteQuery](/operation/executequery) operation.
+Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](/operation/executequery).
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -347,7 +347,7 @@ using (var connection = new MySqlConnection(ConnectionString))
 }
 ```
 
-And even with the enumerations.
+Enumeration types are also supported.
 
 ```csharp
 public enum Gender
@@ -356,8 +356,6 @@ public enum Gender
     Female
 }
 ```
-
-Then, call it like below.
 
 ```csharp
 using (var connection = new MySqlConnection(ConnectionString))
@@ -368,4 +366,4 @@ using (var connection = new MySqlConnection(ConnectionString))
 ```
 
 {: .note }
-> The resultset of this operation is an [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+> The resultset of this operation is an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.

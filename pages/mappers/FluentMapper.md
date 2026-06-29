@@ -12,7 +12,7 @@ parent: MAPPERS
 
 ---
 
-A mapper classed that is being used to define the mappings for both data entity and .NET CLR type. This class has been introduced to help the developers manage the mappings implicitly (by avoiding decorating the classes with different attributes).
+A mapper class for defining mappings for data entities and .NET CLR types. It enables implicit mapping configuration without requiring attribute decorations on classes.
 
 ### Methods
 
@@ -33,7 +33,7 @@ Below is the list of methods.
 
 ### Entity Mapping
 
-To define the mappings for specific data entity type, use the `Entity()` method. It uses the [EntityMapFluentDefinition](/class/entitymapfluentdefinition) class to manage the mappings.
+To define mappings for a specific data entity type, use the `Entity()` method. It uses [EntityMapFluentDefinition](/class/entitymapfluentdefinition) to manage the mappings.
 
 ```csharp
 FluentMapper
@@ -58,7 +58,7 @@ FluentMapper
 
 ### Type-Level Mapping
 
-To define the mappings for a specific .NET CLR type, use the `Type()` method. It uses the [TypeMapFluentDefinition](/class/typemapfluentdefinition) class to manage the mappings.
+To define mappings for a specific .NET CLR type, use the `Type()` method. It uses [TypeMapFluentDefinition](/class/typemapfluentdefinition) to manage the mappings.
 
 ```csharp
 FluentMapper
@@ -68,4 +68,4 @@ FluentMapper
 ```
 
 {: .note }
-> By using the type-level mapping, all data entity properties with the same type will be affected.
+> Type-level mappings apply to all data entity properties of the same type.

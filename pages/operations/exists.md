@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to check whether the rows are existing in the table.
+This method checks whether matching rows exist in a table.
 
 ## Code Snippets
 
-Below is the sample code to check whether a row is existing from the `[dbo].[Person]` table.
+The following example checks whether a row exists in the `[dbo].[Person]` table by primary key.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -24,7 +24,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the Linq to enhance the expression.
+A LINQ expression can also be used:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -36,7 +36,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table and field name like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -45,7 +45,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) to enhance the expression.
+Use [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) to build more complex expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -61,7 +61,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass a table hint via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -71,7 +71,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

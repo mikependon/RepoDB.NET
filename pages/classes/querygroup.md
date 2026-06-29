@@ -12,21 +12,19 @@ parent: CLASSES
 
 ---
 
-This class is used to group the list of fields used in the query expressions. It usually refers to a group of fields at the WHERE statement of the SQL statement.
+Groups a list of fields used in query expressions, corresponding to a grouped `WHERE` clause in SQL.
 
-It contains the list of child Query Group(s) and [QueryField](/class/queryfield)(s), [Conjunction](/enumeration/conjunction) and the unary expression of `NOT`.
+It holds child `QueryGroup`(s), [QueryField](/class/queryfield)(s), a [Conjunction](/enumeration/conjunction), and an optional `NOT` unary expression.
 
-By using this class, it would increase the performance of your application as the library's core implementation is very dependent on the tree structuring of the query objects.
+Using this class improves performance because the library's core implementation relies on tree-structured query objects.
 
 ## Creating an Instance
-
-Below is the way on how to create an instance of this class.
 
 ```csharp
 var field = new QueryGroup(new QueryField("Id", 10045));
 ```
 
-Or, by passing an array of [QueryField](/class/queryfield) objects.
+Or with an array of [QueryField](/class/queryfield) objects.
 
 ```csharp
 var queryFields = new []
@@ -38,7 +36,7 @@ var queryFields = new []
 var queryGroup = new QueryGroup(queryFields);
 ```
 
-Also, you can pass a child query group to further deepen the tree expressions.
+Child query groups can be nested for deeper expression trees.
 
 ```csharp
 var whereA = new []
@@ -58,7 +56,7 @@ var queryGroup = new QueryGroup(new [] { new QueryGroup(whereA), new QueryGroup(
 
 ## Creating through Parse
 
-You can also create a query group by parsing any object (.NET CLR Types or Dynamic).
+Create a query group by parsing an object (.NET CLR type or dynamic).
 
 ```csharp
 var param = new // This is a dynamic, can also be .NET CLR type
@@ -70,9 +68,9 @@ var queryGroup = QueryGroup.Parse(param);
 ```
 
 {: .important }
-> Using the above parse method, all the parsed fields will always have the `Equal` operation.
+> All fields parsed via this method use the `Equal` operation.
 
-Or, via expression.
+Or via expression.
 
 ```csharp
 var queryGroup = QueryGroup.Parse<Person>(p => p.LastName == "Doe" && State == "Michigan");
@@ -80,7 +78,7 @@ var queryGroup = QueryGroup.Parse<Person>(p => p.LastName == "Doe" && State == "
 
 ## Setting the Conjunction
 
-By default, the conjuction is equals to `AND`. Let us say you have the code snippets below.
+By default, the conjunction is `AND`.
 
 ```csharp
 var queryFields = new []
@@ -92,13 +90,13 @@ var queryFields = new []
 var queryGroup = new QueryGroup(queryFields);
 ```
 
-The SQL statement expression will be generated as follows.
+Generated SQL:
 
 ```csharp
 > WHERE ([LastName] LIKE @LastName AND [State] = @State AND [Age] BETWEEN (@Age_1, @Age_2));
 ```
 
-You can change it by passing the conjunction value to `OR`.
+Pass `Conjunction.Or` to use `OR`.
 
 ```csharp
 var queryFields = new []
@@ -110,7 +108,7 @@ var queryFields = new []
 var queryGroup = new QueryGroup(queryFields, Conjunction.Or);
 ```
 
-And the SQL statement will be generated as below.
+Generated SQL:
 
 ```csharp
 > WHERE ([LastName] LIKE @LastName OR [State] = @State OR [Age] BETWEEN (@Age_1, @Age_2));
@@ -118,11 +116,9 @@ And the SQL statement will be generated as below.
 
 ## Unary IS NOT
 
-There is a scenario where we are negating the condition of the expressions by simply reversing the logic.
+Use the `IsNot` property to negate the entire group expression.
 
-This is being solved by this `IsNot` property.
-
-Let us say, you would to query all the people records that is not-active and not-male.
+To query all records that are not active and not male:
 
 ```csharp
 var queryFields = new []
@@ -133,30 +129,30 @@ var queryFields = new []
 var queryGroup = new QueryGroup(queryFields);
 ```
 
-The statement above will generate a SQL below.
+Default SQL:
 
 ```csharp
 > WHERE ([IsActive] = @IsActive OR [Gender] = @Gender);
 ```
 
-To negate, simply pass the value of `true` in the `isNot` constructor argument.
+Pass `true` to `isNot` to negate:
 
 ```csharp
 var queryGroup = new QueryGroup(queryFields, true);
 ```
 
-Then, the statement will be generated as below.
+Negated SQL:
 
 ```csharp
 > WHERE NOT ([IsActive] = @IsActive OR [Gender] = @Gender);
 ```
 
 {: .important }
-> By default, the value is `false`. Please be reminded that negating does not gives you the most performant condition when writing SQL. It still recommended to create a targeted query expression rather than negating it.
+> The default value is `false`. Prefer explicit targeted expressions over negation for better query performance.
 
 ## Getting all the Children
 
-To retrieve the child Query Group(s), use the `QueryGroups` property.
+Use the `QueryGroups` property to retrieve child `QueryGroup`(s).
 
 ```csharp
 var whereA = new QueryField("FirstName", Operation.Like, "J%");
@@ -180,14 +176,14 @@ var queryGroups = queryGroup.QueryGroups;
 // There will be 2 QueryGroup(s) at the 'queryGroups' variable
 ```
 
-To retrieve the child [QueryField](/class/queryfield)(s), use the `QueryFields` property.
+Use the `QueryFields` property to retrieve child [QueryField](/class/queryfield)(s).
 
 ```csharp
 var queryFields = queryGroup.QueryFiels;
 // There will be 1 QueryField at the 'queryFields' variable
 ```
 
-However, you can use the `GetFields()` method to get all traversed [QueryField](/class/queryfield) objects.
+Use `GetFields()` to retrieve all [QueryField](/class/queryfield) objects recursively.
 
 ```csharp
 var queryFields = queryGroup.GetFields(true);
@@ -196,7 +192,7 @@ var queryFields = queryGroup.GetFields(true);
 
 ## Converting to an Enumerable
 
-You can call the `AsEnumerable()` method to convert the instance of this class to an `IEnumerable<QueryGroup>` object.
+Call `AsEnumerable()` to convert the instance to an `IEnumerable<QueryGroup>`.
 
 ```csharp
 var queryField = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1));
@@ -205,11 +201,11 @@ var queryGroup = new QueryGroup(queryField).AsEnumerable();
 
 ## Use-Cases
 
-We recommend you to visit the [use-cases](/class/queryfield#use-cases) section of the [QueryField](/class/queryfield) class.
+See the [use-cases](/class/queryfield#use-cases) section of the [QueryField](/class/queryfield) class.
 
 ## Retrieving the Conjunction Text
 
-To retrieve the text of the [Conjunction](/operation/conjunction), simply call the `GetConjunctionText()` method.
+Call `GetConjunctionText()` to retrieve the SQL conjunction string.
 
 ```csharp
 var where = new []
@@ -222,15 +218,13 @@ var queryGroup = new QueryGroup(where);
 var conjunction = queryGroup.GetConjunctionText();
 ```
 
-The value of the `conjunction` variable would be `AND`.
+The value of `conjunction` is `AND`.
 
 ## The Fix Method
 
-This method is used within the library core's implementation when it comes to the execution of the actual operation.
+Used internally to resolve parameter name collisions before execution.
 
-The purpose of this method is to fix the possible collision of the parameter names.
-
-Let us say you have created this expression.
+Given this expression:
 
 ```csharp
 var whereA = new QueryField("FirstName", Operation.Like, "J%");
@@ -239,21 +233,19 @@ var whereC = new QueryField("FirstName", Operation.Like, "G%");
 var queryGroup = new QueryGroup(new [] { whereA, whereB, whereC });
 ```
 
-The supposed generated SQL text will be below.
+The raw SQL would incorrectly generate duplicate parameter names:
 
 ```csharp
 > WHERE (FirstName = @FirstName AND FirstName = @FirstName AND FirstName = @FirstName);
 ```
 
-The SQL statement may not caused any problem when it comes to execution, but that is wrong when it comes to parameter-passing.
-
-By calling the `Fix()` method, this collision will be fixed along the way.
+Calling `Fix()` resolves the collision:
 
 ```csharp
 queryGroup.Fix();
 ```
 
-And the SQL statement will be generated as below.
+Fixed SQL:
 
 ```csharp
 > WHERE (FirstName = @FirstName AND FirstName = @FirstName_1 AND FirstName = @FirstName_2);
@@ -261,7 +253,7 @@ And the SQL statement will be generated as below.
 
 ## The GetString Method
 
-This method is used to get the string representation of the QueryGroup object into a SQL statement. This is used internally by the library during the creation of the SQL statements.
+Returns the SQL `WHERE` clause string for this group. Used internally during SQL statement construction.
 
 ```csharp
 var where = new[]
@@ -274,7 +266,7 @@ var queryGroup = new QueryGroup(where);
 var whereText = queryGroup.GetString(connection.GetDbSetting());
 ```
 
-The value of the `whereText` variable would be like below.
+The resulting value:
 
 ```csharp
 ([LastName] LIKE @LastName AND [State] = @State AND [Age] NOT BETWEEN @Age_Left AND @Age_Right)
@@ -282,9 +274,7 @@ The value of the `whereText` variable would be like below.
 
 ## Reusability
 
-We sometimes have a scenario to reuse the instance of this class just to avoid creating the same expression.
-
-To reuse the instance, simply call the `Reset()` method.
+Call `Reset()` to reuse an existing instance without recreating the expression.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -311,4 +301,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> Above calls was happened at the `IEnumerable<QueryGroup>` object. You can also call the `Reset()` method on an instance basis.
+> The `Reset()` call above applies to the `IEnumerable<QueryGroup>` collection. It can also be called on individual instances.

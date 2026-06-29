@@ -10,5 +10,5 @@ parent: ATTRIBUTES
 # Attributes
 {: .fs-9 }
 
-Decorate your SqlParameter object.
+Attributes for decorating SqlParameter objects.
 {: .fs-6 .fw-300 }

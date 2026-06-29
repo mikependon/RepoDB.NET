@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 sidebar: operations
 title: "BinaryBulkDeleteByKey"
@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to delete the rows from the database via the list of primary keys by bulk. It is only supporting the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This method deletes rows from the database using a list of primary keys in bulk. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 
 ## Call Flow Diagram
 
@@ -21,18 +21,18 @@ The diagram below shows the flow when calling this operation.
 
 ## Use Case
 
-This method is very useful if you would like to delete the rows from the database (via a list of primary keys) in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from the Npgsql library (via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class).
+Use this method to delete rows by primary key at high speed. It leverages the native bulk operation from the Npgsql library via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class.
 
 ## Special Arguments
 
-A `pseudoTableType` argument is provided on this operation to define a value whether a physical pseudo-table will be created during the operation. By default, a temporary table is used.
+The `pseudoTableType` argument controls whether a physical pseudo-table is created during the operation. Defaults to a temporary table.
 
 {: .important }
-> It is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
+> It is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
 ## Usability
 
-Simply pass the list of primary keys on the operation.
+Pass the list of primary keys to the operation.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -46,7 +46,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 {: .note }
 > It returns the number of rows deleted from the underlying table.
 
-And below if you would like to specify the batch size.
+To specify a batch size:
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -59,11 +59,11 @@ using (var connection = new NpgsqlConnection(connectionString))
 ```
 
 {: .important }
-> If the `batchSize` argument is not set, then all the items from the collection will be sent and used.
+> If `batchSize` is not set, all items in the collection are sent at once.
 
 ## Physical Temporary Table
 
-To use a physical pseudo-temporary table, simply pass the [BulkImportPseudoTableType.Temporary](/enumerations/bulkimportpseudotabletype#physical) value in the `pseudoTableType` argument.
+To use a physical pseudo-temporary table, pass [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -76,4 +76,5 @@ using (var connection = new NpgsqlConnection(connectionString))
 ```
 
 {: .note }
-> By using the actual pseudo physical temporary table, it will further help you maximize the performance over using the normal temporary table. However, you need to be aware that the table is shared to any call, so parallelism may fail on this scenario.
+> A physical pseudo-temporary table improves performance over a standard temporary table, but is shared across all calls. Parallelism may fail in this scenario.
+

@@ -12,15 +12,15 @@ parent: CLASSES
 
 ---
 
-This class is used to compose a SQL statement in a fluent manner. It is very fluent as it only appending the specific string based on the name of the methods.
+This class composes SQL statements fluently by appending SQL tokens based on method names.
 
 {: .note }
-> Some methods accepts an argument of classes and objects and that will automatically be converted to a SQL text.
+> Some methods accept class or object arguments that are automatically converted to SQL text.
 
 ## Use-Cases
 
-- It is used in [IStatementBuilder](/interface/istatementbuilder) when composing a SQL text.
-- It is used to compose a SQL statement in a fluent manner.
+- Composing SQL text in [IStatementBuilder](/interface/istatementbuilder) implementations.
+- Building SQL statements fluently in application code.
 
 ## Creating an Instance
 
@@ -30,9 +30,7 @@ var querybuilder = new QueryBuilder();
 
 ## Composing a simple Query Statement
 
-Below is the way on how to create a very simple query SQL statement for [ExecuteQuery](/operation/executequery) execution.
-
-Let us say you have a `Person` class that targets the `[dbo].[Person]` table.
+The following builds a simple `SELECT` statement for use with [ExecuteQuery](/operation/executequery).
 
 ```csharp
 var dbSetting = DbSettingMapper.Get(typeof(SqlConnection)); // Get the setting for SqlConnection
@@ -48,13 +46,13 @@ var statement = queryBuilder
     .GetString(); // This will append the ';' character at the end
 ```
 
-The result of this would be.
+The result:
 
 ```csharp
 > SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person];
 ```
 
-And you can then execute it like below.
+Execute it as follows:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -65,7 +63,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Passing the QueryGroup
 
-To pass a [QueryGroup](/class/querygroup), use the `WhereFrom()` method.
+Use the `WhereFrom()` method to append a [QueryGroup](/class/querygroup).
 
 ```csharp
 var dbSetting = DbSettingMapper.Get(typeof(SqlConnection));
@@ -83,7 +81,7 @@ var statement = queryBuilder
     .GetString();
 ```
 
-The result of this would be.
+The result:
 
 ```csharp
 > SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person] WHERE ([State] = @State);
@@ -91,7 +89,7 @@ The result of this would be.
 
 ## Passing the Row Limit
 
-To pass a row limit, simply call the `TopFrom()` method.
+Use the `TopFrom()` method to limit rows.
 
 ```csharp
 var dbSetting = DbSettingMapper.Get(typeof(SqlConnection));
@@ -108,7 +106,7 @@ var statement = queryBuilder
     .GetString();
 ```
 
-The result of this would be.
+The result:
 
 ```csharp
 > SELECT TOP (10) [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person];
@@ -116,7 +114,7 @@ The result of this would be.
 
 ## Ordering the Results
 
-To order a result, simply call the `OrderByFrom()` method.
+Use the `OrderByFrom()` method to sort results.
 
 ```csharp
 var dbSetting = DbSettingMapper.Get(typeof(SqlConnection));
@@ -134,7 +132,7 @@ var statement = queryBuilder
     .GetString();
 ```
 
-The result of this would be.
+The result:
 
 ```csharp
 > SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person] ORDER BY [Name] ASC ;
@@ -142,7 +140,7 @@ The result of this would be.
 
 ## Passing a Hints
 
-To pass a hints, simply call the `HintsFrom()` method.
+Use the `HintsFrom()` method to append table hints.
 
 ```csharp
 var dbSetting = DbSettingMapper.Get(typeof(SqlConnection));
@@ -159,7 +157,7 @@ var statement = queryBuilder
     .GetString();
 ```
 
-The result of this would be.
+The result:
 
 ```csharp
 > SELECT [Id], [Name], [IsActive], [DateInsertedUtc] FROM [dbo].[Person] WITH (NOLOCK) ;
@@ -167,9 +165,9 @@ The result of this would be.
 
 ## The WriteText Method
 
-This method is a generic method to be used in order to support the non-existing data-provider specific methods. This can be used anytime for the sake of SQL statement generation.
+`WriteText` is a generic method for inserting arbitrary SQL text, useful for provider-specific syntax not covered by built-in methods.
 
-Below is the sample code snippets that generates a CTE based `SELECT` query.
+The following example generates a CTE-based `SELECT` query.
 
 ```csharp
 var dbSetting = DbSettingMapper.Get(typeof(SqlConnection));
@@ -192,7 +190,7 @@ var statement = queryBuilder
     .GetString();
 ```
 
-The result of this would be.
+The result:
 
 ```csharp
 WITH CTE AS
@@ -207,4 +205,4 @@ SELECT * FROM CTE;
 ```
 
 {: .note }
-> This class has a rich method-sets that can be used during the composition of the SQL Text. It can also be used when composing an `INSERT`, `DELETE`, `UPDATE` or whatever statement you wished to create.
+> This class provides a rich set of methods for composing any SQL statement, including `INSERT`, `DELETE`, `UPDATE`, and more.

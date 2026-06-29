@@ -12,21 +12,21 @@ parent: FEATURES
 
 ---
 
-This is a feature that allows you to fetch multiple resultsets in a single call from the database. Both the [ExecuteQueryMultiple](/operation/executequerymultiple) and [QueryMultiple](/operation/querymultiple) operations were provided to address this need.
+This feature allows you to fetch multiple result sets in a single database call. Both [ExecuteQueryMultiple](/operation/executequerymultiple) and [QueryMultiple](/operation/querymultiple) operations are provided for this purpose.
 
-The [ExecuteQueryMultiple](/operation/executequerymultiple) is a raw method that would allow you to pass your own SQL statement for execution, whereas the [QueryMultiple](/operation/querymultiple) is a fluent-method that would allow you to pass a Linq-based query expression and have the library automatically compose the SQL statement for you.
+[ExecuteQueryMultiple](/operation/executequerymultiple) accepts a raw SQL statement, while [QueryMultiple](/operation/querymultiple) accepts a Linq-based query expression and generates the SQL statement automatically.
 
-The underlying implementation of this feature is abstracting both the [Read()](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader.read?view=net-6.0) and [NextResult()](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader.nextresult?view=net-7.0) methods of the the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object.
+Both operations abstract the [Read()](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader.read?view=net-6.0) and [NextResult()](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader.nextresult?view=net-7.0) methods of the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object.
 
 ## Type of Return Types
 
-The the method [ExecuteQueryMultiple](/operation/executequerymultiple) is returning an instance of [QueryMultipleExtractor](/class/querymultipleextractor). It allows you to control and manage the way on how to extract the resultsets. The execution is differed as it is relying on the explicit calls you are making towards the `Extract()` and `Scalar()` methods.
+[ExecuteQueryMultiple](/operation/executequerymultiple) returns an instance of [QueryMultipleExtractor](/class/querymultipleextractor), which provides control over how result sets are extracted. Execution is deferred until explicit calls to the `Extract()` or `Scalar()` methods are made.
 
-However, method [QueryMultiple](/operation/querymultiple) is returning an instance of [Tuple](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples) object. It has a maximum of 7 generic types, also defined as max types for the [Tuple](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples) object. The pointer to the item properties of the [Tuple](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples) object is dependent to the order of the generic types passed during the call.
+[QueryMultiple](/operation/querymultiple) returns a [Tuple](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples) instance with a maximum of 7 generic types, matching the maximum defined for [Tuple](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples). The item properties of the tuple correspond to the order of the generic types passed during the call.
 
 ## Hints
 
-The hints were provided as part of the execution. For [ExecuteQueryMultiple](/operation/executequerymultiple) method, you can write your own hints as you are the one composing the SQL statement. For the [QueryMultiple](/class/sqlservertablehints) method, each order of execution has an equivalent `hints` argument that you can use.
+For [ExecuteQueryMultiple](/operation/executequerymultiple), hints are written directly in the SQL statement. For [QueryMultiple](/class/sqlservertablehints), each query in the execution has a corresponding `hints` argument.
 
 ```csharp
 var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
@@ -35,7 +35,7 @@ var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id ==
     hints2: "WITH (NOLOCK)"); // Hints for Order
 ```
 
-To simplify the usage, use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Use the [SqlServerTableHints](/class/sqlservertablehints) class to simplify hint values:
 
 ```csharp
 var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
@@ -46,7 +46,7 @@ var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id ==
 
 ## Ordering
 
-The result ordering is available via [OrderField](/class/orderfield) class as part of the execution. For [ExecuteQueryMultiple](/operation/executequerymultiple) method, you can write your own ordering during the SQL statement composition. For the [QueryMultiple](/class/sqlservertablehints) method, each order of execution has equivalent `orderBy` argument that you can use.
+For [ExecuteQueryMultiple](/operation/executequerymultiple), ordering is written directly into the SQL statement. For [QueryMultiple](/class/sqlservertablehints), each query has a corresponding `orderBy` argument via the [OrderField](/class/orderfield) class.
 
 ```csharp
 var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
@@ -57,7 +57,7 @@ var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id ==
 
 ## Filtering
 
-The result filtering is available by simply passing the number of rows during the execution. For [ExecuteQueryMultiple](/operation/executequerymultiple) method, you can write your `TOP` or `LIMIT` keyword during SQL statement composition. For the [QueryMultiple](/class/sqlservertablehints) method, each order of execution has equivalent `top` argument that you can use.
+For [ExecuteQueryMultiple](/operation/executequerymultiple), filtering is written using `TOP` or `LIMIT` in the SQL statement. For [QueryMultiple](/class/sqlservertablehints), each query has a corresponding `top` argument.
 
 ```csharp
 var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
@@ -68,7 +68,7 @@ var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id ==
 
 ## Single Parent with Multiple Children
 
-For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
+For raw SQL, use the [ExecuteQueryMultiple](/operation/executequerymultiple) method:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -91,7 +91,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-For fluent-method, you can call the [QueryMultiple](/operation/querymultiple) method as below.
+For the fluent method, use [QueryMultiple](/operation/querymultiple):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -118,7 +118,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Querying Multiple Parent and Multiple Children
 
-For raw-SQL, call the [ExecuteQueryMultiple](/operation/executequerymultiple) method.
+For raw SQL, use the [ExecuteQueryMultiple](/operation/executequerymultiple) method:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -142,7 +142,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-For fluent-method, you can call the [QueryMultiple](/operation/querymultiple) method as below.
+For the fluent method, use [QueryMultiple](/operation/querymultiple):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -164,5 +164,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> You can as well visit our [Multiple Resultsets](/reference/multipleresultsets) reference implementation page for more details.
-
+> Please visit our [Multiple Resultsets](/reference/multipleresultsets) reference implementation page for more details.

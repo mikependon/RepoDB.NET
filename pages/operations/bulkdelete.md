@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to delete the target rows from the database by bulk. It is only supporting the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
+This method deletes rows from the database in bulk. It is supported only for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 
 ## Call Flow Diagram
 
@@ -21,30 +21,30 @@ The diagram below shows the flow when calling this operation.
 
 ## Use Case
 
-This method is very useful if you are deleting multiple rows from the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via [SqlBulkCopy](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlbulkcopy?view=dotnet-plat-ext-7.0) class).
+Use this method to delete rows at high speed. It leverages the native bulk operation from ADO.NET via the [SqlBulkCopy](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlbulkcopy?view=dotnet-plat-ext-7.0) class.
 
-If you are working to delete a range of rows from 1000 or more, then use this method over the [DeleteAll](/operation/deleteall) operation.
+For deleting 1,000 or more rows, prefer this method over [DeleteAll](/operation/deleteall).
 
 ## Special Arguments
 
-The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
+The `qualifiers` and `usePhysicalPseudoTempTable` arguments are available for this operation.
 
-The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statement. If not given, the primary column will be used.
+`qualifiers` defines the qualifier fields used in the operation, corresponding to the WHERE clause. Defaults to the primary column if not specified.
 
-The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
+`usePhysicalPseudoTempTable` controls whether a physical pseudo-table is created during the operation. Defaults to a temporary table (e.g., `#TableName`).
 
 {: .important }
-> It is not recommended to enable the `usePhysicalPseudoTempTable` argument if you are to work with parallelism. Ensure to always utilize the session-based non-physical pseudo-temporary table when working with parallelism.
+> Do not enable `usePhysicalPseudoTempTable` when using parallelism. Always use the session-based non-physical pseudo-temporary table in parallel scenarios.
 
 ## Caveats
 
-RepoDB is automatically setting the value of the `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an IDENTITY primary key column. The same logic will apply if there is no primary key but has an IDENTITY column defined in the table.
+RepoDB automatically sets `options` to `SqlBulkCopyOptions.KeepIdentity` when no qualifiers are provided and the table has an IDENTITY primary key column. The same applies when there is no primary key but an IDENTITY column is defined.
 
-In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a [SqlException](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlexception?view=dotnet-plat-ext-6.0) will be thrown.
+This operation creates a pseudo-temporary table internally. The database user must have permission to create tables, or a [SqlException](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlexception?view=dotnet-plat-ext-6.0) will be thrown.
 
 ## Usability
 
-Let us say you are retrieving all the inactive people from the database.
+The following example retrieves all inactive people, then bulk-deletes them from the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -53,8 +53,6 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Then, below is the code that bulk-deletes all those inactive rows from the `[dbo].[Person]` table.
-
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
@@ -62,7 +60,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-And below if you would like to specify the batch size.
+To specify a batch size:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -72,11 +70,9 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> By default, the batch size is 10, equals to `Constant.DefaultBatchOperationSize` value.
+> By default, the batch size is 10, equal to the `Constant.DefaultBatchOperationSize` value.
 
 #### DataTable
-
-Below is the sample code to bulk-delete via data table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -87,8 +83,6 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 #### Dictionary/ExpandoObject
-
-Below is the sample code to bulk-delete via `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -102,8 +96,6 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 ```
 
 #### DataReader
-
-Below is the sample code to bulk-delete via [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -120,7 +112,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table and field name like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -131,7 +123,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Field Qualifiers
 
-By default, this operation is using the primary column as the qualifier. You can override the qualifiers by simply passing the list of [Field](/class/field) object in the `qualifiers` argument.
+By default, the primary column is used as the qualifier. To override, pass a list of [Field](/class/field) objects in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -141,14 +133,12 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or by parsing the field expression.
-
 {: .important }
-> When using the qualifiers, we recommend that you use the list of columns that has the correct index from the original table.
+> Use indexed columns from the target table as qualifiers to maximize performance.
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass a table hint via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -159,7 +149,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -172,7 +162,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Physical Temporary Table
 
-To use a physical pseudo-temporary table, simply pass `true` in the `usePhysicalPseudoTempTable` argument.
+To use a physical pseudo-temporary table, pass `true` in the `usePhysicalPseudoTempTable` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -184,4 +174,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> By using the actual pseudo physical temporary table, it will further help you maximize the performance over using the normal temporary table. However, you need to be aware that the table is shared to any call, so parallelism may fail on this scenario.
+> A physical pseudo-temporary table improves performance over a standard temporary table, but is shared across all calls. Parallelism may fail in this scenario.

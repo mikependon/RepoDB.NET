@@ -12,7 +12,7 @@ parent: CACHERS
 
 ---
 
-A cacher class for the class identity property. Underneath, it uses the [IdentityMapper](/mapper/identitymapper) class to extract the results and caching it for future use.
+A cacher class for the class identity property. It uses [IdentityMapper](/mapper/identitymapper) internally to extract results and caches them for future use.
 
 ## Methods
 
@@ -23,14 +23,14 @@ Below are the methods available from this class.
 
 ## Usability
 
-You can simply call the `Get()` method of this class by passing the class type.
+Call the `Get()` method by passing the class type:
 
 ```csharp
 var identity = IdentityCache.Get(typeof(Person));
 // Use the 'identity' here
 ```
 
-Or, via generic type.
+Or via generic type:
 
 ```csharp
 var identity = IdentityCache.Get<Person>();
@@ -38,4 +38,4 @@ var identity = IdentityCache.Get<Person>();
 ```
 
 {: .note }
-> Internally, it uses the [IdentityMapper](/mapper/identitymapper) and [PropertyCache](/cacher/propertycache) classes to extract the list of [ClassProperty](/class/classproperty) and filter the result using the given [IsIdentity()](/class/classproperty#isidentity) method.
+> Internally, it uses [IdentityMapper](/mapper/identitymapper) and [PropertyCache](/cacher/propertycache) to extract [ClassProperty](/class/classproperty) objects and filter them using [IsIdentity()](/class/classproperty#isidentity).

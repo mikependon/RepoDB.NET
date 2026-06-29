@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to execute a raw-SQL directly towards the database. It returns an [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object. This method supports all types of RDMBS data providers.
+This method executes a raw SQL statement directly against the database and returns an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object. It supports all RDBMS data providers.
 
 ## Code Snippets
 
-Below is a code that query all the rows from the `[dbo].[Person]` table from the database.
+The following example queries all rows from the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -24,7 +24,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Returning the enumerable of dynamic objects. The type of the dynamic object is an [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
+Returning an enumerable of dynamic objects (typed as [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0)):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -33,7 +33,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Returning the enumerable of [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) objects.
+Returning an enumerable of [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -42,7 +42,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Returning the enumerable of [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0) objects.
+Returning an enumerable of [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -52,11 +52,11 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-You can as well pass an anonymous type in the generic type `TResult` of the [ExecuteQuery](/operation/executequery) operation. This scenario is very important to the F# programming language.
+An anonymous type can also be passed as the generic type `TResult`. This is particularly useful in F#.
 
 ## Typed Result
 
-You can infer the result back to any .NET CLR Type.
+The result can be inferred as any .NET CLR type.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -65,7 +65,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or for the other types like [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0) and [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0).
+Or for other types such as [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0) and [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -75,7 +75,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-And also for the `Enum` types.
+`Enum` types are also supported:
 
 ```csharp
 // Enumeration
@@ -93,13 +93,13 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .important }
-The inferrence of the enumeration will work for string types (i.e: `NVARCHAR`, `TEXT`, etc) and non-string types (i.e: `SMALLINT`, `INT`, `BIGINT`, etc) column types.
+Enumeration inference works for both string column types (e.g., `NVARCHAR`, `TEXT`) and non-string column types (e.g., `SMALLINT`, `INT`, `BIGINT`).
 
 ## Table-Valued Parameters
 
-To execute a Table-Valued Parameter (TVP), create a `DataTable` and set its name equals to the name of the User-Defined Type (UDT).
+To execute a Table-Valued Parameter (TVP), create a `DataTable` and set its name to the name of the User-Defined Type (UDT).
 
-Please click here to follow the Microsoft [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) on how to create a TVP and UDT and call it from C#/ADO.NET.
+Refer to the Microsoft [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) for creating a TVP/UDT and calling it from C#/ADO.NET.
 
 ```csharp
 var table = new DataTable();
@@ -107,7 +107,7 @@ table.TableName = "Name of the UDT";
 // Create the 'table' columns/rows
 ```
 
-Then, pass it as a value to your argument.
+Pass it as an argument value:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -119,15 +119,13 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Passing of Parameters
 
-You can pass a parameter via the following objects.
+Parameters can be passed via any of the following types:
 
 - IDbDataParameter
 - Anonymous Types
 - ExpandoObject
 - IDictionary&lt;string, object&gt;
 - QueryField/QueryGroup
-
-Please see the sample code snippets below.
 
 ## IDbDataParameter
 
@@ -143,7 +141,7 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .important }
-The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
+The parameter name is not required. The library replaces it with the actual property name from the object.
 
 ## Anonymous Types
 
@@ -210,7 +208,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Array Parameters (for the IN keyword)
 
-You can pass an array of values if you are using the `IN` keyword.
+Pass an array of values when using the `IN` keyword.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -224,11 +222,11 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
+> Any of the parameter types listed in [Passing of Parameters](#passing-of-parameters) can also be used here.
 
 ## Executing a Stored Procedure
 
-There are 2 ways of executing a stored procedure. First, simply pass the name of the stored procedure and set the command type to `CommandType.StoredProcedure`.
+There are two ways to execute a stored procedure. Pass the stored procedure name and set the command type to `CommandType.StoredProcedure`:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -238,7 +236,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, simply use the native SQL calls like below.
+Or use a native SQL `EXEC` call:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -249,4 +247,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> Notice in the second call, there is semi-colon at the end of the command text and the command type was not set.
+> In the second call, the command text ends with a semicolon and no command type is set.

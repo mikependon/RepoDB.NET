@@ -13,11 +13,9 @@ grand_parent: ENUMERATIONS
 
 ---
 
-This enum is used to define the behavior of the identity property/column when an entity is being bulk-imported towards the target table. It is only used for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This enum defines the behavior of the identity property/column when an entity is bulk-imported into a target table. It applies only to the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
 ## Enum Values
-
-Below is the list of enum values.
 
 | Name | Description |
 |:-----|:------------|
@@ -27,9 +25,9 @@ Below is the list of enum values.
 
 ## Usability
 
-This enum is being used by both the [BinaryBulkInsert](/operation/binarybulkinsert) and [BinaryBulkMerge](/operation/binarybulkmerge) operations. Simply pass the value to the `identityBehavior` argument when calling the operation.
+This enum is used by both the [BinaryBulkInsert](/operation/binarybulkinsert) and [BinaryBulkMerge](/operation/binarybulkmerge) operations. Pass the value to the `identityBehavior` argument when calling the operation.
 
-For [BinaryBulkInsert](/operation/binarybulkinsert) operation, see below.
+For the [BinaryBulkInsert](/operation/binarybulkinsert) operation:
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -40,7 +38,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
-For [BinaryBulkMerge](/operation/binarybulkmerge) operation, see below.
+For the [BinaryBulkMerge](/operation/binarybulkmerge) operation:
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))

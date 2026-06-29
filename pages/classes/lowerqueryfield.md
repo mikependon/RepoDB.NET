@@ -12,22 +12,20 @@ parent: CLASSES
 
 ---
 
-An extended query field class that is being used to define a query expression for the SQL statement using the LOWER function. It inherits the [QueryField](/class/queryfield) object.
+An extended query field class for defining SQL expressions using the `LOWER` function. Inherits [QueryField](/class/queryfield).
 
 ## Usability
-
-Below is a sample code on how to use this class.
 
 ```csharp
 var where = new LowerQueryField("Column", "value");
 var result = connection.Query<Entity>(where);
 ```
 
-The result would contain all the records where the lowercase value of the `Column` is equals to `value`.
+The result contains all records where the lowercase value of `Column` equals `value`.
 
 ## GetString
 
-The `GetString()` method returns a command text that utilizes the `LOWER` function.
+The `GetString()` method returns the command text using the `LOWER` function.
 
 ```csharp
 var where = new LowerQueryField("Column", "value");

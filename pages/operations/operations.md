@@ -9,5 +9,5 @@ permalink: /operation
 # Operations
 {: .fs-9 }
 
-Easy to call once you have the connection opened!
+Simple to call once a connection is open.
 {: .fs-6 .fw-300 }

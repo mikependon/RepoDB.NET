@@ -9,5 +9,5 @@ permalink: /tutorial
 # Get Started
 {: .fs-9 }
 
-It is easy, simple and fun to learn!
+Simple, fast, and straightforward to learn.
 {: .fs-6 .fw-300 }

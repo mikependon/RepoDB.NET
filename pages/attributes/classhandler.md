@@ -13,9 +13,9 @@ parent: ATTRIBUTES
 
 ---
 
-This attribute is used to mark a class to be evaluated by the compilers during the serialization and deserialization process. By having this attribute, the library compiler (transformer) will automatically trigger the class handler `Get()` and `Set()`  method for custom handling.
+This attribute marks a class for evaluation by the library compiler during serialization and deserialization. When present, the compiler automatically invokes the class handler's `Get()` and `Set()` methods for custom handling.
 
-Let us say you have created a customized [IClassHandler](/interface/iclasshandler) like below.
+Given a customized [IClassHandler](/interface/iclasshandler) implementation:
 
 ```csharp
 private class PersonClassHandler : IClassHandler<Person>
@@ -34,7 +34,7 @@ private class PersonClassHandler : IClassHandler<Person>
 }
 ```
 
-Then, you can use this attribute to mark the class to use the `PersonClassHandler` class handler during the transformation.
+Apply this attribute to the class to use `PersonClassHandler` during transformation.
 
 ```csharp
 [ClassHandler(typeof(PersonClassHandler))]

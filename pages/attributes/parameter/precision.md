@@ -11,11 +11,11 @@ grand_parent: ATTRIBUTES
 
 ---
 
-This attribute is used to set the value of the `DbParameter.Precision` property via a class property.
+This attribute sets the `DbParameter.Precision` property value via a class property.
 
 ### Attribute
 
-Below a sample code on how to use this attribute.
+Example usage:
 
 ```csharp
 public class Person
@@ -31,7 +31,7 @@ public class Person
 
 ### Fluent Mapping
 
-Below is a sample code on how to use this attribute via [FluentMapper](/mapper/fluentmapper).
+To configure via [FluentMapper](/mapper/fluentmapper):
 
 ```csharp
 FluentMapper
@@ -39,11 +39,11 @@ FluentMapper
     .PropertyValueAttributes(e => e.Assets, new PrecisionAttribute(1));
 ```
 
-> The value from the database table/view is taking the precedence if present.
+> The value from the database table or view takes precedence if present.
 
 ### Retrieval
 
-You can retrieve the attribute via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
+Retrieve the attribute via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache):
 
 ```csharp
 var attribute = PropertyValueAttributeCache
@@ -51,7 +51,7 @@ var attribute = PropertyValueAttributeCache
     .FirstOrDefault(e => e.GetType() == typeof(PrecisionAttribute));
 ```
 
-Or, via the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper).
+Or via [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper):
 
 ```csharp
 var attribute = PropertyValueAttributeMapper
@@ -60,4 +60,4 @@ var attribute = PropertyValueAttributeMapper
 ```
 
 {: .important }
-> We strongly suggest to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) to maximize the performance.
+> We strongly recommend using [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) for maximum performance.

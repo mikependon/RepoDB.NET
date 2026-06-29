@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to query a row from the table.
+This method queries rows from a table.
 
 ## Code Snippets
 
-Below is the sample code to fetch a row from the `[dbo].[Person]` table.
+The following example fetches a row from the `[dbo].[Person]` table by primary key.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -24,7 +24,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-You can also query via expression.
+Query via expression:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -33,7 +33,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or like below.
+Or with compound conditions:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -44,11 +44,11 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> It always returns an [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object even if your result is one.
+> The method always returns an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0), even when the result is a single row.
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -58,7 +58,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -73,7 +73,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Specific Columns
 
-You can also target a specific columns to be queried by passing the list of fields to be included in the `fields` argument.
+To query specific columns, pass a list of fields in the `fields` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -90,7 +90,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -103,7 +103,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Type Result
 
-You can also directly infer the resultset into a [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0) type.
+The result set can be inferred directly as a [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0) type.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -115,11 +115,11 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-Inferrence works in all types but not from this operation. The other non-class type (i.e.: `long`, [int](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types), [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0), etc) cannot be inferred as the `TEntity` generic type is filtered as `class`. Please see the [ExecuteQuery](/operation/executequery) operation for the support to the other types.
+Type inference works for `string` but not for other non-class types (e.g., `long`, [int](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types), [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0)), since `TEntity` is constrained to `class`. Use [ExecuteQuery](/operation/executequery) for those types.
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass a table hint via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -129,7 +129,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -141,7 +141,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Ordering the Results
 
-To order the results, you have to pass an array of `OrderField` objects in the `orderBy` argument.
+Pass an array of `OrderField` objects in the `orderBy` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -153,35 +153,35 @@ using (var connection = new SqlConnection(connectionString))
     });
     var people = connection.Query<Person>(e => e.IsActive == true,
         orderBy: orderBy);
-    // Do the stuffs for 'people' here
+    // Process 'people' here
 }
 ```
 
 ## Filtering the Results
 
-To filter the results, you have to pass a value at the `top` argument.
+Pass a value in the `top` argument to limit the number of rows returned.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
     var people = connection.Query<Person>(e => e.IsActive == true,
         top: 100);
-    // Do the stuffs for 'people' here
+    // Process 'people' here
 }
 ```
 
 ## Caching the Results
 
-To cache the results, simply pass a literal string key into the `cacheKey` argument.
+Pass a literal string key in the `cacheKey` argument to cache the results.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
     var people = connection.Query<Person>(e => e.IsActive == true,
         cacheKey: "CackeKey:ActivePeople");
-    // Do the stuffs for 'people' here
+    // Process 'people' here
 }
 ```
 
 {: .note }
-> The cache expiration is defaulted to 180 minutes. You can override it by passing an integer value at the `cacheExpirationInMinutes` argument.
+> The default cache expiration is 180 minutes. Override it by passing an integer value in the `cacheExpirationInMinutes` argument.

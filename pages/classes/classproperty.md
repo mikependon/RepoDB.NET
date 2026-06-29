@@ -12,26 +12,26 @@ parent: CLASSES
 
 ---
 
-This class is used as a container of the `System.Reflection.PropertyInfo` object. It is one of the core class that helps the library speed up the manipulation of the class properties.
+This class wraps a `System.Reflection.PropertyInfo` object and is one of the core classes that accelerates class property manipulation within the library.
 
-To extract the properties of the entity, use the [PropertyCache](/cacher/propertycache) object.
+Use [PropertyCache](/cacher/propertycache) to extract entity properties.
 
 ```csharp
 var properties = PropertyCache.Get<Person>();
 ```
 
-Or the [ClassExpression](/class/classexpression) object.
+Or use [ClassExpression](/class/classexpression).
 
 ```csharp
 var properties = ClassExpression.GetProperties<Person>();
 ```
 
 {: .note }
-> The `PropertyCache` is also using the [ClassExpression](/class/classexpression) underneath, however, it caches the already extracted class properties for future reusabilities.
+> `PropertyCache` uses [ClassExpression](/class/classexpression) internally and caches the results for reuse.
 
 ## AsField
 
-This method is used to convert the current instance into [Field](/class/field) object.
+Converts the current instance to a [Field](/class/field) object.
 
 ```csharp
 var primary = PropertyCache.Get<Person>().FirstOrDefault(p => p.IsPrimary() == true);
@@ -40,7 +40,7 @@ var field = primary.AsField();
 
 ## GetDbType
 
-This method is used to get the equivalent `System.DbType` value of the property based on the property type.
+Returns the equivalent `System.DbType` value for the property based on its type.
 
 ```csharp
 var primary = PropertyCache.Get<Person>().FirstOrDefault(p => p.IsPrimary() == true);
@@ -48,11 +48,11 @@ var dbType = primary.GetDbType();
 ```
 
 {: .note }
-> This is useful when you are creating a [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object before passing it to the actual `DbCommand` object for execution.
+> Useful when constructing a [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object before passing it to a `DbCommand`.
 
 ## GetPropertyHandler
 
-This method is used to get the existing mapped property handler of the property.
+Returns the mapped property handler for this property, if one exists.
 
 ```csharp
 var properties = PropertyCache.Get<Person>();
@@ -68,7 +68,7 @@ foreach (var property in properties)
 
 ## GetIdentityAttribute
 
-This method is used to get the existing [Identity](/attribute/identity) attribute if present.
+Returns the [Identity](/attribute/identity) attribute if present.
 
 ```csharp
 var primary = PropertyCache.Get<Person>().FirstOrDefault(p => p.IsPrimary() == true);
@@ -82,7 +82,7 @@ if (isIdentity)
 
 ## GetPrimaryAttribute
 
-This method is used to get the existing [Primary](/attribute/primary) attribute if present.
+Returns the [Primary](/attribute/primary) attribute if present.
 
 ```csharp
 var properties = PropertyCache.Get<Person>();
@@ -98,7 +98,7 @@ foreach (var property in properties)
 
 ## GetMappedName
 
-This method is used to get the existing mapping defined on the property. It extracts the value of the [Map](/attribute/map) attribute if present.
+Returns the mapped column name for the property, extracted from the [Map](/attribute/map) attribute if present.
 
 ```csharp
 var primary = PropertyCache.Get<Person>().FirstOrDefault(p => p.IsPrimary() == true);
@@ -107,7 +107,7 @@ var mappedName = primary.GetMappedName();
 
 ## IsIdentity
 
-This method is used to identify whether the property is an identity. It uses the `GetIdentityAttribute` underneath to check whether the property is an identity.
+Returns `true` if the property is an identity column. Uses `GetIdentityAttribute` internally.
 
 ```csharp
 var properties = PropertyCache.Get<Person>();
@@ -122,7 +122,7 @@ foreach (var property in properties)
 
 ## IsPrimary
 
-This method is used to identify whether the property is a primary property. It uses the `GetPrimaryAttribute` underneath to check whether the property is a primary property.
+Returns `true` if the property is the primary key. Uses `GetPrimaryAttribute` internally.
 
 ```csharp
 var properties = PropertyCache.Get<Person>();
@@ -135,15 +135,11 @@ foreach (var property in properties)
 }
 ```
 
-If the [Primary](/attribute/primary) is not present, it tries to identify using the following logics by order.
+If the [Primary](/attribute/primary) attribute is absent, the library falls back to the following checks in order:
 
-- If the name is equals to `Id`.
-- If the name is equals to `ClassName` + `Id`.
-- If the name is equals to `ClassMappedName` + `Id`.
+- Name equals `Id`.
+- Name equals `ClassName` + `Id`.
+- Name equals `ClassMappedName` + `Id`.
 
 {: .note }
-> The logic of extracting the primary property is being compared with case-insensitivity.
-
-
-
-
+> Primary property detection is case-insensitive.

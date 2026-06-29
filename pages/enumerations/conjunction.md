@@ -12,11 +12,9 @@ parent: ENUMERATIONS
 
 ---
 
-This is an enum used to define a conjunction when grouping an expression via [QueryGroup](/class/querygroup) object.
+This enum defines the conjunction used when grouping expressions in a [QueryGroup](/class/querygroup) object.
 
 ## Enum Values
-
-Below is the list of enum values.
 
 | Name | Description |
 |:-----|:------------|
@@ -25,7 +23,7 @@ Below is the list of enum values.
 
 ## Usability
 
-Simply pass it in the constructor when instantiating a [QueryGroup](/class/querygroup) object.
+Pass the value in the constructor when instantiating a [QueryGroup](/class/querygroup) object.
 
 ```csharp
 var query = new QueryGroup
@@ -39,13 +37,13 @@ var query = new QueryGroup
 );
 ```
 
-The query group above would result a SQL statement below.
+The query group above produces the following SQL statement.
 
 ```csharp
 > WHERE ([Id] >= @Id AND [CreatedDateUtc] >= @CreatedDateUtc)
 ```
 
-Although by default, the value is `And`, you can override it by passing the `Or`.
+To use `Or` instead of the default `And`, pass `Conjunction.Or` explicitly.
 
 ```csharp
 var query = new QueryGroup
@@ -59,7 +57,7 @@ var query = new QueryGroup
 );
 ```
 
-Which would result a SQL statement below.
+Which produces the following SQL statement.
 
 ```csharp
 > WHERE ([Id] = @Id OR [Id] = @Id2)

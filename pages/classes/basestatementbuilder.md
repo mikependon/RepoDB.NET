@@ -12,19 +12,15 @@ parent: CLASSES
 
 ---
 
-This class stands as the base class of all [IStatementBuilder](/interface/istatementbuilder)-based classes.
+This class is the base class of all [IStatementBuilder](/interface/istatementbuilder)-based classes.
 
 ## Use-Cases
 
-To simplify your implementation, always use this class over the [IStatementBuilder](/interface/istatementbuilder) interface when working with customized SQL generator.
+Use this class instead of the [IStatementBuilder](/interface/istatementbuilder) interface when implementing a custom SQL generator.
 
 ## Virtual Methods
 
-This class has virtual methods pre-implemented with the defined logic. It is the author's choices to add this virtual methods on this base class.
-
-The reason to have these virtual methods are the commonality of the SQL Statements used on most RDBMS data providers (i.e.: the SQL Server and the other RDBMS almost have the same way of SQL generation).
-
-Below are the list of virtual methods.
+The following virtual methods have pre-implemented logic covering SQL generation patterns common across most RDBMS providers.
 
 - CreateAverage
 - CreateAverageAll
@@ -47,11 +43,7 @@ Below are the list of virtual methods.
 
 ## Abstract Methods
 
-This class has some abstract methods that is required to be implemented in the derived classes. It is the author's choices to add this abstract methods on this base class.
-
-The reason to have these abstract methods are the implementation-difference of the SQL Statements between the different RDBMS data providers (i.e.: the SQL Server is using `MERGE` keyword for merging rows whereas the other RDBMS are not).
-
-Below are the list of abstract methods.
+The following abstract methods must be implemented in derived classes, as their SQL generation differs between RDBMS providers (e.g., SQL Server uses the `MERGE` keyword, while others do not).
 
 - CreateBatchQuery
 - CreateMerge
@@ -59,7 +51,7 @@ Below are the list of abstract methods.
 
 ## How to Implement?
 
-Simply create a class that inherits this class.
+Create a class that inherits this class.
 
 ```csharp
 public sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
@@ -68,7 +60,7 @@ public sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 }
 ```
 
-Then, override the abstract methods.
+Then override the abstract methods.
 
 ```csharp
 public sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
@@ -111,17 +103,17 @@ public sealed class OptimizedSqlServerStatementBuilder : BaseStatementBuilder
 ```
 
 {: .note }
-> You can also override the other non-abstract methods as they were all implemented as `virtual`. It is very important to take note that you should only override the base functionalities if you have a specialized implementation for the specific RDBMS data provider.
+> All non-abstract methods are `virtual` and can be overridden. Only override them when you have a specialized implementation for a specific RDBMS provider.
 
 ## Usability
 
-Simply use the [StatementBuilderMapper](/mapper/statementbuildermapper) class to map it to the specific RDBMS data provider.
+Use the [StatementBuilderMapper](/mapper/statementbuildermapper) class to map it to a specific RDBMS provider.
 
 ```csharp
 StatementBuilderMapper.Add(typeof(SqlConnection), new OptimizedSqlServerStatementBuilder(), true);
 ```
 
-Or by passing it on the constructor of the [BaseRepository](/class/baserepository) object.
+Or pass it in the constructor of a [BaseRepository](/class/baserepository) object.
 
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>
@@ -137,7 +129,7 @@ using (var repository = new PersonRepository(new AppSettings()))
 }
 ```
 
-Or even to the constructor of [DbRepository](/class/dbrepository) object.
+Or in the constructor of a [DbRepository](/class/dbrepository) object.
 
 ```csharp
 public class DatabaseRepository : DbRepository<SqlConnection>

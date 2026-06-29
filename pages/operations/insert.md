@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to insert a data entity object as a new row in the table.
+This method inserts a data entity object as a new row in the table.
 
 ## Code Snippets
 
-Below is the sample code to insert a row into the `[dbo].[Person]` table.
+The following example inserts a row into the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -32,11 +32,11 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .important }
-> The result will vary from the value of the `GlobalConfiguration.Options` property [KeyColumnReturnBehavior](/enumeration/keycolumnreturnbehavior).
+> The result varies based on the `GlobalConfiguration.Options` property [KeyColumnReturnBehavior](/enumeration/keycolumnreturnbehavior).
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -54,7 +54,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via Anonymous Type.
+Or via Anonymous Type:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -72,7 +72,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
+Or via `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -91,11 +91,11 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> The library will add the newly created value of the identity column into the `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) object (if not present).
+> The library adds the newly generated identity value into the `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) object if not already present.
 
 ## Specific Columns
 
-You can also target a specific columns to be inserted by passing the list of fields to be included in the `fields` argument.
+To insert only specific columns, pass the target fields in the `fields` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -119,7 +119,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -135,7 +135,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-And with the target fields.
+With target fields:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -156,7 +156,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass a table hint via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -166,7 +166,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

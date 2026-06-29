@@ -11,27 +11,25 @@ parent: OPERATIONS
 
 ---
 
-This method is used to insert the multiple data entity objects as new rows or update the existing rows from the table. This merge operation only works like UPSERT, it does not do any deletion.
+This method inserts multiple data entity objects as new rows or updates existing rows in the table. It operates as an UPSERT and does not perform any deletion.
 
 {: .important }
-> This operation will insert all the non-existing rows into the table, otherwise, update it based on the given qualifiers.
+> Non-existing rows are inserted; existing rows are updated based on the given qualifiers.
 
 ## Use Case
 
-If you are merging multiple rows in the database, avoid iterating it, instead, insert them by batch. This method solves that problem by creating a multi-packed SQL statements that can be executed in one-go.
+When merging multiple rows, use this method instead of iterating individual merges. It generates multi-statement SQL that executes in a single round-trip, which is more performant and efficient.
 
-The performance of this not comparable to the atomic way of merging the rows. It is more performant and efficient!
+The batch size can be adjusted to optimize for your specific scenario (e.g., number of columns, network latency, data type).
 
-You can adjust the size of the batches to further optimize the operation depends on your own situation (i.e.: No. of Columns, Network Latency, Type of Data, etc).
-
-The execution is ACID as the transaction object will be created if not given.
+The execution is ACID — a transaction is created automatically if one is not provided.
 
 {: .warning }
-> Be aware that if you are managing the size of your batch, it may collide on the number of maximum allowable parameters of ADO.NET. The max parameters are 2100.
+> When managing batch sizes manually, ensure the total parameter count does not exceed ADO.NET's limit of 2,100 parameters.
 
 ## Code Snippets
 
-Let us you have a method that returns a list of `Person` models.
+The following example defines a method that returns a list of `Person` models, then merges them into the `[dbo].[Person]` table.
 
 ```csharp
 private IEnumerable<Person> GetPeople()
@@ -58,8 +56,6 @@ private IEnumerable<Person> GetPeople()
 }
 ```
 
-Below is the sample code to merge a list of `Person` into the `[dbo].[Person]` table.
-
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
@@ -68,7 +64,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-By default, the primary column is used as a qualifier. You can override it by simply passing the list of fields in the `qualifiers` argument.
+By default, the primary column is used as the qualifier. To override, pass the qualifier fields in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -81,7 +77,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -92,7 +88,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics (Anonymous Type, `Dictionary<string, object>`, [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0)).
+Or via dynamics (Anonymous Type, `Dictionary<string, object>`, [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0)):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -105,7 +101,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Specific Columns
 
-You can also target a specific columns to be merged by passing the list of fields to be included in the `fields` argument.
+To merge only specific columns, pass the target fields in the `fields` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -122,7 +118,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via dynamics.
+Or via dynamics:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -136,7 +132,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Batch Size
 
-You can adjust the size of your batch by simply passing the value at the `batchSize` argument. By default, the value is `10` (found at `Constant.DefaultBatchOperationSize`).
+Adjust the batch size via the `batchSize` argument. The default is `10` (`Constant.DefaultBatchOperationSize`).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -149,7 +145,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass a table hint via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -159,7 +155,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

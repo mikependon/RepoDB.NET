@@ -12,7 +12,7 @@ parent: RELEASES
 
 ---
 
-Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector) to download it.
+View the NuGet package [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector).
 
 ## RepoDb.MySqlConnector (v1.13.1)
 
@@ -61,8 +61,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 - Upgraded the `MySqlConnector` package to `v1.3.12`.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Added the `net5.0` as part of the target frameworks.
-- Enhancement: Added the [MySqlDbTypeAttribute](/attribute/mysqlconnector/mysqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Deprecated the [MySqlConnectorTypeMapAttribute](/attribute/mysqlconnectortypemap) attribute.
+- Enhancement: Added the MySqlDbTypeAttribute attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Deprecated the MySqlConnectorTypeMapAttribute attribute.
 - Enhancement: Moved the `MySqlConnectorDbSetting` to `RepoDb.DbSettings` namespace.
 - Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 - Bug: Exception on [Merge](/operation/merge) (PostgreSQL) [#776](https://github.com/mikependon/RepoDb/issues/776). RELATED
@@ -74,9 +74,9 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 - Upgraded the `MySqlConnector` package to `v1.3.12`.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Added the `net5.0` as part of the target frameworks.
-- Enhancement: Added the [MySqlConnectorParameterDbTypeAttribute](/attribute/mysqlconnectorparameterdbtype) attribute.
-- Enhancement: Added the [MySqlDbTypeAttribute](/attribute/parameter/mysqlconnectordbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Deprecated the [MySqlConnectorTypeMapAttribute](/attribute/mysqlconnectortypemap) attribute.
+- Enhancement: Added the MySqlConnectorParameterDbTypeAttribute attribute.
+- Enhancement: Added the MySqlDbTypeAttribute attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Deprecated the MySqlConnectorTypeMapAttribute attribute.
 - Enhancement: Moved the `MySqlConnectorDbSetting` to `RepoDb.DbSettings` namespace.
 - Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
@@ -105,14 +105,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 
 ## RepoDb.MySqlConnector (v1.1.0)
 
-- Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
+- Added complete F# support. Thanks to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for their collaboration.
 - Breaking: Introduced the `fields` argument to the fetch (i.e.: [Query](/operation/query), [ExecuteQuery](/operation/executequery) and [BatchQuery](/operation/batchquery)) and push (i.e.: [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update)) operations.
-- Breaking: Introduced the `tableName` argument to all entity based operations. This completely resolves the `F#` anonymous invocations.
-- Breaking: Renamed of argument `whereOrPrimaryKey` to `what`.
-- Enhacement: Complete support to the immutable classes and/or types.
-- Refactoring: Refactored the compiler implementations by simplifying the code from Monolithic to Smaller/Shorter/Cleaner code.
-- Feature: Introduced the support to the [Class Handler](/feature/classhandler).
-- Test: More coverage of Integration Tests and Unit Tests.
+- Breaking: Introduced the `tableName` argument to all entity-based operations, resolving `F#` anonymous invocations.
+- Breaking: Renamed argument `whereOrPrimaryKey` to `what`.
+- Enhancement: Complete support for immutable classes and types.
+- Refactoring: Simplified compiler implementations from monolithic to smaller, cleaner code.
+- Feature: Introduced support for the [Class Handler](/feature/classhandlers).
+- Test: Expanded Integration Test and Unit Test coverage.
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0](/release/core#repodb-v1120)).
 
 
@@ -123,14 +123,14 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 
 ## RepoDb.MySqlConnector (v1.1.0-beta1)
 
-- Complete support to F# programming language as requested by the F# Community. Thank you to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for being so collaborative.
+- Added complete F# support. Thanks to [Isaac Abraham](https://twitter.com/isaac_abraham) and [Angel Munoz](https://twitter.com/Daniel_Tuna) for their collaboration.
 - Breaking: Introduced the `fields` argument to the fetch (i.e.: [Query](/operation/query), [ExecuteQuery](/operation/executequery) and [BatchQuery](/operation/batchquery)) and push (i.e.: [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update)) operations.
-- Breaking: Introduced the `tableName` argument to all entity based operations. This completely resolves the `F#` anonymous invocations.
-- Breaking: Renamed of argument `whereOrPrimaryKey` to `what`.
-- Enhacement: Complete support to the immutable classes and/or types.
-- Refactoring: Refactored the compiler implementations by simplifying the code from Monolithic to Smaller/Shorter/Cleaner code.
-- Feature: Introduced the support to the [Class Handler](/feature/classhandler).
-- Test: More coverage of Integration Tests and Unit Tests.
+- Breaking: Introduced the `tableName` argument to all entity-based operations, resolving `F#` anonymous invocations.
+- Breaking: Renamed argument `whereOrPrimaryKey` to `what`.
+- Enhancement: Complete support for immutable classes and types.
+- Refactoring: Simplified compiler implementations from monolithic to smaller, cleaner code.
+- Feature: Introduced support for the [Class Handler](/feature/classhandlers).
+- Test: Expanded Integration Test and Unit Test coverage.
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta1](/release/core#repodb-v1120-beta1)).
 
 
@@ -160,7 +160,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) to see
 
 ## RepoDb.MySqlConnector (v1.0.0)
 
-- Initial release to MySqlConnector. References ([#446](https://github.com/mikependon/RepoDb/pull/446), [Commits](https://github.com/mikependon/RepoDb/commit/fa13702718ba8ace68a3c99505fdcaa5525bf73a)).
-- Added the extensive Unit Tests and Integration Tests for MySqlConnector. 
-- Added the AppVeyor for MySqlConnector.
+- Initial release for MySqlConnector. References ([#446](https://github.com/mikependon/RepoDb/pull/446), [Commits](https://github.com/mikependon/RepoDb/commit/fa13702718ba8ace68a3c99505fdcaa5525bf73a)).
+- Added extensive Unit Tests and Integration Tests for MySqlConnector.
+- Added AppVeyor CI for MySqlConnector.
 

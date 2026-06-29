@@ -12,11 +12,11 @@ parent: CLASSES
 
 ---
 
-This is used as a field on the query expression that supports two direction (input/output) via `ParamDirection` enumeration of the `System.Data` namespace. It inherits and works like the [QueryField](/class/queryfield) class, however, it was extended to be capable of receiving an output data from the database after the execution.
+A query field that supports bidirectional parameter passing (input/output) via the `ParamDirection` enumeration in `System.Data`. It extends [QueryField](/class/queryfield) with the ability to receive output values from the database after execution.
 
-This can be very useful if you would like to execute and retrieve an output from an existing stored procedure from the database.
+This is useful for calling stored procedures that return output parameters.
 
-Let us say, you have the stored procedure below.
+Given the following stored procedure:
 
 ```
 CREATE PROCEDURE [dbo].[sp_Multiply]
@@ -31,7 +31,7 @@ BEGIN
 END
 ```
 
-Then, you can call it like below.
+Call it as follows:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -49,9 +49,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Notice, in the second parameter, you pass an instance of .NET CLR Type, this define the type of the parameter from the database.
-
-If you are passing a value to the input/output parameters, you can simply pass the value in the overloaded constructor. By this time, you are not required to pass the type of the parameter as the library will identify the parameter type based from the passed value.
+The second constructor argument specifies the .NET CLR type of the database parameter. For input/output parameters, pass the value directly — the library infers the type from the value.
 
 ```csharp
 var output = new DirectionalQueryField("Output", "Whatever", 256, ParamDirection.InputOutput); // Type is TEXT
@@ -59,6 +57,6 @@ var output = new DirectionalQueryField("Output", 100, ParamDirection.InputOutput
 ```
 
 {: .note }
-> If you are calling the [ExecuteReader](/operation/executereader) operation, please be noted that the output parameter is only set once the instance of the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) is disposed. This is a default behaviour of the ADO.NET.
+> When using [ExecuteReader](/operation/executereader), output parameter values are only populated after the [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) is disposed. This is standard ADO.NET behavior.
 
-For more information, please visit its base object [QueryField](/class/queryfield).
+For more information, see the base class [QueryField](/class/queryfield).

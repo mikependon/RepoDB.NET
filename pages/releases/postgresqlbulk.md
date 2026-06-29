@@ -12,11 +12,11 @@ parent: RELEASES
 
 ---
 
-Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql.BulkOperations) to download it.
+View the NuGet package [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql.BulkOperations).
 
 ## RepoDb.PostgreSql.BulkOperations (v1.13.1)
 
-- Fixed the issues when writing the records into the database via `System.DataTable` object using the [BinaryBulkImport](/operation/binarybulkimport), when an Enum-based property is present.
+- Fixed the issues when writing the records into the database via `System.DataTable` object using the [BinaryBulkImport](/operation/binaryimport), when an Enum-based property is present.
 - Referenced the `RepoDb` package `v1.13.1`.
 - Referenced the `RepoDb.PostgreSql` package `v1.13.1`.
 
@@ -59,7 +59,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperati
 
 ## RepoDB.PostgreSql.BulkOperations (v0.0.8)
 
-- Supported the enumerations in all bulk operations. The different entity types (i.e.: `TEntity`, [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0), [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0), `Anonymous` and `DataTable`) are covered on the enum support. 
+- Added enum support across all bulk operations for all entity types (`TEntity`, [IDictionary<string, object>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=net-6.0), [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0), `Anonymous`, and `DataTable`).
 - Supported the `.NET v6.0`.
 - Added the `Title` and `PackageTags` tags in the Nuget Package (.nuspec references).
 - Upgraded the `RepoDb` package to `v1.12.10-beta4`.
@@ -99,5 +99,5 @@ Please click [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperati
 
 ## RepoDB.PostgreSql.BulkOperations (v0.0.1)
 
-- Initial relase of the [RepoDb.PostgreSql.BulkOperations](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations/0.0.1) package.
+- Initial release of the [RepoDb.PostgreSql.BulkOperations](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations/0.0.1) package.
 - Introduced the [BinaryImport](/operation/binaryimport) operation.

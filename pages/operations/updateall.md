@@ -11,24 +11,20 @@ parent: OPERATIONS
 
 ---
 
-This method is used to update the existing multiple rows in the table.
+Updates multiple existing rows in the table in a single call.
 
 ## Use Case
 
-If you are updating multiple rows in the database, avoid iterating it, instead, insert them by batch. This method solves that problem by creating a multi-packed SQL statements that can be executed in one-go.
+When updating multiple rows, avoid row-by-row iteration. This method generates a batched SQL statement that executes in a single round-trip, making it significantly more performant than atomic updates.
 
-The performance of this not comparable to the atomic way of updating the rows. It is more performant and efficient!
+Adjust the batch size to optimize for your scenario (number of columns, network latency, data types, etc.).
 
-You can adjust the size of the batches to further optimize the operation depends on your own situation (i.e.: No. of Columns, Network Latency, Type of Data, etc).
-
-The execution is ACID as the transaction object will be created if not given.
+The operation is ACID-compliant — a transaction is created automatically if one is not provided.
 
 {: .warning }
-> Be aware that if you are managing the size of your batch, it may collide on the number of maximum allowable parameters of ADO.NET. The max parameters are 2100.
+> Be aware that large batch sizes may exceed ADO.NET's maximum parameter limit of 2100.
 
 ## Code Snippets
-
-Let us you have a method that returns a list of `Person` models.
 
 ```csharp
 private IEnumerable<Person> GetPeople()
@@ -55,8 +51,6 @@ private IEnumerable<Person> GetPeople()
 }
 ```
 
-Below is the sample code to update a list of `Person` into the `[dbo].[Person]` table.
-
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
@@ -66,7 +60,7 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .important }
-> By default, the primary column is used as a qualifier. You can override it by simply passing the list of fields in the `qualifiers` argument.
+> By default, the primary column is used as a qualifier. Override it by passing the qualifier fields in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -79,7 +73,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table like below.
+Target a specific table by passing the table name directly.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -103,7 +97,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Specific Columns
 
-You can also target a specific columns to be updated by passing the list of fields to be included in the `fields` argument.
+Restrict the update to specific columns by passing the target fields in the `fields` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -134,7 +128,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Batch Size
 
-You can adjust the size of your batch by simply passing the value at the `batchSize` argument. By default, the value is 10 (found at `Constant.DefaultBatchOperationSize`).
+Control the batch size via the `batchSize` argument. The default is `10` (defined by `Constant.DefaultBatchOperationSize`).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -147,7 +141,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass table hints via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -157,7 +151,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

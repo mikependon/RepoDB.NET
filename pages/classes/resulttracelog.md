@@ -12,21 +12,19 @@ parent: CLASSES
 
 ---
 
-A trace-logging class that holds the reuslt of the trace operation. It derives from [TraceLog](/class/tracelog) class.
+A trace-logging class that holds the result of a trace operation. It derives from [TraceLog](/class/tracelog) and is passed to all `AfterExecution` methods of the [ITrace](/interface/itrace) object.
 
 ## Properties
 
-Below is the list of properties.
-
 | Name | Description |
 |:-----|:------------|
-| ExecutionTime | Handles the total elapsed time of the actual execution. |
-| Result | Handles the actual execution result. |
-| CancellableTraceLog | handles the actual reference to the associated [CancellableTracelog](/class/cancellabletracelog) object. |
+| ExecutionTime | The total elapsed time of the operation. |
+| Result | The result of the operation. |
+| CancellableTraceLog | A reference to the associated [CancellableTracelog](/class/cancellabletracelog) object. |
 
 ## Implementation
 
-Let us say you have a custom trace class named `MyCustomTrace`. Then, you pass this object when you call the [Insert](/operation/insert) operation.
+Pass a custom trace object when calling an operation such as [Insert](/operation/insert).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -35,7 +33,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-You can set a breakpoint at your `MyCustomTrace.AfterExecution()` and identify the actual results.
+In the `AfterExecution()` method, inspect the trace results.
 
 ```csharp
 public void AfterExecution<TResult>(ResultTraceLog<TResult> log)
@@ -45,4 +43,4 @@ public void AfterExecution<TResult>(ResultTraceLog<TResult> log)
 ```
 
 {: .important }
-> By setting the `throwException` argument to `true`, an exception will be thrown back to the actual operation.
+> Setting the `throwException` argument to `true` causes an exception to be thrown back to the caller.

@@ -12,7 +12,7 @@ parent: CLASSES
 
 ---
 
-This is the class that is being used to define an ordering of the results from any fetch operations (i.e.: [Query](/operation/query), [QueryAll](/operation/queryall) or [BatchQuery](/operation/batchquery)).
+This class defines the sort order of results returned by fetch operations ([Query](/operation/query), [QueryAll](/operation/queryall), [BatchQuery](/operation/batchquery)).
 
 ## Creating an Instance
 
@@ -20,7 +20,7 @@ This is the class that is being used to define an ordering of the results from a
 var orderBy = new OrderField("Id", Order.Ascending);
 ```
 
-Or by descending.
+Or descending.
 
 ```csharp
 var orderfield = new OrderField("Id", Order.Descending);
@@ -28,15 +28,11 @@ var orderfield = new OrderField("Id", Order.Descending);
 
 ## Ascending Method
 
-You can also create by using the `Ascending` method.
-
 ```csharp
 var field = OrderField.Ascending<Customer>(c => c.Id);
 ```
 
 ## Descending Method
-
-Also by using the `Descending` method.
 
 ```csharp
 var fields = OrderField.Descending<Customer>(c => c.Id);
@@ -44,21 +40,17 @@ var fields = OrderField.Descending<Customer>(c => c.Id);
 
 ## Parse Expression
 
-You can also extract by parsing an expression.
-
 ```csharp
 var field = OrderField.Parse<Person>(e => e.Id, Order.Ascending);
 ```
 
-Or by descending.
+Or descending.
 
 ```csharp
 var field = OrderField.Parse<Person>(e => e.Id, Order.Descending);
 ```
 
 ## Parse Object
-
-You can also extract by parsing an anonymous object.
 
 ```csharp
 var fields = OrderField.Parse(new
@@ -67,7 +59,7 @@ var fields = OrderField.Parse(new
 });
 ```
 
-Or by multiple columns.
+Or with multiple columns.
 
 ```csharp
 var fields = OrderField.Parse(new
@@ -79,7 +71,7 @@ var fields = OrderField.Parse(new
 
 ## Usability
 
-Simply pass it on the operations like below.
+Pass it to fetch operations.
 
 ```csharp
 var orderBy = new OrderField("Id", Order.Ascending);
@@ -88,5 +80,3 @@ using (var connection = new SqlConnection(connectionString0))
     var people = connection.QueryAll<Person>(orderBy: orderBy);
 }
 ```
-
-

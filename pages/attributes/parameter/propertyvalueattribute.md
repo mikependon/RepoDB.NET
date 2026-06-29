@@ -12,11 +12,11 @@ grand_parent: ATTRIBUTES
 
 ---
 
-This is the base class for all the attributes that are used when setting the properties of the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object.
+The base class for all attributes that set properties on a [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object.
 
 ### Attribute
 
-Below a sample code on how to use this attribute.
+Example usage:
 
 ```csharp
 public class Person
@@ -30,7 +30,7 @@ public class Person
 
 ### Fluent Mapping
 
-Below is a sample code on how to use this attribute via [FluentMapper](/mapper/fluentmapper).
+To configure via [FluentMapper](/mapper/fluentmapper):
 
 ```csharp
 FluentMapper
@@ -39,7 +39,7 @@ FluentMapper
         new PropertyValueAttribute(typeof(DbParameter), nameof(DbParameter.ParameterName), "CompleteName"));
 ```
 
-You can also map multiple instances.
+Multiple attributes can be mapped at once:
 
 ```csharp
 FluentMapper
@@ -53,24 +53,24 @@ FluentMapper
 
 ### Retrieval
 
-You can retrieve the list of mapped attributes via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
+Retrieve the list of mapped attributes via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache):
 
 ```csharp
 var attributes = PropertyValueAttributeCache.Get<Person>(e => e.Name);
 ```
 
-Or, via the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper).
+Or via [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper):
 
 ```csharp
 var attributes = PropertyValueAttributeMapper.Get<Person>(e => e.Name);
 ```
 
 {: .important }
-> We strongly suggest to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) to maximize the performance.
+> We strongly recommend using [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) for maximum performance.
 
 ### Implementation
 
-Below is a sample code on how to implement a class that inherits this class.
+To create a custom attribute, inherit this class:
 
 ```csharp
 public class CustomizedNameAttribute : PropertyValueAttribute
@@ -81,7 +81,7 @@ public class CustomizedNameAttribute : PropertyValueAttribute
 }
 ```
 
-After that, your customized attribute can then be used on a class.
+The custom attribute can then be applied to a class:
 
 ```csharp
 public class Person
@@ -93,7 +93,7 @@ public class Person
 }
 ```
 
-Or via [FluentMapper](/mapper/fluentmapper).
+Or via [FluentMapper](/mapper/fluentmapper):
 
 ```csharp
 FluentMapper
@@ -103,5 +103,4 @@ FluentMapper
 ```
 
 {: .note }
-> The implementation is dynamic, therefore, you can target any property of the `IDbDataParameter` regardless of the data providers (i.e.: SQL Server, PostgreSQL, MySQL or SQLite).
-
+> The implementation is dynamic — any property of `IDbDataParameter` can be targeted, regardless of the data provider (SQL Server, PostgreSQL, MySQL, or SQLite).

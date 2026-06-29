@@ -12,11 +12,11 @@ parent: FEATURES
 
 ---
 
-This is a feature that enables you to work on enumeration objects within the class object (property). The library supports various kind of transformation for enumerations.
+This feature enables working with enumeration objects within class properties. The library supports various transformation modes for enumerations.
 
 ## Property String
 
-Let us say you have a table named `[dbo].[Person]` with the following structure.
+Given a table named `[dbo].[Person]` with the following structure:
 
 ```csharp
 CREATE TABLE [dbo].[Person]
@@ -31,7 +31,7 @@ ON [PRIMARY];
 GO
 ```
 
-Then, you can create this enumeration.
+Define the enumeration:
 
 ```csharp
 public enum Gender
@@ -42,7 +42,7 @@ public enum Gender
 }
 ```
 
-And map it to the `Gender` column of the `Person` class.
+Map it to the `Gender` column of the `Person` class:
 
 ```csharp
 public class Person
@@ -55,11 +55,11 @@ public class Person
 ```
 
 {: .note }
-> The enumeration values will be saved in the database as [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0).
+> Enumeration values are saved in the database as [string](https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0).
 
 ## Property String (As Int)
 
-You can force the value to be saved as [int](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types) type if you are using the [TypeMap](/attribute/typemap).
+To force the value to be saved as [int](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types), use the [TypeMap](/attribute/typemap) attribute.
 
 ```csharp
 public class Person
@@ -72,7 +72,7 @@ public class Person
 }
 ```
 
-Or, via [FluentMapper](/mapper/fluentmapper) class.
+Or via [FluentMapper](/mapper/fluentmapper):
 
 ```csharp
 FluentMapper
@@ -80,7 +80,7 @@ FluentMapper
     .DbType(DbType.Int32);
 ```
 
-Or, via [TypeMapper](/mapper/typemapper) class.
+Or via [TypeMapper](/mapper/typemapper):
 
 ```csharp
 TypeMapper
@@ -89,7 +89,7 @@ TypeMapper
 
 ## Property Int
 
-Let us say you have a table named `[dbo].[Person]` with the following structure.
+Given a table with an integer `Gender` column:
 
 ```csharp
 CREATE TABLE [dbo].[Person]
@@ -104,7 +104,7 @@ ON [PRIMARY];
 GO
 ```
 
-Then, you can create this enumeration.
+Define the enumeration:
 
 ```csharp
 public enum Gender
@@ -115,7 +115,7 @@ public enum Gender
 }
 ```
 
-And map it to the `Gender` column of the `Person` class.
+Map it to the `Gender` column of the `Person` class:
 
 ```csharp
 public class Person
@@ -128,11 +128,11 @@ public class Person
 ```
 
 {: .note }
-> The enumeration values will be saved in the database as [int](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types).
+> Enumeration values are saved in the database as [int](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types).
 
 ## Default Conversion
 
-By default, the library is using the [DbType.String](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) as a conversion to all enumerations if being used to the non-model based operations (i.e.: [ExecuteScalar](/operation/executescalar), [ExecuteNonQuery](/operation/executenonquery) and [ExecuteReader](/operation/executereader)). You can override this behavior by simply setting the `EnumDefaultDatabaseType` to any [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0).
+By default, the library uses [DbType.String](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0) for all enumeration conversions in non-model-based operations (e.g., [ExecuteScalar](/operation/executescalar), [ExecuteNonQuery](/operation/executenonquery), and [ExecuteReader](/operation/executereader)). Override this behavior by setting `EnumDefaultDatabaseType` to any [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0).
 
 ```csharp
 GlobalConfiguration
@@ -142,11 +142,11 @@ GlobalConfiguration
     });
 ```
 
-> If you call any model-based operations (i.e.: [Query](/operation/query), [Update](/operation/update), [Merge](/operation/merge), etc), the default conversion is not used as it has already projected the correct database type to be passed/parsed based the underlying table schema.
+> For model-based operations (e.g., [Query](/operation/query), [Update](/operation/update), [Merge](/operation/merge)), the default conversion is not applied — the correct database type is inferred from the underlying table schema.
 
 ## PropertyHandler
 
-You can as well create a property handler to manually handle the enumerations transformation by implementing the [IPropertyHandler](/interface/ipropertyhandler).
+A property handler can be created to manually control enumeration transformation by implementing [IPropertyHandler](/interface/ipropertyhandler).
 
 ```csharp
 public class PersonGenderPropertyHandler : IPropertyHandler<string, Gender?>
@@ -167,7 +167,7 @@ public class PersonGenderPropertyHandler : IPropertyHandler<string, Gender?>
 }
 ```
 
-And then map it via [PropertyHandler](/attribute/propertyhandler).
+Map it via the [PropertyHandler](/attribute/propertyhandler) attribute:
 
 ```csharp
 public class Person
@@ -181,11 +181,11 @@ public class Person
 ```
 
 {: .important }
-> The enumeration auto-mapping is being disregard if you have the property handler mapped into the enumeration property. By using the property handler, you have a lot of control as a developer about the transformation.
+> Enumeration auto-mapping is bypassed when a property handler is mapped to an enumeration property. Using a property handler gives you full control over the transformation.
 
 ## Query Expression
 
-You can as well use the enumeration in your query expression.
+Enumerations can be used directly in query expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -194,7 +194,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or even in the raw-SQL.
+Or in raw SQL:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -209,7 +209,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Type Inference
 
-As type inference is supported by the library, you can as well infer the enumeration directly when fetching a row from the database via [ExecuteQuery](/operation/executequery).
+Type inference is supported, allowing you to infer an enumeration directly when fetching rows via [ExecuteQuery](/operation/executequery).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

@@ -12,7 +12,7 @@ parent: CACHERS
 
 ---
 
-A cacher class for the class primary property. Underneath, it uses the [PrimaryMapper](/mapper/primarymapper) class to extract the results and caching it for future use.
+A cacher class for the class primary property. It uses [PrimaryMapper](/mapper/primarymapper) internally to extract results and caches them for future use.
 
 {: .note }
 > Internally, this class is widely used within the library.
@@ -26,14 +26,14 @@ Below are the methods available from this class.
 
 ## Usability
 
-You can simply call the `Get()` method of this class by passing the class type.
+Call the `Get()` method by passing the class type:
 
 ```csharp
 var primary = PrimaryCache.Get(typeof(Person));
 // Use the 'primary' here
 ```
 
-Or, via generic type.
+Or via generic type:
 
 ```csharp
 var primary = PrimaryCache.Get<Person>();
@@ -41,4 +41,4 @@ var primary = PrimaryCache.Get<Person>();
 ```
 
 {: .note }
-> Internally, it uses the [PrimaryMapper](/mapper/primarymapper) and [PropertyCache](/cacher/propertycache) classes to extract the list of [ClassProperty](/class/classproperty) and filter the result using the given [IsPrimary()](/class/classproperty#isprimary) method.
+> Internally, it uses [PrimaryMapper](/mapper/primarymapper) and [PropertyCache](/cacher/propertycache) to extract [ClassProperty](/class/classproperty) objects and filter them using [IsPrimary()](/class/classproperty#isprimary).

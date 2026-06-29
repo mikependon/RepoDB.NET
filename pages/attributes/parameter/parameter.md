@@ -10,5 +10,5 @@ parent: ATTRIBUTES
 # Attributes
 {: .fs-9 }
 
-Decorate your DbParameter object.
+Attributes for decorating DbParameter objects.
 {: .fs-6 .fw-300 }

@@ -12,26 +12,24 @@ parent: CLASSES
 
 ---
 
-An immutable class that holds the definition of the database columns. This class is hugely used internally in the library.
+An immutable class that holds the definition of a database column. Used extensively by the library internally.
 
 ## List of Properties
 
-Below is the list of properties.
-
 | Name | Description |
 |:-----|:------------|
-| Name | The name of the column.
+| Name | The column name.
 | IsPrimary | Returns `true` if the column is primary. |
 | IsIdentity | Returns `true` if the column is identity. |
 | IsNullable | Returns `true` if the column is nullable. |
 | Type | The equivalent .NET CLR type. |
-| Size | The size of the column from the database. |
-| Precision | The precision of the column from the database. |
-| Scale | The scale of the column from the database. |
-| DatabaseType | The  type of the column from the database. |
-| Provider | The database provider who created the instance. |
+| Size | The column size. |
+| Precision | The column precision. |
+| Scale | The column scale. |
+| DatabaseType | The database type of the column. |
+| Provider | The database provider that created the instance. |
 
-Below is the way on how to extract the database columns using [IDbHelper](/interface/idbhelper).
+The following example extracts database columns using [IDbHelper](/interface/idbhelper).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -43,4 +41,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .warning }
-> We suggest to avoid using this class in any of your development, unless very necessary.
+> Avoid using this class directly in application code unless strictly necessary.

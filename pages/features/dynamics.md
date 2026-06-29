@@ -12,13 +12,13 @@ parent: FEATURES
 
 ---
 
-This feature allows you to create a simplified and targeted operation by simply maximizing the usage of the anonymous types. It is very useful if you wish to do the CRUD operations on the targeted columns and/or make the CRUD operations without even having a class model.
+This feature enables simplified, targeted operations by leveraging anonymous types. It is useful for performing CRUD operations on specific columns or without a class model.
 
-This feature is being called DYNAMICS as it is enabling the dynamic capabilities if we are to use it on the context of an ORM. Therefore, do not get confused comparing the terminology against the dynamics within .NET ecosystem.
+This feature is referred to as DYNAMICS because it enables dynamic capabilities in the context of an ORM. This terminology is distinct from the dynamics concept within the .NET ecosystem.
 
 ## Querying a Data
 
-Use the [Query](/operation/query) operation and pass the target table as a literal string and a filter expression as an anonymous object.
+Use the [Query](/operation/query) operation with the target table as a literal string and a filter expression as an anonymous object.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -27,7 +27,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or filtering a result via anonymous types.
+Or filter by an anonymous type:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -41,7 +41,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or with specific columns.
+Or return specific columns:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -54,7 +54,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Iterating the Result
 
-When fetching a data from the database, it is automatically converted into an enumerable of [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) object.
+Data fetched from the database is automatically converted into an enumerable of [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -71,7 +71,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Inserting a Data
 
-Use the [Insert](/operation/insert) operation and pass the target table as a literal string and an anonymous entity object.
+Use the [Insert](/operation/insert) operation with the target table as a literal string and an anonymous entity object.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -86,7 +86,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or via [Dictionary](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-7.0) or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
+Or via [Dictionary](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-7.0) or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -102,11 +102,11 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> Please note that the library will add the newly created value of the identity column into the [Dictionary](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-7.0) or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) object (if not present).
+> The library will add the newly created identity column value into the [Dictionary](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-7.0) or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) object if not already present.
 
 ## Deleting a Data
 
-Use the [Delete](/operation/delete) operation and pass the target table as a literal string and a filter expression as an anonymous object.
+Use the [Delete](/operation/delete) operation with the target table as a literal string and a filter expression as an anonymous object.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -117,7 +117,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Merging a Data
 
-Use the [Merge](/operation/merge) operation and pass the target table as a literal string and an anonymous entity object.
+Use the [Merge](/operation/merge) operation with the target table as a literal string and an anonymous entity object.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -136,7 +136,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Updating a Data
 
-Use the [Update](/operation/update) operation and pass the target table as a literal string and a anonymous entity object.
+Use the [Update](/operation/update) operation with the target table as a literal string and an anonymous entity object.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -152,4 +152,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> Please be noted, in general, you can always target the specific columns during the [Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge) or [Update](/operation/update) operations.
+> In general, specific columns can always be targeted during [Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge), or [Update](/operation/update) operations.

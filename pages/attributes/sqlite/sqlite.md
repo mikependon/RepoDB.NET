@@ -10,5 +10,5 @@ parent: ATTRIBUTES
 # Attributes
 {: .fs-9 }
 
-Decorate your SqliteParameter/SQLiteParameter objects.
+Attributes for decorating SqliteParameter and SQLiteParameter objects.
 {: .fs-6 .fw-300 }

@@ -10,5 +10,5 @@ parent: ATTRIBUTES
 # Attributes
 {: .fs-9 }
 
-Decorate your MySqlParameter/MySqlConnectorParameter objects.
+Attributes for decorating MySqlParameter and MySqlConnectorParameter objects.
 {: .fs-6 .fw-300 }

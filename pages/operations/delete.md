@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to delete the rows from the table.
+This method deletes rows from a table.
 
 ## Code Snippets
 
-Below is the sample code to delete a row from the `[dbo].[Person]` table via data model.
+The following example deletes a row from the `[dbo].[Person]` table using a data model.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -24,7 +24,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-You can also delete directly by primary key.
+To delete by primary key:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -35,7 +35,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table name like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -44,7 +44,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, via primary key.
+Or by primary key:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -55,7 +55,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass a table hint via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -65,7 +65,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

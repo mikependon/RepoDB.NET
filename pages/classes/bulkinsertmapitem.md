@@ -12,11 +12,9 @@ parent: CLASSES
 
 ---
 
-This class is used to define a mapping of the source and destination columns when doing the bulk operations (i.e.: [BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
+This class defines a column mapping between source and destination when performing bulk operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge), and [BulkUpdate](/operation/bulkupdate)).
 
 ## Create a new Instance
-
-Below is simple way to create an instance.
 
 ```csharp
 var mapItem = new BulkInsertMapItem("SourceId", "DestinationId");
@@ -24,7 +22,7 @@ var mapItem = new BulkInsertMapItem("SourceId", "DestinationId");
 
 ## Usage for BulkOperations
 
-Let us say you a model class like below.
+Given the following model:
 
 ```csharp
 public class Person
@@ -37,7 +35,7 @@ public class Person
 }
 ```
 
-And you have a table structure like below.
+And the following table structure:
 
 ```csharp
 CREATE TABLE [dbo].[Person]
@@ -52,7 +50,7 @@ ON [PRIMARY];
 GO
 ```
 
-Then, you created a method that does return an array of your model.
+With a method that returns an enumerable of the model:
 
 ```csharp
 private IEnumerable<Person> GetPeople(int count = 10)
@@ -70,7 +68,7 @@ private IEnumerable<Person> GetPeople(int count = 10)
 }
 ```
 
-Then, you can do [BulkInsert](/operation/bulkinsert) with the mappings below.
+You can perform a [BulkInsert](/operation/bulkinsert) with explicit column mappings:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -88,4 +86,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> You can also do the same for (i.e.: [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)). Please also be reminded that the `mappings` argument are not mandatory. Leaving this blank would make the bulk operations auto-map the columns based on the equality of the source and destination column-names (case-insensitive).
+> The same approach applies to [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge), and [BulkUpdate](/operation/bulkupdate). The `mappings` argument is optional — omitting it causes the library to auto-map columns by name (case-insensitive).

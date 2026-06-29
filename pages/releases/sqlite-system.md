@@ -12,7 +12,7 @@ parent: RELEASES
 
 ---
 
-Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SQLite.System) to download it.
+View the NuGet package [here](https://www.nuget.org/packages/RepoDb.SQLite.System) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.SQLite.System).
 
 ## RepoDb.SQLite.System (v1.13.1)
 
@@ -81,7 +81,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see 
 - Bug: SQLite [PrimaryKey](/attribute/primary) with `AUTOINCREMENT` not recognized [#802](https://github.com/mikependon/RepoDb/issues/802)
 - Bug: SQLite [Identity](/attribute/identity) field cannot identified [#790](https://github.com/mikependon/RepoDb/issues/790)
 - Enhancement: Added the [SqliteTypeAttribute](/attribute/sqlite/sqlitetype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Added the [TypeNameAttribute](/attribute/parameter/sqlite/typename) attribute.  [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [TypeNameAttribute](/attribute/sqlite/typename) attribute.  [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
@@ -93,8 +93,8 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see 
 - Added the `net5.0` as part of the target frameworks.
 - Bug: SQLite [PrimaryKey](/attribute/primary) with `AUTOINCREMENT` not recognized [#802](https://github.com/mikependon/RepoDb/issues/802)
 - Bug: SQLite [Identity](/attribute/identity) field cannot identified [#790](https://github.com/mikependon/RepoDb/issues/790)
-- Enhancement: Added the [SqliteTypeAttribute](/attribute/parameter/sqlitetype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Added the [TypeNameAttribute](/attribute/parameter/sqlite/typename) attribute.  [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [SqliteTypeAttribute](/attribute/sqlite/sqlitetype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [TypeNameAttribute](/attribute/sqlite/typename) attribute.  [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
 
 
@@ -126,7 +126,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see 
 - Breaking: Renamed of argument `whereOrPrimaryKey` to `what`.
 - Enhacement: Complete support to the immutable classes and/or types.
 - Refactoring: Refactored the compiler implementations by simplifying the code from Monolithic to Smaller/Shorter/Cleaner code.
-- Feature: Introduced the support to the [Class Handler](/feature/classhandler).
+- Feature: Introduced the support to the [Class Handler](/feature/classhandlers).
 - Test: More coverage of Integration Tests and Unit Tests.
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0](/release/core#repodb-v1120)).
 
@@ -146,7 +146,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SQLite.System) to see 
 - Breaking: Renamed of argument `whereOrPrimaryKey` to `what`.
 - Enhacement: Complete support to the immutable classes and/or types.
 - Refactoring: Refactored the compiler implementations by simplifying the code from Monolithic to Smaller/Shorter/Cleaner code.
-- Feature: Introduced the support to the [Class Handler](/feature/classhandler).
+- Feature: Introduced the support to the [Class Handler](/feature/classhandlers).
 - Test: More coverage of Integration Tests and Unit Tests.
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.0-beta1](/release/core#repodb-v1120-beta1)).
 

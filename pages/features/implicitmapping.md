@@ -12,13 +12,13 @@ parent: FEATURES
 
 ---
 
-This is a feature that would allow you to implicitly map the .NET CLR types or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes within the classes.
+This feature allows you to implicitly map .NET CLR types or class properties to their equivalent database objects. Dedicated mapper classes are provided as an alternative to using attributes directly on the classes.
 
 ## Fluent Mapping
 
-Use the [FluentMapper](/mapper/fluentmapper) class to fluently manage the mappings of the table/properties, primary/identity columns, database types and class/property handlers.
+Use the [FluentMapper](/mapper/fluentmapper) class to manage table/property mappings, primary/identity columns, database types, and class/property handlers in a fluent style.
 
-Below is the code to define the mappings for an entity property, use the `Entity()` method.
+To define mappings for an entity, use the `Entity()` method:
 
 ```csharp
 FluentMapper
@@ -40,7 +40,7 @@ FluentMapper
     }); // Defines the PropertyHandler of the Property
 ```
 
-Below is the code on how to define the mappings for a specfic .NET CLR type, use the `Type()` method.
+To define mappings for a specific .NET CLR type, use the `Type()` method:
 
 ```csharp
 FluentMapper
@@ -57,16 +57,16 @@ FluentMapper
     });
 ```
 
-The priority of the mapping is first identified via an attribute-level, then followed by a property-level and lastly by a type-level.
+Mapping priority is determined first at the attribute level, then at the property level, then at the type level.
 
 {: .note }
-> The [FluentMapper](/mapper/fluentmapper) is using the following classes ([ClassMapper](/mapper/classmapper), [ClassHandlerMapper](/mapper/classhandlermapper), [IdentityMapper](/mapper/identitymapper), [PrimaryMapper](/mapper/primarymapper), [PropertyHandlerMapper](/mapper/propertyhandlermapper), [PropertyMapper](/mapper/propertymapper) and [TypeMapper](/mapper/typemapper)) underneath to establish the proper mappings.
+> [FluentMapper](/mapper/fluentmapper) uses the following classes internally to establish mappings: [ClassMapper](/mapper/classmapper), [ClassHandlerMapper](/mapper/classhandlermapper), [IdentityMapper](/mapper/identitymapper), [PrimaryMapper](/mapper/primarymapper), [PropertyHandlerMapper](/mapper/propertyhandlermapper), [PropertyMapper](/mapper/propertymapper), and [TypeMapper](/mapper/typemapper).
 
 ## Class Name Mapping
 
-Use the [ClassMapper](/mapper/classmapper) class to manage the mappings of the class into its equivalent object in the database (i.e.: Table, View).
+Use the [ClassMapper](/mapper/classmapper) class to map a class to its equivalent database object (table or view).
 
-Let us say you have a `Customer` class which has an equivalent table named `Customer` under `sales` schema.
+Given a `Customer` class with an equivalent table named `Customer` under the `sales` schema:
 
 ```csharp
 public class Customer
@@ -78,25 +78,25 @@ public class Customer
 }
 ```
 
-Then, use the `Add()` method to map it.
+Use the `Add()` method to map it:
 
 ```csharp
 ClassMapper.Add<Customer>("[sales].[Customer]");
 ```
-To retrieve the mapped name, use the `Get()` method.
+To retrieve the mapped name, use the `Get()` method:
 
 ```csharp
 var mappedName = ClassMapper.Get<Customer>();
 ```
 
 {: .important }
-> We recommend to use the [ClassMappedNameCache](/cacher/classmappednamecache) class when retrieving the mapped name. This is to maximize the reusability and performance.
+> Use [ClassMappedNameCache](/cacher/classmappednamecache) when retrieving the mapped name to maximize reusability and performance.
 
 ```csharp
 var mappedName = ClassMappedNameCache.Get<Customer>();
 ```
 
-To remove the mapping, use the `Remove()` method.
+To remove the mapping, use the `Remove()` method:
 
 ```csharp
 ClassMapper.Remove<Customer>();
@@ -104,28 +104,28 @@ ClassMapper.Remove<Customer>();
 
 ## Identity Mapping
 
-Use the [IdentityMapper](/mapper/identitymapper) class to manage the mappings of the class property as an identity.
+Use the [IdentityMapper](/mapper/identitymapper) class to map a class property as an identity.
 
-To add a mapping, use the `Add()` method.
+To add a mapping:
 
 ```csharp
 IdentityMapper.Add<Customer>(e => e.Id);
 ```
 
-To retrieve the mapping, use the `Get()` method. The method returns an instance of [ClassProperty](/class/classproperty) object.
+To retrieve the mapping (returns a [ClassProperty](/class/classproperty) instance):
 
 ```csharp
 var property = IdentityMapper.Get<Customer>();
 ```
 
 {: .important }
-> We recommend to use the [IdentityCache](/cacher/identitycache) class when retrieving the identity property. This is to maximize the reusability and performance.
+> Use [IdentityCache](/cacher/identitycache) when retrieving the identity property to maximize reusability and performance.
 
 ```csharp
 var property = IdentityCache.Get<Customer>();
 ```
 
-To remove the mapping, use the `Remove()` method.
+To remove the mapping:
 
 ```csharp
 IdentityMapper.Remove<Customer>();
@@ -133,27 +133,27 @@ IdentityMapper.Remove<Customer>();
 
 ## Primary Mapping
 
-Use the [PrimaryMapper](/mapper/primarymapper) class to manage the mappings of the class property as a primary.
+Use the [PrimaryMapper](/mapper/primarymapper) class to map a class property as a primary key.
 
-To add a mapping, use the `Add()` method.
+To add a mapping:
 
 ```csharp
 PrimaryMapper.Add<Customer>(e => e.Id);
 ```
-To retrieve the mapping, use the `Get()` method. The method returns an instance of [ClassProperty](/class/classproperty) object.
+To retrieve the mapping (returns a [ClassProperty](/class/classproperty) instance):
 
 ```csharp
 var property = PrimaryMapper.Get<Customer>();
 ```
 
 {: .important }
-> We recommend to use the [PrimaryCache](/cacher/primarycache) class when retrieving the primary property. This is to maximize the reusability and performance.
+> Use [PrimaryCache](/cacher/primarycache) when retrieving the primary property to maximize reusability and performance.
 
 ```csharp
 var mappedName = PrimaryCache.Get<Customer>();
 ```
 
-To remove the mapping, use the `Remove()` method.
+To remove the mapping:
 
 ```csharp
 PrimaryMapper.Remove<Customer>();
@@ -161,9 +161,9 @@ PrimaryMapper.Remove<Customer>();
 
 ## ClassHandler Mapping
 
-Use the [ClassHandlerMapper](/mapper/classhandlermapper) class to manage the mappings of the .NET CLR type class handler.
+Use the [ClassHandlerMapper](/mapper/classhandlermapper) class to map a class handler to a .NET CLR type.
 
-Let us say you have class handler below.
+Given the following class handler:
 
 ```csharp
 public class CustomerClassHandler : IClassHandler<Customer>
@@ -180,26 +180,26 @@ public class CustomerClassHandler : IClassHandler<Customer>
 }
 ```
 
-To add a mapping, use the `Add()` method.
+To add a mapping:
 
 ```csharp
 ClassHandlerMapper.Add<Customer, CustomerClassHandler>();
 ```
 
-To retrieve the mapping, use the `Get()` method.
+To retrieve the mapping:
 
 ```csharp
 var classHandler = ClassHandlerMapper.Get<Customer, CustomerClassHandler>();
 ```
 
 {: .important }
-> We recommend to use the [ClassHandlerCache](/cacher/classhandlercache) class when retrieving the cached class handlers. This is to maximize the reusability and performance.
+> Use [ClassHandlerMapper](/mapper/classhandlermapper) when retrieving cached class handlers to maximize reusability and performance.
 
 ```csharp
 var classHandler = ClassHandlerCache.Get<Customer, CustomerClassHandler>();
 ```
 
-To remove the mapping, use the `Remove()` method.
+To remove the mapping:
 
 ```csharp
 ClassHandlerMapper.Remove<Customer>();
@@ -207,9 +207,9 @@ ClassHandlerMapper.Remove<Customer>();
 
 ## PropertyHandler Mapping
 
-Use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to manage the mappings between the property handlers and the .NET CLR type or class property.
+Use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to map property handlers to a .NET CLR type or class property.
 
-Below is the code on how to map a property hanlder on an entity model property. Let us say you have property handler below.
+To map a property handler to an entity model property, given the following handler:
 
 ```csharp
 public class CustomerAddressPropertyHandler : IPropertyHandler<string, Address>
@@ -226,32 +226,32 @@ public class CustomerAddressPropertyHandler : IPropertyHandler<string, Address>
 }
 ```
 
-To add a mapping, use the `Add()` method.
+To add a mapping:
 
 ```csharp
 PropertyHandlerMapper.Add<Customer, CustomerAddressPropertyHandler>(e => e.Address);
 ```
 
-To retrieve the mapping, use the `Get()` method.
+To retrieve the mapping:
 
 ```csharp
 var propertyHandler = PropertyHandlerMapper.Get<Customer, CustomerAddressPropertyHandler>(e => e.Address);
 ```
 
 {: .important }
-> We recommend to use the [PropertyHandlerCache](/cacher/propertyhandlercache) class when retrieving the cached property handlers. This is to maximize the reusability and performance.
+> Use [PropertyHandlerCache](/cacher/propertyhandlercache) when retrieving cached property handlers to maximize reusability and performance.
 
 ```csharp
 var propertyHandler = PropertyHandlerMapper.Get<Customer, CustomerAddressPropertyHandler>(e => e.Address);
 ```
 
-To remove the mapping, use the `Remove()` method.
+To remove the mapping:
 
 ```csharp
 PropertyHandlerMapper.Remove<Customer>(e => e.Address);
 ```
 
-Below is a code on how to define a property handler mapping in a type level. Let us say you want to handle all the [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) properties and you have created the property handler below.
+To define a type-level property handler mapping for all [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) properties, given the following handler:
 
 ```csharp
 public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<datetime?, datetime?>
@@ -268,25 +268,25 @@ public class DateTimeKindToUtcPropertyHandler : IPropertyHandler<datetime?, date
 }
 ```
 
-To add a mapping, use the type-level `Add()` method.
+To add a type-level mapping:
 
 ```csharp
 PropertyHandlerMapper.Add<DateTime, DateTimeKindToUtcPropertyHandler>();
 ```
 
-To retrieve the mapping, use the type-level `Get()` method.
+To retrieve the type-level mapping:
 
 ```csharp
 var propertyHandler = PropertyHandlerMapper.Get<DateTime>();
 ```
 
-Same here, we highly recommend to use the [PropertyHandlerCache](/cacher/propertyhandlercache) class instead.
+Use [PropertyHandlerCache](/cacher/propertyhandlercache) instead for better performance:
 
 ```csharp
 var propertyHandler = PropertyHandlerMapper.Get<DateTime>();
 ```
 
-To remove the mapping, use the type-level `Remove()` method.
+To remove the type-level mapping:
 
 ```csharp
 PropertyHandlerMapper.Remove<DateTime>();
@@ -294,9 +294,9 @@ PropertyHandlerMapper.Remove<DateTime>();
 
 ## Property Name Mapping
 
-Use the [PropertyMapper](/mapper/propertymapper) class to manage the mappings of the class property into its equivalent column in the database.
+Use the [PropertyMapper](/mapper/propertymapper) class to map class properties to their equivalent database columns.
 
-Let us say you have the  `Customer` class below.
+Given the following `Customer` class:
 
 ```csharp
 public class Customer
@@ -309,7 +309,7 @@ public class Customer
 }
 ```
 
-And the `[dbo].[Customer]` table below.
+And the following `[dbo].[Customer]` table:
 
 ```csharp
 CREATE TABLE [dbo].[Customer]
@@ -325,7 +325,7 @@ ON [PRIMARY];
 GO
 ```
 
-Then, use the `Add()` method to map it.
+Use the `Add()` method to map the properties:
 
 ```csharp
 PropertyMapper.Add<Customer>(e => e.FirstName, "[FName]");
@@ -333,7 +333,7 @@ PropertyMapper.Add<Customer>(e => e.LastName, "[LName]");
 PropertyMapper.Add<Customer>(e => e.DateOfBirth, "[DOB]");
 ```
 
-To retrieve the mapped name, use the `Get()` method.
+To retrieve the mapped names:
 
 ```csharp
 var firstName = PropertyMapper.Get<Customer>(e => e.FirstName);
@@ -342,7 +342,7 @@ var dob = PropertyMapper.Get<Customer>(e => e.DateOfBirth);
 ```
 
 {: .important }
-> We recommend to use the [PropertyMappedNameCache](/cacher/propertymappednamecache) class when retrieving the cached mapped name. This is to maximize the reusability and performance.
+> Use [PropertyMappedNameCache](/cacher/propertymappednamecache) when retrieving cached mapped names to maximize reusability and performance.
 
 ```csharp
 var firstName = PropertyMappedNameCache.Get<Customer>(e => e.FirstName);
@@ -350,7 +350,7 @@ var lastName = PropertyMappedNameCache.Get<Customer>(e => e.LastName);
 var dob = PropertyMappedNameCache.Get<Customer>(e => e.DateOfBirth);
 ```
 
-To remove the mapping, use the `Remove()` method.
+To remove the mappings:
 
 ```csharp
 PropertyMapper.Remove<Customer>(e => e.FirstName);
@@ -360,11 +360,11 @@ PropertyMapper.Remove<Customer>(e => e.DateOfBirth);
 
 ## Database Type Mapping
 
-Use the [TypeMapper](/mapper/typemapper) class to manage the mappings of the .NET CLR type or class property into its equivalent database type.
+Use the [TypeMapper](/mapper/typemapper) class to map .NET CLR types or class properties to their equivalent database types.
 
 #### Property Level
 
-Let us say you have the `Customer` class below.
+Given the following `Customer` class:
 
 ```csharp
 public class Customer
@@ -376,28 +376,26 @@ public class Customer
 }
 ```
 
-And you would like to map the property of the `DateOfBirth` property into `DbType.DateTime2` database type.
-
-Then, use the `Add()` method to map it.
+To map `DateOfBirth` to `DbType.DateTime2`:
 
 ```csharp
 TypeMapper.Add<Customer>(e => e.DateOfBirth, DbType.DateTime2);
 ```
 
-To retrieve the mapping, use the `Get()` method.
+To retrieve the mapping:
 
 ```csharp
 var dbType = TypeMapper.Get<Customer>(e => e.DateOfBirth);
 ```
 
 {: .important }
-> We recommend to use the [TypeMapCache](/cacher/typemapcache) class when retrieving the cached database types. This is to maximize the reusability and performance.
+> Use [TypeMapCache](/cacher/typemapcache) when retrieving cached database types to maximize reusability and performance.
 
 ```csharp
 var dbType = TypeMapCache.Get<Customer>(e => e.DateOfBirth);
 ```
 
-To remove the mapping, ue the `Remove()` method.
+To remove the mapping:
 
 ```csharp
 TypeMapper.Remove<Customer>(e => e.DateOfBirth);
@@ -405,27 +403,25 @@ TypeMapper.Remove<Customer>(e => e.DateOfBirth);
 
 #### Type Level
 
-Let us say you would like to always map the [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) .NET CLR type equivalent to `DbType.DateTime2` database type.
-
-Then, use the type-level mapping via `Add()` method.
+To map all [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) values to `DbType.DateTime2`:
 
 ```csharp
 TypeMapper.Add<DateTime>(DbType.DateTime2);
 ```
 
-To retrieve the mapping, use the type-level `Get()` method.
+To retrieve the mapping:
 
 ```csharp
 var dbType = TypeMapper.Get<DateTime>();
 ```
 
-Same here, we highly recommend to use the [TypeMapCache](/cacher/typemapcache) class instead.
+Use [TypeMapCache](/cacher/typemapcache) instead for better performance:
 
 ```csharp
 var dbType = TypeMapCache.Get<DateTime>();
 ```
 
-To remove the mapping, use the type-level `Remove()` method.
+To remove the type-level mapping:
 
 ```csharp
 TypeMapper.Remove<DateTime>();
@@ -435,17 +431,15 @@ Please visit the [Type Mapping](/feature/typemapping) feature for further inform
 
 ## Property Value Attribute Mapping
 
-Use the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper) class to manage the mappings of the property value attributes.
+Use the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper) class to manage property value attribute mappings.
 
-Let us say you have class handler below.
-
-To add a mapping, use the `Add()` method.
+To add a mapping:
 
 ```csharp
 PropertyValueAttributeMapper.Add<Customer>(e => e.FirstName, new NameAttribute("FName"));
 ```
 
-You can also map a multiple instances.
+Multiple attributes can be mapped at once:
 
 ```csharp
 PropertyValueAttributeMapper.Add<Customer>(e => e.FirstName, new PropertyValueAttribute[]
@@ -456,27 +450,27 @@ PropertyValueAttributeMapper.Add<Customer>(e => e.FirstName, new PropertyValueAt
 });
 ```
 
-To retrieve the mapping, use the `Get()` method.
+To retrieve the mapping:
 
 ```csharp
 var attributes = PropertyValueAttributeMapper.Get<Customer>(e => e.FirstName);
 ```
 
 {: .important }
-> We recommend to use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) class when retrieving the cached property value attributes. This is to maximize the reusability and performance.
+> Use [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) when retrieving cached property value attributes to maximize reusability and performance.
 
 ```csharp
 var attributes = PropertyValueAttributeCache.Get<Customer>(e => e.FirstName);
 ```
 
-To remove the mapping, use the `Remove()` method.
+To remove the mapping:
 
 ```csharp
 PropertyValueAttributeMapper.Remove<Customer>(e => e.FirstName);
 ```
 
 {: .note }
-Please be noted that the `force` argument is not overriding that attribute-based mapping (i.e.: by using the [System.ComponentModel.DataAnnotations.Schema](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema?view=net-6.0) ([Table](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.tableattribute?view=net-6.0), `Column`), [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap), [ClassHandler](/attribute/classhandler) and [PropertyHandler](/attribute/propertyhandler)).
+The `force` argument does not override attribute-based mappings (e.g., via [System.ComponentModel.DataAnnotations.Schema](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema?view=net-6.0) ([Table](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.tableattribute?view=net-6.0), `Column`), [Map](/attribute/map), [Primary](/attribute/primary), [Identity](/attribute/identity), [TypeMap](/attribute/typemap), [ClassHandler](/attribute/classhandler) and [PropertyHandler](/attribute/propertyhandler)).
 
 {: .warning }
-> In the `Add()` method of all mappers, an exception will be thrown if the mapping is already exists and if you did not enfored the call using the `force` argument. 
+> In the `Add()` method of all mappers, an exception is thrown if the mapping already exists and the `force` argument was not set.

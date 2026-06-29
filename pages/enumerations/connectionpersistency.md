@@ -12,14 +12,12 @@ parent: ENUMERATIONS
 
 ---
 
-This is the enumeration used to define the persistency of the `DbConnection` instance within the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects.
+This enum defines the persistency of the `DbConnection` instance within the [BaseRepository](/class/baserepository) and [DbRepository](/class/dbrepository) objects.
 
 {: .note }
-> This enumueration is very useful when you are on a situation that you do need to control the way how repository instantiate a connection object.
+> This enumeration is useful when fine-grained control over how a repository instantiates its connection object is required.
 
 ## Enum Values
-
-Below is the list of enum values.
 
 | Name | Description |
 |:-----|:------------|
@@ -28,9 +26,9 @@ Below is the list of enum values.
 
 ## Usability
 
-Simply pass the connection persistency value in the constructor when instantiating a repository object.
+Pass the connection persistency value in the constructor when instantiating a repository object.
 
-Let us say, you create a repository object named `Person` that inherits the [BaseRepository](/class/baserepository) and you would like to share a single `DbConnection` object in all calls.
+The following example creates a `PersonRepository` that inherits [BaseRepository](/class/baserepository) and shares a single `DbConnection` instance across all calls.
 
 ```csharp
 // Repository
@@ -50,7 +48,7 @@ using (var repository = new PersonRepository(connectionString))
 }
 ```
 
-Or for [DbRepository](/class/dbrepository) object.
+The same applies to a [DbRepository](/class/dbrepository) object.
 
 ```csharp
 // Repository

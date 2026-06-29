@@ -13,9 +13,9 @@ parent: ATTRIBUTES
 
 ---
 
-This is an attribute that is being used to mark the property of the class as an identity property.
+This attribute marks a class property as an identity property.
 
-Let us say you have a the table named `[dbo].[Person]` where the field `Id` is an identity.
+Given a table `[dbo].[Person]` where `Id` is an identity field:
 
 ```csharp
 CREATE TABLE [dbo].[Person]
@@ -27,7 +27,7 @@ ON [PRIMARY];
 GO
 ```
 
-And a model class named `Person` like below.
+And a `Person` model class:
 
 ```csharp
 public class Person
@@ -39,15 +39,15 @@ public class Person
 ```
 
 {: .note }
-> By explicitly setting this attribute to any class property, you had overriden the auto-identification logic of the library. If you place this attribute in a property that is not really an identity from the database, then the library will use that property instead. By doing so, it may fail some of the operations.
+> Explicitly setting this attribute overrides the library's auto-identification logic. If applied to a property that is not a database identity, the library will use that property instead, which may cause some operations to fail.
 
-To retrieve the identity property, you can use the [IdentityCache](/cacher/identitycache) object.
+To retrieve the identity property, use the [IdentityCache](/cacher/identitycache) object.
 
 ```csharp
 var identity = IdentityCache.Get<Person>();
 ```
 
-Or via .NET CLR type.
+Or by .NET CLR type:
 
 ```csharp
 var identity = IdentityCache.Get(typeof(Person));

@@ -12,13 +12,13 @@ parent: CLASSES
 
 ---
 
-This is a helper class used for extracting class objects via `Linq.Expressions` namespace. The operations residing on this class are all pre-compiled operations.
+A helper class for extracting class objects via the `Linq.Expressions` namespace. All operations are pre-compiled.
 
 ## GetEntitiesPropertyValues
 
-This method is used to get the data entities property values. The result is an array of generic type `TResult`.
+Returns the property values of a collection of entities as an array of the specified `TResult` type.
 
-Let us say you have an array of model `Person`, then the code below would extract all the values of the `Id` property.
+The following example extracts all `Id` values from an array of `Person` objects.
 
 ```csharp
 var people = GetPeople(); // As a given variable
@@ -27,11 +27,11 @@ var keys = ClassExpression.GetEntitiesPropertyValues<Person, long>(people, "Id")
 ```
 
 {: .note }
-> You can also extract using [Field](/class/field), [DbField](/class/dbfield) or [ClassProperty](/class/classproperty) objects.
+> Extraction is also supported via [Field](/class/field), [DbField](/class/dbfield), or [ClassProperty](/class/classproperty) objects.
 
 ## GetProperties
 
-This method is used to get the list of the [ClassProperty](/class/classproperty) objects of the target entity.
+Returns a list of [ClassProperty](/class/classproperty) objects for the target entity.
 
 ```csharp
 var properties = ClassExpression.GetProperties<Person>();
@@ -39,15 +39,13 @@ var properties = ClassExpression.GetProperties<Person>();
 ```
 
 {: .important }
-> We recommend that you use the [PropertyCache](/cacher/propertycache) object when extracting the class properties.
+> Use [PropertyCache](/cacher/propertycache) when extracting class properties, as it caches results for reuse.
 
 ## GetPropertiesAndValues
 
-This method is used to extract the list of properties and values of the target entity. The result is an array of [PropertyValue](/class/propertyvalue) object.
+Returns a list of [PropertyValue](/class/propertyvalue) objects containing the properties and their values for the target entity.
 
 ```csharp
 var propertiesAndValues = ClassExpression.GetProperties<Person>(person);
 // Do the stuffs for the 'propertiesAndValues' here
 ```
-
-

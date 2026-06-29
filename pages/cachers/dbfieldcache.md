@@ -12,7 +12,7 @@ parent: CACHERS
 
 ---
 
-A cacher class for the database table fields. It provides a 2nd-layer caching for the library when it comes to database fields extraction. As a result, the library is fast-enough when reusing the already extracted database fields on any execution.
+A cacher class for database table fields. It provides a second caching layer for field extraction, allowing the library to reuse previously extracted database fields for faster execution.
 
 ## Methods
 
@@ -25,7 +25,7 @@ Below is the list of methods.
 
 ## Usability
 
-You can simply call the `Get()` method of this class passing the literal table name.
+Call the `Get()` method by passing the literal table name:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -35,7 +35,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [ClassMappedNameCache](/cacher/classmappednamecache) to extract the mapped entity name.
+Or use [ClassMappedNameCache](/cacher/classmappednamecache) to resolve the mapped entity name:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -46,4 +46,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> By using the `Get()` method, a `DbConnection` is necessary. If the cache is not yet present, then the entries will be extracted from the database, cache it and sent it back to the caller.
+> The `Get()` method requires a `DbConnection`. If the cache is empty, fields are extracted from the database, cached, and returned to the caller.

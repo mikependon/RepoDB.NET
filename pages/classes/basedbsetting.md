@@ -12,15 +12,15 @@ parent: CLASSES
 
 ---
 
-This class stands as the base class of all [IDbSetting](/interface/idbsetting)-based classes.
+This class is the base class of all [IDbSetting](/interface/idbsetting)-based classes.
 
 ## Use-Cases
 
-To simplify your implementation, always use this class over the [IDbSetting](/interface/idbsetting) interface when overriding the default database settings.
+Use this class instead of the [IDbSetting](/interface/idbsetting) interface when overriding default database settings.
 
 ## How to Implement?
 
-Simply create a class that inherits this class, then set the properties in the constructor.
+Create a class that inherits this class and set the properties in the constructor.
 
 ```csharp
 public sealed class MyCustomSqlServerDbSetting : BaseDbSetting
@@ -45,11 +45,11 @@ public sealed class MyCustomSqlServerDbSetting : BaseDbSetting
 ```
 
 {: .note }
-> Additional benefits when using this class, you do not need to implement the `GetHashCode()` method as it is already implemented within the base class.
+> This class already implements `GetHashCode()`, so no override is required.
 
 ## Usability
 
-Simply use the [DbSettingMapper](/mapper/dbsettingmapper) class to map it to a specific RDBMS data provider.
+Use the [DbSettingMapper](/mapper/dbsettingmapper) class to map the setting to a specific RDBMS provider.
 
 ```csharp
 DbSettingMapper.Add(typeof(SqlConnection), new MyCustomSqlServerDbSetting(), true);

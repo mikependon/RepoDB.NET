@@ -12,22 +12,22 @@ parent: CLASSES
 
 ---
 
-An extended query field class that is being used to define a functional query expression for the SQL statement. This class is very useful if you wish to customize your query expression in many ways. It inherits the [QueryField](/class/queryfield) object.
+An extended query field class for defining functional SQL expressions. Useful for applying SQL functions to query conditions. Inherits [QueryField](/class/queryfield).
 
 ## Usability
 
-Below is a sample code that is using the `TRIM` function of the underlying database.
+The following example applies the `TRIM` function to a column condition.
 
 ```csharp
 var where = new FunctionalQueryField("Column", "Value", "TRIM({0})");
 var result = connection.Query<Entity>(where);
 ```
 
-The result would contain all the records where the trimmed value of the `Column` is equals to `Value`.
+The result contains all records where the trimmed value of `Column` equals `Value`.
 
 ## GetString
 
-The `GetString()` method returns a command text that utilizes the passed formatted function.
+The `GetString()` method returns the SQL command text with the specified function applied.
 
 ```csharp
 var where = new FunctionalQueryField("Column", "Value", "TRIM({0})");
@@ -36,9 +36,7 @@ var text = where.GetString(connection.GetDbSetting()); // Returns (TRIM([Column]
 
 ## Formatting
 
-It is important to take note that the library is using the `string.Format()` method to compose the formatting of the expression. Therefore, in the `format` argument of the constructor, always put the `{0}` format indexer as a placement of the actual field.
-
-See the complex formatting below.
+The library uses `string.Format()` to compose the expression. In the `format` argument, use `{0}` as the placeholder for the field name.
 
 ```csharp
 var where = new FunctionalQueryField("Column", "Value", "LEN({0}) > 5 AND RIGHT({0})");

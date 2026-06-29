@@ -11,13 +11,13 @@ grand_parent: ATTRIBUTES
 
 ---
 
-This attribute is used to set the value of the `SqliteParameter.SqliteType` property via a class property.
+This attribute sets the `SqliteParameter.SqliteType` property value via a class property.
 
-> Only works on `Microsoft.Data.Sqlite` package.
+> Only works with the `Microsoft.Data.Sqlite` package.
 
 ### Attribute
 
-Below a sample code on how to use this attribute.
+Example usage:
 
 ```csharp
 public class Person
@@ -31,7 +31,7 @@ public class Person
 
 ### Fluent Mapping
 
-Below is a sample code on how to use this attribute via [FluentMapper](/mapper/fluentmapper).
+To configure via [FluentMapper](/mapper/fluentmapper):
 
 ```csharp
 FluentMapper
@@ -41,7 +41,7 @@ FluentMapper
 
 ### Retrieval
 
-You can retrieve the attribute via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache).
+Retrieve the attribute via [PropertyValueAttributeCache](/cacher/propertyvalueattributecache):
 
 ```csharp
 var attribute = PropertyValueAttributeCache
@@ -49,7 +49,7 @@ var attribute = PropertyValueAttributeCache
     .FirstOrDefault(e => e.GetType() == typeof(SqliteTypeAttribute));
 ```
 
-Or, via the [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper).
+Or via [PropertyValueAttributeMapper](/mapper/propertyvalueattributemapper):
 
 ```csharp
 var attribute = PropertyValueAttributeMapper
@@ -58,4 +58,4 @@ var attribute = PropertyValueAttributeMapper
 ```
 
 {: .important }
-> We strongly suggest to always use the [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) to maximize the performance.
+> We strongly recommend using [PropertyValueAttributeCache](/cacher/propertyvalueattributecache) for maximum performance.

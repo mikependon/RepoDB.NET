@@ -12,7 +12,7 @@ parent: CACHERS
 
 ---
 
-A hugely-used cacher class for the [ClassProperty](/class/classproperty). It provides a 2nd-layer caching for the library when it comes to the class properties extraction.
+A widely-used cacher class for [ClassProperty](/class/classproperty) objects. It provides a second caching layer for class property extraction.
 
 {: .note }
 > Internally, this class is widely used within the library.
@@ -26,14 +26,14 @@ Below are the methods available from this class.
 
 ## Usability
 
-You can simply call the `Get()` method of this class by passing the class type.
+Call the `Get()` method by passing the class type:
 
 ```csharp
 var properties = PropertyCache.Get(typeof(Person));
 // Use the 'properties' here
 ```
 
-Or, via generic type.
+Or via generic type:
 
 ```csharp
 var properties = PropertyCache.Get<Person>();
@@ -41,4 +41,4 @@ var properties = PropertyCache.Get<Person>();
 ```
 
 {: .note }
-> Internally, it uses the [PropertyMapper](/mapper/propertymapper) and [ClassExpression](/class/classexpression) classes to extract and cache the list of [ClassProperty](/class/classproperty) objects.
+> Internally, it uses [PropertyMapper](/mapper/propertymapper) and [ClassExpression](/class/classexpression) to extract and cache [ClassProperty](/class/classproperty) objects.

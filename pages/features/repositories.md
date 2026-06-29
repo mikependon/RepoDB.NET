@@ -12,22 +12,20 @@ parent: FEATURES
 
 ---
 
-A repository is a software design pattern and practice in which it is being implemented as an additional layer between your application and your database. It is being represented as a class object within the application. Through repository, you are managing how the data is being manipulated from/to the database.
-
-In the repository, we usually add the basic database operations (i.e.: [Insert](/operation/insert), [Delete](/operation/delete), [Update](/operation/update) and etc), but, here we also place the relevant advance operations usable within the application. Then, all the code in your application that fetches or pushes a data into the database is using this object instead of directly accessing the database. Thus allowing the developers to follow the correct chain-of calls and reusability when it comes to the data accessibility.
+A repository is a software design pattern implemented as an additional layer between the application and the database, represented as a class object. It centralizes data access logic — including basic operations such as [Insert](/operation/insert), [Delete](/operation/delete), and [Update](/operation/update), as well as application-specific advanced operations. All data access in the application flows through this object rather than directly to the database, promoting correct call chains and code reusability.
 
 ## Type of Repositories
 
-In this library, there are 2 kinds of repositories available for implementation.
+This library provides two repository base classes:
 
 | Object | Description  | 
 |:-------------|:-------------|
-| [BaseRepository](/class/baserepository) | It is used as a base repository for all entity-based repositories. |
-| [DbRepository](/class/dbrepository) | It is used as a generic base repository for any types of entity. |
+| [BaseRepository](/class/baserepository) | A base repository for entity-specific repositories. |
+| [DbRepository](/class/dbrepository) | A generic base repository supporting any entity type. |
 
 ## Creating an Entity-Based Repository
 
-First, create an interface.
+First, create an interface:
 
 ```csharp
 public interface IPersonRepository
@@ -41,7 +39,7 @@ public interface IPersonRepository
 }
 ```
 
-Then, create a class that inherits from the [BaseRepository](/class/baserepository) class and implements the `IPersonRepository` interface.
+Then create a class that inherits from [BaseRepository](/class/baserepository) and implements the interface:
 
 ```csharp
 public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRepository
@@ -52,7 +50,7 @@ public class PersonRepository : BaseRepository<Person, SqlConnection>, IPersonRe
 }
 ```
 
-Then, implement the needed interface methods.
+Implement the interface methods:
 
 #### Delete
 
@@ -100,7 +98,7 @@ public int Update(Person person)
 }
 ```
 
-Then, inject the object like below.
+Register with the DI container:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -116,7 +114,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Creating a Database Level Repository
 
-First, create an interface.
+First, create an interface:
 
 ```csharp
 public interface INorthwindRepository
@@ -139,7 +137,7 @@ public interface INorthwindRepository
 }
 ```
 
-Then, create a class that inherits from the [DbRepository](/class/dbrepository) class and implements the `INorthwindRepository` interface.
+Then create a class that inherits from [DbRepository](/class/dbrepository) and implements the interface:
 
 ```csharp
 public class NorthwindRepository : DbRepository<SqlConnection>, INorthwindRepository
@@ -150,7 +148,7 @@ public class NorthwindRepository : DbRepository<SqlConnection>, INorthwindReposi
 }
 ```
 
-Then, implement the needed interface methods.
+Implement the interface methods:
 
 #### Delete
 
@@ -245,7 +243,7 @@ public int UpdateOrder(Order order)
 }
 ```
 
-Then, inject the object like below.
+Register with the DI container:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -261,7 +259,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Creating a Custom Generic Repository
 
-First, create a generic interface.
+First, create a generic interface:
 
 ```csharp
 public interface IGenericRepository<TEntity, TDbConnection>
@@ -276,7 +274,7 @@ public interface IGenericRepository<TEntity, TDbConnection>
 }
 ```
 
-Then, create a base interface that inherits the generic interface.
+Then create a base interface that inherits the generic interface:
 
 ```csharp
 public interface IPersonRepository : IGenericRepository<Person, SqlConnection>
@@ -285,7 +283,7 @@ public interface IPersonRepository : IGenericRepository<Person, SqlConnection>
 }
 ```
 
-Then, create a class that inherits from the `GenericRepository` and implements the `IPersonRepository` interface.
+Then create a class that inherits from `GenericRepository` and implements the interface:
 
 ```csharp
 public class PersonRepository : GenericRepository<Person, SqlConnection>, IPersonRepository
@@ -300,7 +298,7 @@ public class PersonRepository : GenericRepository<Person, SqlConnection>, IPerso
 }
 ```
 
-Then, implement the needed interface methods.
+Implement the interface methods:
 
 #### CreateConnection
 
@@ -375,7 +373,7 @@ public int Update(Person entity)
 }
 ```
 
-Then, inject the object like below.
+Register with the DI container:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -389,4 +387,3 @@ public void ConfigureServices(IServiceCollection services)
 
 {: .note }
 > Please visit our [Generic Repository](/reference/genericrepository) reference implementation page for the detailed implementation.
-

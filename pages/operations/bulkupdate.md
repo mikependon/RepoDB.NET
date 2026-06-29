@@ -11,7 +11,7 @@ parent: OPERATIONS
 
 ---
 
-This method is used to update all the rows from the client application into the database by bulk. It is only supporting the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) RDBMS.
+This method updates all rows from the client application in the database in bulk. It is supported only for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
 
 ## Call Flow Diagram
 
@@ -21,32 +21,30 @@ The diagram below shows the flow when calling this operation.
 
 ## Use Case
 
-This method is very useful if you are updating multiple rows towards the database in a very speedy manner. It is high-performant in nature as it is using the real bulk operation natively from ADO.NET (via [SqlBulkCopy](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlbulkcopy?view=dotnet-plat-ext-7.0) class).
+Use this method to update rows at high speed. It leverages the native bulk operation from ADO.NET via the [SqlBulkCopy](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlbulkcopy?view=dotnet-plat-ext-7.0) class.
 
-If you are working to update range of rows from 1000 or more, then use this method over the [UpdateAll](/operation/updateall operation).
+For updating 1,000 or more rows, prefer this method over [UpdateAll](/operation/updateall).
 
 ## Special Arguments
 
-The arguments `qualifiers` and `usePhysicalPseudoTempTable` is provided on this operation.
+The `qualifiers` and `usePhysicalPseudoTempTable` arguments are available for this operation.
 
-The `qualifiers` is used to define the qualifier fields to be used in the operation. It usually refers to the WHERE expression of the SQL Statement. If not given, the primary column will be used.
+`qualifiers` defines the qualifier fields used in the operation, corresponding to the WHERE clause. Defaults to the primary column if not specified.
 
-The `usePhysicalPseudoTempTable` is used to define whether a physical pseudo-table will be created during the operation. By default, a temporary table (i.e.: `#TableName`) is used.
+`usePhysicalPseudoTempTable` controls whether a physical pseudo-table is created during the operation. Defaults to a temporary table (e.g., `#TableName`).
 
 {: .important }
-> It is not recommended to enable the `usePhysicalPseudoTempTable` argument if you are to work with parallelism. Ensure to always utilize the session-based non-physical pseudo-temporary table when working with parallelism.
+> Do not enable `usePhysicalPseudoTempTable` when using parallelism. Always use the session-based non-physical pseudo-temporary table in parallel scenarios.
 
 ## Caveats
 
-RepoDB is automatically setting the value of the `options` argument to `SqlBulkCopyOptions.KeepIdentity` when calling this method and if you have not passed any qualifiers and if your table has an IDENTITY primary key column. The same logic will apply if there is no primary key but has an IDENTITY column defined in the table.
+RepoDB automatically sets `options` to `SqlBulkCopyOptions.KeepIdentity` when no qualifiers are provided and the table has an IDENTITY primary key column. The same applies when there is no primary key but an IDENTITY column is defined.
 
-In addition, when calling this method, the library is creating a pseudo temporary table behind the scene. It requires your user to have the correct privilege to create a table in the database, otherwise a [SqlException](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlexception?view=dotnet-plat-ext-6.0) will be thrown.
+This operation creates a pseudo-temporary table internally. The database user must have permission to create tables, or a [SqlException](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlexception?view=dotnet-plat-ext-6.0) will be thrown.
 
 ## Usability
 
-Let us say you have a list of `Person` model at variable `people` that contains both existing and non-existing rows from the database.
-
-Then, below is the code to bulk-update those rows `[dbo].[Person]` table.
+Given a list of `Person` models, the following example bulk-updates rows in the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -55,7 +53,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-And below if you would like to specify the batch size.
+To specify a batch size:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -65,11 +63,9 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> By default, the batch size is 10, equals to `Constant.DefaultBatchOperationSize` value.
+> By default, the batch size is 10, equal to the `Constant.DefaultBatchOperationSize` value.
 
 #### DataTable
-
-Below is the sample code to bulk-update via data table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -80,8 +76,6 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 #### Dictionary/ExpandoObject
-
-Below is the sample code to bulk-update via `Dictionary<string, object>` or [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0).
 
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
@@ -97,8 +91,6 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 
 #### DataReader
 
-Below is the sample code to bulk-update via [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
-
 ```csharp
 using (var sourceConnection = new SqlConnection(sourceConnectionString))
 {
@@ -112,7 +104,7 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
-Or you can also convert the list of `Person` into a `DataEntityDataReader` object and bulk-update it.
+To bulk-update via [DataEntityDataReader](/class/dataentitydatareader):
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -127,7 +119,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Field Qualifiers
 
-By default, this method is using the primary column as the qualifier. You can override it by passing the list of [Field](/class/field) objects in the `qualifiers` argument.
+By default, the primary column is used as the qualifier. To override, pass a list of [Field](/class/field) objects in the `qualifiers` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -139,11 +131,11 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .important }
-> When using the qualifiers, we recommend that you use the list of columns that has the correct index from the original table.
+> Use indexed columns from the target table as qualifiers to maximize performance.
 
 ## Column Mappings
 
-You can add a mapping via `BulkInsertMapItem` class.
+Add column mappings using the `BulkInsertMapItem` class.
 
 ```csharp
 var mappings = new List<BulkInsertMapItem>();
@@ -165,7 +157,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Bulk Copy Options
 
-You can define your bulk-copy options by passing a value of `SqlBulkCopyOptions` in the `options` argument.
+Pass a `SqlBulkCopyOptions` value via the `options` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -178,7 +170,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table and field name like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -190,7 +182,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass a table hint via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -201,7 +193,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

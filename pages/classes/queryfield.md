@@ -12,27 +12,25 @@ parent: CLASSES
 
 ---
 
-This is used as a field on the query expression. Usually refers to a specific field at the WHERE statement of the SQL statement.
+Represents a single field in a query expression, typically corresponding to a condition in a SQL `WHERE` clause.
 
-It contains the actual [Field](/class/field), [Operation](/enumeration/operation) and [Parameter](/class/parameter) objects as the properties for equations.
+It holds [Field](/class/field), [Operation](/enumeration/operation), and [Parameter](/class/parameter) objects as its expression components.
 
-By using this class, it would increase the performance of your application as the library's core implementation is very dependent on the tree structuring of the query objects.
+Using this class improves performance because the library's core implementation relies on tree-structured query objects.
 
 ## Creating an Instance
-
-Below is the way on how to create an instance of this class.
 
 ```csharp
 var field = new QueryField("Id", 10045);
 ```
 
-Below is the way on how to create an instance of this class with an operation.
+With an operation.
 
 ```csharp
 var field = new QueryField("Id", Operation.Between, new [] { 100, 1000 });
 ```
 
-Or, with [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0).
+Or with a [DbType](https://learn.microsoft.com/en-us/dotnet/api/system.data.dbtype?view=net-6.0).
 
 ```csharp
 var field = new QueryField("Id", Operation.Between, new [] { 100, 1000 }, DbType.Int);
@@ -40,9 +38,7 @@ var field = new QueryField("Id", Operation.Between, new [] { 100, 1000 }, DbType
 
 ## Use-Cases
 
-This can be very useful if you are running a query in a dynamic way and if you would like to manage the tree structure of your expression.
-
-Imagine working with the API that has a dynamic field structuring (i.e.: OData, AutoQuery, etc).
+Useful for building dynamic queries, such as those driven by APIs (OData, AutoQuery, etc.).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -58,7 +54,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or in the update operations (for targeted columns).
+Or for targeted column updates.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -77,7 +73,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or even in the delete operations.
+Or delete operations.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -93,7 +89,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Converting to an Enumerable
 
-You can call the `AsEnumerable()` method to convert the instance of this class to an `IEnumerable<QueryField>` object.
+Call `AsEnumerable()` to convert the instance to an `IEnumerable<QueryField>`.
 
 ```csharp
 var fields = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1)).AsEnumerable();
@@ -101,30 +97,26 @@ var fields = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, Date
 
 ## Retrieving the Operation Text
 
-To retrieve the text of the [Operation](/enumeration/operation), simply call the `GetOperationText()` method.
+Call `GetOperationText()` to retrieve the SQL operator string for the [Operation](/enumeration/operation).
 
 ```csharp
 var field = new QueryField("CreatedDateUtc", Operation.GreaterThanOrEqual, DateTime.UtcNow.Date.AddDays(-1));
 var operation = field.GetOperationText();
 ```
 
-The value of the `operation` variable would be `>=`.
+The value of `operation` is `>=`.
 
 ## DbParameter Property
 
-This property is quitely important if you wish to get a reference to the associated [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object on the current instance after the execution.
-
-It is useful if you are retrieving a value of the output parameter from the database after the execution.
+This property provides a reference to the associated [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) after execution. Use it to retrieve output parameter values.
 
 ## GetValue Method
 
-This method returns the value of the [Parameter](/class/parameter) object currently in used by the instance. However, if the current instance has already been used as a parameter to the execution where the `ParameterDirection` is either of the `Output/Input`, then, the value of the output parameter via [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object is returned. This will happen usually if the current instance of this object is of type [DirectionalQueryField](/class/directionalqueryfield).
+Returns the value of the current [Parameter](/class/parameter). If the instance was used as an output parameter (e.g., via [DirectionalQueryField](/class/directionalqueryfield)), the output value from the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) is returned instead.
 
 ## Reusability
 
-We sometimes have a scenario to reuse the instance of this class just to avoid creating the same expression.
-
-To reuse the instance, simply call the `Reset()` method.
+Call `Reset()` to reuse an existing instance without recreating the expression.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -150,41 +142,25 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> Above calls was happened at the `IEnumerable<QueryField>` object. You can also call the `Reset()` method on an instance basis.
+> The `Reset()` call above applies to the `IEnumerable<QueryField>` collection. It can also be called on individual instances.
 
 ## IsForUpdate Method
 
-There is a scenario that we are using this class for the purpose of updates.
+When the same field is used as both an update target and a qualifier, a parameter name collision occurs.
 
-Let us say, you have a person named `John Doe` and you would like to update this person's name to `James Doe` using the `Name` field as the qualifier.
-
-See the translated SQL below.
-
-```csharp
-> UPDATE [dbo].[Person] SET Name = 'James Doe' WHERE Name = 'John Doe';
-```
-
-To make a parameterized statement for this, we need to have a SQL statement like below.
-
-```csharp
-> UPDATE [dbo].[Person] SET Name = @Name WHERE Name = @_Name;
-```
-
-Where the value of the `@Name` field is `James Doe` and the value of `@_Name` is `John Doe`.
-
-If you create a query field like below.
-
-```csharp
-var field = new QueryField("Name", "John Doe");
-```
-
-By default, the name of the parameter to be passed for `Name` query field is `@Name`. If you have passed the entity object during the calls to [Update](/operation/update) operation and that instance also contains the `Name` property, then they are colliding. See below.
+For example, updating `Name` from `John Doe` to `James Doe` using `Name` as the qualifier generates a collision:
 
 ```csharp
 > UPDATE [dbo].[Person] SET Name = @Name WHERE Name = @Name;
 ```
 
-To fix this issue, you have to call the `IsForUpdate()` explicitly. After the calls, the `Name` property will be prepended by an underscore (`_`) character before the actual execution. The resulted SQL expression would then below, fixing the collision problem.
+The correct parameterized form requires distinct parameter names:
+
+```csharp
+> UPDATE [dbo].[Person] SET Name = @Name WHERE Name = @_Name;
+```
+
+Call `IsForUpdate()` explicitly on the qualifier field. After this call, the parameter name is prefixed with an underscore (`_`), resolving the collision.
 
 ```csharp
 > UPDATE [dbo].[Person] SET Name = @Name WHERE Name = @_Name;

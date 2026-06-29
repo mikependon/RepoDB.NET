@@ -13,11 +13,9 @@ grand_parent: ENUMERATIONS
 
 ---
 
-This enum is used to define the command text to use when executing the [BinaryBulkMerge](/operation/binarybulkmerge) operation. It is only used for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This enum defines the command used when executing the [BinaryBulkMerge](/operation/binarybulkmerge) operation. It applies only to the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
 ## Enum Values
-
-Below is the list of enum values.
 
 | Name | Description |
 |:-----|:------------|
@@ -26,7 +24,7 @@ Below is the list of enum values.
 
 ## Usability
 
-Let us say, you would like to merge a big dataset into the database and you prefer to use the ON CONFLICT DO UPDATE merge command of PostgreSQL. Simply pass `OnConflictDoUpdate` value on the `mergeCommandType` argument. See below.
+To merge a large dataset using the PostgreSQL `ON CONFLICT DO UPDATE` command, pass `OnConflictDoUpdate` to the `mergeCommandType` argument.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))

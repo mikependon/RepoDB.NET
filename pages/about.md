@@ -36,10 +36,10 @@ Know more about us and the library!
 
 ### Official Channels
 
-- [GitHub](https://github.com/mikependon/RepoDb/issues) - for any issues, requests and problems.
-- [StackOverflow](https://stackoverflow.com/search?tab=newest&q=RepoDB) - for any technical questions.
+- [GitHub](https://github.com/mikependon/RepoDb/issues) - for issues, requests, and bug reports.
+- [StackOverflow](https://stackoverflow.com/search?tab=newest&q=RepoDB) - for technical questions.
 - [Twitter](https://twitter.com/search?q=%23repodb) - for the latest news.
-- [Gitter Chat](https://gitter.im/RepoDb/community) - for direct and live Q&A.
+- [Gitter Chat](https://gitter.im/RepoDb/community) - for direct, live Q&A.
 
 ### License
 

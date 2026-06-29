@@ -12,10 +12,10 @@ parent: REFERENCES
 
 ---
 
-This page contains the reference implementation when implementing a generic repository that can be used by any entity model. The consolidated output of this page can be found [here](/reference/output/genericrepository).
+This page contains the reference implementation for a generic repository usable with any entity model. The consolidated output can be found [here](/reference/output/genericrepository).
 
 {: .important }
-> This kind of repository is usually being created as a base repository that can be used by any entity model. Imagine that you would like to have a reusable repository in any purpose. This works like [DbRepository](/class/dbrepository).
+> This repository pattern serves as a reusable base repository for any entity model, functioning similarly to [DbRepository](/class/dbrepository).
 
 #### Recommended Objects (Optional)
 
@@ -62,7 +62,7 @@ public static class CacheFactory
 }
 ```
 
-Or, if you wish to dependency inject.
+Or, use dependency injection.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -110,7 +110,7 @@ public static class TraceFactory
 }
 ```
 
-Or, if you wish to dependency inject.
+Or, use dependency injection.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -124,7 +124,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Settings
 
-The settings object must be injected within the constructor of the repository. Please refer to Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+Inject the settings object via the repository constructor. See the Microsoft [documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1) for details.
 
 ```csharp
 public class AppSetting
@@ -138,7 +138,7 @@ public class AppSetting
 
 ## Interface
 
-Create an interface that contains all the necessary methods.
+Create an interface covering all required methods.
 
 ```csharp
 public interface IRepositoryBase<TDbConnection>
@@ -180,7 +180,7 @@ public interface IRepositoryBase<TDbConnection>
 
 ## Repository (Base)
 
-Below is the sample repository implementation. It implements the `IRepositoryBase` interface repository above.
+The following implementation satisfies the `IRepositoryBase` interface defined above.
 
 ```csharp
 public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
@@ -209,7 +209,7 @@ public class RepositoryBase<TDbConnection> : IRepositoryBase<TDbConnection>
 
 ## Interface Methods
 
-Implement all the methods of the base interface.
+Implement all methods defined in the base interface.
 
 ## Create Connection
 
@@ -305,7 +305,7 @@ public int Update<TEntity>(TEntity entity)
 
 ## Async Methods
 
-Ensure that all the synchronous methods you had created has the corresponding asynchronous methods suffixed by `Async` keyword. Within these methods, ensure that you are calling the corresponding asynchronous operations of the library.
+Each synchronous method must have a corresponding asynchronous counterpart with the `Async` suffix, delegating to the library's async operations.
 
 ## Get
 
@@ -391,9 +391,9 @@ public async Task<int> UpdateAsync<TEntity>(TEntity entity)
 
 ## Using the RepositoryBase
 
-Create a class that inherits the repository.
+Create a class that inherits the base repository.
 
-For the factory classes.
+Using factory classes:
 
 ```csharp
 public class NorthwindRepository : RepositoryBase<SqlConnection>
@@ -404,7 +404,7 @@ public class NorthwindRepository : RepositoryBase<SqlConnection>
 }
 ```
 
-For the dependency-injected classes.
+Using dependency injection:
 
 ```csharp
 public class NorthwindRepository : RepositoryBase<SqlConnection>
@@ -421,7 +421,7 @@ public class NorthwindRepository : RepositoryBase<SqlConnection>
 
 ## Derived Repository Methods
 
-Create a method that calls the base method. Below is the recommended way for retrieving a single record.
+Recommended implementation for retrieving a single record:
 
 ```csharp
 public Customer GetCustomer(int id)
@@ -440,7 +440,7 @@ public Product GetProduct(int id)
 }
 ```
 
-Below is the recommended way for saving a record.
+Recommended implementation for saving a record:
 
 ```csharp
 public int SaveCustomer(Customer customer)

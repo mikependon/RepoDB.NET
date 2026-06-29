@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to count the number of rows from the table.
+This method counts the number of rows in a table.
 
 ## Code Snippets
 
-Below is the sample code that count the rows from the `[dbo].[Person]` table since yesterday.
+The following example counts rows in the `[dbo].[Person]` table inserted since yesterday.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -26,7 +26,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Targeting a Table
 
-You can also target a specific table by passing the literal table and field name like below.
+To target a specific table, pass the literal table name.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -35,7 +35,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, use the [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) if you are to enhance the WHERE expressions.
+Use [QueryGroup](/class/querygroup) or [QueryField](/class/queryfield) to build more complex WHERE expressions.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -50,7 +50,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Table Hints
 
-To pass a hint, simply write the table-hints and pass it in the `hints` argument.
+Pass a table hint via the `hints` argument.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -60,7 +60,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, you can use the [SqlServerTableHints](/class/sqlservertablehints) class.
+Or use the [SqlServerTableHints](/class/sqlservertablehints) class.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))

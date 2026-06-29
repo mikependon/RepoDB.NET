@@ -17,13 +17,13 @@ RepoDB is a hybrid .NET ORM library for [SQL Server](https://www.nuget.org/packa
 
 ## Installation
 
-The library can be installed via Nuget. In your Package Manager Console, type the command below.
+Install the library via NuGet using the Package Manager Console.
 
 ```csharp
 > Install-Package RepoDb.SqlServer
 ```
 
-Once installed, call the globalized setup method to initialize all the dependencies for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
+After installation, call the globalized setup method to initialize all dependencies for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer).
 
 ```csharp
 GlobalConfiguration
@@ -31,23 +31,23 @@ GlobalConfiguration
 	.UseSqlServer();
 ```
 
-For the users prior the version 1.13.0, use the bootstrapper code below.
+For versions prior to 1.13.0, use the bootstrapper below.
 
 ```csharp
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-If you are to work with bulk operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), then install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
+To use bulk operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
 
 ```csharp
 > Install-Package RepoDb.SqlServer.BulkOperations
 ```
 
-Or, visit our [installation](/tutorial/installation) page for more information.
+For more information, visit the [installation](/tutorial/installation) page.
 
 ## Create a Table
 
-Let us say you have this table on your database.
+The examples below assume the following table exists in the database.
 
 ```csharp
 CREATE TABLE [dbo].[Person]
@@ -64,7 +64,7 @@ GO
 
 ## Create a Model
 
-And you have this model on your application.
+The examples below assume the following model exists in the application.
 
 ```csharp
 public class Person
@@ -78,7 +78,7 @@ public class Person
 
 ## Creating a Record
 
-To create a row, use the [Insert](/operation/insert) method.
+To insert a row, use the [Insert](/operation/insert) method.
 
 ```csharp
 var person = new Person
@@ -114,17 +114,17 @@ To query a row, use the [Query](/operation/query) method.
 using (var connection = new SqlConnection(ConnectionString))
 {
     var person = connection.Query<Person>(e => e.Id == 10045);
-    /* Do the stuffs for person here */
+    /* Process the result here */
 }
 ```
 
-To query all the rows, use the [QueryAll](/operation/queryall) method.
+To query all rows, use the [QueryAll](/operation/queryall) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
     var people = connection.QueryAll<Person>();
-    /* Do the stuffs for the people here */
+    /* Process the results here */
 }
 ```
 
@@ -146,7 +146,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary column is used as a qualifier, but you can customize the qualifiers with other columns.
+By default, the primary column is used as a qualifier. Custom qualifiers can also be specified.
 
 ```csharp
 var person = new Person
@@ -161,7 +161,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To merge all the rows, use the [MergeAll](/operation/mergeall) method.
+To merge multiple rows, use the [MergeAll](/operation/mergeall) method.
 
 ```csharp
 var people = GetPeople(100).AsList();
@@ -187,7 +187,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, it uses the primary column as a qualifier, but you can also use the other columns like below.
+Other columns can also be used as qualifiers.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -196,7 +196,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To delete all the rows, use the [DeleteAll](/operation/deleteall) method.
+To delete all rows, use the [DeleteAll](/operation/deleteall) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -205,7 +205,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-You can also pass the list of primary keys or models to be deleted.
+A list of primary keys or models can also be passed for targeted deletion.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -236,7 +236,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-You can also dynamically update by targeting certain columns.
+Specific columns can also be targeted using a dynamic update.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -245,7 +245,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To update all the rows, use the [UpdateAll](/operation/updateall) method.
+To update multiple rows, use the [UpdateAll](/operation/updateall) method.
 
 ```csharp
 var people = GetPeople(100);
@@ -258,7 +258,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-By default, the primary column is used as a qualifier, but you can also specify your custom qualifiers.
+By default, the primary column is used as a qualifier. Custom qualifiers can also be specified.
 
 ```csharp
 var people = GetPeople(100);
@@ -277,7 +277,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 ## Executing a SQL Text
 
-To execute a query, use the [ExecuteNonQuery](/operation/executenonquery) method.
+To execute a non-query statement, use the [ExecuteNonQuery](/operation/executenonquery) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -287,18 +287,18 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of class object, use the [ExecuteQuery](/operation/executequery) method.
+To execute a query and return mapped objects, use the [ExecuteQuery](/operation/executequery) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
     var sql = "SELECT * FROM [dbo].[Person] ORDER BY Id ASC;";
     var people = connection.ExecuteQuery<Person>(sql);
-    /* Do the stuffs for the people here */
+    /* Process the results here */
 }
 ```
 
-To execute a query while expecting a single result, use the [ExecuteScalar](/operation/executescalar) method.
+To execute a query and return a scalar value, use the [ExecuteScalar](/operation/executescalar) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -308,7 +308,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-To execute a query while expecting a result of [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object, use the [ExecuteReader](/operation/executereader) method.
+To execute a query and return a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0), use the [ExecuteReader](/operation/executereader) method.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -316,14 +316,14 @@ using (var connection = new SqlConnection(ConnectionString))
     var sql = "SELECT * FROM [dbo].[Person];";
     using (var reader = connection.ExecuteReader(sql))
     {
-        /* Do the stuffs for the data reader here */
+        /* Process the data reader here */
     }
 }
 ```
 
 ## Table-Valued Parameters
 
-To execute a Table-Valued Parameter (TVP), create a `DataTable` and set its name equals to the name of the User-Defined Type (UDT).
+To pass a Table-Valued Parameter (TVP), create a `DataTable` and set its name to the name of the User-Defined Type (UDT).
 
 {: .highlight }
 > Please follow the Microsoft [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) on how to create a TVP and UDT and call it from C#/ADO.NET.
@@ -334,7 +334,7 @@ table.TableName = "[dbo].[PersonType]"; // Name of the UDT
 // Create the 'table' columns/rows
 ```
 
-Then, pass it as a value to your argument.
+Pass it as a parameter value.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -346,7 +346,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 ## Executing a Stored Procedure
 
-To execute a stored procedure, you can use any of the execute methods mentioned above, but you have to pass the `CommandType.StoredProcedure` enumeration value on the `commandType` argument.
+To execute a stored procedure, use any of the execute methods above and pass `CommandType.StoredProcedure` to the `commandType` argument.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -359,7 +359,7 @@ using (var connection = new SqlConnection(ConnectionString))
 {: .warning }
 > Beware of not putting a semi-colon at the end of the calls.
 
-Or, you can direct call using the `EXEC` command. With this, you do not need to pass the value of the `commandType` argument.
+Alternatively, use the `EXEC` command directly, which does not require the `commandType` argument.
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -373,7 +373,7 @@ using (var connection = new SqlConnection(ConnectionString))
 
 ## Typed Result Execution
 
-You can infer the single-column resultsets to any .NET CLR type via [ExecuteQuery](/operation/executequery) operation.
+Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](/operation/executequery).
 
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
@@ -383,7 +383,7 @@ using (var connection = new SqlConnection(ConnectionString))
 }
 ```
 
-And even with the enumerations.
+Enumeration types are also supported.
 
 ```csharp
 public enum Gender
@@ -401,4 +401,4 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> The result of this operation is an [IEnumerable<T>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+> The result of this operation is an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.

@@ -10,5 +10,5 @@ permalink: /reference
 # References
 {: .fs-9 }
 
-Your guidance during the development!
+Reference implementations to guide your development.
 {: .fs-6 .fw-300 }

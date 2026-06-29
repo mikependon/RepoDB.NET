@@ -9,5 +9,5 @@ permalink: /class
 # Classes
 {: .fs-9 }
 
-Leverage to simplify your development!
+Simplify your development with these classes.
 {: .fs-6 .fw-300 }

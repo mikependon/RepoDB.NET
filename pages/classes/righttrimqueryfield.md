@@ -12,22 +12,20 @@ parent: CLASSES
 
 ---
 
-An extended query field class that is being used to define a query expression for the SQL statement using the RTRIM function. It inherits the [QueryField](/class/queryfield) object.
+An extended query field class for defining SQL expressions using the `RTRIM` function. Inherits [QueryField](/class/queryfield).
 
 ## Usability
-
-Below is a sample code on how to use this class.
 
 ```csharp
 var where = new RightTrimQueryField("Column", "Value");
 var result = connection.Query<Entity>(where);
 ```
 
-The result would contain all the records where the right-trimmed value of `Column` is equals to `Value`.
+The result contains all records where the right-trimmed value of `Column` equals `Value`.
 
 ## GetString
 
-The `GetString()` method returns a command text that utilizes the `RTRIM` function.
+The `GetString()` method returns the command text using the `RTRIM` function.
 
 ```csharp
 var where = new RightTrimQueryField("Column", "Value");

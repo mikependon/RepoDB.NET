@@ -12,13 +12,13 @@ parent: FEATURES
 
 ---
 
-This is a feature that would allow you to optimize the command execution towards the database. It is a keyword that is usually being added into the SQL statements (DML) to further optimize the execution of your commands. Please see the Microsoft document [here](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-ver15).
+This feature allows you to optimize command execution against the database by embedding hint keywords into SQL DML statements. See the Microsoft documentation [here](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-ver15).
 
 ## Raw-SQL
 
-For raw-SQL, the process of adding hints is controlled by you as you are the one who is providing the SQL text.
+For raw SQL, hints are included directly in the SQL text you provide.
 
-Below is the code that query all the dirty data from the `[dbo].[Order]` table.
+The following example queries dirty data from the `[dbo].[Order]` table:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -27,7 +27,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-And below is the code that locks the table `[dbo].[Person]` when you insert a record.
+The following example acquires a table lock on `[dbo].[Person]` during an insert:
 
 ```csharp
 var person = new
@@ -44,9 +44,9 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Fluent-Methods
 
-Most [operations](/docs#operations) within the library accepts the `hints` argument. It allows you to pass the hints as a literal string, those giving you the full control when optimizing the calls to the operation.
+Most [operations](/docs#operations) accept a `hints` argument that accepts a literal string, giving full control over query optimization.
 
-Below are the equivalent operations of the raw-SQLs execution defined above.
+The following are the fluent-method equivalents of the raw SQL examples above:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -55,7 +55,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-And below is the code that locks the table when you insert a record.
+Acquiring a table lock during an insert:
 
 ```csharp
 var person = new
@@ -70,7 +70,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-You can also use the [SqlServerTableHints](/class/sqlservertablehints) class to pass the hints.
+The [SqlServerTableHints](/class/sqlservertablehints) class can also be used to pass hints:
 
 ```csharp
 var person = new
@@ -86,4 +86,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .warning }
-> The `hints` argument is only supporting the [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer). When being called with other RDBMS data providers, an exception will be thrown.
+> The `hints` argument is only supported for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer). Passing hints for other RDBMS providers will throw an exception.

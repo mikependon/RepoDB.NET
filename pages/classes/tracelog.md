@@ -12,22 +12,20 @@ parent: CLASSES
 
 ---
 
-A trace-logging class that is used when executing an operation. It provides vital information of the actual execution via the [ITrace](/interface/itrace) object.
+A trace-logging class used during operation execution. It provides execution details via the [ITrace](/interface/itrace) object.
 
 ## Properties
 
-Below is the list of properties.
-
 | Name | Description |
 |:-----|:------------|
-| SessionId | Handles the identifier of the trace execution. |
-| Key | Handles the key of the of the actual execution. By default, the value is the name of the operation that is being executed. |
+| SessionId | The identifier of the trace execution. |
+| Key | The key of the execution. Defaults to the name of the operation being executed. |
 
 ## Tracing
 
-All methods of the [ITrace](/interface/itrace) interface is using this class. You can debug to any method of the [ITrace](/interface/itrace)-based classes to trace the actual execution information.
+All methods of the [ITrace](/interface/itrace) interface use this class. Set breakpoints in [ITrace](/interface/itrace)-based class methods to inspect execution details.
 
-Let us say you have a custom trace class named `MyCustomTrace`. Then, you pass this object when you call the [Insert](/operation/insert) operation.
+Pass a custom trace object when calling an operation such as [Insert](/operation/insert).
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -36,7 +34,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Then, you can set a breakpoint at your `MyCustomTrace.BeforeExecution()` method and see the actual trace information before the actual execution via [CancellableTraceLog](/class/cancellabletracelog) argument.
+In `BeforeExecution()`, inspect or cancel the operation via the [CancellableTraceLog](/class/cancellabletracelog) argument.
 
 ```csharp
 public void BeforeExecution(CancellableTraceLog log)
@@ -49,7 +47,7 @@ public void BeforeExecution(CancellableTraceLog log)
 }
 ```
 
-Also, you can set a breakpoint at your `MyCustomTrace.AfterExecution()` method and see the actual trace information after the insert operation.
+In `AfterExecution()`, inspect the result after execution.
 
 ```csharp
 public void AfterExecution<TResult>(ResultTraceLog<TResult> log)
@@ -59,4 +57,4 @@ public void AfterExecution<TResult>(ResultTraceLog<TResult> log)
 ```
 
 {: .note }
-> You can do the same in all operational method of the [ITrace](/interface/itrace)-based classes.
+> The same pattern applies to all operational methods of [ITrace](/interface/itrace)-based classes.

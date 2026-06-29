@@ -13,11 +13,11 @@ parent: ATTRIBUTES
 
 ---
 
-This is an attribute that is being used to map the class and its properties into its equivalent table and columns in the database.
+This attribute maps a class and its properties to the corresponding table and columns in the database.
 
 ## Class Mapping
 
-Let us say you have a the table named `[department].[Person]` like below.
+Given a table `[department].[Person]`:
 
 ```csharp
 CREATE TABLE [department].[Person]
@@ -29,7 +29,7 @@ ON [PRIMARY];
 GO
 ```
 
-And a model class named `Person` like below in which some of the column is not matching.
+And a `Person` model class where the default schema does not match:
 
 ```csharp
 [Map("[department].[Person]")] // Use the mapping as the default schema is [dbo]
@@ -41,11 +41,11 @@ public class Person
 ```
 
 {: .note }
-> You can also use the mapping if the table name and the class name is not matching in terms of casing.
+> The mapping also applies when the table name and class name differ only in casing.
 
 ## Property Mapping
 
-Let us say you have a the table named `[department].[Person]` like below.
+Given a table `[dbo].[Person]`:
 
 ```csharp
 CREATE TABLE [dbo].[Person]
@@ -58,7 +58,7 @@ ON [PRIMARY];
 GO
 ```
 
-And a model class named `Person` like below in which some of the columns are not matching.
+And a `Person` model class where property names do not match the column names:
 
 ```csharp
 public class Person
@@ -73,13 +73,13 @@ public class Person
 
 ## Retrieval
 
-You can use the [ClassMappedNameCache](/cacher/classmappednamecache) to retrieve the mappings for the class.
+Use [ClassMappedNameCache](/cacher/classmappednamecache) to retrieve the class mapping.
 
 ```csharp
 var mappedName = ClassMappedNameCache.Get<Person>();
 ```
 
-You can use either of the following.
+For property-level mappings, use either of the following.
 
 - The `Get()` method of the [PropertyMappedNameCache](/cacher/propertymappednamecache)
 - The `GetMappedName()` method of the [ClassProperty](/class/classproperty)

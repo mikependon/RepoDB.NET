@@ -11,11 +11,9 @@ parent: INTERFACES
 
 ---
 
-This interface is used to mark a class to be a property handler object. This interface has `TInput` and `TResult` generic types in which being used at both the `Get()` and `Set()`  methods.
+This interface marks a class as a property handler. It exposes `TInput` and `TResult` generic type parameters used by both the `Get()` and `Set()` methods.
 
 ## Generic Types
-
-Below is the list of generic types.
 
 | Name | Description |
 |:-----|:------------|
@@ -23,8 +21,6 @@ Below is the list of generic types.
 | TOutput | Refers to the type of the data entity property. The input type for the setter; the output type for the getter. |
 
 ## Methods
-
-Below is the list of methods.
 
 | Name | Description |
 |:-----|:------------|
@@ -36,7 +32,7 @@ Below is the list of methods.
 
 ## Use-Cases
 
-This is very useful when you would like to handle the following scenarios.
+This interface is useful for the following scenarios.
 
 - Converting a JSON column into a class object.
 - Handling the correct [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) objects `Kind`.
@@ -47,11 +43,11 @@ This is very useful when you would like to handle the following scenarios.
 - Manually override the default handler for the Enumerations.
 
 {: .important }
-> The use-cases can be unlimitted depends on your situation. In addition to this note, by implementing the property handler and mapping it to the property will ignore the automatic conversion of [TypeMapper](/mapper/typemapper#automatic) and enumerations.
+> The use-cases are unlimited depending on the situation. Additionally, mapping a property handler to a property overrides the automatic conversion of [TypeMapper](/mapper/typemapper#automatic) and enumerations.
 
 ## How to Implement?
 
-You have to manually create a class that implements this interface.
+Create a class that implements this interface.
 
 ```csharp
 public class AddressPropertyHandler : IPropertyHandler<string, Address>
@@ -70,7 +66,7 @@ public class AddressPropertyHandler : IPropertyHandler<string, Address>
 
 ## Property Level Handling
 
-You can handle the property transformation on a property level. Imagine that you have a table named `[dbo].[Person]` in which the column `Address` is of type `NVARCHAR(MAX)`.
+Property-level transformation is useful when a specific column requires custom handling. For example, given a `[dbo].[Person]` table where the `Address` column is of type `NVARCHAR(MAX)`:
 
 **Classes**
 
@@ -153,11 +149,11 @@ publi class Person
 
 ## Type Level Handling
 
-On the other hand, you can also handle the property transformation on a type level. It is useful on a situation if you would like to handle a specific database type transformation into a .NET CLR type (i.e.: converting the [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) object `Kind` to `Utc`).
+Type-level handling applies a transformation to all properties of a given .NET CLR type across the entire application. This is useful for cross-cutting concerns such as normalizing [System.DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0) `Kind` values on every read.
 
-To enable this, you have to use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class for the mappings.
+Use the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to register the mapping.
 
-Let us say, the scenario is to convert all the `DateTime.Kind` properties to Utc in all read operations.
+The following example converts all `DateTime` properties to UTC on every read operation.
 
 **Handler**
 

@@ -11,11 +11,11 @@ parent: OPERATIONS
 
 ---
 
-This method is used to execute a raw-SQL directly towards the database. It returns the number of rows affected during the execution. This method supports all types of RDMBS data providers.
+This method executes a raw SQL statement directly against the database and returns the number of rows affected. It supports all RDBMS data providers.
 
 ## Code Snippets
 
-Below is a code that deletes all the rows from the `[dbo].[Person]` table from the database.
+The following example deletes all rows from the `[dbo].[Person]` table.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -26,7 +26,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Passing of Parameters
 
-You can pass a parameter via the following objects.
+Parameters can be passed via any of the following types:
 
 - IDbDataParameter
 - Anonymous Types
@@ -50,7 +50,7 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-The name of the parameter is not required. The library is replacing it with the actual name of the property passed from the object.
+The parameter name is not required. The library replaces it with the actual property name from the object.
 
 ## Anonymous Types
 
@@ -127,7 +127,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Array Parameters (for the IN keyword)
 
-You can pass an array of values if you are using the `IN` keyword.
+Pass an array of values when using the `IN` keyword.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -142,11 +142,11 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-You can also use the types defined at the [Passing of Parameters](#passing-of-parameters) section when passing a parameter.
+Any of the parameter types listed in [Passing of Parameters](#passing-of-parameters) can also be used here.
 
 ## Executing a Stored Procedure
 
-There are 2 ways of executing a stored procedure. First, simply pass the name of the stored procedure and set the command type to `CommandType.StoredProcedure`.
+There are two ways to execute a stored procedure. Pass the stored procedure name and set the command type to `CommandType.StoredProcedure`:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -157,7 +157,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or, simply use the native SQL calls like below.
+Or use a native SQL `EXEC` call:
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -168,4 +168,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-Notice in the second call, there is semi-colon at the end of the command text and the command type was not set.
+In the second call, the command text ends with a semicolon and no command type is set.

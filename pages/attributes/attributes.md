@@ -9,5 +9,5 @@ permalink: /attribute
 # Attributes
 {: .fs-9 }
 
-Decorate to address your advance cases!
+Decorate your classes and properties to handle advanced scenarios.
 {: .fs-6 .fw-300 }

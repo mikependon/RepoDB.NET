@@ -12,9 +12,9 @@ parent: MAPPERS
 
 ---
 
-A class that is being used to map a class handler into a class. This class is used as an alternative to the [ClassHandler](/attribute/classhandler) attribute.
+A mapper class for associating a class handler with a target class. This is the programmatic alternative to the [ClassHandler](/attribute/classhandler) attribute.
 
-Please see the [IClassHandlerMapper](/interface/iclasshandler) for more details about the property handling implementation.
+See [IClassHandlerMapper](/interface/iclasshandler) for details on the property handling implementation.
 
 ## Methods
 
@@ -29,7 +29,7 @@ Below is the list of methods.
 
 ## Usability
 
-Let us say you had implemented a `Person` handler like below.
+Given a `Person` class handler implementation:
 
 ```csharp
 public class PersonClassHandler : IClassHandler<Person>
@@ -48,16 +48,16 @@ public class PersonClassHandler : IClassHandler<Person>
 
 ## How to Map?
 
-There are various ways of mapping a class handler into an entity model. You can use either do the following approach.
+A class handler can be mapped to an entity model using any of the following approaches.
 
-Via the [ClassHandlerMapper](/mapper/classhandlermapper) class.
+Via [ClassHandlerMapper](/mapper/classhandlermapper):
 
 ```csharp
 PropertyHandlerMapper
     .Add(typeof(Person), new PersonClassHandler(), true);
 ```
 
-Or, via the [FluentMapper](/mapper/fluentmapper) class.
+Via [FluentMapper](/mapper/fluentmapper):
 
 ```csharp
 FluentMapper
@@ -65,7 +65,7 @@ FluentMapper
     .ClassHandler<PersonClassHandler>();
 ```
 
-Or, via an explicit [ClassHandler](/attribute/classhandler) attribute.
+Via the [ClassHandler](/attribute/classhandler) attribute:
 
 ```csharp
 [ClassHandler(typeof(PersonClassHandler))]

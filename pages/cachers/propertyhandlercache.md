@@ -12,7 +12,7 @@ parent: CACHERS
 
 ---
 
-A cacher class for the [IPropertyHandler](/interface/ipropertyhandler) objects that has been mapped to .NET CLR type or class property. Underneath, it uses the [PropertyHandlerMapper](/mapper/propertyhandlermapper) class to extract the results and caching it for future use.
+A cacher class for [IPropertyHandler](/interface/ipropertyhandler) objects mapped to .NET CLR types or class properties. It uses [PropertyHandlerMapper](/mapper/propertyhandlermapper) internally to extract results and caches them for future use.
 
 ## Methods
 
@@ -23,7 +23,7 @@ Below are the methods available from this class.
 
 ## Usability
 
-You can simply call the `Get()` method of this class by passing the class type.
+Call the `Get()` method by passing the class type.
 
 #### Type Level
 
@@ -32,7 +32,7 @@ var propertyHandler = PropertyHandlerCache.Get<IntTypeProperHandler>(typeof(int)
 // Use the 'propertyHandler' here
 ```
 
-Or via generic.
+Or via generic type:
 
 ```csharp
 var propertyHandler = PropertyHandlerCache.Get<int, IntTypeProperHandler>();
@@ -46,7 +46,7 @@ var propertyHandler = PropertyHandlerCache.Get<Customer, CustomerAddressProperty
 // Use the 'propertyHandler' here
 ```
 
-Or via generic.
+Or via expression:
 
 ```csharp
 var propertyHandler = PropertyHandlerCache.Get<Customer, CustomerAddressPropertyHandler>(e => e.Address);

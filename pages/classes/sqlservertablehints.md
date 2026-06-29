@@ -12,13 +12,13 @@ parent: CLASSES
 
 ---
 
-This class contains the list of table hints that is useful for SQL Server. It is usually used as passing parameter to the `hints` argument of most operations.
+This class contains SQL Server table hints for use with the `hints` argument of most operations.
 
 ## Usability
 
-To use the hints, simply pass the target hints you want to use.
+Pass the desired hint to the `hints` argument.
 
-Below is a sample for querying the dirty records.
+Query with dirty reads.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -27,7 +27,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or only reading the commited records.
+Query only committed records.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -36,7 +36,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Also, below is a sample to lock the table during insertion.
+Lock the table during insertion.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -45,7 +45,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-Or during the [Update](/operation/update) operation.
+Or during an [Update](/operation/update) operation.
 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -55,4 +55,4 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 {: .note }
-> The class contains a lot of hints, we recommend that you visits the official Microsoft [documentation](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-2017) for further understanding.
+> This class contains many additional hints. Refer to the official Microsoft [documentation](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-2017) for the full reference.

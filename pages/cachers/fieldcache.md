@@ -12,7 +12,7 @@ parent: CACHERS
 
 ---
 
-A cacher class for the class properties (as fields). It provides a 2nd-layer caching for the library when it comes to the class properties extraction (as fields).
+A cacher class for class properties represented as fields. It provides a second caching layer for property extraction.
 
 {: .note }
 > Internally, this class is widely used within the library.
@@ -28,14 +28,14 @@ Below is the list of methods.
 
 ## Usability
 
-You can simply call the `Get()` method of this class by passing the class type.
+Call the `Get()` method by passing the class type:
 
 ```csharp
 var fields = FieldCache.Get(typeof(Person));
 // Use the 'fields' here
 ```
 
-Or, via generic type.
+Or via generic type:
 
 ```csharp
 var fields = FieldCache.Get<Person>();
@@ -43,4 +43,4 @@ var fields = FieldCache.Get<Person>();
 ```
 
 {: .note }
-> Internally, it uses the [PropertyCache](/cacher/propertycache) class to extract the list of [ClassProperty](/class/classproperty) and convert and cache it all as an `Enumerable<Field>`.
+> Internally, it uses [PropertyCache](/cacher/propertycache) to extract [ClassProperty](/class/classproperty) objects and convert them to an `Enumerable<Field>`.
