@@ -14,6 +14,35 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb).
 
+## RepoDb (v1.14.0)
+
+New
+{: .label .label-green }
+
+- Added native PostgreSQL enum type support for bulk operations via the new `DataTypeName` property on `NpgsqlBulkInsertMapItem`.
+- Added support for .NET 8, .NET 9, and .NET 10 target frameworks.
+- Added auto-conversion from `DateTime` to `DateOnly`. [#1154](https://github.com/mikependon/RepoDB/pull/1154)
+- Added full `DateOnly` support. [#1184](https://github.com/mikependon/RepoDB/pull/1184)
+- Added support for `int` and `short` in `SetEntityIdentities` for PostgreSQL. [#1197](https://github.com/mikependon/RepoDB/pull/1197)
+- Added Generic Attribute support for `ClassHandler`. [#1169](https://github.com/mikependon/RepoDB/pull/1169)
+- Honor cache expiration from constructor if not passed explicitly. [#1180](https://github.com/mikependon/RepoDB/pull/1180)
+- Optimized batch statement generation. [#1167](https://github.com/mikependon/RepoDB/pull/1167)
+- Mitigated thread race conditions and hashcode collision risks. [#1153](https://github.com/mikependon/RepoDB/pull/1153)
+- Fixed race condition when getting fields by retrying on a new connection. [#1162](https://github.com/mikependon/RepoDB/pull/1162)
+- Fixed duplicate type check for `StaticType.Byte` in `ClientTypeToDbTypeResolver`. [#1213](https://github.com/mikependon/RepoDB/pull/1213)
+- Fixed `keepIdentity` flag bug in `BulkInsert` and `BulkMerge` operations. [#1182](https://github.com/mikependon/RepoDB/pull/1182)
+- Fixed nested/concurrent transaction exception when using `TransactionScope` with PostgreSQL bulk operations. [#1159](https://github.com/mikependon/RepoDB/issues/1159) [#1160](https://github.com/mikependon/RepoDB/pull/1160) [#1170](https://github.com/mikependon/RepoDB/pull/1170)
+- Addressed CVE-2023-36414 and CVE-2024-0056. [#1207](https://github.com/mikependon/RepoDB/pull/1207)
+- Converted enum to type based on `DbType` for PostgreSQL. [#1152](https://github.com/mikependon/RepoDB/pull/1152)
+- Updated `GetCommandText()` to use `pg_index` catalog in `PostgreSqlDbHelper`. [#1209](https://github.com/mikependon/RepoDB/pull/1209)
+- Refreshed README — tightened prose, added a *Why RepoDB?* section, a **Contributors** section, and a **Downloads** badge column to the packages table.
+
+Breaking
+{: .label .label-red }
+
+- Dropped support for .NET 6 and .NET 7.
+
+
 ## RepoDb (v1.13.1)
 
 - Feature: Introduce the SkipQuery operation. [#377](https://github.com/mikependon/RepoDB/issues/377)
