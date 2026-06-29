@@ -14,6 +14,20 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
 
+## RepoDb.SqlServer (v1.14.0)
+
+New
+{: .label .label-green }
+
+- Added support for .NET 8, .NET 9, and .NET 10 target frameworks.
+- Referenced the `RepoDb` package `v1.14.0`.
+
+Breaking
+{: .label .label-red }
+
+- Dropped support for .NET 6 and .NET 7.
+
+
 ## RepoDb.SqlServer (v1.13.1)
 
 - Referenced the `RepoDb` package `v1.13.1`.

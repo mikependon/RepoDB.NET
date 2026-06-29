@@ -14,6 +14,24 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql.BulkOperations).
 
+## RepoDb.PostgreSql.BulkOperations (v1.14.0)
+
+New
+{: .label .label-green }
+
+- Added `DataTypeName` property to `NpgsqlBulkInsertMapItem` — enables explicit PostgreSQL type name mapping (e.g. native enum types) as a third constructor overload. When set, `DataTypeName` takes precedence over `NpgsqlDbType`.
+- Updated `Compiler.cs` to resolve `NpgsqlBinaryImporter.Write` / `WriteAsync` overloads that accept a `string dataTypeName` parameter — covers both sync and async paths.
+- Fixed all 64 `EnumTest` integration test failures — [BinaryBulkInsert](/operation/binarybulkinsert), [BinaryBulkDelete](/operation/binarybulkdelete), [BinaryBulkMerge](/operation/binarybulkmerge), and [BinaryBulkUpdate](/operation/binarybulkupdate) now correctly handle .NET enums mapped to native PostgreSQL enum types via `NpgsqlDataSource.MapEnum()`.
+- Added support for .NET 8, .NET 9, and .NET 10 target frameworks.
+- Referenced the `RepoDb` package `v1.14.0`.
+- Referenced the `RepoDb.PostgreSql` package `v1.14.0`.
+
+Breaking
+{: .label .label-red }
+
+- Dropped support for .NET 6 and .NET 7.
+
+
 ## RepoDb.PostgreSql.BulkOperations (v1.13.1)
 
 - Fixed the issues when writing the records into the database via `System.DataTable` object using the [BinaryBulkImport](/operation/binaryimport), when an Enum-based property is present.

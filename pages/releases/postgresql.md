@@ -14,6 +14,21 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.PostgreSql) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql).
 
+## RepoDb.PostgreSql (v1.14.0)
+
+New
+{: .label .label-green }
+
+- Added support for .NET 8, .NET 9, and .NET 10 target frameworks.
+- Upgraded the `Npgsql` package to `v8.0.3`.
+- Referenced the `RepoDb` package `v1.14.0`.
+
+Breaking
+{: .label .label-red }
+
+- Dropped support for .NET 6 and .NET 7.
+
+
 ## RepoDb.PostgreSql (v1.13.1)
 
 - Could not load file or assembly 'RepoDb.PostgreSql.dll' [#1040](https://github.com/mikependon/RepoDB/issues/1040)

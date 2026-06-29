@@ -14,6 +14,20 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.MySqlConnector) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector).
 
+## RepoDb.MySqlConnector (v1.14.0)
+
+New
+{: .label .label-green }
+
+- Added support for .NET 8, .NET 9, and .NET 10 target frameworks.
+- Referenced the `RepoDb` package `v1.14.0`.
+
+Breaking
+{: .label .label-red }
+
+- Dropped support for .NET 6 and .NET 7.
+
+
 ## RepoDb.MySqlConnector (v1.13.1)
 
 - Upgraded the `MySqlConnector` package to `2.2.5`.

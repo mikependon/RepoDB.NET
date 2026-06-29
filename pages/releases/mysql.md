@@ -14,6 +14,20 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.MySql) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.MySql).
 
+## RepoDb.MySql (v1.14.0)
+
+New
+{: .label .label-green }
+
+- Added support for .NET 8, .NET 9, and .NET 10 target frameworks.
+- Referenced the `RepoDb` package `v1.14.0`.
+
+Breaking
+{: .label .label-red }
+
+- Dropped support for .NET 6 and .NET 7.
+
+
 ## RepoDb.MySql (v1.13.1)
 
 - Upgraded the `MySql.Data` package to `8.0.32.1`.
