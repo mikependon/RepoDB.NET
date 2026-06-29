@@ -16,5 +16,9 @@
     "test": "stylelint '**/*.scss'",
     "format": "prettier --write '**/*.{scss,js,json}'",
     "stylelint-check": "stylelint-config-prettier-check"
+  },
+  "overrides": {
+    "semver": ">=7.5.2",
+    "postcss": ">=8.4.31"
   }
 }
