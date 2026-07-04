@@ -22,6 +22,9 @@ A hybrid ORM library for .NET.
 {: .highlight }
 > Starting v1.14.0, the support to .NET 8, .NET 9 and .NET 10 has been introduced, while we have removed the support to .NET 6 and .NET 7 respectively.
 
+{: .warning }
+> The package [RepoDb.SQLite.System](https://www.nuget.org/packages/RepoDb.SQLite.System) is now out-of-support and has been deprecated. Consider moving to [RepoDb.Sqlite.Microsoft](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) package.
+
 [RepoDB](https://github.com/mikependon/RepoDb) is an open-source .NET ORM library that bridges the gap between micro-ORMs and macro-ORMs (full-ORMs). It simplifies the decision of when to use basic versus advanced data-access operations during development.
 
 The library's primary goal is to improve developer productivity when working with data-access technology in the .NET ecosystem — providing direct access to underlying database capabilities while promoting clean coding standards and practices.
