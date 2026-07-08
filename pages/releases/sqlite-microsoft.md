@@ -3,7 +3,7 @@ layout: default
 sidebar: releases
 title: SQLite (Microsoft)
 description: "This page contains the latest information of the releases of RepoDb.Sqlite.Microsoft library."
-nav_order: 10
+nav_order: 8
 permalink: /release/sqlite-microsoft
 parent: RELEASES
 ---

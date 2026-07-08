@@ -680,9 +680,6 @@ docs:
   - title: "SQL Server (Bulk)"
     url: "/release/sqlserverbulk"
 
-  - title: "SQLite (System)"
-    url: "/release/sqlite-system"
-
   - title: "SQLite (Microsoft)"
     url: "/release/sqlite-microsoft"
 
@@ -697,3 +694,9 @@ docs:
 
   - title: "PostgreSQL (Bulk)"
     url: "/release/postgresqlbulk"
+
+  - title: "Telemetry (Core)"
+    url: "/release/telemetry-core"
+
+  - title: "Telemetry (Default)"
+    url: "/release/telemetry-default"

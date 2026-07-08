@@ -14,6 +14,9 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.SQLite.System) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.SQLite.System).
 
+{: .warning }
+> The package [RepoDb.SQLite.System](https://www.nuget.org/packages/RepoDb.SQLite.System) is now out-of-support and has been deprecated. Consider moving to [RepoDb.Sqlite.Microsoft](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) package.
+
 ## RepoDb.SQLite.System (v1.14.0)
 
 New

@@ -39,6 +39,7 @@ exclude:
    - package-lock.json
    - Rakefile
    - README.md
+   - pages/releases/deprecated/
 
 # Regression tests
 # By default, the pages in /docs/tests are excluded when the ste is built.
