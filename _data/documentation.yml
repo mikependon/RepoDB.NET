@@ -39,6 +39,9 @@ docs:
   - title: "Installation"
     url: "/tutorial/installation"
 
+  - title: "Telemetry"
+    url: "/tutorial/get-started-telemetry"
+
 - key: features
   title: "Features"
   url: "/feature/batchoperations"
@@ -96,6 +99,9 @@ docs:
 
   - title: "Targeted Operations"
     url: "/feature/targeted"
+
+  - title: "Telemetry"
+    url: "/feature/telemetry"
 
   - title: "Tracing"
     url: "/feature/tracing"
@@ -427,15 +433,9 @@ docs:
   - title: "SqlDbType (SQL Server)"
     url: "/attribute/sqlserver/sqldbtype"
 
-  - title: "SqliteType (Sqlite)"
-    url: "/attribute/sqlite/sqlitetype"
-
   - title: "TypeMap"
     url: "/attribute/typemap"
     
-  - title: "TypeName (SQLite)"
-    url: "/attribute/sqlite/typename"
-
   - title: "TypeName (SQL Server)"
     url: "/attribute/sqlserver/typename"
 
@@ -639,6 +639,9 @@ docs:
 
   - title: "DbRepository"
     url: "/reference/dbrepository"
+
+  - title: "Docker Compose (Telemetry)"
+    url: "/reference/dockercomposetelemetry"
 
   - title: "GenericRepository"
     url: "/reference/genericrepository"

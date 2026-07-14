@@ -5,6 +5,7 @@ nav_order: 11
 has_children: true
 permalink: /attribute/sqlite
 parent: ATTRIBUTES
+nav_exclude: true
 ---
 
 # Attributes

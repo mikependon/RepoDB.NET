@@ -23,6 +23,27 @@ Install the library via NuGet using the Package Manager Console.
 > Install-Package RepoDb.Telemetry.Default
 ```
 
+## Setting up Docker
+
+RepoDB telemetry is published to RepoDB.Insights, a companion solution that receives, stores, and visualizes it. Its `docker-compose.yml` (see the [reference copy](/reference/dockercomposetelemetry)) builds and runs all six components together on a shared `repodb` network:
+
+```bash
+docker compose up -d
+```
+
+| Service | Port | Purpose |
+|---|---|---|
+| `pgsql` | `5432` | Database |
+| `collector` | `5000` | Telemetry Collector API |
+| `query` | `5001` | Telemetry Query API |
+| `filedatasinker` | — | Archives old telemetry to Parquet (no exposed port) |
+| `purger` | — | Deletes expired telemetry (no exposed port) |
+| `visualization` | `3000` | Grafana dashboards |
+
+Everything runs with local defaults (`RepoDB2026` as the shared password/API key) meant for trying things out, not production. Override them with environment variables — e.g. in a `.env` file next to `docker-compose.yml` — before deploying anywhere real: `REPODB_PG_PASSWORD`, `REPODB_API_KEY`, `GF_SECURITY_ADMIN_PASSWORD`, `REPODB_COMPANY_NAME`, `REPODB_COMPANY_LOGO`.
+
+Once the stack is up, point `host` at the running Collector API (`http://localhost:5000` by default) when you [enable telemetry](#enable-telemetry) below, then view the dashboards in Grafana at `http://localhost:3000` — the Main and Group dashboards are pre-provisioned under the **Default** folder.
+
 ## Enable Telemetry
 
 Call the globalized setup method once at application startup.
