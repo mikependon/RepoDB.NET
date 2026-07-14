@@ -145,32 +145,6 @@ RepoDb.MySqlConnectorBootstrap.Initialize();
 
 ## SQLite
 
-Two packages are available for SQLite.
-
-#### System.Data.SQLite.Core
-
-To work with [RepoDb.SQLite.System](https://www.nuget.org/packages/RepoDb.SQLite.System):
-
-```csharp
-> Install-Package RepoDb.SQLite.System
-```
-
-After installation, call the globalized setup method to initialize all dependencies for SQLite.
-
-```csharp
-GlobalConfiguration
-	.Setup()
-	.UseSQLite();
-```
-
-For versions prior to 1.13.0, use the bootstrapper below.
-
-```csharp
-RepoDb.SQLiteBootstrap.Initialize();
-```
-
-#### Microsoft.Data.Sqlite
-
 To work with [RepoDb.Sqlite.Microsoft](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft):
 
 ```csharp
