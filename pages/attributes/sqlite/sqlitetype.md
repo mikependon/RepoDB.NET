@@ -5,6 +5,7 @@ permalink: /attribute/sqlite/sqlitetype
 tags: [repodb, attribute, sqlitetype]
 parent: SQLite
 grand_parent: ATTRIBUTES
+nav_exclude: true
 ---
 
 # SqliteType
