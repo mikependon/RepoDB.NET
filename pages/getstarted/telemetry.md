@@ -25,7 +25,7 @@ Install the library via NuGet using the Package Manager Console.
 
 ## Setting up Docker
 
-RepoDB telemetry is published to RepoDB.Insights, a companion solution that receives, stores, and visualizes it. Its `docker-compose.yml` (see the [reference copy](/reference/dockercomposetelemetry)) builds and runs all six components together on a shared `repodb` network:
+RepoDB telemetries are published to RepoDB Insights solution, a companion solution that receives, stores, and visualizes them. Its [docker-compose.yml](/reference/dockercomposetelemetry) builds and runs all six components together on a shared `repodb` network:
 
 ```bash
 docker compose up -d
