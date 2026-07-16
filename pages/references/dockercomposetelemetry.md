@@ -92,7 +92,7 @@ services:
     image: repodb/insights-visualization:latest
     container_name: visualization
     environment:
-      GF_SECURITY_ADMIN_PASSWORD: ${GF_SECURITY_ADMIN_PASSWORD:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GF_SECURITY_ADMIN_PASSWORD:-RepoDB2026}
       REPODB_PG_HOST: ${REPODB_PG_HOST:-pgsql}
       REPODB_PG_PORT: ${REPODB_PG_PORT:-5432}
       REPODB_PG_PASSWORD: ${REPODB_PG_PASSWORD:-RepoDB2026}
@@ -112,7 +112,6 @@ volumes:
 
 networks:
   repodb:
-
 ```
 
 {: .note }
