@@ -25,7 +25,7 @@ Install the library via NuGet using the Package Manager Console.
 
 ## Setting up Docker
 
-RepoDB telemetries are published to RepoDB Insights solution, a companion solution that receives, stores, and visualizes them. Its [docker-compose.yml](https://raw.githubusercontent.com/mikependon/RepoDB/refs/heads/master/RepoDb.Telemetry.Default/docker-compose.yml) builds and runs all six components together on a shared `repodb` network:
+RepoDB telemetries are published to RepoDB Insights solution, a companion solution that receives, stores, and visualizes them. Its [docker-compose.yml](https://raw.githubusercontent.com/mikependon/RepoDB/refs/heads/master/RepoDb.Telemetry.Default/docker-compose.yml) and [.env](https://raw.githubusercontent.com/mikependon/RepoDB/refs/heads/master/RepoDb.Telemetry.Default/.env) builds and runs all six components together on a shared `repodb` network:
 
 ```bash
 docker compose up -d
@@ -33,12 +33,12 @@ docker compose up -d
 
 | Service | Port | Purpose |
 |---|---|---|
-| `pgsql` | `5432` | Database |
-| `collector` | `5000` | Telemetry Collector API |
-| `query` | `5001` | Telemetry Query API |
-| `filedatasinker` | — | Archives old telemetry to Parquet (no exposed port) |
-| `purger` | — | Deletes expired telemetry (no exposed port) |
-| `visualization` | `3000` | Grafana dashboards |
+| [`pgsql`](https://hub.docker.com/r/repodb/insights-postgres) | `5432` | Database |
+| [`collector`](https://hub.docker.com/r/repodb/telemetry-default-collector) | `5000` | Telemetry Collector API |
+| [`query`](https://hub.docker.com/r/repodb/telemetry-default-query) | `5001` | Telemetry Query API |
+| [`filedatasinker`](https://hub.docker.com/r/repodb/telemetry-default-filedatasinker) | — | Archives old telemetry to Parquet (no exposed port) |
+| [`purger`](https://hub.docker.com/r/repodb/telemetry-default-purger) | — | Deletes expired telemetry (no exposed port) |
+| [`visualization`](https://hub.docker.com/r/repodb/insights-visualization) | `3000` | Grafana dashboards |
 
 Everything runs with local defaults (`RepoDB2026` as the shared password/API key) meant for trying things out, not production. Override them with environment variables — e.g. in a `.env` file next to `docker-compose.yml` — before deploying anywhere real: `REPODB_PG_PASSWORD`, `REPODB_API_KEY`, `GF_SECURITY_ADMIN_PASSWORD`, `REPODB_COMPANY_NAME`, `REPODB_COMPANY_LOGO`.
 
