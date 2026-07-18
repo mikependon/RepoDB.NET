@@ -14,6 +14,11 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.MySql) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.MySql).
 
+## RepoDb.MySql (v1.15.0)
+
+- Referenced the `RepoDb` package `v1.15.0`.
+
+
 ## RepoDb.MySql (v1.14.0)
 
 New

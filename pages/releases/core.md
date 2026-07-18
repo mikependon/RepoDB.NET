@@ -14,6 +14,11 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb).
 
+## RepoDb (v1.15.0)
+
+- Version referenced by the new [RepoDb.Telemetry.Core](/release/telemetry-core) and [RepoDb.Telemetry.Default](/release/telemetry-default) packages `v0.0.1`, released alongside the first release of the RepoDB Insights Telemetry solution.
+
+
 ## RepoDb (v1.14.0)
 
 New
