@@ -33,7 +33,8 @@ RepoDB occupies the middle ground. It requires only a connection string to open 
 {: .new }
 > We are excited to announce the availability of the [Telemetry](https://blogs.repodb.net/announcements/2026/07/repodb-default-telemetry) feature of RepoDB — a free, powerful capability that lets you observe exactly what your application is doing under the hood.
 
-**We will set it up for you in a minute!**
+**We will set it up for you in a minute!** 
+Visit our detailed tutorial from blogging site - [Getting Started with RepoDB Insights Default Telemetry](https://blogs.repodb.net/posts/2026/07/getting-started-with-repodb-insights-default-telemetry).
 
 <img src="https://raw.githubusercontent.com/mikependon/RepoDB.Resources/refs/heads/main/images/repodb-insights-default-telemetry-banner.png" />
 
@@ -50,8 +51,6 @@ In this initial release, we're publishing the [Default Telemetry](/tutorial/get-
 Build with confidence, without the overhead of wiring up your own instrumentation — and without worrying about where your data ends up. It's free to use.
 
 RepoDB's [Telemetry](/feature/telemetry) feature captures per-operation execution data (statement, elapsed time, session, client) via [`RepoDb.Telemetry.Default`](https://www.nuget.org/packages/RepoDb.Telemetry.Default) and publishes it to this solution's Collector API for storage and visualization.
-
-Visit our detailed tutorial from blogging site - [Getting Started with RepoDB Insights Default Telemetry](https://blogs.repodb.net/posts/2026/07/getting-started-with-repodb-insights-default-telemetry).
 
 ## Getting Started
 
