@@ -16,15 +16,6 @@ A hybrid ORM library for .NET.
 
 ---
 
-{: .new }
-> We are introducing an insights capability to expose library activity within your application. Stay tuned! Visit our [story](https://github.com/mikependon/RepoDB/issues/1217) to share your thoughts.
-
-{: .highlight }
-> Starting v1.14.0, the support to .NET 8, .NET 9 and .NET 10 has been introduced, while we have removed the support to .NET 6 and .NET 7 respectively.
-
-{: .warning }
-> The package [RepoDb.SQLite.System](https://www.nuget.org/packages/RepoDb.SQLite.System) is now out-of-support and has been deprecated. Consider moving to [RepoDb.Sqlite.Microsoft](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) package.
-
 [RepoDB](https://github.com/mikependon/RepoDb) is an open-source .NET ORM library that bridges the gap between micro-ORMs and macro-ORMs (full-ORMs). It simplifies the decision of when to use basic versus advanced data-access operations during development.
 
 The library's primary goal is to improve developer productivity when working with data-access technology in the .NET ecosystem — providing direct access to underlying database capabilities while promoting clean coding standards and practices.
@@ -36,6 +27,31 @@ A full macro-ORM abstracts away the database, which — while feature-rich — c
 A bare-metal micro-ORM gives you fine-grained control, but implementations tend to be verbose and SQL-heavy, making them tedious and impractical at scale.
 
 RepoDB occupies the middle ground. It requires only a connection string to open a connection, after which the complete [feature set](/feature) is immediately available — making it the easiest-to-use ORM for .NET.
+
+## Default Telemetry
+
+{: .new }
+> We are excited to announce the availability of the [Telemetry](https://blogs.repodb.net/announcements/2026/07/repodb-default-telemetry) feature of RepoDB — a free, powerful capability that lets you observe exactly what your application is doing under the hood.
+
+**We will set it up for you in a minute!**
+
+<img src="https://raw.githubusercontent.com/mikependon/RepoDB.Resources/refs/heads/main/images/repodb-insights-default-telemetry-banner.png" />
+
+It's part of the ecosystem we're building around RepoDB for observing and monitoring the data pipelines that depend on the library. You no longer have to guess how your data layer is behaving — Telemetry gives developers direct visibility into what's happening behind the scenes.
+
+We're shipping this capability because we believe observability is a key differentiator for a modern ORM, and a vital piece of infrastructure for data pipelines and any application that depends on reliable data access.
+
+In this initial release, we're publishing the [Default Telemetry](/tutorial/get-started-telemetry) capability, which captures key metrics from your application and sends them to a self-hosted insights solution that runs entirely within your own environment.
+
+<img src="https://raw.githubusercontent.com/mikependon/RepoDB.Resources/refs/heads/main/blogs/images/announcements/2026-07-17/grafana-welcome-dashboard.png" />
+
+<img src="https://raw.githubusercontent.com/mikependon/RepoDB.Resources/refs/heads/main/blogs/images/announcements/2026-07-17/grafana-main-dashboard-p1.png" />
+
+Build with confidence, without the overhead of wiring up your own instrumentation — and without worrying about where your data ends up. It's free to use.
+
+RepoDB's [Telemetry](/feature/telemetry) feature captures per-operation execution data (statement, elapsed time, session, client) via [`RepoDb.Telemetry.Default`](https://www.nuget.org/packages/RepoDb.Telemetry.Default) and publishes it to this solution's Collector API for storage and visualization.
+
+Visit our detailed tutorial from blogging site - [Getting Started with RepoDB Insights Default Telemetry](https://blogs.repodb.net/posts/2026/07/getting-started-with-repodb-insights-default-telemetry).
 
 ## Getting Started
 

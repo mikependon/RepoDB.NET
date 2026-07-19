@@ -6,6 +6,8 @@ description: "Learn on how to install RepoDB library on your Project/Solution."
 permalink: /tutorial/installation
 tags: [repodb, tutorial, installation]
 parent: GET STARTED
+nav_exclude: true
+search_exclude: true
 ---
 
 # Installation

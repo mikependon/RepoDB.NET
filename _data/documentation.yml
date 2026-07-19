@@ -36,11 +36,11 @@ docs:
   - title: "PostgreSQL"
     url: "/tutorial/get-started-postgresql"
 
-  - title: "Installation"
-    url: "/tutorial/installation"
-
   - title: "Telemetry"
     url: "/tutorial/get-started-telemetry"
+
+  # - title: "Installation"
+  #   url: "/tutorial/installation"
 
 - key: features
   title: "Features"

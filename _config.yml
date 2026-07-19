@@ -40,6 +40,7 @@ exclude:
    - Rakefile
    - README.md
    - pages/releases/deprecated/
+   - pages/getstarted/installation.md
 
 # Regression tests
 # By default, the pages in /docs/tests are excluded when the ste is built.
