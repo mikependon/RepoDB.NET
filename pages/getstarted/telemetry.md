@@ -13,7 +13,7 @@ parent: GET STARTED
 
 ---
 
-RepoDB ships with opt-in, drop-in telemetry via [RepoDb.Telemetry.Default](https://www.nuget.org/packages/RepoDb.Telemetry.Default), built on top of [RepoDb.Telemetry.Core](https://www.nuget.org/packages/RepoDb.Telemetry.Core). It wires up a default [ITrace](/interface/itrace) that captures every operation ([Insert](/operation/insert), [Query](/operation/query), [Update](/operation/update), [Delete](/operation/delete), etc.) and publishes it to an insights collector.
+RepoDB ships with opt-in, drop-in telemetry via [RepoDb.Telemetry.Default](https://www.nuget.org/packages/RepoDb.Telemetry.Default). It wires up a default [ITrace](/interface/itrace) that captures every operation ([Insert](/operation/insert), [Query](/operation/query), [Update](/operation/update), [Delete](/operation/delete), etc.) and publishes it to an insights collector.
 
 ## Installation
 
@@ -50,7 +50,7 @@ GlobalConfiguration
         groupName: "<YOUR_APPLICATION_GROUP>");
 ```
 
-That's it — every operation across every connection in the application is now traced automatically.
+**That's it, you are now done!** Every operation across every connection in the application is now traced automatically.
 
 > `UseRegisteredGlobalTraces = true` is required. It tells the library to run every globally registered tracer (this one included) for every operation, without passing a `trace` argument to each call.
 
