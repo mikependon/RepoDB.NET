@@ -1,7 +1,7 @@
 ---
 layout: default
 title: ABOUT
-description: "RepoDB is a hybrid-ORM library for .NET."
+description: "RepoDB is a production-ready data access platform for .NET applications."
 nav_order: 15
 permalink: /about
 ---
