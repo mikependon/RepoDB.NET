@@ -9,7 +9,7 @@ permalink: /
 # Welcome to RepoDB
 {: .fs-9 }
 
-A hybrid ORM library for .NET.
+A production-ready data access platform for .NET applications.
 {: .fs-6 .fw-300 }
 
 [Get started now](/tutorial/get-started-sqlserver){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/mikependon/RepoDB){: .btn .fs-5 .mb-4 .mb-md-0 }

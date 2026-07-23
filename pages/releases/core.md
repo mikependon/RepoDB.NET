@@ -1017,7 +1017,7 @@ Highlights
 
 ## RepoDb (v1.9.8-beta4)
 
-- Title: A hybrid ORM library for .NET.
+- Title: A production-ready data access platform for .NET applications.
 - Fix: Fixed the issue in the `[QueryGroup](/class/querygroup).Fix()` method if the depth of the Tree is at Level 4.
 
 
