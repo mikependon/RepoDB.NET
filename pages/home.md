@@ -44,9 +44,9 @@ We're shipping this capability because we believe observability is a key differe
 
 In this initial release, we're publishing the [Default Telemetry](/tutorial/get-started-telemetry) capability, which captures key metrics from your application and sends them to a self-hosted insights solution that runs entirely within your own environment.
 
-<img src="https://raw.githubusercontent.com/mikependon/RepoDB.Resources/refs/heads/main/blogs/images/announcements/2026-07-17/grafana-welcome-dashboard.png" />
+<img src="https://raw.githubusercontent.com/mikependon/RepoDB.Resources/refs/heads/main/blogs/images/announcements/2026-07-17/grafana-welcome-dashboard.png" style="max-wdith:1024px" />
 
-<img src="https://raw.githubusercontent.com/mikependon/RepoDB.Resources/refs/heads/main/blogs/images/announcements/2026-07-17/grafana-main-dashboard-p1.png" />
+<img src="https://raw.githubusercontent.com/mikependon/RepoDB.Resources/refs/heads/main/blogs/images/announcements/2026-07-17/grafana-main-dashboard-p1.png" style="max-wdith:1024px" />
 
 Build with confidence, without the overhead of wiring up your own instrumentation — and without worrying about where your data ends up. It's free to use.
 
