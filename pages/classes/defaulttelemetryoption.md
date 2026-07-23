@@ -14,15 +14,25 @@ parent: CLASSES
 
 A subclass of [TelemetryOption](/class/telemetryoption) used to configure [RepoDb.Telemetry.Default](https://www.nuget.org/packages/RepoDb.Telemetry.Default). It inherits all properties from [TelemetryOption](/class/telemetryoption) without adding any of its own.
 
+## Properties
+
+| Property | Description | Default |
+|:---------|:-------------|:--------|
+| Application | Name of the application producing telemetry. | *(required)* |
+| Group | Logical grouping for the dashboard. | `"Default"` |
+| Host | Collector endpoint to publish to. | `http://localhost:5000` |
+| ApiKey | API key sent via `X-API-Key`. Leave empty if the collector does not require one. | `null` |
+| Frequency | How often buffered telemetry is flushed. | `5` seconds |
+
 ## Creating an Instance
 
 ```csharp
-var option = new DefaultTelemetryOption("MyApp")
+var option = new DefaultTelemetryOption("<YOUR_APPLICATION_NAME>")
 {
     Host = "https://your-collector-host",
     ApiKey = "YOUR_API_KEY",
-    Group = "Default",
-    Frequency = TimeSpan.FromSeconds(10)
+    Group = "<YOUR_APPLICATION_GROUP>",
+    Frequency = TimeSpan.FromSeconds(1)
 };
 ```
 
