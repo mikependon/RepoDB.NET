@@ -13,7 +13,7 @@ parent: GET STARTED
 
 ---
 
-RepoDB ships with opt-in, drop-in telemetry via [RepoDb.Telemetry.Default](https://www.nuget.org/packages/RepoDb.Telemetry.Default), built on top of [RepoDb.Telemetry.Core](https://www.nuget.org/packages/RepoDb.Telemetry.Core). It wires up a default [ITrace](/interface/itrace) that captures every operation ([Insert](/operation/insert), [Query](/operation/query), [Update](/operation/update), [Delete](/operation/delete), etc.) and publishes it to an insights collector — no custom `ITrace` implementation required. See the [Telemetry](/feature/telemetry) feature page for the full picture.
+RepoDB ships with opt-in, drop-in telemetry via [RepoDb.Telemetry.Default](https://www.nuget.org/packages/RepoDb.Telemetry.Default), built on top of [RepoDb.Telemetry.Core](https://www.nuget.org/packages/RepoDb.Telemetry.Core). It wires up a default [ITrace](/interface/itrace) that captures every operation ([Insert](/operation/insert), [Query](/operation/query), [Update](/operation/update), [Delete](/operation/delete), etc.) and publishes it to an insights collector.
 
 ## Installation
 
@@ -25,24 +25,17 @@ Install the library via NuGet using the Package Manager Console.
 
 ## Setting up Docker
 
-RepoDB telemetries are published to RepoDB Insights solution, a companion solution that receives, stores, and visualizes them. Its [docker-compose.yml](https://raw.githubusercontent.com/mikependon/RepoDB/refs/heads/master/RepoDb.Telemetry.Default/docker-compose.yml) and [.env](https://raw.githubusercontent.com/mikependon/RepoDB/refs/heads/master/RepoDb.Telemetry.Default/.env) builds and runs all six components together on a shared `repodb` network:
+Download the [docker-compose.yml](https://raw.githubusercontent.com/mikependon/RepoDB/refs/heads/master/RepoDb.Telemetry.Default/docker-compose.yml) and [.env](https://raw.githubusercontent.com/mikependon/RepoDB/refs/heads/master/RepoDb.Telemetry.Default/.env) files into any directory and run the command below:
 
 ```bash
+cd c:/folder-location
 docker compose up -d
 ```
 
-| Service | Port | Purpose |
-|---|---|---|
-| [`pgsql`](https://hub.docker.com/r/repodb/insights-postgres) | `5432` | Database |
-| [`collector`](https://hub.docker.com/r/repodb/telemetry-default-collector) | `5000` | Telemetry Collector API |
-| [`query`](https://hub.docker.com/r/repodb/telemetry-default-query) | `5001` | Telemetry Query API |
-| [`filedatasinker`](https://hub.docker.com/r/repodb/telemetry-default-filedatasinker) | — | Archives old telemetry to Parquet (no exposed port) |
-| [`purger`](https://hub.docker.com/r/repodb/telemetry-default-purger) | — | Deletes expired telemetry (no exposed port) |
-| [`visualization`](https://hub.docker.com/r/repodb/insights-visualization) | `3000` | Grafana dashboards |
+{: .note }
+> Everything runs with local defaults (`RepoDB2026` as the shared password/API key) meant for trying things out, not production. Override them with environment variables in a `.env` file before deploying to production.
 
-Everything runs with local defaults (`RepoDB2026` as the shared password/API key) meant for trying things out, not production. Override them with environment variables — e.g. in a `.env` file next to `docker-compose.yml` — before deploying anywhere real: `REPODB_PG_PASSWORD`, `REPODB_API_KEY`, `GF_SECURITY_ADMIN_PASSWORD`, `REPODB_COMPANY_NAME`, `REPODB_COMPANY_LOGO`.
-
-Once the stack is up, point `host` at the running Collector API (`http://localhost:5000` by default) when you [enable telemetry](#enable-telemetry) below, then view the dashboards in Grafana at `http://localhost:3000` — the Main and Group dashboards are pre-provisioned under the **Default** folder.
+Once the stack is up, the collector Collector API runs at [`http://localhost:5000`](http://localhost:5000) by default and the Grafana dashboard is at [`http://localhost:3000`](http://localhost:3000).
 
 ## Enable Telemetry
 
@@ -54,8 +47,8 @@ GlobalConfiguration
     .UseDefaultTelemetry(
         host: "https://your-collector-host",
         apiKey: "YOUR_API_KEY",
-        applicationName: "MyApp",
-        groupName: "Default");
+        applicationName: "<YOUR_APPLICATION_NAME>",
+        groupName: "<YOUR_APPLICATION_GROUP>");
 ```
 
 That's it — every operation across every connection in the application is now traced automatically.
@@ -71,12 +64,12 @@ For more control, pass a [DefaultTelemetryOption](/class/defaulttelemetryoption)
 GlobalConfiguration
     .Setup(new GlobalConfigurationOptions { UseRegisteredGlobalTraces = true })
     .UseDefaultTelemetry(
-        new DefaultTelemetryOption("MyApp")
+        new DefaultTelemetryOption("<YOUR_APPLICATION_NAME>")
         {
             Host = "https://your-collector-host",
             ApiKey = "YOUR_API_KEY",
-            Group = "Default",
-            Frequency = TimeSpan.FromSeconds(10)
+            Group = "<YOUR_APPLICATION_GROUP>",
+            Frequency = TimeSpan.FromSeconds(1)
         },
         errorCallback: ex => logger.LogError(ex, "Telemetry publish failed"),
         logger: serilogLogger);
@@ -92,14 +85,3 @@ GlobalConfiguration
 
 {: .note }
 > Calling `UseDefaultTelemetry()` more than once is safe — it reuses the same [DefaultTelemetryTrace](/class/defaulttelemetrytrace) instance rather than starting a new one.
-
-## What Gets Captured
-
-Every captured operation is represented as a [DefaultTelemetryItem](/class/defaulttelemetryitem) — application, group, session id, operation name, start time, statement, elapsed time, cancellation flag, client machine, source assembly, and version. See [TelemetryItem](/class/telemetryitem) for the full property list.
-
-Items are buffered in memory and flushed on the configured `Frequency`, then JSON-serialized, gzip-compressed, and POSTed to your collector. Publish failures never throw — they are routed to the optional `errorCallback` and `logger`.
-
-## Next Steps
-
-- Read the [Telemetry](/feature/telemetry) feature page for how the pipeline fits together.
-- Implement [IPublisherRepository](/interface/ipublisherrepository) to publish somewhere other than the default HTTP collector.
