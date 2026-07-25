@@ -16,13 +16,9 @@ A production-ready data access platform for .NET applications.
 
 ---
 
-RepoDB is a high-performance, open-source data productivity platform for .NET developers. At its core is the RepoDB ORM—a fast, lightweight, and flexible data access library that will always remain free and open source. It is the foundation upon which the entire RepoDB ecosystem is being built.
+RepoDB is a high-performance, open-source data productivity platform for .NET developers. At its core is the RepoDB ORM—a fast, lightweight, and flexible data access library that will always remain free and open source, and the foundation of the growing RepoDB ecosystem of tools for building, operating, and scaling enterprise applications.
 
-While the ORM continues to evolve and improve, RepoDB is expanding beyond traditional data access by introducing new capabilities that help developers build, operate, and scale enterprise applications more effectively. The goal is not to replace the ORM, but to enhance it with an ecosystem of productivity tools designed for modern software development.
-
-Whether you're building business applications, processing millions of records, integrating multiple data sources, or preparing your systems for AI-driven development, RepoDB provides the flexibility to work the way you want—all through the familiar `IDbConnection` interface.
-
-Write raw SQL when you need absolute control. Use fluent APIs when productivity matters. Switch seamlessly between both approaches within the same application without sacrificing performance or maintainability.
+Whether you're processing millions of records, integrating multiple data sources, or preparing your systems for AI-driven development, RepoDB gives you the flexibility to work the way you want—all through the familiar `IDbConnection` interface. Write raw SQL when you need absolute control, use fluent APIs when productivity matters, and switch seamlessly between both without sacrificing performance or maintainability.
 
 ## Why RepoDB?
 
@@ -48,14 +44,6 @@ As a productivity platform, RepoDB goes beyond the ORM with enterprise-grade cap
 | **Multi-Database Ecosystem** | Support a growing range of relational database providers with a consistent development experience. |
 | **Enterprise Ready** | Designed for performance, scalability, observability, and long-term maintainability. |
 | **AI-Ready Architecture** | Built to integrate naturally with AI-assisted development, intelligent analytics, and future automation capabilities. |
-
-## Our Commitment
-
-The RepoDB ORM will always remain the heart of the ecosystem and will continue to be free and open source, just as it has been since the project began.
-
-Our investment is now focused on building additional capabilities around that foundation—expanding RepoDB into a comprehensive suite of enterprise-grade productivity tools for developers, architects, and organizations. Every new capability is designed to complement the ORM, enabling teams to build faster, operate smarter, and prepare their applications for the future without changing the way they work today.
-
-RepoDB is no longer just an ORM in the near future — it is becoming a complete ecosystem for modern data development.
 
 ## Default Telemetry
 
@@ -89,6 +77,7 @@ Choose a database to get started quickly:
 - [SQLite](/tutorial/get-started-sqlite)
 - [MySQL](/tutorial/get-started-mysql)
 - [PostgreSQL](/tutorial/get-started-postgresql)
+- [Telemetry](/tutorial/get-started-telemetry) **New**{: .label .label-green }
 
 For setup instructions, visit the [installation](/tutorial/installation) page. For a full topic index, visit the [docs](/docs) page.
 
