@@ -80,12 +80,12 @@ Breaking
 
 ## RepoDb.SQLite.System (v1.0.0)
 
-- Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).
+- Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/880).
 
 
 ## RepoDb.SqLite (Deprecation)
 
-- Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).
+- Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/880).
 - Added the deprecation notice.
 
 
@@ -178,8 +178,8 @@ Breaking
 
 - Updated the underlying driver from `System.Data.SQLite` to `Microsoft.Data.Sqlite.Core`.
 - Request: RepoDb.SqLite remove dependency on `EntityFramework` [#486](https://github.com/mikependon/RepoDb/issues/486)
-- Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
-- Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
+- Bug: `NullReferenceException` occurs when [InsertAllAsync](/operation/insertall) is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
+- Enhancement: Remove the `SchemaSeparator` property from the [IDbSetting](/interface/idbsetting) interface [#475](https://github.com/mikependon/RepoDb/issues/475)
 - Enhancement: Refactor the usage of `Count()` and `ElementAt()`.
 
 
@@ -258,7 +258,7 @@ Breaking
 
 - Bug (Community Request): The primary field is not found exception when primary key column name is different from `Primary` attribute property name is different while `Connection.Update` is called. [#356](https://github.com/mikependon/RepoDb/issues/356)
 - Bug: Set the return value of `Max` and `Min` operations to object. [#357](https://github.com/mikependon/RepoDb/issues/357)
-- Performance: Refactor to remove the recurrent calls to `DbFieldCache.Get()` in the `ExecuteQuery` method.
+- Performance: Refactor to remove the recurrent calls to `DbFieldCache.Get()` in the [ExecuteQuery](/operation/executequery) method.
 
 
 ## RepoDb.SqLite(v1.0.1)

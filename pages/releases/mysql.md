@@ -154,8 +154,8 @@ Breaking
 
 ## RepoDb.MySql (v1.0.15)
 
-- Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
-- Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
+- Bug: `NullReferenceException` occurs when [InsertAllAsync](/operation/insertall) is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
+- Enhancement: Remove the `SchemaSeparator` property from the [IDbSetting](/interface/idbsetting) interface [#475](https://github.com/mikependon/RepoDb/issues/475)
 - Enhancement: Refactor the usage of `Count()` and `ElementAt()`.
 - Upgraded the driver version of `MySql.Data` to `v8.0.21`
 
@@ -210,7 +210,7 @@ Breaking
 
 ## RepoDb.MySql (v1.0.6)
 
-- Feature: Introduce MySql support to `MySqlDbType` via MySqlTypeMapAttribute attribute.
+- Feature: Introduce MySql support to [MySqlDbType](/attribute/mysql/mysqldbtype) via MySqlTypeMapAttribute attribute.
 
 
 ## RepoDb.MySql (v1.0.5)

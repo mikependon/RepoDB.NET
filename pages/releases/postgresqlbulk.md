@@ -25,7 +25,7 @@ View the NuGet package [here](https://www.nuget.org/packages/RepoDb.PostgreSql.B
 New
 {: .label .label-green }
 
-- Added `DataTypeName` property to `NpgsqlBulkInsertMapItem` — enables explicit PostgreSQL type name mapping (e.g. native enum types) as a third constructor overload. When set, `DataTypeName` takes precedence over `NpgsqlDbType`.
+- Added [DataTypeName](/attribute/npgsql/datatypename) property to `NpgsqlBulkInsertMapItem` — enables explicit PostgreSQL type name mapping (e.g. native enum types) as a third constructor overload. When set, [DataTypeName](/attribute/npgsql/datatypename) takes precedence over [NpgsqlDbType](/attribute/npgsql/npgsqldbtype).
 - Updated `Compiler.cs` to resolve `NpgsqlBinaryImporter.Write` / `WriteAsync` overloads that accept a `string dataTypeName` parameter — covers both sync and async paths.
 - Fixed all 64 `EnumTest` integration test failures — [BinaryBulkInsert](/operation/binarybulkinsert), [BinaryBulkDelete](/operation/binarybulkdelete), [BinaryBulkMerge](/operation/binarybulkmerge), and [BinaryBulkUpdate](/operation/binarybulkupdate) now correctly handle .NET enums mapped to native PostgreSQL enum types via `NpgsqlDataSource.MapEnum()`.
 - Added support for .NET 8, .NET 9, and .NET 10 target frameworks.

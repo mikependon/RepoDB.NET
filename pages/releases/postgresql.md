@@ -102,7 +102,7 @@ Breaking
 - Bug: [CountAsync](/operation/count) (PostgreSql) fails when querying by Enum. [#798](https://github.com/mikependon/RepoDb/issues/798).
 - Bug: Anonymous record Insert fails if no id is provided [#796](https://github.com/mikependon/RepoDb/issues/796).
 - Bug: RepoDb.Exceptions.PrimaryFieldNotFoundException: The non-identity primary field must be present during insert operation. [#786](https://github.com/mikependon/RepoDb/issues/786).
-- Bug: The ENUM type of Postgre (DB) is not being handled properly in RepoDb.PostgreSql. #395 [#854](https://github.com/mikependon/RepoDb/issues/854).
+- Bug: The ENUM type of Postgre (DB) is not being handled properly in RepoDb.PostgreSql. [#395](https://github.com/mikependon/RepoDb/issues/395) [#854](https://github.com/mikependon/RepoDb/issues/854).
 - Bug: Exception on [Merge](/operation/merge) (PostgreSQL) [#776](https://github.com/mikependon/RepoDb/issues/776).
 - Enhancement: Added the [ConvertedValueAttribute](/attribute/npgsql/convertedvalue) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Added the [DataTypeNameAttribute](/attribute/npgsql/datatypename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
@@ -122,7 +122,7 @@ Breaking
 - Bug: [CountAsync](/operation/count) (PostgreSql) fails when querying by Enum. [#798](https://github.com/mikependon/RepoDb/issues/798).
 - Bug: Anonymous record Insert fails if no id is provided [#796](https://github.com/mikependon/RepoDb/issues/796).
 - Bug: RepoDb.Exceptions.PrimaryFieldNotFoundException: The non-identity primary field must be present during insert operation. [#786](https://github.com/mikependon/RepoDb/issues/786).
-- Bug: The ENUM type of Postgre (DB) is not being handled properly in RepoDb.PostgreSql. #395 [#854](https://github.com/mikependon/RepoDb/issues/854).
+- Bug: The ENUM type of Postgre (DB) is not being handled properly in RepoDb.PostgreSql. [#395](https://github.com/mikependon/RepoDb/issues/395) [#854](https://github.com/mikependon/RepoDb/issues/854).
 - Enhancement: Added the [ConvertedValueAttribute](/attribute/npgsql/convertedvalue) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Added the [DataTypeNameAttribute](/attribute/npgsql/datatypename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Added the [DbTypeAttribute](/attribute/npgsql/npgsqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
@@ -188,8 +188,8 @@ Breaking
 
 ## RepoDb.PostgreSql (v1.0.12)
 
-- Bug: `NullReferenceException` occurs when `InsertAllAsync` is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
-- Enhancement: Remove the `SchemaSeparator` property from the `IDbSetting` interface [#475](https://github.com/mikependon/RepoDb/issues/475)
+- Bug: `NullReferenceException` occurs when [InsertAllAsync](/operation/insertall) is executed on Connection that belongs to `TransactionScope`. [#490](https://github.com/mikependon/RepoDb/issues/490)
+- Enhancement: Remove the `SchemaSeparator` property from the [IDbSetting](/interface/idbsetting) interface [#475](https://github.com/mikependon/RepoDb/issues/475)
 - Enhancement: Refactor the usage of `Count()` and `ElementAt()`.
 
 
@@ -244,7 +244,7 @@ Breaking
 
 ## RepoDb.PostgreSql (v1.0.3)
 
-- Feature: Introduce PostgreSql support to `NpgsqlDbType` via PostgreSqlTypeMapAttribute attribute. [#390](https://github.com/mikependon/RepoDb/issues/390)
+- Feature: Introduce PostgreSql support to [NpgsqlDbType](/attribute/npgsql/npgsqldbtype) via PostgreSqlTypeMapAttribute attribute. [#390](https://github.com/mikependon/RepoDb/issues/390)
 
 
 ## RepoDB (v1.10.3-beta1)

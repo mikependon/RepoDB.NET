@@ -86,4 +86,4 @@ Breaking
 
 ## RepoDb.Sqlite.Microsoft (v1.0.0)
 
-- Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/802).
+- Request: Separate the SqLite Nuget Library into 2 [#880](https://github.com/mikependon/RepoDb/issues/880).

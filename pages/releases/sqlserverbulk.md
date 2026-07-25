@@ -232,7 +232,7 @@ Breaking
 
 ## RepoDb.SqlServer.BulkOperations (v1.0.10)
 
-- Enhancement: Create a compiler for the SQL Server Bulk Operations Set Identities #450
+- Enhancement: Create a compiler for the SQL Server Bulk Operations Set Identities [#450](https://github.com/mikependon/RepoDb/issues/450)
 - Added the XML comments file (a missing from previous release).
 - Removed the `BulkOperationIdentitiesResult` class for performance purposes.
 - Referenced the version [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) ([v1.0.10](/release/sqlserver#repodb-v1010))
