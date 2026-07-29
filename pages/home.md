@@ -37,13 +37,12 @@ As a productivity platform, RepoDB goes beyond the ORM with enterprise-grade cap
 
 | Feature | Description |
 |---|---|
-| **Hybrid Data Access** | Combine raw SQL and fluent APIs in a single, consistent programming model. |
 | **Enterprise-Grade Bulk Operations** | Perform high-performance bulk inserts, updates, merges, and deletes designed for demanding production workloads. |
 | **Data Replication & Integration** *(Planned)* | Build scalable data movement and synchronization solutions across multiple database platforms. |
 | **Default Telemetry with Insights** | Gain immediate visibility into database operations, execution times, failures, and application behavior with minimal configuration. |
 | **Multi-Database Ecosystem** | Support a growing range of relational database providers with a consistent development experience. |
 | **Enterprise Ready** | Designed for performance, scalability, observability, and long-term maintainability. |
-| **AI-Ready Architecture** | Built to integrate naturally with AI-assisted development, intelligent analytics, and future automation capabilities. |
+| **AI-Ready Architecture** *(Planned)* | Built to integrate naturally with AI-assisted development, intelligent analytics, and future automation capabilities. |
 
 ## Default Telemetry
 
