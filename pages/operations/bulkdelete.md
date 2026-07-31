@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "BulkDelete"
 permalink: /operation/bulkdelete
-tags: [repodb, tutorial, bulkdelete, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, bulkdelete, orm, hybrid-orm, sqlserver, oracle]
 parent: OPERATIONS
 ---
 
@@ -11,7 +11,10 @@ parent: OPERATIONS
 
 ---
 
-This method deletes rows from the database in bulk. It is supported only for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
+This method deletes rows from the database in bulk. It is supported for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) and [Oracle](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations). Oracle also has a dedicated [BulkDeleteByKey](/operation/bulkdeletebykey) operation for deleting by primary key.
+
+{: .note }
+> The examples below target SQL Server. For Oracle-specific arguments (`pseudoTableType`) and examples, see [Bulk Operations (Oracle)](/feature/bulkoperations/oracle).
 
 ## Call Flow Diagram
 

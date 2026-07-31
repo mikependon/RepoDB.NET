@@ -76,7 +76,8 @@ Choose a database to get started quickly:
 - [SQLite](/tutorial/get-started-sqlite)
 - [MySQL](/tutorial/get-started-mysql)
 - [PostgreSQL](/tutorial/get-started-postgresql)
-- [Telemetry](/tutorial/get-started-telemetry) **New**{: .label .label-green }
+- [Oracle](/tutorial/get-started-oracle) **New**{: .label .label-green }
+- [Telemetry](/tutorial/get-started-telemetry)
 
 For setup instructions, visit the [installation](/tutorial/installation) page. For a full topic index, visit the [docs](/docs) page.
 

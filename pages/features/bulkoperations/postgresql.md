@@ -99,17 +99,15 @@ Once all the data is in the database pseudo-temporary table, the correct SQL sta
 
 ## Special Arguments
 
-The arguments `qualifiers`, `keepIdentity`, `identityBehavior`, `pseudoTableType` and `mergeCommandType` were provided in most operations.
+The arguments below were provided in most operations.
 
-The argument `qualifiers` is used to define the qualifier fields to be used in the operations. It usually refers to the `WHERE` expression of SQL Statements. If not given, the primary key field will be used.
-
-The argument `keepIdentity` is used to define a value whether the identity property of the entity/model will be kept during the operation.
-
-The argument `identityBehavior` is used to define a value like with the `keepIdentity` argument, together-with, a value that is used to return the newly generated identity values from the database. 
-
-The argument `pseudoTableType` is used to define a value whether a physical pseudo-table will be created during the operation. By default, a temporary table is used.
-
-The argument `mergedCommandType` is used to define a value whether the existing `ON CONFLICT DO UPDATE` will be used over the `UPDATE/INSERT` SQL commands during operations.
+| Argument | Description |
+|:---------|:------------|
+| `qualifiers` | Defines the qualifier fields to be used in the operations. It usually refers to the `WHERE` expression of SQL Statements. If not given, the primary key field will be used. |
+| `keepIdentity` | Defines a value whether the identity property of the entity/model will be kept during the operation. |
+| `identityBehavior` | Like `keepIdentity`, together with a value that is used to return the newly generated identity values from the database. |
+| `pseudoTableType` | Defines a value whether a physical pseudo-table will be created during the operation. By default, a temporary table is used. |
+| `mergedCommandType` | Defines a value whether the existing `ON CONFLICT DO UPDATE` will be used over the `UPDATE`/`INSERT` SQL commands during operations. |
 
 ## Identity Setting Alignment
 

@@ -3,7 +3,7 @@ layout: default
 sidebar: operations
 title: "BulkUpdate"
 permalink: /operation/bulkupdate
-tags: [repodb, tutorial, bulkupdate, orm, hybrid-orm, sqlserver]
+tags: [repodb, tutorial, bulkupdate, orm, hybrid-orm, sqlserver, oracle]
 parent: OPERATIONS
 ---
 
@@ -11,7 +11,10 @@ parent: OPERATIONS
 
 ---
 
-This method updates all rows from the client application in the database in bulk. It is supported only for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations).
+This method updates all rows from the client application in the database in bulk. It is supported for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) and [Oracle](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations).
+
+{: .note }
+> The examples below target SQL Server. For Oracle-specific arguments (`pseudoTableType`) and examples, see [Bulk Operations (Oracle)](/feature/bulkoperations/oracle).
 
 ## Call Flow Diagram
 
