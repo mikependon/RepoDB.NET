@@ -9,6 +9,6 @@ parent: CACHERS
 
 # Cachers (Core)
 
-Core cachers that helps the library perform its best.
-
 ---
+
+Core cachers that helps the library perform its best.

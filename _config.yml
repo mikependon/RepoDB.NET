@@ -156,6 +156,10 @@ color_scheme: blue #light #dark #green #blue
 remote_theme: just-the-docs/just-the-docs
 #theme: just-the-docs
 
+# Mermaid diagrams (https://just-the-docs.github.io/just-the-docs/docs/ui-components/code/#mermaid)
+mermaid:
+  version: "9.4.3"
+
 # Callouts (https://just-the-docs.github.io/just-the-docs/docs/ui-components/callouts/)
 callouts_level: quiet # or loud
 callouts:

@@ -1,0 +1,10 @@
+{%- if site.mermaid -%}
+  {%- assign mermaid_version = site.mermaid.version | default: "9.4.3" -%}
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@{{ mermaid_version }}/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      mermaid.initialize({ startOnLoad: false });
+      mermaid.init(undefined, document.querySelectorAll('code.language-mermaid'));
+    });
+  </script>
+{%- endif -%}

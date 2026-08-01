@@ -18,7 +18,16 @@ This method deletes existing rows from the database in bulk. It is supported onl
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/binarybulkdelete.svg" />
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BinaryBulkDelete| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Reader -->|Pass| BinaryImport["BinaryImport"]
+    BinaryImport -->|Write| Decision{"PseudoTableType<br/>Physical?"}
+    Decision -->|YES| Physical["Create Table<br/>(Physical)"]
+    Decision -->|NO| Temporary["Create Table<br/>(Temporary)"]
+    Physical -->|"DELETE (SQL)"| Table[("Table")]
+    Temporary -->|"DELETE (SQL)"| Table
+```
 
 ## Use Case
 
