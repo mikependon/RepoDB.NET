@@ -3,7 +3,7 @@ layout: default
 sidebar: releases
 title: MySQL
 description: "This page contains the latest information of the releases of RepoDb.MySql library."
-nav_order: 6
+nav_order: 8
 permalink: /release/mysql
 parent: RELEASES
 ---

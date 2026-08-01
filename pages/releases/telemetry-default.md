@@ -3,7 +3,7 @@ layout: default
 sidebar: releases
 title: Telemetry (Default)
 description: "This page contains the latest information of the releases of RepoDb.Telemetry.Default library."
-nav_order: 10
+nav_order: 12
 permalink: /release/telemetry-default
 parent: RELEASES
 ---

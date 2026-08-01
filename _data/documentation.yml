@@ -602,7 +602,7 @@ docs:
 - key: extensibilities
   title: "Extensibilities"
   url: "/extensibility/averagetyperesolver"
-  isdoc: true
+  isdoc: false
   description: "Below are the list of extensibility implementations available."
   topics:
 
@@ -627,7 +627,7 @@ docs:
 - key: references
   title: "References"
   url: "/reference/connectionrepository"
-  isdoc: true
+  isdoc: false
   description: null
   topics:
 
@@ -682,6 +682,12 @@ docs:
 
   - title: "SQL Server (Bulk)"
     url: "/release/sqlserverbulk"
+
+  - title: "Oracle"
+    url: "/release/oracle"
+
+  - title: "Oracle (Bulk)"
+    url: "/release/oraclebulk"
 
   - title: "SQLite (Microsoft)"
     url: "/release/sqlite-microsoft"

@@ -3,7 +3,7 @@ layout: default
 title: REFERENCES
 nav_order: 11
 has_children: true
-show_in_nav: false
+nav_exclude: true
 permalink: /reference
 ---
 

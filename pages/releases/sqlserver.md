@@ -16,6 +16,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 
 ## RepoDb.SqlServer (v1.15.1)
 
+- Bug: [InsertAllAsync](/operation/insertall) throws an exception in `v1.14.0`. [#1233](https://github.com/mikependon/RepoDB/issues/1233)
 - Referenced the `RepoDb` package `v1.15.1`.
 
 
