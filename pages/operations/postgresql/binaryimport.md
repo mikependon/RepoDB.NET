@@ -6,6 +6,7 @@ permalink: /operation/postgresql/binaryimport
 tags: [repodb, tutorial, binaryimport, orm, hybrid-orm, sqlserver]
 parent: "PostgreSQL"
 grand_parent: OPERATIONS
+nav_exclude: true
 ---
 
 # BinaryImport
@@ -18,7 +19,12 @@ This method inserts multiple rows into the database in bulk. It is supported onl
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/binaryimport.svg" />
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BinaryImport| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Reader -->|Pass| Importer["NpgsqlBinaryImporter<br/>(Write)"]
+    Importer -->|Write| Table[("Table")]
+```
 
 ## Use Case
 
