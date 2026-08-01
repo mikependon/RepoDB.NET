@@ -17,6 +17,20 @@ This method deletes rows from the database in bulk, matched by the defined quali
 {: .note }
 > This page documents the Oracle-specific arguments and examples. For the SQL Server implementation, see [BulkDelete (SQL Server)](/operation/sqlserver/bulkdelete).
 
+## Call Flow Diagram
+
+The diagram below shows the flow when calling this operation.
+
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BulkDelete| Source["Entities /<br/>DataTable /<br/>DbDataReader"]
+    Source --> Pseudo["Create Pseudo Table<br/>(Physical)"]
+    Pseudo --> BulkCopy["OracleBulkCopy<br/>(direct-path load)"]
+    BulkCopy -->|Write| PseudoTable[("Pseudo Table")]
+    PseudoTable -->|"DELETE ... WHERE ROWID IN<br/>(SELECT ... JOIN ON qualifiers)"| Table[("Target Table")]
+    PseudoTable -->|Drop| Cleanup(["Pseudo Table Dropped"])
+```
+
 ## Use Case
 
 Use this method to delete rows at high speed. It leverages the native bulk operation from ODP.NET via the [OracleBulkCopy](https://docs.oracle.com/en/database/oracle/oracle-data-access-components/23.9/odpnt/OracleBulkCopyClass.html) class.

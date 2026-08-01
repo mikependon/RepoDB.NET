@@ -21,7 +21,19 @@ This method inserts all rows from the client application into the database in bu
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/bulkinsert.svg" />
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BulkInsert| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Reader -->|"Pass (Converted)"| BulkCopy["SqlBulkCopy"]
+    BulkCopy -->|WriteToServer| Decision{"IsReturnIdentity?"}
+    Decision -->|"No (BulkInsert/Pass)"| Table[("Table")]
+    Decision -->|Yes| PhysicalDecision{"IsUsePhysicalTable?"}
+    PhysicalDecision -->|Yes| Physical["Create Table<br/>(Physical)"]
+    PhysicalDecision -->|No| Temporary["Create Table<br/>(Temporary)"]
+    Physical -->|"INSERT INTO (SQL)"| Table
+    Temporary -->|"INSERT INTO (SQL)"| Table
+    Table -->|"Return (Identities)"| Client
+```
 
 ## Use Case
 

@@ -18,7 +18,16 @@ This method deletes rows from the database using a list of primary keys in bulk.
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/binarybulkdeletebykey.svg" />
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BinaryBulkDeleteByKey| Reader["IEnumerable&lt;TPrimaryKey&gt;"]
+    Reader -->|Pass| BinaryImport["BinaryImport"]
+    BinaryImport -->|Write| Decision{"PseudoTableType<br/>Physical?"}
+    Decision -->|YES| Physical["Create Table<br/>(Physical)"]
+    Decision -->|NO| Temporary["Create Table<br/>(Temporary)"]
+    Physical -->|"DELETE (SQL)"| Table[("Table")]
+    Temporary -->|"DELETE (SQL)"| Table
+```
 
 ## Use Case
 

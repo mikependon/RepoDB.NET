@@ -18,7 +18,19 @@ This method inserts multiple rows into the database in bulk. It is supported onl
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/binarybulkinsert.svg" />
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BinaryBulkInsert| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Reader -->|Pass| BinaryImport["BinaryImport"]
+    BinaryImport -->|Pass| IdentityDecision{"IdentityBehavior<br/>Return Identity?"}
+    IdentityDecision -->|NO| Table[("Table")]
+    IdentityDecision -->|YES| PseudoDecision{"PseudoTableType<br/>Physical?"}
+    PseudoDecision -->|YES| Physical["Create Table<br/>(Physical)"]
+    PseudoDecision -->|NO| Temporary["Create Table<br/>(Temporary)"]
+    Physical -->|"INSERT (SQL)"| Table
+    Temporary -->|"INSERT (SQL)"| Table
+    Table -->|"Return (Identities)"| Client
+```
 
 ## Use Case
 

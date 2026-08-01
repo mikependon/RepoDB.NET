@@ -21,7 +21,18 @@ This method merges all rows from the client application into the database in bul
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/bulkmerge.svg" />
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BulkMerge| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Reader -->|"Pass (Converted)"| BulkInsert["BulkInsert"]
+    BulkInsert -->|Pass| Decision{"IsUsePhysicalTable?"}
+    Decision -->|Yes| Physical["Create Table<br/>(Physical)"]
+    Decision -->|No| Temporary["Create Table<br/>(Temporary)"]
+    Physical -->|"MERGE INTO (SQL)"| Table[("Table")]
+    Temporary -->|"MERGE INTO (SQL)"| Table
+    Table -->|Pass| IdentityDecision{"IsReturnIdentity?"}
+    IdentityDecision -->|"Yes (Return Identities)"| Client
+```
 
 ## Use Case
 

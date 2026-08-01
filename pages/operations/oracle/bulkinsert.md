@@ -17,6 +17,26 @@ This method inserts all rows from the client application into the database in bu
 {: .note }
 > This page documents the Oracle-specific arguments and examples. For the SQL Server implementation, see [BulkInsert (SQL Server)](/operation/sqlserver/bulkinsert).
 
+## Call Flow Diagram
+
+The diagram below shows the flow when calling this operation.
+
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BulkInsert| Source["Entities /<br/>DataTable /<br/>DbDataReader"]
+    Source --> Decision{"identityBehavior ==<br/>ReturnIdentity?"}
+    Decision -->|NO| Direct["OracleBulkCopy<br/>(direct-path load)"]
+    Direct -->|Write| Table[("Target Table")]
+    Decision -->|YES| Pseudo["Create Pseudo Table<br/>(Physical)"]
+    Pseudo --> Staged["OracleBulkCopy<br/>(direct-path load)"]
+    Staged -->|Write| PseudoTable[("Pseudo Table")]
+    PseudoTable --> Generate["Pre-generate identity<br/>per staged row (NEXTVAL)"]
+    Generate --> Insert["INSERT INTO ... SELECT<br/>(identities already staged)"]
+    Insert --> Table
+    Insert -->|"SELECT identity<br/>ORDER BY ROWID"| Client
+    PseudoTable -->|Drop| Cleanup(["Pseudo Table Dropped"])
+```
+
 ## Use Case
 
 Use this method to insert rows at high speed. It leverages the native bulk operation from ODP.NET via the [OracleBulkCopy](https://docs.oracle.com/en/database/oracle/oracle-data-access-components/23.9/odpnt/OracleBulkCopyClass.html) class, which always performs a direct-path load.

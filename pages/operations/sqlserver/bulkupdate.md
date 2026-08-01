@@ -21,7 +21,16 @@ This method updates all rows from the client application in the database in bulk
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/bulkupdate.svg" />
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BulkUpdate| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Reader -->|"Pass (Converted)"| BulkInsert["BulkInsert"]
+    BulkInsert -->|Pass| Decision{"IsUsePhysicalTable?"}
+    Decision -->|Yes| Physical["Create Table<br/>(Physical)"]
+    Decision -->|No| Temporary["Create Table<br/>(Temporary)"]
+    Physical -->|"UPDATE/JOIN (SQL)"| Table[("Table")]
+    Temporary -->|"UPDATE/JOIN (SQL)"| Table
+```
 
 ## Use Case
 

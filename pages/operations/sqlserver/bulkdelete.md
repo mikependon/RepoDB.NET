@@ -21,7 +21,16 @@ This method deletes rows from the database in bulk. It is supported for [SQL Ser
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/bulkdelete.svg" />
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BulkDelete| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Reader -->|"Pass (Converted)"| BulkInsert["BulkInsert"]
+    BulkInsert -->|Pass| Decision{"IsUsePhysicalTable?"}
+    Decision -->|Yes| Physical["Create Table<br/>(Physical)"]
+    Decision -->|No| Temporary["Create Table<br/>(Temporary)"]
+    Physical -->|"DELETE/JOIN (SQL)"| Table[("Table")]
+    Temporary -->|"DELETE/JOIN (SQL)"| Table
+```
 
 ## Use Case
 

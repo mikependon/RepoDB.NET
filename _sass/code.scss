@@ -147,6 +147,10 @@ code.language-mermaid {
   padding: 0;
   background-color: inherit;
   border: 0;
+
+  svg {
+    background-color: #ffffff;
+  }
 }
 
 // {% endraw %}

@@ -17,6 +17,26 @@ This method merges all rows from the client application into the database in bul
 {: .note }
 > This page documents the Oracle-specific arguments and examples. For the SQL Server implementation, see [BulkMerge (SQL Server)](/operation/sqlserver/bulkmerge).
 
+## Call Flow Diagram
+
+The diagram below shows the flow when calling this operation.
+
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BulkMerge| Source["Entities /<br/>DataTable /<br/>DbDataReader"]
+    Source --> Pseudo["Create Pseudo Table<br/>(Physical)"]
+    Pseudo --> BulkCopy["OracleBulkCopy<br/>(direct-path load)"]
+    BulkCopy -->|Write| PseudoTable[("Pseudo Table")]
+    PseudoTable --> Decision{"identityBehavior ==<br/>ReturnIdentity?"}
+    Decision -->|NO| Merge["MERGE INTO ... USING ...<br/>WHEN MATCHED THEN UPDATE<br/>WHEN NOT MATCHED THEN INSERT"]
+    Merge --> Table[("Target Table")]
+    Decision -->|YES| Resolve["Resolve / pre-generate<br/>identity per staged row"]
+    Resolve --> MergeId["MERGE INTO ... USING ...<br/>(identities already staged)"]
+    MergeId --> Table
+    MergeId -->|"SELECT identity<br/>ORDER BY ROWID"| Client
+    PseudoTable -->|Drop| Cleanup(["Pseudo Table Dropped"])
+```
+
 ## Use Case
 
 Use this method to merge rows at high speed. It leverages the native bulk operation from ODP.NET via the [OracleBulkCopy](https://docs.oracle.com/en/database/oracle/oracle-data-access-components/23.9/odpnt/OracleBulkCopyClass.html) class.

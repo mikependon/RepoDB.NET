@@ -18,7 +18,16 @@ This method updates existing rows in the database in bulk. It is supported only 
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/binarybulkupdate.svg" />
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BinaryBulkUpdate| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Reader -->|Pass| BinaryImport["BinaryImport"]
+    BinaryImport -->|Write| Decision{"PseudoTableType<br/>Physical?"}
+    Decision -->|YES| Physical["Create Table<br/>(Physical)"]
+    Decision -->|NO| Temporary["Create Table<br/>(Temporary)"]
+    Physical -->|"UPDATE (SQL)"| Table[("Table")]
+    Temporary -->|"UPDATE (SQL)"| Table
+```
 
 ## Use Case
 

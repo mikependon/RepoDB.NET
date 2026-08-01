@@ -17,6 +17,20 @@ This method updates existing rows in the database in bulk, matched by the define
 {: .note }
 > This page documents the Oracle-specific arguments and examples. For the SQL Server implementation, see [BulkUpdate (SQL Server)](/operation/sqlserver/bulkupdate).
 
+## Call Flow Diagram
+
+The diagram below shows the flow when calling this operation.
+
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BulkUpdate| Source["Entities /<br/>DataTable /<br/>DbDataReader"]
+    Source --> Pseudo["Create Pseudo Table<br/>(Physical)"]
+    Pseudo --> BulkCopy["OracleBulkCopy<br/>(direct-path load)"]
+    BulkCopy -->|Write| PseudoTable[("Pseudo Table")]
+    PseudoTable -->|"MERGE INTO ... USING ...<br/>WHEN MATCHED THEN UPDATE<br/>(no WHEN NOT MATCHED)"| Table[("Target Table")]
+    PseudoTable -->|Drop| Cleanup(["Pseudo Table Dropped"])
+```
+
 ## Use Case
 
 Use this method to update rows at high speed. It leverages the native bulk operation from ODP.NET via the [OracleBulkCopy](https://docs.oracle.com/en/database/oracle/oracle-data-access-components/23.9/odpnt/OracleBulkCopyClass.html) class.

@@ -18,7 +18,20 @@ This method merges multiple rows into the database in bulk. It does not delete r
 
 The diagram below shows the flow when calling this operation.
 
-<img src="../../assets/images/site/binarybulkmerge.svg" />
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BinaryBulkMerge| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Reader -->|Pass| BinaryImport["BinaryImport"]
+    BinaryImport -->|Write| PseudoDecision{"PseudoTableType<br/>Physical?"}
+    PseudoDecision -->|YES| Physical["Create Table<br/>(Physical)"]
+    PseudoDecision -->|NO| Temporary["Create Table<br/>(Temporary)"]
+    Physical -->|Pass| MergeDecision{"MergeCommandType<br/>InsertAndUpdate?"}
+    Temporary -->|Pass| MergeDecision
+    MergeDecision -->|"YES (UPDATE/INSERT)"| Table[("Table")]
+    MergeDecision -->|"NO (ON CONFLICT DO UPDATE)"| Table
+    Table --> IdentityDecision{"IdentityBehavior<br/>Return Identity?"}
+    IdentityDecision -->|"YES (Return Identities)"| Client
+```
 
 ## Use Case
 

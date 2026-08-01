@@ -15,10 +15,6 @@ The bulk operations implementation is leveraging the existing [NpgsqlBinaryImpor
 
 The [BinaryBulkInsert](/operation/postgresql/binarybulkinsert) method, the one that does the bulk insert operation is using the [BinaryImport](/operation/postgresql/binaryimport) internally. There is no implied logic is introduced on this operation unless the newly generated primary identity column is being requested back to the client right after the execution (see [ReturnIdentity](/enumeration/postgresql/bulkimportidentitybehavior#bulkimportidentitybehavior)).
 
-The image below shows the data flow of the [BinaryBulkInsert](/operation/postgresql/binarybulkinsert) operation.
-
-<img src="../../assets/images/site/binarybulkinsert.svg" />
-
 For the [BinaryBulkDelete](/operation/postgresql/binarybulkdelete), [BinaryBulkMerge](/operation/postgresql/binarybulkmerge) and [BinaryBulkUpdate](/operation/postgresql/binarybulkupdate) operations, an implied logic is used. Basically, a pseudo-temporary table is being created in the database under a transaction context. The operation will then use the [BinaryImport](/operation/postgresql/binaryimport) operation to target such pseudo-temporary table and process the data afterwards.
 
 {: .note }

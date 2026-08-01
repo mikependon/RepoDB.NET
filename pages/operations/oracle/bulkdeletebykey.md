@@ -14,6 +14,20 @@ grand_parent: OPERATIONS
 
 This method deletes rows from the database using a list of primary keys in bulk. It is supported only for [Oracle](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations).
 
+## Call Flow Diagram
+
+The diagram below shows the flow when calling this operation.
+
+```mermaid
+flowchart TD
+    Client["Client<br/>(RepoDB)"] -->|BulkDeleteByKey| Keys["Primary Keys<br/>IEnumerable&lt;TPrimaryKey&gt;"]
+    Keys --> Pseudo["Create Pseudo Table<br/>(Physical)"]
+    Pseudo --> BulkCopy["OracleBulkCopy<br/>(direct-path load)"]
+    BulkCopy -->|Write| PseudoTable[("Pseudo Table<br/>(key column only)")]
+    PseudoTable -->|"DELETE ... WHERE ROWID IN<br/>(SELECT ... JOIN ON key)"| Table[("Target Table")]
+    PseudoTable -->|Drop| Cleanup(["Pseudo Table Dropped"])
+```
+
 ## Use Case
 
 Use this method to delete rows by primary key at high speed. It leverages the native bulk operation from ODP.NET via the [OracleBulkCopy](https://docs.oracle.com/en/database/oracle/oracle-data-access-components/23.9/odpnt/OracleBulkCopyClass.html) class.

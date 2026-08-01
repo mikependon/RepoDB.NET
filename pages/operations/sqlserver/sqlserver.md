@@ -15,15 +15,7 @@ For SQL Server, the underlying implementation is leveraging the existing ADO.NET
 
 For [BulkInsert](/operation/sqlserver/bulkinsert) operation, it simply calls the [WriteToServer()](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-6.0) method to bring all the data into the database. Unless you would like to bring the newly generated identity column values back to the application after the execution, there is no additional logic is implied.
 
-Image below shows the data flow of the [BulkInsert](/operation/sqlserver/bulkinsert) operation.
-
-<img src="../../assets/images/site/bulkinsert.svg" />
-
 For the [BulkDelete](/operation/sqlserver/bulkdelete), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate) operations, an implied logic and technique has been utilized.
-
-Image below shows the data flow of the [BulkMerge](/operation/sqlserver/bulkmerge) operation.
-
-<img src="../../assets/images/site/bulkmerge.svg" />
 
 Basically, a pseudo-temporary table will be created in the database under a transaction context. It then uses the [BulkInsert](/operation/sqlserver/bulkinsert) operation to target that pseudo-temporary table and process the data afterwards.
 

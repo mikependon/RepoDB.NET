@@ -18,7 +18,17 @@ Caching is typically implemented as a second-layer data store to provide fast da
 
 The diagram below shows the caching implementation in this library.
 
-<img src="../../assets/images/site/cache.svg" />
+```mermaid
+flowchart LR
+    Client["Client<br/>(RepoDB)"] -->|Call| QueryOps["Query<br/>QueryAll<br/>ExecuteQuery"]
+    QueryOps -->|Check| CacheKeyDecision{"Has CacheKey?"}
+    CacheKeyDecision -->|No| DB[("Database<br/>(Network Boundary)<br/>(Cloud/On-Premise)")]
+    CacheKeyDecision -->|Yes| CacheStorage[("Cache Storage")]
+    CacheStorage -->|Check| PresentDecision{"Is Present?"}
+    PresentDecision -->|"Yes / Return"| Client
+    PresentDecision -->|No| DB
+    DB -->|Return| Client
+```
 
 By default, caching is backed by in-memory storage through the [MemoryCache](/class/memorycache) object — a simple dictionary that maps keys to cached data. Cache entries persist for 180 minutes by default, but the expiration can be set explicitly during each call.
 
