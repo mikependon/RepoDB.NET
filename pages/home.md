@@ -16,7 +16,7 @@ A production-ready data access platform for .NET applications.
 
 ---
 
-RepoDB is a high-performance, open-source data productivity platform for .NET developers. At its core is the RepoDB ORM—a fast, lightweight, and flexible data access library that will always remain free and open source, and the foundation of the growing RepoDB ecosystem of tools for building, operating, and scaling enterprise applications.
+RepoDB is a high-performance, open-source data productivity platform for .NET developers. At its core is the RepoDB ORM—a fast, lightweight, and hybrid data access library that will always remain free and open source, and the foundation of the growing RepoDB ecosystem of tools for building, operating, and scaling enterprise applications.
 
 Whether you're processing millions of records, integrating multiple data sources, or preparing your systems for AI-driven development, RepoDB gives you the flexibility to work the way you want—all through the familiar `IDbConnection` interface. Write raw SQL when you need absolute control, use fluent APIs when productivity matters, and switch seamlessly between both without sacrificing performance or maintainability.
 
