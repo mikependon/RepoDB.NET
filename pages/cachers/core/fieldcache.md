@@ -5,7 +5,8 @@ title: "FieldCache"
 description: "A class that is being used to retrieve the cached fields or properties of the class or data entity."
 permalink: /cacher/fieldcache
 tags: [repodb, fieldcache]
-parent: CACHERS
+parent: "Core"
+grand_parent: CACHERS
 ---
 
 # FieldCache

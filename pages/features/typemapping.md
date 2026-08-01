@@ -19,8 +19,9 @@ Below are the important attributes per data provider.
 | Attribute | RDBMS | Data Provider  | 
 |:-------------|:-------------|
 | [SqlDbTypeAttribute](/attribute/sqlserver/sqldbtype) | SQL Server | Microsoft.Data.SqlClient |
-| [MySqlDbTypeAttribute](/attribute/mysql/mysqldbtype) | MySQL | MySql.Data, MySqlConnector |
-| [NpgsqlDbTypeAttribute](/attribute/npgsql/npgsqldbtype) | PostgreSQL | Npgsql |
+| [MySqlDbTypeAttribute](/attribute/mysql/mysql/mysqldbtype) | MySQL | MySql.Data |
+| [MySqlDbTypeAttribute](/attribute/mysql/mysqlconnector/mysqldbtype) | MySQL | MySqlConnector |
+| [NpgsqlDbTypeAttribute](/attribute/postgresql/npgsqldbtype) | PostgreSQL | Npgsql |
 | [SqliteTypeAttribute](/attribute/sqlite/sqlitetype) | SQLite | Microsoft.Data.Sqlite |
 
 ## Mapping a .NET CLR type
@@ -71,7 +72,7 @@ public class Person
 
 #### MySQL
 
-In MySQL, you can also map to a specific [MySql.Data.MySqlClient.MySqlDbType](https://dev.mysql.com/doc/dev/connector-net/6.10/html/T_MySql_Data_MySqlClient_MySqlDbType.htm) using the [MySqlDbTypeAttribute](/attribute/mysql/mysqldbtype).
+In MySQL, you can also map to a specific [MySql.Data.MySqlClient.MySqlDbType](https://dev.mysql.com/doc/dev/connector-net/6.10/html/T_MySql_Data_MySqlClient_MySqlDbType.htm) using the [MySqlDbTypeAttribute](/attribute/mysql/mysql/mysqldbtype) (`MySql.Data`) or [MySqlDbTypeAttribute](/attribute/mysql/mysqlconnector/mysqldbtype) (`MySqlConnector`).
 
 ```csharp
 public class Person
@@ -86,7 +87,7 @@ public class Person
 
 #### PostgreSQL
 
-In PostgreSQL, you can also map to a specific [NpgsqlTypes.NpgsqlDbType](https://www.npgsql.org/doc/api/NpgsqlTypes.NpgsqlDbType.html) using the [NpgsqlDbTypeAttribute](/attribute/npgsql/npgsqldbtype).
+In PostgreSQL, you can also map to a specific [NpgsqlTypes.NpgsqlDbType](https://www.npgsql.org/doc/api/NpgsqlTypes.NpgsqlDbType.html) using the [NpgsqlDbTypeAttribute](/attribute/postgresql/npgsqldbtype).
 
 ```csharp
 public class Person

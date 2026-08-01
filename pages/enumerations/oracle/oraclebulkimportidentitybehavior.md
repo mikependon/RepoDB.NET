@@ -25,9 +25,9 @@ This enum defines the behavior of the identity property/column when an entity is
 
 ## Usability
 
-This enum is used by both the [BulkInsert](/operation/bulkinsert) and [BulkMerge](/operation/bulkmerge) operations. Pass the value to the `identityBehavior` argument when calling the operation.
+This enum is used by both the [BulkInsert](/operation/sqlserver/bulkinsert) and [BulkMerge](/operation/sqlserver/bulkmerge) operations. Pass the value to the `identityBehavior` argument when calling the operation.
 
-For [BulkInsert](/operation/bulkinsert):
+For [BulkInsert](/operation/sqlserver/bulkinsert):
 
 ```csharp
 using (var connection = new OracleConnection(connectionString))
@@ -38,7 +38,7 @@ using (var connection = new OracleConnection(connectionString))
 }
 ```
 
-For [BulkMerge](/operation/bulkmerge):
+For [BulkMerge](/operation/sqlserver/bulkmerge):
 
 ```csharp
 using (var connection = new OracleConnection(connectionString))

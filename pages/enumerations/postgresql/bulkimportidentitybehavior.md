@@ -25,9 +25,9 @@ This enum defines the behavior of the identity property/column when an entity is
 
 ## Usability
 
-This enum is used by both the [BinaryBulkInsert](/operation/binarybulkinsert) and [BinaryBulkMerge](/operation/binarybulkmerge) operations. Pass the value to the `identityBehavior` argument when calling the operation.
+This enum is used by both the [BinaryBulkInsert](/operation/postgresql/binarybulkinsert) and [BinaryBulkMerge](/operation/postgresql/binarybulkmerge) operations. Pass the value to the `identityBehavior` argument when calling the operation.
 
-For the [BinaryBulkInsert](/operation/binarybulkinsert) operation:
+For the [BinaryBulkInsert](/operation/postgresql/binarybulkinsert) operation:
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -38,7 +38,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
-For the [BinaryBulkMerge](/operation/binarybulkmerge) operation:
+For the [BinaryBulkMerge](/operation/postgresql/binarybulkmerge) operation:
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))

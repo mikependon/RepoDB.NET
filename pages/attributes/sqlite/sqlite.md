@@ -1,11 +1,10 @@
 ---
 layout: default
 title: SQLite
-nav_order: 11
+nav_order: 6
 has_children: true
 permalink: /attribute/sqlite
 parent: ATTRIBUTES
-nav_exclude: true
 ---
 
 # Attributes

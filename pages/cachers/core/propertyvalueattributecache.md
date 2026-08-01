@@ -5,7 +5,8 @@ title: "PropertyValueAttributeCache"
 description: "A class that is being used to retrieve the cached attributes of the property."
 permalink: /cacher/propertyvalueattributecache
 tags: [repodb, propertyvalueattributecache]
-parent: CACHERS
+parent: "Core"
+grand_parent: CACHERS
 ---
 
 # PropertyValueAttributeCache

@@ -5,7 +5,8 @@ title: "PropertyCache"
 description: "A class that is being used to retrieve the cached properties of the class or data entity."
 permalink: /cacher/propertycache
 tags: [repodb, propertycache]
-parent: CACHERS
+parent: "Core"
+grand_parent: CACHERS
 ---
 
 # PropertyCache

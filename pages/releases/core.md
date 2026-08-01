@@ -29,7 +29,7 @@ View the NuGet package [here](https://www.nuget.org/packages/RepoDb) or download
 New
 {: .label .label-green }
 
-- Added native PostgreSQL enum type support for bulk operations via the new [DataTypeName](/attribute/npgsql/datatypename) property on `NpgsqlBulkInsertMapItem`.
+- Added native PostgreSQL enum type support for bulk operations via the new [DataTypeName](/attribute/postgresql/datatypename) property on `NpgsqlBulkInsertMapItem`.
 - Added support for .NET 8, .NET 9, and .NET 10 target frameworks.
 - Added auto-conversion from `DateTime` to `DateOnly`. [#1154](https://github.com/mikependon/RepoDB/pull/1154)
 - Added full `DateOnly` support. [#1184](https://github.com/mikependon/RepoDB/pull/1184)
@@ -40,7 +40,7 @@ New
 - Mitigated thread race conditions and hashcode collision risks. [#1153](https://github.com/mikependon/RepoDB/pull/1153)
 - Fixed race condition when getting fields by retrying on a new connection. [#1162](https://github.com/mikependon/RepoDB/pull/1162)
 - Fixed duplicate type check for `StaticType.Byte` in `ClientTypeToDbTypeResolver`. [#1213](https://github.com/mikependon/RepoDB/pull/1213)
-- Fixed `keepIdentity` flag bug in [BulkInsert](/operation/bulkinsert) and [BulkMerge](/operation/bulkmerge) operations. [#1182](https://github.com/mikependon/RepoDB/pull/1182)
+- Fixed `keepIdentity` flag bug in [BulkInsert](/operation/sqlserver/bulkinsert) and [BulkMerge](/operation/sqlserver/bulkmerge) operations. [#1182](https://github.com/mikependon/RepoDB/pull/1182)
 - Fixed nested/concurrent transaction exception when using `TransactionScope` with PostgreSQL bulk operations. [#1159](https://github.com/mikependon/RepoDB/issues/1159) [#1160](https://github.com/mikependon/RepoDB/pull/1160) [#1170](https://github.com/mikependon/RepoDB/pull/1170)
 - Addressed CVE-2023-36414 and CVE-2024-0056. [#1207](https://github.com/mikependon/RepoDB/pull/1207)
 - Converted enum to type based on `DbType` for PostgreSQL. [#1152](https://github.com/mikependon/RepoDB/pull/1152)
@@ -242,7 +242,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Bug: Dynamic insertion via `Dictionary<string, object>` is failing [#791](https://github.com/mikependon/RepoDB/issues/791).
 - Bug: `IsDictionaryStringObject()` does not work in F# [#789](https://github.com/mikependon/RepoDB/issues/789).
 - Bug: An identify field parameter issue is being thrown when invoking the [MergeAll](/operation/mergeall) operation dynamically [#849](https://github.com/mikependon/RepoDB/issues/849).
-- Bug: A SQL syntax issue is being thrown if the [BulkMerge](/operation/bulkmerge) is called with multiple qualifiers [#850](https://github.com/mikependon/RepoDB/issues/850).
+- Bug: A SQL syntax issue is being thrown if the [BulkMerge](/operation/sqlserver/bulkmerge) is called with multiple qualifiers [#850](https://github.com/mikependon/RepoDB/issues/850).
 - Bug: Output parameters of type varchar gives `Size` exception [#836](https://github.com/mikependon/RepoDB/issues/836).
 - Bug: Calls to any operation throws an object `NullReferenceException` if not properly initialized. [#861](https://github.com/mikependon/RepoDB/issues/861).
 - Bug: Different lambdas in [QueryAsync](/operation/query) generate the same SQL expression (cache problem) [#782](https://github.com/mikependon/RepoDB/issues/782).
@@ -252,7 +252,7 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Bug: [Insert](/operation/insert) exception since 1.1.3 with mysql... [#765](https://github.com/mikependon/RepoDB/issues/765)
 - Enhancement: Added the `Size` property into the [DirectionalQueryField](/class/directionalqueryfield) object.
 - Enhancement: Exposed the `Type` property of the [DirectionalQueryField](/class/directionalqueryfield) object.
-- Enhancement: Added the `NULL` comparer as part of the qualifiers on the [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations.
+- Enhancement: Added the `NULL` comparer as part of the qualifiers on the [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate) operations.
 - Enhancement: Made the [QueryGroup.GetString()](/class/querygroup) method virtual.
 - Enhancement: Added the [QueryField.GetString()](/class/queryfield) method (as virtual).
 - Enhancement: Make the [DbRepository.CreateConnection()](/class/dbrepository) method virtual. [#856](https://github.com/mikependon/RepoDB/issues/856)
@@ -285,12 +285,12 @@ Enhancement: Enable the dynamic result from the [QueryMultiple](/operation/query
 - Bug: Dynamic insertion via `Dictionary<string, object>` is failing [#791](https://github.com/mikependon/RepoDB/issues/791).
 - Bug: `IsDictionaryStringObject()` does not work in F# [#789](https://github.com/mikependon/RepoDB/issues/789).
 - Bug: An identify field parameter issue is being thrown when invoking the [MergeAll](/operation/mergeall) operation dynamically [#849](https://github.com/mikependon/RepoDB/issues/849).
-- Bug: A SQL syntax issue is being thrown if the [BulkMerge](/operation/bulkmerge) is called with multiple qualifiers [#850](https://github.com/mikependon/RepoDB/issues/850).
+- Bug: A SQL syntax issue is being thrown if the [BulkMerge](/operation/sqlserver/bulkmerge) is called with multiple qualifiers [#850](https://github.com/mikependon/RepoDB/issues/850).
 - Bug: Output parameters of type varchar gives `Size` exception [#836](https://github.com/mikependon/RepoDB/issues/836).
 - Bug: Calls to any operation throws an object `NullReferenceException` if not properly initialized. [#861](https://github.com/mikependon/RepoDB/issues/861).
 - Enhancement: Added the `Size` property into the [DirectionalQueryField](/class/directionalqueryfield) object.
 - Enhancement: Exposed the `Type` property of the [DirectionalQueryField](/class/directionalqueryfield) object.
-- Enhancement: Added the `NULL` comparer as part of the qualifiers on the [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) operations.
+- Enhancement: Added the `NULL` comparer as part of the qualifiers on the [MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate) operations.
 - Enhancement: Made the [QueryGroup.GetString()](/class/querygroup) method virtual.
 - Enhancement: Added the [QueryField.GetString()](/class/queryfield) method (as virtual).
 - Enhancement: Make the [DbRepository.CreateConnection()](/class/dbrepository) method virtual. [#856](https://github.com/mikependon/RepoDB/issues/856)
@@ -369,11 +369,11 @@ Breaking
 - [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [InsertAll](/operation/insertall) via `TableName`. [#235](https://github.com/mikependon/RepoDB/issues/235)
 - [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [MergeAll](/operation/mergeall) via `TableName`. [#239](https://github.com/mikependon/RepoDB/issues/239)
 - [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [UpdateAll](/operation/updateall) via `TableName`. [#237](https://github.com/mikependon/RepoDB/issues/237)
-- Introduce the support of Dynamic and ExpandoObject in [BulkInsert](/operation/bulkinsert). [#243](https://github.com/mikependon/RepoDB/issues/243)
-- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkInsert](/operation/bulkinsert) [#610](https://github.com/mikependon/RepoDB/issues/610)
-- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkMerge](/operation/bulkmerge) [#611](https://github.com/mikependon/RepoDB/issues/611)
-- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkUpdate](/operation/bulkupdate) [#612](https://github.com/mikependon/RepoDB/issues/612)
-- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkDelete](/operation/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
+- Introduce the support of Dynamic and ExpandoObject in [BulkInsert](/operation/sqlserver/bulkinsert). [#243](https://github.com/mikependon/RepoDB/issues/243)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkInsert](/operation/sqlserver/bulkinsert) [#610](https://github.com/mikependon/RepoDB/issues/610)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkMerge](/operation/sqlserver/bulkmerge) [#611](https://github.com/mikependon/RepoDB/issues/611)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkUpdate](/operation/sqlserver/bulkupdate) [#612](https://github.com/mikependon/RepoDB/issues/612)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkDelete](/operation/sqlserver/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
 - Bug: Exception is being thrown for the Type level [PropertyHandler](/feature/propertyhandlers) for Dynamic Insertion [#628](https://github.com/mikependon/RepoDB/issues/628).
 - Added a validation to ensure the type of the `TPropertyHandler` has implemented the [IPropertyHandler](/interface/ipropertyhandler) interface when calling the `Add()` method of the [PropertyHandlerCache](/cacher/propertyhandlercache) object.
 - Request: Do not crash if on empty enumerable on bulk operation [#635](https://github.com/mikependon/RepoDB/issues/635).
@@ -433,11 +433,11 @@ Breaking
 - [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [InsertAll](/operation/insertall) via `TableName`. [#235](https://github.com/mikependon/RepoDB/issues/235)
 - [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [MergeAll](/operation/mergeall) via `TableName`. [#239](https://github.com/mikependon/RepoDB/issues/239)
 - [Core] Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [UpdateAll](/operation/updateall) via `TableName`. [#237](https://github.com/mikependon/RepoDB/issues/237)
-- Introduce the support of Dynamic and ExpandoObject in [BulkInsert](/operation/bulkinsert). [#243](https://github.com/mikependon/RepoDB/issues/243)
-- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkInsert](/operation/bulkinsert) [#610](https://github.com/mikependon/RepoDB/issues/610)
-- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkMerge](/operation/bulkmerge) [#611](https://github.com/mikependon/RepoDB/issues/611)
-- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkUpdate](/operation/bulkupdate) [#612](https://github.com/mikependon/RepoDB/issues/612)
-- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkDelete](/operation/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
+- Introduce the support of Dynamic and ExpandoObject in [BulkInsert](/operation/sqlserver/bulkinsert). [#243](https://github.com/mikependon/RepoDB/issues/243)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkInsert](/operation/sqlserver/bulkinsert) [#610](https://github.com/mikependon/RepoDB/issues/610)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkMerge](/operation/sqlserver/bulkmerge) [#611](https://github.com/mikependon/RepoDB/issues/611)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkUpdate](/operation/sqlserver/bulkupdate) [#612](https://github.com/mikependon/RepoDB/issues/612)
+- Enhancement: Support [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0) in [BulkDelete](/operation/sqlserver/bulkdelete) [#613](https://github.com/mikependon/RepoDB/issues/613)
 
 
 ## RepoDb (v1.12.4)
@@ -784,7 +784,7 @@ Breaking
 - Added the `ConverterNotFoundException` class.
 - At the [CancellableTraceLog.Cancel()](/class/cancellabletracelog) method, the `throwException` argument has been defaulted the `true`.
 - Enhancement: Ensure that [PropertyHandler](/interface/ipropertyhandler)(s) must ignore the [TypeMapper](/mapper/typemapper) automatic conversion and also `Enum` handlers. [#412](https://github.com/mikependon/RepoDb/issues/412)
-- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targeting the bulk operations (i.e.: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
+- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targeting the bulk operations (i.e.: [BulkInsert](/operation/sqlserver/bulkinsert), [BulkDelete](/operation/sqlserver/bulkdelete), [BulkMerge](/operation/sqlserver/bulkinsert) and [BulkUpdate](/operation/sqlserver/bulkupdate)) default batch-size.
 - Bug: UnaryExpression: Add support for `&&` and `||` operators in the expressions [#398](https://github.com/mikependon/RepoDb/issues/398)
 - Bug: Enum Bug [#400](https://github.com/mikependon/RepoDb/issues/400)
 - Bug: Enum Bug on Null value on [Insert](/operation/insert). [#401](https://github.com/mikependon/RepoDb/issues/401)
@@ -801,7 +801,7 @@ Breaking
 - Bug: Enum Bug on Null value on [Insert](/operation/insert). [#401](https://github.com/mikependon/RepoDb/issues/401)
 - Added the `ConverterNotFoundException` class.
 - Enhancement: Ensure that [PropertyHandler](/interface/ipropertyhandler)(s) must ignore the [TypeMapper](/mapper/typemapper) automatic conversion and also `Enum` handlers. [#412](https://github.com/mikependon/RepoDb/issues/412)
-- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targeting the bulk operations (i.e.: [BulkInsert](/operation/bulkinsert), [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkinsert) and [BulkUpdate](/operation/bulkupdate)) default batch-size.
+- Enhancement: Make the [Constant.DefaultBatchOperationSize](/class/constant) property value to `10`. Targeting the bulk operations (i.e.: [BulkInsert](/operation/sqlserver/bulkinsert), [BulkDelete](/operation/sqlserver/bulkdelete), [BulkMerge](/operation/sqlserver/bulkinsert) and [BulkUpdate](/operation/sqlserver/bulkupdate)) default batch-size.
 
 
 ## RepoDb (v1.10.11-beta2):
@@ -818,7 +818,7 @@ Breaking
 
 ## RepoDb (v1.10.10)
 
-- Features: Full support to Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
+- Features: Full support to Bulk Operations ([BulkDelete](/operation/sqlserver/bulkdelete), [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate)).
 - Enhancement: `AsFieldsAsAliasFields` - added left and right aliases.
 - Enhancement: XML Documentation updates for the SQL statement Builders.
 - Enhancement: Add a `Type` extended method named `IsNullable`.
@@ -828,7 +828,7 @@ Breaking
 
 ## RepoDb (v1.10.10-beta1)
 
-- Full support to Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
+- Full support to Bulk Operations ([BulkDelete](/operation/sqlserver/bulkdelete), [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate)).
 - `AsFieldsAsAliasFields` - added left and right aliases.
 - XML Documentation updates for the SQL statement Builders.
 
@@ -863,7 +863,7 @@ Highlights
 
 - Support: Initiate the support to [Microsoft.Data.SqlClient](https://learn.microsoft.com/en-us/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace?view=sql-server-ver16) namespace. [#374](https://github.com/mikependon/RepoDb/issues/374)
 - Feature: Support `PropertyHandlerAttribute` as requested. [#367](https://github.com/mikependon/RepoDb/issues/367)
-- Feature: Re-enabled the [BulkInsert](/operation/bulkinsert) for `DataTable`.
+- Feature: Re-enabled the [BulkInsert](/operation/sqlserver/bulkinsert) for `DataTable`.
 - Feature: Support deleting an array of entity objects or primary keys via [DeleteAll](/operation/deleteall). [#353](https://github.com/mikependon/RepoDb/issues/353)
 
 ### Others
@@ -971,10 +971,10 @@ Highlights
 - Enhancement: Remove database streaming when extracting table schema.
 - Enhancement: Add `AsFields()` extended methods for the `IEnumerable` of [DbField](/class/dbfield) objects [#273](https://github.com/mikependon/RepoDb/issues/273)
 - Enhancement: Add `DbFieldCache.GetAsync` method. [#275](https://github.com/mikependon/RepoDb/issues/275)
-- Enhancement: Add [DataEntityDataReader](/class/dataentitydatareader) into [BulkInsert](/operation/bulkinsert) that accepts TableName and Entities [#271](https://github.com/mikependon/RepoDb/issues/271)
+- Enhancement: Add [DataEntityDataReader](/class/dataentitydatareader) into [BulkInsert](/operation/sqlserver/bulkinsert) that accepts TableName and Entities [#271](https://github.com/mikependon/RepoDb/issues/271)
 - Enhancement: Add `AsFields()` extended methods for the `IEnumerable` of [DbField](/class/dbfield) objects.
-- To Consider: Enable [BulkInsert](/operation/bulkinsert) with System.`DataTable` [#277](https://github.com/mikependon/RepoDb/issues/277)
-- Test: Add IntegrationTests on [BulkInsert](/operation/bulkinsert) that accepts DataEntities and TableName.
+- To Consider: Enable [BulkInsert](/operation/sqlserver/bulkinsert) with System.`DataTable` [#277](https://github.com/mikependon/RepoDb/issues/277)
+- Test: Add IntegrationTests on [BulkInsert](/operation/sqlserver/bulkinsert) that accepts DataEntities and TableName.
 - Refactoring: Refactor the code snippets for [DbFieldCache](/cacher/dbfieldcache) to accept `IDbTransaction` objects. These affected too many chain of calls.
 - Refactoring: Removed the `ToLower()` and replaced by `StringComparer.OrdinalIgnoreCase`.
 
@@ -987,16 +987,16 @@ Highlights
 
 ## RepoDb (v1.9.9-beta4)
 
-- To Consider: Enable [BulkInsert](/operation/bulkinsert) with System.`DataTable` [#277](https://github.com/mikependon/RepoDb/issues/277)
+- To Consider: Enable [BulkInsert](/operation/sqlserver/bulkinsert) with System.`DataTable` [#277](https://github.com/mikependon/RepoDb/issues/277)
 - v1.9.9 release candidate
 
 
 ## RepoDb (v1.9.9-beta3)
 
 - Enhancement: Add `DbFieldCache.GetAsync` method. [#275](https://github.com/mikependon/RepoDb/issues/275)
-- Enhancement: Add [DataEntityDataReader](/class/dataentitydatareader) into [BulkInsert](/operation/bulkinsert) that accepts TableName and Entities [#271](https://github.com/mikependon/RepoDb/issues/271)
+- Enhancement: Add [DataEntityDataReader](/class/dataentitydatareader) into [BulkInsert](/operation/sqlserver/bulkinsert) that accepts TableName and Entities [#271](https://github.com/mikependon/RepoDb/issues/271)
 - Enhancement: Add `AsFields()` extended methods for the `IEnumerable<DbField>`
-- Test: Add IntegrationTests on [BulkInsert](/operation/bulkinsert) that accepts DataEntities and TableName.
+- Test: Add IntegrationTests on [BulkInsert](/operation/sqlserver/bulkinsert) that accepts DataEntities and TableName.
 
 
 ## RepoDb (v1.9.9-beta2)
@@ -1066,7 +1066,7 @@ Highlights
 - [Added] Introduce `SqlDbOperationProvider` Class. [#251](https://github.com/mikependon/RepoDb/issues/251)
 - [Added] Introduce `DbOperationProviderMapper` Class. [#252](https://github.com/mikependon/RepoDb/issues/252)
 - [Added] Introduce `IDbOperationProvider` Interface. [#250](https://github.com/mikependon/RepoDb/issues/250)
-- [Adhoc] Add `BatchSize` in [BulkInsert](/operation/bulkinsert). [#257](https://github.com/mikependon/RepoDb/issues/257)
+- [Adhoc] Add `BatchSize` in [BulkInsert](/operation/sqlserver/bulkinsert). [#257](https://github.com/mikependon/RepoDb/issues/257)
 - [Adhoc] Remove all `obsolete` methods for v1.9.6. [#246](https://github.com/mikependon/RepoDb/issues/246)
 - [Minor] Hide the exposed extended internal methods. [#244](https://github.com/mikependon/RepoDb/issues/244)
 
@@ -1176,7 +1176,7 @@ Highlights
 ## RepoDb (v1.9.2)
 
 - [Core] Introduce the [InsertAll](/operation/insertall), different from `InsertMultiple`. [#91](https://github.com/mikependon/RepoDb/issues/91)
-- [Core] Return the number of affected rows during [BulkInsert](/operation/bulkinsert) for [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0). [#192](https://github.com/mikependon/RepoDb/issues/192)
+- [Core] Return the number of affected rows during [BulkInsert](/operation/sqlserver/bulkinsert) for [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0). [#192](https://github.com/mikependon/RepoDb/issues/192)
 - [Core] Add a `SetParameters` extended methods for `DbCommand` object. [#196](https://github.com/mikependon/RepoDb/issues/196)
 - [Core, Requested] Re-enable the operation for [Delete](/operation/delete)via `DataEntity` object. [#185](https://github.com/mikependon/RepoDb/issues/185)
 - [Core, Requested] Re-enable the operation for [Update](/operation/update)via `DataEntity` object. [#188](https://github.com/mikependon/RepoDb/issues/188)
@@ -1197,7 +1197,7 @@ Highlights
 ## RepoDb (v1.9.1)
 
 - Stable Release of RepoDb.
-- [Update] Exposed BulkCopyOptions and Transaction to [BulkInsert](/operation/bulkinsert) Operation.
+- [Update] Exposed BulkCopyOptions and Transaction to [BulkInsert](/operation/sqlserver/bulkinsert) Operation.
 
 
 ## RepoDb (v1.9.0)
@@ -1236,7 +1236,7 @@ Highlights
 - [Enhancement] Support passing of [QueryGroup](/class/querygroup), [QueryField](/class/queryfield), IEnumerable<QueryField> in the Execution<Method> Operations [#140](https://github.com/mikependon/RepoDb/issues/140)
 - [Enhancement] Remove the `StatementBuilderMapItem` class if possible. [#139](https://github.com/mikependon/RepoDb/issues/139)
 - [Enhancement] Remove the `Provider` Enumeration. [#138](https://github.com/mikependon/RepoDb/issues/138)
-- [Enhancement] Reorder the parameter of for target table to [BulkInsert](/operation/bulkinsert)(TableName, [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0)). [#145](https://github.com/mikependon/RepoDb/issues/145)
+- [Enhancement] Reorder the parameter of for target table to [BulkInsert](/operation/sqlserver/bulkinsert)(TableName, [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0)). [#145](https://github.com/mikependon/RepoDb/issues/145)
 - [Enhancement] Properly parse the type of the passed parameters when parsing the RawSql Array Parameters. [#147](https://github.com/mikependon/RepoDb/issues/147)
 - [Enhancement] [NTH]: Support InlineInsert(string tableName, object param ...) [#114](https://github.com/mikependon/RepoDb/issues/114) -- Moved to [Insert](/operation/insert)
 - [Enhancement] Implement the `prefix` as a passable argument when during conversion. [#148](https://github.com/mikependon/RepoDb/issues/148)
@@ -1324,7 +1324,7 @@ Highlights
 - Added: A class named `QueryMultipleRequest` to handle the request when calling the [QueryMultiple](/operation/querymultiple) operation.
 - Added: A class named `CommandArrayParameter` to hold the array parameters for Raw SQL statements.
 - Added: A method named `Reset` for both [QueryField](/class/queryfield) and `[QueryGroup](/class/querygroup)` objects  allow the user to reinstate the instance of that object.
-- Added: An operation named [BulkInsert](/operation/bulkinsert) at  [DbRepository](/class/dbrepository) with [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) as the parameter.
+- Added: An operation named [BulkInsert](/operation/sqlserver/bulkinsert) at  [DbRepository](/class/dbrepository) with [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) as the parameter.
 - Added: An argument named `hints` for both the [BatchQuery](/operation/batchquery) and  [Count](/operation/count) operation.
 - Added: An intensive `IntegrationTests` for all the different data types of the database (SQL Server) (Numbers, Spatials, Strings, Dates, Bytes, Others).
 - Added: An intensive `IntegrationTests` for the data types conversions(i.e: String-to-Numbers (vice versa), String-to-Dates (vice versa), etc).
@@ -1349,7 +1349,7 @@ Highlights
 ### Added
 
 - In the `Async` methods, introduced the `AsyncResultExtractor` class to control the extraction of the result in the caller side.
-- Supported [BulkInsert](/operation/bulkinsert) for [DbRepository](/class/dbrepository) with [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) as the parameter.
+- Supported [BulkInsert](/operation/sqlserver/bulkinsert) for [DbRepository](/class/dbrepository) with [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) as the parameter.
 - Added an `IntegrationTests` for all the different data types of the database (SQL Server) (Numbers, Spatials, Strings, Dates, Bytes, Others).
 - Added an `IntegrationTests` for the data types conversions(i.e: String-to-Numbers (vice versa), String-to-Dates (vice versa), etc).
 - Added an `IntegrationTests` for the invalid casings.
@@ -1379,7 +1379,7 @@ Highlights
 - Added a class named `QueryGroupTimeMap` to support the mapping of the [QueryGroup](/class/querygroup) into the Type.
 - Introduced a `hints` argument in the `DbConnection.Query` operation.
 - Added class `SqlTableHints`.
-- Supported [BulkInsert](/operation/bulkinsert) for [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
+- Supported [BulkInsert](/operation/sqlserver/bulkinsert) for [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 
 ### Removed
 
@@ -1417,7 +1417,7 @@ Highlights
 
 ## RepoDb (v1.8.0-beta3)
 
-- Supported [BulkInsert](/operation/bulkinsert) for [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
+- Supported [BulkInsert](/operation/sqlserver/bulkinsert) for [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 - Removed the `Operation.Any`.
 - Removed the `Operation.All`.
 
@@ -1450,7 +1450,7 @@ Highlights
 - Fixed the invalid binaries deployed at v1.7.0-beta4.
 - Modified `async` operations implementation to leverage the awaitable features.
 - Exposed the `IsForProvider` and `GetProvider` `DbConnection` extended methods.
-- Introduced a [BulkInsertMapItem](/class/bulkinsertmapitem) object to provide ability to override the [BulkInsert](/operation/bulkinsert) operation default mappings.
+- Introduced a [BulkInsertMapItem](/class/bulkinsertmapitem) object to provide ability to override the [BulkInsert](/operation/sqlserver/bulkinsert) operation default mappings.
 - Removed the recursive query features (DataEntity, DataEntityChildItemData, DataEntityChildListData, RecursionManager, ForeignAttribute).
 
 
@@ -1458,7 +1458,7 @@ Highlights
 
 - Modified `async` operations implementation to leverage the awaitable features.
 - Exposed the `IsForProvider` and `GetProvider` `DbConnection` extended methods.
-- Introduced a [BulkInsertMapItem](/class/bulkinsertmapitem) object to provide ability to override the [BulkInsert](/operation/bulkinsert) operation default mappings.
+- Introduced a [BulkInsertMapItem](/class/bulkinsertmapitem) object to provide ability to override the [BulkInsert](/operation/sqlserver/bulkinsert) operation default mappings.
 - Removed the recursive query features (DataEntity, DataEntityChildItemData, DataEntityChildListData, RecursionManager, ForeignAttribute).
 
 
@@ -1600,7 +1600,7 @@ Highlights
 
 - Supported identity primary key field identification from the database.
 - Fixed the parallelism issues by removing the unnecessary cache classes from the library.
-- Created a customized DataReader object for the [BulkInsert](/operation/bulkinsert) operation, for future support for the .Net Core.
+- Created a customized DataReader object for the [BulkInsert](/operation/sqlserver/bulkinsert) operation, for future support for the .Net Core.
 - Introduced the repository [Truncate](/operation/truncate) operation.
 - Supported the inline operations for [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update).
 - Added ConnectionPersistency capability for the repositories.
@@ -1612,7 +1612,7 @@ Highlights
 
 - Supported identity primary key field identification from the database.
 - Fixed the parallelism issues by removing the unnecessary cache classes from the library.
-- Created a customized DataReader object for the [BulkInsert](/operation/bulkinsert) operation, for future support for the .Net Core.
+- Created a customized DataReader object for the [BulkInsert](/operation/sqlserver/bulkinsert) operation, for future support for the .Net Core.
 - Introduced the repository [Truncate](/operation/truncate) operation.
 - Supported the inline operations for [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update).
 - Added ConnectionPersistency capability for the repositories.
@@ -1624,7 +1624,7 @@ Highlights
 
 - Supported identity primary key field identification from the database.
 - Fixed the parallelism issues by removing the unnecessary cache objects from the library.
-- Created a customized DataReader object for the [BulkInsert](/operation/bulkinsert) operation to support the .Net Core.
+- Created a customized DataReader object for the [BulkInsert](/operation/sqlserver/bulkinsert) operation to support the .Net Core.
 - Introduced the [Truncate](/operation/truncate) operation.
 - Supported the inline operations for [Insert](/operation/insert), [Merge](/operation/merge) and [Update](/operation/update).
 - Built on a lower target framework 4.0 for earlier compatibility.
@@ -1846,7 +1846,7 @@ Highlights
 
 - Renamed `ICache.Has` to `ICache.Contains`
 - Removed `ICache.GetAll` and implement the `IEnumerable` interface instead
-- Optimized the mapping for SqlBulkCopy for [BulkInsert](/operation/bulkinsert)
+- Optimized the mapping for SqlBulkCopy for [BulkInsert](/operation/sqlserver/bulkinsert)
 
 
 ## RepoDb (v1.0.8)
@@ -1914,8 +1914,8 @@ Highlights
 
 ### Updates
 
-- EntityNotBulkInsertableException supported when calling [BulkInsert](/operation/bulkinsert) with non SqlConnection connection object
-- [BulkInsert](/operation/bulkinsert) optimization - ordering the columns based on the DB Table ordering (not on `DataEntity` properties ordering)
+- EntityNotBulkInsertableException supported when calling [BulkInsert](/operation/sqlserver/bulkinsert) with non SqlConnection connection object
+- [BulkInsert](/operation/sqlserver/bulkinsert) optimization - ordering the columns based on the DB Table ordering (not on `DataEntity` properties ordering)
 - Initial implementation for complex query ([QueryGroup](/class/querygroup))
 - Added [QueryGroup](/class/querygroup) (IQueryGroup)
 - Added Conjuctions for [QueryGroup](/class/querygroup)(s)

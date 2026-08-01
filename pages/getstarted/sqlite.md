@@ -3,7 +3,7 @@ layout: default
 sidebar: getstarted
 title: "SQLite"
 description: "Learn on how to work with SQLite databases using RepoDB library."
-nav_order: 3
+nav_order: 5
 permalink: /tutorial/get-started-sqlite
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, sqlite]
 parent: GET STARTED

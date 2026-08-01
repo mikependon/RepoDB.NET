@@ -3,7 +3,7 @@ layout: default
 sidebar: getstarted
 title: "Oracle"
 description: "Learn on how to work with Oracle databases using RepoDB library."
-nav_order: 5
+nav_order: 2
 permalink: /tutorial/get-started-oracle
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, oracle]
 parent: GET STARTED
@@ -31,7 +31,7 @@ GlobalConfiguration
 	.UseOracle();
 ```
 
-To use bulk operations ([BulkDelete](/operation/bulkdelete), [BulkDeleteByKey](/operation/bulkdeletebykey), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), install the [RepoDb.Oracle.BulkOperations](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations) package.
+To use bulk operations ([BulkDelete](/operation/oracle/bulkdelete), [BulkDeleteByKey](/operation/oracle/bulkdeletebykey), [BulkInsert](/operation/oracle/bulkinsert), [BulkMerge](/operation/oracle/bulkmerge) and [BulkUpdate](/operation/oracle/bulkupdate)), install the [RepoDb.Oracle.BulkOperations](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations) package.
 
 ```csharp
 > Install-Package RepoDb.Oracle.BulkOperations

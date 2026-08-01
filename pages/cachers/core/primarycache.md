@@ -5,7 +5,8 @@ title: "PrimaryCache"
 description: "A class that is being used to retrieve the cached primary field of the class or data entity."
 permalink: /cacher/primarycache
 tags: [repodb, primarycache]
-parent: CACHERS
+parent: "Core"
+grand_parent: CACHERS
 ---
 
 # PrimaryCache

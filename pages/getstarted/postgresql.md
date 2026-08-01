@@ -3,7 +3,7 @@ layout: default
 sidebar: getstarted
 title: "PostgreSQL"
 description: "Learn on how to work with PostgreSQL databases using RepoDB library."
-nav_order: 2
+nav_order: 3
 permalink: /tutorial/get-started-postgresql
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, postgresql]
 parent: GET STARTED
@@ -23,7 +23,7 @@ Install the library via NuGet using the Package Manager Console.
 > Install-Package RepoDb.PostgreSql
 ```
 
-To use bulk operations ([BinaryBulkDelete](/operation/binarybulkdelete), [BinaryBulkInsert](/operation/binarybulkinsert), [BinaryBulkMerge](/operation/binarybulkmerge) and [BinaryBulkUpdate](/operation/binarybulkupdate)), install the [RepoDb.PostgreSql.BulkOperations](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) package.
+To use bulk operations ([BinaryBulkDelete](/operation/postgresql/binarybulkdelete), [BinaryBulkInsert](/operation/postgresql/binarybulkinsert), [BinaryBulkMerge](/operation/postgresql/binarybulkmerge) and [BinaryBulkUpdate](/operation/postgresql/binarybulkupdate)), install the [RepoDb.PostgreSql.BulkOperations](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) package.
 
 ```csharp
 > Install-Package RepoDb.PostgreSql.BulkOperations

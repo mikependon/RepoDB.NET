@@ -5,7 +5,8 @@ title: "TypeMapCache"
 description: "A class that is being used to retrieve the cached mapped database type of the class or data entity property."
 permalink: /cacher/typemapcache
 tags: [repodb, typemapcache]
-parent: CACHERS
+parent: "Core"
+grand_parent: CACHERS
 ---
 
 # TypeMapCache

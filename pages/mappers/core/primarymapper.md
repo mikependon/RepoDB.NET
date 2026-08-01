@@ -5,7 +5,8 @@ title: "PrimaryMapper"
 description: "A mapper class that is being used to map a class property to be primary property. This class is used as an alternative to Primary attribute."
 permalink: /mapper/primarymapper
 tags: [repodb, primarymapper]
-parent: MAPPERS
+parent: "Core"
+grand_parent: MAPPERS
 ---
 
 # PrimaryMapper

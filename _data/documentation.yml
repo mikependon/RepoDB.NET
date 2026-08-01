@@ -27,14 +27,17 @@ docs:
   - title: "SQL Server"
     url: "/tutorial/get-started-sqlserver"
 
-  - title: "SQLite"
-    url: "/tutorial/get-started-sqlite"
+  - title: "Oracle"
+    url: "/tutorial/get-started-oracle"
+
+  - title: "PostgreSQL"
+    url: "/tutorial/get-started-postgresql"
 
   - title: "MySQL"
     url: "/tutorial/get-started-mysql"
 
-  - title: "PostgreSQL"
-    url: "/tutorial/get-started-postgresql"
+  - title: "SQLite"
+    url: "/tutorial/get-started-sqlite"
 
   - title: "Telemetry"
     url: "/tutorial/get-started-telemetry"
@@ -52,11 +55,8 @@ docs:
   - title: "Batch Operations"
     url: "/feature/batchoperations"
   
-  - title: "Bulk Operations (SQL Server)"
-    url: "/feature/bulkoperations/sqlserver"
-
-  - title: "Bulk Operations (PostgreSQL)"
-    url: "/feature/bulkoperations/postgresql"
+  - title: "Bulk Operations"
+    url: "/feature/bulkoperations"
 
   - title: "Caching"
     url: "/feature/caching"
@@ -129,34 +129,34 @@ docs:
     url: "/operation/batchquery"
   
   - title: "BinaryBulkDelete"
-    url: "/operation/binarybulkdelete"
+    url: "/operation/postgresql/binarybulkdelete"
   
   - title: "BinaryBulkDeleteByKey"
-    url: "/operation/binarybulkdeletebykey"
+    url: "/operation/postgresql/binarybulkdeletebykey"
   
   - title: "BinaryBulkInsert"
-    url: "/operation/binarybulkinsert"
+    url: "/operation/postgresql/binarybulkinsert"
   
   - title: "BinaryBulkMerge"
-    url: "/operation/binarybulkmerge"
+    url: "/operation/postgresql/binarybulkmerge"
   
   - title: "BinaryBulkUpdate"
-    url: "/operation/binarybulkupdate"
+    url: "/operation/postgresql/binarybulkupdate"
   
   - title: "BinaryImport"
-    url: "/operation/binaryimport"
+    url: "/operation/postgresql/binaryimport"
   
   - title: "BulkDelete"
-    url: "/operation/bulkdelete"
+    url: "/operation/sqlserver/bulkdelete"
   
   - title: "BulkInsert"
-    url: "/operation/bulkinsert"
+    url: "/operation/sqlserver/bulkinsert"
     
   - title: "BulkMerge"
-    url: "/operation/bulkmerge"
+    url: "/operation/sqlserver/bulkmerge"
     
   - title: "BulkUpdate"
-    url: "/operation/bulkupdate"
+    url: "/operation/sqlserver/bulkupdate"
     
   - title: "Count"
     url: "/operation/count"
@@ -349,7 +349,7 @@ docs:
     url: "/class/righttrimqueryfield"
 
   - title: "SqlServerTableHints"
-    url: "/class/sqlservertablehints"
+    url: "/class/sqlserver/sqlservertablehints"
 
   - title: "TraceLog"
     url: "/class/tracelog"
@@ -374,10 +374,10 @@ docs:
     url: "/attribute/sqlserver/compareinfo"
 
   - title: "ConvertedValue (PostgreSQL)"
-    url: "/attribute/npgsql/convertedvalue"
+    url: "/attribute/postgresql/convertedvalue"
 
   - title: "DataTypeName (PostgreSQL)"
-    url: "/attribute/npgsql/datatypename"
+    url: "/attribute/postgresql/datatypename"
 
   - title: "DbType"
     url: "/attribute/parameter/dbtype"
@@ -400,14 +400,17 @@ docs:
   - title: "Map"
     url: "/attribute/map"
 
-  - title: "MySqlDbType"
-    url: "/attribute/mysql/mysqldbtype"
+  - title: "MySqlDbType (MySql.Data)"
+    url: "/attribute/mysql/mysql/mysqldbtype"
+
+  - title: "MySqlDbType (MySqlConnector)"
+    url: "/attribute/mysql/mysqlconnector/mysqldbtype"
 
   - title: "Name"
     url: "/attribute/parameter/name"
 
   - title: "NpgsqlDbType (PostgreSQL)"
-    url: "/attribute/npgsql/npgsqldbtype"
+    url: "/attribute/postgresql/npgsqldbtype"
 
   - title: "Offset (SQL Server)"
     url: "/attribute/sqlserver/offset"
@@ -432,6 +435,9 @@ docs:
 
   - title: "SqlDbType (SQL Server)"
     url: "/attribute/sqlserver/sqldbtype"
+
+  - title: "SqliteType (SQLite)"
+    url: "/attribute/sqlite/sqlitetype"
 
   - title: "TypeMap"
     url: "/attribute/typemap"

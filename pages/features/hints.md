@@ -70,7 +70,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-The [SqlServerTableHints](/class/sqlservertablehints) class can also be used to pass hints:
+The [SqlServerTableHints](/class/sqlserver/sqlservertablehints) class can also be used to pass hints:
 
 ```csharp
 var person = new

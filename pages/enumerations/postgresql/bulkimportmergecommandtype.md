@@ -13,7 +13,7 @@ grand_parent: ENUMERATIONS
 
 ---
 
-This enum defines the command used when executing the [BinaryBulkMerge](/operation/binarybulkmerge) operation. It applies only to the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+This enum defines the command used when executing the [BinaryBulkMerge](/operation/postgresql/binarybulkmerge) operation. It applies only to the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
 ## Enum Values
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Oracle"
-nav_order: 12
+nav_order: 3
 has_children: true
 permalink: /attribute/oracle
 parent: ATTRIBUTES

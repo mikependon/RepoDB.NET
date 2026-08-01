@@ -5,7 +5,8 @@ title: "FluentMapper"
 description: "A class that is being used to define a mapping for the target data entity in a fluent way."
 permalink: /mapper/fluentmapper
 tags: [repodb, fluentmapper]
-parent: MAPPERS
+parent: "Core"
+grand_parent: MAPPERS
 ---
 
 # FluentMapper

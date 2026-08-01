@@ -5,7 +5,8 @@ title: "CommandTextCache"
 description: "A class that is being used to retrieve the cached command texts within RepoDB library."
 permalink: /cacher/commandtextcache
 tags: [repodb, commandtextcache]
-parent: CACHERS
+parent: "Core"
+grand_parent: CACHERS
 ---
 
 # CommandTextCache

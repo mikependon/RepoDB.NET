@@ -1,7 +1,7 @@
 ---
 layout: default
 title: NpgsqlDbType
-permalink: /attribute/npgsql/npgsqldbtype
+permalink: /attribute/postgresql/npgsqldbtype
 tags: [repodb, attribute, npgsqldbtype]
 parent: PostgreSQL
 grand_parent: ATTRIBUTES

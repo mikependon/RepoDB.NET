@@ -5,7 +5,8 @@ title: "IdentityCache"
 description: "A class that is being used to retrieve the cached identity field of the class or data entity."
 permalink: /cacher/identitycache
 tags: [repodb, identitycache]
-parent: CACHERS
+parent: "Core"
+grand_parent: CACHERS
 ---
 
 # IdentityCache

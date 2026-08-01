@@ -1,7 +1,7 @@
 ---
 layout: default
 title: ConvertedValue
-permalink: /attribute/npgsql/convertedvalue
+permalink: /attribute/postgresql/convertedvalue
 tags: [repodb, attribute, convertedvalue]
 parent: PostgreSQL
 grand_parent: ATTRIBUTES

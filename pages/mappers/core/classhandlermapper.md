@@ -5,7 +5,8 @@ title: "ClassHandlerMapper"
 description: "A class that is being used to map a class handler into a class. This class is used as an alternative to ClassHandler attribute."
 permalink: /mapper/classhandlermapper
 tags: [repodb, classhandlermapper]
-parent: MAPPERS
+parent: "Core"
+grand_parent: MAPPERS
 ---
 
 # ClassHandlerMapper

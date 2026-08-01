@@ -104,9 +104,9 @@ Breaking
 - Bug: RepoDb.Exceptions.PrimaryFieldNotFoundException: The non-identity primary field must be present during insert operation. [#786](https://github.com/mikependon/RepoDb/issues/786).
 - Bug: The ENUM type of Postgre (DB) is not being handled properly in RepoDb.PostgreSql. [#395](https://github.com/mikependon/RepoDb/issues/395) [#854](https://github.com/mikependon/RepoDb/issues/854).
 - Bug: Exception on [Merge](/operation/merge) (PostgreSQL) [#776](https://github.com/mikependon/RepoDb/issues/776).
-- Enhancement: Added the [ConvertedValueAttribute](/attribute/npgsql/convertedvalue) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Added the [DataTypeNameAttribute](/attribute/npgsql/datatypename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Added the [NpgsqlDbTypeAttribute](/attribute/npgsql/npgsqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [ConvertedValueAttribute](/attribute/postgresql/convertedvalue) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [DataTypeNameAttribute](/attribute/postgresql/datatypename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [NpgsqlDbTypeAttribute](/attribute/postgresql/npgsqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Deprecated the NpgsqlTypeMapAttribute attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Moved the `PostgreSqlDbSetting` to `RepoDb.DbSettings` namespace.
 - Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
@@ -123,9 +123,9 @@ Breaking
 - Bug: Anonymous record Insert fails if no id is provided [#796](https://github.com/mikependon/RepoDb/issues/796).
 - Bug: RepoDb.Exceptions.PrimaryFieldNotFoundException: The non-identity primary field must be present during insert operation. [#786](https://github.com/mikependon/RepoDb/issues/786).
 - Bug: The ENUM type of Postgre (DB) is not being handled properly in RepoDb.PostgreSql. [#395](https://github.com/mikependon/RepoDb/issues/395) [#854](https://github.com/mikependon/RepoDb/issues/854).
-- Enhancement: Added the [ConvertedValueAttribute](/attribute/npgsql/convertedvalue) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Added the [DataTypeNameAttribute](/attribute/npgsql/datatypename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
-- Enhancement: Added the [DbTypeAttribute](/attribute/npgsql/npgsqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [ConvertedValueAttribute](/attribute/postgresql/convertedvalue) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [DataTypeNameAttribute](/attribute/postgresql/datatypename) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
+- Enhancement: Added the [DbTypeAttribute](/attribute/postgresql/npgsqldbtype) attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Deprecated the NpgsqlTypeMapAttribute attribute. [#884](https://github.com/mikependon/RepoDb/issues/884)
 - Enhancement: Moved the `PostgreSqlDbSetting` to `RepoDb.DbSettings` namespace.
 - Enhancement: Add the attribute-based parameter setters for the [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object. [#886](https://github.com/mikependon/RepoDB/issues/886)
@@ -244,7 +244,7 @@ Breaking
 
 ## RepoDb.PostgreSql (v1.0.3)
 
-- Feature: Introduce PostgreSql support to [NpgsqlDbType](/attribute/npgsql/npgsqldbtype) via PostgreSqlTypeMapAttribute attribute. [#390](https://github.com/mikependon/RepoDb/issues/390)
+- Feature: Introduce PostgreSql support to [NpgsqlDbType](/attribute/postgresql/npgsqldbtype) via PostgreSqlTypeMapAttribute attribute. [#390](https://github.com/mikependon/RepoDb/issues/390)
 
 
 ## RepoDB (v1.10.3-beta1)

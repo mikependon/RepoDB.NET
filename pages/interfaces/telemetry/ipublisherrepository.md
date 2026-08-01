@@ -4,7 +4,8 @@ sidebar: interfaces
 title: "IPublisherRepository (Telemetry)"
 permalink: /interface/telemetry/ipublisherrepository
 tags: [repodb, ipublisherrepository]
-parent: INTERFACES
+parent: "Telemetry"
+grand_parent: INTERFACES
 ---
 
 # IPublisherRepository

@@ -16,13 +16,18 @@ Know more about us and the library!
 
 ### Packages
 
-- [RepoDB (Core)](https://www.nuget.org/packages/RepoDb)
+- [RepoDb.Core](https://www.nuget.org/packages/RepoDb)
 - [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer)
 - [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations)
-- [RepoDb.SqLite](https://www.nuget.org/packages/RepoDb.SqLite)
+- [RepoDb.Oracle](https://www.nuget.org/packages/RepoDb.Oracle)
+- [RepoDb.Oracle.BulkOperations](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations)
+- [RepoDb.PostgreSql](https://www.nuget.org/packages/RepoDb.PostgreSql)
+- [RepoDb.PostgreSql.BulkOperations](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations)
 - [RepoDb.MySql](https://www.nuget.org/packages/RepoDb.MySql)
 - [RepoDb.MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector)
-- [RepoDb.PostgreSql](https://www.nuget.org/packages/RepoDb.PostgreSql)
+- [RepoDb.Sqlite.Microsoft](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft)
+- [RepoDb.Telemetry.Core](https://www.nuget.org/packages/RepoDb.Telemetry.Core)
+- [RepoDb.Telemetry.Default](https://www.nuget.org/packages/RepoDb.Telemetry.Default)
 
 ### Repositories
 
@@ -33,13 +38,15 @@ Know more about us and the library!
 - [MySQL](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySql)
 - [MySQL (MySqlConnector)](https://github.com/mikependon/RepoDb/tree/master/RepoDb.MySqlConnector)
 - [PostgreSQL](https://github.com/mikependon/RepoDb/tree/master/RepoDb.PostgreSql)
+- [Oracle](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Oracle)
+- [Oracle (Bulk)](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Extensions/RepoDb.Oracle.BulkOperations)
 
 ### Official Channels
 
-- [GitHub](https://github.com/mikependon/RepoDb/issues) - for issues, requests, and bug reports.
-- [StackOverflow](https://stackoverflow.com/search?tab=newest&q=RepoDB) - for technical questions.
+- [GitHub](https://github.com/mikependon/RepoDb/issues) - for any issues, requests and problems.
+- [StackOverflow](https://stackoverflow.com/search?tab=newest&q=RepoDB) - for any technical questions.
 - [Twitter](https://twitter.com/search?q=%23repodb) - for the latest news.
-- [Gitter Chat](https://gitter.im/RepoDb/community) - for direct, live Q&A.
+- [Microsoft Teams](https://teams.live.com/l/community/FEAIJp5q65nfiiWsQ) - for direct and live Q&A.
 
 ### License
 
@@ -47,4 +54,4 @@ Know more about us and the library!
 
 ### Author
 
-[Michael Camara Pendon](https://twitter.com/mike_pendon) ([Email](mailto::michael.c.pendon@outlook.com))
+[Michael Camara Pendon](https://twitter.com/mike_pendon) - connect or send me an [email](mailto::michael.c.pendon@outlook.com) anytime, anywhere.

@@ -5,7 +5,8 @@ title: "PropertyHandlerCache"
 description: "A class that is being used to retrieve the cached property handler of the class or data entity property."
 permalink: /cacher/propertyhandlercache
 tags: [repodb, propertyhandlercache]
-parent: CACHERS
+parent: "Core"
+grand_parent: CACHERS
 ---
 
 # PropertyHandlerCache

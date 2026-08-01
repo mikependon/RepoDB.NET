@@ -95,7 +95,7 @@ Breaking
 
 ## RepoDb.SqlServer.BulkOperations (v1.1.5)
 
-- Bug: [BulkMergeAsync](/operation/bulkmerge) with multiple qualifiers [#864](https://github.com/mikependon/RepoDB/issues/864)
+- Bug: [BulkMergeAsync](/operation/sqlserver/bulkmerge) with multiple qualifiers [#864](https://github.com/mikependon/RepoDB/issues/864)
 - Added the `net5.0` as part of the target frameworks.
 - Upgraded the `RepoDb` package to `v1.12.8-beta5`.
 - Upgraded the `RepoDb.SqlServer` package to `v1.1.4-beta4`.
@@ -111,7 +111,7 @@ Breaking
 
 ## RepoDb.SqlServer.BulkOperations (v1.1.5-beta1)
 
-- Bug: [BulkMergeAsync](/operation/bulkmerge) with multiple qualifiers [#864](https://github.com/mikependon/RepoDB/issues/864)
+- Bug: [BulkMergeAsync](/operation/sqlserver/bulkmerge) with multiple qualifiers [#864](https://github.com/mikependon/RepoDB/issues/864)
 
 
 ## RepoDb.SqlServer.BulkOperations (v1.1.4)
@@ -123,12 +123,12 @@ Breaking
 ## RepoDb.SqlServer.BulkOperations (v1.1.3)
 
 - Bug: Identity Values not set correctly with Bulk Insert from Sql Server due to Incorrect Sorting of data. [#691](https://github.com/mikependon/RepoDB/issues/691)
-- The `hints` argument is removed from the [BulkInsert](/operation/bulkinsert) via [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
+- The `hints` argument is removed from the [BulkInsert](/operation/sqlserver/bulkinsert) via [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0).
 - Added the `WriteToServer` method to cater the ordered resultset of the `__RepoDb_OrderColumn` custom column.
 
 ## RepoDb.SqlServer.BulkOperations (v1.1.2)
 
-- Bug: Incorrect syntax near the keyword `WITH` [BulkMergeAsync](/operation/bulkinsert) [#640](https://github.com/mikependon/RepoDB/issues/640)
+- Bug: Incorrect syntax near the keyword `WITH` [BulkMergeAsync](/operation/sqlserver/bulkinsert) [#640](https://github.com/mikependon/RepoDB/issues/640)
 - Request: Do not crash if on empty enumerable on bulk operation [#635]((https://github.com/mikependon/RepoDB/issues/635)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5-beta2](/release/core#repodb-v1125-beta2)).
 - Reverted the changes to the [#635](https://github.com/mikependon/RepoDB/issues/635).
@@ -139,7 +139,7 @@ Breaking
 
 ## RepoDb.SqlServer.BulkOperations (v1.1.2-beta4)
 
-- Bug: [BulkInsert](/operation/bulkinsert) with mappings [#668](https://github.com/mikependon/RepoDB/issues/668)
+- Bug: [BulkInsert](/operation/sqlserver/bulkinsert) with mappings [#668](https://github.com/mikependon/RepoDB/issues/668)
 
 
 ## RepoDb.SqlServer.BulkOperations (v1.1.2-beta3)
@@ -155,7 +155,7 @@ Breaking
 
 ## RepoDb.SqlServer.BulkOperations (v1.1.2-beta1)
 
-- Bug: Incorrect syntax near the keyword `WITH` [BulkMergeAsync](/operation/bulkinsert) [#640](https://github.com/mikependon/RepoDB/issues/640)
+- Bug: Incorrect syntax near the keyword `WITH` [BulkMergeAsync](/operation/sqlserver/bulkinsert) [#640](https://github.com/mikependon/RepoDB/issues/640)
 - Request: Do not crash if on empty enumerable on bulk operation [#635]((https://github.com/mikependon/RepoDB/issues/635)
 - Referenced the version [RepoDb.Core](https://www.nuget.org/packages/RepoDb) ([v1.12.5-beta2](/release/core#repodb-v1125-beta2)).
 
@@ -227,7 +227,7 @@ Breaking
 
 ## RepoDb.SqlServer.BulkOperations (v1.0.11)
 
-- Enhancement: Enable Field class to Parse the Expression for Multiple Properties at BulkOperations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)). [#453](https://github.com/mikependon/RepoDb/issues/453)
+- Enhancement: Enable Field class to Parse the Expression for Multiple Properties at BulkOperations ([BulkDelete](/operation/sqlserver/bulkdelete), [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate)). [#453](https://github.com/mikependon/RepoDb/issues/453)
 
 
 ## RepoDb.SqlServer.BulkOperations (v1.0.10)
@@ -241,9 +241,9 @@ Breaking
 ## RepoDb.SqlServer.BulkOperations (v1.0.9)
 
 - Enhacement: Return the identity values during the BulkInsert and BulkMerge. [#396](https://github.com/mikependon/RepoDb/issues/396)
-- Added the `BulkOperationIdentitiesResult` class to cater the bulk operation results for [BulkInsert](/operation/bulkinsert) and [BulkMerge](/operation/bulkmerge).
-- Added the `isReturnIdentity` and `usePhysicalPseudoTempTable` arguments in the [BulkInsert](/operation/bulkinsert) and [BulkMerge](/operation/bulkmerge) operations.
-- Added the `hints` argument in the [BulkInsert](/operation/bulkinsert) operations.
+- Added the `BulkOperationIdentitiesResult` class to cater the bulk operation results for [BulkInsert](/operation/sqlserver/bulkinsert) and [BulkMerge](/operation/sqlserver/bulkmerge).
+- Added the `isReturnIdentity` and `usePhysicalPseudoTempTable` arguments in the [BulkInsert](/operation/sqlserver/bulkinsert) and [BulkMerge](/operation/sqlserver/bulkmerge) operations.
+- Added the `hints` argument in the [BulkInsert](/operation/sqlserver/bulkinsert) operations.
 - Added more Integration Tests to cater the changes made for `isReturnIdentity` and `hints` arguments.
 
 
@@ -270,26 +270,26 @@ Breaking
 ## RepoDb.SqlServer.BulkOperations (v1.0.4)
 
 - Referenced the version RepoDb.Core (v1.10.10).
-- Fully supported the Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)) for both System.Data.SqlClient and Microsoft.Data.SqlClient namespace.
-- Auto set the options to `SqlBulkCopyOptions.KeepIdentity` for [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) (if there an identity primary/column from the DB).
+- Fully supported the Bulk Operations ([BulkDelete](/operation/sqlserver/bulkdelete), [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate)) for both System.Data.SqlClient and Microsoft.Data.SqlClient namespace.
+- Auto set the options to `SqlBulkCopyOptions.KeepIdentity` for [BulkDelete](/operation/sqlserver/bulkdelete), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate) (if there an identity primary/column from the DB).
 - Used an underscore over dashes when composing the temporary/pseudo tables.
 - Added an extensive Integration Tests for all Bulk methods (both SDS and MDS namespaces).
 
 
 ## RepoDb.SqlServer.BulkOperations (v1.0.4-beta3)
 
-- Minor updates for [BulkUpdate](/operation/bulkupdate). Used an underscore over dashes when composing the temporary/pseudo tables.
+- Minor updates for [BulkUpdate](/operation/sqlserver/bulkupdate). Used an underscore over dashes when composing the temporary/pseudo tables.
 
 
 ## RepoDb.SqlServer.BulkOperations (v1.0.4-beta2)
 
-- Auto set the options to `SqlBulkCopyOptions.KeepIdentity` for [BulkDelete](/operation/bulkdelete), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate) (if there an identity primary/column from the DB).
+- Auto set the options to `SqlBulkCopyOptions.KeepIdentity` for [BulkDelete](/operation/sqlserver/bulkdelete), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate) (if there an identity primary/column from the DB).
 - Used an underscore over dashes when composing the temporary/pseudo tables.
 
 
 ## RepoDb.SqlServer.BulkOperations (v1.0.4-beta1)
 
-- Initial full support to the Bulk Operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)).
+- Initial full support to the Bulk Operations ([BulkDelete](/operation/sqlserver/bulkdelete), [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate)).
 
 
 ## RepoDb.SqlServer.BulkOperations (v1.0.3)

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: DataTypeName
-permalink: /attribute/npgsql/datatypename
+permalink: /attribute/postgresql/datatypename
 tags: [repodb, attribute, datatypename]
 parent: PostgreSQL
 grand_parent: ATTRIBUTES

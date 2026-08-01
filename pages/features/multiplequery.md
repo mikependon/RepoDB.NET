@@ -26,7 +26,7 @@ Both operations abstract the [Read()](https://learn.microsoft.com/en-us/dotnet/a
 
 ## Hints
 
-For [ExecuteQueryMultiple](/operation/executequerymultiple), hints are written directly in the SQL statement. For [QueryMultiple](/class/sqlservertablehints), each query in the execution has a corresponding `hints` argument.
+For [ExecuteQueryMultiple](/operation/executequerymultiple), hints are written directly in the SQL statement. For [QueryMultiple](/class/sqlserver/sqlservertablehints), each query in the execution has a corresponding `hints` argument.
 
 ```csharp
 var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
@@ -35,7 +35,7 @@ var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id ==
     hints2: "WITH (NOLOCK)"); // Hints for Order
 ```
 
-Use the [SqlServerTableHints](/class/sqlservertablehints) class to simplify hint values:
+Use the [SqlServerTableHints](/class/sqlserver/sqlservertablehints) class to simplify hint values:
 
 ```csharp
 var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
@@ -46,7 +46,7 @@ var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id ==
 
 ## Ordering
 
-For [ExecuteQueryMultiple](/operation/executequerymultiple), ordering is written directly into the SQL statement. For [QueryMultiple](/class/sqlservertablehints), each query has a corresponding `orderBy` argument via the [OrderField](/class/orderfield) class.
+For [ExecuteQueryMultiple](/operation/executequerymultiple), ordering is written directly into the SQL statement. For [QueryMultiple](/class/sqlserver/sqlservertablehints), each query has a corresponding `orderBy` argument via the [OrderField](/class/orderfield) class.
 
 ```csharp
 var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer
@@ -57,7 +57,7 @@ var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id ==
 
 ## Filtering
 
-For [ExecuteQueryMultiple](/operation/executequerymultiple), filtering is written using `TOP` or `LIMIT` in the SQL statement. For [QueryMultiple](/class/sqlservertablehints), each query has a corresponding `top` argument.
+For [ExecuteQueryMultiple](/operation/executequerymultiple), filtering is written using `TOP` or `LIMIT` in the SQL statement. For [QueryMultiple](/class/sqlserver/sqlservertablehints), each query has a corresponding `top` argument.
 
 ```csharp
 var (customers, orders) = connection.QueryMultiple<Customer, Order>(c => c.Id == customerId, // Customer

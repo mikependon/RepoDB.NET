@@ -5,7 +5,8 @@ title: "DbFieldCache"
 description: "A class that is being used to retrieve the cached database fields of the class or data entity."
 permalink: /cacher/dbfieldcache
 tags: [repodb, dbfieldcache]
-parent: CACHERS
+parent: "Core"
+grand_parent: CACHERS
 ---
 
 # DbFieldCache

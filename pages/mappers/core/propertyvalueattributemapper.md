@@ -5,7 +5,8 @@ title: "PropertyValueAttributeMapper"
 description: "A mapper class that is being used to map the list PropertyValueAttribute objects into a class property. This class is used as an alternative to the PropertyValueAttribute attributes."
 permalink: /mapper/propertyvalueattributemapper
 tags: [repodb, propertyvalueattributemapper]
-parent: MAPPERS
+parent: "Core"
+grand_parent: MAPPERS
 ---
 
 # PropertyValueAttributeMapper

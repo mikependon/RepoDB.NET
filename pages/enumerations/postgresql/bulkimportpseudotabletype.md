@@ -17,11 +17,11 @@ This enum defines the type of pseudo-temporary table created during bulk-import 
 
 It is used by the following bulk import operations.
 
-- [BinaryBulkDelete](/operation/binarybulkdelete)
-- [BinaryBulkDeleteByKey](/operation/binarybulkdeletebykey)
-- [BinaryBulkInsert](/operation/binarybulkinsert)
-- [BinaryBulkMerge](/operation/binarybulkmerge)
-- [BinaryBulkUpdate](/operation/binarybulkupdate)
+- [BinaryBulkDelete](/operation/postgresql/binarybulkdelete)
+- [BinaryBulkDeleteByKey](/operation/postgresql/binarybulkdeletebykey)
+- [BinaryBulkInsert](/operation/postgresql/binarybulkinsert)
+- [BinaryBulkMerge](/operation/postgresql/binarybulkmerge)
+- [BinaryBulkUpdate](/operation/postgresql/binarybulkupdate)
 
 ## Enum Values
 
@@ -34,7 +34,7 @@ It is used by the following bulk import operations.
 
 Pass the value to the `pseudoTableType` argument of the target operation.
 
-For [BinaryBulkDelete](/operation/binarybulkdelete):
+For [BinaryBulkDelete](/operation/postgresql/binarybulkdelete):
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -45,7 +45,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
-For [BinaryBulkDeleteByKey](/operation/binarybulkdeletebykey):
+For [BinaryBulkDeleteByKey](/operation/postgresql/binarybulkdeletebykey):
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -56,7 +56,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
-For [BinaryBulkInsert](/operation/binarybulkinsert):
+For [BinaryBulkInsert](/operation/postgresql/binarybulkinsert):
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -67,7 +67,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
-For [BinaryBulkMerge](/operation/binarybulkmerge):
+For [BinaryBulkMerge](/operation/postgresql/binarybulkmerge):
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
@@ -78,7 +78,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 }
 ```
 
-For [BinaryBulkUpdate](/operation/binarybulkupdate):
+For [BinaryBulkUpdate](/operation/postgresql/binarybulkupdate):
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))

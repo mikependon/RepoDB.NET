@@ -27,7 +27,7 @@ First release of the bulk operations extension for [RepoDb.Oracle](/release/orac
 
 ### What's included
 
-- [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge), [BulkUpdate](/operation/bulkupdate), and [BulkDelete](/operation/bulkdelete), each with an `Async` overload, callable against an `OracleConnection`, a table name, or a `DataTable`.
+- [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge), [BulkUpdate](/operation/sqlserver/bulkupdate), and [BulkDelete](/operation/sqlserver/bulkdelete), each with an `Async` overload, callable against an `OracleConnection`, a table name, or a `DataTable`.
 - `OracleBulkImportIdentityBehavior` (`Unspecified`, `KeepIdentity`, `ReturnIdentity`) — controls whether identity values are sent, ignored, or read back. `ReturnIdentity` switches `BulkInsert`'s row-load from `OracleBulkCopy` to array binding with `RETURNING ... INTO`, since `OracleBulkCopy` cannot report back generated values.
 - `OracleBulkImportPseudoTableType` (`Auto`, `Memory`, `Physical`) — picks the staging-table strategy used by `BulkMerge`/`BulkUpdate`/`BulkDelete`: a Global Temporary Table, a shared heap table, or automatic selection by row count.
 - `OracleBulkInsertMapItem` — explicit source-to-destination column mapping for `BulkInsert`, with an optional `OracleDbType` override.

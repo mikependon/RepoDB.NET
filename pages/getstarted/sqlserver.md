@@ -37,7 +37,7 @@ For versions prior to 1.13.0, use the bootstrapper below.
 RepoDb.SqlServerBootstrap.Initialize();
 ```
 
-To use bulk operations ([BulkDelete](/operation/bulkdelete), [BulkInsert](/operation/bulkinsert), [BulkMerge](/operation/bulkmerge) and [BulkUpdate](/operation/bulkupdate)), install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
+To use bulk operations ([BulkDelete](/operation/sqlserver/bulkdelete), [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate)), install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
 
 ```csharp
 > Install-Package RepoDb.SqlServer.BulkOperations

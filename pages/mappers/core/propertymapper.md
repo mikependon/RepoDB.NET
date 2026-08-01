@@ -5,7 +5,8 @@ title: "PropertyMapper"
 description: "A mapper class that is being used to map the class property into its equivalent column in the database. This class is used as an alternative to Map attribute."
 permalink: /mapper/propertymapper
 tags: [repodb, propertymapper]
-parent: MAPPERS
+parent: "Core"
+grand_parent: MAPPERS
 ---
 
 # PropertyMapper

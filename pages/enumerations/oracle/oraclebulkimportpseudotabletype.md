@@ -17,11 +17,11 @@ This enum defines the type of staging (pseudo) table created during bulk-import 
 
 It is used by the following bulk operations.
 
-- [BulkDelete](/operation/bulkdelete)
-- [BulkDeleteByKey](/operation/bulkdeletebykey)
-- [BulkInsert](/operation/bulkinsert)
-- [BulkMerge](/operation/bulkmerge)
-- [BulkUpdate](/operation/bulkupdate)
+- [BulkDelete](/operation/sqlserver/bulkdelete)
+- [BulkDeleteByKey](/operation/oracle/bulkdeletebykey)
+- [BulkInsert](/operation/sqlserver/bulkinsert)
+- [BulkMerge](/operation/sqlserver/bulkmerge)
+- [BulkUpdate](/operation/sqlserver/bulkupdate)
 
 ## Enum Values
 
@@ -32,7 +32,7 @@ It is used by the following bulk operations.
 | Physical | An ordinary heap table, shared by every session. Only safe for sequential (non-concurrent) workloads against the same target table. |
 
 {: .important }
-> Every value currently resolves to `Physical` at runtime. ODP.NET's direct-path load — used internally by every bulk operation — cannot write into a Global Temporary Table, failing with `ORA-39826`. This is a temporary driver-level limitation; `Auto` and `Memory` are kept in the enum so existing code doesn't need to change once a working strategy is implemented. See [Bulk Operations (Oracle)](/feature/bulkoperations/oracle#pseudo-table-type) for details.
+> Every value currently resolves to `Physical` at runtime. ODP.NET's direct-path load — used internally by every bulk operation — cannot write into a Global Temporary Table, failing with `ORA-39826`. This is a temporary driver-level limitation; `Auto` and `Memory` are kept in the enum so existing code doesn't need to change once a working strategy is implemented. See [Operations (Oracle)](/operation/oracle#pseudo-table-type) for details.
 
 ## Usability
 
