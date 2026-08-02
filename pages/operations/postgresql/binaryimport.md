@@ -6,7 +6,6 @@ permalink: /operation/postgresql/binaryimport
 tags: [repodb, tutorial, binaryimport, orm, hybrid-orm, sqlserver]
 parent: "PostgreSQL"
 grand_parent: OPERATIONS
-nav_exclude: true
 ---
 
 # BinaryImport
