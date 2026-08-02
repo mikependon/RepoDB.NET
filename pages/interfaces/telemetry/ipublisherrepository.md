@@ -1,7 +1,7 @@
 ---
 layout: default
 sidebar: interfaces
-title: "IPublisherRepository (Telemetry)"
+title: "IPublisherRepository"
 permalink: /interface/telemetry/ipublisherrepository
 tags: [repodb, ipublisherrepository]
 parent: "Telemetry"
