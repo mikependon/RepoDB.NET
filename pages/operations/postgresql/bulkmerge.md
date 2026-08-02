@@ -13,7 +13,7 @@ grand_parent: OPERATIONS
 ---
 
 {: .warning }
-> This method was previously named `BinaryBulkMerge`. That name is now deprecated in favor of `BulkMerge` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
+> This method was previously named `BinaryBulkMerge`. That name is now deprecated in favor of `BulkMerge` and will be tagged starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This method merges multiple rows into the database in bulk. It does not delete rows â€” it updates existing rows (if present) and inserts new rows (if absent) based on the given qualifiers. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 
@@ -44,11 +44,13 @@ For merging 1,000 or more rows, prefer this method over [MergeAll](/operation/me
 
 ## Special Arguments
 
-The `mergedCommandType`, `identityBehavior`, and `pseudoTableType` arguments are available for this operation.
+The `qualifiers`, `identityBehavior`, `mergeCommandType`, and `pseudoTableType` arguments are available for this operation.
 
-`mergedCommandType` controls whether `ON CONFLICT DO UPDATE` is used instead of separate `UPDATE/INSERT` SQL commands.
+`qualifiers` defines the qualifier fields used in the operation, corresponding to the `ON CONFLICT` / `WHERE` matching columns. Defaults to the primary column if not specified.
 
 `identityBehavior` controls whether the identity property of the entity/model is preserved, or whether newly generated identity values from the database are returned after the operation.
+
+`mergeCommandType` controls whether `ON CONFLICT DO UPDATE` is used instead of separate `UPDATE`/`INSERT` SQL commands.
 
 `pseudoTableType` controls whether a physical pseudo-table is created during the operation. Defaults to a temporary table.
 

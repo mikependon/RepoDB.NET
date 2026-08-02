@@ -14,7 +14,7 @@ grand_parent: ENUMERATIONS
 ---
 
 {: .warning }
-> This enum was previously named `BulkImportPseudoTableType`. That name is now deprecated in favor of `PostgreSqlBulkImportPseudoTableType` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
+> This enum was previously named `BulkImportPseudoTableType`. That name is now deprecated in favor of `PostgreSqlBulkImportPseudoTableType` and will be tagged starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This enum defines the type of pseudo-temporary table created during bulk-import operations. It applies only to the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 

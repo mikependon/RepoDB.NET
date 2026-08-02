@@ -13,7 +13,7 @@ grand_parent: OPERATIONS
 ---
 
 {: .warning }
-> This method was previously named `BinaryBulkDeleteByKey`. That name is now deprecated in favor of `BulkDeleteByKey` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
+> This method was previously named `BinaryBulkDeleteByKey`. That name is now deprecated in favor of `BulkDeleteByKey` and will be tagged starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This method deletes rows from the database using a list of primary keys in bulk. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 

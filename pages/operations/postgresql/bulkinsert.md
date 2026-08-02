@@ -13,7 +13,7 @@ grand_parent: OPERATIONS
 ---
 
 {: .warning }
-> This method was previously named `BinaryBulkInsert`. That name is now deprecated in favor of `BulkInsert` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
+> This method was previously named `BinaryBulkInsert`. That name is now deprecated in favor of `BulkInsert` and will be tagged starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This method inserts multiple rows into the database in bulk. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 
@@ -56,9 +56,9 @@ The `identityBehavior` and `pseudoTableType` arguments are available for this op
 
 Npgsql supports the following .NET enum mappings:
 
-- .NET Enum â†’ PostgreSQL text-based types (e.g. `text`, `varchar`)
-- .NET Enum â†’ PostgreSQL integer types (e.g. `int4`, `int8`)
-- .NET Enum â†’ Native PostgreSQL enum type, when mapped via `NpgsqlDataSource.MapEnum()`
+- .NET Enum to PostgreSQL text-based types (e.g. `text`, `varchar`)
+- .NET Enum to PostgreSQL integer types (e.g. `int4`, `int8`)
+- .NET Enum to Native PostgreSQL enum type, when mapped via `NpgsqlDataSource.MapEnum()`
 
 These mappings work correctly with standard fluent operations such as [Insert](https://repodb.net/operation/insert) and [InsertAll](https://repodb.net/operation/insertall). However, bulk operations such as [BulkInsert](https://repodb.net/operation/postgresql/bulkinsert) may fail with the following error when an enum property towards Native PostgreSQL enum type (item 3) is involved:
 

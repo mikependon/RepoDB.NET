@@ -14,7 +14,7 @@ grand_parent: ENUMERATIONS
 ---
 
 {: .warning }
-> This enum was previously named `BulkImportIdentityBehavior`. That name is now deprecated in favor of `PostgreSqlBulkImportIdentityBehavior` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
+> This enum was previously named `BulkImportIdentityBehavior`. That name is now deprecated in favor of `PostgreSqlBulkImportIdentityBehavior` and will be tagged starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This enum defines the behavior of the identity property/column when an entity is bulk-imported into a target table. It applies only to the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 

@@ -13,7 +13,7 @@ grand_parent: OPERATIONS
 ---
 
 {: .warning }
-> This method was previously named `BinaryBulkUpdate`. That name is now deprecated in favor of `BulkUpdate` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
+> This method was previously named `BinaryBulkUpdate`. That name is now deprecated in favor of `BulkUpdate` and will be tagged starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This method updates existing rows in the database in bulk. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 
@@ -40,11 +40,9 @@ For updating 1,000 or more rows, prefer this method over [UpdateAll](/operation/
 
 ## Special Arguments
 
-The `qualifiers`, `keepIdentity`, and `pseudoTableType` arguments are available for this operation.
+The `qualifiers` and `pseudoTableType` arguments are available for this operation.
 
 `qualifiers` defines the qualifier fields used in the operation, corresponding to the WHERE clause. Defaults to the primary column if not specified.
-
-`keepIdentity` controls whether the identity property of the entity/model is preserved during the operation.
 
 `pseudoTableType` controls whether a physical pseudo-table is created during the operation. Defaults to a temporary table.
 

@@ -33,7 +33,7 @@ For inserting 1,000 or more rows, prefer this method over [InsertAll](/operation
 
 ## Special Arguments
 
-The `keepIdentity` argument controls whether the identity property of the entity/model is preserved during the operation.
+The `identityBehavior` argument controls whether the identity property of the entity/model is preserved during the operation.
 
 ## Usability
 

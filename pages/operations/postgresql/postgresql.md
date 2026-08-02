@@ -98,10 +98,9 @@ The arguments below were provided in most operations.
 | Argument | Description |
 |:---------|:------------|
 | `qualifiers` | Defines the qualifier fields to be used in the operations. It usually refers to the `WHERE` expression of SQL Statements. If not given, the primary key field will be used. |
-| `keepIdentity` | Defines a value whether the identity property of the entity/model will be kept during the operation. |
-| `identityBehavior` | Like `keepIdentity`, together with a value that is used to return the newly generated identity values from the database. |
+| `identityBehavior` | Defines a value whether the identity property of the entity/model will be kept, or whether the newly generated identity values from the database are returned back to the entities. |
 | `pseudoTableType` | Defines a value whether a physical pseudo-table will be created during the operation. By default, a temporary table is used. |
-| `mergedCommandType` | Defines a value whether the existing `ON CONFLICT DO UPDATE` will be used over the `UPDATE`/`INSERT` SQL commands during operations. |
+| `mergeCommandType` | Defines a value whether the existing `ON CONFLICT DO UPDATE` will be used over the `UPDATE`/`INSERT` SQL commands during operations. |
 
 ## Identity Setting Alignment
 

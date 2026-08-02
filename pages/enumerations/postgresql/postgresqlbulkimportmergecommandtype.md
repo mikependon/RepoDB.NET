@@ -14,7 +14,7 @@ grand_parent: ENUMERATIONS
 ---
 
 {: .warning }
-> This enum was previously named `BulkImportMergeCommandType`. That name is now deprecated in favor of `PostgreSqlBulkImportMergeCommandType` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
+> This enum was previously named `BulkImportMergeCommandType`. That name is now deprecated in favor of `PostgreSqlBulkImportMergeCommandType` and will be tagged starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This enum defines the command used when executing the [BulkMerge](/operation/postgresql/bulkmerge) operation. It applies only to the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
