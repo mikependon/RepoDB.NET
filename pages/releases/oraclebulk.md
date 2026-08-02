@@ -14,7 +14,7 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Oracle.BulkOperations).
 
-## RepoDb.Oracle.BulkOperations (v0.0.1)
+## RepoDb.Oracle.BulkOperations (v0.0.1-beta1) - Preview
 
 Released: August 1, 2026
 

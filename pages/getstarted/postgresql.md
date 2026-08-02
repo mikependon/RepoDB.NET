@@ -23,7 +23,7 @@ Install the library via NuGet using the Package Manager Console.
 > Install-Package RepoDb.PostgreSql
 ```
 
-To use bulk operations ([BinaryBulkDelete](/operation/postgresql/binarybulkdelete), [BinaryBulkInsert](/operation/postgresql/binarybulkinsert), [BinaryBulkMerge](/operation/postgresql/binarybulkmerge) and [BinaryBulkUpdate](/operation/postgresql/binarybulkupdate)), install the [RepoDb.PostgreSql.BulkOperations](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) package.
+To use bulk operations ([BulkDelete](/operation/postgresql/bulkdelete), [BulkInsert](/operation/postgresql/bulkinsert), [BulkMerge](/operation/postgresql/bulkmerge) and [BulkUpdate](/operation/postgresql/bulkupdate)), install the [RepoDb.PostgreSql.BulkOperations](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) package.
 
 ```csharp
 > Install-Package RepoDb.PostgreSql.BulkOperations

@@ -1,17 +1,20 @@
 ---
 layout: default
 sidebar: enumerations
-title: "BulkImportIdentityBehavior"
+title: "PostgreSqlBulkImportIdentityBehavior"
 description: "An enumeration that is being used to define the behavior of the identity property/column when an entity is being bulk-imported towards the target table."
-permalink: /enumeration/postgresql/bulkimportidentitybehavior
-tags: [repodb, bulkimportidentitybehavior]
+permalink: /enumeration/postgresql/postgresqlbulkimportidentitybehavior
+tags: [repodb, postgresqlbulkimportidentitybehavior]
 parent: "PostgreSQL"
 grand_parent: ENUMERATIONS
 ---
 
-# BulkImportIdentityBehavior
+# PostgreSqlBulkImportIdentityBehavior
 
 ---
+
+{: .warning }
+> This enum was previously named `BulkImportIdentityBehavior`. That name is now deprecated in favor of `PostgreSqlBulkImportIdentityBehavior` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This enum defines the behavior of the identity property/column when an entity is bulk-imported into a target table. It applies only to the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
@@ -25,26 +28,26 @@ This enum defines the behavior of the identity property/column when an entity is
 
 ## Usability
 
-This enum is used by both the [BinaryBulkInsert](/operation/postgresql/binarybulkinsert) and [BinaryBulkMerge](/operation/postgresql/binarybulkmerge) operations. Pass the value to the `identityBehavior` argument when calling the operation.
+This enum is used by both the [BulkInsert](/operation/postgresql/bulkinsert) and [BulkMerge](/operation/postgresql/bulkmerge) operations. Pass the value to the `identityBehavior` argument when calling the operation.
 
-For the [BinaryBulkInsert](/operation/postgresql/binarybulkinsert) operation:
+For the [BulkInsert](/operation/postgresql/bulkinsert) operation:
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
-    var insertedRows = connection.BinaryBulkInsert(people,
-        identityBehavior: BinaryImportIdentityBehavior.ReturnIdentity);
+    var insertedRows = connection.BulkInsert(people,
+        identityBehavior: PostgreSqlBulkImportIdentityBehavior.ReturnIdentity);
 }
 ```
 
-For the [BinaryBulkMerge](/operation/postgresql/binarybulkmerge) operation:
+For the [BulkMerge](/operation/postgresql/bulkmerge) operation:
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
-    var mergedRows = connection.BinaryBulkMerge(people,
-        identityBehavior: BinaryImportIdentityBehavior.ReturnIdentity);
+    var mergedRows = connection.BulkMerge(people,
+        identityBehavior: PostgreSqlBulkImportIdentityBehavior.ReturnIdentity);
 }
 ```

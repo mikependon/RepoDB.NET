@@ -14,7 +14,7 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Oracle) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Oracle).
 
-## RepoDb.Oracle (v0.0.1)
+## RepoDb.Oracle (v0.0.1-beta1) - Preview
 
 Released: August 1, 2026
 

@@ -14,6 +14,43 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql.BulkOperations).
 
+## RepoDb.PostgreSql.BulkOperations (v1.16.0-beta1)
+
+Released: TBA
+
+New Enumerations
+{: .label .label-green }
+
+- Introduced [PostgreSqlBulkImportIdentityBehavior](/enumeration/postgresql/postgresqlbulkimportidentitybehavior).
+- Introduced [PostgreSqlBulkImportMergeCommandType](/enumeration/postgresql/postgresqlbulkimportmergecommandtype).
+- Introduced [PostgreSqlBulkImportPseudoTableType](/enumeration/postgresql/postgresqlbulkimportpseudotabletype).
+
+New Bulk Operation Methods
+{: .label .label-green }
+
+- Introduced [BulkDelete](/operation/postgresql/bulkdelete).
+- Introduced [BulkDeleteByKey](/operation/postgresql/bulkdeletebykey).
+- Introduced [BulkInsert](/operation/postgresql/bulkinsert).
+- Introduced [BulkMerge](/operation/postgresql/bulkmerge).
+- Introduced [BulkUpdate](/operation/postgresql/bulkupdate).
+
+Deprecated Enumerations
+{: .label .label-yellow }
+
+- `BulkImportIdentityBehavior` is deprecated in favor of [PostgreSqlBulkImportIdentityBehavior](/enumeration/postgresql/postgresqlbulkimportidentitybehavior).
+- `BulkImportMergeCommandType` is deprecated in favor of [PostgreSqlBulkImportMergeCommandType](/enumeration/postgresql/postgresqlbulkimportmergecommandtype).
+- `BulkImportPseudoTableType` is deprecated in favor of [PostgreSqlBulkImportPseudoTableType](/enumeration/postgresql/postgresqlbulkimportpseudotabletype).
+
+Deprecated Bulk Operation Methods
+{: .label .label-yellow }
+
+- `BinaryBulkDelete` is deprecated in favor of [BulkDelete](/operation/postgresql/bulkdelete).
+- `BinaryBulkDeleteByKey` is deprecated in favor of [BulkDeleteByKey](/operation/postgresql/bulkdeletebykey).
+- `BinaryBulkInsert` is deprecated in favor of [BulkInsert](/operation/postgresql/bulkinsert).
+- `BinaryBulkMerge` is deprecated in favor of [BulkMerge](/operation/postgresql/bulkmerge).
+- `BinaryBulkUpdate` is deprecated in favor of [BulkUpdate](/operation/postgresql/bulkupdate).
+
+
 ## RepoDb.PostgreSql.BulkOperations (v1.15.0)
 
 - Referenced the `RepoDb` package `v1.15.0`.
@@ -27,7 +64,7 @@ New
 
 - Added [DataTypeName](/attribute/postgresql/datatypename) property to `NpgsqlBulkInsertMapItem` — enables explicit PostgreSQL type name mapping (e.g. native enum types) as a third constructor overload. When set, [DataTypeName](/attribute/postgresql/datatypename) takes precedence over [NpgsqlDbType](/attribute/postgresql/npgsqldbtype).
 - Updated `Compiler.cs` to resolve `NpgsqlBinaryImporter.Write` / `WriteAsync` overloads that accept a `string dataTypeName` parameter — covers both sync and async paths.
-- Fixed all 64 `EnumTest` integration test failures — [BinaryBulkInsert](/operation/postgresql/binarybulkinsert), [BinaryBulkDelete](/operation/postgresql/binarybulkdelete), [BinaryBulkMerge](/operation/postgresql/binarybulkmerge), and [BinaryBulkUpdate](/operation/postgresql/binarybulkupdate) now correctly handle .NET enums mapped to native PostgreSQL enum types via `NpgsqlDataSource.MapEnum()`.
+- Fixed all 64 `EnumTest` integration test failures — [BinaryBulkInsert](/operation/postgresql/bulkinsert), [BinaryBulkDelete](/operation/postgresql/bulkdelete), [BinaryBulkMerge](/operation/postgresql/bulkmerge), and [BinaryBulkUpdate](/operation/postgresql/bulkupdate) now correctly handle .NET enums mapped to native PostgreSQL enum types via `NpgsqlDataSource.MapEnum()`.
 - Added support for .NET 8, .NET 9, and .NET 10 target frameworks.
 - Referenced the `RepoDb` package `v1.14.0`.
 - Referenced the `RepoDb.PostgreSql` package `v1.14.0`.
@@ -98,27 +135,27 @@ Breaking
 
 ## RepoDB.PostgreSql.BulkOperations (v0.0.6)
 
-- Introduced the [BinaryBulkDeleteByKey](/operation/postgresql/binarybulkdeletebykey) operation.
+- Introduced the [BinaryBulkDeleteByKey](/operation/postgresql/bulkdeletebykey) operation.
 
 
 ## RepoDB.PostgreSql.BulkOperations (v0.0.5)
 
-- Introduced the [BinaryBulkDelete](/operation/postgresql/binarybulkdelete) operation.
+- Introduced the [BinaryBulkDelete](/operation/postgresql/bulkdelete) operation.
 
 
 ## RepoDB.PostgreSql.BulkOperations (v0.0.4)
 
-- Introduced the [BinaryBulkUpdate](/operation/postgresql/binarybulkupdate) operation.
+- Introduced the [BinaryBulkUpdate](/operation/postgresql/bulkupdate) operation.
 
 
 ## RepoDB.PostgreSql.BulkOperations (v0.0.3)
 
-- Introduced the [BinaryBulkMerge](/operation/postgresql/binarybulkmerge) operation.
+- Introduced the [BinaryBulkMerge](/operation/postgresql/bulkmerge) operation.
 
 
 ## RepoDB.PostgreSql.BulkOperations (v0.0.2)
 
-- Introduced the [BinaryBulkInsert](/operation/postgresql/binarybulkinsert) operation.
+- Introduced the [BinaryBulkInsert](/operation/postgresql/bulkinsert) operation.
 
 
 ## RepoDB.PostgreSql.BulkOperations (v0.0.1)

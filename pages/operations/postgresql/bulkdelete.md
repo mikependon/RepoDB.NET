@@ -1,16 +1,19 @@
 ---
 layout: default
 sidebar: operations
-title: "BinaryBulkDelete"
-permalink: /operation/postgresql/binarybulkdelete
-tags: [repodb, tutorial, binarybulkdelete, orm, hybrid-orm, sqlserver]
+title: "BulkDelete"
+permalink: /operation/postgresql/bulkdelete
+tags: [repodb, tutorial, bulkdelete, orm, hybrid-orm, sqlserver]
 parent: "PostgreSQL"
 grand_parent: OPERATIONS
 ---
 
-# BinaryBulkDelete
+# BulkDelete
 
 ---
+
+{: .warning }
+> This method was previously named `BinaryBulkDelete`. That name is now deprecated in favor of `BulkDelete` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This method deletes existing rows from the database in bulk. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 
@@ -20,7 +23,7 @@ The diagram below shows the flow when calling this operation.
 
 ```mermaid
 flowchart TD
-    Client["Client<br/>(RepoDB)"] -->|BinaryBulkDelete| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Client["Client<br/>(RepoDB)"] -->|BulkDelete| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
     Reader -->|Pass| BinaryImport["BinaryImport"]
     BinaryImport -->|Write| Decision{"PseudoTableType<br/>Physical?"}
     Decision -->|YES| Physical["Create Table<br/>(Physical)"]
@@ -46,7 +49,7 @@ The `qualifiers`, `keepIdentity`, and `pseudoTableType` arguments are available 
 `pseudoTableType` controls whether a physical pseudo-table is created during the operation. Defaults to a temporary table.
 
 {: .important }
-> It is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
+> It is highly recommended to use the [PostgreSqlBulkImportPseudoTableType.Temporary](/enumeration/postgresql/postgresqlbulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
 ## Usability
 
@@ -56,7 +59,7 @@ Pass the list of entities to the operation.
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = connection.Query<Person>(e => e.IsActive == false);
-    var deletedRows = connection.BinaryBulkDelete<Person>(people);
+    var deletedRows = connection.BulkDelete<Person>(people);
 }
 ```
 
@@ -68,7 +71,7 @@ To specify a batch size:
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var deletedRows = connection.BinaryBulkDelete<Person>(people, batchSize: 100);
+    var deletedRows = connection.BulkDelete<Person>(people, batchSize: 100);
 }
 ```
 
@@ -80,7 +83,7 @@ To target a specific table, pass the literal table name.
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var deletedRows = connection.BinaryBulkDelete("[dbo].[Person]", people);
+    var deletedRows = connection.BulkDelete("[dbo].[Person]", people);
 }
 ```
 
@@ -90,7 +93,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var table = ConvertToDataTable(people);
-    var deletedRows = connection.BinaryBulkDelete("[dbo].[Person]", table);
+    var deletedRows = connection.BulkDelete("[dbo].[Person]", table);
 }
 ```
 
@@ -103,7 +106,7 @@ using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
 
     using (var destinationConnection = new NpgsqlConnection(destinationConnectionString))
     {
-        var deletedRows = destinationConnection.BinaryBulkDelete("[dbo].[Person]", people);
+        var deletedRows = destinationConnection.BulkDelete("[dbo].[Person]", people);
     }
 }
 ```
@@ -117,7 +120,7 @@ using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
     {
         using (var destinationConnection = new NpgsqlConnection(destinationConnectionString))
         {
-            var deletedRows = destinationConnection.BinaryBulkDelete("[dbo].[Person]", reader);
+            var deletedRows = destinationConnection.BulkDelete("[dbo].[Person]", reader);
         }
     }
 }
@@ -130,7 +133,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 {
     using (var reader = new DataEntityDataReader<Person>(people))
     {
-        var deletedRows = connection.BinaryBulkDelete("[dbo].[Person]", reader);
+        var deletedRows = connection.BulkDelete("[dbo].[Person]", reader);
     }
 }
 ```
@@ -142,7 +145,7 @@ By default, the primary column is used as the qualifier. To override, pass a lis
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var deletedRows = connection.BinaryBulkDelete<Person>(people,
+    var deletedRows = connection.BulkDelete<Person>(people,
         qualifiers: e => new { e.LastName, e.DateOfBirth });
 }
 ```
@@ -152,14 +155,14 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 ## Physical Temporary Table
 
-To use a physical pseudo-temporary table, pass [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
+To use a physical pseudo-temporary table, pass [PostgreSqlBulkImportPseudoTableType.Temporary](/enumeration/postgresql/postgresqlbulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var deletedRows = connection.BinaryBulkDelete("[dbo].[Person]",
+    var deletedRows = connection.BulkDelete("[dbo].[Person]",
         people,
-        pseudoTableType: BulkImportPseudoTableType.Physical);
+        pseudoTableType: PostgreSqlBulkImportPseudoTableType.Physical);
 }
 ```
 

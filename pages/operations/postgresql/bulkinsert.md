@@ -1,16 +1,19 @@
 ---
 layout: default
 sidebar: operations
-title: "BinaryBulkInsert"
-permalink: /operation/postgresql/binarybulkinsert
-tags: [repodb, tutorial, binarybulkinsert, orm, hybrid-orm, sqlserver]
+title: "BulkInsert"
+permalink: /operation/postgresql/bulkinsert
+tags: [repodb, tutorial, bulkinsert, orm, hybrid-orm, sqlserver]
 parent: "PostgreSQL"
 grand_parent: OPERATIONS
 ---
 
-# BinaryBulkInsert
+# BulkInsert
 
 ---
+
+{: .warning }
+> This method was previously named `BinaryBulkInsert`. That name is now deprecated in favor of `BulkInsert` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This method inserts multiple rows into the database in bulk. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 
@@ -20,7 +23,7 @@ The diagram below shows the flow when calling this operation.
 
 ```mermaid
 flowchart TD
-    Client["Client<br/>(RepoDB)"] -->|BinaryBulkInsert| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Client["Client<br/>(RepoDB)"] -->|BulkInsert| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
     Reader -->|Pass| BinaryImport["BinaryImport"]
     BinaryImport -->|Pass| IdentityDecision{"IdentityBehavior<br/>Return Identity?"}
     IdentityDecision -->|NO| Table[("Table")]
@@ -47,7 +50,7 @@ The `identityBehavior` and `pseudoTableType` arguments are available for this op
 `pseudoTableType` controls whether a physical pseudo-table is created during the operation. Defaults to a temporary table.
 
 {: .note }
-> It is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
+> It is highly recommended to use the [PostgreSqlBulkImportPseudoTableType.Temporary](/enumeration/postgresql/postgresqlbulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
 ## Enum Types
 
@@ -57,7 +60,7 @@ Npgsql supports the following .NET enum mappings:
 - .NET Enum â†’ PostgreSQL integer types (e.g. `int4`, `int8`)
 - .NET Enum â†’ Native PostgreSQL enum type, when mapped via `NpgsqlDataSource.MapEnum()`
 
-These mappings work correctly with standard fluent operations such as [Insert](https://repodb.net/operation/insert) and [InsertAll](https://repodb.net/operation/insertall). However, bulk operations such as [BinaryBulkInsert](https://repodb.net/operation/postgresql/binarybulkinsert) may fail with the following error when an enum property towards Native PostgreSQL enum type (item 3) is involved:
+These mappings work correctly with standard fluent operations such as [Insert](https://repodb.net/operation/insert) and [InsertAll](https://repodb.net/operation/insertall). However, bulk operations such as [BulkInsert](https://repodb.net/operation/postgresql/bulkinsert) may fail with the following error when an enum property towards Native PostgreSQL enum type (item 3) is involved:
 
 ```
 'RepoDb.PostgreSql.BulkOperations.IntegrationTests.Enumerations.Hands' is not supported for parameters having NpgsqlDbType 'Unknown'.
@@ -87,7 +90,7 @@ var mappings = return new[]
 }
 
 // Pass to 'mappings' argument
-var result = NpgsqlConnectionExtension.BinaryBulkInsert<EnumTable>(connection,
+var result = NpgsqlConnectionExtension.BulkInsert<EnumTable>(connection,
     tableName,
     entities: entities,
     mappings: Helper.GetEnumTableMappings());
@@ -101,7 +104,7 @@ Pass the list of entities to the operation.
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
-    var insertedRows = connection.BinaryBulkInsert<Person>(people);
+    var insertedRows = connection.BulkInsert<Person>(people);
 }
 ```
 
@@ -114,7 +117,7 @@ To specify a batch size:
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
-    var insertedRows = connection.BinaryBulkInsert<Person>(people, batchSize: 100);
+    var insertedRows = connection.BulkInsert<Person>(people, batchSize: 100);
 }
 ```
 
@@ -126,7 +129,7 @@ To target a specific table, pass the literal table name.
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var insertedRows = connection.BinaryBulkInsert("[dbo].[Person]", people);
+    var insertedRows = connection.BulkInsert("[dbo].[Person]", people);
 }
 ```
 
@@ -137,7 +140,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
     var table = ConvertToDataTable(people);
-    var insertedRows = connection.BinaryBulkInsert("[dbo].[Person]", table);
+    var insertedRows = connection.BulkInsert("[dbo].[Person]", table);
 }
 ```
 
@@ -148,7 +151,7 @@ var people = GetPeopleAsDictionary(1000);
 
 using (var connection = new NpgsqlConnection(destinationConnectionString))
 {
-    var insertedRows = connection.BinaryBulkInsert("[dbo].[Person]", people);
+    var insertedRows = connection.BulkInsert("[dbo].[Person]", people);
 }
 ```
 
@@ -161,7 +164,7 @@ using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
     {
         using (var destinationConnection = new NpgsqlConnection(destinationConnectionString))
         {
-            var insertedRows = destinationConnection.BinaryBulkInsert("[dbo].[Person]", reader);
+            var insertedRows = destinationConnection.BulkInsert("[dbo].[Person]", reader);
         }
     }
 }
@@ -174,21 +177,21 @@ using (var connection = new NpgsqlConnection(connectionString))
 {
     using (var reader = new DataEntityDataReader<Person>(people))
     {
-        var insertedRows = connection.BinaryBulkInsert("[dbo].[Person]", reader);
+        var insertedRows = connection.BulkInsert("[dbo].[Person]", reader);
     }
 }
 ```
 
 ## Physical Temporary Table
 
-To use a physical pseudo-temporary table, pass [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
+To use a physical pseudo-temporary table, pass [PostgreSqlBulkImportPseudoTableType.Temporary](/enumeration/postgresql/postgresqlbulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var insertedRows = connection.BinaryBulkInsert("[dbo].[Person]",
+    var insertedRows = connection.BulkInsert("[dbo].[Person]",
         people,
-        pseudoTableType: BulkImportPseudoTableType.Physical);
+        pseudoTableType: PostgreSqlBulkImportPseudoTableType.Physical);
 }
 ```
 

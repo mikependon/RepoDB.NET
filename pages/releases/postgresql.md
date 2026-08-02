@@ -14,6 +14,13 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.PostgreSql) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql).
 
+## RepoDb.PostgreSql (v1.16.0-beta1)
+
+Released: TBA
+
+- Version bumped to `v1.16.0` to stay aligned with the `RepoDb.PostgreSql.BulkOperations` package, where the bulk-import enumerations and bulk operation methods were renamed. See the [RepoDb.PostgreSql.BulkOperations release notes](/release/postgresqlbulk) for details.
+
+
 ## RepoDb.PostgreSql (v1.15.0)
 
 - Referenced the `RepoDb` package `v1.15.0`.

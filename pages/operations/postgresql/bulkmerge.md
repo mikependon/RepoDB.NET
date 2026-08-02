@@ -1,16 +1,19 @@
 ---
 layout: default
 sidebar: operations
-title: "BinaryBulkMerge"
-permalink: /operation/postgresql/binarybulkmerge
-tags: [repodb, tutorial, binarybulkmerge, orm, hybrid-orm, sqlserver]
+title: "BulkMerge"
+permalink: /operation/postgresql/bulkmerge
+tags: [repodb, tutorial, bulkmerge, orm, hybrid-orm, sqlserver]
 parent: "PostgreSQL"
 grand_parent: OPERATIONS
 ---
 
-# BinaryBulkMerge
+# BulkMerge
 
 ---
+
+{: .warning }
+> This method was previously named `BinaryBulkMerge`. That name is now deprecated in favor of `BulkMerge` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This method merges multiple rows into the database in bulk. It does not delete rows â€” it updates existing rows (if present) and inserts new rows (if absent) based on the given qualifiers. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 
@@ -20,7 +23,7 @@ The diagram below shows the flow when calling this operation.
 
 ```mermaid
 flowchart TD
-    Client["Client<br/>(RepoDB)"] -->|BinaryBulkMerge| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Client["Client<br/>(RepoDB)"] -->|BulkMerge| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
     Reader -->|Pass| BinaryImport["BinaryImport"]
     BinaryImport -->|Write| PseudoDecision{"PseudoTableType<br/>Physical?"}
     PseudoDecision -->|YES| Physical["Create Table<br/>(Physical)"]
@@ -50,7 +53,7 @@ The `mergedCommandType`, `identityBehavior`, and `pseudoTableType` arguments are
 `pseudoTableType` controls whether a physical pseudo-table is created during the operation. Defaults to a temporary table.
 
 {: .important }
-> It is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
+> It is highly recommended to use the [PostgreSqlBulkImportPseudoTableType.Temporary](/enumeration/postgresql/postgresqlbulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
 ## Usability
 
@@ -60,7 +63,7 @@ Pass the list of entities to the operation.
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
-    var mergedRows = connection.BinaryBulkMerge<Person>(people);
+    var mergedRows = connection.BulkMerge<Person>(people);
 }
 ```
 
@@ -73,7 +76,7 @@ To specify a batch size:
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
-    var mergedRows = connection.BinaryBulkMerge<Person>(people, batchSize: 100);
+    var mergedRows = connection.BulkMerge<Person>(people, batchSize: 100);
 }
 ```
 
@@ -85,7 +88,7 @@ To target a specific table, pass the literal table name.
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var mergedRows = connection.BinaryBulkMerge("[dbo].[Person]", people);
+    var mergedRows = connection.BulkMerge("[dbo].[Person]", people);
 }
 ```
 
@@ -96,7 +99,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
     var table = ConvertToDataTable(people);
-    var mergedRows = connection.BinaryBulkMerge("[dbo].[Person]", table);
+    var mergedRows = connection.BulkMerge("[dbo].[Person]", table);
 }
 ```
 
@@ -107,7 +110,7 @@ var people = GetPeopleAsDictionary(1000);
 
 using (var connection = new NpgsqlConnection(destinationConnectionString))
 {
-    var mergedRows = connection.BinaryBulkMerge("[dbo].[Person]", people);
+    var mergedRows = connection.BulkMerge("[dbo].[Person]", people);
 }
 ```
 
@@ -120,7 +123,7 @@ using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
     {
         using (var destinationConnection = new NpgsqlConnection(destinationConnectionString))
         {
-            var mergedRows = destinationConnection.BinaryBulkMerge("[dbo].[Person]", reader);
+            var mergedRows = destinationConnection.BulkMerge("[dbo].[Person]", reader);
         }
     }
 }
@@ -133,7 +136,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 {
     using (var reader = new DataEntityDataReader<Person>(people))
     {
-        var mergedRows = connection.BinaryBulkMerge("[dbo].[Person]", reader);
+        var mergedRows = connection.BulkMerge("[dbo].[Person]", reader);
     }
 }
 ```
@@ -145,7 +148,7 @@ By default, the primary column is used as the qualifier. To override, pass a lis
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var mergedRows = connection.BinaryBulkMerge<Person>(people,
+    var mergedRows = connection.BulkMerge<Person>(people,
         qualifiers: e => new { e.LastName, e.DateOfBirth });
 }
 ```
@@ -154,14 +157,14 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 ## Physical Temporary Table
 
-To use a physical pseudo-temporary table, pass [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
+To use a physical pseudo-temporary table, pass [PostgreSqlBulkImportPseudoTableType.Temporary](/enumeration/postgresql/postgresqlbulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var mergedRows = connection.BinaryBulkMerge("[dbo].[Person]",
+    var mergedRows = connection.BulkMerge("[dbo].[Person]",
         people,
-        pseudoTableType: BulkImportPseudoTableType.Physical);
+        pseudoTableType: PostgreSqlBulkImportPseudoTableType.Physical);
 }
 ```
 

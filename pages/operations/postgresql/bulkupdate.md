@@ -1,16 +1,19 @@
 ---
 layout: default
 sidebar: operations
-title: "BinaryBulkUpdate"
-permalink: /operation/postgresql/binarybulkupdate
-tags: [repodb, tutorial, binarybulkupdate, orm, hybrid-orm, sqlserver]
+title: "BulkUpdate"
+permalink: /operation/postgresql/bulkupdate
+tags: [repodb, tutorial, bulkupdate, orm, hybrid-orm, sqlserver]
 parent: "PostgreSQL"
 grand_parent: OPERATIONS
 ---
 
-# BinaryBulkUpdate
+# BulkUpdate
 
 ---
+
+{: .warning }
+> This method was previously named `BinaryBulkUpdate`. That name is now deprecated in favor of `BulkUpdate` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This method updates existing rows in the database in bulk. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 
@@ -20,7 +23,7 @@ The diagram below shows the flow when calling this operation.
 
 ```mermaid
 flowchart TD
-    Client["Client<br/>(RepoDB)"] -->|BinaryBulkUpdate| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
+    Client["Client<br/>(RepoDB)"] -->|BulkUpdate| Reader["DbDataReader<br/>IEnumerable&lt;T&gt;<br/>DataTable"]
     Reader -->|Pass| BinaryImport["BinaryImport"]
     BinaryImport -->|Write| Decision{"PseudoTableType<br/>Physical?"}
     Decision -->|YES| Physical["Create Table<br/>(Physical)"]
@@ -46,7 +49,7 @@ The `qualifiers`, `keepIdentity`, and `pseudoTableType` arguments are available 
 `pseudoTableType` controls whether a physical pseudo-table is created during the operation. Defaults to a temporary table.
 
 {: .important }
-> It is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
+> It is highly recommended to use the [PostgreSqlBulkImportPseudoTableType.Temporary](/enumeration/postgresql/postgresqlbulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
 ## Usability
 
@@ -56,7 +59,7 @@ Pass the list of entities to the operation.
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
-    var updatedRows = connection.BinaryBulkUpdate<Person>(people);
+    var updatedRows = connection.BulkUpdate<Person>(people);
 }
 ```
 
@@ -69,7 +72,7 @@ To specify a batch size:
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
-    var updatedRows = connection.BinaryBulkUpdate<Person>(people, batchSize: 100);
+    var updatedRows = connection.BulkUpdate<Person>(people, batchSize: 100);
 }
 ```
 
@@ -81,7 +84,7 @@ To target a specific table, pass the literal table name.
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var updatedRows = connection.BinaryBulkUpdate("[dbo].[Person]", people);
+    var updatedRows = connection.BulkUpdate("[dbo].[Person]", people);
 }
 ```
 
@@ -92,7 +95,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
     var table = ConvertToDataTable(people);
-    var updatedRows = connection.BinaryBulkUpdate("[dbo].[Person]", table);
+    var updatedRows = connection.BulkUpdate("[dbo].[Person]", table);
 }
 ```
 
@@ -103,7 +106,7 @@ var people = GetPeopleAsDictionary(1000);
 
 using (var connection = new NpgsqlConnection(destinationConnectionString))
 {
-    var updatedRows = connection.BinaryBulkUpdate("[dbo].[Person]", people);
+    var updatedRows = connection.BulkUpdate("[dbo].[Person]", people);
 }
 ```
 
@@ -116,7 +119,7 @@ using (var sourceConnection = new NpgsqlConnection(sourceConnectionString))
     {
         using (var destinationConnection = new NpgsqlConnection(destinationConnectionString))
         {
-            var updatedRows = destinationConnection.BinaryBulkUpdate("[dbo].[Person]", reader);
+            var updatedRows = destinationConnection.BulkUpdate("[dbo].[Person]", reader);
         }
     }
 }
@@ -129,7 +132,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 {
     using (var reader = new DataEntityDataReader<Person>(people))
     {
-        var updatedRows = connection.BinaryBulkUpdate("[dbo].[Person]", reader);
+        var updatedRows = connection.BulkUpdate("[dbo].[Person]", reader);
     }
 }
 ```
@@ -141,7 +144,7 @@ By default, the primary column is used as the qualifier. To override, pass a lis
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var updatedRows = connection.BinaryBulkUpdate<Person>(people,
+    var updatedRows = connection.BulkUpdate<Person>(people,
         qualifiers: e => new { e.LastName, e.DateOfBirth });
 }
 ```
@@ -151,14 +154,14 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 ## Physical Temporary Table
 
-To use a physical pseudo-temporary table, pass [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
+To use a physical pseudo-temporary table, pass [PostgreSqlBulkImportPseudoTableType.Temporary](/enumeration/postgresql/postgresqlbulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    var updatedRows = connection.BinaryBulkUpdate("[dbo].[Person]",
+    var updatedRows = connection.BulkUpdate("[dbo].[Person]",
         people,
-        pseudoTableType: BulkImportPseudoTableType.Physical);
+        pseudoTableType: PostgreSqlBulkImportPseudoTableType.Physical);
 }
 ```
 

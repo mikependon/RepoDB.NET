@@ -30,7 +30,7 @@ flowchart TD
 
 Use this method to insert rows at high speed. It leverages the native bulk operation from the Npgsql library via the [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) class.
 
-For inserting 1,000 or more rows, prefer this method over [InsertAll](/operation/insertall). The [BinaryBulkInsert](/operation/postgresql/binarybulkinsert) operation is also available as an alternative.
+For inserting 1,000 or more rows, prefer this method over [InsertAll](/operation/insertall). The [BulkInsert](/operation/postgresql/bulkinsert) operation is also available as an alternative.
 
 ## Special Arguments
 

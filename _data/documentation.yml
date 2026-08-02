@@ -128,21 +128,6 @@ docs:
   - title: "BatchQuery"
     url: "/operation/batchquery"
   
-  - title: "BinaryBulkDelete"
-    url: "/operation/postgresql/binarybulkdelete"
-  
-  - title: "BinaryBulkDeleteByKey"
-    url: "/operation/postgresql/binarybulkdeletebykey"
-  
-  - title: "BinaryBulkInsert"
-    url: "/operation/postgresql/binarybulkinsert"
-  
-  - title: "BinaryBulkMerge"
-    url: "/operation/postgresql/binarybulkmerge"
-  
-  - title: "BinaryBulkUpdate"
-    url: "/operation/postgresql/binarybulkupdate"
-  
   - title: "BinaryImport"
     url: "/operation/postgresql/binaryimport"
   
@@ -459,19 +444,10 @@ docs:
 
 - key: enumerations
   title: "Enumerations"
-  url: "/enumeration/postgresql/bulkimportidentitybehavior"
+  url: "/enumeration/postgresql/postgresqlbulkimportidentitybehavior"
   isdoc: true
   description: "Below are the list of enumerations available."
   topics:
-
-  - title: "BulkImportIdentityBehavior"
-    url: "/enumeration/postgresql/bulkimportidentitybehavior"
-
-  - title: "BulkImportMergeCommandType"
-    url: "/enumeration/postgresql/bulkimportmergecommandtype"
-
-  - title: "BulkImportPseudoTableType"
-    url: "/enumeration/postgresql/bulkimportpseudotabletype"
 
   - title: "Conjunction"
     url: "/enumeration/conjunction"
@@ -490,6 +466,15 @@ docs:
 
   - title: "Order"
     url: "/enumeration/order"
+
+  - title: "PostgreSqlBulkImportIdentityBehavior"
+    url: "/enumeration/postgresql/postgresqlbulkimportidentitybehavior"
+
+  - title: "PostgreSqlBulkImportMergeCommandType"
+    url: "/enumeration/postgresql/postgresqlbulkimportmergecommandtype"
+
+  - title: "PostgreSqlBulkImportPseudoTableType"
+    url: "/enumeration/postgresql/postgresqlbulkimportpseudotabletype"
 
 - key: interfaces
   title: "Interfaces"

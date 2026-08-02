@@ -1,16 +1,19 @@
 ---
 layout: default
 sidebar: operations
-title: "BinaryBulkDeleteByKey"
-permalink: /operation/postgresql/binarybulkdeletebykey
-tags: [repodb, tutorial, binarybulkdeletebykey, orm, hybrid-orm, sqlserver]
+title: "BulkDeleteByKey"
+permalink: /operation/postgresql/bulkdeletebykey
+tags: [repodb, tutorial, bulkdeletebykey, orm, hybrid-orm, sqlserver]
 parent: "PostgreSQL"
 grand_parent: OPERATIONS
 ---
 
-# BinaryBulkDeleteByKey
+# BulkDeleteByKey
 
 ---
+
+{: .warning }
+> This method was previously named `BinaryBulkDeleteByKey`. That name is now deprecated in favor of `BulkDeleteByKey` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
 
 This method deletes rows from the database using a list of primary keys in bulk. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 
@@ -20,7 +23,7 @@ The diagram below shows the flow when calling this operation.
 
 ```mermaid
 flowchart TD
-    Client["Client<br/>(RepoDB)"] -->|BinaryBulkDeleteByKey| Reader["IEnumerable&lt;TPrimaryKey&gt;"]
+    Client["Client<br/>(RepoDB)"] -->|BulkDeleteByKey| Reader["IEnumerable&lt;TPrimaryKey&gt;"]
     Reader -->|Pass| BinaryImport["BinaryImport"]
     BinaryImport -->|Write| Decision{"PseudoTableType<br/>Physical?"}
     Decision -->|YES| Physical["Create Table<br/>(Physical)"]
@@ -38,7 +41,7 @@ Use this method to delete rows by primary key at high speed. It leverages the na
 The `pseudoTableType` argument controls whether a physical pseudo-table is created during the operation. Defaults to a temporary table.
 
 {: .important }
-> It is highly recommended to use the [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
+> It is highly recommended to use the [PostgreSqlBulkImportPseudoTableType.Temporary](/enumeration/postgresql/postgresqlbulkimportpseudotabletype#temporary) value in the `pseudoTableType` argument when working with parallelism.
 
 ## Usability
 
@@ -48,7 +51,7 @@ Pass the list of primary keys to the operation.
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var primaryKeys = connection.Query<Person>(p => p.IsActive == false).Select(p => p.Id);
-    var deletedRows = connection.BinaryBulkDeleteByKey("[dbo].[Person]",
+    var deletedRows = connection.BulkDeleteByKey("[dbo].[Person]",
         primaryKeys);
 }
 ```
@@ -62,7 +65,7 @@ To specify a batch size:
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var primaryKeys = connection.Query<Person>(p => p.IsActive == false).Select(p => p.Id);
-    var deletedRows = connection.BinaryBulkDeleteByKey("[dbo].[Person]",
+    var deletedRows = connection.BulkDeleteByKey("[dbo].[Person]",
         primaryKeys,
         batchSize: 100);
 }
@@ -73,15 +76,15 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 ## Physical Temporary Table
 
-To use a physical pseudo-temporary table, pass [BulkImportPseudoTableType.Temporary](/enumeration/bulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
+To use a physical pseudo-temporary table, pass [PostgreSqlBulkImportPseudoTableType.Temporary](/enumeration/postgresql/postgresqlbulkimportpseudotabletype#physical) in the `pseudoTableType` argument.
 
 ```csharp
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var primaryKeys = connection.Query<Person>(p => p.IsActive == false).Select(p => p.Id);
-    var deletedRows = connection.BinaryBulkDeleteByKey("[dbo].[Person]",
+    var deletedRows = connection.BulkDeleteByKey("[dbo].[Person]",
         primaryKeys,
-        pseudoTableType: BulkImportPseudoTableType.Physical);
+        pseudoTableType: PostgreSqlBulkImportPseudoTableType.Physical);
 }
 ```
 

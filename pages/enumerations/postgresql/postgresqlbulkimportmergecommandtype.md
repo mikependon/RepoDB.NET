@@ -1,19 +1,22 @@
 ---
 layout: default
 sidebar: enumerations
-title: "BulkImportMergeCommandType"
-description: "A enumeration that is being used to define the command text to use when executing the BinaryBulkMerge operation."
-permalink: /enumeration/postgresql/bulkimportmergecommandtype
-tags: [repodb, bulkimportmergecommandtype]
+title: "PostgreSqlBulkImportMergeCommandType"
+description: "A enumeration that is being used to define the command text to use when executing the BulkMerge operation."
+permalink: /enumeration/postgresql/postgresqlbulkimportmergecommandtype
+tags: [repodb, postgresqlbulkimportmergecommandtype]
 parent: "PostgreSQL"
 grand_parent: ENUMERATIONS
 ---
 
-# BulkImportMergeCommandType
+# PostgreSqlBulkImportMergeCommandType
 
 ---
 
-This enum defines the command used when executing the [BinaryBulkMerge](/operation/postgresql/binarybulkmerge) operation. It applies only to the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
+{: .warning }
+> This enum was previously named `BulkImportMergeCommandType`. That name is now deprecated in favor of `PostgreSqlBulkImportMergeCommandType` and will be removed starting v1.16.0 of the `RepoDb.PostgreSql` and `RepoDb.PostgreSql.BulkOperations` packages.
+
+This enum defines the command used when executing the [BulkMerge](/operation/postgresql/bulkmerge) operation. It applies only to the [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) RDBMS.
 
 ## Enum Values
 
@@ -30,8 +33,8 @@ To merge a large dataset using the PostgreSQL `ON CONFLICT DO UPDATE` command, p
 using (var connection = new NpgsqlConnection(connectionString))
 {
     var people = GetPeople(1000);
-    var insertedRows = connection.BinaryBulkInsert(people,
-        mergeCommandType: BulkImportMergeCommandType.OnConflictDoUpdate);
+    var insertedRows = connection.BulkInsert(people,
+        mergeCommandType: PostgreSqlBulkImportMergeCommandType.OnConflictDoUpdate);
 }
 ```
 
