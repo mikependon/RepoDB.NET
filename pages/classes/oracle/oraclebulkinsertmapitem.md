@@ -4,7 +4,7 @@ sidebar: classes
 title: "OracleBulkInsertMapItem"
 description: "A mapping class used to define a column mapping, with an optional explicit OracleDbType, for the Oracle bulk operations."
 permalink: /class/oracle/oraclebulkinsertmapitem
-tags: [repodb, oraclebulkinsertmapitem, oracle]
+tags: [repodb, oraclebulkinsertmapitem, oracle, bulk]
 parent: "Oracle"
 grand_parent: CLASSES
 ---
@@ -15,7 +15,7 @@ grand_parent: CLASSES
 
 This class extends [BulkInsertMapItem](/class/bulkinsertmapitem) with an optional, explicit `OracleDbType` to bind with for the mapped column. When not provided, the type is inferred from the entity property's [OracleDbType](/attribute/oracle/oracledbtype)/[OracleDbTypeEx](/attribute/oracle/oracledbtypeex) attribute (if present) or, failing that, from the .NET CLR value itself.
 
-Used by the Oracle [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate) operations.
+Used by the Oracle [BulkInsert](/operation/oracle/bulkinsert), [BulkMerge](/operation/oracle/bulkmerge) and [BulkUpdate](/operation/oracle/bulkupdate) operations.
 
 ## Create a new Instance
 
@@ -47,4 +47,4 @@ using (var connection = new OracleConnection(connectionString))
 ```
 
 {: .note }
-> The same approach applies to [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate). The `mappings` argument is optional — omitting it causes the library to auto-map columns by name (case-insensitive).
+> The same approach applies to [BulkMerge](/operation/oracle/bulkmerge) and [BulkUpdate](/operation/oracle/bulkupdate). The `mappings` argument is optional — omitting it causes the library to auto-map columns by name (case-insensitive).

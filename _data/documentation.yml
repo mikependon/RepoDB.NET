@@ -383,6 +383,10 @@ docs:
     url: "/class/memorycache"
     description: "An advance class that is being used to cache an object into a memory within the library."
 
+  - title: "OracleBulkInsertMapItem"
+    url: "/class/oracle/oraclebulkinsertmapitem"
+    description: "A mapping class used to define a column mapping, with an optional explicit OracleDbType, for the Oracle bulk operations."
+
   - title: "OrderField"
     url: "/class/orderfield"
     description: "A class that is being used to define an ordering of the results when querying a data from the database."
@@ -390,6 +394,10 @@ docs:
   - title: "Parameter"
     url: "/class/parameter"
     description: "A class that defines a parameter of the data command object."
+
+  - title: "PostgreSqlBulkInsertMapItem"
+    url: "/class/postgresql/postgresqlbulkinsertmapitem"
+    description: "A mapping class used to define a column mapping, with an optional explicit NpgsqlDbType or data type name, for the PostgreSQL bulk operations."
 
   - title: "PropertyValue"
     url: "/class/propertyvalue"
@@ -422,6 +430,10 @@ docs:
   - title: "RightTrimQueryField"
     url: "/class/righttrimqueryfield"
     description: "A query field class that is being used to define a query expression for the SQL statement using the RTRIM function."
+
+  - title: "SqlServerBulkInsertMapItem"
+    url: "/class/sqlserver/sqlserverbulkinsertmapitem"
+    description: "A mapping class used to define a column mapping for the SQL Server bulk operations."
 
   - title: "SqlServerTableHints"
     url: "/class/sqlserver/sqlservertablehints"

@@ -18,6 +18,11 @@ View the NuGet package [here](https://www.nuget.org/packages/RepoDb.PostgreSql.B
 
 Released: TBA
 
+New Classes
+{: .label .label-green }
+
+- Introduced [PostgreSqlBulkInsertMapItem](/class/postgresql/postgresqlbulkinsertmapitem), with an optional explicit `NpgsqlDbType`, .NET CLR `Type`, or PostgreSQL data type name to bind with for the mapped column.
+
 New Enumerations
 {: .label .label-green }
 
@@ -33,6 +38,11 @@ New Bulk Operation Methods
 - Introduced [BulkInsert](/operation/postgresql/bulkinsert).
 - Introduced [BulkMerge](/operation/postgresql/bulkmerge).
 - Introduced [BulkUpdate](/operation/postgresql/bulkupdate).
+
+Deprecated Classes
+{: .label .label-yellow }
+
+- `NpgsqlBulkInsertMapItem` is deprecated in favor of [PostgreSqlBulkInsertMapItem](/class/postgresql/postgresqlbulkinsertmapitem). It remains usable as a subclass of [PostgreSqlBulkInsertMapItem](/class/postgresql/postgresqlbulkinsertmapitem) for backward compatibility.
 
 Deprecated Enumerations
 {: .label .label-yellow }

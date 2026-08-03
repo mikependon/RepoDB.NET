@@ -14,6 +14,16 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer.BulkOperations) to download it.
 
+## RepoDb.SqlServer.BulkOperations (v1.16.0)
+
+Released: TBA
+
+New
+{: .label .label-green }
+
+- Introduced [SqlServerBulkInsertMapItem](/class/sqlserver/sqlserverbulkinsertmapitem), a SQL Server-specific column mapping class for the `mappings` argument of [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge), [BulkUpdate](/operation/sqlserver/bulkupdate) and [BulkDelete](/operation/sqlserver/bulkdelete) — keeps the mapping API consistent with [PostgreSqlBulkInsertMapItem](/class/postgresql/postgresqlbulkinsertmapitem) and [OracleBulkInsertMapItem](/class/oracle/oraclebulkinsertmapitem). The base [BulkInsertMapItem](/class/bulkinsertmapitem) class remains equally accepted.
+
+
 ## RepoDb.SqlServer.BulkOperations (v1.15.0)
 
 - Referenced the `RepoDb` package `v1.15.0`.
