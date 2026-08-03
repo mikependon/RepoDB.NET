@@ -43,8 +43,6 @@ To use bulk operations ([BulkDelete](/operation/sqlserver/bulkdelete), [BulkInse
 > Install-Package RepoDb.SqlServer.BulkOperations
 ```
 
-For more information, visit the [installation](/tutorial/installation) page.
-
 ## Create a Table
 
 The examples below assume the following table exists in the database.

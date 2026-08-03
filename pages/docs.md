@@ -4,10 +4,9 @@ title: DOCS
 description: "RepoDB is a production-ready data access platform for .NET applications. It is the best alternative ORM to both Dapper and EntityFramework."
 nav_order: 1
 permalink: /docs
-nav_exclude: true
 ---
 
-# Docs
+# Documentations
 {: .fs-9 }
 
 Navigate the RepoDB documentation.
@@ -20,11 +19,11 @@ Navigate the RepoDB documentation.
 
 ### {{ doc.title }}
 
-<ul>
-    {% for topic in doc.topics %}
-    <li><a href="{{ topic.url }}">{{ topic.title }}</a></li>
-    {% endfor %}
-</ul>
+| Feature/Class | Description |
+| --- | --- |
+{%- for topic in doc.topics %}
+| [{{ topic.title }}]({{ topic.url }}) | {{ topic.description }} |
+{%- endfor %}
 
 {% endif %}
 {% endfor %}

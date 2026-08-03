@@ -37,8 +37,6 @@ To use bulk operations ([BulkDelete](/operation/oracle/bulkdelete), [BulkDeleteB
 > Install-Package RepoDb.Oracle.BulkOperations
 ```
 
-For more information, visit the [installation](/tutorial/installation) page.
-
 {: .note }
 > RepoDB forces `OracleConfiguration.BindByName = true` during setup, since its generated statements always bind parameters by name.
 

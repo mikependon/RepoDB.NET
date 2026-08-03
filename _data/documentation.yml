@@ -26,21 +26,27 @@ docs:
 
   - title: "SQL Server"
     url: "/tutorial/get-started-sqlserver"
+    description: "Learn on how to work with SQL Server databases using RepoDB library."
 
   - title: "Oracle"
     url: "/tutorial/get-started-oracle"
+    description: "Learn on how to work with Oracle databases using RepoDB library."
 
   - title: "PostgreSQL"
     url: "/tutorial/get-started-postgresql"
+    description: "Learn on how to work with PostgreSQL databases using RepoDB library."
 
   - title: "MySQL"
     url: "/tutorial/get-started-mysql"
+    description: "Learn on how to work with MySQL databases using RepoDB library."
 
   - title: "SQLite"
     url: "/tutorial/get-started-sqlite"
+    description: "Learn on how to work with SQLite databases using RepoDB library."
 
   - title: "Telemetry"
     url: "/tutorial/get-started-telemetry"
+    description: "Learn on how to start capturing and publishing RepoDB operation telemetry using RepoDb.Telemetry.Default."
 
   # - title: "Installation"
   #   url: "/tutorial/installation"
@@ -54,63 +60,82 @@ docs:
 
   - title: "Batch Operations"
     url: "/feature/batchoperations"
+    description: "It is the process of making the multiple single-operations be executed against the database in one-go."
   
   - title: "Bulk Operations"
     url: "/feature/bulkoperations"
+    description: "It is the process of bringing all the data from the application into the database server at once, and at the same time, ignoring some database specific activities behind the scene. Thus gives you maximum performance during the operation."
 
   - title: "Caching"
     url: "/feature/caching"
+    description: "In general terms, a `Cache` is a component that stores an object (or its states) in any form of temporary storage that is accessible for future used. The object that is being stored can be a result of computational, operational, inputs/outputs or analytical operations and calculations."
 
   - title: "Class Handlers"
     url: "/feature/classhandlers"
+    description: "This is a feature that would allow you to handle the event during the serialization/deserialization process of the Model and the DbDataReader object (inbound/outbound)."
 
   - title: "Class Mapping"
     url: "/feature/classmapping"
+    description: "This is a feature that would allow you to map the .NET CLR type (or class properties) into its equivalent database objects and types."
 
   - title: "Connection Persistency"
     url: "/feature/connectionpersistency"
+    description: "This is a feature that enables you to manage the instance of the database connection object within the repository objects."
 
   - title: "Dynamics"
     url: "/feature/dynamics"
+    description: "This feature allows you to work with RepoDB by maximizing the usage of dynamics."
 
   - title: "Enumeration"
     url: "/feature/enumeration"
+    description: "This is a feature that enables you to work with enumerations within the class objects."
 
   - title: "Expression Trees"
     url: "/feature/expressiontrees"
+    description: "This is a feature that would allow you to compose a conditional expressions (to filter a data) when doing an operation in the database."
 
   #- title: "Field/Class Mapping"
   #  url: "/feature/fieldclassmapping"
 
   - title: "Hints"
     url: "/feature/hints"
+    description: "This is a feature that would allow you to optimize the command executions towards the database. It is a keyword that is usually being added into the SQL statements (DML) to further optimize the execution of your commands."
 
   - title: "Implicit Mapping"
     url: "/feature/implicitmapping"
+    description: "This is a feature that would allow you to implicitly map the .NET CLR objects or class properties into its equivalent object in the database. Certain mapper classes has been provided in order to avoid the usage of the attributes in the classes."
 
   - title: "Multiple Query"
     url: "/feature/multiplequery"
+    description: "This is a feature that would allow you to fetch multiple resultsets in a single call."
 
   - title: "Property Handlers"
     url: "/feature/propertyhandlers"
+    description: "This is a feature that would allow you to handle the tranformation of the class properties and database columns (inbound/outbound)."
 
   - title: "Repositories"
     url: "/feature/repositories"
+    description: "A repository is a software design pattern and practice in which it is being implemented as an additional layer between your application and your database. It is being represented as a class object within the application. Through repository, you are managing how the data is being manipulated from/to the database."
 
   - title: "Targeted Operations"
     url: "/feature/targeted"
+    description: "This feature allows you to make a targeted invocation when executing the operations againts the database."
 
   - title: "Telemetry"
     url: "/feature/telemetry"
+    description: "A feature that captures per-operation execution telemetry (SQL statement, elapsed time, session, client, source assembly) via an ITrace-based pipeline and publishes it to an insights collector."
 
   - title: "Tracing"
     url: "/feature/tracing"
+    description: "This is a feature that would allow you to log, audit and debug the command execution context (i.e.: SQL Statement, Parameters, Elapsed Time) via TraceLog class."
 
   - title: "Transaction"
     url: "/feature/transaction"
+    description: "A process of making the executions more ACID in nature."
 
   - title: "Type Mapping"
     url: "/feature/typemapping"
+    description: "This is a feature that would allow you to map the .NET CLR type into its equivalent database type."
 
 - key: operations
   title: "Operations"
@@ -121,102 +146,135 @@ docs:
 
   - title: "Average"
     url: "/operation/average"
+    description: "This method computes the average value of the target field."
   
   - title: "AverageAll"
     url: "/operation/averageall"
+    description: "This method computes the average value of the target field across all rows."
   
   - title: "BatchQuery"
     url: "/operation/batchquery"
+    description: "This method queries rows from the database in batches."
   
   - title: "BulkDelete"
     url: "/operation/sqlserver/bulkdelete"
+    description: "This method deletes rows from the database in bulk. It is supported for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) and [Oracle](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations). Oracle also has a dedicated [BulkDeleteByKey](/operation/oracle/bulkdeletebykey) operation for deleting by primary key."
   
   - title: "BulkInsert"
     url: "/operation/sqlserver/bulkinsert"
+    description: "This method inserts all rows from the client application into the database in bulk. It is supported for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) and [Oracle](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations)."
     
   - title: "BulkMerge"
     url: "/operation/sqlserver/bulkmerge"
+    description: "This method merges all rows from the client application into the database in bulk. It is supported for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) and [Oracle](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations)."
     
   - title: "BulkUpdate"
     url: "/operation/sqlserver/bulkupdate"
+    description: "This method updates all rows from the client application in the database in bulk. It is supported for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) and [Oracle](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations)."
     
   - title: "Count"
     url: "/operation/count"
+    description: "This method counts the number of rows in a table."
     
   - title: "CountAll"
     url: "/operation/countall"
+    description: "This method counts all rows in a table."
     
   - title: "Delete"
     url: "/operation/delete"
+    description: "This method deletes rows from a table."
     
   - title: "DeleteAll"
     url: "/operation/deleteall"
+    description: "This method deletes all rows, or a specified set of rows by primary key, from a table."
     
   - title: "ExecuteNonQuery"
     url: "/operation/executenonquery"
+    description: "This method executes a raw SQL statement directly against the database and returns the number of rows affected. It supports all RDBMS data providers."
   
   - title: "ExecuteQuery"
     url: "/operation/executequery"
+    description: "This method executes a raw SQL statement directly against the database and returns an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object. It supports all RDBMS data providers."
   
   - title: "ExecuteQueryMultiple"
     url: "/operation/executequerymultiple"
+    description: "This method executes multiple raw SQL statements against the database in a single round-trip and returns a [QueryMultipleExtractor](/class/querymultipleextractor) object. It supports all RDBMS data providers."
   
   - title: "ExecuteReader"
     url: "/operation/executereader"
+    description: "This method executes a raw SQL statement directly against the database and returns a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) object. It supports all RDBMS data providers."
   
   - title: "ExecuteScalar"
     url: "/operation/executescalar"
+    description: "This method executes a raw SQL statement directly against the database and returns the value of the first column of the first row from the result set. It supports all RDBMS data providers."
   
   - title: "Exists"
     url: "/operation/exists"
+    description: "This method checks whether matching rows exist in a table."
     
   - title: "Insert"
     url: "/operation/insert"
+    description: "This method inserts a data entity object as a new row in the table."
     
   - title: "InsertAll"
     url: "/operation/insertall"
+    description: "This method inserts multiple data entity objects as new rows in the table."
     
   - title: "Max"
     url: "/operation/max"
+    description: "This method computes the maximum value of the target field."
     
   - title: "MaxAll"
     url: "/operation/maxall"
+    description: "This method computes the maximum value of the target field across all rows."
 
   - title: "Merge"
     url: "/operation/merge"
+    description: "This method inserts a new row or updates an existing row in the table. It operates as an UPSERT and does not perform any deletion."
     
   - title: "MergeAll"
     url: "/operation/mergeall"
+    description: "This method inserts multiple data entity objects as new rows or updates existing rows in the table. It operates as an UPSERT and does not perform any deletion."
     
   - title: "Min"
     url: "/operation/min"
+    description: "This method computes the minimum value of the target field."
     
   - title: "MinAll"
     url: "/operation/minall"
+    description: "This method computes the minimum value of the target field across all rows."
     
   - title: "Query"
     url: "/operation/query"
+    description: "This method queries rows from a table."
     
   - title: "QueryAll"
     url: "/operation/queryall"
+    description: "This method queries all rows from a table."
     
   - title: "QueryMultiple"
     url: "/operation/querymultiple"
+    description: "This method queries data as multiple result sets from the table based on the given target types."
     
   - title: "Sum"
     url: "/operation/sum"
+    description: "This method computes the sum of the target field."
     
   - title: "SumAll"
     url: "/operation/sumall"
+    description: "This method computes the sum of the target field across all rows."
     
   - title: "Truncate"
     url: "/operation/truncate"
+    description: "This method truncates a table in the database."
     
   - title: "Update"
     url: "/operation/update"
+    description: "Updates an existing row in the table."
     
   - title: "UpdateAll"
     url: "/operation/updateall"
+    description: "Updates multiple existing rows in the table in a single call."
 
 - key: classes
   title: "Classes"
@@ -227,123 +285,163 @@ docs:
 
   - title: "BaseDbSetting"
     url: "/class/basedbsetting"
+    description: "A base class for all the database setting classes."
 
   - title: "BaseRepository"
     url: "/class/baserepository"
+    description: "A base class that is being used to implement an entity-based repositories."
 
   - title: "BaseStatementBuilder"
     url: "/class/basestatementbuilder"
+    description: "A base class for all the statement builder classes."
 
   - title: "BulkInsertMapItem"
     url: "/class/bulkinsertmapitem"
+    description: "A mapping class that is being used for bulk insert operation."
 
   - title: "CacheItem"
     url: "/class/cacheitem"
+    description: "A class that is used as an item for the cache object."
 
   - title: "CancellableTraceLog"
     url: "/class/cancellabletracelog"
+    description: "A class that is being used to cancel the current trace operation."
 
   - title: "ClassExpression"
     url: "/class/classexpression"
+    description: "A helper class to extract class properties and values."
 
   - title: "ClassProperty"
     url: "/class/classproperty"
+    description: "A container class that holds an instance of property object. It also contains all the necesarry methods that is relevant to the current property object."
 
   - title: "Constant"
     url: "/class/constant"
+    description: "A constant class that is being used by the library."
 
   - title: "Converter"
     url: "/class/converter"
+    description: "A converter class that is being used to convert an object into a specific type within the library."
 
   - title: "DataEntityDataReader"
     url: "/class/dataentitydatareader"
+    description: "A customized data reader class that is being used to handle the list of data entity objects."
 
   - title: "DataReader (Compiled)"
     url: "/class/datareader"
+    description: "The most fastest data reader extractor in .NET. It is used to extract the content of the data reader object and map it into a class object."
 
   - title: "DbField"
     url: "/class/dbfield"
+    description: "A class that contains the necessary properties that defines a database field."
 
   - title: "DbRepository"
     url: "/class/dbrepository"
+    description: "A base class that is being used to implement a repository object. This is very useful if you would like to develop a shared or database level repository."
 
   - title: "DirectionalQueryField"
     url: "/class/directionalqueryfield"
+    description: "A class that is being used to define a query expression for the SQL statement that is bi-directional."
 
   - title: "EntityMapFluentDefinition"
     url: "/class/entitymapfluentdefinition"
+    description: "A class that is being used to define a data entity level mappings (i.e.: Table, Column, Primary, Identity, DB Type and Class/Property Handler)."
 
   - title: "Field"
     url: "/class/field"
+    description: "A class that defines a context of field object."
 
   - title: "FunctionalQueryField"
     url: "/class/functionalqueryfield"
+    description: "A query field class that is being used to define a functional query expression for the SQL statement that is useful for customizations."
 
   - title: "GlobalConfiguration"
     url: "/class/globalconfiguration"
+    description: "A class that is being used to define the globalized configurations for the library."
 
   - title: "LeftQueryField"
     url: "/class/leftqueryfield"
+    description: "A query field class that is being used to define a query expression for the SQL statement using the LEFT function."
 
   - title: "LeftTrimQueryField"
     url: "/class/lefttrimqueryfield"
+    description: "A query field class that is being used to define a query expression for the SQL statement using the LTRIM function."
 
   - title: "LenQueryField"
     url: "/class/lenqueryfield"
+    description: "A query field class that is being used to define a query expression for the SQL statement using the LEN function."
 
   - title: "LengthQueryField"
     url: "/class/lengthqueryfield"
+    description: "A query field class that is being used to define a query expression for the SQL statement using the LENGTH function."
 
   - title: "LowerQueryField"
     url: "/class/lowerqueryfield"
+    description: "A query field class that is being used to define a query expression for the SQL statement using the LOWER function."
 
   - title: "MemoryCache"
     url: "/class/memorycache"
+    description: "An advance class that is being used to cache an object into a memory within the library."
 
   - title: "OrderField"
     url: "/class/orderfield"
+    description: "A class that is being used to define an ordering of the results when querying a data from the database."
 
   - title: "Parameter"
     url: "/class/parameter"
+    description: "A class that defines a parameter of the data command object."
 
   - title: "PropertyValue"
     url: "/class/propertyvalue"
+    description: "A class that holds the value of class or data entity property and its values."
 
   - title: "QueryBuilder"
     url: "/class/querybuilder"
+    description: "An advance fluent class that is being used to construct a SQL statements all throughout the library."
 
   - title: "QueryField"
     url: "/class/queryfield"
+    description: "A class that is being used to define a query expression for the SQL statement. You can define the name, operation and the value of the target expression."
 
   - title: "QueryGroup"
     url: "/class/querygroup"
+    description: "A class that is being used to group a list of query expressions for the SQL statement. You can define the conjunction to be used during the multiple query expressions."
 
   - title: "QueryMultipleExtractor"
     url: "/class/querymultipleextractor"
+    description: "A class that is being used to extract the information of the multiple resultsets returned by the ExecuteQueryMultiple operation."
 
   - title: "ResultTraceLog"
     url: "/class/resulttracelog"
+    description: "A class that handles the result of the trace operation."
 
   - title: "RightQueryField"
     url: "/class/rightqueryfield"
+    description: "A query field class that is being used to define a query expression for the SQL statement using the RIGHT function."
 
   - title: "RightTrimQueryField"
     url: "/class/righttrimqueryfield"
+    description: "A query field class that is being used to define a query expression for the SQL statement using the RTRIM function."
 
   - title: "SqlServerTableHints"
     url: "/class/sqlserver/sqlservertablehints"
+    description: "A class that contains all the SQL Server table optimizers."
 
   - title: "TraceLog"
     url: "/class/tracelog"
+    description: "A class that contains all the information of the trace."
 
   - title: "TrimQueryField"
     url: "/class/trimqueryfield"
+    description: "A query field class that is being used to define a query expression for the SQL statement using the TRIM function."
 
   - title: "TypeMapFluentDefinition"
     url: "/class/typemapfluentdefinition"
+    description: "A class that is being used to define a type-level mappings (i.e.: DB Type and Property Handler)."
 
   - title: "UpperQueryField"
     url: "/class/upperqueryfield"
+    description: "A query field class that is being used to define a query expression for the SQL statement using the UPPER function."
 
 - key: attributes
   title: "Attributes"
@@ -354,90 +452,119 @@ docs:
 
   - title: "CompareInfo (SQL Server)"
     url: "/attribute/sqlserver/compareinfo"
+    description: "This attribute sets the `SqlParameter.CompareInfo` property value via a class property."
 
   - title: "ConvertedValue (PostgreSQL)"
     url: "/attribute/postgresql/convertedvalue"
+    description: "This attribute sets the `NpgsqlParameter.ConvertedValue` property value via a class property."
 
   - title: "DataTypeName (PostgreSQL)"
     url: "/attribute/postgresql/datatypename"
+    description: "This attribute sets the `NpgsqlParameter.DataTypeName` property value via a class property."
 
   - title: "DbType"
     url: "/attribute/parameter/dbtype"
+    description: "This attribute sets the `DbParameter.DbType` property value via a class property."
 
   - title: "Direction"
     url: "/attribute/parameter/direction"
+    description: "This attribute sets the `DbParameter.Direction` property value via a class property."
 
   - title: "ForceColumnEncryption (SQL Server)"
     url: "/attribute/sqlserver/forcecolumnencryption"
+    description: "This attribute sets the `SqlParameter.ForceColumnEncryption` property value via a class property."
 
   - title: "Identity"
     url: "/attribute/identity"
+    description: "Marks a class property as the identity column of the database table."
 
   - title: "IsNullable"
     url: "/attribute/parameter/isnullable"
+    description: "This attribute sets the `DbParameter.IsNullable` property value via a class property."
 
   - title: "LocaleId (SQL Server)"
     url: "/attribute/sqlserver/localeid"
+    description: "This attribute sets the `SqlParameter.LocaleId` property value via a class property."
 
   - title: "Map"
     url: "/attribute/map"
+    description: "Maps a class or class property into its equivalent database object (table, view, or column) name."
 
   - title: "MySqlDbType (MySql.Data)"
     url: "/attribute/mysql/mysql/mysqldbtype"
+    description: "This attribute sets the `MySqlParameter.MySqlDbType` property value via a class property."
 
   - title: "MySqlDbType (MySqlConnector)"
     url: "/attribute/mysql/mysqlconnector/mysqldbtype"
+    description: "This attribute sets the `MySqlParameter.MySqlDbType` property value via a class property."
 
   - title: "Name"
     url: "/attribute/parameter/name"
+    description: "This attribute sets the `DbParameter.Name` property value via a class property."
 
   - title: "NpgsqlDbType (PostgreSQL)"
     url: "/attribute/postgresql/npgsqldbtype"
+    description: "This attribute sets the `NpgsqlParameter.NpgsqlDbType` property value via a class property."
 
   - title: "Offset (SQL Server)"
     url: "/attribute/sqlserver/offset"
+    description: "This attribute sets the `SqlParameter.Offset` property value via a class property."
 
   - title: "Precision"
     url: "/attribute/parameter/precision"
+    description: "This attribute sets the `DbParameter.Precision` property value via a class property."
 
   - title: "Primary"
     url: "/attribute/primary"
+    description: "Marks a class property as the primary key of the database table."
 
   - title: "PropertyHandler"
     url: "/attribute/propertyhandler"
+    description: "Attaches a property handler to a class property to transform its value during data extraction and command execution."
 
   - title: "PropertyValueAttribute"
     url: "/attribute/parameter/propertyvalueattribute"
+    description: "The base class for all attributes that set properties on a [DbParameter](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbparameter?view=net-6.0) object."
 
   - title: "Scale"
     url: "/attribute/parameter/scale"
+    description: "This attribute sets the `DbParameter.Scale` property value via a class property."
 
   - title: "Size"
     url: "/attribute/parameter/size"
+    description: "This attribute sets the `DbParameter.Size` property value via a class property."
 
   - title: "SqlDbType (SQL Server)"
     url: "/attribute/sqlserver/sqldbtype"
+    description: "This attribute sets the `SqlParameter.SqlDbType` property value via a class property."
 
   - title: "SqliteType (SQLite)"
     url: "/attribute/sqlite/sqlitetype"
+    description: "This attribute sets the `SqliteParameter.SqliteType` property value via a class property."
 
   - title: "TypeMap"
     url: "/attribute/typemap"
+    description: "Maps a class property into a specific database type (e.g. DbType)."
     
   - title: "TypeName (SQL Server)"
     url: "/attribute/sqlserver/typename"
+    description: "This attribute sets the `SqlParameter.TypeName` property value via a class property."
 
   - title: "UdtTypeName (SQL Server)"
     url: "/attribute/sqlserver/udttypename"
+    description: "This attribute sets the `SqlParameter.UdtTypeName` property value via a class property."
 
   - title: "XmlSchemaCollectionDatabase (SQL Server)"
     url: "/attribute/sqlserver/xmlschemacollectiondatabase"
+    description: "This attribute sets the `SqlParameter.XmlSchemaCollectionDatabase` property value via a class property."
 
   - title: "XmlSchemaCollectionName (SQL Server)"
     url: "/attribute/sqlserver/xmlschemacollectionname"
+    description: "This attribute sets the `SqlParameter.XmlSchemaCollectionName` property value via a class property."
 
   - title: "XmlSchemaCollectionOwningSchema (SQL Server)"
     url: "/attribute/sqlserver/xmlschemacollectionowningschema"
+    description: "This attribute sets the `SqlParameter.XmlSchemaCollectionOwningSchema` property value via a class property."
 
 - key: enumerations
   title: "Enumerations"
@@ -448,30 +575,39 @@ docs:
 
   - title: "Conjunction"
     url: "/enumeration/conjunction"
+    description: "A enumeration that defines the conjunctions to be used when composing a query expression."
 
   - title: "ConnectionPersistency"
     url: "/enumeration/connectionpersistency"
+    description: "A enumeration that defines the persistency of the database connection object when working with repository."
 
   - title: "ConversionType"
     url: "/enumeration/conversiontype"
+    description: "A enumeration that defines the type of conversion to be used when extracting a data from/to the database."
 
   - title: "KeyColumnReturnBehavior"
     url: "/enumeration/keycolumnreturnbehavior"
+    description: "A enumeration that defines the type of conversion to be used when extracting a data from/to the database."
 
   - title: "Operation"
     url: "/enumeration/operation"
+    description: "A enumeration that defines the different operations that can be used when composing a query expression."
 
   - title: "Order"
     url: "/enumeration/order"
+    description: "A enumeration that defines the list of ordering when querying a data from the database."
 
   - title: "PostgreSqlBulkImportIdentityBehavior"
     url: "/enumeration/postgresql/postgresqlbulkimportidentitybehavior"
+    description: "An enumeration that is being used to define the behavior of the identity property/column when an entity is being bulk-imported towards the target table."
 
   - title: "PostgreSqlBulkImportMergeCommandType"
     url: "/enumeration/postgresql/postgresqlbulkimportmergecommandtype"
+    description: "A enumeration that is being used to define the command text to use when executing the BulkMerge operation."
 
   - title: "PostgreSqlBulkImportPseudoTableType"
     url: "/enumeration/postgresql/postgresqlbulkimportpseudotabletype"
+    description: "An enumeration that is being used to define the type of pseudo-temporary table to be created during the bulk-import operations."
 
 - key: interfaces
   title: "Interfaces"
@@ -482,27 +618,35 @@ docs:
 
   - title: "ICache"
     url: "/interface/icache"
+    description: "This interface is used to mark a class to be a cache object. It gives you the full control on the implementations of your own cache object (i.e.: File Caching, SqLite Caching, XML Caching, Memory Caching, etc)."
 
   - title: "IDbHelper"
     url: "/interface/idbhelper"
+    description: "This interface is used to mark a class to be a database helper object. It is very useful if you would like optimize and override the default implementation of the library (i.e.: retrieving the list of fields, retrieving newly generated identity)."
 
   - title: "IDbSetting"
     url: "/interface/idbsetting"
+    description: "This interface is used to mark a class to be a database setting object. It allows you to control the behavior of the library on a specific RDBMS data provider based on the value you provided on the properties this class."
 
   - title: "IExpirable"
     url: "/interface/iexpirable"
+    description: "This interface is used to make a class expirable in a contextual point of view. Is is used by [CacheItem](/class/cacheitem) class."
 
   - title: "IPropertyHandler"
     url: "/interface/ipropertyhandler"
+    description: "This interface marks a class as a property handler. It exposes `TInput` and `TResult` generic type parameters used by both the `Get()` and `Set()` methods."
 
   - title: "IResolver"
     url: "/interface/iresolver"
+    description: "This interface is used to mark a class to be a resolver object. This interface accepts upto the maximum 7 input generic types and 1 output generic type."
 
   - title: "IStatementBuilder"
     url: "/interface/istatementbuilder"
+    description: "This interface is used to mark a class to be a statement builder object. I provides necessary methods for your to be able to override the way how the SQL statements are being constructed."
 
   - title: "ITrace"
     url: "/interface/itrace"
+    description: "This interface is used to mark a class to be a trace object."
 
 - key: cachers
   title: "Cachers"
@@ -513,36 +657,47 @@ docs:
 
   - title: "ClassMappedNameCache"
     url: "/cacher/classmappednamecache"
+    description: "A class that is being used to retrieve the cached name of the class or data entity."
     
   - title: "CommandTextCache"
     url: "/cacher/commandtextcache"
+    description: "A class that is being used to retrieve the cached command texts within RepoDB library."
     
   - title: "DbFieldCache"
     url: "/cacher/dbfieldcache"
+    description: "A class that is being used to retrieve the cached database fields of the class or data entity."
 
   - title: "FieldCache"
     url: "/cacher/fieldcache"
+    description: "A class that is being used to retrieve the cached fields or properties of the class or data entity."
 
   - title: "IdentityCache"
     url: "/cacher/identitycache"
+    description: "A class that is being used to retrieve the cached identity field of the class or data entity."
 
   - title: "PrimaryCache"
     url: "/cacher/primarycache"
+    description: "A class that is being used to retrieve the cached primary field of the class or data entity."
 
   - title: "PropertyCache"
     url: "/cacher/propertycache"
+    description: "A class that is being used to retrieve the cached properties of the class or data entity."
 
   - title: "PropertyHandlerCache"
     url: "/cacher/propertyhandlercache"
+    description: "A class that is being used to retrieve the cached property handler of the class or data entity property."
 
   - title: "PropertyMappedNameCache"
     url: "/cacher/propertymappednamecache"
+    description: "A class that is being used to retrieve the cached name of the class or data entity property."
 
   - title: "PropertyValueAttributeCache"
     url: "/cacher/propertyvalueattributecache"
+    description: "A class that is being used to retrieve the cached attributes of the property."
 
   - title: "TypeMapCache"
     url: "/cacher/typemapcache"
+    description: "A class that is being used to retrieve the cached mapped database type of the class or data entity property."
 
 - key: mappers
   title: "Mappers"
@@ -553,39 +708,51 @@ docs:
 
   - title: "ClassMapper"
     url: "/mapper/classmapper"
+    description: "A mapper class that is being used to map the class into its equivalent object in the database (i.e.: Table, View). This class is used as an alternative to Map attribute."
     
   - title: "ClassHandlerMapper"
     url: "/mapper/classhandlermapper"
+    description: "A class that is being used to map a class handler into a class. This class is used as an alternative to ClassHandler attribute."
   
   - title: "DbHelperMapper"
     url: "/mapper/dbhelpermapper"
+    description: "A mapper class for all the database helper classes. The mapping can be made based on the type of the target RDBMS data provider."
     
   - title: "DbSettingMapper"
     url: "/mapper/dbsettingmapper"
+    description: "A mapper class for all the database setting classes. The mapping can be made based on the type of the target RDBMS data provider."
     
   - title: "FluentMapper"
     url: "/mapper/fluentmapper"
+    description: "A class that is being used to define a mapping for the target data entity in a fluent way."
     
   - title: "IdentityMapper"
     url: "/mapper/identitymapper"
+    description: "A mapper class that is being used to map a class property to be an identity property. This class is used as an alternative to Identity attribute."
     
   - title: "PrimaryMapper"
     url: "/mapper/primarymapper"
+    description: "A mapper class that is being used to map a class property to be primary property. This class is used as an alternative to Primary attribute."
     
   - title: "PropertyMapper"
     url: "/mapper/propertymapper"
+    description: "A mapper class that is being used to map the class property into its equivalent column in the database. This class is used as an alternative to Map attribute."
     
   - title: "PropertyHandlerMapper"
     url: "/mapper/propertyhandlermapper"
+    description: "A class that is being used to map a property handler into a .NET CLR type or a class property. This class is used as an alternative to PropertyHandler attribute."
     
   - title: "PropertyValueAttributeMapper"
     url: "/mapper/propertyvalueattributemapper"
+    description: "A mapper class that is being used to map the list PropertyValueAttribute objects into a class property. This class is used as an alternative to the PropertyValueAttribute attributes."
     
   - title: "StatementBuilderMapper"
     url: "/mapper/statementbuildermapper"
+    description: "A mapper class for all the statement builder classes. The mapping can be made based on the type of the target RDBMS data provider."
     
   - title: "TypeMapper"
     url: "/mapper/typemapper"
+    description: "A class that is being used to map a .NET CLR type or class property into its equivalent database type. This class is used as an alternative to TypeMap attribute."
     
 - key: extensibilities
   title: "Extensibilities"

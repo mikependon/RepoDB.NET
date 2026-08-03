@@ -43,8 +43,6 @@ For versions prior to 1.13.0, use the bootstrapper below.
 RepoDb.PostgreSqlBootstrap.Initialize();
 ```
 
-For more information, visit the [installation](/tutorial/installation) page.
-
 ## Create a Table
 
 The examples below assume the following table exists in the database.
