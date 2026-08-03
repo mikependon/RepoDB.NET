@@ -44,6 +44,7 @@ Deprecated Enumerations
 Deprecated Bulk Operation Methods
 {: .label .label-yellow }
 
+- `BinaryImport` is deprecated in favor of [BulkInsert](/operation/postgresql/bulkinsert).
 - `BinaryBulkDelete` is deprecated in favor of [BulkDelete](/operation/postgresql/bulkdelete).
 - `BinaryBulkDeleteByKey` is deprecated in favor of [BulkDeleteByKey](/operation/postgresql/bulkdeletebykey).
 - `BinaryBulkInsert` is deprecated in favor of [BulkInsert](/operation/postgresql/bulkinsert).

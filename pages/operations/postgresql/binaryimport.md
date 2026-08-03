@@ -6,11 +6,16 @@ permalink: /operation/postgresql/binaryimport
 tags: [repodb, tutorial, binaryimport, orm, hybrid-orm, sqlserver]
 parent: "PostgreSQL"
 grand_parent: OPERATIONS
+nav_exclude: true
+search_exclude: true
 ---
 
 # BinaryImport
 
 ---
+
+{: .warning }
+> This operation is deprecated in favor of [BulkInsert](/operation/postgresql/bulkinsert). See the [v0.0.1 release notes](/release/postgresqlbulk#repodbpostgresqlbulkoperations-v001) for details.
 
 This method inserts multiple rows into the database in bulk. It is supported only for [PostgreSQL](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations).
 

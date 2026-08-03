@@ -128,9 +128,6 @@ docs:
   - title: "BatchQuery"
     url: "/operation/batchquery"
   
-  - title: "BinaryImport"
-    url: "/operation/postgresql/binaryimport"
-  
   - title: "BulkDelete"
     url: "/operation/sqlserver/bulkdelete"
   
