@@ -12,7 +12,10 @@ grand_parent: OPERATIONS
 
 ---
 
-This method deletes rows from the database in bulk. It is supported for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) and [Oracle](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations). Oracle also has a dedicated [BulkDeleteByKey](/operation/oracle/bulkdeletebykey) operation for deleting by primary key.
+This method deletes rows from the database in bulk. It is supported for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) and [Oracle](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations).
+
+{: .warning }
+> Deleting by a list of primary keys is no longer supported directly through this method. Use the dedicated [BulkDeleteByKey](/operation/sqlserver/bulkdeletebykey) method instead.
 
 {: .note }
 > The examples below target SQL Server. For the Oracle-specific arguments (`pseudoTableType`) and examples, see [BulkDelete (Oracle)](/operation/oracle/bulkdelete).

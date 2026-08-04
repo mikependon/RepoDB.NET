@@ -23,6 +23,13 @@ New
 
 - Introduced [SqlServerBulkInsertMapItem](/class/sqlserver/sqlserverbulkinsertmapitem), a SQL Server-specific column mapping class for the `mappings` argument of [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge), [BulkUpdate](/operation/sqlserver/bulkupdate) and [BulkDelete](/operation/sqlserver/bulkdelete) — keeps the mapping API consistent with [PostgreSqlBulkInsertMapItem](/class/postgresql/postgresqlbulkinsertmapitem) and [OracleBulkInsertMapItem](/class/oracle/oraclebulkinsertmapitem). The base [BulkInsertMapItem](/class/bulkinsertmapitem) class remains equally accepted.
 
+Breaking
+{: .label .label-red }
+
+- Replaced the `isReturnIdentity` argument with the `SqlServerBulkImportIdentityBehavior` enumeration (via the new `identityBehavior` argument) across [BulkInsert](/operation/sqlserver/bulkinsert) and [BulkMerge](/operation/sqlserver/bulkmerge). Callers passing a `bool` must switch to `SqlServerBulkImportIdentityBehavior.ReturnIdentity` or `SqlServerBulkImportIdentityBehavior.Unspecified`.
+- Replaced the `usePhysicalPseudoTempTable` argument with the `SqlServerBulkImportPseudoTableType` enumeration (via the new `pseudoTableType` argument) across [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge), [BulkUpdate](/operation/sqlserver/bulkupdate) and [BulkDelete](/operation/sqlserver/bulkdelete). Callers passing a `bool` must switch to `SqlServerBulkImportPseudoTableType.Physical` or `SqlServerBulkImportPseudoTableType.Temporary`.
+- Separated the `primaryKeys`-based overload of [BulkDelete](/operation/sqlserver/bulkdelete) into a new, dedicated `BulkDeleteByKey` method. Existing calls to `BulkDelete` that pass a list of primary keys must be updated to call [BulkDeleteByKey](/operation/sqlserver/bulkdeletebykey) instead.
+
 
 ## RepoDb.SqlServer.BulkOperations (v1.15.0)
 
