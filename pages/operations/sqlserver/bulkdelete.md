@@ -126,6 +126,19 @@ using (var sourceConnection = new SqlConnection(sourceConnectionString))
 }
 ```
 
+To bulk-delete via [DataEntityDataReader](/class/dataentitydatareader):
+
+```csharp
+using (var connection = new SqlConnection(connectionString))
+{
+    var people = connection.Query<Person>(e => e.IsActive == false);
+    using (var reader = new DataEntityDataReader<Person>(people))
+    {
+        var deletedRows = connection.BulkDelete<Person>(reader);
+    }
+}
+```
+
 ## Targeting a Table
 
 To target a specific table, pass the literal table name.

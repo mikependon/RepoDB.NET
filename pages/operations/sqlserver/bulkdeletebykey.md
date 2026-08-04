@@ -85,6 +85,26 @@ using (var connection = new SqlConnection(connectionString))
 {: .important }
 > If `batchSize` is not set, all items in the collection are sent at once.
 
+#### DataReader
+
+```csharp
+using (var sourceConnection = new SqlConnection(sourceConnectionString))
+{
+    using (var reader = sourceConnection.ExecuteReader("SELECT [Id] FROM [dbo].[Person] WHERE (IsActive = 0);"))
+    {
+        var primaryKeys = new List<int>();
+        while (reader.Read())
+        {
+            primaryKeys.Add(reader.GetInt32(0));
+        }
+        using (var destinationConnection = new SqlConnection(destinationConnectionString))
+        {
+            var deletedRows = destinationConnection.BulkDeleteByKey<Person>(primaryKeys);
+        }
+    }
+}
+```
+
 ## Targeting a Table
 
 To target a specific table, pass the literal table name.
