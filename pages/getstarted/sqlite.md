@@ -31,12 +31,6 @@ GlobalConfiguration
 	.UseSqlite();
 ```
 
-For versions prior to 1.13.0, use the bootstrapper below.
-
-```csharp
-RepoDb.SqliteBootstrap.Initialize();
-```
-
 ## Create a Table
 
 The examples below assume the following table exists in the database.

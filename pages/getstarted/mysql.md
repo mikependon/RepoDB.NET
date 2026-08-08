@@ -33,10 +33,10 @@ GlobalConfiguration
 	.UseMySql();
 ```
 
-For versions prior to 1.13.0, use the bootstrapper below.
+To use bulk operations ([BulkDelete](/operation/mysql/bulkdelete), [BulkDeleteByKey](/operation/mysql/bulkdeletebykey), [BulkInsert](/operation/mysql/bulkinsert), [BulkMerge](/operation/mysql/bulkmerge) and [BulkUpdate](/operation/mysql/bulkupdate)), install the [RepoDb.MySql.BulkOperations](https://www.nuget.org/packages/RepoDb.MySql.BulkOperations) package.
 
 ```csharp
-RepoDb.MySqlBootstrap.Initialize();
+> Install-Package RepoDb.MySql.BulkOperations
 ```
 
 ### MySqlConnector
@@ -53,10 +53,10 @@ GlobalConfiguration
 	.UseMySqlConnector();
 ```
 
-For versions prior to 1.13.0, use the bootstrapper below.
+To use bulk operations ([BulkDelete](/operation/mysqlconnector/bulkdelete), [BulkDeleteByKey](/operation/mysqlconnector/bulkdeletebykey), [BulkInsert](/operation/mysqlconnector/bulkinsert), [BulkMerge](/operation/mysqlconnector/bulkmerge) and [BulkUpdate](/operation/mysqlconnector/bulkupdate)), install the [RepoDb.MySql.BulkOperations](https://www.nuget.org/packages/RepoDb.MySqlConnector.BulkOperations) package.
 
 ```csharp
-RepoDb.MySqlConnectorBootstrap.Initialize();
+> Install-Package RepoDb.MySqlConnector.BulkOperations
 ```
 
 ## Create a Table
