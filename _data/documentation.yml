@@ -865,6 +865,9 @@ docs:
   - title: "MySQL (MySqlConnector)"
     url: "/release/mysqlconnector"
 
+  - title: "MySqlConnector (Bulk)"
+    url: "/release/mysqlconnectorbulk"
+
   - title: "PostgreSQL"
     url: "/release/postgresql"
 
