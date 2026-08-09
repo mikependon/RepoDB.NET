@@ -14,6 +14,17 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Sqlite.Microsoft).
 
+## RepoDb.Sqlite.Microsoft (v1.16.0)
+
+Released: TBA
+
+New
+{: .label .label-green }
+
+- Added the [MultiStatementSeparator](/class/basedbsetting) property to the [IDbSetting](/interface/idbsetting) interface. [#1241](https://github.com/mikependon/RepoDB/issues/1241)
+- Referenced the `RepoDb` package `v1.16.0`.
+
+
 ## RepoDb.Sqlite.Microsoft (v1.15.0)
 
 - Referenced the `RepoDb` package `v1.15.0`.

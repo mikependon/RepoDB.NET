@@ -14,6 +14,17 @@ parent: RELEASES
 
 Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the actual Nuget package. Otherwise, please click [here](https://www.nuget.org/api/v2/package/RepoDb.SqlServer) to download it.
 
+## RepoDb.SqlServer (v1.16.0)
+
+Released: TBA
+
+New
+{: .label .label-green }
+
+- Added the [MultiStatementSeparator](/class/basedbsetting) property to the [IDbSetting](/interface/idbsetting) interface. [#1241](https://github.com/mikependon/RepoDB/issues/1241)
+- Referenced the `RepoDb` package `v1.16.0`.
+
+
 ## RepoDb.SqlServer (v1.15.1)
 
 - Bug: [InsertAllAsync](/operation/insertall) throws an exception in `v1.14.0`. [#1233](https://github.com/mikependon/RepoDB/issues/1233)

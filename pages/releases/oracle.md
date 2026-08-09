@@ -14,6 +14,17 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Oracle) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Oracle).
 
+## RepoDb.Oracle (v0.0.2-beta1) - Preview
+
+Released: TBA
+
+New
+{: .label .label-green }
+
+- Added the [MultiStatementSeparator](/class/basedbsetting) property to the [IDbSetting](/interface/idbsetting) interface. [#1241](https://github.com/mikependon/RepoDB/issues/1241)
+- Referenced the `RepoDb` package `v1.16.0`.
+
+
 ## RepoDb.Oracle (v0.0.1-beta1) - Preview
 
 Released: August 1, 2026
