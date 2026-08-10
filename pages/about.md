@@ -44,8 +44,7 @@ Know more about us and the library!
 ### Official Channels
 
 - [GitHub](https://github.com/mikependon/RepoDb/issues) - for any issues, requests and problems.
-- [StackOverflow](https://stackoverflow.com/search?tab=newest&q=RepoDB) - for any technical questions.
-- [Twitter](https://twitter.com/search?q=%23repodb) - for the latest news.
+- [X / Twitter](https://x.com/mike_pendon) - for the latest news.
 - [Microsoft Teams](https://teams.live.com/l/community/FEAIJp5q65nfiiWsQ) - for direct and live Q&A.
 
 ### License
