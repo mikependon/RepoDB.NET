@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "SQLite"
-nav_order: 6
+nav_order: 7
 has_children: true
 permalink: /class/sqlite
 parent: CLASSES

@@ -40,6 +40,10 @@ docs:
     url: "/tutorial/get-started-mysql"
     description: "Learn on how to work with MySQL databases using RepoDB library."
 
+  - title: "Db2"
+    url: "/tutorial/get-started-db2"
+    description: "Learn on how to work with IBM Db2 databases using RepoDB library."
+
   - title: "SQLite"
     url: "/tutorial/get-started-sqlite"
     description: "Learn on how to work with SQLite databases using RepoDB library."
@@ -462,6 +466,10 @@ docs:
   description: "Below are the list of attributes available."
   topics:
 
+  - title: "ArrayLength (Db2)"
+    url: "/attribute/db2/arraylength"
+    description: "This attribute sets the `DB2Parameter.ArrayLength` property value via a class property."
+
   - title: "CompareInfo (SQL Server)"
     url: "/attribute/sqlserver/compareinfo"
     description: "This attribute sets the `SqlParameter.CompareInfo` property value via a class property."
@@ -473,6 +481,14 @@ docs:
   - title: "DataTypeName (PostgreSQL)"
     url: "/attribute/postgresql/datatypename"
     description: "This attribute sets the `NpgsqlParameter.DataTypeName` property value via a class property."
+
+  - title: "Db2Type (Db2)"
+    url: "/attribute/db2/db2type"
+    description: "This attribute sets the `DB2Parameter.DB2Type` property value via a class property."
+
+  - title: "Db2TypeOutput (Db2)"
+    url: "/attribute/db2/db2typeoutput"
+    description: "This attribute sets the `DB2Parameter.DB2TypeOutput` property value via a class property."
 
   - title: "DbType"
     url: "/attribute/parameter/dbtype"
@@ -490,9 +506,17 @@ docs:
     url: "/attribute/identity"
     description: "Marks a class property as the identity column of the database table."
 
+  - title: "IsDefault (Db2)"
+    url: "/attribute/db2/isdefault"
+    description: "This attribute sets the `DB2Parameter.IsDefault` property value via a class property."
+
   - title: "IsNullable"
     url: "/attribute/parameter/isnullable"
     description: "This attribute sets the `DbParameter.IsNullable` property value via a class property."
+
+  - title: "IsUnassigned (Db2)"
+    url: "/attribute/db2/isunassigned"
+    description: "This attribute sets the `DB2Parameter.IsUnassigned` property value via a class property."
 
   - title: "LocaleId (SQL Server)"
     url: "/attribute/sqlserver/localeid"
@@ -545,6 +569,18 @@ docs:
   - title: "Size"
     url: "/attribute/parameter/size"
     description: "This attribute sets the `DbParameter.Size` property value via a class property."
+
+  - title: "SourceColumn (Db2)"
+    url: "/attribute/db2/sourcecolumn"
+    description: "This attribute sets the `DB2Parameter.SourceColumn` property value via a class property."
+
+  - title: "SourceColumnNullMapping (Db2)"
+    url: "/attribute/db2/sourcecolumnnullmapping"
+    description: "This attribute sets the `DB2Parameter.SourceColumnNullMapping` property value via a class property."
+
+  - title: "SourceVersion (Db2)"
+    url: "/attribute/db2/sourceversion"
+    description: "This attribute sets the `DB2Parameter.SourceVersion` property value via a class property."
 
   - title: "SqlDbType (SQL Server)"
     url: "/attribute/sqlserver/sqldbtype"
@@ -873,6 +909,12 @@ docs:
 
   - title: "PostgreSQL (Bulk)"
     url: "/release/postgresqlbulk"
+
+  - title: "Db2"
+    url: "/release/db2"
+
+  - title: "Db2 (Bulk)"
+    url: "/release/db2bulk"
 
   - title: "Telemetry (Core)"
     url: "/release/telemetry-core"

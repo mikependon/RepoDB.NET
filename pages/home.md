@@ -73,10 +73,11 @@ RepoDB's [Telemetry](/feature/telemetry) feature captures per-operation executio
 Choose a database to get started quickly:
 
 - [SQL Server](/tutorial/get-started-sqlserver)
-- [SQLite](/tutorial/get-started-sqlite)
-- [MySQL](/tutorial/get-started-mysql)
+- [Oracle](/tutorial/get-started-oracle)
 - [PostgreSQL](/tutorial/get-started-postgresql)
-- [Oracle](/tutorial/get-started-oracle) **New**{: .label .label-green }
+- [MySQL](/tutorial/get-started-mysql)
+- [Db2](/tutorial/get-started-db2) **New**{: .label .label-green }
+- [SQLite](/tutorial/get-started-sqlite)
 - [Telemetry](/tutorial/get-started-telemetry)
 
 For setup instructions, visit the [installation](/tutorial/installation) page. For a full topic index, visit the [docs](/docs) page.
