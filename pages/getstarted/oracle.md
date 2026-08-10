@@ -27,8 +27,8 @@ After installation, call the globalized setup method to initialize all dependenc
 
 ```csharp
 GlobalConfiguration
-	.Setup()
-	.UseOracle();
+    .Setup()
+    .UseOracle();
 ```
 
 To use bulk operations ([BulkDelete](/operation/oracle/bulkdelete), [BulkDeleteByKey](/operation/oracle/bulkdeletebykey), [BulkInsert](/operation/oracle/bulkinsert), [BulkMerge](/operation/oracle/bulkmerge) and [BulkUpdate](/operation/oracle/bulkupdate)), install the [RepoDb.Oracle.BulkOperations](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations) package.

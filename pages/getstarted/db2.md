@@ -50,8 +50,8 @@ After installation, call the globalized setup method to initialize all dependenc
 
 ```csharp
 GlobalConfiguration
-	.Setup()
-	.UseDb2();
+    .Setup()
+    .UseDb2();
 ```
 
 To use bulk operations ([BulkDelete](/operation/db2/bulkdelete), [BulkDeleteByKey](/operation/db2/bulkdeletebykey), [BulkInsert](/operation/db2/bulkinsert), [BulkMerge](/operation/db2/bulkmerge) and [BulkUpdate](/operation/db2/bulkupdate)), install the [RepoDb.Db2.BulkOperations](https://www.nuget.org/packages/RepoDb.Db2.BulkOperations) package.

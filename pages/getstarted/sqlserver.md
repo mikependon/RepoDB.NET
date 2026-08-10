@@ -27,8 +27,8 @@ After installation, call the globalized setup method to initialize all dependenc
 
 ```csharp
 GlobalConfiguration
-	.Setup()
-	.UseSqlServer();
+    .Setup()
+    .UseSqlServer();
 ```
 
 For versions prior to 1.13.0, use the bootstrapper below.

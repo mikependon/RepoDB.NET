@@ -29,8 +29,8 @@ After installation, call the globalized setup method to initialize all dependenc
 
 ```csharp
 GlobalConfiguration
-	.Setup()
-	.UseMySql();
+    .Setup()
+    .UseMySql();
 ```
 
 To use bulk operations ([BulkDelete](/operation/mysql/bulkdelete), [BulkDeleteByKey](/operation/mysql/bulkdeletebykey), [BulkInsert](/operation/mysql/bulkinsert), [BulkMerge](/operation/mysql/bulkmerge) and [BulkUpdate](/operation/mysql/bulkupdate)), install the [RepoDb.MySql.BulkOperations](https://www.nuget.org/packages/RepoDb.MySql.BulkOperations) package.
@@ -49,8 +49,8 @@ After installation, call the globalized setup method to initialize all dependenc
 
 ```csharp
 GlobalConfiguration
-	.Setup()
-	.UseMySqlConnector();
+    .Setup()
+    .UseMySqlConnector();
 ```
 
 To use bulk operations ([BulkDelete](/operation/mysqlconnector/bulkdelete), [BulkDeleteByKey](/operation/mysqlconnector/bulkdeletebykey), [BulkInsert](/operation/mysqlconnector/bulkinsert), [BulkMerge](/operation/mysqlconnector/bulkmerge) and [BulkUpdate](/operation/mysqlconnector/bulkupdate)), install the [RepoDb.MySql.BulkOperations](https://www.nuget.org/packages/RepoDb.MySqlConnector.BulkOperations) package.

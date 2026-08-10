@@ -33,8 +33,8 @@ After installation, call the globalized setup method to initialize all dependenc
 
 ```csharp
 GlobalConfiguration
-	.Setup()
-	.UsePostgreSql();
+    .Setup()
+    .UsePostgreSql();
 ```
 
 ## Create a Table

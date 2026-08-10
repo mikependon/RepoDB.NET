@@ -27,8 +27,8 @@ After installation, call the globalized setup method to initialize all dependenc
 
 ```csharp
 GlobalConfiguration
-	.Setup()
-	.UseSqlite();
+    .Setup()
+    .UseSqlite();
 ```
 
 ## Create a Table
