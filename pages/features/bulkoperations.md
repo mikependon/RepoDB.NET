@@ -27,6 +27,7 @@ Bulk operations are available for the following providers, each via its own exte
 - [SQL Server](/operation/sqlserver) — via [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations), built on ADO.NET's [SqlBulkCopy](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlbulkcopy).
 - [Oracle](/operation/oracle) — via [RepoDb.Oracle.BulkOperations](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations), built on ODP.NET's [OracleBulkCopy](https://docs.oracle.com/en/database/oracle/oracle-data-access-components/23.9/odpnt/OracleBulkCopyClass.html).
 - [PostgreSQL](/operation/postgresql) — via [RepoDb.PostgreSql.BulkOperations](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations), built on Npgsql's [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) (exposed as the `BinaryBulk*` methods).
+- [Db2](/operation/db2) — via [RepoDb.Db2.BulkOperations](https://www.nuget.org/packages/RepoDb.Db2.BulkOperations), built on the IBM Data Server .NET Provider's [DB2BulkCopy](https://www.ibm.com/docs/en/db2/11.5?topic=classes-db2bulkcopy-class).
 
 Each provider page linked above documents its own underlying mechanics, generated SQL statements, special arguments, and identity-setting alignment, since the implementation differs per ADO.NET driver.
 
@@ -36,6 +37,7 @@ Regardless of provider, the bulk operations share the same shape:
 
 - **Supported inputs** — `System.DataTable`, `System.Data.Common.DbDataReader`, `IEnumerable<T>`, `ExpandoObject`, and `IDictionary<string, object>` can all be passed as the data source.
 - **Qualifiers** — the delete/merge/update variants accept a `qualifiers` argument (a list of [Field](/class/field) objects) to control matching. When omitted, the primary key is used.
+- **BulkDeleteByKey** — every provider, including [Db2](/operation/db2/bulkdeletebykey), also exposes a dedicated `BulkDeleteByKey` operation, which deletes rows by a list of primary key values directly instead of requiring full entities.
 - **BatchSize** — a `batchSize` argument overrides how many rows are wired up to the server per round-trip. By default, all rows are sent in one go.
 - **Async methods** — every synchronous operation has an equivalent `Async` counterpart.
 - **Staging (pseudo) tables** — delete/merge/update operations write to a temporary staging table first (under a transaction), then cascade the changes to the real table via a provider-specific SQL statement.
