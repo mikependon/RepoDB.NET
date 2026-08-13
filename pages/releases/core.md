@@ -25,6 +25,10 @@ New
 - Added `InternalsVisibleTo` entries for `RepoDb.Db2` and `RepoDb.Db2.BulkOperations` in the `RepoDb.Core` project, following the same pattern already used to expose internals to the other provider and bulk-operation packages (`RepoDb.SqlServer.BulkOperations`, `RepoDb.Oracle`, `RepoDb.Oracle.BulkOperations`, `RepoDb.PostgreSql.BulkOperations`, `RepoDb.MySql.BulkOperations`, `RepoDb.MySqlConnector.BulkOperations`). This allows the new, in-progress IBM Db2 provider to reuse `RepoDb.Core`'s internal implementation details rather than duplicating them. [#1241](https://github.com/mikependon/RepoDB/issues/1241)
 - Set the default value of the `order` argument to `Order.Ascending` on the [OrderField](/class/orderfield) constructor.
 
+Breaking
+{: .label .label-red }
+
+- Made the `where` argument required (removed its default `null` value) on the `Average`, `BatchQuery`, `Count`, `Max`, `Min`, `SkipQuery` and `Sum` operations, across the `BaseRepository`, `DbRepository` and `DbConnection` objects and extensions. [#1266](https://github.com/mikependon/RepoDB/issues/1266)
 
 ## RepoDb (v1.15.1)
 
