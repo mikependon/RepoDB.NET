@@ -28,7 +28,19 @@ Breaking
 {: .label .label-red }
 
 - Made the `where` argument required (removed its default `null` value) on the `Average`, `BatchQuery`, `Count`, `Max`, `Min`, `SkipQuery` and `Sum` operations, across the `BaseRepository`, `DbRepository` and `DbConnection` objects and extensions. [#1266](https://github.com/mikependon/RepoDB/issues/1266)
-
+- Reworked the automatic conversion logic in [Converter](/class/converter).ToType<T>(). A `null` or `DBNull` scalar result now raises a clearer `InvalidCastException` naming both the offending value and the target type, unless `GlobalConfiguration.Options.ConversionType` is set to `Automatic`, the target is a reference/by-ref type, or the target is `System.Object` - in those cases the type's `default` value is returned instead. The [Exists](/operation/exists) operation now always forces the automatic conversion for its underlying scalar result (returning `false` when nothing is found), regardless of the global `ConversionType` setting, since a missing row is a valid outcome rather than a conversion failure. Failed type conversions (e.g. an incompatible value passed to `Convert.ChangeType`) also now surface as an `InvalidCastException` with a descriptive message instead of the underlying runtime exception. This impacts the following `DbConnection` extension operations (sync and async overloads alike):
+  - [ExecuteScalar](/operation/executescalar) / `ExecuteScalarAsync`
+  - [Average](/operation/average) / `AverageAsync`
+  - [AverageAll](/operation/averageall) / `AverageAllAsync`
+  - [Count](/operation/count) / `CountAsync`
+  - [CountAll](/operation/countall) / `CountAllAsync`
+  - [Exists](/operation/exists) / `ExistsAsync`
+  - [Max](/operation/max) / `MaxAsync`
+  - [MaxAll](/operation/maxall) / `MaxAllAsync`
+  - [Min](/operation/min) / `MinAsync`
+  - [MinAll](/operation/minall) / `MinAllAsync`
+  - [Sum](/operation/sum) / `SumAsync`
+  - [SumAll](/operation/sumall) / `SumAllAsync`
 
 Enhancements
 {: .label .label-blue }
