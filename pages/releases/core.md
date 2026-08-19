@@ -48,6 +48,7 @@ Enhancements
 - Added missing `BatchQueryAsync<TEntity>(string tableName, ..., QueryGroup where, ...)` overload to DbRepository to match its existing sync counterpart.
 - Added missing `SkipQueryAsync<TEntity>(string tableName, ..., QueryGroup where, ...)` overload to DbRepository to match its existing sync counterpart.
 Added missing sync `Exists<TWhat>(TWhat what, ...)` overload to BaseRepository to match its existing async counterpart.
+- Deprecated the [BaseDbSetting](/classes/basedbsetting) property named `AverageableType`.
 
 ## RepoDb (v1.15.1)
 
