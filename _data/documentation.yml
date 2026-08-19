@@ -40,6 +40,10 @@ docs:
     url: "/tutorial/get-started-mysql"
     description: "Learn on how to work with MySQL databases using RepoDB library."
 
+  - title: "MariaDB"
+    url: "/tutorial/get-started-mariadb"
+    description: "Learn on how to work with MariaDB databases using RepoDB library."
+
   - title: "Db2"
     url: "/tutorial/get-started-db2"
     description: "Learn on how to work with IBM Db2 databases using RepoDB library."
@@ -526,6 +530,14 @@ docs:
     url: "/attribute/map"
     description: "Maps a class or class property into its equivalent database object (table, view, or column) name."
 
+  - title: "MariaDbType (MariaDb)"
+    url: "/attribute/mariadb/mariadb/mariadbtype"
+    description: "This attribute sets the `MariaDbParameter.MariaDbType` property value via a class property."
+
+  - title: "MariaDbType (MariaDbConnector)"
+    url: "/attribute/mariadb/mariadbconnector/mariadbtype"
+    description: "This attribute sets the `MariaDbParameter.MariaDbType` property value via a class property."
+
   - title: "MySqlDbType (MySql.Data)"
     url: "/attribute/mysql/mysql/mysqldbtype"
     description: "This attribute sets the `MySqlParameter.MySqlDbType` property value via a class property."
@@ -903,6 +915,18 @@ docs:
 
   - title: "MySqlConnector (Bulk)"
     url: "/release/mysqlconnectorbulk"
+
+  - title: "MariaDB"
+    url: "/release/mariadb"
+
+  - title: "MariaDB (MariaDbConnector)"
+    url: "/release/mariadbconnector"
+
+  - title: "MariaDb (Bulk)"
+    url: "/release/mariadbbulk"
+
+  - title: "MariaDbConnector (Bulk)"
+    url: "/release/mariadbconnectorbulk"
 
   - title: "PostgreSQL"
     url: "/release/postgresql"
