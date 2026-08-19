@@ -3,7 +3,7 @@ layout: default
 sidebar: getstarted
 title: "Telemetry"
 description: "Learn on how to start capturing and publishing RepoDB operation telemetry using RepoDb.Telemetry.Default."
-nav_order: 7
+nav_order: 8
 permalink: /tutorial/get-started-telemetry
 tags: [repodb, tutorial, get-started, telemetry]
 parent: GET STARTED

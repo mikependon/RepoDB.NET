@@ -3,7 +3,7 @@ layout: default
 sidebar: getstarted
 title: "PostgreSQL"
 description: "Learn on how to work with PostgreSQL databases using RepoDB library."
-nav_order: 3
+nav_order: 5
 permalink: /tutorial/get-started-postgresql
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, postgresql]
 parent: GET STARTED

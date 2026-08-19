@@ -3,7 +3,7 @@ layout: default
 sidebar: getstarted
 title: "MariaDB"
 description: "Learn on how to work with MariaDB databases using RepoDB library."
-nav_order: 8
+nav_order: 2
 permalink: /tutorial/get-started-mariadb
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, mariadb]
 parent: GET STARTED
@@ -41,7 +41,7 @@ GlobalConfiguration
     .UseMariaDb();
 ```
 
-To use bulk operations ([BulkDelete](/operation/mariadb/bulkdelete), [BulkDeleteByKey](/operation/mariadb/bulkdeletebykey), [BulkInsert](/operation/mariadb/bulkinsert), [BulkMerge](/operation/mariadb/bulkmerge) and [BulkUpdate](/operation/mariadb/bulkupdate)), install the [RepoDb.MariaDb.BulkOperations](https://www.nuget.org/packages/RepoDb.MariaDb.BulkOperations) package.
+To use bulk operations , install the [RepoDb.MariaDb.BulkOperations](https://www.nuget.org/packages/RepoDb.MariaDb.BulkOperations) package.
 
 ```csharp
 > Install-Package RepoDb.MariaDb.BulkOperations
@@ -61,7 +61,7 @@ GlobalConfiguration
     .UseMariaDb();
 ```
 
-To use bulk operations ([BulkDelete](/operation/mariadbconnector/bulkdelete), [BulkDeleteByKey](/operation/mariadbconnector/bulkdeletebykey), [BulkInsert](/operation/mariadbconnector/bulkinsert), [BulkMerge](/operation/mariadbconnector/bulkmerge) and [BulkUpdate](/operation/mariadbconnector/bulkupdate)), install the [RepoDb.MariaDbConnector.BulkOperations](https://www.nuget.org/packages/RepoDb.MariaDbConnector.BulkOperations) package.
+To use bulk operations, install the [RepoDb.MariaDbConnector.BulkOperations](https://www.nuget.org/packages/RepoDb.MariaDbConnector.BulkOperations) package.
 
 ```csharp
 > Install-Package RepoDb.MariaDbConnector.BulkOperations

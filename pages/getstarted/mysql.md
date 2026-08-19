@@ -3,7 +3,7 @@ layout: default
 sidebar: getstarted
 title: "MySQL"
 description: "Learn on how to work with MySQL databases using RepoDB library."
-nav_order: 4
+nav_order: 3
 permalink: /tutorial/get-started-mysql
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, mysql]
 parent: GET STARTED

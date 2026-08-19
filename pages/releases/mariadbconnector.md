@@ -42,5 +42,7 @@ First (alpha) release of the dedicated MariaDB provider for RepoDB, built on top
 - `RepoDb.Connector.MariaDbConnector` is an independent, unofficial ADO.NET provider for MariaDB (a thin wrapper over `MySqlConnector`) — not affiliated with or endorsed by MariaDB plc or the MariaDB Foundation, and still in early development.
 - No native GUID/`UNIQUEIDENTIFIER` type — as with MySQL, map a `Guid` property as `string`/`byte[]`, or register a custom [IPropertyHandler](/interface/ipropertyhandler).
 
+### Bumps
+
 - Referenced the `RepoDb` package `v1.16.0`.
 - Referenced the `RepoDb.Connector.MariaDbConnector` package `v0.0.1-alpha2`.
