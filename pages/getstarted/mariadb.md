@@ -20,9 +20,6 @@ MariaDB support ships as two separate, drop-in-compatible driver packages, both 
 - [RepoDb.MariaDb](https://www.nuget.org/packages/RepoDb.MariaDb) — built on [RepoDb.Connector.MariaDb](https://www.nuget.org/packages/RepoDb.Connector.MariaDb), a thin wrapper over [MySql.Data](https://www.nuget.org/packages/MySql.Data).
 - [RepoDb.MariaDbConnector](https://www.nuget.org/packages/RepoDb.MariaDbConnector) — built on [RepoDb.Connector.MariaDbConnector](https://www.nuget.org/packages/RepoDb.Connector.MariaDbConnector), a thin wrapper over [MySqlConnector](https://www.nuget.org/packages/MySqlConnector).
 
-{: .important }
-> Install only **one** of the two packages in a given project. Both packages initialize via a `MariaDbBootstrap.Initialize()` / `GlobalConfiguration.Setup().UseMariaDb()` call of the exact same name, and both map their settings/helper/statement-builder objects against the identically-named `MariaDbConnection` type. Referencing both at once causes the second package's `[DbSettingMapper.Add](/mapper/dbsettingmapper)`/`[DbHelperMapper.Add](/mapper/dbhelpermapper)`/`[StatementBuilderMapper.Add](/mapper/statementbuildermapper)` calls to overwrite the first's mappings — pick whichever underlying driver (`MySql.Data` or `MySqlConnector`) best fits your project and stick with it.
-
 ## Installation
 
 Install the library via NuGet using the Package Manager Console.
@@ -58,7 +55,7 @@ After installation, call the globalized setup method to initialize all dependenc
 ```csharp
 GlobalConfiguration
     .Setup()
-    .UseMariaDb();
+    .UseMariaDbConnector();
 ```
 
 To use bulk operations, install the [RepoDb.MariaDbConnector.BulkOperations](https://www.nuget.org/packages/RepoDb.MariaDbConnector.BulkOperations) package.
