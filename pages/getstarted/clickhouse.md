@@ -19,15 +19,6 @@ Support ships as two packages:
 - [RepoDb.ClickHouse](https://www.nuget.org/packages/RepoDb.ClickHouse) — the core provider, built on [ClickHouse.Driver](https://www.nuget.org/packages/ClickHouse.Driver).
 - [RepoDb.ClickHouse.BulkOperations](https://www.nuget.org/packages/RepoDb.ClickHouse.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey`.
 
-{: .important }
-> ClickHouse is an OLAP database, not a traditional transactional RDBMS. A few things behave differently than SQL Server/MySQL/PostgreSQL:
-> - There is no identity/auto-increment/sequence of any kind — key values must always be assigned by the caller.
-> - There is no native `MERGE`/upsert statement — [Merge](/operation/merge) compiles to a plain `INSERT`, relying on the table engine (e.g. `ReplacingMergeTree`) for deduplication.
-> - `UPDATE`/`DELETE` are expressed as `ALTER TABLE ... UPDATE/DELETE` *mutations* — asynchronous, background operations rather than immediate row-level changes, and the `WHERE` clause is mandatory.
-> - Transactions are accepted for API compatibility but are not ACID — `Commit()`/`Rollback()` are no-ops.
->
-> See [Operations (ClickHouse)](/operation/clickhouse) and [ClickHouseStatementBuilder](/class/clickhouse/clickhousestatementbuilder) for the full detail behind each of these.
-
 ## Installation
 
 Install the library via NuGet using the Package Manager Console.
@@ -49,9 +40,6 @@ To use bulk operations, install the [RepoDb.ClickHouse.BulkOperations](https://w
 ```csharp
 > Install-Package RepoDb.ClickHouse.BulkOperations
 ```
-
-{: .note }
-> Both packages target `net8.0`, `net9.0` and `net10.0`, and depend on [ClickHouse.Driver](https://www.nuget.org/packages/ClickHouse.Driver) v1.3.0.
 
 ## Connection String
 
@@ -91,9 +79,6 @@ public class Person
     public DateTime CreatedDateUtc { get; set; }
 }
 ```
-
-{: .important }
-> Use `RepoDb.ClickHouseConnection` (namespace `RepoDb`) throughout your application — not `ClickHouse.Driver.ADO.ClickHouseConnection` directly. It's a thin subclass that lets RepoDB's provider mappings (`DbSetting`, `DbHelper`, `StatementBuilder`) resolve correctly.
 
 ## Creating a Record
 
