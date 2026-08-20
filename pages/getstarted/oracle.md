@@ -3,7 +3,6 @@ layout: default
 sidebar: getstarted
 title: "Oracle"
 description: "Learn on how to work with Oracle databases using RepoDB library."
-nav_order: 4
 permalink: /tutorial/get-started-oracle
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, oracle]
 parent: GET STARTED

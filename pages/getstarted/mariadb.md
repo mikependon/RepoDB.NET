@@ -3,7 +3,6 @@ layout: default
 sidebar: getstarted
 title: "MariaDB"
 description: "Learn on how to work with MariaDB databases using RepoDB library."
-nav_order: 2
 permalink: /tutorial/get-started-mariadb
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, mariadb]
 parent: GET STARTED

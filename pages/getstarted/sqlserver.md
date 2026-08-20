@@ -3,7 +3,6 @@ layout: default
 sidebar: getstarted
 title: "SQL Server"
 description: "Learn on how to work with SQL Server databases using RepoDB library."
-nav_order: 6
 permalink: /tutorial/get-started-sqlserver
 tags: [repodb, tutorial, get-started]
 parent: GET STARTED

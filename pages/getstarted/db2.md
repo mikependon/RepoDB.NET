@@ -3,7 +3,6 @@ layout: default
 sidebar: getstarted
 title: "Db2"
 description: "Learn on how to work with IBM Db2 databases using RepoDB library."
-nav_order: 1
 permalink: /tutorial/get-started-db2
 tags: [repodb, tutorial, get-started, orm, hybrid-orm, db2]
 parent: GET STARTED

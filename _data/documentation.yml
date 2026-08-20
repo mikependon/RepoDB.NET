@@ -24,6 +24,10 @@ docs:
   description: "Please click any of the link below to fast-track your learnings about this library."
   topics:
 
+  - title: "ClickHouse"
+    url: "/tutorial/get-started-clickhouse"
+    description: "Learn on how to work with ClickHouse databases using RepoDB library."
+
   - title: "Db2"
     url: "/tutorial/get-started-db2"
     description: "Learn on how to work with IBM Db2 databases using RepoDB library."
@@ -311,6 +315,10 @@ docs:
     url: "/class/cacheitem"
     description: "A class that is used as an item for the cache object."
 
+  - title: "ClickHouseBulkInsertMapItem"
+    url: "/class/clickhouse/clickhousebulkinsertmapitem"
+    description: "A mapping class used to define a column mapping, with an optional explicit ClickHouse type name, for the ClickHouse bulk operations."
+
   - title: "CancellableTraceLog"
     url: "/class/cancellabletracelog"
     description: "A class that is being used to cancel the current trace operation."
@@ -474,6 +482,10 @@ docs:
     url: "/attribute/db2/arraylength"
     description: "This attribute sets the `DB2Parameter.ArrayLength` property value via a class property."
 
+  - title: "ClickHouseType (ClickHouse)"
+    url: "/attribute/clickhouse/clickhousetype"
+    description: "This attribute sets the `ClickHouseDbParameter.ClickHouseType` property value via a class property."
+
   - title: "CompareInfo (SQL Server)"
     url: "/attribute/sqlserver/compareinfo"
     description: "This attribute sets the `SqlParameter.CompareInfo` property value via a class property."
@@ -582,9 +594,17 @@ docs:
     url: "/attribute/parameter/size"
     description: "This attribute sets the `DbParameter.Size` property value via a class property."
 
+  - title: "SourceColumn (ClickHouse)"
+    url: "/attribute/clickhouse/sourcecolumn"
+    description: "This attribute sets the `ClickHouseDbParameter.SourceColumn` property value via a class property."
+
   - title: "SourceColumn (Db2)"
     url: "/attribute/db2/sourcecolumn"
     description: "This attribute sets the `DB2Parameter.SourceColumn` property value via a class property."
+
+  - title: "SourceColumnNullMapping (ClickHouse)"
+    url: "/attribute/clickhouse/sourcecolumnnullmapping"
+    description: "This attribute sets the `ClickHouseDbParameter.SourceColumnNullMapping` property value via a class property."
 
   - title: "SourceColumnNullMapping (Db2)"
     url: "/attribute/db2/sourcecolumnnullmapping"
@@ -656,6 +676,14 @@ docs:
   isdoc: true
   description: "Below are the list of enumerations available."
   topics:
+
+  - title: "ClickHouseBulkImportIdentityBehavior"
+    url: "/enumeration/clickhouse/clickhousebulkimportidentitybehavior"
+    description: "An enumeration that is being used to define the behavior of the identity property/column when an entity is being bulk-imported towards the target table."
+
+  - title: "ClickHouseBulkImportPseudoTableType"
+    url: "/enumeration/clickhouse/clickhousebulkimportpseudotabletype"
+    description: "An enumeration that is being used to define the type of staging (pseudo) table to be created during the bulk-import operations."
 
   - title: "Conjunction"
     url: "/enumeration/conjunction"
@@ -915,6 +943,12 @@ docs:
 
   - title: "Core"
     url: "/release/core"
+
+  - title: "ClickHouse"
+    url: "/release/clickhouse"
+
+  - title: "ClickHouse (Bulk)"
+    url: "/release/clickhousebulk"
 
   - title: "SQL Server"
     url: "/release/sqlserver"
