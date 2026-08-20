@@ -40,12 +40,6 @@ GlobalConfiguration
 	.UseSqlServer();
 ```
 
-For versions prior to 1.13.0, use the bootstrapper below.
-
-```csharp
-RepoDb.SqlServerBootstrap.Initialize();
-```
-
 For bulk operations:
 
 ```csharp
@@ -85,12 +79,6 @@ GlobalConfiguration
 	.UsePostgreSql();
 ```
 
-For versions prior to 1.13.0, use the bootstrapper below.
-
-```csharp
-RepoDb.PostgreSqlBootstrap.Initialize();
-```
-
 For bulk operations:
 
 ```csharp
@@ -117,12 +105,6 @@ GlobalConfiguration
 	.UseMySql();
 ```
 
-For versions prior to 1.13.0, use the bootstrapper below.
-
-```csharp
-RepoDb.MySqlBootstrap.Initialize();
-```
-
 #### MySqlConnector
 
 To work with [RepoDb.MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector):
@@ -139,12 +121,6 @@ GlobalConfiguration
 	.UseMySqlConector();
 ```
 
-For versions prior to 1.13.0, use the bootstrapper below.
-
-```csharp
-RepoDb.MySqlConnectorBootstrap.Initialize();
-```
-
 ## SQLite
 
 To work with [RepoDb.Sqlite.Microsoft](https://www.nuget.org/packages/RepoDb.Sqlite.Microsoft):
@@ -159,12 +135,6 @@ After installation, call the globalized setup method to initialize all dependenc
 GlobalConfiguration
 	.Setup()
 	.UseSqlite();
-```
-
-For versions prior to 1.13.0, use the bootstrapper below.
-
-```csharp
-RepoDb.SqliteBootstrap.Initialize();
 ```
 
 {: .note }

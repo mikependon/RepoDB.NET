@@ -30,12 +30,6 @@ GlobalConfiguration
     .UseSqlServer();
 ```
 
-For versions prior to 1.13.0, use the bootstrapper below.
-
-```csharp
-RepoDb.SqlServerBootstrap.Initialize();
-```
-
 To use bulk operations ([BulkDelete](/operation/sqlserver/bulkdelete), [BulkInsert](/operation/sqlserver/bulkinsert), [BulkMerge](/operation/sqlserver/bulkmerge) and [BulkUpdate](/operation/sqlserver/bulkupdate)), install the [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) package.
 
 ```csharp
