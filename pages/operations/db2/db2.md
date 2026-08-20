@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "Db2"
-nav_order: 7
 has_children: true
 permalink: /operation/db2
 parent: OPERATIONS

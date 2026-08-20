@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "Db2"
-nav_order: 5
 has_children: true
 permalink: /enumeration/db2
 parent: ENUMERATIONS

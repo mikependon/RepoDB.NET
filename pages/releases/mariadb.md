@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: MariaDB
 description: "This page contains the latest information of the releases of RepoDb.MariaDb library."
-nav_order: 17
 permalink: /release/mariadb
 parent: RELEASES
 ---

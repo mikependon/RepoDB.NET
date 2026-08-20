@@ -1,11 +1,9 @@
 ---
 layout: default
 title: "MariaDbConnector"
-nav_order: 2
 has_children: true
 permalink: /class/mariadb/mariadbconnector
-parent: "MariaDB"
-grand_parent: CLASSES
+parent: CLASSES
 ---
 
 # Classes (MariaDbConnector)

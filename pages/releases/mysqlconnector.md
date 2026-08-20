@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: MySqlConnector
 description: "This page contains the latest information of the releases of RepoDb.MySqlConnector library."
-nav_order: 10
 permalink: /release/mysqlconnector
 parent: RELEASES
 ---

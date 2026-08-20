@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "ClickHouse"
-nav_order: 7
 has_children: true
 permalink: /enumeration/clickhouse
 parent: ENUMERATIONS

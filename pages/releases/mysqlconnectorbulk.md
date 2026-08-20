@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: MySqlConnector (Bulk)
 description: "This page contains the latest information of the releases of RepoDb.MySqlConnector.BulkOperations library."
-nav_order: 11
 permalink: /release/mysqlconnectorbulk
 parent: RELEASES
 ---

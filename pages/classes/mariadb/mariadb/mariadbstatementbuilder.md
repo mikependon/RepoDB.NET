@@ -6,7 +6,7 @@ description: "A class used to build the SQL statements for the MySql.Data-based 
 permalink: /class/mariadb/mariadb/mariadbstatementbuilder
 tags: [repodb, mariadbstatementbuilder, mariadb]
 parent: "MariaDb"
-grand_parent: "MariaDB"
+grand_parent: CLASSES
 nav_order: 5
 ---
 

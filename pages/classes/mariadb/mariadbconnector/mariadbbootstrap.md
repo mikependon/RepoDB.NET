@@ -6,7 +6,7 @@ description: "A class that is being used to initialize the necessary settings fo
 permalink: /class/mariadb/mariadbconnector/mariadbbootstrap
 tags: [repodb, mariadbbootstrap, mariadbconnector]
 parent: "MariaDbConnector"
-grand_parent: "MariaDB"
+grand_parent: CLASSES
 nav_order: 1
 ---
 

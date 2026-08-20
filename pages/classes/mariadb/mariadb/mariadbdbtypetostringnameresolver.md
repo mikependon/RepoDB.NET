@@ -6,7 +6,7 @@ description: "A class used to resolve a MariaDbType into its equivalent MariaDB 
 permalink: /class/mariadb/mariadb/mariadbdbtypetostringnameresolver
 tags: [repodb, mariadbdbtypetostringnameresolver, mariadb]
 parent: "MariaDb"
-grand_parent: "MariaDB"
+grand_parent: CLASSES
 nav_order: 7
 ---
 

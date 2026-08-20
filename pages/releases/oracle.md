@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: Oracle
 description: "This page contains the latest information of the releases of RepoDb.Oracle library."
-nav_order: 4
 permalink: /release/oracle
 parent: RELEASES
 ---

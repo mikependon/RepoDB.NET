@@ -1,11 +1,9 @@
 ---
 layout: default
 title: "MariaDb"
-nav_order: 1
 has_children: true
 permalink: /enumeration/mariadb/mariadb
-parent: MariaDB
-grand_parent: ENUMERATIONS
+parent: ENUMERATIONS
 ---
 
 # Enumerations (MariaDb)

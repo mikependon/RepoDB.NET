@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "Db2"
-nav_order: 6
 has_children: true
 permalink: /attribute/db2
 parent: ATTRIBUTES

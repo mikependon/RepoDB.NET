@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: MariaDB (MariaDbConnector)
 description: "This page contains the latest information of the releases of RepoDb.MariaDbConnector library."
-nav_order: 18
 permalink: /release/mariadbconnector
 parent: RELEASES
 ---

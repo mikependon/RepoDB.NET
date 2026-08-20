@@ -6,7 +6,7 @@ description: "A class used to resolve a MySql.Data-based MariaDb database type n
 permalink: /class/mariadb/mariadb/mariadbdbtypenametoclienttyperesolver
 tags: [repodb, mariadbdbtypenametoclienttyperesolver, mariadb]
 parent: "MariaDb"
-grand_parent: "MariaDB"
+grand_parent: CLASSES
 nav_order: 6
 ---
 

@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "MySqlConnector"
-nav_order: 4
 has_children: true
 permalink: /enumeration/mysqlconnector
 parent: ENUMERATIONS

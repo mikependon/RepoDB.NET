@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "MariaDb"
-nav_order: 8
 has_children: true
 permalink: /operation/mariadb
 parent: OPERATIONS

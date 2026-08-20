@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: PostgreSQL (Bulk)
 description: "This page contains the latest information of the releases of RepoDb.PostgreSql.BulkOperations library."
-nav_order: 7
 permalink: /release/postgresqlbulk
 parent: RELEASES
 ---

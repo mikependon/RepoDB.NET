@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Telemetry"
-nav_order: 8
+nav_order: "~"
 has_children: true
 permalink: /class/telemetry
 parent: CLASSES

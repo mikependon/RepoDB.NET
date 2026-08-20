@@ -3,6 +3,7 @@ layout: default
 sidebar: features
 title: "Telemetry"
 description: "A feature that captures per-operation execution telemetry (SQL statement, elapsed time, session, client, source assembly) via an ITrace-based pipeline and publishes it to an insights collector."
+nav_order: "~"
 permalink: /feature/telemetry
 tags: [repodb, telemetry]
 parent: FEATURES

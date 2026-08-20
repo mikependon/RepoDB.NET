@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: MariaDb (Bulk)
 description: "This page contains the latest information of the releases of RepoDb.MariaDb.BulkOperations library."
-nav_order: 19
 permalink: /release/mariadbbulk
 parent: RELEASES
 ---

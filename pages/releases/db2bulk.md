@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: Db2 (Bulk)
 description: "This page contains the latest information of the releases of RepoDb.Db2.BulkOperations library."
-nav_order: 13
 permalink: /release/db2bulk
 parent: RELEASES
 ---

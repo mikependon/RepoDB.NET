@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "ClickHouse"
-nav_order: 10
 has_children: true
 permalink: /operation/clickhouse
 parent: OPERATIONS

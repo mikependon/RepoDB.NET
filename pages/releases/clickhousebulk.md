@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: ClickHouse (Bulk)
 description: "This page contains the latest information of the releases of RepoDb.ClickHouse.BulkOperations library."
-nav_order: 22
 permalink: /release/clickhousebulk
 parent: RELEASES
 ---

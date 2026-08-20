@@ -1,7 +1,6 @@
 ---
 layout: default
 title: MariaDB
-nav_order: 8
 has_children: true
 permalink: /attribute/mariadb
 parent: ATTRIBUTES

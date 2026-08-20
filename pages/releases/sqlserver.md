@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: SQL Server
 description: "This page contains the latest information of the releases of RepoDb.SqlServer library."
-nav_order: 2
 permalink: /release/sqlserver
 parent: RELEASES
 ---

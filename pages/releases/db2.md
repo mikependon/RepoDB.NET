@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: Db2
 description: "This page contains the latest information of the releases of RepoDb.Db2 library."
-nav_order: 12
 permalink: /release/db2
 parent: RELEASES
 ---

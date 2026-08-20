@@ -6,7 +6,7 @@ description: "A setting class used for the MySql.Data-based MariaDb data provide
 permalink: /class/mariadb/mariadb/mariadbdbsetting
 tags: [repodb, mariadbdbsetting, mariadb]
 parent: "MariaDb"
-grand_parent: "MariaDB"
+grand_parent: CLASSES
 nav_order: 3
 ---
 

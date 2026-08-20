@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: Oracle (Bulk)
 description: "This page contains the latest information of the releases of RepoDb.Oracle.BulkOperations library."
-nav_order: 5
 permalink: /release/oraclebulk
 parent: RELEASES
 ---

@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: MariaDbConnector (Bulk)
 description: "This page contains the latest information of the releases of RepoDb.MariaDbConnector.BulkOperations library."
-nav_order: 20
 permalink: /release/mariadbconnectorbulk
 parent: RELEASES
 ---

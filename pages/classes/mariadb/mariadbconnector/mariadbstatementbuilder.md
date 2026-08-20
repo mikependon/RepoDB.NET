@@ -6,7 +6,7 @@ description: "A class used to build the SQL statements for the MySqlConnector-ba
 permalink: /class/mariadb/mariadbconnector/mariadbstatementbuilder
 tags: [repodb, mariadbstatementbuilder, mariadbconnector]
 parent: "MariaDbConnector"
-grand_parent: "MariaDB"
+grand_parent: CLASSES
 nav_order: 5
 ---
 

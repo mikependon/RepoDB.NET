@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "Oracle"
-nav_order: 3
 has_children: true
 permalink: /operation/oracle
 parent: OPERATIONS

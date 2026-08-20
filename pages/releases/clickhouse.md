@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: ClickHouse
 description: "This page contains the latest information of the releases of RepoDb.ClickHouse library."
-nav_order: 21
 permalink: /release/clickhouse
 parent: RELEASES
 ---

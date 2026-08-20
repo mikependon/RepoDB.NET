@@ -6,7 +6,7 @@ description: "A helper class that is being used to retrieve the schema informati
 permalink: /class/mariadb/mariadb/mariadbdbhelper
 tags: [repodb, mariadbdbhelper, mariadb]
 parent: "MariaDb"
-grand_parent: "MariaDB"
+grand_parent: CLASSES
 nav_order: 4
 ---
 

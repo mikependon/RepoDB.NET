@@ -1,11 +1,9 @@
 ---
 layout: default
 title: "MariaDb"
-nav_order: 1
 has_children: true
 permalink: /class/mariadb/mariadb
-parent: "MariaDB"
-grand_parent: CLASSES
+parent: CLASSES
 ---
 
 # Classes (MariaDb)

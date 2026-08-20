@@ -1,11 +1,9 @@
 ---
 layout: default
 title: "MariaDbConnector"
-nav_order: 2
 has_children: true
 permalink: /enumeration/mariadb/mariadbconnector
-parent: MariaDB
-grand_parent: ENUMERATIONS
+parent: ENUMERATIONS
 ---
 
 # Enumerations (MariaDbConnector)

@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: PostgreSQL
 description: "This page contains the latest information of the releases of RepoDb.PostgreSql library."
-nav_order: 6
 permalink: /release/postgresql
 parent: RELEASES
 ---

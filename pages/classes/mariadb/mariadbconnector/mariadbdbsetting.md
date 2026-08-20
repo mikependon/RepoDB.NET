@@ -6,7 +6,7 @@ description: "A setting class used for the MySqlConnector-based MariaDb data pro
 permalink: /class/mariadb/mariadbconnector/mariadbdbsetting
 tags: [repodb, mariadbdbsetting, mariadbconnector]
 parent: "MariaDbConnector"
-grand_parent: "MariaDB"
+grand_parent: CLASSES
 nav_order: 3
 ---
 

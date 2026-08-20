@@ -3,7 +3,6 @@ layout: default
 sidebar: releases
 title: SQL Server Bulk
 description: "This page contains the latest information of the releases of RepoDb.SqlServer.BulkOperations library."
-nav_order: 3
 permalink: /release/sqlserverbulk
 parent: RELEASES
 ---
