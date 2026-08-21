@@ -37,11 +37,13 @@ public sealed class MyCustomSqlServerDbSetting : BaseDbSetting
         IsExecuteReaderDisposable = true;
         IsMultiStatementExecutable = true;
         IsPreparable = true;
+        IsTransactionSupported = true;
         IsUseUpsert = false;
         MultiStatementSeparator = ";";
         OpeningQuote = "[";
         ParameterPrefix = "@";
         SchemaSeparator = ".";
+        SqlTextParameterPrefix = "@";
     }
 }
 ```
