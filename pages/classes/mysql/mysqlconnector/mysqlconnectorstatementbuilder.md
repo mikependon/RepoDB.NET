@@ -5,9 +5,9 @@ title: "MySqlConnectorStatementBuilder"
 description: "A class used to build the SQL statements for MySqlConnector."
 permalink: /class/mysql/mysqlconnector/mysqlconnectorstatementbuilder
 tags: [repodb, mysqlconnectorstatementbuilder, mysql, mysqlconnector]
-parent: "MySQL"
+parent: "MySqlConnector"
 grand_parent: CLASSES
-nav_order: 12
+nav_order: 5
 ---
 
 # MySqlConnectorStatementBuilder

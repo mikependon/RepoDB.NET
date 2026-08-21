@@ -5,9 +5,9 @@ title: "MySqlConnectorBulkInsertMapItem"
 description: "A mapping class used to define a column mapping, with an optional explicit MySqlDbType, for the MySqlConnector bulk operations."
 permalink: /class/mysql/mysqlconnector/mysqlconnectorbulkinsertmapitem
 tags: [repodb, mysqlconnectorbulkinsertmapitem, mysql, mysqlconnector, bulk]
-parent: "MySQL"
+parent: "MySqlConnector"
 grand_parent: CLASSES
-nav_order: 15
+nav_order: 8
 ---
 
 # MySqlConnectorBulkInsertMapItem

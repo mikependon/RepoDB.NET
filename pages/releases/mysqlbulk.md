@@ -1,7 +1,7 @@
 ---
 layout: default
 sidebar: releases
-title: MySql (Bulk)
+title: MySQL (Bulk)
 description: "This page contains the latest information of the releases of RepoDb.MySql.BulkOperations library."
 permalink: /release/mysqlbulk
 parent: RELEASES

@@ -5,9 +5,9 @@ title: "MySqlConnectorDbHelper"
 description: "A helper class that is being used to retrieve the schema information (columns, primary/identity key) of a MySqlConnector table."
 permalink: /class/mysql/mysqlconnector/mysqlconnectordbhelper
 tags: [repodb, mysqlconnectordbhelper, mysql, mysqlconnector]
-parent: "MySQL"
+parent: "MySqlConnector"
 grand_parent: CLASSES
-nav_order: 11
+nav_order: 4
 ---
 
 # MySqlConnectorDbHelper

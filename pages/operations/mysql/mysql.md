@@ -18,7 +18,7 @@ For MySQL via the [MySql.Data](https://www.nuget.org/packages/MySql.Data) driver
 {: .important }
 > The connection string needs `AllowLoadLocalInfile=True;AllowUserVariables=True;` — the former lets the client send `LOAD DATA LOCAL INFILE`, which this package's internal `MySqlBulkCopy` uses for every row-load, and the latter lets the staging-table SQL use session user variables and `PREPARE`/`EXECUTE` for its identity pre-assignment and nullability-toggling steps. The server also needs its `local_infile` global variable turned on (`SET GLOBAL local_infile = 1;`, requires `SUPER`/`SYSTEM_VARIABLES_ADMIN`) — it's off by default. You must also call `RepoDb.MySqlBootstrap.Initialize()` once at application startup. See [Installation](/tutorial/installation) for more options.
 
-For [BulkInsert](/operation/mysql/bulkinsert), the entities/rows are written straight to the target table — unless `identityBehavior: MySqlBulkImportIdentityBehavior.ReturnIdentity` is requested, in which case a staging (pseudo) table is used instead, so the newly generated `AUTO_INCREMENT` values can be pre-assigned and read back before the rows are copied into the target table.
+For [BulkInsert](/operation/mysql/bulkinsert), the entities/rows are written straight to the target table — unless [MySqlBulkImportIdentityBehavior.ReturnIdentity](/enumeration/mysql/mysqlbulkimportidentitybehavior) is requested, in which case a staging (pseudo) table is used instead, so the newly generated `AUTO_INCREMENT` values can be pre-assigned and read back before the rows are copied into the target table.
 
 For [BulkDelete](/operation/mysql/bulkdelete), [BulkDeleteByKey](/operation/mysql/bulkdeletebykey), [BulkMerge](/operation/mysql/bulkmerge) and [BulkUpdate](/operation/mysql/bulkupdate), a pseudo (staging) table is created for each call. The library writes to it via its internal `MySqlBulkCopy`, then cascades the changes to the original table using the correct SQL statement, then drops the pseudo table.
 
@@ -29,7 +29,7 @@ The other bulk operations can be optimized further by targeting the underlying t
 
 ## Pseudo Table Type
 
-The `MySqlBulkImportPseudoTableType` enum lets you choose between a `TEMPORARY` table (session-isolated) and an ordinary heap table for the staging table.
+The [MySqlBulkImportPseudoTableType](/enumeration/mysql/mysqlbulkimportpseudotabletype) enum lets you choose between a `TEMPORARY` table (session-isolated) and an ordinary heap table for the staging table.
 
 {: .important }
 > **Every value currently resolves to `Physical` at runtime**, including an explicit `Memory` and `Auto`'s row-count threshold. The `TEMPORARY TABLE` branch is fully implemented in the SQL builder, but the resolution step that picks between them (`ResolvePseudoTableType`) currently maps every input to `Physical` unconditionally, until that path is enabled and verified against a live server. Because a physical pseudo-table has no per-session isolation, avoid running concurrent bulk operations against the same target table until this is resolved.
@@ -97,8 +97,8 @@ The arguments below are available on most operations.
 | Argument | Description |
 |:---------|:------------|
 | `qualifiers` | Defines the fields used to match existing rows, corresponding to the `WHERE`/`ON` clause. Defaults to the primary key when not provided. |
-| `identityBehavior` | Via `MySqlBulkImportIdentityBehavior` (`KeepIdentity`, `ReturnIdentity`), controls whether the identity column is left for `AUTO_INCREMENT` to generate, or whether the newly generated (or matched) identity values are returned back to the entities after [BulkInsert](/operation/mysql/bulkinsert) or [BulkMerge](/operation/mysql/bulkmerge). |
-| `pseudoTableType` | Via `MySqlBulkImportPseudoTableType` (`Auto`, `Memory`, `Physical`), controls the kind of staging table created — see [Pseudo Table Type](#pseudo-table-type) above. |
+| `identityBehavior` | Via [MySqlBulkImportIdentityBehavior](/enumeration/mysql/mysqlbulkimportidentitybehavior) (`KeepIdentity`, `ReturnIdentity`), controls whether the identity column is left for `AUTO_INCREMENT` to generate, or whether the newly generated (or matched) identity values are returned back to the entities after [BulkInsert](/operation/mysql/bulkinsert) or [BulkMerge](/operation/mysql/bulkmerge). |
+| `pseudoTableType` | Via [MySqlBulkImportPseudoTableType](/enumeration/mysql/mysqlbulkimportpseudotabletype) (`Auto`, `Memory`, `Physical`), controls the kind of staging table created — see [Pseudo Table Type](#pseudo-table-type) above. |
 | `batchSize` | Overrides the number of rows sent to the server per batch. When not set, all items are sent at once. |
 | `mappings` | Via `MySqlBulkInsertMapItem`, defines explicit column mappings between the source properties/columns and the destination columns. When omitted, columns are auto-mapped by name. Each mapping can optionally carry a `MySqlDbType` override, but it currently has no effect — see [Column Mappings](/operation/mysql/bulkinsert#column-mappings). |
 | `bulkCopyTimeout` | Overrides the command timeout, in seconds. |

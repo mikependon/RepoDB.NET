@@ -5,7 +5,7 @@ title: "MySqlDbTypeToMySqlStringNameResolver"
 description: "A class used to resolve a MySqlDbType (MySql.Data) into its equivalent MySQL database string name."
 permalink: /class/mysql/mysqldata/mysqldbtypetomysqlstringnameresolver
 tags: [repodb, mysqldbtypetomysqlstringnameresolver, mysql]
-parent: "MySQL"
+parent: "MySql"
 grand_parent: CLASSES
 nav_order: 7
 ---

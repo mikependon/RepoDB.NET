@@ -5,9 +5,9 @@ title: "MySqlConnectorConfiguration"
 description: "A class that is being used to initialize the necessary settings for the MySqlConnector data provider."
 permalink: /class/mysql/mysqlconnector/mysqlconnectorconfiguration
 tags: [repodb, mysqlconnectorconfiguration, mysql, mysqlconnector]
-parent: "MySQL"
+parent: "MySqlConnector"
 grand_parent: CLASSES
-nav_order: 9
+nav_order: 2
 ---
 
 # MySqlConnectorConfiguration

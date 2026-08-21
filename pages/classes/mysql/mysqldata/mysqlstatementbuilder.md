@@ -5,7 +5,7 @@ title: "MySqlStatementBuilder"
 description: "A class used to build the SQL statements for MySql.Data."
 permalink: /class/mysql/mysqldata/mysqlstatementbuilder
 tags: [repodb, mysqlstatementbuilder, mysql]
-parent: "MySQL"
+parent: "MySql"
 grand_parent: CLASSES
 nav_order: 5
 ---

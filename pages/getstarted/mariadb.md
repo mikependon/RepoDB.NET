@@ -14,10 +14,12 @@ parent: GET STARTED
 
 RepoDB is a hybrid .NET ORM library for MariaDB RDBMS. The project is hosted at Github and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
-MariaDB support ships as two separate, drop-in-compatible driver packages, both exposing the same `MariaDbConnection`/`MariaDbParameter`/`MariaDbType` API surface:
+MariaDB support ships as two separate, drop-in-compatible driver packages, both exposing the same `MariaDbConnection`/`MariaDbParameter`/`MariaDbType` API surface, each with its own bulk operations add-on:
 
 - [RepoDb.MariaDb](https://www.nuget.org/packages/RepoDb.MariaDb) — built on [RepoDb.Connector.MariaDb](https://www.nuget.org/packages/RepoDb.Connector.MariaDb), a thin wrapper over [MySql.Data](https://www.nuget.org/packages/MySql.Data).
+- [RepoDb.MariaDb.BulkOperations](https://www.nuget.org/packages/RepoDb.MariaDb.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey`.
 - [RepoDb.MariaDbConnector](https://www.nuget.org/packages/RepoDb.MariaDbConnector) — built on [RepoDb.Connector.MariaDbConnector](https://www.nuget.org/packages/RepoDb.Connector.MariaDbConnector), a thin wrapper over [MySqlConnector](https://www.nuget.org/packages/MySqlConnector).
+- [RepoDb.MariaDbConnector.BulkOperations](https://www.nuget.org/packages/RepoDb.MariaDbConnector.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey`.
 
 ## Installation
 

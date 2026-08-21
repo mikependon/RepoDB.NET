@@ -14,6 +14,11 @@ parent: GET STARTED
 
 RepoDB is a hybrid .NET ORM library for [Oracle](https://www.nuget.org/packages/RepoDb.Oracle) Database. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Oracle) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
+Support ships as two packages:
+
+- [RepoDb.Oracle](https://www.nuget.org/packages/RepoDb.Oracle) — the core provider, built on ODP.NET's [Oracle.ManagedDataAccess.Core](https://www.nuget.org/packages/Oracle.ManagedDataAccess.Core).
+- [RepoDb.Oracle.BulkOperations](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey`.
+
 ## Installation
 
 Install the library via NuGet using the Package Manager Console.

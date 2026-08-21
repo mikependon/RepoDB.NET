@@ -5,9 +5,9 @@ title: "MySqlConnectorBootstrap"
 description: "A class that is being used to initialize the necessary settings for the MySqlConnection (MySqlConnector) object."
 permalink: /class/mysql/mysqlconnector/mysqlconnectorbootstrap
 tags: [repodb, mysqlconnectorbootstrap, mysql, mysqlconnector]
-parent: "MySQL"
+parent: "MySqlConnector"
 grand_parent: CLASSES
-nav_order: 8
+nav_order: 1
 ---
 
 # MySqlConnectorBootstrap

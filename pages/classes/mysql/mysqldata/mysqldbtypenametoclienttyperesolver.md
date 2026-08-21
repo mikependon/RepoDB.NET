@@ -5,7 +5,7 @@ title: "MySqlDbTypeNameToClientTypeResolver"
 description: "A class used to resolve a MySql.Data database type name into its equivalent .NET CLR type."
 permalink: /class/mysql/mysqldata/mysqldbtypenametoclienttyperesolver
 tags: [repodb, mysqldbtypenametoclienttyperesolver, mysql]
-parent: "MySQL"
+parent: "MySql"
 grand_parent: CLASSES
 nav_order: 6
 ---

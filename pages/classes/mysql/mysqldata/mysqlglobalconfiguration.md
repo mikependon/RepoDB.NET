@@ -5,7 +5,7 @@ title: "MySqlGlobalConfiguration"
 description: "A class that is being used to initialize the necessary settings for the MySql.Data data provider."
 permalink: /class/mysql/mysqldata/mysqlglobalconfiguration
 tags: [repodb, mysqlglobalconfiguration, mysql]
-parent: "MySQL"
+parent: "MySql"
 grand_parent: CLASSES
 nav_order: 2
 ---

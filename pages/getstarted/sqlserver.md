@@ -14,6 +14,11 @@ parent: GET STARTED
 
 RepoDB is a hybrid .NET ORM library for [SQL Server](https://www.nuget.org/packages/RepoDb.SqlServer) RDBMS. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.SqlServer) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
+Support ships as two packages:
+
+- [RepoDb.SqlServer](https://www.nuget.org/packages/RepoDb.SqlServer) — the core provider, built on ADO.NET's SqlClient.
+- [RepoDb.SqlServer.BulkOperations](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate` and `BulkDelete`.
+
 ## Installation
 
 Install the library via NuGet using the Package Manager Console.

@@ -5,7 +5,7 @@ title: "MySqlDbSetting"
 description: "A setting class used for the MySql.Data data provider."
 permalink: /class/mysql/mysqldata/mysqldbsetting
 tags: [repodb, mysqldbsetting, mysql]
-parent: "MySQL"
+parent: "MySql"
 grand_parent: CLASSES
 nav_order: 3
 ---

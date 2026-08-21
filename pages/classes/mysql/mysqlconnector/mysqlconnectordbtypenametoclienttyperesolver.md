@@ -5,9 +5,9 @@ title: "MySqlConnectorDbTypeNameToClientTypeResolver"
 description: "A class used to resolve a MySqlConnector database type name into its equivalent .NET CLR type."
 permalink: /class/mysql/mysqlconnector/mysqlconnectordbtypenametoclienttyperesolver
 tags: [repodb, mysqlconnectordbtypenametoclienttyperesolver, mysql, mysqlconnector]
-parent: "MySQL"
+parent: "MySqlConnector"
 grand_parent: CLASSES
-nav_order: 13
+nav_order: 6
 ---
 
 # MySqlConnectorDbTypeNameToClientTypeResolver

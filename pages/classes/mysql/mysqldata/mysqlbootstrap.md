@@ -5,7 +5,7 @@ title: "MySqlBootstrap"
 description: "A class that is being used to initialize the necessary settings for the MySqlConnection (MySql.Data) object."
 permalink: /class/mysql/mysqldata/mysqlbootstrap
 tags: [repodb, mysqlbootstrap, mysql]
-parent: "MySQL"
+parent: "MySql"
 grand_parent: CLASSES
 nav_order: 1
 ---

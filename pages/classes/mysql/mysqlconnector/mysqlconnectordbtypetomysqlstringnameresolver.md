@@ -5,9 +5,9 @@ title: "MySqlConnectorDbTypeToMySqlStringNameResolver"
 description: "A class used to resolve a MySqlDbType (MySqlConnector) into its equivalent MySQL database string name."
 permalink: /class/mysql/mysqlconnector/mysqlconnectordbtypetomysqlstringnameresolver
 tags: [repodb, mysqlconnectordbtypetomysqlstringnameresolver, mysql, mysqlconnector]
-parent: "MySQL"
+parent: "MySqlConnector"
 grand_parent: CLASSES
-nav_order: 14
+nav_order: 7
 ---
 
 # MySqlConnectorDbTypeToMySqlStringNameResolver

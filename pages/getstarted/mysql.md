@@ -14,6 +14,13 @@ parent: GET STARTED
 
 RepoDB is a hybrid .NET ORM library for MySQL RDBMS. The project is hosted at Github and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
+MySQL support ships as two separate, drop-in-compatible driver packages, each with its own bulk operations add-on:
+
+- [RepoDb.MySql](https://www.nuget.org/packages/RepoDb.MySql) — the core provider, built on [MySql.Data](https://www.nuget.org/packages/MySql.Data).
+- [RepoDb.MySql.BulkOperations](https://www.nuget.org/packages/RepoDb.MySql.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey`.
+- [RepoDb.MySqlConnector](https://www.nuget.org/packages/RepoDb.MySqlConnector) — the core provider, built on [MySqlConnector](https://www.nuget.org/packages/MySqlConnector).
+- [RepoDb.MySqlConnector.BulkOperations](https://www.nuget.org/packages/RepoDb.MySqlConnector.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey`.
+
 ## Installation
 
 Install the library via NuGet using the Package Manager Console.

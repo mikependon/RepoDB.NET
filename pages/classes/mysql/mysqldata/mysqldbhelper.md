@@ -5,7 +5,7 @@ title: "MySqlDbHelper"
 description: "A helper class that is being used to retrieve the schema information (columns, primary/identity key) of a MySql.Data table."
 permalink: /class/mysql/mysqldata/mysqldbhelper
 tags: [repodb, mysqldbhelper, mysql]
-parent: "MySQL"
+parent: "MySql"
 grand_parent: CLASSES
 nav_order: 4
 ---

@@ -14,6 +14,11 @@ parent: GET STARTED
 
 RepoDB is a hybrid .NET ORM library for [IBM Db2](https://www.nuget.org/packages/RepoDb.Db2) Database. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Db2) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
+Support ships as two packages:
+
+- [RepoDb.Db2](https://www.nuget.org/packages/RepoDb.Db2) — the core provider, built on IBM's Data Server .NET Provider ([Net.IBM.Data.Db2](https://www.nuget.org/packages/Net.IBM.Data.Db2)).
+- [RepoDb.Db2.BulkOperations](https://www.nuget.org/packages/RepoDb.Db2.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey`.
+
 ## Installation
 
 Install the library via NuGet using the Package Manager Console.
