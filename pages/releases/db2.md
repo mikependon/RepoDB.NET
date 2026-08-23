@@ -13,9 +13,19 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Db2) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Db2).
 
+## RepoDb.Db2 (v0.0.1-beta2) - Preview
+
+Released: August 23, 2026
+
+New
+{: .label .label-green }
+
+- Added [TypeToDb2TypeResolver](/class/db2/typetodb2typeresolver), an [IResolver](/interface/iresolver)`<Type, DB2Type>` implementation that resolves a .NET CLR `Type` into its equivalent `DB2Type`. Used internally by [Db2BulkArrayBinder](/class/db2/db2bulkarraybinder) (see the [RepoDb.Db2.BulkOperations release notes](/release/db2bulk)) to infer a bound parameter's `DB2Type` when no explicit mapping is given.
+- Referenced the `RepoDb` package `v1.16.0-beta2`.
+
 ## RepoDb.Db2 (v0.0.1-alpha) - Preview
 
-Released: TBA
+Released: August 10, 2026
 
 New
 {: .label .label-green }

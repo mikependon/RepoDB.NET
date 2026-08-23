@@ -13,9 +13,23 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Db2.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Db2.BulkOperations).
 
+## RepoDb.Db2.BulkOperations (v0.0.1-beta2) - Preview
+
+Released: August 23, 2026
+
+New
+{: .label .label-green }
+
+- Added [Db2BulkArrayBinder](/class/db2/db2bulkarraybinder), an async, array-bind based alternative to `DB2BulkCopy` for bulk inserting huge amounts of data with true asynchronous capability. It issues batched `INSERT INTO ... VALUES (:p0, :p1, ...)` statements with `DB2Command.ArrayBindCount` set, executed via the genuinely async `DB2Command.ExecuteNonQueryAsync(CancellationToken)`.
+- Added [Db2BulkArrayBinderColumnMappingCollection](/class/db2/db2bulkarraybindercolumnmappingcollection), the `Db2BulkArrayBinder.ColumnMappings` collection used to define explicit source-to-destination column mappings, mirroring the shape of `DB2BulkCopyColumnMappingCollection`.
+- Relies on [TypeToDb2TypeResolver](/class/db2/typetodb2typeresolver) (see the [RepoDb.Db2 release notes](/release/db2)) to infer a bound parameter's `DB2Type` when a mapping doesn't specify one explicitly.
+- Referenced the `RepoDb` package `v1.16.0-beta2`.
+- Referenced the `RepoDb.Db2` package `v0.0.1-beta2`.
+- Referenced the `Net.IBM.Data.Db2` / `Net.IBM.Data.Db2-lnx` package `v9.0.0.400` (`v10.0.0.200` on .NET 10).
+
 ## RepoDb.Db2.BulkOperations (v0.0.1-alpha1) - Preview
 
-Released: TBA
+Released: August 10, 2026
 
 New
 {: .label .label-green }
