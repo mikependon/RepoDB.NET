@@ -13,6 +13,17 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Oracle.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Oracle.BulkOperations).
 
+## RepoDb.Oracle.BulkOperations (v0.0.1-beta6) - Preview
+
+Released: August 23, 2026
+
+New
+{: .label .label-green }
+
+- Added `OracleBulkArrayBinder`, an async, array-bind based alternative to `OracleBulkCopy`, and switched every async bulk write (`BulkInsertAsync`, and the staging-table load behind `BulkMergeAsync`/`BulkUpdateAsync`/`BulkDeleteAsync`/`BulkDeleteByKeyAsync`) over to it. This replaces the previous `WriteToServerAsync` path: ODP.NET's `OracleBulkCopy` has no true async equivalent of `OracleBulkCopy.WriteToServer(IDataReader)` — unlike `SqlBulkCopy` for SQL Server, it exposes no genuinely asynchronous write API — so `WriteToServerAsync` could only wrap the synchronous `WriteToServer` call rather than execute truly asynchronously. `OracleBulkArrayBinder` instead issues batched `INSERT INTO ... VALUES (:p0, :p1, ...)` statements with `OracleCommand.ArrayBindCount` set, executed via the genuinely async `OracleCommand.ExecuteNonQueryAsync(CancellationToken)`.
+- Referenced the `RepoDb` package `v1.16.0-beta2`.
+- Referenced the `RepoDb.Oracle` package `v0.0.1-beta4`.
+
 ## RepoDb.Oracle.BulkOperations (v0.0.1-beta1) - Preview
 
 Released: August 1, 2026

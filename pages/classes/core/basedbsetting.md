@@ -33,6 +33,7 @@ public sealed class MyCustomSqlServerDbSetting : BaseDbSetting
         AverageableType = typeof(double);
         ClosingQuote = "]";
         DefaultSchema = "dbo";
+        IsAffectedRowsSupported = true;
         IsDirectionSupported = true;
         IsExecuteReaderDisposable = true;
         IsMultiStatementExecutable = true;

@@ -24,6 +24,7 @@ Below is the list of properties.
 | ClosingQuote | Gets the character used for closing quote. |
 | AverageableType | Gets the default averageable .NET CLR types for the database. |
 | DefaultSchema | Gets the default schema of the database. |
+| IsAffectedRowsSupported | Gets a value that indicates whether the current DB Provider supports returning the number of affected rows from the execution of a non-query command. |
 | IsDirectionSupported | Gets a value that indicates whether setting the value of `DbParameter.Direction` object is supported. |
 | IsExecuteReaderDisposable | Gets a value that indicates whether the `DbCommand` object must be disposed after calling the `DbCommand.ExecuteReader()` method. |
 | IsMultiStatementExecutable | Gets a value whether the multiple statement execution is supported. |
@@ -46,6 +47,7 @@ public class MyCustomSqlServerDbSetting : IDbSetting
     public string ClosingQuote { get; set; } = "]";
     public Type AverageableType { get; set; } = typeof(double);
     public string DefaultSchema { get; set; } = "dbo";
+    public bool IsAffectedRowsSupported { get; set; } = true;
     public bool IsDirectionSupported { get; set; } = true;
     public bool IsExecuteReaderDisposable { get; set; } = true;
     public bool IsMultiStatementExecutable { get; set; } = true;

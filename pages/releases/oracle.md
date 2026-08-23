@@ -13,15 +13,16 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Oracle) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Oracle).
 
-## RepoDb.Oracle (v0.0.2-beta1) - Preview
+## RepoDb.Oracle (v0.0.1-beta4) - Preview
 
-Released: TBA
+Released: August 23, 2026
 
 New
 {: .label .label-green }
 
 - Added the [MultiStatementSeparator](/class/basedbsetting) property to the [IDbSetting](/interface/idbsetting) interface. [#1241](https://github.com/mikependon/RepoDB/issues/1241)
-- Referenced the `RepoDb` package `v1.16.0`.
+- Added [TypeToOracleDbTypeResolver](/class/oracle/typetooracledbtyperesolver), an [IResolver](/interface/iresolver)`<Type, OracleDbType>` implementation that resolves a .NET CLR `Type` into its equivalent `OracleDbType`. Used internally by [OracleBulkArrayBinder](/class/oracle/oraclebulkarraybinder) (see the [RepoDb.Oracle.BulkOperations release notes](/release/oraclebulk)) to infer a bound parameter's `OracleDbType` when no explicit mapping is given.
+- Referenced the `RepoDb` package `v1.16.0-beta2`.
 
 
 ## RepoDb.Oracle (v0.0.1-beta1) - Preview
