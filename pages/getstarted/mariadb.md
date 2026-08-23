@@ -340,6 +340,27 @@ using (var connection = new MariaDbConnection(ConnectionString))
 }
 ```
 
+## Executing a Stored Procedure
+
+To execute a stored procedure, use any of the execute methods above and pass `CommandType.StoredProcedure` to the `commandType` argument. This works the same way regardless of which driver package (`RepoDb.MariaDb` or `RepoDb.MariaDbConnector`) is installed.
+
+```csharp
+using (var connection = new MariaDbConnection(ConnectionString))
+{
+    var people = connection.ExecuteQuery<Person>("sp_GetPeople",
+        commandType: CommandType.StoredProcedure);
+}
+```
+
+Alternatively, use the `CALL` command directly, which does not require the `commandType` argument.
+
+```csharp
+using (var connection = new MariaDbConnection(ConnectionString))
+{
+    var people = connection.ExecuteQuery<Person>("CALL sp_GetPeople();");
+}
+```
+
 ## Typed Result Execution
 
 Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](/operation/executequery).
@@ -347,8 +368,8 @@ Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](
 ```csharp
 using (var connection = new MariaDbConnection(ConnectionString))
 {
-    var sql = "SELECT `Name` FROM `Person` WHERE `Id` = @Id;";
-    var name = connection.ExecuteQuery<string>(sql, new { Id = 10045 });
+    var sql = "SELECT `Name` FROM `Person`;";
+    var names = connection.ExecuteQuery<string>(sql);
 }
 ```
 
@@ -365,8 +386,8 @@ public enum Gender
 ```csharp
 using (var connection = new MariaDbConnection(ConnectionString))
 {
-    var sql = "SELECT `Gender` FROM `Person` WHERE `Id` = @Id;";
-    var name = connection.ExecuteQuery<Gender>(sql, new { Id = 10045 });
+    var sql = "SELECT `Gender` FROM `Person`;";
+    var genders = connection.ExecuteQuery<Gender>(sql);
 }
 ```
 

@@ -374,8 +374,8 @@ Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](
 ```csharp
 using (var connection = new SqlConnection(ConnectionString))
 {
-    var sql = "SELECT Name FROM [dbo].[Person] WHERE Id = @Id;";
-    var name = connection.ExecuteQuery<string>(sql, new { Id = 10045 });
+    var sql = "SELECT Name FROM [dbo].[Person];";
+    var names = connection.ExecuteQuery<string>(sql);
 }
 ```
 
@@ -391,8 +391,8 @@ public enum Gender
 // Code
 using (var connection = new SqlConnection(ConnectionString))
 {
-    var sql = "SELECT Gender FROM [dbo].[Person] WHERE Id = @Id;";
-    var name = connection.ExecuteQuery<Gender>(sql, new { Id = 10045 });
+    var sql = "SELECT Gender FROM [dbo].[Person];";
+    var genders = connection.ExecuteQuery<Gender>(sql);
 }
 ```
 

@@ -315,6 +315,30 @@ using (var connection = new NpgsqlConnection(ConnectionString))
 }
 ```
 
+## Executing a Stored Procedure
+
+Call a `PROCEDURE` with `CALL` via the [ExecuteNonQuery](/operation/executenonquery) method.
+
+```csharp
+using (var connection = new NpgsqlConnection(ConnectionString))
+{
+    var affectedRecords = connection.ExecuteNonQuery("CALL sp_update_person(@Id, @Name);",
+        new { Id = 1, Name = "James Doe" });
+}
+```
+
+Call a `FUNCTION` that returns rows with a `SELECT * FROM` wrapper via [ExecuteQuery](/operation/executequery).
+
+```csharp
+using (var connection = new NpgsqlConnection(ConnectionString))
+{
+    var people = connection.ExecuteQuery<Person>("SELECT * FROM fn_get_people();");
+}
+```
+
+{: .note }
+> `CommandType.StoredProcedure` is also supported by Npgsql for calling a `FUNCTION` — pass just the function name as the command text. `PROCEDURE`s (introduced in PostgreSQL 11) are always called with `CALL`, regardless of command type.
+
 ## Typed Result Execution
 
 Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](/operation/executequery).
@@ -322,8 +346,8 @@ Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-    var sql = "SELECT \"Name\" FROM \"Person\" WHERE \"Id\" = @Id;";
-    var name = connection.ExecuteQuery<string>(sql, new { Id = 10045 });
+    var sql = "SELECT \"Name\" FROM \"Person\";";
+    var names = connection.ExecuteQuery<string>(sql);
 }
 ```
 
@@ -340,8 +364,8 @@ public enum Gender
 ```csharp
 using (var connection = new NpgsqlConnection(ConnectionString))
 {
-    var sql = "SELECT \"Gender\" FROM \"Person\" WHERE \"Id\" = @Id;";
-    var name = connection.ExecuteQuery<Gender>(sql, new { Id = 10045 });
+    var sql = "SELECT \"Gender\" FROM \"Person\";";
+    var genders = connection.ExecuteQuery<Gender>(sql);
 }
 ```
 

@@ -286,8 +286,8 @@ Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](
 ```csharp
 using (var connection = new ClickHouseConnection(ConnectionString))
 {
-    var sql = "SELECT Name FROM Person WHERE Id = @Id;";
-    var name = connection.ExecuteQuery<string>(sql, new { Id = 1 });
+    var sql = "SELECT Name FROM Person;";
+    var names = connection.ExecuteQuery<string>(sql);
 }
 ```
 

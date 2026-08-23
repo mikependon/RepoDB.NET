@@ -319,6 +319,32 @@ using (var connection = new OracleConnection(ConnectionString))
 }
 ```
 
+## Executing a Stored Procedure
+
+To execute a stored procedure, use any of the execute methods above and pass `CommandType.StoredProcedure` to the `commandType` argument. Pass only the procedure name — no parentheses.
+
+```csharp
+using (var connection = new OracleConnection(ConnectionString))
+{
+    var affectedRecords = connection.ExecuteNonQuery("SP_UPDATE_PERSON",
+        param: new { Id = 1, Name = "James Doe" },
+        commandType: CommandType.StoredProcedure);
+}
+```
+
+Alternatively, invoke it directly via a PL/SQL block, which does not require the `commandType` argument.
+
+```csharp
+using (var connection = new OracleConnection(ConnectionString))
+{
+    var affectedRecords = connection.ExecuteNonQuery("BEGIN SP_UPDATE_PERSON(:Id, :Name); END;",
+        new { Id = 1, Name = "James Doe" });
+}
+```
+
+{: .note }
+> A procedure that returns rows typically does so through a `SYS_REFCURSOR` output parameter (or an implicit result set via `DBMS_SQL.RETURN_RESULT`, the same mechanism [OracleStatementBuilder](/class/oracle/oraclestatementbuilder) uses for identity retrieval). Bind a `SYS_REFCURSOR` output parameter with [DirectionalQueryField](/class/directionalqueryfield).
+
 ## Typed Result Execution
 
 Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](/operation/executequery).
@@ -326,8 +352,8 @@ Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](
 ```csharp
 using (var connection = new OracleConnection(ConnectionString))
 {
-    var sql = "SELECT \"Name\" FROM \"Person\" WHERE \"Id\" = :Id";
-    var name = connection.ExecuteQuery<string>(sql, new { Id = 10045 });
+    var sql = "SELECT \"Name\" FROM \"Person\"";
+    var names = connection.ExecuteQuery<string>(sql);
 }
 ```
 

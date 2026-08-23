@@ -338,6 +338,27 @@ using (var connection = new DB2Connection(ConnectionString))
 }
 ```
 
+## Executing a Stored Procedure
+
+To execute a stored procedure, use any of the execute methods above and pass `CommandType.StoredProcedure` to the `commandType` argument.
+
+```csharp
+using (var connection = new DB2Connection(ConnectionString))
+{
+    var people = connection.ExecuteQuery<Person>("SP_GET_PEOPLE",
+        commandType: CommandType.StoredProcedure);
+}
+```
+
+Alternatively, use the `CALL` command directly, which does not require the `commandType` argument.
+
+```csharp
+using (var connection = new DB2Connection(ConnectionString))
+{
+    var people = connection.ExecuteQuery<Person>("CALL SP_GET_PEOPLE();");
+}
+```
+
 ## Typed Result Execution
 
 Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](/operation/executequery).
@@ -345,8 +366,8 @@ Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](
 ```csharp
 using (var connection = new DB2Connection(ConnectionString))
 {
-    var sql = "SELECT \"NAME\" FROM \"PERSON\" WHERE \"ID\" = @Id";
-    var name = connection.ExecuteQuery<string>(sql, new { Id = 10045 });
+    var sql = "SELECT \"NAME\" FROM \"PERSON\"";
+    var names = connection.ExecuteQuery<string>(sql);
 }
 ```
 
