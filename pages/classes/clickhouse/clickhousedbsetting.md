@@ -24,7 +24,7 @@ This class is the [BaseDbSetting](/class/basedbsetting)-derived implementation f
 | DefaultSchema | `null` |
 | IsDirectionSupported | `false` |
 | IsExecuteReaderDisposable | `false` |
-| IsInternalMutationsEnabled | `false` |
+| IsWaitForMutationsEnabled | `true` |
 | IsMultiStatementExecutable | `false` |
 | IsPreparable | `false` |
 | IsUseUpsert | `false` |

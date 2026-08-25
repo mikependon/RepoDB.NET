@@ -20,7 +20,7 @@ Below is the list of properties, in addition to the ones inherited from [IDbSett
 
 | Name | Description |
 |:-----|:------------|
-| IsInternalMutationsEnabled | Gets or sets a value indicating whether the internal mutations are enabled for the ClickHouse database. |
+| IsWaitForMutationsEnabled | Gets or sets a value indicating whether waiting for mutations to complete is enabled for the ClickHouse database. |
 
 ## How to Implement?
 
@@ -37,7 +37,7 @@ public class MyCustomClickHouseDbSetting : BaseDbSetting, IClickHouseDbSetting
         ParameterPrefix = string.Empty;
     }
 
-    public bool IsInternalMutationsEnabled { get; set; }
+    public bool IsWaitForMutationsEnabled { get; set; } = true;
 }
 ```
 
