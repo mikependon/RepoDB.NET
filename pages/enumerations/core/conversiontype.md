@@ -13,7 +13,7 @@ grand_parent: ENUMERATIONS
 
 ---
 
-This enum sets the `ConversionType` property of the [Converter](/class/converter) object. It controls how a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) is converted into its equivalent .NET CLR type.
+This enum sets the `ConversionType` option of [GlobalConfigurationOptions](/class/globalconfigurationoptions). It controls how a [DbDataReader](https://learn.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader?view=net-6.0) is converted into its equivalent .NET CLR type.
 
 ## Enum Values
 
@@ -61,10 +61,12 @@ CREATE TABLE [dbo].[Customer]
 
 ## Usability
 
-Set the `ConversionType` property on the [Converter](/class/converter) object.
+Set the `ConversionType` option via [GlobalConfiguration](/class/globalconfiguration).
 
 ```csharp
-Converter.ConversionType = ConversionType.Automatic;
+GlobalConfiguration
+    .Setup(new() { ConversionType = ConversionType.Automatic })
+    .UseSqlServer();
 ```
 
 {: .important }

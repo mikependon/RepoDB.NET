@@ -34,14 +34,13 @@ Deprecated
 
 ## Setting to Automatic Conversion
 
-To enable automatic conversion between .NET CLR types and database types, set `ConversionType` to `Automatic`.
+To enable automatic conversion between .NET CLR types and database types, set `ConversionType` to `Automatic` via [GlobalConfiguration](/class/globalconfiguration).
 
 ```csharp
-Converter.ConversionType = ConversionType.Automatic;
+GlobalConfiguration
+    .Setup(new() { ConversionType = ConversionType.Automatic })
+    .UseSqlServer();
 ```
-
-Deprecated
-{: .label .label-red }
 
 {: .note }
 > See the [ConversionType](/enumeration/conversiontype) enumeration for details.
