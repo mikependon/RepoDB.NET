@@ -16,7 +16,7 @@ For MariaDB via the [MySqlConnector](https://www.nuget.org/packages/MySqlConnect
 > This is a separate implementation from [Operations (MariaDb)](/operation/mariadb), which uses the `MySql.Data`-based [RepoDb.Connector.MariaDb](https://www.nuget.org/packages/RepoDb.Connector.MariaDb) package's own hand-rolled `MariaDbBulkCopy` type. The two packages are unrelated and cannot be mixed.
 
 {: .important }
-> The staging-table SQL uses session user variables and `PREPARE`/`EXECUTE` for its identity pre-assignment and nullability-toggling steps, so the connection string needs `AllowUserVariables=True`. You must also call `GlobalConfiguration.Setup().UseMariaDb()` (or `MariaDbBootstrap.Initialize()`) once at application startup. See [Get Started for MariaDB](/tutorial/get-started-mariadb) for more options.
+> The staging-table SQL uses session user variables and `PREPARE`/`EXECUTE` for its identity pre-assignment and nullability-toggling steps, so the connection string needs `AllowUserVariables=True`. You must also call `GlobalConfiguration.Setup().UseMariaDb()` once at application startup. See [Get Started for MariaDB](/tutorial/get-started-mariadb) for more options.
 
 For [BulkInsert](/operation/mariadbconnector/bulkinsert), the entities/rows are written straight to the target table — unless [MariaDbBulkImportIdentityBehavior.ReturnIdentity](/enumeration/mariadb/mariadbconnector/mariadbbulkimportidentitybehavior) is requested, in which case a staging (pseudo) table is used instead, so the newly generated `AUTO_INCREMENT` values can be pre-assigned and read back before the rows are copied into the target table.
 

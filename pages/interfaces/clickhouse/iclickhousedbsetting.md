@@ -1,0 +1,50 @@
+---
+layout: default
+sidebar: interfaces
+title: "IClickHouseDbSetting"
+permalink: /interface/clickhouse/iclickhousedbsetting
+tags: [repodb, iclickhousedbsetting, clickhouse]
+parent: "ClickHouse"
+grand_parent: INTERFACES
+---
+
+# IClickHouseDbSetting
+
+---
+
+This interface extends [IDbSetting](/interface/idbsetting) with a ClickHouse-specific setting. It is implemented by [ClickHouseDbSetting](/class/clickhouse/clickhousedbsetting), the default database setting registered for `ClickHouseConnection`.
+
+## Properties
+
+Below is the list of properties, in addition to the ones inherited from [IDbSetting](/interface/idbsetting).
+
+| Name | Description |
+|:-----|:------------|
+| IsInternalMutationsEnabled | Gets or sets a value indicating whether the internal mutations are enabled for the ClickHouse database. |
+
+## How to Implement?
+
+You have to manually create a class that implements this interface (typically by deriving from [BaseDbSetting](/class/basedbsetting), the same way [ClickHouseDbSetting](/class/clickhouse/clickhousedbsetting) does).
+
+```csharp
+public class MyCustomClickHouseDbSetting : BaseDbSetting, IClickHouseDbSetting
+{
+    public MyCustomClickHouseDbSetting()
+    {
+        AreTableHintsSupported = false;
+        ClosingQuote = "`";
+        OpeningQuote = "`";
+        ParameterPrefix = string.Empty;
+    }
+
+    public bool IsInternalMutationsEnabled { get; set; }
+}
+```
+
+## Usability
+
+Once the class has been implemented, call [DbSettingMapper](/mapper/dbsettingmapper) to map it against `ClickHouseConnection`.
+
+```csharp
+DbSettingMapper.Add(typeof(ClickHouseConnection), new MyCustomClickHouseDbSetting(), true);
+```

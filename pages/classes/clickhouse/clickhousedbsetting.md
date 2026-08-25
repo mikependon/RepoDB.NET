@@ -13,7 +13,7 @@ grand_parent: CLASSES
 
 ---
 
-This class is the [BaseDbSetting](/class/basedbsetting)-derived implementation for ClickHouse. It is automatically registered by [ClickHouseBootstrap](/class/clickhouse/clickhousebootstrap) — you do not need to instantiate it directly under normal use.
+This class is the [BaseDbSetting](/class/basedbsetting)-derived implementation for ClickHouse, and implements [IClickHouseDbSetting](/interface/clickhouse/iclickhousedbsetting). It is automatically registered by [ClickHouseBootstrap](/class/clickhouse/clickhousebootstrap) — you do not need to instantiate it directly under normal use.
 
 ## Configured Values
 
@@ -24,6 +24,7 @@ This class is the [BaseDbSetting](/class/basedbsetting)-derived implementation f
 | DefaultSchema | `null` |
 | IsDirectionSupported | `false` |
 | IsExecuteReaderDisposable | `false` |
+| IsInternalMutationsEnabled | `false` |
 | IsMultiStatementExecutable | `false` |
 | IsPreparable | `false` |
 | IsUseUpsert | `false` |

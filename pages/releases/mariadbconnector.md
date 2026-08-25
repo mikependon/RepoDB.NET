@@ -37,7 +37,7 @@ First (alpha) release of the dedicated MariaDB provider for RepoDB, built on top
 
 ### Known limitations (v1)
 
-- Install only one of `RepoDb.MariaDbConnector` or [RepoDb.MariaDb](/release/mariadb) per project — both call the identically-named `MariaDbBootstrap.Initialize()`/`GlobalConfiguration.Setup().UseMariaDb()` and map against the identically-named `MariaDbConnection` type, so referencing both lets the second package's mappings silently overwrite the first's. See [Get Started for MariaDB](/tutorial/get-started-mariadb) for details.
+- Install only one of `RepoDb.MariaDbConnector` or [RepoDb.MariaDb](/release/mariadb) per project — both map against the identically-named `MariaDbConnection` type, so referencing both lets the second package's mappings silently overwrite the first's. See [Get Started for MariaDB](/tutorial/get-started-mariadb) for details.
 - `RepoDb.Connector.MariaDbConnector` is an independent, unofficial ADO.NET provider for MariaDB (a thin wrapper over `MySqlConnector`) — not affiliated with or endorsed by MariaDB plc or the MariaDB Foundation, and still in early development.
 - No native GUID/`UNIQUEIDENTIFIER` type — as with MySQL, map a `Guid` property as `string`/`byte[]`, or register a custom [IPropertyHandler](/interface/ipropertyhandler).
 
