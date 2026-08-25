@@ -17,6 +17,12 @@ This feature allows targeted invocation when executing operations against the da
 {: .note }
 > This is especially relevant when your table or entity model has many columns and you only need to query, insert, merge, or update a subset of them.
 
+## Why Targeted Operations?
+
+A "macro" ORM (e.g., Entity Framework, NHibernate) gets the same "touch only what changed" behavior from a change tracker attached to its `DbContext`/session — it snapshots every attached entity, diffs it at `SaveChanges()` time, and generates SQL for only the columns that moved. That convenience is bought with real machinery: an identity map, proxy or snapshot-based interception, and a stateful unit of work you must manage across the request's lifetime.
+
+RepoDB is a micro ORM — there is no attached context and nothing snapshotting your entities in the background. Targeted Operations is the fluent, explicit substitute: rather than the library inferring which columns changed by diffing against a tracked copy, you simply declare which columns to touch, per call, via the `fields` parameter. It is the same "only send what I care about" outcome, just decided by the caller up front instead of inferred by the framework after the fact — which means it works identically whether the object at hand is a tracked entity, a plain POCO, a partial DTO, or an anonymous/dynamic object, none of which need a lifecycle of their own to get the benefit.
+
 The examples below assume the `[dbo].[Customer]` table and `Customer` entity model have many columns. Each example demonstrates how to target specific columns in the operation.
 
 ## Querying a Data
