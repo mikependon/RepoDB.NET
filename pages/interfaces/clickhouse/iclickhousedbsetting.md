@@ -14,13 +14,16 @@ grand_parent: INTERFACES
 
 This interface extends [IDbSetting](/interface/idbsetting) with a ClickHouse-specific setting. It is implemented by [ClickHouseDbSetting](/class/clickhouse/clickhousedbsetting), the default database setting registered for `ClickHouseConnection`.
 
+{: .note }
+> `IsWaitForMutationsEnabled` is only consulted by `BulkMerge`/`BulkUpdate`/`BulkDelete` in [RepoDb.ClickHouse.BulkOperations](/release/clickhousebulk); the plain `Update`/`UpdateAll`/`Delete`/`DeleteAll` operations never read it.
+
 ## Properties
 
 Below is the list of properties, in addition to the ones inherited from [IDbSetting](/interface/idbsetting).
 
 | Name | Description |
 |:-----|:------------|
-| IsWaitForMutationsEnabled | Gets or sets a value indicating whether waiting for mutations to complete is enabled for the ClickHouse database. |
+| IsWaitForMutationsEnabled | Gets or sets a value indicating whether `BulkMerge`/`BulkUpdate`/`BulkDelete` (from [RepoDb.ClickHouse.BulkOperations](/release/clickhousebulk)) block until their `ALTER TABLE` mutation completes. Has no effect on the plain [Update](/operation/update)/[UpdateAll](/operation/updateall)/[Delete](/operation/delete)/[DeleteAll](/operation/deleteall) operations. |
 
 ## How to Implement?
 

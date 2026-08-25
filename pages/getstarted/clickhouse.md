@@ -35,6 +35,15 @@ GlobalConfiguration
     .UseClickHouse();
 ```
 
+{: .note }
+> `UseClickHouse()` accepts an `isWaitForMutationsEnabled` parameter (`false` by default) that controls [ClickHouseDbSetting](/class/clickhouse/clickhousedbsetting)'s [IsWaitForMutationsEnabled](/interface/clickhouse/iclickhousedbsetting) setting. If set to `true`, then it forces the `BulkMerge`/`BulkUpdate`/`BulkDelete` from [RepoDb.ClickHouse.BulkOperations](/release/clickhousebulk) to block each call until its pseudo-table-driven mutation has actually finished.
+>
+> ```csharp
+> GlobalConfiguration
+>     .Setup()
+>     .UseClickHouse(isWaitForMutationsEnabled: true);
+> ```
+
 To use bulk operations, install the [RepoDb.ClickHouse.BulkOperations](https://www.nuget.org/packages/RepoDb.ClickHouse.BulkOperations) package.
 
 ```csharp
@@ -197,7 +206,7 @@ using (var connection = new ClickHouseConnection(ConnectionString))
 ```
 
 {: .important }
-> [Delete](/operation/delete)/[DeleteAll](/operation/deleteall) compile to `ALTER TABLE ... DELETE WHERE ...`. This is an asynchronous *mutation* in ClickHouse — applied later by background merges, not necessarily before the call returns — and the number of rows reported as affected is not reliable for this statement shape.
+> [Delete](/operation/delete)/[DeleteAll](/operation/deleteall) compile to `ALTER TABLE ... DELETE WHERE ...`. This is an asynchronous *mutation* in ClickHouse — applied later by background merges, not necessarily before the call returns — and the number of rows reported as affected is not reliable for this statement shape. Unlike `BulkDelete`, these plain operations always return as soon as the mutation is queued; [IsWaitForMutationsEnabled](/interface/clickhouse/iclickhousedbsetting) has no effect here.
 
 ## Updating a Record
 
@@ -231,7 +240,7 @@ using (var connection = new ClickHouseConnection(ConnectionString))
 ```
 
 {: .important }
-> [Update](/operation/update)/[UpdateAll](/operation/updateall) compile to `ALTER TABLE ... UPDATE ... WHERE ...`, with the same asynchronous-mutation caveat as `Delete`. The `WHERE` clause is mandatory — ClickHouse rejects an unconditional mutation.
+> [Update](/operation/update)/[UpdateAll](/operation/updateall) compile to `ALTER TABLE ... UPDATE ... WHERE ...`, with the same asynchronous-mutation caveat as `Delete`. The `WHERE` clause is mandatory — ClickHouse rejects an unconditional mutation. Unlike `BulkUpdate`, these plain operations always return as soon as the mutation is queued; [IsWaitForMutationsEnabled](/interface/clickhouse/iclickhousedbsetting) has no effect here.
 
 ## Executing a Query
 
