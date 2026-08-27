@@ -2,7 +2,7 @@
 layout: default
 sidebar: classes
 title: "DbTypeNameToColumnNameResolver"
-description: "A class used to resolve a DbField into its equivalent Firebird column type declaration."
+description: "A class used to resolve a Firebird database type name into its equivalent base Firebird column type keyword."
 permalink: /class/firebird/dbtypenametocolumnnameresolver
 tags: [repodb, dbtypenametocolumnnameresolver, firebird]
 parent: "Firebird"
@@ -13,9 +13,9 @@ grand_parent: CLASSES
 
 ---
 
-This [IResolver](/interface/iresolver)`<DbField, string>` implementation converts a [DbField](/class/dbfield) into its equivalent Firebird column type declaration (e.g. `NUMERIC(18,2)`, `VARCHAR(255)`, `CHAR(16) CHARACTER SET OCTETS`), reading the field's `DatabaseType`, `Precision`, `Scale` and `Size` to fill in the declaration's parameters — defaulting to `18` precision, `0` scale, and size `1` when not specified.
+This [IResolver](/interface/iresolver)`<string, string>` implementation converts a Firebird database type name — e.g. a [DbField](/class/dbfield)'s `DatabaseType` — into its equivalent *base* Firebird column type keyword (e.g. `numeric` → `NUMERIC`, `varchar` → `VARCHAR`, `binary`/`varbinary` → `CHAR`/`VARCHAR`). Sized types (`numeric`, `decimal`, `char`, `varchar`, `binary`, `varbinary`) are returned without their `(precision,scale)`/`(size)` portion — the caller is expected to append that using the field's own precision/scale/size.
 
-It is used internally by [RepoDb.Firebird.BulkOperations](https://www.nuget.org/packages/RepoDb.Firebird.BulkOperations) to generate the column definitions of the pseudo (staging) table backing `BulkMerge`, `BulkUpdate`, `BulkDelete`, `BulkDeleteByKey`, and `BulkInsert` with [FirebirdBulkImportIdentityBehavior.ReturnIdentity](/enumeration/firebird/firebirdbulkimportidentitybehavior).
+It is used internally by [RepoDb.Firebird.BulkOperations](https://www.nuget.org/packages/RepoDb.Firebird.BulkOperations) to generate the column definitions of the pseudo (staging) table backing `BulkMerge`, `BulkUpdate`, `BulkDelete`, `BulkDeleteByKey`, and `BulkInsert` with [FirebirdBulkImportIdentityBehavior.ReturnIdentity](/enumeration/firebird/firebirdbulkimportidentitybehavior). There, the base keyword this resolver returns is combined with the field's `Precision`/`Scale`/`Size` (defaulting to `18`/`0`/`1` respectively when unset) and, for `binary`/`varbinary`, a trailing `CHARACTER SET OCTETS` — none of which this resolver appends itself.
 
 {: .note }
 > An unrecognized or `blob_text` database type falls back to `BLOB SUB_TYPE TEXT` as a safe catch-all.
@@ -24,6 +24,8 @@ It is used internally by [RepoDb.Firebird.BulkOperations](https://www.nuget.org/
 
 ```csharp
 var resolver = new DbTypeNameToColumnNameResolver();
-var field = new DbField("Amount", false, false, false, typeof(decimal), 10, 18, 2, "decimal", false);
-var columnType = resolver.Resolve(field); // "DECIMAL(18,2)"
+var baseType = resolver.Resolve("decimal"); // "DECIMAL"
+
+// The caller appends sizing/charset itself, e.g.:
+var columnType = $"{baseType}({field.Precision ?? 18},{field.Scale ?? 0})"; // "DECIMAL(18,2)"
 ```
