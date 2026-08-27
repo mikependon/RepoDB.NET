@@ -14,9 +14,10 @@ parent: GET STARTED
 
 RepoDB is a hybrid .NET ORM library for [Firebird](https://www.nuget.org/packages/RepoDb.Firebird) Database. The project is hosted at [Github](https://github.com/mikependon/RepoDb/tree/master/RepoDb.Firebird) and is licensed with [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.html).
 
-Support ships as a single package:
+Support ships as two packages:
 
 - [RepoDb.Firebird](https://www.nuget.org/packages/RepoDb.Firebird) — the core provider, built on [FirebirdSql.Data.FirebirdClient](https://www.nuget.org/packages/FirebirdSql.Data.FirebirdClient).
+- [RepoDb.Firebird.BulkOperations](https://www.nuget.org/packages/RepoDb.Firebird.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey`.
 
 {: .important }
 > Targets Firebird 3.0 and later. Identity-column introspection relies on `RDB$RELATION_FIELDS.RDB$IDENTITY_TYPE`/`RDB$GENERATOR_NAME`, which do not exist on Firebird 2.5 and earlier — tables whose auto-increment behavior is implemented the pre-3.0 way (a `BEFORE INSERT` trigger plus a bare generator/sequence) are not detected as identity columns.
@@ -35,6 +36,12 @@ After installation, call the globalized setup method to initialize all dependenc
 GlobalConfiguration
     .Setup()
     .UseFirebird();
+```
+
+To use bulk operations (`BulkDelete`, `BulkDeleteByKey`, `BulkInsert`, `BulkMerge` and `BulkUpdate` — see [Operations (Firebird)](/operation/firebird)), install the [RepoDb.Firebird.BulkOperations](https://www.nuget.org/packages/RepoDb.Firebird.BulkOperations) package.
+
+```csharp
+> Install-Package RepoDb.Firebird.BulkOperations
 ```
 
 ## Create a Table
@@ -281,6 +288,33 @@ using (var connection = new FbConnection(ConnectionString))
     }
 }
 ```
+
+## Executing a Stored Procedure
+
+To execute a stored procedure, use any of the execute methods above and pass `CommandType.StoredProcedure` to the `commandType` argument.
+
+```csharp
+using (var connection = new FbConnection(ConnectionString))
+{
+    var people = connection.ExecuteQuery<Person>("\"GetPeople\"",
+        commandType: CommandType.StoredProcedure);
+}
+```
+
+{: .warning }
+> Beware of not putting a semi-colon at the end of the calls.
+
+Alternatively, call it directly via `SELECT * FROM ...`, which does not require the `commandType` argument. This is Firebird's syntax for a *selectable* stored procedure — one that returns rows via `SUSPEND` — as opposed to an *executable* one (invoked instead via `EXECUTE PROCEDURE "GetPeople";`) that only returns output parameters or nothing at all.
+
+```csharp
+using (var connection = new FbConnection(ConnectionString))
+{
+    var people = connection.ExecuteQuery<Person>("SELECT * FROM \"GetPeople\";");
+}
+```
+
+{: .note }
+> You can also use the types defined at the [Passing of Parameters](/operation/executequery#passing-of-parameters) section when passing a parameter.
 
 ## Typed Result Execution
 

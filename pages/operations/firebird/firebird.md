@@ -10,7 +10,14 @@ parent: OPERATIONS
 
 ---
 
-RepoDB's standard operations ([Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge), [Update](/operation/update), [Delete](/operation/delete), etc.) all work against `FbConnection` once [UseFirebird()](/class/firebird/firebirdconfiguration) has been called. Firebird has no dedicated bulk-operations package (unlike SQL Server, Oracle, PostgreSQL, MySQL, MariaDB, Db2 and ClickHouse) — [InsertAll](/operation/insertall), [MergeAll](/operation/mergeall) and [UpdateAll](/operation/updateall) are the only options for writing multiple rows.
+RepoDB's standard operations ([Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge), [Update](/operation/update), [Delete](/operation/delete), etc.) all work against `FbConnection` once [UseFirebird()](/class/firebird/firebirdconfiguration) has been called. `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey` are provided by the separate [RepoDb.Firebird.BulkOperations](https://www.nuget.org/packages/RepoDb.Firebird.BulkOperations) package.
+
+## Bulk Operations
+
+`BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey` stage the incoming data into a uniquely-named pseudo (staging) table before cascading the change to the real table; `BulkInsert` writes straight into the target table unless [FirebirdBulkImportIdentityBehavior.ReturnIdentity](/enumeration/firebird/firebirdbulkimportidentitybehavior) is requested, in which case it also routes through a staging table so the generated identity values can be read back.
+
+- [FirebirdBulkImportIdentityBehavior](/enumeration/firebird/firebirdbulkimportidentitybehavior) — controls whether the identity property is kept as-is (`KeepIdentity`, the default) or read back after the operation (`ReturnIdentity`).
+- [FirebirdBulkImportPseudoTableType](/enumeration/firebird/firebirdbulkimportpseudotabletype) — controls whether the staging table is a Firebird `GLOBAL TEMPORARY TABLE` (`Memory`), an ordinary heap table (`Physical`), or chosen automatically by row count (`Auto`, the default). Since every staging table is created with a per-call unique name, `Memory` and `Physical` are both safe under concurrent callers writing against the same target table.
 
 ## SQL generation notes
 
