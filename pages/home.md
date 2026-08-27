@@ -26,6 +26,7 @@ Choose a database to get started quickly:
 
 - [ClickHouse](/tutorial/get-started-clickhouse)
 - [Db2](/tutorial/get-started-db2)
+- [Firebird](/tutorial/get-started-firebird)
 - [MariaDB](/tutorial/get-started-mariadb)
 - [MySQL](/tutorial/get-started-mysql)
 - [Oracle](/tutorial/get-started-oracle)

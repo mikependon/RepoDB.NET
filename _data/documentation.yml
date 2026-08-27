@@ -32,6 +32,10 @@ docs:
     url: "/tutorial/get-started-db2"
     description: "Learn on how to work with IBM Db2 databases using RepoDB library."
 
+  - title: "Firebird"
+    url: "/tutorial/get-started-firebird"
+    description: "Learn on how to work with Firebird databases using RepoDB library."
+
   - title: "MariaDB"
     url: "/tutorial/get-started-mariadb"
     description: "Learn on how to work with MariaDB databases using RepoDB library."
@@ -997,6 +1001,9 @@ docs:
 
   - title: "Db2 (Bulk)"
     url: "/release/db2bulk"
+
+  - title: "Firebird"
+    url: "/release/firebird"
 
   - title: "Telemetry (Core)"
     url: "/release/telemetry-core"
