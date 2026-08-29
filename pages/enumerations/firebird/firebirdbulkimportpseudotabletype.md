@@ -17,11 +17,11 @@ This enum defines the type of staging (pseudo) table created during bulk-import 
 
 It is used by the following bulk operations, all part of [RepoDb.Firebird.BulkOperations](/operation/firebird).
 
-- `BulkDelete`
-- `BulkDeleteByKey`
-- `BulkInsert` (only when `identityBehavior` is `ReturnIdentity`)
-- `BulkMerge`
-- `BulkUpdate`
+- [BulkDelete](/operation/firebird/bulkdelete)
+- [BulkDeleteByKey](/operation/firebird/bulkdeletebykey)
+- [BulkInsert](/operation/firebird/bulkinsert) (only when `identityBehavior` is `ReturnIdentity`)
+- [BulkMerge](/operation/firebird/bulkmerge)
+- [BulkUpdate](/operation/firebird/bulkupdate)
 
 ## Enum Values
 

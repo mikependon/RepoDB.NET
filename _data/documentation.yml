@@ -1005,6 +1005,9 @@ docs:
   - title: "Firebird"
     url: "/release/firebird"
 
+  - title: "Firebird (Bulk)"
+    url: "/release/firebirdbulk"
+
   - title: "Telemetry (Core)"
     url: "/release/telemetry-core"
 

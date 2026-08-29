@@ -27,9 +27,9 @@ This enum defines the behavior of the identity property/column when an entity is
 
 ## Usability
 
-This enum is used by both the `BulkInsert` and `BulkMerge` operations of [RepoDb.Firebird.BulkOperations](/operation/firebird). Pass the value to the `identityBehavior` argument when calling the operation.
+This enum is used by both the [BulkInsert](/operation/firebird/bulkinsert) and [BulkMerge](/operation/firebird/bulkmerge) operations of [RepoDb.Firebird.BulkOperations](/operation/firebird). Pass the value to the `identityBehavior` argument when calling the operation.
 
-For `BulkInsert`:
+For [BulkInsert](/operation/firebird/bulkinsert):
 
 ```csharp
 using (var connection = new FbConnection(connectionString))
@@ -40,7 +40,7 @@ using (var connection = new FbConnection(connectionString))
 }
 ```
 
-For `BulkMerge`:
+For [BulkMerge](/operation/firebird/bulkmerge):
 
 ```csharp
 using (var connection = new FbConnection(connectionString))
