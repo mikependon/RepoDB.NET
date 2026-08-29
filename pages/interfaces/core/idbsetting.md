@@ -27,6 +27,7 @@ Below is the list of properties.
 | IsAffectedRowsSupported | Gets a value that indicates whether the current DB Provider supports returning the number of affected rows from the execution of a non-query command. |
 | IsDirectionSupported | Gets a value that indicates whether setting the value of `DbParameter.Direction` object is supported. |
 | IsExecuteReaderDisposable | Gets a value that indicates whether the `DbCommand` object must be disposed after calling the `DbCommand.ExecuteReader()` method. |
+| IsInsertAllBatchable | Gets a nullable value that overrides `IsMultiStatementExecutable` specifically for whether [InsertAll](/operation/insertall) can batch more than one row into a single statement (a genuine multi-row `VALUES (...), (...), ...` list, not multiple `;`-separated statements). Left unset (`null`) by default, which falls back to `IsMultiStatementExecutable`. Set this when a provider supports a real multi-row `VALUES` list without supporting arbitrary compound statements. |
 | IsMultiStatementExecutable | Gets a value whether the multiple statement execution is supported. |
 | IsPreparable | Gets a value that indicates whether the current DB Provider supports the `DbCommand.Prepare()` calls. |
 | IsTransactionSupported | Gets a value that indicates whether the current DB Provider supports the transaction objects. |
@@ -53,6 +54,7 @@ public class MyCustomSqlServerDbSetting : IDbSetting
     public bool IsAffectedRowsSupported { get; set; } = true;
     public bool IsDirectionSupported { get; set; } = true;
     public bool IsExecuteReaderDisposable { get; set; } = true;
+    public bool? IsInsertAllBatchable { get; set; } = null;
     public bool IsMultiStatementExecutable { get; set; } = true;
     public bool IsPreparable { get; set; } = true;
     public bool IsTransactionSupported { get; set; } = true;
