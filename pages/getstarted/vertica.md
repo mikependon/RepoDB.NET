@@ -291,6 +291,36 @@ using (var connection = new VerticaConnection(ConnectionString))
 }
 ```
 
+## Executing a Stored Procedure
+
+To execute a stored procedure, use any of the execute methods above and pass `CommandType.StoredProcedure` to the `commandType` argument.
+
+```csharp
+using (var connection = new VerticaConnection(ConnectionString))
+{
+    var people = connection.ExecuteQuery<Person>("GetPeople",
+        commandType: CommandType.StoredProcedure);
+}
+```
+
+{: .warning }
+> Beware of not putting a semi-colon at the end of the calls.
+
+Alternatively, use the `CALL` command directly, which does not require the `commandType` argument.
+
+```csharp
+using (var connection = new VerticaConnection(ConnectionString))
+{
+    var people = connection.ExecuteQuery<Person>("CALL GetPeople()");
+}
+```
+
+{: .note }
+> `CALL` is Vertica's syntax for invoking an actual stored procedure (available since Vertica 10). A scalar user-defined function, by contrast, is invoked like any other expression via `SELECT function_name(...)`, not `CALL`.
+
+{: .note }
+> You can also use the types defined at the [Passing of Parameters](/operation/executequery#passing-of-parameters) section when passing a parameter.
+
 ## Typed Result Execution
 
 Single-column result sets can be mapped to any .NET CLR type via [ExecuteQuery](/operation/executequery).
