@@ -29,6 +29,7 @@ Bulk operations are available for the following providers, each via its own exte
 - [PostgreSQL](/operation/postgresql) — via [RepoDb.PostgreSql.BulkOperations](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations), built on Npgsql's [NpgsqlBinaryImporter](https://www.npgsql.org/doc/api/Npgsql.NpgsqlBinaryImporter.html) (exposed as the `BinaryBulk*` methods).
 - [Db2](/operation/db2) — via [RepoDb.Db2.BulkOperations](https://www.nuget.org/packages/RepoDb.Db2.BulkOperations), built on the IBM Data Server .NET Provider's [DB2BulkCopy](https://www.ibm.com/docs/en/db2/11.5?topic=classes-db2bulkcopy-class).
 - [Firebird](/operation/firebird) — via [RepoDb.Firebird.BulkOperations](https://www.nuget.org/packages/RepoDb.Firebird.BulkOperations), built on `FbBatchCommand`, the FirebirdSql.Data.FirebirdClient driver's native ADO.NET batching API.
+- [Vertica](/operation/vertica) — via [RepoDb.Vertica.BulkOperations](https://www.nuget.org/packages/RepoDb.Vertica.BulkOperations), built on `VerticaCopyStream`, `Vertica.Data`'s native `COPY ... FROM STDIN` streaming API.
 
 Each provider page linked above documents its own underlying mechanics, generated SQL statements, special arguments, and identity-setting alignment, since the implementation differs per ADO.NET driver.
 

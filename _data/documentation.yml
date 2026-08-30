@@ -64,6 +64,10 @@ docs:
     url: "/tutorial/get-started-telemetry"
     description: "Learn on how to start capturing and publishing RepoDB operation telemetry using RepoDb.Telemetry.Default."
 
+  - title: "Vertica"
+    url: "/tutorial/get-started-vertica"
+    description: "Learn on how to work with Vertica databases using RepoDB library."
+
   # - title: "Installation"
   #   url: "/tutorial/installation"
 
@@ -1007,6 +1011,12 @@ docs:
 
   - title: "Firebird (Bulk)"
     url: "/release/firebirdbulk"
+
+  - title: "Vertica"
+    url: "/release/vertica"
+
+  - title: "Vertica (Bulk)"
+    url: "/release/verticabulk"
 
   - title: "Telemetry (Core)"
     url: "/release/telemetry-core"
