@@ -34,6 +34,7 @@ Choose a database to get started quickly:
 - [SQL Server](/tutorial/get-started-sqlserver)
 - [SQLite](/tutorial/get-started-sqlite)
 - [Telemetry](/tutorial/get-started-telemetry)
+- [Vertica](/tutorial/get-started-vertica)
 
 For a full topic index, visit the [docs](/docs) page.
 
