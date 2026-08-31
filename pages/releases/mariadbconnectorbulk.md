@@ -22,7 +22,7 @@ New
 
 First release of the bulk operations extension for [RepoDb.MariaDbConnector](/release/mariadbconnector) (`MySqlConnector`-based), providing `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete`, and `BulkDeleteByKey`, each with an `Async` overload, callable against a `MariaDbConnection`, a table name, or a `DataTable`. [#1271](https://github.com/mikependon/RepoDb/issues/1271)
 
-> This package started as a complete copy of [RepoDb.MySqlConnector.BulkOperations](/release/mysqlconnectorbulk). Its SQL-generation layer is shared, statement-for-statement, with [RepoDb.MariaDb.BulkOperations](/release/mariadbbulk) — the two differ only in the underlying bulk-load transport: this package uses `RepoDb.Connector.MariaDbConnector`'s own `MariaDbBulkCopy` type directly, instead of the `LOAD DATA LOCAL INFILE` file-staging approach the `MySql.Data`-based package needs.
+> This package shares its SQL-generation layer, statement-for-statement, with [RepoDb.MariaDb.BulkOperations](/release/mariadbbulk) — the two differ only in the underlying bulk-load transport: this package uses `RepoDb.Connector.MariaDbConnector`'s own `MariaDbBulkCopy` type directly, instead of a `LOAD DATA LOCAL INFILE` file-staging approach.
 
 > **Verification status:** this package has been implemented and reviewed, but not yet exercised against a live MariaDB instance. Verify the bulk-load path, the identity pre-assignment/read-back, and the staging-table strategy end-to-end before relying on this package in production.
 

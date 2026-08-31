@@ -37,10 +37,10 @@ First (alpha) release of the Firebird provider for RepoDB, built on top of [Fire
 - Firebird 2.5 and earlier are not supported. Identity-column introspection relies on `RDB$RELATION_FIELDS.RDB$IDENTITY_TYPE`/`RDB$GENERATOR_NAME`, which do not exist prior to Firebird 3.0 — a table whose auto-increment behavior is implemented the pre-3.0 way (a `BEFORE INSERT` trigger plus a bare generator/sequence) is not detected as an identity column.
 - No table hints of any kind — `AreTableHintsSupported` is `false`; passing a non-null `hints` argument to any operation throws a `NotSupportedException`.
 - No session-wide scope identity — [GetScopeIdentity](/class/firebird/firebirddbhelper)/`GetScopeIdentityAsync` always throw `NotSupportedException`. Use the value already returned by [Insert](/operation/insert)/[Merge](/operation/merge) via `RETURNING`, or query the underlying generator explicitly (e.g. `GEN_ID(generator_name, 0)`) if you need it out-of-band.
-- No `TRUNCATE TABLE` statement (as of Firebird 5.0) — [Truncate](/operation/truncate) compiles to `DELETE FROM t` without a `WHERE` clause, which, unlike a real truncate, does not reset a `GENERATED ... AS IDENTITY` column's next value.
-- `MaxParameterCount` defaults to `1500`, lower than the `2098` most other providers default to, since Firebird's DSQL parser rejects an `IN (...)` list past roughly 1500 members with `"Implementation limit exceeded"`.
+- No `TRUNCATE TABLE` statement (as of Firebird 5.0) — [Truncate](/operation/truncate) compiles to `DELETE FROM t` without a `WHERE` clause, which does not reset a `GENERATED ... AS IDENTITY` column's next value.
+- `MaxParameterCount` defaults to `1500`, since Firebird's DSQL parser rejects an `IN (...)` list past roughly 1500 members with `"Implementation limit exceeded"`.
 - [Merge](/operation/merge)/[MergeAll](/operation/mergeall) compile to a single plain `UPDATE OR INSERT` statement only when the identity column (if any) is not itself a qualifier; when it is, an `EXECUTE BLOCK` PL/SQL construct is used instead, since `MATCHING` cannot reliably match a not-yet-inserted row against its own not-yet-known identity value.
-- No native GUID type — a `Guid` entity property maps to `CHAR(16) CHARACTER SET OCTETS`; there is currently no dedicated property handler equivalent to other providers' `GuidToByteArrayPropertyHandler`.
+- No native GUID type — a `Guid` entity property maps to `CHAR(16) CHARACTER SET OCTETS`; there is currently no dedicated property handler for it.
 - Only a standard networked Firebird 3.0+ server (SuperServer) accessed via `FirebirdSql.Data.FirebirdClient` is tested against — embedded (`fbembed`) and Classic/SuperClassic server modes are not specifically verified.
 
 - Referenced the `RepoDb` package `v1.16.0`.

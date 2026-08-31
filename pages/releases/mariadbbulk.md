@@ -22,8 +22,6 @@ New
 
 First release of the bulk operations extension for [RepoDb.MariaDb](/release/mariadb) (`MySql.Data`-based), providing `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete`, and `BulkDeleteByKey`, each with an `Async` overload, callable against a `MariaDbConnection`, a table name, or a `DataTable`. [#1271](https://github.com/mikependon/RepoDb/issues/1271)
 
-> This package started as a complete copy of [RepoDb.MySql.BulkOperations](/release/mysqlbulk), with its SQL-generation layer rewritten from the ground up for plain MariaDB rather than reusing logic ported from Oracle's PL/SQL/`MERGE`/`ROWID`-based approach.
-
 > **Verification status:** this package has been implemented and reviewed, but not yet exercised against a live MariaDB instance. Verify the `LOAD DATA LOCAL INFILE` bulk-load path, the identity pre-assignment/read-back, and the staging-table strategy end-to-end before relying on this package in production.
 
 ### What's included

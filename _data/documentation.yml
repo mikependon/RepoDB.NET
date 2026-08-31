@@ -1022,6 +1022,12 @@ docs:
   - title: "Vertica (Bulk)"
     url: "/release/verticabulk"
 
+  - title: "SAP HANA"
+    url: "/release/saphana"
+
+  - title: "SAP HANA (Bulk)"
+    url: "/release/saphanabulk"
+
   - title: "Telemetry (Core)"
     url: "/release/telemetry-core"
 

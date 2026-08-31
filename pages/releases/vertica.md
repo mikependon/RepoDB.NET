@@ -40,9 +40,9 @@ First (alpha) release of the Vertica provider for RepoDB, built on top of [Verti
 - `GetScopeIdentity`/`GetScopeIdentityAsync` run `SELECT LAST_INSERT_ID()` — unverified against a live instance.
 - [MergeAll](/operation/mergeall)/[UpdateAll](/operation/updateall) issue a separate round trip per row rather than a single batched statement, since `IsMultiStatementExecutable` is `false` and neither has an `IsInsertAllBatchable`-style override. Passing an explicit `batchSize` greater than `1` to either throws a `NotSupportedException`. [InsertAll](/operation/insertall) is the exception — see `IsInsertAllBatchable` above.
 - No table hints of any kind — `AreTableHintsSupported` is `false`; passing a non-null `hints` argument to any operation throws a `NotSupportedException`.
-- No `TRUNCATE TABLE` statement (as of Vertica 5.0) — [Truncate](/operation/truncate) compiles to `DELETE FROM t` without a `WHERE` clause, which, unlike a real truncate, does not reset an `IDENTITY` column's next value.
-- `MaxParameterCount` defaults to `1500`, lower than the `2098` most other providers default to.
-- No native GUID property handler — `DbType.Guid` maps to Vertica's own `UUID` type, but there is no dedicated property handler equivalent to other providers' `GuidToByteArrayPropertyHandler` for drivers that need an explicit conversion.
+- No `TRUNCATE TABLE` statement (as of Vertica 5.0) — [Truncate](/operation/truncate) compiles to `DELETE FROM t` without a `WHERE` clause, which does not reset an `IDENTITY` column's next value.
+- `MaxParameterCount` defaults to `1500`.
+- No native GUID property handler — `DbType.Guid` maps to Vertica's own `UUID` type, but there is no dedicated property handler for drivers that need an explicit conversion.
 - A second, near-duplicate property handler class (`RepoDb.PropertyHandlers.VerticaTimeToDateTimePropertyHandler`, as opposed to the documented `RepoDb.PropertyHandlers.Vertica.TimeToDateTimePropertyHandler`) exists in the source but is not referenced anywhere in the library or its tests — apparent leftover code from a refactor, not two intentionally-separate handlers.
 - Only a standard Vertica server accessed via `Vertica.Data` is tested against.
 
