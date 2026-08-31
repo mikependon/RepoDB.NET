@@ -52,6 +52,10 @@ docs:
     url: "/tutorial/get-started-postgresql"
     description: "Learn on how to work with PostgreSQL databases using RepoDB library."
 
+  - title: "SAP HANA"
+    url: "/tutorial/get-started-saphana"
+    description: "Learn on how to work with SAP HANA databases using RepoDB library."
+
   - title: "SQL Server"
     url: "/tutorial/get-started-sqlserver"
     description: "Learn on how to work with SQL Server databases using RepoDB library."

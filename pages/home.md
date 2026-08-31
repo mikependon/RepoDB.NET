@@ -25,16 +25,17 @@ It provides the flexibility to work the way you want — all through the [IDbCon
 Choose a database to get started quickly:
 
 - [ClickHouse](/tutorial/get-started-clickhouse)
-- [Db2](/tutorial/get-started-db2)
+- [DB2](/tutorial/get-started-db2)
 - [Firebird](/tutorial/get-started-firebird)
-- [MariaDB](/tutorial/get-started-mariadb)
-- [MySQL](/tutorial/get-started-mysql)
+- [MariaDB / MariaDbConnector](/tutorial/get-started-mariadb)
+- [MySQL / MySqlConnector](/tutorial/get-started-mysql)
 - [Oracle](/tutorial/get-started-oracle)
 - [PostgreSQL](/tutorial/get-started-postgresql)
+- [SAP HANA](/tutorial/get-started-saphana)
 - [SQL Server](/tutorial/get-started-sqlserver)
 - [SQLite](/tutorial/get-started-sqlite)
-- [Telemetry](/tutorial/get-started-telemetry)
 - [Vertica](/tutorial/get-started-vertica)
+- [Telemetry](/tutorial/get-started-telemetry)
 
 For a full topic index, visit the [docs](/docs) page.
 

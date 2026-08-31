@@ -15,7 +15,7 @@ View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Vertica.Bulk
 
 ## RepoDb.Vertica.BulkOperations (v0.0.1-alpha) - Preview
 
-Released: TBA
+Released: 2026-08-31
 
 New
 {: .label .label-green }

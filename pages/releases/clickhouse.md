@@ -15,7 +15,7 @@ View the NuGet package [here](https://www.nuget.org/packages/RepoDb.ClickHouse) 
 
 ## RepoDb.ClickHouse - Preview
 
-Released: TBA
+Released: 2026-08-30
 
 New
 {: .label .label-green }
