@@ -35,8 +35,14 @@ GlobalConfiguration
     .UseVertica();
 ```
 
-{: .important }
-> `UseVertica()` also forces the calling thread's, and every subsequently-created thread's, `CultureInfo.CurrentCulture` to `CultureInfo.InvariantCulture`. `Vertica.Data` formats/re-parses date-like parameter values using the ambient thread culture rather than `CultureInfo.InvariantCulture` — on a machine whose culture renders time with a non-colon separator (e.g. `en-DK`'s `13.45.30`), this corrupts the value the driver actually sends. There is no per-call interception point available to a provider, so this is applied process-wide rather than scoped to Vertica calls specifically.
+{: .note }
+> `UseVertica()` accepts a `useInvariantCulture` argument (default `false`). `Vertica.Data` formats/re-parses date-like parameter values using the ambient thread culture rather than `CultureInfo.InvariantCulture` — on a machine whose culture renders time with a non-colon separator (e.g. `en-DK`'s `13.45.30`), this can corrupt the value the driver actually sends. Pass `useInvariantCulture: true` to work around it:
+> ```csharp
+> GlobalConfiguration
+>     .Setup()
+>     .UseVertica(useInvariantCulture: true);
+> ```
+> There is no per-call interception point available to a provider, so enabling it forces `CultureInfo.CurrentCulture` to `CultureInfo.InvariantCulture` process-wide — for the calling thread and every subsequently-created thread — rather than scoped to Vertica calls specifically.
 
 To use bulk operations (`BulkDelete`, `BulkDeleteByKey`, `BulkInsert`, `BulkMerge` and `BulkUpdate` — see [Operations (Vertica)](/operation/vertica)), install the [RepoDb.Vertica.BulkOperations](https://www.nuget.org/packages/RepoDb.Vertica.BulkOperations) package.
 
