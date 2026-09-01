@@ -21,6 +21,7 @@ New
 {: .label .label-green }
 
 - Added the [MultiStatementSeparator](/class/basedbsetting) property to the [IDbSetting](/interface/idbsetting) interface. [#1241](https://github.com/mikependon/RepoDB/issues/1241)
+- Added parameter attributes mirroring `MySqlParameter` members, settable per entity property: [SourceColumn](/attribute/mysql/mysqlconnector/sourcecolumn), [SourceColumnNullMapping](/attribute/mysql/mysqlconnector/sourcecolumnnullmapping), and [SourceVersion](/attribute/mysql/mysqlconnector/sourceversion).
 - Referenced the `RepoDb` package `v1.16.0`.
 
 
