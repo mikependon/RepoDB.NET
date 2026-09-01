@@ -20,6 +20,11 @@ Released: TBA
 - Version bumped to `v1.16.0` to stay aligned with the `RepoDb.PostgreSql.BulkOperations` package, where the bulk-import enumerations and bulk operation methods were renamed. See the [RepoDb.PostgreSql.BulkOperations release notes](/release/postgresqlbulk) for details.
 - Added the [MultiStatementSeparator](/class/basedbsetting) property to the [IDbSetting](/interface/idbsetting) interface. [#1241](https://github.com/mikependon/RepoDB/issues/1241)
 
+Breaking
+{: .label .label-red }
+
+- Removed the obsolete `PostgreSqlBootstrap.Initialize()` method. Use `GlobalConfiguration.Setup().UsePostgreSql()` instead.
+
 
 ## RepoDb.PostgreSql (v1.15.0)
 

@@ -23,6 +23,11 @@ New
 - Added the [MultiStatementSeparator](/class/basedbsetting) property to the [IDbSetting](/interface/idbsetting) interface. [#1241](https://github.com/mikependon/RepoDB/issues/1241)
 - Referenced the `RepoDb` package `v1.16.0`.
 
+Breaking
+{: .label .label-red }
+
+- Removed the obsolete `MySqlBootstrap.Initialize()` method. Use `GlobalConfiguration.Setup().UseMySql()` instead.
+
 
 ## RepoDb.MySql (v1.15.0)
 

@@ -31,7 +31,7 @@ First (alpha) release of the SAP HANA provider for RepoDB, built on top of [Sap.
 - [SapHanaStatementBuilder](/class/saphana/saphanastatementbuilder) — generates SAP HANA-flavored SQL: ANSI `LIMIT`/`LIMIT ... OFFSET` paging for [Query](/operation/query)/[BatchQuery](/operation/batchquery)/skip-take queries, a native `UPSERT ... WITH PRIMARY KEY` for [Merge](/operation/merge)/[MergeAll](/operation/mergeall), and `COUNT(`/`MAX(`/`MIN(`/`SUM(` reformatted (no space before the parenthesis).
 - [SapHanaDbHelper](/class/saphana/saphanadbhelper) — schema/type discovery (`GetFields`/`GetFieldsAsync`) sourced from `SYS.TABLE_COLUMNS`/`SYS.CONSTRAINTS`, scoped to `CURRENT_SCHEMA`. `GetScopeIdentity`/`GetScopeIdentityAsync` run `SELECT CURRENT_IDENTITY_VALUE() FROM DUMMY;`.
 - Resolvers — [SapHanaDbTypeNameToClientTypeResolver](/class/saphana/saphanadbtypenametoclienttyperesolver) (maps `SYS.TABLE_COLUMNS.DATA_TYPE_NAME` values to .NET CLR types) and [SapHanaDbTypeToStringNameResolver](/class/saphana/saphanadbtypetostringnameresolver) (maps `Sap.Data.Hana.HanaDbType` to SAP HANA SQL type names).
-- The [SapHanaDbType](/attribute/saphana/saphanadbtype) parameter attribute, mirroring `HanaParameter.HanaDbType`, settable per entity property.
+- Parameter attributes mirroring `HanaParameter` members, settable per entity property: [SapHanaDbType](/attribute/saphana/saphanadbtype), [SourceColumn](/attribute/saphana/sourcecolumn), [SourceColumnNullMapping](/attribute/saphana/sourcecolumnnullmapping), [SourceVersion](/attribute/saphana/sourceversion), and [Offset](/attribute/saphana/offset).
 
 - Referenced the `RepoDb` package `v1.16.0`.
 - Referenced the `Sap.Data.Hana.Net.v6.0` package `v2.29.25`.

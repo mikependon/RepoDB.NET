@@ -1,17 +1,17 @@
 ---
 layout: default
-title: SapHanaDbType
-permalink: /attribute/saphana/saphanadbtype
-tags: [repodb, attribute, saphanadbtype]
+title: SourceColumn
+permalink: /attribute/saphana/sourcecolumn
+tags: [repodb, attribute, sourcecolumn]
 parent: "SAP HANA"
 grand_parent: ATTRIBUTES
 ---
 
-# SapHanaDbType
+# SourceColumn
 
 ---
 
-This attribute sets the `HanaParameter.HanaDbType` property value via a class property.
+This attribute sets the `HanaParameter.SourceColumn` property value via a class property.
 
 ### Attribute
 
@@ -22,7 +22,7 @@ public class Person
 {
     public int Id { get; set; }
 
-    [SapHanaDbType(HanaDbType.NVarChar)]
+    [SourceColumn("Name")]
     public string Name { get; set; }
 }
 ```
@@ -34,7 +34,7 @@ To configure via [FluentMapper](/mapper/fluentmapper):
 ```csharp
 FluentMapper
     .Entity<Person>()
-    .PropertyValueAttributes(e => e.Name, new SapHanaDbTypeAttribute(HanaDbType.NVarChar));
+    .PropertyValueAttributes(e => e.Name, new SourceColumnAttribute("Name"));
 ```
 
 ### Retrieval
@@ -44,7 +44,7 @@ Retrieve the attribute via [PropertyValueAttributeCache](/cacher/propertyvalueat
 ```csharp
 var attribute = PropertyValueAttributeCache
     .Get<Person>(e => e.Name)?
-    .FirstOrDefault(e => e.GetType() == typeof(SapHanaDbTypeAttribute));
+    .FirstOrDefault(e => e.GetType() == typeof(SourceColumnAttribute));
 ```
 
 {: .important }
