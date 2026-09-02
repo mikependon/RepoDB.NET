@@ -25,7 +25,7 @@ Install the library via NuGet using the Package Manager Console.
 
 ## Setting up Docker
 
-Download the [docker-compose.yml](https://raw.githubusercontent.com/mikependon/RepoDB/refs/heads/master/RepoDb.Telemetry.Default/docker-compose.yml) and [.env](https://raw.githubusercontent.com/mikependon/RepoDB/refs/heads/master/RepoDb.Telemetry.Default/.env) files into any directory and run the command below:
+Download the [docker-compose.yml](https://raw.githubusercontent.com/mikependon/RepoDB/refs/heads/master/src/Telemetry/RepoDb.Telemetry.Default/docker-compose.yml) and [.env](https://raw.githubusercontent.com/mikependon/RepoDB/refs/heads/master/src/Telemetry/RepoDb.Telemetry.Default/.env) files into any directory and run the command below:
 
 ```bash
 cd c:/folder-location
