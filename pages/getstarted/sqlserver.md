@@ -100,7 +100,7 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> The [Insert](/operation/insert) method returns the value of identity/primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of identity/primary property to the entity model (if present).
+> [Insert](/operation/insert) returns the identity/primary column value, [InsertAll](/operation/insertall) returns the number of rows inserted, and both set the identity/primary property back onto the entity model (if present).
 
 ## Querying a Record
 
@@ -170,7 +170,7 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> The [Merge](/operation/merge) method returns the value of the identity/primary column while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of identity/primary property to the entity model (if present).
+> [Merge](/operation/merge) returns the identity/primary column value, [MergeAll](/operation/mergeall) returns the number of rows affected, and both set the identity/primary property back onto the entity model (if present).
 
 ## Deleting a Record
 
@@ -212,7 +212,7 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the deletion.
+> [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) both return the number of rows affected.
 
 ## Updating a Record
 
@@ -269,7 +269,7 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution.
+> [Update](/operation/update) and [UpdateAll](/operation/updateall) both return the number of rows affected.
 
 ## Executing a SQL Text
 
@@ -322,7 +322,7 @@ using (var connection = new SqlConnection(ConnectionString))
 To pass a Table-Valued Parameter (TVP), create a `DataTable` and set its name to the name of the User-Defined Type (UDT).
 
 {: .highlight }
-> Please follow the Microsoft [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) on how to create a TVP and UDT and call it from C#/ADO.NET.
+> Follow Microsoft's [guidelines](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/table-valued-parameters) for creating a TVP and UDT and calling it from C#/ADO.NET.
 
 ```csharp
 var table = new DataTable();
@@ -397,4 +397,4 @@ using (var connection = new SqlConnection(ConnectionString))
 ```
 
 {: .note }
-> The result of this operation is an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+> Returns an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.

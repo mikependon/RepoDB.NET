@@ -34,7 +34,8 @@ docker compose up -d
 
 Once the stack is up, the collector Collector API runs at [`http://localhost:5000`](http://localhost:5000) by default and the Grafana dashboard is at [`http://localhost:3000`](http://localhost:3000).
 
-> Everything runs with local defaults (`RepoDB2026` as the shared password/API key) meant for trying things out, not production. Override them with environment variables in a `.env` file before deploying to production.
+{: .note }
+> Local defaults (e.g. `RepoDB2026`) are for trying things out — override them via a `.env` file before deploying to production.
 
 ## Enable Telemetry
 
@@ -52,7 +53,8 @@ GlobalConfiguration
 
 **That's it, you are now done!** Every operation across every connection in the application is now traced automatically.
 
-> `UseRegisteredGlobalTraces = true` is required. It tells the library to run every globally registered tracer (this one included) for every operation, without passing a `trace` argument to each call.
+{: .important }
+> `UseRegisteredGlobalTraces = true` is required — it runs every globally registered tracer (this one included) for every operation without an explicit `trace` argument.
 
 For more control, pass a [DefaultTelemetryOption](/class/defaulttelemetryoption) instead of individual arguments.
 

@@ -122,7 +122,7 @@ using (var connection = new MariaDbConnection(ConnectionString))
 ```
 
 {: .note }
-> The [Insert](/operation/insert) method returns the value of identity/primary column, while the [InsertAll](/operation/insertall) method returns the number of rows inserted. Both methods are automatically setting back the value of identity/primary property to the entity model (if present).
+> [Insert](/operation/insert) returns the identity/primary column value, [InsertAll](/operation/insertall) returns the number of rows inserted, and both set the identity/primary property back onto the entity model (if present).
 
 ## Querying a Record
 
@@ -193,7 +193,7 @@ using (var connection = new MariaDbConnection(ConnectionString))
 ```
 
 {: .note }
-> The [Merge](/operation/merge) method returns the identity/primary column value, while the [MergeAll](/operation/mergeall) method returns the number of rows affected. Both methods are automatically setting back the value of identity/primary property if present.
+> [Merge](/operation/merge) returns the identity/primary column value, [MergeAll](/operation/mergeall) returns the number of rows affected, and both set the identity/primary property back if present.
 
 ## Deleting a Record
 
@@ -235,7 +235,7 @@ using (var connection = new MariaDbConnection(connectionString))
 ```
 
 {: .note }
-> Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the execution.
+> [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) both return the number of rows affected.
 
 ## Updating a Record
 
@@ -292,7 +292,7 @@ using (var connection = new MariaDbConnection(ConnectionString))
 ```
 
 {: .note }
-> Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution.
+> [Update](/operation/update) and [UpdateAll](/operation/updateall) both return the number of rows affected.
 
 ## Executing a Query
 
@@ -392,4 +392,4 @@ using (var connection = new MariaDbConnection(ConnectionString))
 ```
 
 {: .note }
-> The resultset of this operation is an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+> Returns an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.

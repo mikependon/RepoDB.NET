@@ -20,7 +20,7 @@ Support ships as two packages:
 - [RepoDb.Firebird.BulkOperations](https://www.nuget.org/packages/RepoDb.Firebird.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey`.
 
 {: .important }
-> Targets Firebird 3.0 and later. Identity-column introspection relies on `RDB$RELATION_FIELDS.RDB$IDENTITY_TYPE`/`RDB$GENERATOR_NAME`, which do not exist on Firebird 2.5 and earlier — tables whose auto-increment behavior is implemented the pre-3.0 way (a `BEFORE INSERT` trigger plus a bare generator/sequence) are not detected as identity columns.
+> Targets Firebird 3.0+ — identity-column introspection relies on `RDB$RELATION_FIELDS.RDB$IDENTITY_TYPE`, which doesn't exist on 2.5 and earlier, so pre-3.0 trigger-based auto-increment columns aren't detected as identity.
 
 ## Installation
 
@@ -101,7 +101,7 @@ using (var connection = new FbConnection(ConnectionString))
 ```
 
 {: .note }
-> The [Insert](/operation/insert) method returns the generated key via Firebird's `RETURNING` clause, and both [Insert](/operation/insert) and [InsertAll](/operation/insertall) set it back onto the identity/primary property automatically (if present). Unlike SQL Server or Db2, Firebird's ADO.NET provider (`FbCommand`) cannot execute multiple statements in one round trip, so [InsertAll](/operation/insertall) issues one `INSERT` per row rather than a single batched statement — passing an explicit `batchSize` greater than `1` throws a `NotSupportedException`.
+> [Insert](/operation/insert) returns the generated key via Firebird's `RETURNING` clause and sets it back onto the identity/primary property (if present), while [InsertAll](/operation/insertall) issues one `INSERT` per row and rejects a `batchSize` greater than `1`.
 
 ## Querying a Record
 
@@ -126,7 +126,7 @@ using (var connection = new FbConnection(ConnectionString))
 ```
 
 {: .note }
-> Firebird has no table-hint syntax (`AreTableHintsSupported` is `false`) — passing a `hints` argument to any operation throws a `NotSupportedException`.
+> Firebird has no table-hint syntax — passing a `hints` argument to any operation throws a `NotSupportedException`.
 
 ## Merging a Record
 
@@ -175,7 +175,7 @@ using (var connection = new FbConnection(ConnectionString))
 ```
 
 {: .note }
-> [Merge](/operation/merge) compiles to Firebird's native `UPDATE OR INSERT INTO ... MATCHING (...) RETURNING ...` upsert statement. The same one-round-trip-per-row caveat as [InsertAll](/operation/insertall) applies to [MergeAll](/operation/mergeall).
+> [Merge](/operation/merge) compiles to Firebird's native `UPDATE OR INSERT INTO ... MATCHING (...) RETURNING ...`, and [MergeAll](/operation/mergeall) shares [InsertAll](/operation/insertall)'s one-round-trip-per-row limit.
 
 ## Deleting a Record
 
@@ -207,7 +207,7 @@ using (var connection = new FbConnection(ConnectionString))
 ```
 
 {: .note }
-> Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the execution.
+> [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) both return the number of rows affected.
 
 ## Updating a Record
 
@@ -241,7 +241,7 @@ using (var connection = new FbConnection(ConnectionString))
 ```
 
 {: .note }
-> Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution. As with [InsertAll](/operation/insertall)/[MergeAll](/operation/mergeall), [UpdateAll](/operation/updateall) with a `batchSize` greater than `1` throws a `NotSupportedException`.
+> [Update](/operation/update) and [UpdateAll](/operation/updateall) both return the number of rows affected, and [UpdateAll](/operation/updateall) likewise rejects a `batchSize` greater than `1`.
 
 ## Executing a Query
 
@@ -329,4 +329,4 @@ using (var connection = new FbConnection(ConnectionString))
 ```
 
 {: .note }
-> The result of this operation is an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+> Returns an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.

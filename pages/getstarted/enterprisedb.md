@@ -20,7 +20,7 @@ Support ships as two packages:
 - [RepoDb.EnterpriseDb.BulkOperations](https://www.nuget.org/packages/RepoDb.EnterpriseDb.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey`.
 
 {: .note }
-> `EDBConnection` throughout both packages refers to `RepoDb.Connector.EnterpriseDb.EDBConnection` — distinct from the official `EnterpriseDB.EDBClient` driver's connection type of the same name, which this provider does not use.
+> `EDBConnection` refers to `RepoDb.Connector.EnterpriseDb.EDBConnection` throughout — this provider does not use the official `EnterpriseDB.EDBClient` driver.
 
 ## Installation
 
@@ -100,7 +100,7 @@ using (var connection = new EDBConnection(ConnectionString))
 ```
 
 {: .note }
-> The [Insert](/operation/insert) method returns the value of the identity/primary column, while [InsertAll](/operation/insertall) returns the number of rows inserted. Both methods automatically set the identity/primary property value back onto the entity model (if present).
+> [Insert](/operation/insert) returns the identity/primary column value, [InsertAll](/operation/insertall) returns the number of rows inserted, and both set the identity/primary property back onto the entity model (if present).
 
 ## Querying a Record
 
@@ -165,7 +165,7 @@ using (var connection = new EDBConnection(ConnectionString))
 ```
 
 {: .note }
-> The [Merge](/operation/merge) method returns the identity/primary column value, while [MergeAll](/operation/mergeall) returns the number of rows affected. Both methods automatically set the identity/primary property value back onto the entity (if present).
+> [Merge](/operation/merge) returns the identity/primary column value, [MergeAll](/operation/mergeall) returns the number of rows affected, and both set the identity/primary property back onto the entity (if present).
 
 ## Deleting a Record
 
@@ -207,7 +207,7 @@ using (var connection = new EDBConnection(ConnectionString))
 ```
 
 {: .note }
-> Both [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) return the number of rows affected.
+> [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) both return the number of rows affected.
 
 ## Updating a Record
 
@@ -260,7 +260,7 @@ using (var connection = new EDBConnection(ConnectionString))
 ```
 
 {: .note }
-> Both [Update](/operation/update) and [UpdateAll](/operation/updateall) return the number of rows affected.
+> [Update](/operation/update) and [UpdateAll](/operation/updateall) both return the number of rows affected.
 
 ## Executing a Query
 
@@ -342,4 +342,4 @@ using (var connection = new EDBConnection(ConnectionString))
 ```
 
 {: .note }
-> The resultset of this operation is an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+> Returns an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.

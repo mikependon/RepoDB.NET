@@ -36,13 +36,7 @@ GlobalConfiguration
 ```
 
 {: .note }
-> `UseVertica()` accepts a `useInvariantCulture` argument (default `false`). `Vertica.Data` formats/re-parses date-like parameter values using the ambient thread culture rather than `CultureInfo.InvariantCulture` — on a machine whose culture renders time with a non-colon separator (e.g. `en-DK`'s `13.45.30`), this can corrupt the value the driver actually sends. Pass `useInvariantCulture: true` to work around it:
-> ```csharp
-> GlobalConfiguration
->     .Setup()
->     .UseVertica(useInvariantCulture: true);
-> ```
-> There is no per-call interception point available to a provider, so enabling it forces `CultureInfo.CurrentCulture` to `CultureInfo.InvariantCulture` process-wide — for the calling thread and every subsequently-created thread — rather than scoped to Vertica calls specifically.
+> Pass `useInvariantCulture: true` to `UseVertica()` if the machine's culture formats time without colons (e.g. `en-DK`), which can otherwise corrupt date parameter values — this sets `CultureInfo.CurrentCulture` process-wide.
 
 To use bulk operations (`BulkDelete`, `BulkDeleteByKey`, `BulkInsert`, `BulkMerge` and `BulkUpdate` — see [Operations (Vertica)](/operation/vertica)), install the [RepoDb.Vertica.BulkOperations](https://www.nuget.org/packages/RepoDb.Vertica.BulkOperations) package.
 
@@ -79,7 +73,7 @@ public class Person
 ```
 
 {: .note }
-> Vertica has no distinct storage widths for its integer types — `SMALLINT`/`INTEGER`/`BIGINT` are all synonyms for one 8-byte integer, reported back to ADO.NET as `long`. Map integer-looking columns as `long` rather than `int` to avoid a cast failure when reading them back.
+> Vertica's `SMALLINT`/`INTEGER`/`BIGINT` are all synonyms for one 8-byte integer reported as `long`, so map integer-looking columns as `long` rather than `int` to avoid a cast failure.
 
 ## Creating a Record
 
@@ -109,7 +103,7 @@ using (var connection = new VerticaConnection(ConnectionString))
 ```
 
 {: .note }
-> Unlike most providers, Vertica's `IsMultiStatementExecutable` is `false` (`VerticaCommand` refuses a compound `;`-separated statement once it carries a parameter) yet [InsertAll](/operation/insertall) still batches multiple rows into one genuine multi-row `INSERT ... VALUES (...), (...), ...` statement — the `IsInsertAllBatchable` database setting overrides `IsMultiStatementExecutable` specifically for this shape. [MergeAll](/operation/mergeall)/[UpdateAll](/operation/updateall), which have no equivalent single-statement shape, still issue one round trip per row; passing an explicit `batchSize` greater than `1` to either throws a `NotSupportedException`.
+> [InsertAll](/operation/insertall) still batches rows into one multi-row `INSERT ... VALUES (...), (...)` statement despite `IsMultiStatementExecutable` being `false`, but [MergeAll](/operation/mergeall)/[UpdateAll](/operation/updateall) issue one round trip per row and reject a `batchSize` greater than `1`.
 
 ## Querying a Record
 
@@ -134,7 +128,7 @@ using (var connection = new VerticaConnection(ConnectionString))
 ```
 
 {: .note }
-> Vertica has no table-hint syntax (`AreTableHintsSupported` is `false`) — passing a `hints` argument to any operation throws a `NotSupportedException`.
+> Vertica has no table-hint syntax — passing a `hints` argument to any operation throws a `NotSupportedException`.
 
 ## Merging a Record
 
@@ -183,7 +177,7 @@ using (var connection = new VerticaConnection(ConnectionString))
 ```
 
 {: .important }
-> Vertica flatly refuses to run a `MERGE` statement against a table with an `IDENTITY`/`AUTO_INCREMENT` column at all ("Sequence or IDENTITY/AUTO_INCREMENT column in merge query is not supported"), and has no procedural fallback equivalent to Firebird's `EXECUTE BLOCK`. [Merge](/operation/merge)/[MergeAll](/operation/mergeall) are instead always compiled as an `UPDATE ...` followed by an `INSERT ... WHERE NOT EXISTS (...)`, joined by `;` into a single command text — verify this against a live instance before relying on it in production, since `VerticaCommand` is documented elsewhere (see [Operations (Vertica)](/operation/vertica)) to refuse a compound statement that carries parameters.
+> Vertica refuses `MERGE` against a table with an `IDENTITY`/`AUTO_INCREMENT` column, so [Merge](/operation/merge)/[MergeAll](/operation/mergeall) instead compile to an `UPDATE` followed by an `INSERT ... WHERE NOT EXISTS (...)` — verify this against a live instance before relying on it in production.
 
 ## Deleting a Record
 
@@ -215,7 +209,7 @@ using (var connection = new VerticaConnection(ConnectionString))
 ```
 
 {: .note }
-> Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the execution.
+> [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) both return the number of rows affected.
 
 ## Updating a Record
 
@@ -249,7 +243,7 @@ using (var connection = new VerticaConnection(ConnectionString))
 ```
 
 {: .note }
-> Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution.
+> [Update](/operation/update) and [UpdateAll](/operation/updateall) both return the number of rows affected.
 
 ## Executing a Query
 
@@ -322,7 +316,7 @@ using (var connection = new VerticaConnection(ConnectionString))
 ```
 
 {: .note }
-> `CALL` is Vertica's syntax for invoking an actual stored procedure (available since Vertica 10). A scalar user-defined function, by contrast, is invoked like any other expression via `SELECT function_name(...)`, not `CALL`.
+> `CALL` invokes an actual stored procedure (Vertica 10+); a scalar UDF is invoked via `SELECT function_name(...)` instead.
 
 {: .note }
 > You can also use the types defined at the [Passing of Parameters](/operation/executequery#passing-of-parameters) section when passing a parameter.
@@ -340,4 +334,4 @@ using (var connection = new VerticaConnection(ConnectionString))
 ```
 
 {: .note }
-> The result of this operation is an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+> Returns an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.

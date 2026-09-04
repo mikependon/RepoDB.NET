@@ -98,7 +98,7 @@ using (var connection = new HanaConnection(ConnectionString))
 ```
 
 {: .note }
-> `IsMultiStatementExecutable` is `false` for SAP HANA — its ADO.NET client rejects a command text containing more than one SQL statement — so [InsertAll](/operation/insertall) issues one round trip per row rather than a single batched statement. Passing an explicit `batchSize` greater than `1` throws a `NotSupportedException`. [Insert](/operation/insert)'s generated key is fetched via a separate round trip to [GetScopeIdentity](/class/saphana/saphanadbhelper) rather than a trailing `SELECT`.
+> SAP HANA rejects multi-statement command text, so [InsertAll](/operation/insertall) issues one round trip per row (a `batchSize` greater than `1` throws `NotSupportedException`) and [Insert](/operation/insert)'s generated key is fetched via a separate [GetScopeIdentity](/class/saphana/saphanadbhelper) call.
 
 ## Querying a Record
 
@@ -123,7 +123,7 @@ using (var connection = new HanaConnection(ConnectionString))
 ```
 
 {: .note }
-> SAP HANA has no table-hint syntax (`AreTableHintsSupported` is `false`) — passing a `hints` argument to any operation throws a `NotSupportedException`.
+> SAP HANA has no table-hint syntax — passing a `hints` argument to any operation throws a `NotSupportedException`.
 
 ## Merging a Record
 
@@ -157,7 +157,7 @@ using (var connection = new HanaConnection(ConnectionString))
 ```
 
 {: .important }
-> [Merge](/operation/merge) compiles to SAP HANA's native `UPSERT ... WITH PRIMARY KEY` statement, which matches against the primary key — the primary key value must already be known on the entity being merged. The same one-round-trip-per-row caveat as [InsertAll](/operation/insertall) applies to [MergeAll](/operation/mergeall).
+> [Merge](/operation/merge) compiles to SAP HANA's native `UPSERT ... WITH PRIMARY KEY`, so the primary key value must already be known on the entity, and [MergeAll](/operation/mergeall) shares [InsertAll](/operation/insertall)'s one-round-trip-per-row limit.
 
 ## Deleting a Record
 
@@ -189,7 +189,7 @@ using (var connection = new HanaConnection(ConnectionString))
 ```
 
 {: .note }
-> Both the [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) methods return the number of rows affected during the execution.
+> [Delete](/operation/delete) and [DeleteAll](/operation/deleteall) both return the number of rows affected.
 
 ## Updating a Record
 
@@ -223,7 +223,7 @@ using (var connection = new HanaConnection(ConnectionString))
 ```
 
 {: .note }
-> Both the [Update](/operation/update) and [UpdateAll](/operation/updateall) methods return the number of rows affected during the execution.
+> [Update](/operation/update) and [UpdateAll](/operation/updateall) both return the number of rows affected.
 
 ## Executing a Query
 
@@ -311,4 +311,4 @@ using (var connection = new HanaConnection(ConnectionString))
 ```
 
 {: .note }
-> The result of this operation is an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+> Returns an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.

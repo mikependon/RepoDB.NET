@@ -36,13 +36,7 @@ GlobalConfiguration
 ```
 
 {: .note }
-> `UseClickHouse()` accepts an `isWaitForMutationsEnabled` parameter (`false` by default) that controls [ClickHouseDbSetting](/class/clickhouse/clickhousedbsetting)'s [IsWaitForMutationsEnabled](/interface/clickhouse/iclickhousedbsetting) setting. If set to `true`, then it forces the `BulkMerge`/`BulkUpdate`/`BulkDelete` from [RepoDb.ClickHouse.BulkOperations](/release/clickhousebulk) to block each call until its pseudo-table-driven mutation has actually finished.
->
-> ```csharp
-> GlobalConfiguration
->     .Setup()
->     .UseClickHouse(isWaitForMutationsEnabled: true);
-> ```
+> Pass `isWaitForMutationsEnabled: true` to `UseClickHouse()` to make `BulkMerge`/`BulkUpdate`/`BulkDelete` block until their mutation actually finishes.
 
 To use bulk operations, install the [RepoDb.ClickHouse.BulkOperations](https://www.nuget.org/packages/RepoDb.ClickHouse.BulkOperations) package.
 
@@ -57,7 +51,7 @@ Host=127.0.0.1;Port=8123;Username=default;Password=YourPassword;Database=RepoDb;
 ```
 
 {: .important }
-> Always include `UseCustomDecimals=false`. Without it, `Decimal` columns come back as the driver's own `ClickHouseDecimal` type instead of a plain .NET `decimal`, which RepoDB's compiled reader cannot cast.
+> Always include `UseCustomDecimals=false`, or `Decimal` columns come back as the driver's `ClickHouseDecimal` type instead of a plain .NET `decimal`.
 
 ## Create a Table
 
@@ -118,7 +112,7 @@ using (var connection = new ClickHouseConnection(ConnectionString))
 ```
 
 {: .important }
-> ClickHouse has no identity/auto-increment mechanism, so `Id` must always be assigned by the caller before calling [Insert](/operation/insert)/[InsertAll](/operation/insertall). Mapping a property as [Identity](/attribute/identity) causes both methods to throw a `NotSupportedException`, and [ClickHouseDbHelper](/class/clickhouse/clickhousedbhelper)'s `GetScopeIdentity` always throws for the same reason.
+> ClickHouse has no identity/auto-increment mechanism, so `Id` must always be assigned by the caller before calling [Insert](/operation/insert)/[InsertAll](/operation/insertall).
 
 ## Querying a Record
 
@@ -161,7 +155,7 @@ using (var connection = new ClickHouseConnection(ConnectionString))
 ```
 
 {: .important }
-> ClickHouse has no native `MERGE`/upsert statement. [Merge](/operation/merge)/[MergeAll](/operation/mergeall) compile to a plain `INSERT`, identical to [Insert](/operation/insert)/[InsertAll](/operation/insertall) — deduplication is deferred to the target table's engine (e.g. `ReplacingMergeTree`) and its background merges, which is the idiomatic ClickHouse upsert pattern. For a real, immediate matched/unmatched merge (an `UPDATE` for matched rows plus an anti-join `INSERT` for unmatched ones), use [BulkMerge](/operation/clickhouse/bulkmerge) from [RepoDb.ClickHouse.BulkOperations](https://www.nuget.org/packages/RepoDb.ClickHouse.BulkOperations) instead.
+> ClickHouse has no native `MERGE`, so [Merge](/operation/merge)/[MergeAll](/operation/mergeall) compile to a plain `INSERT` and rely on the table engine (e.g. `ReplacingMergeTree`) for deduplication — use [BulkMerge](/operation/clickhouse/bulkmerge) instead for an immediate merge.
 
 To merge multiple rows, use the [MergeAll](/operation/mergeall) method.
 
@@ -206,7 +200,7 @@ using (var connection = new ClickHouseConnection(ConnectionString))
 ```
 
 {: .important }
-> [Delete](/operation/delete)/[DeleteAll](/operation/deleteall) compile to `ALTER TABLE ... DELETE WHERE ...`. This is an asynchronous *mutation* in ClickHouse — applied later by background merges, not necessarily before the call returns — and the number of rows reported as affected is not reliable for this statement shape. Unlike `BulkDelete`, these plain operations always return as soon as the mutation is queued; [IsWaitForMutationsEnabled](/interface/clickhouse/iclickhousedbsetting) has no effect here.
+> [Delete](/operation/delete)/[DeleteAll](/operation/deleteall) compile to `ALTER TABLE ... DELETE WHERE ...`, an asynchronous mutation applied later by background merges, so the reported affected-row count is not reliable.
 
 ## Updating a Record
 
@@ -240,7 +234,7 @@ using (var connection = new ClickHouseConnection(ConnectionString))
 ```
 
 {: .important }
-> [Update](/operation/update)/[UpdateAll](/operation/updateall) compile to `ALTER TABLE ... UPDATE ... WHERE ...`, with the same asynchronous-mutation caveat as `Delete`. The `WHERE` clause is mandatory — ClickHouse rejects an unconditional mutation. Unlike `BulkUpdate`, these plain operations always return as soon as the mutation is queued; [IsWaitForMutationsEnabled](/interface/clickhouse/iclickhousedbsetting) has no effect here.
+> [Update](/operation/update)/[UpdateAll](/operation/updateall) compile to `ALTER TABLE ... UPDATE ... WHERE ...` — the same asynchronous mutation as `Delete` — and require a mandatory `WHERE` clause.
 
 ## Executing a Query
 
@@ -301,4 +295,4 @@ using (var connection = new ClickHouseConnection(ConnectionString))
 ```
 
 {: .note }
-> The resultset of this operation is an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
+> Returns an [IEnumerable](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-7.0) object.
