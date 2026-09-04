@@ -42,6 +42,8 @@ Know more about us and the library!
 - [RepoDb.Vertica.BulkOperations](https://www.nuget.org/packages/RepoDb.Vertica.BulkOperations)
 - [RepoDb.SapHana](https://www.nuget.org/packages/RepoDb.SapHana)
 - [RepoDb.SapHana.BulkOperations](https://www.nuget.org/packages/RepoDb.SapHana.BulkOperations)
+- [RepoDb.EnterpriseDb](https://www.nuget.org/packages/RepoDb.EnterpriseDb)
+- [RepoDb.EnterpriseDb.BulkOperations](https://www.nuget.org/packages/RepoDb.EnterpriseDb.BulkOperations)
 - [RepoDb.Telemetry.Core](https://www.nuget.org/packages/RepoDb.Telemetry.Core)
 - [RepoDb.Telemetry.Default](https://www.nuget.org/packages/RepoDb.Telemetry.Default)
 
@@ -73,6 +75,8 @@ Know more about us and the library!
 - [Vertica (Bulk)](https://github.com/mikependon/RepoDb/tree/master/src/Providers/RepoDb.Vertica.BulkOperations)
 - [SAP HANA](https://github.com/mikependon/RepoDb/tree/master/src/Providers/RepoDb.SapHana)
 - [SAP HANA (Bulk)](https://github.com/mikependon/RepoDb/tree/master/src/Providers/RepoDb.SapHana.BulkOperations)
+- [EnterpriseDB](https://github.com/mikependon/RepoDb/tree/master/src/Providers/RepoDb.EnterpriseDb)
+- [EnterpriseDB (Bulk)](https://github.com/mikependon/RepoDb/tree/master/src/Providers/RepoDb.EnterpriseDb.BulkOperations)
 
 ### Official Channels
 

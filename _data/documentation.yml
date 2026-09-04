@@ -32,6 +32,10 @@ docs:
     url: "/tutorial/get-started-db2"
     description: "Learn on how to work with IBM Db2 databases using RepoDB library."
 
+  - title: "EnterpriseDB"
+    url: "/tutorial/get-started-enterprisedb"
+    description: "Learn on how to work with EnterpriseDB (EDB Postgres Advanced Server) databases using RepoDB library."
+
   - title: "Firebird"
     url: "/tutorial/get-started-firebird"
     description: "Learn on how to work with Firebird databases using RepoDB library."
@@ -1027,6 +1031,12 @@ docs:
 
   - title: "SAP HANA (Bulk)"
     url: "/release/saphanabulk"
+
+  - title: "EnterpriseDB"
+    url: "/release/enterprisedb"
+
+  - title: "EnterpriseDB (Bulk)"
+    url: "/release/enterprisedbbulk"
 
   - title: "Telemetry (Core)"
     url: "/release/telemetry-core"
