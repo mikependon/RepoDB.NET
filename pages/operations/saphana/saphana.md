@@ -97,4 +97,4 @@ The arguments below are available on most operations.
 
 ## Async Methods
 
-All the provided synchronous operations have an equivalent asynchronous (`Async`) counterpart.
+All the provided synchronous operations have an equivalent asynchronous (`Async`) counterpart. Since `HanaBulkCopy` has no native async API, these `Async` overloads write through [SapHanaCommandBatcher](/class/saphana/saphanacommandbatcher) by default for genuine asynchronous execution. Register a [SapHanaBulkDbSetting](/class/saphana/saphanabulkdbsetting) with `WriteToServerExecution` set to [SapHanaWriteToServerExecution.AsyncOverSync](/enumeration/saphana/saphanawritetoserverexecution) to opt into the synchronous `HanaBulkCopy` path instead.

@@ -50,3 +50,6 @@ Use [DbSettingMapper](/mapper/dbsettingmapper) to override it with a custom impl
 ```csharp
 DbSettingMapper.Add(typeof(HanaConnection), new MyCustomSapHanaDbSetting(), true);
 ```
+
+{: .note }
+> [RepoDb.SapHana.BulkOperations](https://www.nuget.org/packages/RepoDb.SapHana.BulkOperations) ships [SapHanaBulkDbSetting](/class/saphana/saphanabulkdbsetting), a subclass that adds a `WriteToServerExecution` setting for controlling the bulk operations' `Async` write strategy. It is not registered by default.
