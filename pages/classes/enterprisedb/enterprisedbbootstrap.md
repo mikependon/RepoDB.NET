@@ -13,10 +13,7 @@ grand_parent: CLASSES
 
 ---
 
-This class initializes the necessary dependencies for `EDBConnection` — the [DbSetting](/class/enterprisedb/enterprisedbdbsetting), [DbHelper](/class/enterprisedb/enterprisedbdbhelper) and [StatementBuilder](/class/enterprisedb/enterprisedbstatementbuilder) — and registers them via their respective mappers.
-
-{: .note }
-> Registration happens against **both** connection types — the official `EnterpriseDB.EDBClient.EDBConnection` driver and the Npgsql-backed `RepoDb.Connector.EnterpriseDb.EDBConnection` connector — so either can be used with the core provider.
+This class initializes the necessary dependencies for `EDBConnection` (`RepoDb.Connector.EnterpriseDb.EDBConnection`) — the [DbSetting](/class/enterprisedb/enterprisedbdbsetting), [DbHelper](/class/enterprisedb/enterprisedbdbhelper) and [StatementBuilder](/class/enterprisedb/enterprisedbstatementbuilder) — and registers them via their respective mappers.
 
 ## Properties
 

@@ -22,7 +22,7 @@ New
 
 First release of the bulk operations extension for [RepoDb.EnterpriseDb](/release/enterprisedb). Targets .NET 8, .NET 9, and .NET 10.
 
-> **Architectural note:** rows are staged through a pseudo (staging) table and loaded via `RepoDb.Connector.EnterpriseDb`'s `EDBBulkCopy`, itself built on Npgsql's native binary `COPY` protocol — a genuine bulk load, not a row-by-row loop. `EDBConnection` throughout this package is `RepoDb.Connector.EnterpriseDb.EDBConnection`, not the official `EnterpriseDB.EDBClient` driver's connection type of the same name.
+> **Architectural note:** rows are staged through a pseudo (staging) table and loaded via `RepoDb.Connector.EnterpriseDb`'s `EDBBulkCopy`, itself built on Npgsql's native binary `COPY` protocol — a genuine bulk load, not a row-by-row loop.
 
 ### What's included
 

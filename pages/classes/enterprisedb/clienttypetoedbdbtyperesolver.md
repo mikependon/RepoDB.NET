@@ -2,7 +2,7 @@
 layout: default
 sidebar: classes
 title: "ClientTypeToEDBDbTypeResolver"
-description: "A class used to resolve a .NET CLR type into its equivalent EDBDbType."
+description: "A class used to resolve a .NET CLR type into its equivalent EDBType."
 permalink: /class/enterprisedb/clienttypetoedbdbtyperesolver
 tags: [repodb, clienttypetoedbdbtyperesolver, enterprisedb]
 parent: "EnterpriseDB"
@@ -13,9 +13,10 @@ grand_parent: CLASSES
 
 ---
 
-This [IResolver](/interface/iresolver)`<Type, EDBDbType?>` implementation converts a .NET CLR type into its equivalent `EDBTypes.EDBDbType` (e.g. `typeof(Guid)` → `EDBDbType.Uuid`, `typeof(int)` → `EDBDbType.Integer`, `typeof(byte[])` → `EDBDbType.Bytea`). Array types are resolved by combining `EDBDbType.Array` with the element type's own resolved `EDBDbType`.
+This [IResolver](/interface/iresolver)`<Type, EDBType?>` implementation converts a .NET CLR type into its equivalent `RepoDb.Connector.EnterpriseDb.EDBType` (e.g. `typeof(Guid)` → `EDBType.Uuid`, `typeof(int)` → `EDBType.Integer`, `typeof(byte[])` → `EDBType.Bytea`).
 
-It also underlies [EnterpriseDbDbHelper](/class/enterprisedb/enterprisedbdbhelper)'s post-creation handling of array-valued parameters, where it sets `EDBParameter.EDBDbType` for a bound array value.
+{: .note }
+> `EDBType` has no combinable "Array" member, so this resolver cannot represent array types — array-valued parameters are instead inferred directly by the Npgsql-backed driver at bind time, without going through this resolver at all (see [EnterpriseDbDbHelper](/class/enterprisedb/enterprisedbdbhelper)). Likewise, there is no CLR representation for PostgreSQL-specific geometric types, ranges, `pg_lsn`, or `tid` on this connector.
 
 An unresolvable type throws an `InvalidOperationException`.
 
@@ -23,5 +24,5 @@ An unresolvable type throws an `InvalidOperationException`.
 
 ```csharp
 var resolver = new ClientTypeToEDBDbTypeResolver();
-var edbDbType = resolver.Resolve(typeof(int)); // EDBDbType.Integer
+var edbType = resolver.Resolve(typeof(int)); // EDBType.Integer
 ```

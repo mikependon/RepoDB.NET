@@ -1,20 +1,17 @@
 ---
 layout: default
-title: ConvertedValue
-permalink: /attribute/enterprisedb/convertedvalue
-tags: [repodb, attribute, convertedvalue]
+title: SourceVersion
+permalink: /attribute/enterprisedb/sourceversion
+tags: [repodb, attribute, sourceversion]
 parent: "EnterpriseDB"
 grand_parent: ATTRIBUTES
 ---
 
-# ConvertedValue
+# SourceVersion
 
 ---
 
-{: .warning }
-> This attribute is `[Obsolete]` — `ConvertedValue` is no longer supported by `RepoDb.Connector.EnterpriseDb`. Avoid using it in new code.
-
-This attribute sets the `EDBParameter.ConvertedValue` property value via a class property.
+This attribute sets the `EDBParameter.SourceVersion` property value via a class property.
 
 ### Attribute
 
@@ -25,7 +22,7 @@ public class Person
 {
     public int Id { get; set; }
 
-    [ConvertedValue("ConvertedValue")]
+    [SourceVersion(DataRowVersion.Default)]
     public string Name { get; set; }
 }
 ```
@@ -37,7 +34,7 @@ To configure via [FluentMapper](/mapper/fluentmapper):
 ```csharp
 FluentMapper
     .Entity<Person>()
-    .PropertyValueAttributes(e => e.Name, new ConvertedValueAttribute("ConvertedValue"));
+    .PropertyValueAttributes(e => e.Name, new SourceVersionAttribute(DataRowVersion.Default));
 ```
 
 ### Retrieval
@@ -47,7 +44,7 @@ Retrieve the attribute via [PropertyValueAttributeCache](/cacher/propertyvalueat
 ```csharp
 var attribute = PropertyValueAttributeCache
     .Get<Person>(e => e.Name)?
-    .FirstOrDefault(e => e.GetType() == typeof(ConvertedValueAttribute));
+    .FirstOrDefault(e => e.GetType() == typeof(SourceVersionAttribute));
 ```
 
 {: .important }

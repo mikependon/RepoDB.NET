@@ -1,17 +1,17 @@
 ---
 layout: default
-title: EnterpriseDbType
-permalink: /attribute/enterprisedb/enterprisedbtype
-tags: [repodb, attribute, enterprisedbtype]
+title: Scale
+permalink: /attribute/enterprisedb/scale
+tags: [repodb, attribute, scale]
 parent: "EnterpriseDB"
 grand_parent: ATTRIBUTES
 ---
 
-# EnterpriseDbType
+# Scale
 
 ---
 
-This attribute sets the `EDBParameter.EDBType` property value via a class property.
+This attribute sets the `EDBParameter.Scale` property value via a class property.
 
 ### Attribute
 
@@ -22,8 +22,8 @@ public class Person
 {
     public int Id { get; set; }
 
-    [EnterpriseDbType(EDBType.Integer)]
-    public int Age { get; set; }
+    [Scale(2)]
+    public decimal Salary { get; set; }
 }
 ```
 
@@ -34,7 +34,7 @@ To configure via [FluentMapper](/mapper/fluentmapper):
 ```csharp
 FluentMapper
     .Entity<Person>()
-    .PropertyValueAttributes(e => e.Age, new EnterpriseDbTypeAttribute(EDBType.Integer));
+    .PropertyValueAttributes(e => e.Salary, new ScaleAttribute(2));
 ```
 
 ### Retrieval
@@ -43,8 +43,8 @@ Retrieve the attribute via [PropertyValueAttributeCache](/cacher/propertyvalueat
 
 ```csharp
 var attribute = PropertyValueAttributeCache
-    .Get<Person>(e => e.Age)?
-    .FirstOrDefault(e => e.GetType() == typeof(EnterpriseDbTypeAttribute));
+    .Get<Person>(e => e.Salary)?
+    .FirstOrDefault(e => e.GetType() == typeof(ScaleAttribute));
 ```
 
 {: .important }

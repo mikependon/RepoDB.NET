@@ -12,9 +12,6 @@ parent: OPERATIONS
 
 RepoDB's standard operations ([Query](/operation/query), [Insert](/operation/insert), [Merge](/operation/merge), [Update](/operation/update), [Delete](/operation/delete), etc.) all work against `EDBConnection` once [UseEnterpriseDb()](/class/enterprisedb/enterprisedbglobalconfiguration) has been called. `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey` are provided by the separate [RepoDb.EnterpriseDb.BulkOperations](https://www.nuget.org/packages/RepoDb.EnterpriseDb.BulkOperations) package.
 
-{: .important }
-> `EDBConnection` in this package's operations is `RepoDb.Connector.EnterpriseDb.EDBConnection` — the Npgsql-backed connector this package's bulk operations are built against — not the official `EnterpriseDB.EDBClient` driver's connection type of the same name.
-
 Rows are staged through a pseudo (staging) table and loaded via `RepoDb.Connector.EnterpriseDb`'s `EDBBulkCopy`, itself built on top of Npgsql's native binary `COPY` protocol — so, unlike SAP HANA, this is a genuine bulk load rather than a client-side loop of single-row statements. Once staged, a single SQL statement cascades the change to the target table.
 
 [BulkInsert](#bulkinsert) writes straight into the target table and skips the staging table entirely, unless [EDBBulkImportIdentityBehavior.ReturnIdentity](/enumeration/enterprisedb/edbbulkimportidentitybehavior) is requested, in which case a pseudo table is used first so the generated identity values can be read back.

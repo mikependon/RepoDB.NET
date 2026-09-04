@@ -29,7 +29,11 @@ It is automatically registered by [EnterpriseDbBootstrap](/class/enterprisedb/en
 
 ## Retry on OperationInProgress
 
-If the connection is already mid-operation (an `EDBOperationInProgressException` from the official driver, or the equivalent `NpgsqlOperationInProgressException` surfaced as-is by the Npgsql-backed connector), `GetFields` and `GetScopeIdentity` transparently retry once against a brand-new connection created from the same connection string.
+If the connection is already mid-operation, `GetFields` and `GetScopeIdentity` transparently retry once against a brand-new connection created from the same connection string. The failure is recognized by type name (`NpgsqlOperationInProgressException`) — `RepoDb.Connector.EnterpriseDb` wraps `NpgsqlConnection` directly rather than translating its exceptions, so Npgsql's own exception type surfaces as-is.
+
+## Array Parameter Handling
+
+For an array-valued parameter, the driver infers its `EDBType` directly from the CLR array value — [ClientTypeToEDBDbTypeResolver](/class/enterprisedb/clienttypetoedbdbtyperesolver) is not consulted, since it has no combinable "Array" member to build one from. This helper only steps in for element conversions the driver can't do on its own: `DateOnly[]`/`TimeOnly[]` arrays are converted to `DateTime[]`/`TimeSpan[]` before binding.
 
 ## Usability
 

@@ -16,11 +16,11 @@ RepoDB is a hybrid .NET ORM library for [EDB Postgres Advanced Server](https://w
 
 Support ships as two packages:
 
-- [RepoDb.EnterpriseDb](https://www.nuget.org/packages/RepoDb.EnterpriseDb) — the core provider, built on the [EDB .NET Connector](https://www.nuget.org/packages/EnterpriseDB.EDBClient).
+- [RepoDb.EnterpriseDb](https://www.nuget.org/packages/RepoDb.EnterpriseDb) — the core provider, built on the Npgsql-backed [RepoDb.Connector.EnterpriseDb](https://www.nuget.org/packages/RepoDb.Connector.EnterpriseDb) connector.
 - [RepoDb.EnterpriseDb.BulkOperations](https://www.nuget.org/packages/RepoDb.EnterpriseDb.BulkOperations) — adds `BulkInsert`, `BulkMerge`, `BulkUpdate`, `BulkDelete` and `BulkDeleteByKey`.
 
 {: .note }
-> `EDBConnection` refers to two distinct types depending on the package: the core provider works with either the official `EnterpriseDB.EDBClient.EDBConnection` driver or `RepoDb.Connector.EnterpriseDb.EDBConnection` (an Npgsql-backed connector), while [RepoDb.EnterpriseDb.BulkOperations](/operation/enterprisedb) only works against the latter. See [Operations (EnterpriseDB)](/operation/enterprisedb) for details.
+> `EDBConnection` throughout both packages refers to `RepoDb.Connector.EnterpriseDb.EDBConnection` — distinct from the official `EnterpriseDB.EDBClient` driver's connection type of the same name, which this provider does not use.
 
 ## Installation
 
