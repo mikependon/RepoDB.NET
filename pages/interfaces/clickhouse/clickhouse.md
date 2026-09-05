@@ -11,4 +11,4 @@ parent: INTERFACES
 
 ---
 
-Interfaces specific to the ClickHouse data provider ([RepoDb.ClickHouse](https://www.nuget.org/packages/RepoDb.ClickHouse)). [IClickHouseDbSetting](/interface/clickhouse/iclickhousedbsetting) extends [IDbSetting](/interface/idbsetting) with ClickHouse-specific setting values.
+Interfaces specific to the ClickHouse data provider. [IClickHouseBulkDbSetting](/interface/clickhouse/iclickhousebulkdbsetting) extends [IDbSetting](/interface/idbsetting) with a mutation-wait setting for the bulk operations, and ships in [RepoDb.ClickHouse.BulkOperations](https://www.nuget.org/packages/RepoDb.ClickHouse.BulkOperations) rather than the core [RepoDb.ClickHouse](https://www.nuget.org/packages/RepoDb.ClickHouse) package.

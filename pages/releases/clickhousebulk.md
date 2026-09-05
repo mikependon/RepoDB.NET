@@ -29,6 +29,7 @@ First release of the bulk operations extension for [RepoDb.ClickHouse](/release/
 - [ClickHouseBulkImportIdentityBehavior](/enumeration/clickhouse/clickhousebulkimportidentitybehavior) (`KeepIdentity` default; `ReturnIdentity` always throws `NotSupportedException`, since ClickHouse has no identity/scope-identity mechanism).
 - [ClickHouseBulkImportPseudoTableType](/enumeration/clickhouse/clickhousebulkimportpseudotabletype) (`Auto`, `Memory`, `Physical`) — selects the staging-table strategy backing `BulkMerge`/`BulkUpdate`/`BulkDelete`/`BulkDeleteByKey`. `BulkInsert` never uses a pseudo table.
 - `ClickHouseBulkInsertMapItem` — explicit source-to-destination column mapping for `BulkInsert`/`BulkMerge`/`BulkUpdate`, with an optional explicit ClickHouse type name override.
+- [ClickHouseBulkDbSetting](/class/clickhouse/clickhousebulkdbsetting) and [IClickHouseBulkDbSetting](/interface/clickhouse/iclickhousebulkdbsetting) — a `ClickHouseDbSetting` subclass (and its interface) adding `IsWaitForMutationsEnabled`, which `BulkMerge`/`BulkUpdate`/`BulkDelete` consult to decide whether to block until their `ALTER TABLE` mutation completes. Not registered by default — pass an instance to `UseClickHouse()` or register it via [DbSettingMapper](/mapper/dbsettingmapper) to opt in.
 - Referenced the `RepoDb` package.
 - Referenced the `RepoDb.ClickHouse` package.
 - Referenced the `ClickHouse.Driver` package `v1.3.0`.

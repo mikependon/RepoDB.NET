@@ -35,14 +35,14 @@ GlobalConfiguration
     .UseClickHouse();
 ```
 
-{: .note }
-> Pass `isWaitForMutationsEnabled: true` to `UseClickHouse()` to make `BulkMerge`/`BulkUpdate`/`BulkDelete` block until their mutation actually finishes.
-
 To use bulk operations, install the [RepoDb.ClickHouse.BulkOperations](https://www.nuget.org/packages/RepoDb.ClickHouse.BulkOperations) package.
 
 ```csharp
 > Install-Package RepoDb.ClickHouse.BulkOperations
 ```
+
+{: .note }
+> Pass `new ClickHouseBulkDbSetting { IsWaitForMutationsEnabled = true }` to `UseClickHouse()` to make `BulkMerge`/`BulkUpdate`/`BulkDelete` block until their mutation actually finishes.
 
 ## Connection String
 

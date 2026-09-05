@@ -13,7 +13,7 @@ grand_parent: CLASSES
 
 ---
 
-This class initializes the necessary dependencies for the `ClickHouseConnection` object — the [DbSetting](/class/clickhouse/clickhousedbsetting), [DbHelper](/class/clickhouse/clickhousedbhelper) and [StatementBuilder](/class/clickhouse/clickhousestatementbuilder) — and registers them via their respective mappers.
+This class initializes the necessary dependencies for the `ClickHouseConnection` object — the [DbSetting](/class/clickhouse/clickhousedbsetting), [DbHelper](/class/clickhouse/clickhousedbhelper) and [StatementBuilder](/class/clickhouse/clickhousestatementbuilder) — and registers them via their respective mappers. The `DbSetting` registered defaults to a plain [ClickHouseDbSetting](/class/clickhouse/clickhousedbsetting), or whichever `IDbSetting` instance is passed to `UseClickHouse()`.
 
 {: .note }
 > There is no public `Initialize()` method on this class. Use [ClickHouseGlobalConfiguration.UseClickHouse()](/class/clickhouse/clickhouseglobalconfiguration) instead.

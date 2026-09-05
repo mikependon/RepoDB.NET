@@ -23,5 +23,13 @@ GlobalConfiguration
     .UseClickHouse();
 ```
 
+An overload accepts a custom `IDbSetting`, e.g. [ClickHouseBulkDbSetting](/class/clickhouse/clickhousebulkdbsetting) in place of the default [ClickHouseDbSetting](/class/clickhouse/clickhousedbsetting).
+
+```csharp
+GlobalConfiguration
+    .Setup()
+    .UseClickHouse(new ClickHouseBulkDbSetting { IsWaitForMutationsEnabled = true });
+```
+
 {: .note }
 > Call this once during application start-up, before opening any `ClickHouseConnection`.
