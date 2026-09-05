@@ -52,4 +52,4 @@ DbSettingMapper.Add(typeof(HanaConnection), new MyCustomSapHanaDbSetting(), true
 ```
 
 {: .note }
-> [RepoDb.SapHana.BulkOperations](https://www.nuget.org/packages/RepoDb.SapHana.BulkOperations) ships [SapHanaBulkDbSetting](/class/saphana/saphanabulkdbsetting), a subclass that adds a `WriteToServerExecution` setting for controlling the bulk operations' `Async` write strategy. It is not registered by default.
+> [RepoDb.SapHana.BulkOperations](https://www.nuget.org/packages/RepoDb.SapHana.BulkOperations) ships [SapHanaBulkDbSetting](/class/saphana/saphanabulkdbsetting) (and its [ISapHanaBulkDbSetting](/interface/saphana/isaphanabulkdbsetting) interface), a subclass that adds a `WriteToServerExecution` setting for controlling the bulk operations' `Async` write strategy. It is not registered by default — pass an instance to `UseSapHana()` or register it via [DbSettingMapper](/mapper/dbsettingmapper) to opt in.

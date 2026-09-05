@@ -25,27 +25,33 @@ Below is the list of properties, in addition to the ones inherited from [IDbSett
 |:-----|:------------|
 | IsWaitForMutationsEnabled | Gets or sets a value indicating whether `BulkMerge`/`BulkUpdate`/`BulkDelete` (from [RepoDb.ClickHouse.BulkOperations](/release/clickhousebulk)) block until their `ALTER TABLE` mutation completes. Has no effect on the plain [Update](/operation/update)/[UpdateAll](/operation/updateall)/[Delete](/operation/delete)/[DeleteAll](/operation/deleteall) operations. |
 
+{: .note }
+> The internal check that consults this setting is written against the concrete [ClickHouseBulkDbSetting](/class/clickhouse/clickhousebulkdbsetting) type, not this interface — subclass [ClickHouseBulkDbSetting](/class/clickhouse/clickhousebulkdbsetting) rather than implementing this interface on an unrelated class if you need it honored.
+
 ## How to Implement?
 
-You have to manually create a class that implements this interface (typically by deriving from [ClickHouseDbSetting](/class/clickhouse/clickhousedbsetting), the same way [ClickHouseBulkDbSetting](/class/clickhouse/clickhousebulkdbsetting) does).
+Subclass [ClickHouseBulkDbSetting](/class/clickhouse/clickhousebulkdbsetting) itself, rather than implementing this interface from scratch.
 
 ```csharp
-public class MyCustomClickHouseBulkDbSetting : ClickHouseDbSetting, IClickHouseBulkDbSetting
+public class MyClickHouseBulkDbSetting : ClickHouseBulkDbSetting
 {
-    public bool IsWaitForMutationsEnabled { get; set; } = true;
+    public MyClickHouseBulkDbSetting()
+    {
+        IsWaitForMutationsEnabled = true;
+    }
 }
 ```
 
 ## Usability
 
-Once the class has been implemented, pass it to `UseClickHouse()`, or map it directly against `ClickHouseConnection` via [DbSettingMapper](/mapper/dbsettingmapper).
+Pass it to `UseClickHouse()`, or map it directly against `ClickHouseConnection` via [DbSettingMapper](/mapper/dbsettingmapper).
 
 ```csharp
 GlobalConfiguration
     .Setup()
-    .UseClickHouse(new MyCustomClickHouseBulkDbSetting());
+    .UseClickHouse(new MyClickHouseBulkDbSetting());
 ```
 
 ```csharp
-DbSettingMapper.Add(typeof(ClickHouseConnection), new MyCustomClickHouseBulkDbSetting(), true);
+DbSettingMapper.Add(typeof(ClickHouseConnection), new MyClickHouseBulkDbSetting(), true);
 ```

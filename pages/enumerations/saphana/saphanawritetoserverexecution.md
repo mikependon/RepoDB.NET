@@ -27,10 +27,10 @@ This enum defines how the `Async` overloads of the [RepoDb.SapHana.BulkOperation
 
 ## Usability
 
-Set the value on a [SapHanaBulkDbSetting](/class/saphana/saphanabulkdbsetting) instance and register it via [DbSettingMapper](/mapper/dbsettingmapper).
+Set the value on a [SapHanaBulkDbSetting](/class/saphana/saphanabulkdbsetting) instance and pass it to `UseSapHana()`.
 
 ```csharp
-DbSettingMapper.Add<HanaConnection>(
-    new SapHanaBulkDbSetting { WriteToServerExecution = SapHanaWriteToServerExecution.AsyncOverSync },
-    true);
+GlobalConfiguration
+    .Setup()
+    .UseSapHana(new SapHanaBulkDbSetting { WriteToServerExecution = SapHanaWriteToServerExecution.AsyncOverSync });
 ```

@@ -23,5 +23,13 @@ GlobalConfiguration
     .UseSapHana();
 ```
 
+An overload accepts a custom `IDbSetting`, e.g. [SapHanaBulkDbSetting](/class/saphana/saphanabulkdbsetting) in place of the default [SapHanaDbSetting](/class/saphana/saphanadbsetting).
+
+```csharp
+GlobalConfiguration
+    .Setup()
+    .UseSapHana(new SapHanaBulkDbSetting { WriteToServerExecution = SapHanaWriteToServerExecution.AsyncOverSync });
+```
+
 {: .note }
 > Call this once during application start-up, before opening any `HanaConnection`.

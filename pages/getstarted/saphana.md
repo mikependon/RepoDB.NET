@@ -41,6 +41,9 @@ To use bulk operations (`BulkDelete`, `BulkDeleteByKey`, `BulkInsert`, `BulkMerg
 > Install-Package RepoDb.SapHana.BulkOperations
 ```
 
+{: .note }
+> Pass `new SapHanaBulkDbSetting { WriteToServerExecution = SapHanaWriteToServerExecution.AsyncOverSync }` to `UseSapHana()` to make the bulk operations' `Async` overloads use the synchronous `HanaBulkCopy` path instead of [SapHanaCommandBatcher](/class/saphana/saphanacommandbatcher).
+
 ## Create a Table
 
 The examples below assume the following table exists in the database.

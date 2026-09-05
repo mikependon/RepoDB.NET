@@ -13,7 +13,7 @@ grand_parent: CLASSES
 
 ---
 
-This class initializes the necessary dependencies for the `HanaConnection` object — the [DbSetting](/class/saphana/saphanadbsetting), [DbHelper](/class/saphana/saphanadbhelper) and [StatementBuilder](/class/saphana/saphanastatementbuilder) — and registers them via their respective mappers.
+This class initializes the necessary dependencies for the `HanaConnection` object — the [DbSetting](/class/saphana/saphanadbsetting), [DbHelper](/class/saphana/saphanadbhelper) and [StatementBuilder](/class/saphana/saphanastatementbuilder) — and registers them via their respective mappers. The `DbSetting` registered defaults to a plain [SapHanaDbSetting](/class/saphana/saphanadbsetting), or whichever `IDbSetting` instance is passed to `UseSapHana()`.
 
 ## Properties
 
