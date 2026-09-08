@@ -13,6 +13,13 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Vertica.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Vertica.BulkOperations).
 
+## RepoDb.Vertica.BulkOperations (v0.0.1)
+
+Released: September 8, 2026
+
+First general availability (non-preview) release of the Vertica Bulk Operations package, promoting the preview below to stable `v0.0.1`. No functional changes since the preview — see that entry for the full feature set and known limitations.
+
+
 ## RepoDb.Vertica.BulkOperations (v0.0.1-alpha) - Preview
 
 Released: 2026-08-31

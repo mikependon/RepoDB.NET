@@ -13,6 +13,13 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.SapHana) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.SapHana).
 
+## RepoDb.SapHana (v0.0.1)
+
+Released: September 8, 2026
+
+First general availability (non-preview) release of the SAP HANA provider, promoting the `v0.0.1-alpha` preview below to stable. No functional changes since `v0.0.1-alpha` — see that entry for the full feature set and known limitations.
+
+
 ## RepoDb.SapHana (v0.0.1-alpha) - Preview
 
 Released: TBA

@@ -13,6 +13,13 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.MySql.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.MySql.BulkOperations).
 
+## RepoDb.MySql.BulkOperations (v0.0.1)
+
+Released: September 8, 2026
+
+First general availability (non-preview) release of the MySQL Bulk Operations package, promoting the `v0.0.1-alpha1` release below to stable. No functional changes since `v0.0.1-alpha1` — see that entry for the full feature set and known limitations.
+
+
 ## RepoDb.MySql.BulkOperations (v0.0.1-alpha1)
 
 Released: August 8, 2026

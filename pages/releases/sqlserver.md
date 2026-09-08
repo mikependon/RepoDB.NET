@@ -15,7 +15,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer) to see the 
 
 ## RepoDb.SqlServer (v1.16.0)
 
-Released: TBA
+Released: September 8, 2026
 
 New
 {: .label .label-green }

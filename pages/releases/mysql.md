@@ -15,7 +15,7 @@ View the NuGet package [here](https://www.nuget.org/packages/RepoDb.MySql) or do
 
 ## RepoDb.MySql (v1.16.0)
 
-Released: TBA
+Released: September 8, 2026
 
 New
 {: .label .label-green }

@@ -15,7 +15,7 @@ Please click [here](https://www.nuget.org/packages/RepoDb.SqlServer.BulkOperatio
 
 ## RepoDb.SqlServer.BulkOperations (v1.16.0)
 
-Released: TBA
+Released: September 8, 2026
 
 New
 {: .label .label-green }

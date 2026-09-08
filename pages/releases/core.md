@@ -16,7 +16,7 @@ View the NuGet package [here](https://www.nuget.org/packages/RepoDb) or download
 
 ## RepoDb (v1.16.0)
 
-Released: TBA
+Released: September 8, 2026
 
 New
 {: .label .label-green }

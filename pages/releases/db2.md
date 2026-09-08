@@ -13,6 +13,13 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Db2) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Db2).
 
+## RepoDb.Db2 (v0.0.1)
+
+Released: September 8, 2026
+
+First general availability (non-preview) release of the Db2 provider, promoting the `v0.0.1-beta2` preview below to stable. No functional changes since `v0.0.1-beta2` — see that entry (and `v0.0.1-alpha` further below) for the full changelog and known limitations.
+
+
 ## RepoDb.Db2 (v0.0.1-beta2) - Preview
 
 Released: August 23, 2026

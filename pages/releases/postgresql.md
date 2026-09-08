@@ -13,6 +13,13 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.PostgreSql) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql).
 
+## RepoDb.PostgreSql (v1.16.0)
+
+Released: September 8, 2026
+
+General availability release, promoting the `v1.16.0-beta1` preview below to stable. No functional changes since `v1.16.0-beta1` — see that entry for the full `v1.16.0` changelog, including the `RepoDb.PostgreSql.BulkOperations` alignment, the new [MultiStatementSeparator](/class/basedbsetting) setting, and the removal of the obsolete `PostgreSqlBootstrap.Initialize()` method.
+
+
 ## RepoDb.PostgreSql (v1.16.0-beta1)
 
 Released: TBA

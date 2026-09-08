@@ -13,6 +13,13 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.PostgreSql.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.PostgreSql.BulkOperations).
 
+## RepoDb.PostgreSql.BulkOperations (v1.16.0)
+
+Released: September 8, 2026
+
+General availability release, promoting the `v1.16.0-beta1` preview below to stable. No functional changes since `v1.16.0-beta1` — see that entry for the full `v1.16.0` changelog, including the new `PostgreSqlBulkInsertMapItem`/`PostgreSqlBulkImport*` types and `BulkInsert`/`BulkMerge`/`BulkUpdate`/`BulkDelete`/`BulkDeleteByKey` methods, and the deprecation of their `Npgsql*`/`Binary*`-prefixed predecessors.
+
+
 ## RepoDb.PostgreSql.BulkOperations (v1.16.0-beta1)
 
 Released: TBA
