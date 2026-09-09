@@ -13,7 +13,7 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.MariaDbConnector) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.MariaDbConnector).
 
-## RepoDb.MariaDbConnector (v0.0.1)
+## RepoDb.MariaDbConnector (v1.0.0)
 
 Released: September 8, 2026
 

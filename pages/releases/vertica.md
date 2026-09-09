@@ -13,11 +13,11 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Vertica) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Vertica).
 
-## RepoDb.Vertica (v0.0.1)
+## RepoDb.Vertica (v1.0.0)
 
 Released: September 8, 2026
 
-First general availability (non-preview) release of the Vertica provider, promoting the preview below to stable `v0.0.1`. No functional changes since the preview — see that entry for the full feature set and known limitations.
+First general availability (non-preview) release of the Vertica provider, promoting the preview below to stable `v1.0.0`. No functional changes since the preview — see that entry for the full feature set and known limitations.
 
 
 ## RepoDb.Vertica (v0.0.1-alpha) - Preview

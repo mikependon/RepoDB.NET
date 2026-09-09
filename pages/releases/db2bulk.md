@@ -13,7 +13,7 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Db2.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Db2.BulkOperations).
 
-## RepoDb.Db2.BulkOperations (v0.0.1)
+## RepoDb.Db2.BulkOperations (v1.0.0)
 
 Released: September 8, 2026
 

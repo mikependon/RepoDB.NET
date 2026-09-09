@@ -13,11 +13,11 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Firebird.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Firebird.BulkOperations).
 
-## RepoDb.Firebird.BulkOperations (v0.0.1)
+## RepoDb.Firebird.BulkOperations (v1.0.0)
 
 Released: September 8, 2026
 
-First general availability (non-preview) release of the Firebird Bulk Operations package, promoting the preview below to stable `v0.0.1`. No functional changes since the preview — see that entry for the full feature set and known limitations.
+First general availability (non-preview) release of the Firebird Bulk Operations package, promoting the preview below to stable `v1.0.0`. No functional changes since the preview — see that entry for the full feature set and known limitations.
 
 
 ## RepoDb.Firebird.BulkOperations (v0.0.1-alpha) - Preview

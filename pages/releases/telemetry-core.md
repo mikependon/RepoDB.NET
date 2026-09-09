@@ -14,6 +14,15 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Telemetry.Core) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Telemetry.Core).
 
+## RepoDb.Telemetry.Core (v1.0.0)
+
+New
+{: .label .label-green }
+
+- Version bumped to `v1.16.0` to stay aligned with the rest of the RepoDB package family as part of the major release. No functional changes since `v0.0.1` — see that entry below for the full feature set.
+- Referenced the `RepoDb` package `v1.16.0`.
+
+
 ## RepoDb.Telemetry.Core (v0.0.1)
 
 New

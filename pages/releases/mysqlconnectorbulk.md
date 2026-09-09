@@ -13,7 +13,7 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.MySqlConnector.BulkOperations) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.MySqlConnector.BulkOperations).
 
-## RepoDb.MySqlConnector.BulkOperations (v0.0.1)
+## RepoDb.MySqlConnector.BulkOperations (v1.16.0)
 
 Released: September 8, 2026
 
