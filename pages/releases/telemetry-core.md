@@ -14,7 +14,20 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Telemetry.Core) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Telemetry.Core).
 
+## RepoDb.Telemetry.Core (v1.1.0)
+
+Released: September 10, 2026
+
+New
+{: .label .label-green }
+
+- Added the `CertificateValidationCallback` property to [TelemetryOption](/class/telemetryoption), letting [TelemetryPublisherRepository](/class/telemetrypublisherrepository) validate (or override validation of) the server certificate presented by the collector API when publishing over HTTPS. Leave it `null` to use the default .NET certificate validation — useful when the collector is deployed with a self-signed or otherwise untrusted certificate. [#1327](https://github.com/mikependon/RepoDB/issues/1327)
+- Referenced the `RepoDb` package `v1.16.0`.
+
+
 ## RepoDb.Telemetry.Core (v1.0.0)
+
+Released: July 18, 2026
 
 New
 {: .label .label-green }
