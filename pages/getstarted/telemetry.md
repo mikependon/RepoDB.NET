@@ -58,3 +58,21 @@ GlobalConfiguration
 
 For more control, pass a [DefaultTelemetryOption](/class/defaulttelemetryoption) instead of individual arguments.
 
+## Trusting a Self-Signed Collector Certificate
+
+If your collector API is deployed over HTTPS with a self-signed or otherwise untrusted certificate, pass a `certificateValidationCallback` to validate (or bypass) the certificate check.
+
+```csharp
+GlobalConfiguration
+    .Setup(new GlobalConfigurationOptions { UseRegisteredGlobalTraces = true })
+    .UseDefaultTelemetry(
+        host: "https://your-collector-host",
+        apiKey: "YOUR_API_KEY",
+        applicationName: "<YOUR_APPLICATION_NAME>",
+        groupName: "<YOUR_APPLICATION_GROUP>",
+        certificateValidationCallback: (request, certificate, chain, errors) => true);
+```
+
+{: .warning }
+> Only bypass certificate validation like the example above for a trusted, self-signed collector (e.g. local development). For production, validate the presented certificate/chain yourself instead of unconditionally returning `true`.
+

@@ -14,3 +14,5 @@ grand_parent: CLASSES
 ---
 
 A subclass of [TelemetryPublisherRepository](/class/telemetrypublisherrepository) used internally by [DefaultTelemetryTrace](/class/defaulttelemetrytrace). It inherits all behavior from [TelemetryPublisherRepository](/class/telemetrypublisherrepository) without adding any of its own — publishing is still a gzip-compressed HTTP POST to `{host}/v1/telemetry/publish`.
+
+It is constructed internally from the [DefaultTelemetryOption](/class/defaulttelemetryoption) passed to `UseDefaultTelemetry()`, forwarding `Option.CertificateValidationCallback` through so a self-signed or otherwise untrusted collector certificate can still be validated when publishing over HTTPS.

@@ -22,8 +22,12 @@ var repository = new TelemetryPublisherRepository(
     host: "https://your-collector-host",
     apiKey: "YOUR_API_KEY",
     errorCallback: ex => logger.LogError(ex, "Publish failed"),
-    logger: serilogLogger);
+    logger: serilogLogger,
+    certificateValidationCallback: (request, certificate, chain, errors) => true);
 ```
+
+{: .note }
+> `certificateValidationCallback` is optional and validates the server certificate presented by the collector API when publishing over HTTPS. Leave it `null` to use the default .NET certificate validation — only override it for a trusted, self-signed collector.
 
 ## Methods
 

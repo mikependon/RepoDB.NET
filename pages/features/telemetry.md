@@ -85,6 +85,7 @@ flowchart TD
 - Items are buffered in memory and flushed on an interval (`Frequency`, default 5 seconds).
 - On flush, the batch is JSON-serialized, gzip-compressed, and POSTed to the configured collector host via [IPublisherRepository](/interface/ipublisherrepository).
 - Publish failures never throw — they're routed to an optional `errorCallback` and `logger`.
+- When publishing over HTTPS, the collector's server certificate is validated using the default .NET certificate validation, unless a `certificateValidationCallback` is provided via [TelemetryOption](/class/telemetryoption) — useful when the collector is deployed with a self-signed or otherwise untrusted certificate.
 
 ## What Gets Captured
 
@@ -104,9 +105,13 @@ GlobalConfiguration
             Host = "https://your-collector-host",
             ApiKey = "YOUR_API_KEY",
             Group = "<YOUR_APPLICATION_GROUP>",
-            Frequency = TimeSpan.FromSeconds(1)
+            Frequency = TimeSpan.FromSeconds(1),
+            CertificateValidationCallback = (request, certificate, chain, errors) => true
         });
 ```
+
+{: .warning }
+> Only bypass certificate validation like the example above for a trusted, self-signed collector (e.g. local development). For production, validate the presented certificate/chain yourself instead of unconditionally returning `true`.
 
 {: .note }
 > `UseRegisteredGlobalTraces = true` is required. It tells the library to run every globally registered tracer (this one included) for every operation, without passing a `trace` argument to each call.
