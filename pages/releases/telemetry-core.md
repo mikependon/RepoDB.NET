@@ -14,9 +14,9 @@ parent: RELEASES
 
 View the NuGet package [here](https://www.nuget.org/packages/RepoDb.Telemetry.Core) or download it directly [here](https://www.nuget.org/api/v2/package/RepoDb.Telemetry.Core).
 
-## RepoDb.Telemetry.Core (v1.1.0)
+## RepoDb.Telemetry.Core (v1.16.1)
 
-Released: September 10, 2026
+Released: September 11, 2026
 
 New
 {: .label .label-green }
@@ -25,9 +25,9 @@ New
 - Referenced the `RepoDb` package `v1.16.0`.
 
 
-## RepoDb.Telemetry.Core (v1.0.0)
+## RepoDb.Telemetry.Core (v1.16.0)
 
-Released: July 18, 2026
+Released: September 9, 2026
 
 New
 {: .label .label-green }
