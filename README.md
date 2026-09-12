@@ -1,5 +1,7 @@
 # RepoDB.NET
 
+> **⚠️ Deprecated:** This repository is no longer actively maintained. No further updates should be expected.
+
 This repository contains the official raw files used for [RepoDB](https://github.com/mikependon/RepoDb) website. The official website can be visited at [RepoDB.NET](http://repodb.net).
 
 ## Clone and Run Locally
